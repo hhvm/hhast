@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df8ab8fc91fb061f6f533a34eeb2d005>>
+ * @generated SignedSource<<802257946c10f45dc7d785c278bd7002>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPOpen extends EditableNode {
+final class XHPOpen extends Node {
 
   const string SYNTAX_KIND = 'xhp_open';
 
-  private EditableNode $_left_angle;
-  private EditableNode $_name;
-  private EditableNode $_attributes;
-  private EditableNode $_right_angle;
+  private Node $_left_angle;
+  private Node $_name;
+  private Node $_attributes;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $left_angle,
-    EditableNode $name,
-    EditableNode $attributes,
-    EditableNode $right_angle,
+    Node $left_angle,
+    Node $name,
+    Node $attributes,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_angle = $left_angle;
@@ -38,28 +38,28 @@ final class XHPOpen extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_open_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_open_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $attributes = EditableNode::fromJSON(
+    $attributes = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_open_attributes'],
       $file,
       $offset,
       $source,
     );
     $offset += $attributes->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_open_right_angle'],
       $file,
       $offset,
@@ -82,7 +82,7 @@ final class XHPOpen extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_angle' => $this->_left_angle,
       'name' => $this->_name,
@@ -94,7 +94,7 @@ final class XHPOpen extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_angle = $rewriter($this->_left_angle, $parents);
@@ -112,11 +112,11 @@ final class XHPOpen extends EditableNode {
     return new static($left_angle, $name, $attributes, $right_angle);
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -146,11 +146,11 @@ final class XHPOpen extends EditableNode {
     return $this->getLeftAngle();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -180,11 +180,11 @@ final class XHPOpen extends EditableNode {
     return $this->getName();
   }
 
-  public function getAttributesUNTYPED(): EditableNode {
+  public function getAttributesUNTYPED(): Node {
     return $this->_attributes;
   }
 
-  public function withAttributes(EditableNode $value): this {
+  public function withAttributes(Node $value): this {
     if ($value === $this->_attributes) {
       return $this;
     }
@@ -201,27 +201,27 @@ final class XHPOpen extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getAttributes(): ?EditableList<EditableNode> {
+  public function getAttributes(): ?NodeList<Node> {
     if ($this->_attributes->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_attributes);
+    return TypeAssert\instance_of(NodeList::class, $this->_attributes);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getAttributesx(): EditableList<EditableNode> {
+  public function getAttributesx(): NodeList<Node> {
     return TypeAssert\not_null($this->getAttributes());
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -240,14 +240,14 @@ final class XHPOpen extends EditableNode {
   /**
    * @return SlashGreaterThanToken | GreaterThanToken
    */
-  public function getRightAngle(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_right_angle);
+  public function getRightAngle(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_right_angle);
   }
 
   /**
    * @return SlashGreaterThanToken | GreaterThanToken
    */
-  public function getRightAnglex(): EditableToken {
+  public function getRightAnglex(): Token {
     return $this->getRightAngle();
   }
 }

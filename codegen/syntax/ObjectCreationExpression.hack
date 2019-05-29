@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2267101ec2a3d10a7b81bd70e0fd7e77>>
+ * @generated SignedSource<<368a2014ec663c4bbf081ffdbd67b986>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ObjectCreationExpression
-  extends EditableNode
+  extends Node
   implements IFunctionCallishExpression, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'object_creation_expression';
 
-  private EditableNode $_new_keyword;
-  private EditableNode $_object;
+  private Node $_new_keyword;
+  private Node $_object;
 
   public function __construct(
-    EditableNode $new_keyword,
-    EditableNode $object,
+    Node $new_keyword,
+    Node $object,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_new_keyword = $new_keyword;
@@ -34,14 +34,14 @@ final class ObjectCreationExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $new_keyword = EditableNode::fromJSON(
+    $new_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['object_creation_new_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $new_keyword->getWidth();
-    $object = EditableNode::fromJSON(
+    $object = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['object_creation_object'],
       $file,
       $offset,
@@ -58,7 +58,7 @@ final class ObjectCreationExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'new_keyword' => $this->_new_keyword,
       'object' => $this->_object,
@@ -68,7 +68,7 @@ final class ObjectCreationExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $new_keyword = $rewriter($this->_new_keyword, $parents);
@@ -79,11 +79,11 @@ final class ObjectCreationExpression
     return new static($new_keyword, $object);
   }
 
-  public function getNewKeywordUNTYPED(): EditableNode {
+  public function getNewKeywordUNTYPED(): Node {
     return $this->_new_keyword;
   }
 
-  public function withNewKeyword(EditableNode $value): this {
+  public function withNewKeyword(Node $value): this {
     if ($value === $this->_new_keyword) {
       return $this;
     }
@@ -108,11 +108,11 @@ final class ObjectCreationExpression
     return $this->getNewKeyword();
   }
 
-  public function getObjectUNTYPED(): EditableNode {
+  public function getObjectUNTYPED(): Node {
     return $this->_object;
   }
 
-  public function withObject(EditableNode $value): this {
+  public function withObject(Node $value): this {
     if ($value === $this->_object) {
       return $this;
     }

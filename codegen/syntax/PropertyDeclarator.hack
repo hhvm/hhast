@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b196a077532b67a23a1ded5f87ace6ec>>
+ * @generated SignedSource<<c61eddfb25d0eb0ab6b73c52b2c930ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class PropertyDeclarator extends EditableNode {
+final class PropertyDeclarator extends Node {
 
   const string SYNTAX_KIND = 'property_declarator';
 
-  private EditableNode $_name;
-  private EditableNode $_initializer;
+  private Node $_name;
+  private Node $_initializer;
 
   public function __construct(
-    EditableNode $name,
-    EditableNode $initializer,
+    Node $name,
+    Node $initializer,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -32,14 +32,14 @@ final class PropertyDeclarator extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $initializer = EditableNode::fromJSON(
+    $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_initializer'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class PropertyDeclarator extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
@@ -66,7 +66,7 @@ final class PropertyDeclarator extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
@@ -77,11 +77,11 @@ final class PropertyDeclarator extends EditableNode {
     return new static($name, $initializer);
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class PropertyDeclarator extends EditableNode {
     return $this->getName();
   }
 
-  public function getInitializerUNTYPED(): EditableNode {
+  public function getInitializerUNTYPED(): Node {
     return $this->_initializer;
   }
 
-  public function withInitializer(EditableNode $value): this {
+  public function withInitializer(Node $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }

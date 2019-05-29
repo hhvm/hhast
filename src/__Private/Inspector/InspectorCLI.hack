@@ -95,14 +95,14 @@ final class InspectorCLI extends CLIWithRequiredArguments {
       "</body></html>\n";
   }
 
-  private function getHTMLForNode(HHAST\EditableNode $node): string {
+  private function getHTMLForNode(HHAST\Node $node): string {
     if ($node instanceof HHAST\Missing) {
       return '';
     }
 
     if ($node->isTrivia()) {
       $inner = \htmlspecialchars($node->getCode());
-    } else if ($node instanceof HHAST\EditableToken) {
+    } else if ($node instanceof HHAST\Token) {
       $inner = '';
 
       $leading = $node->getLeading();
@@ -141,7 +141,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
 
     return Str\format(
       '<span class="hs-%s" data-node="%s">%s</span>',
-      $class |> Str\strip_prefix($$, 'Editable'),
+      $class |> Str\strip_prefix($$, ''),
       $class,
       $inner,
     );

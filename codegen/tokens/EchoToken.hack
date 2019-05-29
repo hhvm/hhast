@@ -1,17 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9a85f8aad82150ae3bbfeeeb63bbc41>>
+ * @generated SignedSource<<7bb14ec493562992c6554761f74d1be2>>
  */
 namespace Facebook\HHAST;
 
-final class EchoToken extends EditableTokenWithVariableText {
+final class EchoToken extends TokenWithVariableText {
 
   const string KIND = 'echo';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $token_text = 'echo',
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -23,7 +23,7 @@ final class EchoToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -35,7 +35,7 @@ final class EchoToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -45,7 +45,7 @@ final class EchoToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

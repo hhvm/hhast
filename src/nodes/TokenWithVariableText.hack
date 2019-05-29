@@ -10,13 +10,13 @@
 namespace Facebook\HHAST;
 
 <<__ConsistentConstruct>>
-abstract class EditableTokenWithVariableText extends EditableToken {
+abstract class TokenWithVariableText extends Token {
 
   abstract const string KIND;
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $token_text,
     ?__Private\SourceRef $ref,
   ) {

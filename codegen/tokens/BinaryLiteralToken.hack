@@ -1,17 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40a2ca7aa2cdce4efb89093a6dd59aea>>
+ * @generated SignedSource<<7852dfb42912151484ae7f6f5f199db9>>
  */
 namespace Facebook\HHAST;
 
-final class BinaryLiteralToken extends EditableTokenWithVariableText {
+final class BinaryLiteralToken extends TokenWithVariableText {
 
   const string KIND = 'binary_literal';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -23,7 +23,7 @@ final class BinaryLiteralToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -35,7 +35,7 @@ final class BinaryLiteralToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -52,7 +52,7 @@ final class BinaryLiteralToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

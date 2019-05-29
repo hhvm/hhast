@@ -1,17 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ff0b019080260bbd1c373763756d105>>
+ * @generated SignedSource<<52bcc227d18667efce70abc0cd609ff9>>
  */
 namespace Facebook\HHAST;
 
-final class XHPBodyToken extends EditableTokenWithVariableText {
+final class XHPBodyToken extends TokenWithVariableText {
 
   const string KIND = 'XHP_body';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -23,7 +23,7 @@ final class XHPBodyToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -35,7 +35,7 @@ final class XHPBodyToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -52,7 +52,7 @@ final class XHPBodyToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

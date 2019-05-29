@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af20462b78f78b6496b61e04d1326d72>>
+ * @generated SignedSource<<29786c72991c71f3ea52c3a10b41a323>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class UnsetStatement extends EditableNode implements IStatement {
+final class UnsetStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'unset_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_variables;
-  private EditableNode $_right_paren;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_variables;
+  private Node $_right_paren;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $variables,
-    EditableNode $right_paren,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $left_paren,
+    Node $variables,
+    Node $right_paren,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -41,35 +41,35 @@ final class UnsetStatement extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['unset_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['unset_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $variables = EditableNode::fromJSON(
+    $variables = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['unset_variables'],
       $file,
       $offset,
       $source,
     );
     $offset += $variables->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['unset_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['unset_semicolon'],
       $file,
       $offset,
@@ -93,7 +93,7 @@ final class UnsetStatement extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -106,7 +106,7 @@ final class UnsetStatement extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -132,11 +132,11 @@ final class UnsetStatement extends EditableNode implements IStatement {
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -167,11 +167,11 @@ final class UnsetStatement extends EditableNode implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -202,11 +202,11 @@ final class UnsetStatement extends EditableNode implements IStatement {
     return $this->getLeftParen();
   }
 
-  public function getVariablesUNTYPED(): EditableNode {
+  public function getVariablesUNTYPED(): Node {
     return $this->_variables;
   }
 
-  public function withVariables(EditableNode $value): this {
+  public function withVariables(Node $value): this {
     if ($value === $this->_variables) {
       return $this;
     }
@@ -224,30 +224,28 @@ final class UnsetStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return EditableList<MemberSelectionExpression> |
-   * EditableList<PrefixUnaryExpression> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<VariableExpression>
+   * @return NodeList<MemberSelectionExpression> |
+   * NodeList<PrefixUnaryExpression> | NodeList<ScopeResolutionExpression> |
+   * NodeList<SubscriptExpression> | NodeList<VariableExpression>
    */
-  public function getVariables(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_variables);
+  public function getVariables(): NodeList<IExpression> {
+    return TypeAssert\instance_of(NodeList::class, $this->_variables);
   }
 
   /**
-   * @return EditableList<MemberSelectionExpression> |
-   * EditableList<PrefixUnaryExpression> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<VariableExpression>
+   * @return NodeList<MemberSelectionExpression> |
+   * NodeList<PrefixUnaryExpression> | NodeList<ScopeResolutionExpression> |
+   * NodeList<SubscriptExpression> | NodeList<VariableExpression>
    */
-  public function getVariablesx(): EditableList<IExpression> {
+  public function getVariablesx(): NodeList<IExpression> {
     return $this->getVariables();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -278,11 +276,11 @@ final class UnsetStatement extends EditableNode implements IStatement {
     return $this->getRightParen();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

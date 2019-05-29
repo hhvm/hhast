@@ -13,8 +13,8 @@ use type Facebook\HHAST\{
   ElseifToken,
   ElseToken,
   IfToken,
-  EditableList,
-  EditableNode,
+  NodeList,
+  Node,
   Script,
   WhiteSpace,
 };
@@ -38,8 +38,8 @@ final class NoElseifLinter
     );
   }
 
-  public function getFixedNode(ElseifToken $expr): EditableNode {
-    return new EditableList(vec[
+  public function getFixedNode(ElseifToken $expr): Node {
+    return new NodeList(vec[
       new ElseToken($expr->getLeading(), new WhiteSpace(' ')),
       new IfToken(Missing(), $expr->getTrailing()),
     ]);

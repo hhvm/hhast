@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7cc855f772c28fee9842faf2dc46be3>>
+ * @generated SignedSource<<e0b8805f7d858f6eb572f7959318f780>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ElseifClause extends EditableNode implements IControlFlowStatement {
+final class ElseifClause extends Node implements IControlFlowStatement {
 
   const string SYNTAX_KIND = 'elseif_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_condition;
-  private EditableNode $_right_paren;
-  private EditableNode $_statement;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_condition;
+  private Node $_right_paren;
+  private Node $_statement;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $condition,
-    EditableNode $right_paren,
-    EditableNode $statement,
+    Node $keyword,
+    Node $left_paren,
+    Node $condition,
+    Node $right_paren,
+    Node $statement,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -41,35 +41,35 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['elseif_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['elseif_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $condition = EditableNode::fromJSON(
+    $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['elseif_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['elseif_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $statement = EditableNode::fromJSON(
+    $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['elseif_statement'],
       $file,
       $offset,
@@ -93,7 +93,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -106,7 +106,7 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -132,11 +132,11 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -167,11 +167,11 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -202,11 +202,11 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): EditableNode {
+  public function getConditionUNTYPED(): Node {
     return $this->_condition;
   }
 
-  public function withCondition(EditableNode $value): this {
+  public function withCondition(Node $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -240,11 +240,11 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -275,11 +275,11 @@ final class ElseifClause extends EditableNode implements IControlFlowStatement {
     return $this->getRightParen();
   }
 
-  public function getStatementUNTYPED(): EditableNode {
+  public function getStatementUNTYPED(): Node {
     return $this->_statement;
   }
 
-  public function withStatement(EditableNode $value): this {
+  public function withStatement(Node $value): this {
     if ($value === $this->_statement) {
       return $this;
     }

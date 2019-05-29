@@ -1,40 +1,40 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<515a7123bb13c0a39f1e7ef763696c64>>
+ * @generated SignedSource<<36dfa24bccbd9c30560a1bf47f43f495>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class AlternateIfStatement
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement, IStatement {
 
   const string SYNTAX_KIND = 'alternate_if_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_condition;
-  private EditableNode $_right_paren;
-  private EditableNode $_colon;
-  private EditableNode $_statement;
-  private EditableNode $_elseif_clauses;
-  private EditableNode $_else_clause;
-  private EditableNode $_endif_keyword;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_condition;
+  private Node $_right_paren;
+  private Node $_colon;
+  private Node $_statement;
+  private Node $_elseif_clauses;
+  private Node $_else_clause;
+  private Node $_endif_keyword;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $condition,
-    EditableNode $right_paren,
-    EditableNode $colon,
-    EditableNode $statement,
-    EditableNode $elseif_clauses,
-    EditableNode $else_clause,
-    EditableNode $endif_keyword,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $left_paren,
+    Node $condition,
+    Node $right_paren,
+    Node $colon,
+    Node $statement,
+    Node $elseif_clauses,
+    Node $else_clause,
+    Node $endif_keyword,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -58,70 +58,70 @@ final class AlternateIfStatement
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $condition = EditableNode::fromJSON(
+    $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $statement = EditableNode::fromJSON(
+    $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_statement'],
       $file,
       $offset,
       $source,
     );
     $offset += $statement->getWidth();
-    $elseif_clauses = EditableNode::fromJSON(
+    $elseif_clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_elseif_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $elseif_clauses->getWidth();
-    $else_clause = EditableNode::fromJSON(
+    $else_clause = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_else_clause'],
       $file,
       $offset,
       $source,
     );
     $offset += $else_clause->getWidth();
-    $endif_keyword = EditableNode::fromJSON(
+    $endif_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_endif_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $endif_keyword->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_semicolon'],
       $file,
       $offset,
@@ -150,7 +150,7 @@ final class AlternateIfStatement
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -168,7 +168,7 @@ final class AlternateIfStatement
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -209,11 +209,11 @@ final class AlternateIfStatement
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -249,11 +249,11 @@ final class AlternateIfStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -289,11 +289,11 @@ final class AlternateIfStatement
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): EditableNode {
+  public function getConditionUNTYPED(): Node {
     return $this->_condition;
   }
 
-  public function withCondition(EditableNode $value): this {
+  public function withCondition(Node $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -330,11 +330,11 @@ final class AlternateIfStatement
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -370,11 +370,11 @@ final class AlternateIfStatement
     return $this->getRightParen();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -410,11 +410,11 @@ final class AlternateIfStatement
     return $this->getColon();
   }
 
-  public function getStatementUNTYPED(): EditableNode {
+  public function getStatementUNTYPED(): Node {
     return $this->_statement;
   }
 
-  public function withStatement(EditableNode $value): this {
+  public function withStatement(Node $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -437,24 +437,24 @@ final class AlternateIfStatement
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatement(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_statement);
+  public function getStatement(): NodeList<Node> {
+    return TypeAssert\instance_of(NodeList::class, $this->_statement);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatementx(): EditableList<EditableNode> {
+  public function getStatementx(): NodeList<Node> {
     return $this->getStatement();
   }
 
-  public function getElseifClausesUNTYPED(): EditableNode {
+  public function getElseifClausesUNTYPED(): Node {
     return $this->_elseif_clauses;
   }
 
-  public function withElseifClauses(EditableNode $value): this {
+  public function withElseifClauses(Node $value): this {
     if ($value === $this->_elseif_clauses) {
       return $this;
     }
@@ -477,27 +477,27 @@ final class AlternateIfStatement
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getElseifClauses(): ?EditableList<EditableNode> {
+  public function getElseifClauses(): ?NodeList<Node> {
     if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
+    return TypeAssert\instance_of(NodeList::class, $this->_elseif_clauses);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getElseifClausesx(): EditableList<EditableNode> {
+  public function getElseifClausesx(): NodeList<Node> {
     return TypeAssert\not_null($this->getElseifClauses());
   }
 
-  public function getElseClauseUNTYPED(): EditableNode {
+  public function getElseClauseUNTYPED(): Node {
     return $this->_else_clause;
   }
 
-  public function withElseClause(EditableNode $value): this {
+  public function withElseClause(Node $value): this {
     if ($value === $this->_else_clause) {
       return $this;
     }
@@ -539,11 +539,11 @@ final class AlternateIfStatement
     return TypeAssert\not_null($this->getElseClause());
   }
 
-  public function getEndifKeywordUNTYPED(): EditableNode {
+  public function getEndifKeywordUNTYPED(): Node {
     return $this->_endif_keyword;
   }
 
-  public function withEndifKeyword(EditableNode $value): this {
+  public function withEndifKeyword(Node $value): this {
     if ($value === $this->_endif_keyword) {
       return $this;
     }
@@ -579,11 +579,11 @@ final class AlternateIfStatement
     return $this->getEndifKeyword();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

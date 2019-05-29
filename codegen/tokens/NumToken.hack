@@ -1,17 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3769290e175472283216c974b98b23b>>
+ * @generated SignedSource<<31bba771312b9b4fa516d815ffe87aea>>
  */
 namespace Facebook\HHAST;
 
-final class NumToken extends EditableTokenWithVariableText {
+final class NumToken extends TokenWithVariableText {
 
   const string KIND = 'num';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $token_text = 'num',
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -23,7 +23,7 @@ final class NumToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -35,7 +35,7 @@ final class NumToken extends EditableTokenWithVariableText {
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -45,7 +45,7 @@ final class NumToken extends EditableTokenWithVariableText {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

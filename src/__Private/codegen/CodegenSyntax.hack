@@ -64,7 +64,7 @@ final class CodegenSyntax extends CodegenBase {
       ->addEmptyUserAttribute('__ConsistentConstruct')
       ->setIsFinal(!$is_abstract)
       ->setIsAbstract($is_abstract)
-      ->setExtends('EditableNode')
+      ->setExtends('Node')
       ->setInterfaces(
         (
           $this
@@ -95,7 +95,7 @@ final class CodegenSyntax extends CodegenBase {
           $syntax['fields'],
           $field ==> $cg
             ->codegenProperty('_'.$field['field_name'])
-            ->setType('EditableNode'),
+            ->setType('Node'),
         ),
       );
   }
@@ -103,7 +103,7 @@ final class CodegenSyntax extends CodegenBase {
   private function getUnifiedSyntaxClass(keyset<string> $types): string {
     unset($types['']);
     if (C\is_empty($types)) {
-      return 'EditableNode';
+      return 'Node';
     }
 
     if (C\contains_key($types, 'missing')) {
@@ -114,20 +114,20 @@ final class CodegenSyntax extends CodegenBase {
     if (C\count($types) === 1) {
       $type = C\onlyx($types);
       if ($type === 'list<>') {
-        return 'EditableList<EditableNode>';
+        return 'NodeList<Node>';
       }
       return $this->getSyntaxClass($type);
     }
 
     if (C\every($types, $t ==> Str\starts_with($t, 'token:'))) {
-      return 'EditableToken';
+      return 'Token';
     }
 
     if (C\every($types, $t ==> Str\starts_with($t, 'list<'))) {
       $have_empty = C\contains_key($types, 'list<>');
       if ($have_empty) {
         if (C\count($types) === 1) {
-          return 'EditableList<EditableNode>';
+          return 'NodeList<Node>';
         }
         unset($types['list<>']);
       }
@@ -140,7 +140,7 @@ final class CodegenSyntax extends CodegenBase {
       )
         |> Keyset\flatten($$)
         |> $this->getUnifiedSyntaxClass($$)
-        |> 'EditableList<'.$$.'>';
+        |> 'NodeList<'.$$.'>';
     }
 
     $expanded = $types
@@ -168,7 +168,7 @@ final class CodegenSyntax extends CodegenBase {
         |> Dict\sort($$)
         |> C\first_keyx($$);
     }
-    return 'EditableNode';
+    return 'Node';
   }
 
   private function generateFieldMethods(
@@ -182,13 +182,13 @@ final class CodegenSyntax extends CodegenBase {
     $cg = $this->getCodegenFactory();
     yield $cg
       ->codegenMethodf('get%sUNTYPED', $upper_camel)
-      ->setReturnType('EditableNode')
+      ->setReturnType('Node')
       ->setBodyf('return $this->_%s;', $underscored);
 
     yield $cg
       ->codegenMethodf('with%s', $upper_camel)
       ->setReturnType('this')
-      ->addParameter('EditableNode $value')
+      ->addParameter('Node $value')
       ->setBody(
         $cg
           ->codegenHackBuilder()
@@ -220,7 +220,7 @@ final class CodegenSyntax extends CodegenBase {
         ->codegenMethodf('get%s', $upper_camel)
         ->setDocBlock('@return '.Str\join($types, ' | '))
         ->setReturnType($type);
-      if ($spec['class'] === 'EditableNode') {
+      if ($spec['class'] === 'Node') {
         yield $get->setBodyf('return $this->_%s;', $underscored);
       } else if ($spec['needsWrapper']) {
         yield $get->setIsMemoized(true)
@@ -252,7 +252,7 @@ final class CodegenSyntax extends CodegenBase {
       ->startIfBlockf('$this->_%s->isMissing()', $underscored)
       ->addReturnf('null')
       ->endIfBlock();
-    if ($spec['class'] === 'EditableNode') {
+    if ($spec['class'] === 'Node') {
       $get_body->addReturnf('$this->_%s', $underscored);
     } else if ($spec['needsWrapper']) {
       $get_body->addReturnf(
@@ -298,7 +298,7 @@ final class CodegenSyntax extends CodegenBase {
       ->addParameters(
         Vec\map(
           $syntax['fields'],
-          $field ==> 'EditableNode $'.$field['field_name'],
+          $field ==> 'Node $'.$field['field_name'],
         ),
       )
       ->addParameter('?__Private\\SourceRef $source_ref = null')
@@ -333,7 +333,7 @@ final class CodegenSyntax extends CodegenBase {
       $body
         ->addf('$%s = ', $field['field_name'])
         ->addMultilineCall(
-          'EditableNode::fromJSON',
+          'Node::fromJSON',
           vec[
             Str\format(
               '/* HH_FIXME[4110] */ $json[\'%s_%s\']',
@@ -388,7 +388,7 @@ final class CodegenSyntax extends CodegenBase {
     return $cg
       ->codegenMethod('getChildren')
       ->setIsOverride()
-      ->setReturnType('dict<string, EditableNode>')
+      ->setReturnType('dict<string, Node>')
       ->setBody(
         $cg
           ->codegenHackBuilder()
@@ -418,7 +418,7 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenMethod('rewriteDescendants')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('vec<EditableNode> $parents = vec[]')
+      ->addParameter('vec<Node> $parents = vec[]')
       ->setReturnType('this')
       ->setBody(
         $cg
@@ -475,7 +475,7 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenMethod('rewriteChildren')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('vec<EditableNode> $parents = vec[]')
+      ->addParameter('vec<Node> $parents = vec[]')
       ->setReturnType('this')
       ->setBody(
         $cg
@@ -546,7 +546,7 @@ final class CodegenSyntax extends CodegenBase {
     $specs = $this->getRelationships();
     if (!C\contains_key($specs, $key)) {
       return shape(
-        'class' => 'EditableNode',
+        'class' => 'Node',
         'needsWrapper' => false,
         'nullable' => false,
         'possibleTypes' => keyset['unknown'],
@@ -577,10 +577,10 @@ final class CodegenSyntax extends CodegenBase {
   <<__Memoize>>
   private function getSyntaxClass(string $child): string {
     if ($child === 'token') {
-      return 'EditableToken';
+      return 'Token';
     }
     if ($child === 'list<>') {
-      return 'EditableList<EditableNode>';
+      return 'NodeList<Node>';
     }
     if (Str\starts_with_ci($child, 'list<')) {
       return $child
@@ -588,7 +588,7 @@ final class CodegenSyntax extends CodegenBase {
         |> Str\strip_suffix($$, '>')
         |> Str\split($$, '|')
         |> keyset($$)
-        |> 'EditableList<'.$this->getUnifiedSyntaxClass($$).'>';
+        |> 'NodeList<'.$this->getUnifiedSyntaxClass($$).'>';
     }
 
     if (Str\starts_with($child, 'token')) {
@@ -654,15 +654,15 @@ final class CodegenSyntax extends CodegenBase {
 
   private function getHardcodedTypes(
   ): dict<string, dict<string, self::TFieldSpec>> {
-    $editable_node = (bool $nullable, string $key) ==> shape(
-      'class' => 'EditableNode',
+    $node = (bool $nullable, string $key) ==> shape(
+      'class' => 'Node',
       'needsWrapper' => false,
       'nullable' => $nullable,
       'possibleTypes' => $this->getRelationships()[$key] ?? keyset['unknown'],
     );
     return dict[
       'FunctionCallExpression' => dict[
-        'receiver' => $editable_node(
+        'receiver' => $node(
           false,
           'function_call_expression.function_call_receiver',
         ),
@@ -670,7 +670,7 @@ final class CodegenSyntax extends CodegenBase {
       // Not an IExpression: IExpression | classname | xhp classname; name
       // tokens are referencing class names, not constants.
       'InstanceofExpression' => dict[
-        'right_operand' => $editable_node(
+        'right_operand' => $node(
           false,
           'instanceof_expression.instanceof_right_operand',
         ),

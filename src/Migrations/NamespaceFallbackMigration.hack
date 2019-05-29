@@ -16,7 +16,7 @@ use function Facebook\HHAST\{
 use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
   BackslashToken,
-  EditableList,
+  NodeList,
   Script,
 };
 use function Facebook\HHAST\__Private\execute_async;
@@ -68,7 +68,7 @@ final class NamespaceFallbackMigration extends BaseMigration {
       }
       $root = $root->replace(
         $node,
-        EditableList::createNonEmptyListOrMissing(
+        NodeList::createNonEmptyListOrMissing(
           vec[
             new BackslashToken(
               $node->getLeading(),

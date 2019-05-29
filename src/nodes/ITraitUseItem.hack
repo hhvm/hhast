@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface ITraitUseItem {
-  require extends EditableNode;
+  require extends Node;
 }

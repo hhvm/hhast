@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b4b5f14e1f5fd4a1a70f5ab202a2426>>
+ * @generated SignedSource<<47ab62e35bdf83d501f03e9b27554a95>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class MarkupSection extends EditableNode {
+final class MarkupSection extends Node {
 
   const string SYNTAX_KIND = 'markup_section';
 
-  private EditableNode $_prefix;
-  private EditableNode $_text;
-  private EditableNode $_suffix;
-  private EditableNode $_expression;
+  private Node $_prefix;
+  private Node $_text;
+  private Node $_suffix;
+  private Node $_expression;
 
   public function __construct(
-    EditableNode $prefix,
-    EditableNode $text,
-    EditableNode $suffix,
-    EditableNode $expression,
+    Node $prefix,
+    Node $text,
+    Node $suffix,
+    Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_prefix = $prefix;
@@ -38,28 +38,28 @@ final class MarkupSection extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $prefix = EditableNode::fromJSON(
+    $prefix = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_prefix'],
       $file,
       $offset,
       $source,
     );
     $offset += $prefix->getWidth();
-    $text = EditableNode::fromJSON(
+    $text = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_text'],
       $file,
       $offset,
       $source,
     );
     $offset += $text->getWidth();
-    $suffix = EditableNode::fromJSON(
+    $suffix = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_suffix'],
       $file,
       $offset,
       $source,
     );
     $offset += $suffix->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_expression'],
       $file,
       $offset,
@@ -76,7 +76,7 @@ final class MarkupSection extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'prefix' => $this->_prefix,
       'text' => $this->_text,
@@ -88,7 +88,7 @@ final class MarkupSection extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $prefix = $rewriter($this->_prefix, $parents);
@@ -106,11 +106,11 @@ final class MarkupSection extends EditableNode {
     return new static($prefix, $text, $suffix, $expression);
   }
 
-  public function getPrefixUNTYPED(): EditableNode {
+  public function getPrefixUNTYPED(): Node {
     return $this->_prefix;
   }
 
-  public function withPrefix(EditableNode $value): this {
+  public function withPrefix(Node $value): this {
     if ($value === $this->_prefix) {
       return $this;
     }
@@ -124,7 +124,7 @@ final class MarkupSection extends EditableNode {
   /**
    * @return null
    */
-  public function getPrefix(): ?EditableNode {
+  public function getPrefix(): ?Node {
     if ($this->_prefix->isMissing()) {
       return null;
     }
@@ -134,15 +134,15 @@ final class MarkupSection extends EditableNode {
   /**
    * @return
    */
-  public function getPrefixx(): EditableNode {
+  public function getPrefixx(): Node {
     return TypeAssert\not_null($this->getPrefix());
   }
 
-  public function getTextUNTYPED(): EditableNode {
+  public function getTextUNTYPED(): Node {
     return $this->_text;
   }
 
-  public function withText(EditableNode $value): this {
+  public function withText(Node $value): this {
     if ($value === $this->_text) {
       return $this;
     }
@@ -172,11 +172,11 @@ final class MarkupSection extends EditableNode {
     return $this->getText();
   }
 
-  public function getSuffixUNTYPED(): EditableNode {
+  public function getSuffixUNTYPED(): Node {
     return $this->_suffix;
   }
 
-  public function withSuffix(EditableNode $value): this {
+  public function withSuffix(Node $value): this {
     if ($value === $this->_suffix) {
       return $this;
     }
@@ -201,11 +201,11 @@ final class MarkupSection extends EditableNode {
     return $this->getSuffix();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -219,7 +219,7 @@ final class MarkupSection extends EditableNode {
   /**
    * @return null
    */
-  public function getExpression(): ?EditableNode {
+  public function getExpression(): ?Node {
     if ($this->_expression->isMissing()) {
       return null;
     }
@@ -229,7 +229,7 @@ final class MarkupSection extends EditableNode {
   /**
    * @return
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): Node {
     return TypeAssert\not_null($this->getExpression());
   }
 }

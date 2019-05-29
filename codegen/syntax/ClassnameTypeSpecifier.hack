@@ -1,30 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4514c62fbbf8e670d69b4c8d380af579>>
+ * @generated SignedSource<<b20bc15edc82ee954282c22328dce36a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ClassnameTypeSpecifier
-  extends EditableNode
-  implements ITypeSpecifier {
+final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'classname_type_specifier';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_angle;
-  private EditableNode $_type;
-  private EditableNode $_trailing_comma;
-  private EditableNode $_right_angle;
+  private Node $_keyword;
+  private Node $_left_angle;
+  private Node $_type;
+  private Node $_trailing_comma;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_angle,
-    EditableNode $type,
-    EditableNode $trailing_comma,
-    EditableNode $right_angle,
+    Node $keyword,
+    Node $left_angle,
+    Node $type,
+    Node $trailing_comma,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,35 +41,35 @@ final class ClassnameTypeSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classname_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classname_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classname_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $trailing_comma = EditableNode::fromJSON(
+    $trailing_comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classname_trailing_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $trailing_comma->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classname_right_angle'],
       $file,
       $offset,
@@ -95,7 +93,7 @@ final class ClassnameTypeSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_angle' => $this->_left_angle,
@@ -108,7 +106,7 @@ final class ClassnameTypeSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -134,11 +132,11 @@ final class ClassnameTypeSpecifier
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -169,11 +167,11 @@ final class ClassnameTypeSpecifier
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -207,11 +205,11 @@ final class ClassnameTypeSpecifier
     return TypeAssert\not_null($this->getLeftAngle());
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -245,11 +243,11 @@ final class ClassnameTypeSpecifier
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getTrailingCommaUNTYPED(): EditableNode {
+  public function getTrailingCommaUNTYPED(): Node {
     return $this->_trailing_comma;
   }
 
-  public function withTrailingComma(EditableNode $value): this {
+  public function withTrailingComma(Node $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -269,7 +267,7 @@ final class ClassnameTypeSpecifier
   /**
    * @return null
    */
-  public function getTrailingComma(): ?EditableNode {
+  public function getTrailingComma(): ?Node {
     if ($this->_trailing_comma->isMissing()) {
       return null;
     }
@@ -279,15 +277,15 @@ final class ClassnameTypeSpecifier
   /**
    * @return
    */
-  public function getTrailingCommax(): EditableNode {
+  public function getTrailingCommax(): Node {
     return TypeAssert\not_null($this->getTrailingComma());
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

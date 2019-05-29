@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8b8253bd7ebcff044c44be95b992a904>>
+ * @generated SignedSource<<f912ef90d54f7aa0e03762d0c4ce4c3e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class EchoStatement extends EditableNode implements IStatement {
+final class EchoStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'echo_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_expressions;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_expressions;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $expressions,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $expressions,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -35,21 +35,21 @@ final class EchoStatement extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['echo_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $expressions = EditableNode::fromJSON(
+    $expressions = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['echo_expressions'],
       $file,
       $offset,
       $source,
     );
     $offset += $expressions->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['echo_semicolon'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class EchoStatement extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'expressions' => $this->_expressions,
@@ -77,7 +77,7 @@ final class EchoStatement extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -93,11 +93,11 @@ final class EchoStatement extends EditableNode implements IStatement {
     return new static($keyword, $expressions, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class EchoStatement extends EditableNode implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getExpressionsUNTYPED(): EditableNode {
+  public function getExpressionsUNTYPED(): Node {
     return $this->_expressions;
   }
 
-  public function withExpressions(EditableNode $value): this {
+  public function withExpressions(Node $value): this {
     if ($value === $this->_expressions) {
       return $this;
     }
@@ -138,42 +138,40 @@ final class EchoStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return EditableList<IExpression> | EditableList<BinaryExpression> |
-   * EditableList<CastExpression> | EditableList<ConditionalExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<IssetExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
-   * EditableList<ParenthesizedExpression> |
-   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
-   * | EditableList<QualifiedName> | EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<XHPExpression>
+   * @return NodeList<IExpression> | NodeList<BinaryExpression> |
+   * NodeList<CastExpression> | NodeList<ConditionalExpression> |
+   * NodeList<FunctionCallExpression> | NodeList<IssetExpression> |
+   * NodeList<LiteralExpression> | NodeList<MemberSelectionExpression> |
+   * NodeList<ObjectCreationExpression> | NodeList<ParenthesizedExpression> |
+   * NodeList<PostfixUnaryExpression> | NodeList<PrefixUnaryExpression> |
+   * NodeList<QualifiedName> | NodeList<ScopeResolutionExpression> |
+   * NodeList<SubscriptExpression> | NodeList<NameToken> |
+   * NodeList<VariableExpression> | NodeList<XHPExpression>
    */
-  public function getExpressions(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_expressions);
+  public function getExpressions(): NodeList<IExpression> {
+    return TypeAssert\instance_of(NodeList::class, $this->_expressions);
   }
 
   /**
-   * @return EditableList<IExpression> | EditableList<BinaryExpression> |
-   * EditableList<CastExpression> | EditableList<ConditionalExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<IssetExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
-   * EditableList<ParenthesizedExpression> |
-   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
-   * | EditableList<QualifiedName> | EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<XHPExpression>
+   * @return NodeList<IExpression> | NodeList<BinaryExpression> |
+   * NodeList<CastExpression> | NodeList<ConditionalExpression> |
+   * NodeList<FunctionCallExpression> | NodeList<IssetExpression> |
+   * NodeList<LiteralExpression> | NodeList<MemberSelectionExpression> |
+   * NodeList<ObjectCreationExpression> | NodeList<ParenthesizedExpression> |
+   * NodeList<PostfixUnaryExpression> | NodeList<PrefixUnaryExpression> |
+   * NodeList<QualifiedName> | NodeList<ScopeResolutionExpression> |
+   * NodeList<SubscriptExpression> | NodeList<NameToken> |
+   * NodeList<VariableExpression> | NodeList<XHPExpression>
    */
-  public function getExpressionsx(): EditableList<IExpression> {
+  public function getExpressionsx(): NodeList<IExpression> {
     return $this->getExpressions();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -1,18 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9c313a38e72fd14cea6366c398cb3bb>>
+ * @generated SignedSource<<3d6737997a86fb72b3362095ac09de57>>
  */
 namespace Facebook\HHAST;
 
-final class PercentToken extends EditableTokenWithFixedText {
+final class PercentToken extends TokenWithFixedText {
 
   const string KIND = '%';
   const string TEXT = '%';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     ?__Private\SourceRef $source_ref = null,
   ) {
     parent::__construct($leading, $trailing, $source_ref);
@@ -23,7 +23,7 @@ final class PercentToken extends EditableTokenWithFixedText {
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -35,7 +35,7 @@ final class PercentToken extends EditableTokenWithFixedText {
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -45,7 +45,7 @@ final class PercentToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

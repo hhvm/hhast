@@ -1,11 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6fb07050021768afe6167fb559372d11>>
+ * @generated SignedSource<<8b7f45ff25c1e397092a687fc0913db5>>
  */
 namespace Facebook\HHAST;
 
-final class AfterHaltCompiler extends EditableTrivia {
+final class AfterHaltCompiler extends Trivia {
 
   const string SYNTAX_KIND = 'after_halt_compiler';
 
@@ -24,7 +24,7 @@ final class AfterHaltCompiler extends EditableTrivia {
   }
 }
 
-final class DelimitedComment extends EditableTrivia implements IComment {
+final class DelimitedComment extends Trivia implements IComment {
 
   const string SYNTAX_KIND = 'delimited_comment';
 
@@ -43,7 +43,7 @@ final class DelimitedComment extends EditableTrivia implements IComment {
   }
 }
 
-final class EndOfLine extends EditableTrivia {
+final class EndOfLine extends Trivia {
 
   const string SYNTAX_KIND = 'end_of_line';
 
@@ -62,7 +62,7 @@ final class EndOfLine extends EditableTrivia {
   }
 }
 
-final class ExtraTokenError extends EditableTrivia {
+final class ExtraTokenError extends Trivia {
 
   const string SYNTAX_KIND = 'extra_token_error';
 
@@ -81,7 +81,7 @@ final class ExtraTokenError extends EditableTrivia {
   }
 }
 
-final class FallThrough extends EditableTrivia {
+final class FallThrough extends Trivia {
 
   const string SYNTAX_KIND = 'fall_through';
 
@@ -100,7 +100,7 @@ final class FallThrough extends EditableTrivia {
   }
 }
 
-final class FixMe extends EditableTrivia {
+final class FixMe extends Trivia {
 
   const string SYNTAX_KIND = 'fix_me';
 
@@ -119,7 +119,7 @@ final class FixMe extends EditableTrivia {
   }
 }
 
-final class IgnoreError extends EditableTrivia {
+final class IgnoreError extends Trivia {
 
   const string SYNTAX_KIND = 'ignore_error';
 
@@ -138,7 +138,7 @@ final class IgnoreError extends EditableTrivia {
   }
 }
 
-final class SingleLineComment extends EditableTrivia implements IComment {
+final class SingleLineComment extends Trivia implements IComment {
 
   const string SYNTAX_KIND = 'single_line_comment';
 
@@ -157,7 +157,7 @@ final class SingleLineComment extends EditableTrivia implements IComment {
   }
 }
 
-final class Unsafe extends EditableTrivia {
+final class Unsafe extends Trivia {
 
   const string SYNTAX_KIND = 'unsafe';
 
@@ -176,7 +176,7 @@ final class Unsafe extends EditableTrivia {
   }
 }
 
-final class UnsafeExpression extends EditableTrivia {
+final class UnsafeExpression extends Trivia {
 
   const string SYNTAX_KIND = 'unsafe_expression';
 
@@ -195,7 +195,7 @@ final class UnsafeExpression extends EditableTrivia {
   }
 }
 
-final class WhiteSpace extends EditableTrivia {
+final class WhiteSpace extends Trivia {
 
   const string SYNTAX_KIND = 'whitespace';
 

@@ -19,7 +19,7 @@ final class MethodishDeclaration extends MethodishDeclarationGeneratedBase {
   }
 
   <<__Override>>
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->getFunctionBodyUNTYPED();
   }
 

@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5b48ed56a3b03f648242270fd46a885>>
+ * @generated SignedSource<<ece5bb4f270750290d8f0aeaee068eea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ExpressionStatement extends EditableNode implements IStatement {
+final class ExpressionStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'expression_statement';
 
-  private EditableNode $_expression;
-  private EditableNode $_semicolon;
+  private Node $_expression;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $expression,
-    EditableNode $semicolon,
+    Node $expression,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -32,14 +32,14 @@ final class ExpressionStatement extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['expression_statement_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['expression_statement_semicolon'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class ExpressionStatement extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
@@ -66,7 +66,7 @@ final class ExpressionStatement extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $expression = $rewriter($this->_expression, $parents);
@@ -79,11 +79,11 @@ final class ExpressionStatement extends EditableNode implements IStatement {
     return new static($expression, $semicolon);
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -132,11 +132,11 @@ final class ExpressionStatement extends EditableNode implements IStatement {
     return TypeAssert\not_null($this->getExpression());
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -1,18 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<404435976296b32325b13ded8a95ccb8>>
+ * @generated SignedSource<<e33414fe8e0824e619fcd4c83640c221>>
  */
 namespace Facebook\HHAST;
 
-final class EqualGreaterThanToken extends EditableTokenWithFixedText {
+final class EqualGreaterThanToken extends TokenWithFixedText {
 
   const string KIND = '=>';
   const string TEXT = '=>';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     ?__Private\SourceRef $source_ref = null,
   ) {
     parent::__construct($leading, $trailing, $source_ref);
@@ -23,7 +23,7 @@ final class EqualGreaterThanToken extends EditableTokenWithFixedText {
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -35,7 +35,7 @@ final class EqualGreaterThanToken extends EditableTokenWithFixedText {
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -45,7 +45,7 @@ final class EqualGreaterThanToken extends EditableTokenWithFixedText {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

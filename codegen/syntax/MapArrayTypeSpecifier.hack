@@ -1,32 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<85d8295715a9d0018d3010bc06e6d3c1>>
+ * @generated SignedSource<<bff3fb4a0d90970593444cecc98dc7c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class MapArrayTypeSpecifier
-  extends EditableNode
-  implements ITypeSpecifier {
+final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'map_array_type_specifier';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_angle;
-  private EditableNode $_key;
-  private EditableNode $_comma;
-  private EditableNode $_value;
-  private EditableNode $_right_angle;
+  private Node $_keyword;
+  private Node $_left_angle;
+  private Node $_key;
+  private Node $_comma;
+  private Node $_value;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_angle,
-    EditableNode $key,
-    EditableNode $comma,
-    EditableNode $value,
-    EditableNode $right_angle,
+    Node $keyword,
+    Node $left_angle,
+    Node $key,
+    Node $comma,
+    Node $value,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,42 +44,42 @@ final class MapArrayTypeSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $key = EditableNode::fromJSON(
+    $key = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_key'],
       $file,
       $offset,
       $source,
     );
     $offset += $key->getWidth();
-    $comma = EditableNode::fromJSON(
+    $comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $comma->getWidth();
-    $value = EditableNode::fromJSON(
+    $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_value'],
       $file,
       $offset,
       $source,
     );
     $offset += $value->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_right_angle'],
       $file,
       $offset,
@@ -106,7 +104,7 @@ final class MapArrayTypeSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_angle' => $this->_left_angle,
@@ -120,7 +118,7 @@ final class MapArrayTypeSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -149,11 +147,11 @@ final class MapArrayTypeSpecifier
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -185,11 +183,11 @@ final class MapArrayTypeSpecifier
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -221,11 +219,11 @@ final class MapArrayTypeSpecifier
     return $this->getLeftAngle();
   }
 
-  public function getKeyUNTYPED(): EditableNode {
+  public function getKeyUNTYPED(): Node {
     return $this->_key;
   }
 
-  public function withKey(EditableNode $value): this {
+  public function withKey(Node $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -257,11 +255,11 @@ final class MapArrayTypeSpecifier
     return $this->getKey();
   }
 
-  public function getCommaUNTYPED(): EditableNode {
+  public function getCommaUNTYPED(): Node {
     return $this->_comma;
   }
 
-  public function withComma(EditableNode $value): this {
+  public function withComma(Node $value): this {
     if ($value === $this->_comma) {
       return $this;
     }
@@ -293,11 +291,11 @@ final class MapArrayTypeSpecifier
     return $this->getComma();
   }
 
-  public function getValueUNTYPED(): EditableNode {
+  public function getValueUNTYPED(): Node {
     return $this->_value;
   }
 
-  public function withValue(EditableNode $value): this {
+  public function withValue(Node $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -334,11 +332,11 @@ final class MapArrayTypeSpecifier
     return TypeAssert\not_null($this->getValue());
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

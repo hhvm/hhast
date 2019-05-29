@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<33e80e32e14010483175755b5b720a1a>>
+ * @generated SignedSource<<fa244a4ffcc255dfbd87fa3715eb9b6f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPClose extends EditableNode {
+final class XHPClose extends Node {
 
   const string SYNTAX_KIND = 'xhp_close';
 
-  private EditableNode $_left_angle;
-  private EditableNode $_name;
-  private EditableNode $_right_angle;
+  private Node $_left_angle;
+  private Node $_name;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $left_angle,
-    EditableNode $name,
-    EditableNode $right_angle,
+    Node $left_angle,
+    Node $name,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_angle = $left_angle;
@@ -35,21 +35,21 @@ final class XHPClose extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_close_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_close_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_close_right_angle'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class XHPClose extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_angle' => $this->_left_angle,
       'name' => $this->_name,
@@ -77,7 +77,7 @@ final class XHPClose extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_angle = $rewriter($this->_left_angle, $parents);
@@ -93,11 +93,11 @@ final class XHPClose extends EditableNode {
     return new static($left_angle, $name, $right_angle);
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -125,11 +125,11 @@ final class XHPClose extends EditableNode {
     return $this->getLeftAngle();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -154,11 +154,11 @@ final class XHPClose extends EditableNode {
     return $this->getName();
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

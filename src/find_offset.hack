@@ -11,8 +11,8 @@ namespace Facebook\HHAST;
 
 
 function find_offset_after_leading(
-  EditableNode $root,
-  EditableNode $node,
+  Node $root,
+  Node $node,
 ): int {
   if ($root === $node) {
     return 0;

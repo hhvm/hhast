@@ -28,7 +28,7 @@ final class ExplicitPartialModeMigration extends BaseMigration {
       return $node->replace(
         $node->getLastTokenx(),
         $node->getLastTokenx()->withTrailing(
-          new HHAST\EditableList(vec[
+          new HHAST\NodeList(vec[
             new HHAST\WhiteSpace(' '),
             new HHAST\SingleLineComment('// partial'),
           ]),
@@ -43,14 +43,14 @@ final class ExplicitPartialModeMigration extends BaseMigration {
     $idx = C\find_key($children, $c ==> $c is HHAST\EndOfLine);
 
     if ($idx === null) {
-      return $node->replace($trailing, new HHAST\EditableList(vec[
+      return $node->replace($trailing, new HHAST\NodeList(vec[
         new HHAST\WhiteSpace(' '),
         new HHAST\SingleLineComment('// partial'),
         new HHAST\EndOfLine("\n"),
       ]));
     }
 
-    return $node->replace($trailing, new HHAST\EditableList(Vec\concat(
+    return $node->replace($trailing, new HHAST\NodeList(Vec\concat(
       vec[
         new HHAST\WhiteSpace(' '),
         new HHAST\SingleLineComment('// partial'),

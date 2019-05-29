@@ -11,9 +11,9 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   ConstToken,
-  EditableList,
-  EditableNode,
-  EditableToken,
+  NodeList,
+  Node,
+  Token,
   FunctionToken,
   INamespaceUseDeclaration,
   NamespaceGroupUseDeclaration,
@@ -56,7 +56,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
   }
 
   private function getUnusedClauses(
-    ?EditableToken $kind,
+    ?Token $kind,
     vec<NamespaceUseClause> $clauses,
   ): vec<(string, NamespaceUseClause)> {
     $used = $this->getUnresolvedReferencedNames();
@@ -127,7 +127,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
       |> 'Remove '.$$;
   }
 
-  public function getFixedNode(INamespaceUseDeclaration $node): EditableNode {
+  public function getFixedNode(INamespaceUseDeclaration $node): Node {
     $clauses = $node->getClauses()->getItems();
     $clause_count = C\count($clauses);
     $unused = $this->getUnusedClauses($node->getKind(), $clauses)
@@ -147,7 +147,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
       $name = $clause->getName();
       if ($name instanceof NameToken) {
         $name = new QualifiedName(
-          EditableList::createNonEmptyListOrMissing(
+          NodeList::createNonEmptyListOrMissing(
             Vec\concat(
               $node->getPrefix()->getParts()->getChildren(),
               vec[$name],
@@ -160,7 +160,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
           'name is not a name or qualified name',
         );
         $name = new QualifiedName(
-          EditableList::createNonEmptyListOrMissing(
+          NodeList::createNonEmptyListOrMissing(
             Vec\concat(
               $node->getPrefix()->getParts()->getChildren(),
               $name->getParts()->getChildren(),
@@ -175,7 +175,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
       $fixed = new NamespaceUseDeclaration(
         $node->getKeyword(),
         $node->getKind() ?? HHAST\Missing(),
-        EditableList::createNonEmptyListOrMissing(
+        NodeList::createNonEmptyListOrMissing(
           vec[new HHAST\ListItem($clause, HHAST\Missing())],
         ),
         $node->getSemicolon() ?? HHAST\Missing(),

@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88703017bc065886f51b58c979171b95>>
+ * @generated SignedSource<<325d3bcfd27c55600c6e1e0fc28b8ee2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 abstract class AwaitableCreationExpressionGeneratedBase
-  extends EditableNode
+  extends Node
   implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
   const string SYNTAX_KIND = 'awaitable_creation_expression';
 
-  private EditableNode $_attribute_spec;
-  private EditableNode $_async;
-  private EditableNode $_coroutine;
-  private EditableNode $_compound_statement;
+  private Node $_attribute_spec;
+  private Node $_async;
+  private Node $_coroutine;
+  private Node $_compound_statement;
 
   public function __construct(
-    EditableNode $attribute_spec,
-    EditableNode $async,
-    EditableNode $coroutine,
-    EditableNode $compound_statement,
+    Node $attribute_spec,
+    Node $async,
+    Node $coroutine,
+    Node $compound_statement,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -40,28 +40,28 @@ abstract class AwaitableCreationExpressionGeneratedBase
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute_spec = EditableNode::fromJSON(
+    $attribute_spec = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['awaitable_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
-    $async = EditableNode::fromJSON(
+    $async = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['awaitable_async'],
       $file,
       $offset,
       $source,
     );
     $offset += $async->getWidth();
-    $coroutine = EditableNode::fromJSON(
+    $coroutine = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['awaitable_coroutine'],
       $file,
       $offset,
       $source,
     );
     $offset += $coroutine->getWidth();
-    $compound_statement = EditableNode::fromJSON(
+    $compound_statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['awaitable_compound_statement'],
       $file,
       $offset,
@@ -84,7 +84,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'async' => $this->_async,
@@ -96,7 +96,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
@@ -114,11 +114,11 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return new static($attribute_spec, $async, $coroutine, $compound_statement);
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableNode $value): this {
+  public function withAttributeSpec(Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -154,11 +154,11 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getAsyncUNTYPED(): EditableNode {
+  public function getAsyncUNTYPED(): Node {
     return $this->_async;
   }
 
-  public function withAsync(EditableNode $value): this {
+  public function withAsync(Node $value): this {
     if ($value === $this->_async) {
       return $this;
     }
@@ -188,11 +188,11 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return $this->getAsync();
   }
 
-  public function getCoroutineUNTYPED(): EditableNode {
+  public function getCoroutineUNTYPED(): Node {
     return $this->_coroutine;
   }
 
-  public function withCoroutine(EditableNode $value): this {
+  public function withCoroutine(Node $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
@@ -211,7 +211,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
   /**
    * @return null
    */
-  public function getCoroutine(): ?EditableNode {
+  public function getCoroutine(): ?Node {
     if ($this->_coroutine->isMissing()) {
       return null;
     }
@@ -221,15 +221,15 @@ abstract class AwaitableCreationExpressionGeneratedBase
   /**
    * @return
    */
-  public function getCoroutinex(): EditableNode {
+  public function getCoroutinex(): Node {
     return TypeAssert\not_null($this->getCoroutine());
   }
 
-  public function getCompoundStatementUNTYPED(): EditableNode {
+  public function getCompoundStatementUNTYPED(): Node {
     return $this->_compound_statement;
   }
 
-  public function withCompoundStatement(EditableNode $value): this {
+  public function withCompoundStatement(Node $value): this {
     if ($value === $this->_compound_statement) {
       return $this;
     }

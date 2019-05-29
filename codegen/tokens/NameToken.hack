@@ -1,19 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25f4723bb7394470644317e81c5a3564>>
+ * @generated SignedSource<<fd74bd68a850adc0a542f093040d7fc1>>
  */
 namespace Facebook\HHAST;
 
-final class NameToken
-  extends EditableTokenWithVariableText
-  implements INameishNode {
+final class NameToken extends TokenWithVariableText implements INameishNode {
 
   const string KIND = 'name';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -25,7 +23,7 @@ final class NameToken
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -37,7 +35,7 @@ final class NameToken
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -54,7 +52,7 @@ final class NameToken
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

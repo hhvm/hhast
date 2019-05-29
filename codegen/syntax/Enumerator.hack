@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ac0330febea8645a1ad59465e457d37>>
+ * @generated SignedSource<<4bee579cf32a5bc1da29738f9040709e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class Enumerator extends EditableNode {
+final class Enumerator extends Node {
 
   const string SYNTAX_KIND = 'enumerator';
 
-  private EditableNode $_name;
-  private EditableNode $_equal;
-  private EditableNode $_value;
-  private EditableNode $_semicolon;
+  private Node $_name;
+  private Node $_equal;
+  private Node $_value;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $name,
-    EditableNode $equal,
-    EditableNode $value,
-    EditableNode $semicolon,
+    Node $name,
+    Node $equal,
+    Node $value,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -38,28 +38,28 @@ final class Enumerator extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enumerator_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $equal = EditableNode::fromJSON(
+    $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enumerator_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
-    $value = EditableNode::fromJSON(
+    $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enumerator_value'],
       $file,
       $offset,
       $source,
     );
     $offset += $value->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enumerator_semicolon'],
       $file,
       $offset,
@@ -76,7 +76,7 @@ final class Enumerator extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'name' => $this->_name,
       'equal' => $this->_equal,
@@ -88,7 +88,7 @@ final class Enumerator extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
@@ -106,11 +106,11 @@ final class Enumerator extends EditableNode {
     return new static($name, $equal, $value, $semicolon);
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -135,11 +135,11 @@ final class Enumerator extends EditableNode {
     return $this->getName();
   }
 
-  public function getEqualUNTYPED(): EditableNode {
+  public function getEqualUNTYPED(): Node {
     return $this->_equal;
   }
 
-  public function withEqual(EditableNode $value): this {
+  public function withEqual(Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -164,11 +164,11 @@ final class Enumerator extends EditableNode {
     return $this->getEqual();
   }
 
-  public function getValueUNTYPED(): EditableNode {
+  public function getValueUNTYPED(): Node {
     return $this->_value;
   }
 
-  public function withValue(EditableNode $value): this {
+  public function withValue(Node $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -196,11 +196,11 @@ final class Enumerator extends EditableNode {
     return $this->getValue();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

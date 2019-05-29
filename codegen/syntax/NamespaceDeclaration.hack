@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5512e5f2c049d2a00c600f3ff3f205b>>
+ * @generated SignedSource<<17fb78e0196c0a2afae66e73360c90cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
+abstract class NamespaceDeclarationGeneratedBase extends Node {
 
   const string SYNTAX_KIND = 'namespace_declaration';
 
-  private EditableNode $_keyword;
-  private EditableNode $_name;
-  private EditableNode $_body;
+  private Node $_keyword;
+  private Node $_name;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $name,
-    EditableNode $body,
+    Node $keyword,
+    Node $name,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -35,21 +35,21 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_body'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'name' => $this->_name,
@@ -77,7 +77,7 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -93,11 +93,11 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
     return new static($keyword, $name, $body);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -122,11 +122,11 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -154,11 +154,11 @@ abstract class NamespaceDeclarationGeneratedBase extends EditableNode {
     return TypeAssert\not_null($this->getName());
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }

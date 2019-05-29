@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<351a9617bc6e740eca85739dd09100b5>>
+ * @generated SignedSource<<5bc645da1c817c2aee0310249abf8c6e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class RecordDeclaration extends EditableNode {
+final class RecordDeclaration extends Node {
 
   const string SYNTAX_KIND = 'record_declaration';
 
-  private EditableNode $_attribute_spec;
-  private EditableNode $_keyword;
-  private EditableNode $_name;
-  private EditableNode $_left_brace;
-  private EditableNode $_fields;
-  private EditableNode $_right_brace;
+  private Node $_attribute_spec;
+  private Node $_keyword;
+  private Node $_name;
+  private Node $_left_brace;
+  private Node $_fields;
+  private Node $_right_brace;
 
   public function __construct(
-    EditableNode $attribute_spec,
-    EditableNode $keyword,
-    EditableNode $name,
-    EditableNode $left_brace,
-    EditableNode $fields,
-    EditableNode $right_brace,
+    Node $attribute_spec,
+    Node $keyword,
+    Node $name,
+    Node $left_brace,
+    Node $fields,
+    Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -44,42 +44,42 @@ final class RecordDeclaration extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute_spec = EditableNode::fromJSON(
+    $attribute_spec = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $left_brace = EditableNode::fromJSON(
+    $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
-    $fields = EditableNode::fromJSON(
+    $fields = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_fields'],
       $file,
       $offset,
       $source,
     );
     $offset += $fields->getWidth();
-    $right_brace = EditableNode::fromJSON(
+    $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_right_brace'],
       $file,
       $offset,
@@ -104,7 +104,7 @@ final class RecordDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'keyword' => $this->_keyword,
@@ -118,7 +118,7 @@ final class RecordDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
@@ -147,11 +147,11 @@ final class RecordDeclaration extends EditableNode {
     );
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableNode $value): this {
+  public function withAttributeSpec(Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -172,22 +172,22 @@ final class RecordDeclaration extends EditableNode {
   /**
    * @return
    */
-  public function getAttributeSpec(): EditableNode {
+  public function getAttributeSpec(): Node {
     return $this->_attribute_spec;
   }
 
   /**
    * @return
    */
-  public function getAttributeSpecx(): EditableNode {
+  public function getAttributeSpecx(): Node {
     return $this->getAttributeSpec();
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -208,22 +208,22 @@ final class RecordDeclaration extends EditableNode {
   /**
    * @return
    */
-  public function getKeyword(): EditableNode {
+  public function getKeyword(): Node {
     return $this->_keyword;
   }
 
   /**
    * @return
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -244,22 +244,22 @@ final class RecordDeclaration extends EditableNode {
   /**
    * @return
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
+  public function getLeftBraceUNTYPED(): Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
+  public function withLeftBrace(Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -280,22 +280,22 @@ final class RecordDeclaration extends EditableNode {
   /**
    * @return
    */
-  public function getLeftBrace(): EditableNode {
+  public function getLeftBrace(): Node {
     return $this->_left_brace;
   }
 
   /**
    * @return
    */
-  public function getLeftBracex(): EditableNode {
+  public function getLeftBracex(): Node {
     return $this->getLeftBrace();
   }
 
-  public function getFieldsUNTYPED(): EditableNode {
+  public function getFieldsUNTYPED(): Node {
     return $this->_fields;
   }
 
-  public function withFields(EditableNode $value): this {
+  public function withFields(Node $value): this {
     if ($value === $this->_fields) {
       return $this;
     }
@@ -316,22 +316,22 @@ final class RecordDeclaration extends EditableNode {
   /**
    * @return
    */
-  public function getFields(): EditableNode {
+  public function getFields(): Node {
     return $this->_fields;
   }
 
   /**
    * @return
    */
-  public function getFieldsx(): EditableNode {
+  public function getFieldsx(): Node {
     return $this->getFields();
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
+  public function getRightBraceUNTYPED(): Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableNode $value): this {
+  public function withRightBrace(Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -352,14 +352,14 @@ final class RecordDeclaration extends EditableNode {
   /**
    * @return
    */
-  public function getRightBrace(): EditableNode {
+  public function getRightBrace(): Node {
     return $this->_right_brace;
   }
 
   /**
    * @return
    */
-  public function getRightBracex(): EditableNode {
+  public function getRightBracex(): Node {
     return $this->getRightBrace();
   }
 }

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb8eff8ae7c3a168172fc427701e85c2>>
+ * @generated SignedSource<<f21f10428c60ac8e5b732addef3336ba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TryStatement extends EditableNode implements IStatement {
+final class TryStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'try_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_compound_statement;
-  private EditableNode $_catch_clauses;
-  private EditableNode $_finally_clause;
+  private Node $_keyword;
+  private Node $_compound_statement;
+  private Node $_catch_clauses;
+  private Node $_finally_clause;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $compound_statement,
-    EditableNode $catch_clauses,
-    EditableNode $finally_clause,
+    Node $keyword,
+    Node $compound_statement,
+    Node $catch_clauses,
+    Node $finally_clause,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -38,28 +38,28 @@ final class TryStatement extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['try_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $compound_statement = EditableNode::fromJSON(
+    $compound_statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['try_compound_statement'],
       $file,
       $offset,
       $source,
     );
     $offset += $compound_statement->getWidth();
-    $catch_clauses = EditableNode::fromJSON(
+    $catch_clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['try_catch_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $catch_clauses->getWidth();
-    $finally_clause = EditableNode::fromJSON(
+    $finally_clause = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['try_finally_clause'],
       $file,
       $offset,
@@ -82,7 +82,7 @@ final class TryStatement extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'compound_statement' => $this->_compound_statement,
@@ -94,7 +94,7 @@ final class TryStatement extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -117,11 +117,11 @@ final class TryStatement extends EditableNode implements IStatement {
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -151,11 +151,11 @@ final class TryStatement extends EditableNode implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getCompoundStatementUNTYPED(): EditableNode {
+  public function getCompoundStatementUNTYPED(): Node {
     return $this->_compound_statement;
   }
 
-  public function withCompoundStatement(EditableNode $value): this {
+  public function withCompoundStatement(Node $value): this {
     if ($value === $this->_compound_statement) {
       return $this;
     }
@@ -188,11 +188,11 @@ final class TryStatement extends EditableNode implements IStatement {
     return $this->getCompoundStatement();
   }
 
-  public function getCatchClausesUNTYPED(): EditableNode {
+  public function getCatchClausesUNTYPED(): Node {
     return $this->_catch_clauses;
   }
 
-  public function withCatchClauses(EditableNode $value): this {
+  public function withCatchClauses(Node $value): this {
     if ($value === $this->_catch_clauses) {
       return $this;
     }
@@ -209,27 +209,27 @@ final class TryStatement extends EditableNode implements IStatement {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getCatchClauses(): ?EditableList<EditableNode> {
+  public function getCatchClauses(): ?NodeList<Node> {
     if ($this->_catch_clauses->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_catch_clauses);
+    return TypeAssert\instance_of(NodeList::class, $this->_catch_clauses);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getCatchClausesx(): EditableList<EditableNode> {
+  public function getCatchClausesx(): NodeList<Node> {
     return TypeAssert\not_null($this->getCatchClauses());
   }
 
-  public function getFinallyClauseUNTYPED(): EditableNode {
+  public function getFinallyClauseUNTYPED(): Node {
     return $this->_finally_clause;
   }
 
-  public function withFinallyClause(EditableNode $value): this {
+  public function withFinallyClause(Node $value): this {
     if ($value === $this->_finally_clause) {
       return $this;
     }

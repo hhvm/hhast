@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3aec1d9ee9cba7b05a4fd416174bf8a0>>
+ * @generated SignedSource<<e7637b4f24f415d37378d14a980d11d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPChildrenParenthesizedList extends EditableNode {
+final class XHPChildrenParenthesizedList extends Node {
 
   const string SYNTAX_KIND = 'xhp_children_parenthesized_list';
 
-  private EditableNode $_left_paren;
-  private EditableNode $_xhp_children;
-  private EditableNode $_right_paren;
+  private Node $_left_paren;
+  private Node $_xhp_children;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $left_paren,
-    EditableNode $xhp_children,
-    EditableNode $right_paren,
+    Node $left_paren,
+    Node $xhp_children,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -35,21 +35,21 @@ final class XHPChildrenParenthesizedList extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_list_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $xhp_children = EditableNode::fromJSON(
+    $xhp_children = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_list_xhp_children'],
       $file,
       $offset,
       $source,
     );
     $offset += $xhp_children->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_list_right_paren'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_paren' => $this->_left_paren,
       'xhp_children' => $this->_xhp_children,
@@ -77,7 +77,7 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_paren = $rewriter($this->_left_paren, $parents);
@@ -93,11 +93,11 @@ final class XHPChildrenParenthesizedList extends EditableNode {
     return new static($left_paren, $xhp_children, $right_paren);
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -111,22 +111,22 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   /**
    * @return unknown
    */
-  public function getLeftParen(): EditableNode {
+  public function getLeftParen(): Node {
     return $this->_left_paren;
   }
 
   /**
    * @return unknown
    */
-  public function getLeftParenx(): EditableNode {
+  public function getLeftParenx(): Node {
     return $this->getLeftParen();
   }
 
-  public function getXhpChildrenUNTYPED(): EditableNode {
+  public function getXhpChildrenUNTYPED(): Node {
     return $this->_xhp_children;
   }
 
-  public function withXhpChildren(EditableNode $value): this {
+  public function withXhpChildren(Node $value): this {
     if ($value === $this->_xhp_children) {
       return $this;
     }
@@ -140,22 +140,22 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   /**
    * @return unknown
    */
-  public function getXhpChildren(): EditableNode {
+  public function getXhpChildren(): Node {
     return $this->_xhp_children;
   }
 
   /**
    * @return unknown
    */
-  public function getXhpChildrenx(): EditableNode {
+  public function getXhpChildrenx(): Node {
     return $this->getXhpChildren();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -169,14 +169,14 @@ final class XHPChildrenParenthesizedList extends EditableNode {
   /**
    * @return unknown
    */
-  public function getRightParen(): EditableNode {
+  public function getRightParen(): Node {
     return $this->_right_paren;
   }
 
   /**
    * @return unknown
    */
-  public function getRightParenx(): EditableNode {
+  public function getRightParenx(): Node {
     return $this->getRightParen();
   }
 }

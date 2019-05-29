@@ -13,7 +13,7 @@ use type Facebook\HHAST\{
   BinaryExpression,
   CommaToken,
   DelimitedComment,
-  EditableList,
+  NodeList,
   EqualToken,
   FunctionCallExpression,
   ListItem,
@@ -93,6 +93,6 @@ class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
         }
       }
     }
-    return $node->replace($exps, new EditableList($fixed_exps));
+    return $node->replace($exps, new NodeList($fixed_exps));
   }
 }

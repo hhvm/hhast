@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36c1c8be8860296a53739d2b883976c9>>
+ * @generated SignedSource<<43f53b520cfed33e9a1603310764d122>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class CatchClause extends EditableNode {
+final class CatchClause extends Node {
 
   const string SYNTAX_KIND = 'catch_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_type;
-  private EditableNode $_variable;
-  private EditableNode $_right_paren;
-  private EditableNode $_body;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_type;
+  private Node $_variable;
+  private Node $_right_paren;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $type,
-    EditableNode $variable,
-    EditableNode $right_paren,
-    EditableNode $body,
+    Node $keyword,
+    Node $left_paren,
+    Node $type,
+    Node $variable,
+    Node $right_paren,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -44,42 +44,42 @@ final class CatchClause extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $variable = EditableNode::fromJSON(
+    $variable = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_variable'],
       $file,
       $offset,
       $source,
     );
     $offset += $variable->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_body'],
       $file,
       $offset,
@@ -104,7 +104,7 @@ final class CatchClause extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -118,7 +118,7 @@ final class CatchClause extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -147,11 +147,11 @@ final class CatchClause extends EditableNode {
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -183,11 +183,11 @@ final class CatchClause extends EditableNode {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -219,11 +219,11 @@ final class CatchClause extends EditableNode {
     return $this->getLeftParen();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -255,11 +255,11 @@ final class CatchClause extends EditableNode {
     return $this->getType();
   }
 
-  public function getVariableUNTYPED(): EditableNode {
+  public function getVariableUNTYPED(): Node {
     return $this->_variable;
   }
 
-  public function withVariable(EditableNode $value): this {
+  public function withVariable(Node $value): this {
     if ($value === $this->_variable) {
       return $this;
     }
@@ -291,11 +291,11 @@ final class CatchClause extends EditableNode {
     return $this->getVariable();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -327,11 +327,11 @@ final class CatchClause extends EditableNode {
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }

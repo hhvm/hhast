@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d48b83918f5ee9d6cc863ac3f08cd5ae>>
+ * @generated SignedSource<<4ccf49eb9f9d317d2385939821cd9df1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class SimpleInitializer extends EditableNode {
+final class SimpleInitializer extends Node {
 
   const string SYNTAX_KIND = 'simple_initializer';
 
-  private EditableNode $_equal;
-  private EditableNode $_value;
+  private Node $_equal;
+  private Node $_value;
 
   public function __construct(
-    EditableNode $equal,
-    EditableNode $value,
+    Node $equal,
+    Node $value,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_equal = $equal;
@@ -32,14 +32,14 @@ final class SimpleInitializer extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $equal = EditableNode::fromJSON(
+    $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['simple_initializer_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
-    $value = EditableNode::fromJSON(
+    $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['simple_initializer_value'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class SimpleInitializer extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'equal' => $this->_equal,
       'value' => $this->_value,
@@ -66,7 +66,7 @@ final class SimpleInitializer extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $equal = $rewriter($this->_equal, $parents);
@@ -77,11 +77,11 @@ final class SimpleInitializer extends EditableNode {
     return new static($equal, $value);
   }
 
-  public function getEqualUNTYPED(): EditableNode {
+  public function getEqualUNTYPED(): Node {
     return $this->_equal;
   }
 
-  public function withEqual(EditableNode $value): this {
+  public function withEqual(Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class SimpleInitializer extends EditableNode {
     return $this->getEqual();
   }
 
-  public function getValueUNTYPED(): EditableNode {
+  public function getValueUNTYPED(): Node {
     return $this->_value;
   }
 
-  public function withValue(EditableNode $value): this {
+  public function withValue(Node $value): this {
     if ($value === $this->_value) {
       return $this;
     }

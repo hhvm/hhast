@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9c345fcd37ee3c43131c312702c7ef1>>
+ * @generated SignedSource<<fb5640dafd6c3abcb0e5dc62ce455fb5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class TraitUseConflictResolution
-  extends EditableNode
+  extends Node
   implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'trait_use_conflict_resolution';
 
-  private EditableNode $_keyword;
-  private EditableNode $_names;
-  private EditableNode $_left_brace;
-  private EditableNode $_clauses;
-  private EditableNode $_right_brace;
+  private Node $_keyword;
+  private Node $_names;
+  private Node $_left_brace;
+  private Node $_clauses;
+  private Node $_right_brace;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $names,
-    EditableNode $left_brace,
-    EditableNode $clauses,
-    EditableNode $right_brace,
+    Node $keyword,
+    Node $names,
+    Node $left_brace,
+    Node $clauses,
+    Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,35 +43,35 @@ final class TraitUseConflictResolution
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $names = EditableNode::fromJSON(
+    $names = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_names'],
       $file,
       $offset,
       $source,
     );
     $offset += $names->getWidth();
-    $left_brace = EditableNode::fromJSON(
+    $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
-    $clauses = EditableNode::fromJSON(
+    $clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $clauses->getWidth();
-    $right_brace = EditableNode::fromJSON(
+    $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_right_brace'],
       $file,
       $offset,
@@ -95,7 +95,7 @@ final class TraitUseConflictResolution
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'names' => $this->_names,
@@ -108,7 +108,7 @@ final class TraitUseConflictResolution
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -128,11 +128,11 @@ final class TraitUseConflictResolution
     return new static($keyword, $names, $left_brace, $clauses, $right_brace);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -163,11 +163,11 @@ final class TraitUseConflictResolution
     return $this->getKeyword();
   }
 
-  public function getNamesUNTYPED(): EditableNode {
+  public function getNamesUNTYPED(): Node {
     return $this->_names;
   }
 
-  public function withNames(EditableNode $value): this {
+  public function withNames(Node $value): this {
     if ($value === $this->_names) {
       return $this;
     }
@@ -185,24 +185,24 @@ final class TraitUseConflictResolution
   }
 
   /**
-   * @return EditableList<SimpleTypeSpecifier>
+   * @return NodeList<SimpleTypeSpecifier>
    */
-  public function getNames(): EditableList<SimpleTypeSpecifier> {
-    return TypeAssert\instance_of(EditableList::class, $this->_names);
+  public function getNames(): NodeList<SimpleTypeSpecifier> {
+    return TypeAssert\instance_of(NodeList::class, $this->_names);
   }
 
   /**
-   * @return EditableList<SimpleTypeSpecifier>
+   * @return NodeList<SimpleTypeSpecifier>
    */
-  public function getNamesx(): EditableList<SimpleTypeSpecifier> {
+  public function getNamesx(): NodeList<SimpleTypeSpecifier> {
     return $this->getNames();
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
+  public function getLeftBraceUNTYPED(): Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
+  public function withLeftBrace(Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -233,11 +233,11 @@ final class TraitUseConflictResolution
     return $this->getLeftBrace();
   }
 
-  public function getClausesUNTYPED(): EditableNode {
+  public function getClausesUNTYPED(): Node {
     return $this->_clauses;
   }
 
-  public function withClauses(EditableNode $value): this {
+  public function withClauses(Node $value): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -255,29 +255,29 @@ final class TraitUseConflictResolution
   }
 
   /**
-   * @return EditableList<TraitUseAliasItem> | EditableList<ITraitUseItem> |
-   * EditableList<TraitUsePrecedenceItem> | null
+   * @return NodeList<TraitUseAliasItem> | NodeList<ITraitUseItem> |
+   * NodeList<TraitUsePrecedenceItem> | null
    */
-  public function getClauses(): ?EditableList<ITraitUseItem> {
+  public function getClauses(): ?NodeList<ITraitUseItem> {
     if ($this->_clauses->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_clauses);
+    return TypeAssert\instance_of(NodeList::class, $this->_clauses);
   }
 
   /**
-   * @return EditableList<TraitUseAliasItem> | EditableList<ITraitUseItem> |
-   * EditableList<TraitUsePrecedenceItem>
+   * @return NodeList<TraitUseAliasItem> | NodeList<ITraitUseItem> |
+   * NodeList<TraitUsePrecedenceItem>
    */
-  public function getClausesx(): EditableList<ITraitUseItem> {
+  public function getClausesx(): NodeList<ITraitUseItem> {
     return TypeAssert\not_null($this->getClauses());
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
+  public function getRightBraceUNTYPED(): Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableNode $value): this {
+  public function withRightBrace(Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

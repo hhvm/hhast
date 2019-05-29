@@ -11,21 +11,21 @@ namespace Facebook\HHAST\__Private;
 
 use type Facebook\HackCodegen\{CodegenFileType, HackBuilderValues};
 
-final class CodegenEditableTriviaFromJSON extends CodegenBase {
+final class CodegenTriviaFromJSON extends CodegenBase {
   <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
     $cg
       ->codegenFile($this->getOutputDirectory().
-        '/editable_trivia_from_json.hack')
+        '/trivia_from_json.hack')
       ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
       ->addFunction(
         $cg
-          ->codegenFunction('editable_trivia_from_json')
-          ->setReturnType('HHAST\\EditableTrivia')
+          ->codegenFunction('trivia_from_json')
+          ->setReturnType('HHAST\\Trivia')
           ->addParameter('dict<string, mixed> $json')
           ->addParameter('SourceRef $source_ref')
           ->setBody(

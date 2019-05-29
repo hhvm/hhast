@@ -1,19 +1,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57d9532d74c0f0520c575a858bda9fd4>>
+ * @generated SignedSource<<f2dd19d8cd7bfac725093c459697c90e>>
  */
 namespace Facebook\HHAST;
 
 final class NowdocStringLiteralToken
-  extends EditableTokenWithVariableText
+  extends TokenWithVariableText
   implements IStringLiteral {
 
   const string KIND = 'nowdoc_string_literal';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -25,7 +25,7 @@ final class NowdocStringLiteralToken
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -37,7 +37,7 @@ final class NowdocStringLiteralToken
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -54,7 +54,7 @@ final class NowdocStringLiteralToken
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

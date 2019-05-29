@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface ISwitchLabel {
-  require extends EditableNode;
+  require extends Node;
 }

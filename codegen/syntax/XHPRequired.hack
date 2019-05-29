@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c40bdd384262ae94947405e191d2748>>
+ * @generated SignedSource<<b444c63f01bf01c5e43c37fff9e05351>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPRequired extends EditableNode {
+final class XHPRequired extends Node {
 
   const string SYNTAX_KIND = 'xhp_required';
 
-  private EditableNode $_at;
-  private EditableNode $_keyword;
+  private Node $_at;
+  private Node $_keyword;
 
   public function __construct(
-    EditableNode $at,
-    EditableNode $keyword,
+    Node $at,
+    Node $keyword,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_at = $at;
@@ -32,14 +32,14 @@ final class XHPRequired extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $at = EditableNode::fromJSON(
+    $at = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_required_at'],
       $file,
       $offset,
       $source,
     );
     $offset += $at->getWidth();
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_required_keyword'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class XHPRequired extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'at' => $this->_at,
       'keyword' => $this->_keyword,
@@ -66,7 +66,7 @@ final class XHPRequired extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $at = $rewriter($this->_at, $parents);
@@ -77,11 +77,11 @@ final class XHPRequired extends EditableNode {
     return new static($at, $keyword);
   }
 
-  public function getAtUNTYPED(): EditableNode {
+  public function getAtUNTYPED(): Node {
     return $this->_at;
   }
 
-  public function withAt(EditableNode $value): this {
+  public function withAt(Node $value): this {
     if ($value === $this->_at) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class XHPRequired extends EditableNode {
     return $this->getAt();
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }

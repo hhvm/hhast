@@ -13,7 +13,7 @@ use type Facebook\HHAST\Linters\{ASTLintError, AutoFixingASTLinter};
 use type Facebook\HHAST\{
   AmpersandToken,
   AnonymousFunction,
-  EditableNode,
+  Node,
   EqualEqualGreaterThanToken,
   LambdaExpression,
   LambdaSignature,
@@ -60,7 +60,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
     );
   }
 
-  public function getFixedNode(AnonymousFunction $node): ?EditableNode {
+  public function getFixedNode(AnonymousFunction $node): ?Node {
     $attribute_spec = $node->getAttributeSpec();
     $async = $node->getAsyncKeyword();
     $coroutine = $node->getCoroutineKeyword();

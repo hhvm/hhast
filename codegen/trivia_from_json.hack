@@ -1,15 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5ae2321a4af90d4d5c6a0a16479ce4f1>>
+ * @generated SignedSource<<0ffcfb2cc6a423c06515ecbeb91b1b12>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
-function editable_trivia_from_json(
+function trivia_from_json(
   dict<string, mixed> $json,
   SourceRef $source_ref,
-): HHAST\EditableTrivia {
+): HHAST\Trivia {
   $trivia_text = \substr(
     $source_ref['source'],
     $source_ref['offset'],

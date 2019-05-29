@@ -1,24 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d5570e03be103179c741dd4b243e23b>>
+ * @generated SignedSource<<ede251cea165871dd27ccf1b3fe97538>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class YieldExpression
-  extends EditableNode
-  implements ILambdaBody, IExpression {
+final class YieldExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'yield_expression';
 
-  private EditableNode $_keyword;
-  private EditableNode $_operand;
+  private Node $_keyword;
+  private Node $_operand;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $operand,
+    Node $keyword,
+    Node $operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -34,14 +32,14 @@ final class YieldExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['yield_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $operand = EditableNode::fromJSON(
+    $operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['yield_operand'],
       $file,
       $offset,
@@ -58,7 +56,7 @@ final class YieldExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'operand' => $this->_operand,
@@ -68,7 +66,7 @@ final class YieldExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -79,11 +77,11 @@ final class YieldExpression
     return new static($keyword, $operand);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -108,11 +106,11 @@ final class YieldExpression
     return $this->getKeyword();
   }
 
-  public function getOperandUNTYPED(): EditableNode {
+  public function getOperandUNTYPED(): Node {
     return $this->_operand;
   }
 
-  public function withOperand(EditableNode $value): this {
+  public function withOperand(Node $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
@@ -132,7 +130,7 @@ final class YieldExpression
    * | SubscriptExpression | BreakToken | NameToken | TupleExpression |
    * VariableExpression
    */
-  public function getOperand(): ?EditableNode {
+  public function getOperand(): ?Node {
     if ($this->_operand->isMissing()) {
       return null;
     }
@@ -147,7 +145,7 @@ final class YieldExpression
    * ScopeResolutionExpression | SubscriptExpression | BreakToken | NameToken |
    * TupleExpression | VariableExpression
    */
-  public function getOperandx(): EditableNode {
+  public function getOperandx(): Node {
     return TypeAssert\not_null($this->getOperand());
   }
 }

@@ -12,18 +12,18 @@ namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str};
 
-abstract class EditableToken extends EditableNode {
+abstract class Token extends Node {
   private string $_token_kind;
-  private EditableNode $_leading;
-  private EditableNode $_trailing;
+  private Node $_leading;
+  private Node $_trailing;
   private string $_text;
 
   const string SYNTAX_KIND = 'token';
 
   public function __construct(
     string $token_kind,
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $text,
     ?__Private\SourceRef $ref,
   ) {
@@ -45,11 +45,11 @@ abstract class EditableToken extends EditableNode {
     return $this->_text;
   }
 
-  public function getLeading(): EditableNode {
+  public function getLeading(): Node {
     return $this->_leading;
   }
 
-  final public function getLeadingWhitespace(): EditableNode {
+  final public function getLeadingWhitespace(): Node {
     $leading = $this->getLeading();
     if ($leading->isMissing()) {
       return $leading;
@@ -57,7 +57,7 @@ abstract class EditableToken extends EditableNode {
     if ($leading instanceof WhiteSpace || $leading instanceof EndOfLine) {
       return $leading;
     }
-    if (!$leading instanceof EditableList) {
+    if (!$leading instanceof NodeList) {
       return Missing();
     }
     $last = Missing();
@@ -69,7 +69,7 @@ abstract class EditableToken extends EditableNode {
     return $last;
   }
 
-  final public function getTrailingWhitespace(): EditableNode {
+  final public function getTrailingWhitespace(): Node {
     $trailing = $this->getTrailing();
     if ($trailing->isMissing()) {
       return $trailing;
@@ -77,7 +77,7 @@ abstract class EditableToken extends EditableNode {
     if ($trailing instanceof WhiteSpace || $trailing instanceof EndOfLine) {
       return $trailing;
     }
-    if (!$trailing instanceof EditableList) {
+    if (!$trailing instanceof NodeList) {
       return Missing();
     }
     $result = vec[];
@@ -89,15 +89,15 @@ abstract class EditableToken extends EditableNode {
         break;
       }
     }
-    return EditableList::createNonEmptyListOrMissing($result);
+    return NodeList::createNonEmptyListOrMissing($result);
   }
 
-  public function getTrailing(): EditableNode {
+  public function getTrailing(): Node {
     return $this->_trailing;
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'leading' => $this->getLeading(),
       'trailing' => $this->getTrailing(),
@@ -116,9 +116,9 @@ abstract class EditableToken extends EditableNode {
       $this->getTrailing()->getCode();
   }
 
-  public abstract function withLeading(EditableNode $leading): EditableToken;
+  public abstract function withLeading(Node $leading): Token;
 
-  public abstract function withTrailing(EditableNode $trailing): EditableToken;
+  public abstract function withTrailing(Node $trailing): Token;
 
   <<__Override>>
   final public static function fromJSON(
@@ -126,17 +126,17 @@ abstract class EditableToken extends EditableNode {
     string $file,
     int $offset,
     string $source,
-  ): EditableToken {
+  ): Token {
     $leading_list = __Private\fold_map(
       /* HH_FIXME[4110] use like-types when available*/ $json['leading'],
-      ($j, $p) ==> EditableNode::fromJSON($j, $file, $p, $source),
+      ($j, $p) ==> Node::fromJSON($j, $file, $p, $source),
       ($j, $p) ==> $j['width'] + $p,
       $offset,
     );
 
     $leading = C\is_empty($leading_list)
       ? Missing()
-      : new EditableList(
+      : new NodeList(
           $leading_list,
           shape(
             'file' => $file,
@@ -151,13 +151,13 @@ abstract class EditableToken extends EditableNode {
     $trailing_position = $token_position + $token_width;
     $trailing_list = __Private\fold_map(
       /* HH_IGNORE_ERROR[4110] */ $json['trailing'],
-      ($j, $p) ==> EditableNode::fromJSON($j, $file, $p, $source),
+      ($j, $p) ==> Node::fromJSON($j, $file, $p, $source),
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
     );
     $trailing = C\is_empty($trailing_list)
       ? Missing()
-      : new EditableList(
+      : new NodeList(
           $trailing_list,
           shape(
             'file' => $file,
@@ -169,7 +169,7 @@ abstract class EditableToken extends EditableNode {
     $width = $json['leading_width'] as int +
       $json['width'] as int +
       $json['trailing_width'] as int;
-    return __Private\editable_token_from_data(
+    return __Private\token_from_data(
       shape(
         'file' => $file,
         'source' => $source,
@@ -184,12 +184,12 @@ abstract class EditableToken extends EditableNode {
   }
 
   <<__Override>>
-  final public function getFirstToken(): EditableToken {
+  final public function getFirstToken(): Token {
     return $this;
   }
 
   <<__Override>>
-  final public function getLastToken(): EditableToken {
+  final public function getLastToken(): Token {
     return $this;
   }
 }

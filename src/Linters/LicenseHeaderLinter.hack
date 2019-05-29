@@ -11,7 +11,7 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   DelimitedComment,
-  EditableList,
+  NodeList,
   EndOfFile,
   EndOfLine,
   File,
@@ -46,7 +46,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
       return null;
     }
     $leading = $first->getFirstToken()?->getLeading();
-    if ($leading instanceof EditableList) {
+    if ($leading instanceof NodeList) {
       $leading = $leading->getItems()[0];
     }
 
@@ -72,7 +72,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
   ): string {
     return $node->getDeclarations()->getItems()
       |> Vec\take($$, 2)
-      |> EditableList::createNonEmptyListOrMissing($$)
+      |> NodeList::createNonEmptyListOrMissing($$)
       |> $$->getCode();
   }
 
@@ -87,7 +87,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
   public function getFixedNode(Script $node): Script {
     $first = $node->getDeclarations()->getItems()[1]->getFirstTokenx();
     $leading = $first->getLeading();
-    if ($leading instanceof EditableList) {
+    if ($leading instanceof NodeList) {
       $leading = $leading->getItems();
     } else if ($leading === null) {
       $leading = vec[];
@@ -115,7 +115,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
         $new[] = new EndOfLine("\n");
       }
 
-      return $node->replace($existing, EditableList::createNonEmptyListOrMissing($new));
+      return $node->replace($existing, NodeList::createNonEmptyListOrMissing($new));
     }
 
 
@@ -133,7 +133,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
     );
     return $node->replace(
       $first,
-      $first->withLeading(EditableList::createNonEmptyListOrMissing($leading)),
+      $first->withLeading(NodeList::createNonEmptyListOrMissing($leading)),
     );
   }
 

@@ -11,9 +11,9 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   ExpressionStatement,
-  EditableToken,
-  EditableNode,
-  EditableList,
+  Token,
+  Node,
+  NodeList,
   Script,
 };
 
@@ -57,7 +57,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
     return null;
   }
 
-  public function getFixedNode(ExpressionStatement $stmt): EditableNode {
+  public function getFixedNode(ExpressionStatement $stmt): Node {
     // Only offer a fix if the node is literally empty
     if ($stmt->getExpression() !== null) {
       return $stmt;
@@ -68,13 +68,13 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
     $trailing = $semicolon->getTrailing();
 
     return
-      EditableList::concat($semicolon->getLeading(), $semicolon->getTrailing());
+      NodeList::concat($semicolon->getLeading(), $semicolon->getTrailing());
   }
 
   /**
    * Returns whether the given expression is empty.
    */
-  private function isEmptyExpression(EditableNode $expr): bool {
+  private function isEmptyExpression(Node $expr): bool {
     return $expr instanceof HHAST\ArrayCreationExpression ||
       $expr instanceof HHAST\AnonymousFunction ||
       (
@@ -108,7 +108,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * Returns whether the given token is an operator that does not result in
    * assignment or other operations that can have side effects.
    */
-  private function isOperatorWithoutSideEffects(EditableToken $op): bool {
+  private function isOperatorWithoutSideEffects(Token $op): bool {
     // The pipe operator does not necessarily have any side effects but it
     // typically implies function invocation which can have side effects.
     return
@@ -121,7 +121,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * This list is all the types returned from ExpressionStatement::getOperator
    * that include "Equal" and are not comparison operators (==, >=, etc.);
    */
-  private function isAssignmentOperator(EditableToken $op): bool {
+  private function isAssignmentOperator(Token $op): bool {
     return $op instanceof HHAST\AmpersandEqualToken ||
       $op instanceof HHAST\BarEqualToken ||
       $op instanceof HHAST\CaratEqualToken ||

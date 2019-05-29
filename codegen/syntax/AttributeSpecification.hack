@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc6928a0084259e950f3064f74fa4f6d>>
+ * @generated SignedSource<<21b990a99ef4a6d8aea5fa3351e73fea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AttributeSpecification extends EditableNode {
+final class AttributeSpecification extends Node {
 
   const string SYNTAX_KIND = 'attribute_specification';
 
-  private EditableNode $_left_double_angle;
-  private EditableNode $_attributes;
-  private EditableNode $_right_double_angle;
+  private Node $_left_double_angle;
+  private Node $_attributes;
+  private Node $_right_double_angle;
 
   public function __construct(
-    EditableNode $left_double_angle,
-    EditableNode $attributes,
-    EditableNode $right_double_angle,
+    Node $left_double_angle,
+    Node $attributes,
+    Node $right_double_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_double_angle = $left_double_angle;
@@ -35,21 +35,21 @@ final class AttributeSpecification extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_double_angle = EditableNode::fromJSON(
+    $left_double_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['attribute_specification_left_double_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_double_angle->getWidth();
-    $attributes = EditableNode::fromJSON(
+    $attributes = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['attribute_specification_attributes'],
       $file,
       $offset,
       $source,
     );
     $offset += $attributes->getWidth();
-    $right_double_angle = EditableNode::fromJSON(
+    $right_double_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['attribute_specification_right_double_angle'],
       $file,
       $offset,
@@ -71,7 +71,7 @@ final class AttributeSpecification extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_double_angle' => $this->_left_double_angle,
       'attributes' => $this->_attributes,
@@ -82,7 +82,7 @@ final class AttributeSpecification extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_double_angle = $rewriter($this->_left_double_angle, $parents);
@@ -98,11 +98,11 @@ final class AttributeSpecification extends EditableNode {
     return new static($left_double_angle, $attributes, $right_double_angle);
   }
 
-  public function getLeftDoubleAngleUNTYPED(): EditableNode {
+  public function getLeftDoubleAngleUNTYPED(): Node {
     return $this->_left_double_angle;
   }
 
-  public function withLeftDoubleAngle(EditableNode $value): this {
+  public function withLeftDoubleAngle(Node $value): this {
     if ($value === $this->_left_double_angle) {
       return $this;
     }
@@ -130,11 +130,11 @@ final class AttributeSpecification extends EditableNode {
     return $this->getLeftDoubleAngle();
   }
 
-  public function getAttributesUNTYPED(): EditableNode {
+  public function getAttributesUNTYPED(): Node {
     return $this->_attributes;
   }
 
-  public function withAttributes(EditableNode $value): this {
+  public function withAttributes(Node $value): this {
     if ($value === $this->_attributes) {
       return $this;
     }
@@ -150,24 +150,24 @@ final class AttributeSpecification extends EditableNode {
   }
 
   /**
-   * @return EditableList<ConstructorCall>
+   * @return NodeList<ConstructorCall>
    */
-  public function getAttributes(): EditableList<ConstructorCall> {
-    return TypeAssert\instance_of(EditableList::class, $this->_attributes);
+  public function getAttributes(): NodeList<ConstructorCall> {
+    return TypeAssert\instance_of(NodeList::class, $this->_attributes);
   }
 
   /**
-   * @return EditableList<ConstructorCall>
+   * @return NodeList<ConstructorCall>
    */
-  public function getAttributesx(): EditableList<ConstructorCall> {
+  public function getAttributesx(): NodeList<ConstructorCall> {
     return $this->getAttributes();
   }
 
-  public function getRightDoubleAngleUNTYPED(): EditableNode {
+  public function getRightDoubleAngleUNTYPED(): Node {
     return $this->_right_double_angle;
   }
 
-  public function withRightDoubleAngle(EditableNode $value): this {
+  public function withRightDoubleAngle(Node $value): this {
     if ($value === $this->_right_double_angle) {
       return $this;
     }

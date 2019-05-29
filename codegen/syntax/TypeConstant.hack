@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<280bdd4ef693118b4039e77153f01550>>
+ * @generated SignedSource<<270e4ea2d779be04781f01e6caae33bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TypeConstant extends EditableNode implements ITypeSpecifier {
+final class TypeConstant extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'type_constant';
 
-  private EditableNode $_left_type;
-  private EditableNode $_separator;
-  private EditableNode $_right_type;
+  private Node $_left_type;
+  private Node $_separator;
+  private Node $_right_type;
 
   public function __construct(
-    EditableNode $left_type,
-    EditableNode $separator,
-    EditableNode $right_type,
+    Node $left_type,
+    Node $separator,
+    Node $right_type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_type = $left_type;
@@ -35,21 +35,21 @@ final class TypeConstant extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_type = EditableNode::fromJSON(
+    $left_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_constant_left_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_type->getWidth();
-    $separator = EditableNode::fromJSON(
+    $separator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_constant_separator'],
       $file,
       $offset,
       $source,
     );
     $offset += $separator->getWidth();
-    $right_type = EditableNode::fromJSON(
+    $right_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_constant_right_type'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class TypeConstant extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_type' => $this->_left_type,
       'separator' => $this->_separator,
@@ -77,7 +77,7 @@ final class TypeConstant extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_type = $rewriter($this->_left_type, $parents);
@@ -93,11 +93,11 @@ final class TypeConstant extends EditableNode implements ITypeSpecifier {
     return new static($left_type, $separator, $right_type);
   }
 
-  public function getLeftTypeUNTYPED(): EditableNode {
+  public function getLeftTypeUNTYPED(): Node {
     return $this->_left_type;
   }
 
-  public function withLeftType(EditableNode $value): this {
+  public function withLeftType(Node $value): this {
     if ($value === $this->_left_type) {
       return $this;
     }
@@ -111,22 +111,22 @@ final class TypeConstant extends EditableNode implements ITypeSpecifier {
   /**
    * @return NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
    */
-  public function getLeftType(): EditableNode {
+  public function getLeftType(): Node {
     return $this->_left_type;
   }
 
   /**
    * @return NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
    */
-  public function getLeftTypex(): EditableNode {
+  public function getLeftTypex(): Node {
     return $this->getLeftType();
   }
 
-  public function getSeparatorUNTYPED(): EditableNode {
+  public function getSeparatorUNTYPED(): Node {
     return $this->_separator;
   }
 
-  public function withSeparator(EditableNode $value): this {
+  public function withSeparator(Node $value): this {
     if ($value === $this->_separator) {
       return $this;
     }
@@ -151,11 +151,11 @@ final class TypeConstant extends EditableNode implements ITypeSpecifier {
     return $this->getSeparator();
   }
 
-  public function getRightTypeUNTYPED(): EditableNode {
+  public function getRightTypeUNTYPED(): Node {
     return $this->_right_type;
   }
 
-  public function withRightType(EditableNode $value): this {
+  public function withRightType(Node $value): this {
     if ($value === $this->_right_type) {
       return $this;
     }

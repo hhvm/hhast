@@ -1,32 +1,32 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cfd5b847704efdda83a17ee0d5ae189e>>
+ * @generated SignedSource<<19098dbd1b284204aa23b76441d2ad7e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class LambdaExpression
-  extends EditableNode
+  extends Node
   implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
   const string SYNTAX_KIND = 'lambda_expression';
 
-  private EditableNode $_attribute_spec;
-  private EditableNode $_async;
-  private EditableNode $_coroutine;
-  private EditableNode $_signature;
-  private EditableNode $_arrow;
-  private EditableNode $_body;
+  private Node $_attribute_spec;
+  private Node $_async;
+  private Node $_coroutine;
+  private Node $_signature;
+  private Node $_arrow;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $attribute_spec,
-    EditableNode $async,
-    EditableNode $coroutine,
-    EditableNode $signature,
-    EditableNode $arrow,
-    EditableNode $body,
+    Node $attribute_spec,
+    Node $async,
+    Node $coroutine,
+    Node $signature,
+    Node $arrow,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -46,42 +46,42 @@ final class LambdaExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute_spec = EditableNode::fromJSON(
+    $attribute_spec = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
-    $async = EditableNode::fromJSON(
+    $async = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_async'],
       $file,
       $offset,
       $source,
     );
     $offset += $async->getWidth();
-    $coroutine = EditableNode::fromJSON(
+    $coroutine = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_coroutine'],
       $file,
       $offset,
       $source,
     );
     $offset += $coroutine->getWidth();
-    $signature = EditableNode::fromJSON(
+    $signature = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_signature'],
       $file,
       $offset,
       $source,
     );
     $offset += $signature->getWidth();
-    $arrow = EditableNode::fromJSON(
+    $arrow = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_arrow'],
       $file,
       $offset,
       $source,
     );
     $offset += $arrow->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_body'],
       $file,
       $offset,
@@ -106,7 +106,7 @@ final class LambdaExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'async' => $this->_async,
@@ -120,7 +120,7 @@ final class LambdaExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
@@ -149,11 +149,11 @@ final class LambdaExpression
     );
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableNode $value): this {
+  public function withAttributeSpec(Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -191,11 +191,11 @@ final class LambdaExpression
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getAsyncUNTYPED(): EditableNode {
+  public function getAsyncUNTYPED(): Node {
     return $this->_async;
   }
 
-  public function withAsync(EditableNode $value): this {
+  public function withAsync(Node $value): this {
     if ($value === $this->_async) {
       return $this;
     }
@@ -230,11 +230,11 @@ final class LambdaExpression
     return TypeAssert\not_null($this->getAsync());
   }
 
-  public function getCoroutineUNTYPED(): EditableNode {
+  public function getCoroutineUNTYPED(): Node {
     return $this->_coroutine;
   }
 
-  public function withCoroutine(EditableNode $value): this {
+  public function withCoroutine(Node $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
@@ -255,7 +255,7 @@ final class LambdaExpression
   /**
    * @return null
    */
-  public function getCoroutine(): ?EditableNode {
+  public function getCoroutine(): ?Node {
     if ($this->_coroutine->isMissing()) {
       return null;
     }
@@ -265,15 +265,15 @@ final class LambdaExpression
   /**
    * @return
    */
-  public function getCoroutinex(): EditableNode {
+  public function getCoroutinex(): Node {
     return TypeAssert\not_null($this->getCoroutine());
   }
 
-  public function getSignatureUNTYPED(): EditableNode {
+  public function getSignatureUNTYPED(): Node {
     return $this->_signature;
   }
 
-  public function withSignature(EditableNode $value): this {
+  public function withSignature(Node $value): this {
     if ($value === $this->_signature) {
       return $this;
     }
@@ -294,22 +294,22 @@ final class LambdaExpression
   /**
    * @return LambdaSignature | VariableToken
    */
-  public function getSignature(): EditableNode {
+  public function getSignature(): Node {
     return $this->_signature;
   }
 
   /**
    * @return LambdaSignature | VariableToken
    */
-  public function getSignaturex(): EditableNode {
+  public function getSignaturex(): Node {
     return $this->getSignature();
   }
 
-  public function getArrowUNTYPED(): EditableNode {
+  public function getArrowUNTYPED(): Node {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableNode $value): this {
+  public function withArrow(Node $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -344,11 +344,11 @@ final class LambdaExpression
     return $this->getArrow();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }

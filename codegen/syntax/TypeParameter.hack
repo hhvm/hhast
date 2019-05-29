@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0a6af2752c6aba8a16d3b159e25b783e>>
+ * @generated SignedSource<<a60e0ef190f639b7f49abbfcb5105ac4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TypeParameter extends EditableNode {
+final class TypeParameter extends Node {
 
   const string SYNTAX_KIND = 'type_parameter';
 
-  private EditableNode $_attribute_spec;
-  private EditableNode $_reified;
-  private EditableNode $_variance;
-  private EditableNode $_name;
-  private EditableNode $_constraints;
+  private Node $_attribute_spec;
+  private Node $_reified;
+  private Node $_variance;
+  private Node $_name;
+  private Node $_constraints;
 
   public function __construct(
-    EditableNode $attribute_spec,
-    EditableNode $reified,
-    EditableNode $variance,
-    EditableNode $name,
-    EditableNode $constraints,
+    Node $attribute_spec,
+    Node $reified,
+    Node $variance,
+    Node $name,
+    Node $constraints,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -41,35 +41,35 @@ final class TypeParameter extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute_spec = EditableNode::fromJSON(
+    $attribute_spec = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
-    $reified = EditableNode::fromJSON(
+    $reified = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_reified'],
       $file,
       $offset,
       $source,
     );
     $offset += $reified->getWidth();
-    $variance = EditableNode::fromJSON(
+    $variance = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_variance'],
       $file,
       $offset,
       $source,
     );
     $offset += $variance->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $constraints = EditableNode::fromJSON(
+    $constraints = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_constraints'],
       $file,
       $offset,
@@ -93,7 +93,7 @@ final class TypeParameter extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'reified' => $this->_reified,
@@ -106,7 +106,7 @@ final class TypeParameter extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
@@ -132,11 +132,11 @@ final class TypeParameter extends EditableNode {
     );
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableNode $value): this {
+  public function withAttributeSpec(Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -173,11 +173,11 @@ final class TypeParameter extends EditableNode {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getReifiedUNTYPED(): EditableNode {
+  public function getReifiedUNTYPED(): Node {
     return $this->_reified;
   }
 
-  public function withReified(EditableNode $value): this {
+  public function withReified(Node $value): this {
     if ($value === $this->_reified) {
       return $this;
     }
@@ -211,11 +211,11 @@ final class TypeParameter extends EditableNode {
     return TypeAssert\not_null($this->getReified());
   }
 
-  public function getVarianceUNTYPED(): EditableNode {
+  public function getVarianceUNTYPED(): Node {
     return $this->_variance;
   }
 
-  public function withVariance(EditableNode $value): this {
+  public function withVariance(Node $value): this {
     if ($value === $this->_variance) {
       return $this;
     }
@@ -235,25 +235,25 @@ final class TypeParameter extends EditableNode {
   /**
    * @return null | PlusToken | MinusToken
    */
-  public function getVariance(): ?EditableToken {
+  public function getVariance(): ?Token {
     if ($this->_variance->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableToken::class, $this->_variance);
+    return TypeAssert\instance_of(Token::class, $this->_variance);
   }
 
   /**
    * @return PlusToken | MinusToken
    */
-  public function getVariancex(): EditableToken {
+  public function getVariancex(): Token {
     return TypeAssert\not_null($this->getVariance());
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -284,11 +284,11 @@ final class TypeParameter extends EditableNode {
     return $this->getName();
   }
 
-  public function getConstraintsUNTYPED(): EditableNode {
+  public function getConstraintsUNTYPED(): Node {
     return $this->_constraints;
   }
 
-  public function withConstraints(EditableNode $value): this {
+  public function withConstraints(Node $value): this {
     if ($value === $this->_constraints) {
       return $this;
     }
@@ -306,19 +306,19 @@ final class TypeParameter extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getConstraints(): ?EditableList<EditableNode> {
+  public function getConstraints(): ?NodeList<Node> {
     if ($this->_constraints->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_constraints);
+    return TypeAssert\instance_of(NodeList::class, $this->_constraints);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getConstraintsx(): EditableList<EditableNode> {
+  public function getConstraintsx(): NodeList<Node> {
     return TypeAssert\not_null($this->getConstraints());
   }
 }

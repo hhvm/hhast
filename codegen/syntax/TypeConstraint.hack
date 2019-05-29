@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77745dc9b579428b075ece1247c40096>>
+ * @generated SignedSource<<470d3a8cbcb3f319844e1eb6a93819b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TypeConstraint extends EditableNode {
+final class TypeConstraint extends Node {
 
   const string SYNTAX_KIND = 'type_constraint';
 
-  private EditableNode $_keyword;
-  private EditableNode $_type;
+  private Node $_keyword;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $type,
+    Node $keyword,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -32,14 +32,14 @@ final class TypeConstraint extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constraint_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constraint_type'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class TypeConstraint extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'type' => $this->_type,
@@ -66,7 +66,7 @@ final class TypeConstraint extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -77,11 +77,11 @@ final class TypeConstraint extends EditableNode {
     return new static($keyword, $type);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -95,22 +95,22 @@ final class TypeConstraint extends EditableNode {
   /**
    * @return AsToken | SuperToken
    */
-  public function getKeyword(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_keyword);
+  public function getKeyword(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_keyword);
   }
 
   /**
    * @return AsToken | SuperToken
    */
-  public function getKeywordx(): EditableToken {
+  public function getKeywordx(): Token {
     return $this->getKeyword();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }

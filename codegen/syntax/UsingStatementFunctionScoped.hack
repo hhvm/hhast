@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f10a3d26b8acb1724fe9a4f1cd6fdc5>>
+ * @generated SignedSource<<6be609978c4644de520955a43f28f6f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class UsingStatementFunctionScoped
-  extends EditableNode
-  implements IStatement {
+final class UsingStatementFunctionScoped extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'using_statement_function_scoped';
 
-  private EditableNode $_await_keyword;
-  private EditableNode $_using_keyword;
-  private EditableNode $_expression;
-  private EditableNode $_semicolon;
+  private Node $_await_keyword;
+  private Node $_using_keyword;
+  private Node $_expression;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $await_keyword,
-    EditableNode $using_keyword,
-    EditableNode $expression,
-    EditableNode $semicolon,
+    Node $await_keyword,
+    Node $using_keyword,
+    Node $expression,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_await_keyword = $await_keyword;
@@ -40,28 +38,28 @@ final class UsingStatementFunctionScoped
     string $source,
   ): this {
     $offset = $initial_offset;
-    $await_keyword = EditableNode::fromJSON(
+    $await_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_function_await_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $await_keyword->getWidth();
-    $using_keyword = EditableNode::fromJSON(
+    $using_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_function_using_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $using_keyword->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_function_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_function_semicolon'],
       $file,
       $offset,
@@ -84,7 +82,7 @@ final class UsingStatementFunctionScoped
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'await_keyword' => $this->_await_keyword,
       'using_keyword' => $this->_using_keyword,
@@ -96,7 +94,7 @@ final class UsingStatementFunctionScoped
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $await_keyword = $rewriter($this->_await_keyword, $parents);
@@ -114,11 +112,11 @@ final class UsingStatementFunctionScoped
     return new static($await_keyword, $using_keyword, $expression, $semicolon);
   }
 
-  public function getAwaitKeywordUNTYPED(): EditableNode {
+  public function getAwaitKeywordUNTYPED(): Node {
     return $this->_await_keyword;
   }
 
-  public function withAwaitKeyword(EditableNode $value): this {
+  public function withAwaitKeyword(Node $value): this {
     if ($value === $this->_await_keyword) {
       return $this;
     }
@@ -151,11 +149,11 @@ final class UsingStatementFunctionScoped
     return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
-  public function getUsingKeywordUNTYPED(): EditableNode {
+  public function getUsingKeywordUNTYPED(): Node {
     return $this->_using_keyword;
   }
 
-  public function withUsingKeyword(EditableNode $value): this {
+  public function withUsingKeyword(Node $value): this {
     if ($value === $this->_using_keyword) {
       return $this;
     }
@@ -185,11 +183,11 @@ final class UsingStatementFunctionScoped
     return $this->getUsingKeyword();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -222,11 +220,11 @@ final class UsingStatementFunctionScoped
     return $this->getExpression();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

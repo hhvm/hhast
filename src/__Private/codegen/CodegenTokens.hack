@@ -36,12 +36,12 @@ final class CodegenTokens extends CodegenBase {
     $leading_trailing = vec[
       shape(
         'name' => 'leading',
-        'type' => 'EditableNode',
+        'type' => 'Node',
         'override' => true,
       ),
       shape(
         'name' => 'trailing',
-        'type' => 'EditableNode',
+        'type' => 'Node',
         'override' => true,
       ),
     ];
@@ -144,14 +144,14 @@ final class CodegenTokens extends CodegenBase {
 
   public function generateExtends(self::TTokenSpec $token): string {
 
-    $cls = 'EditableTokenWithFixedText';
+    $cls = 'TokenWithFixedText';
     $text = $token['text'];
     if ($text !== null && (Str\uppercase($text) !== Str\lowercase($text))) {
-      $cls = 'EditableTokenWithVariableText';
+      $cls = 'TokenWithVariableText';
     } else {
       foreach ($token['fields'] as $field) {
         if ($field['name'] === 'text') {
-          $cls = 'EditableTokenWithVariableText';
+          $cls = 'TokenWithVariableText';
         }
       }
     }
@@ -239,7 +239,7 @@ final class CodegenTokens extends CodegenBase {
     return $cg->codegenMethod('rewriteChildren')
       ->setIsOverride()
       ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('vec<EditableNode> $parents = vec[]')
+      ->addParameter('vec<Node> $parents = vec[]')
       ->setReturnType('this')
       ->setBody(
         $cg->codegenHackBuilder()

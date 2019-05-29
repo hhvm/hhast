@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface IStatement {
-  require extends EditableNode;
+  require extends Node;
 }

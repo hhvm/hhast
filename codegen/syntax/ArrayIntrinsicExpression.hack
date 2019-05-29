@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9de83f09525892c2e49cd3041376fa64>>
+ * @generated SignedSource<<72164c6d7f786283e317085c1b029ded>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ArrayIntrinsicExpression
-  extends EditableNode
+  extends Node
   implements IPHPArray, IContainer, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'array_intrinsic_expression';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_members;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_members;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $members,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $members,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +40,28 @@ final class ArrayIntrinsicExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_intrinsic_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_intrinsic_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $members = EditableNode::fromJSON(
+    $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_intrinsic_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_intrinsic_right_paren'],
       $file,
       $offset,
@@ -84,7 +84,7 @@ final class ArrayIntrinsicExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -96,7 +96,7 @@ final class ArrayIntrinsicExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -114,11 +114,11 @@ final class ArrayIntrinsicExpression
     return new static($keyword, $left_paren, $members, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -148,11 +148,11 @@ final class ArrayIntrinsicExpression
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -182,11 +182,11 @@ final class ArrayIntrinsicExpression
     return $this->getLeftParen();
   }
 
-  public function getMembersUNTYPED(): EditableNode {
+  public function getMembersUNTYPED(): Node {
     return $this->_members;
   }
 
-  public function withMembers(EditableNode $value): this {
+  public function withMembers(Node $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -203,55 +203,49 @@ final class ArrayIntrinsicExpression
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
-   * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
-   * | EditableList<IHasOperator> | EditableList<CastExpression> |
-   * EditableList<CollectionLiteralExpression> |
-   * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
-   * EditableList<IFunctionCallishExpression> | EditableList<LiteralExpression>
-   * | EditableList<MemberSelectionExpression> |
-   * EditableList<ObjectCreationExpression> |
-   * EditableList<PrefixUnaryExpression> | EditableList<QualifiedName> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VectorIntrinsicExpression> | null
+   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
+   * NodeList<ArrayCreationExpression> | NodeList<ArrayIntrinsicExpression> |
+   * NodeList<Node> | NodeList<AwaitableCreationExpression> |
+   * NodeList<BinaryExpression> | NodeList<IHasOperator> |
+   * NodeList<CastExpression> | NodeList<CollectionLiteralExpression> |
+   * NodeList<ElementInitializer> | NodeList<FunctionCallExpression> |
+   * NodeList<IFunctionCallishExpression> | NodeList<LiteralExpression> |
+   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
+   * NodeList<PrefixUnaryExpression> | NodeList<QualifiedName> |
+   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
+   * NodeList<NameToken> | NodeList<TupleExpression> |
+   * NodeList<VariableExpression> | NodeList<VectorIntrinsicExpression> | null
    */
-  public function getMembers(): ?EditableList<EditableNode> {
+  public function getMembers(): ?NodeList<Node> {
     if ($this->_members->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(NodeList::class, $this->_members);
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<EditableNode> |
-   * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
-   * | EditableList<IHasOperator> | EditableList<CastExpression> |
-   * EditableList<CollectionLiteralExpression> |
-   * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
-   * EditableList<IFunctionCallishExpression> | EditableList<LiteralExpression>
-   * | EditableList<MemberSelectionExpression> |
-   * EditableList<ObjectCreationExpression> |
-   * EditableList<PrefixUnaryExpression> | EditableList<QualifiedName> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VectorIntrinsicExpression>
+   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
+   * NodeList<ArrayCreationExpression> | NodeList<ArrayIntrinsicExpression> |
+   * NodeList<Node> | NodeList<AwaitableCreationExpression> |
+   * NodeList<BinaryExpression> | NodeList<IHasOperator> |
+   * NodeList<CastExpression> | NodeList<CollectionLiteralExpression> |
+   * NodeList<ElementInitializer> | NodeList<FunctionCallExpression> |
+   * NodeList<IFunctionCallishExpression> | NodeList<LiteralExpression> |
+   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
+   * NodeList<PrefixUnaryExpression> | NodeList<QualifiedName> |
+   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
+   * NodeList<NameToken> | NodeList<TupleExpression> |
+   * NodeList<VariableExpression> | NodeList<VectorIntrinsicExpression>
    */
-  public function getMembersx(): EditableList<EditableNode> {
+  public function getMembersx(): NodeList<Node> {
     return TypeAssert\not_null($this->getMembers());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

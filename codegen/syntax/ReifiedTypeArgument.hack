@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9882234588f1c66efb8f901aa86368f3>>
+ * @generated SignedSource<<9d037bec2fb23a34155b942781023081>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
+final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'reified_type_argument';
 
-  private EditableNode $_reified;
-  private EditableNode $_type;
+  private Node $_reified;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $reified,
-    EditableNode $type,
+    Node $reified,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_reified = $reified;
@@ -32,14 +32,14 @@ final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $reified = EditableNode::fromJSON(
+    $reified = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['reified_type_argument_reified'],
       $file,
       $offset,
       $source,
     );
     $offset += $reified->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['reified_type_argument_type'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'reified' => $this->_reified,
       'type' => $this->_type,
@@ -66,7 +66,7 @@ final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $reified = $rewriter($this->_reified, $parents);
@@ -77,11 +77,11 @@ final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
     return new static($reified, $type);
   }
 
-  public function getReifiedUNTYPED(): EditableNode {
+  public function getReifiedUNTYPED(): Node {
     return $this->_reified;
   }
 
-  public function withReified(EditableNode $value): this {
+  public function withReified(Node $value): this {
     if ($value === $this->_reified) {
       return $this;
     }
@@ -95,22 +95,22 @@ final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
   /**
    * @return
    */
-  public function getReified(): EditableNode {
+  public function getReified(): Node {
     return $this->_reified;
   }
 
   /**
    * @return
    */
-  public function getReifiedx(): EditableNode {
+  public function getReifiedx(): Node {
     return $this->getReified();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -124,14 +124,14 @@ final class ReifiedTypeArgument extends EditableNode implements ITypeSpecifier {
   /**
    * @return
    */
-  public function getType(): EditableNode {
+  public function getType(): Node {
     return $this->_type;
   }
 
   /**
    * @return
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): Node {
     return $this->getType();
   }
 }

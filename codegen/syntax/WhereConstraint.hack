@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<761294bf74578e8b236d82d1474badee>>
+ * @generated SignedSource<<99def36e8ae63ccf064801fa238d317a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class WhereConstraint extends EditableNode {
+final class WhereConstraint extends Node {
 
   const string SYNTAX_KIND = 'where_constraint';
 
-  private EditableNode $_left_type;
-  private EditableNode $_operator;
-  private EditableNode $_right_type;
+  private Node $_left_type;
+  private Node $_operator;
+  private Node $_right_type;
 
   public function __construct(
-    EditableNode $left_type,
-    EditableNode $operator,
-    EditableNode $right_type,
+    Node $left_type,
+    Node $operator,
+    Node $right_type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_type = $left_type;
@@ -35,21 +35,21 @@ final class WhereConstraint extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_type = EditableNode::fromJSON(
+    $left_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['where_constraint_left_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_type->getWidth();
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['where_constraint_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
-    $right_type = EditableNode::fromJSON(
+    $right_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['where_constraint_right_type'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class WhereConstraint extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_type' => $this->_left_type,
       'operator' => $this->_operator,
@@ -77,7 +77,7 @@ final class WhereConstraint extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_type = $rewriter($this->_left_type, $parents);
@@ -93,11 +93,11 @@ final class WhereConstraint extends EditableNode {
     return new static($left_type, $operator, $right_type);
   }
 
-  public function getLeftTypeUNTYPED(): EditableNode {
+  public function getLeftTypeUNTYPED(): Node {
     return $this->_left_type;
   }
 
-  public function withLeftType(EditableNode $value): this {
+  public function withLeftType(Node $value): this {
     if ($value === $this->_left_type) {
       return $this;
     }
@@ -124,11 +124,11 @@ final class WhereConstraint extends EditableNode {
     return $this->getLeftType();
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -142,22 +142,22 @@ final class WhereConstraint extends EditableNode {
   /**
    * @return EqualToken | AsToken | SuperToken
    */
-  public function getOperator(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_operator);
+  public function getOperator(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_operator);
   }
 
   /**
    * @return EqualToken | AsToken | SuperToken
    */
-  public function getOperatorx(): EditableToken {
+  public function getOperatorx(): Token {
     return $this->getOperator();
   }
 
-  public function getRightTypeUNTYPED(): EditableNode {
+  public function getRightTypeUNTYPED(): Node {
     return $this->_right_type;
   }
 
-  public function withRightType(EditableNode $value): this {
+  public function withRightType(Node $value): this {
     if ($value === $this->_right_type) {
       return $this;
     }

@@ -1,20 +1,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48d0bebf6ba2b4ac756f253bc2037b2f>>
+ * @generated SignedSource<<91bc9351db081e6e635dcbd37d89efc0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-abstract class ScriptGeneratedBase extends EditableNode {
+abstract class ScriptGeneratedBase extends Node {
 
   const string SYNTAX_KIND = 'script';
 
-  private EditableNode $_declarations;
+  private Node $_declarations;
 
   public function __construct(
-    EditableNode $declarations,
+    Node $declarations,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_declarations = $declarations;
@@ -29,7 +29,7 @@ abstract class ScriptGeneratedBase extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $declarations = EditableNode::fromJSON(
+    $declarations = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['script_declarations'],
       $file,
       $offset,
@@ -46,7 +46,7 @@ abstract class ScriptGeneratedBase extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'declarations' => $this->_declarations,
     ];
@@ -55,7 +55,7 @@ abstract class ScriptGeneratedBase extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $declarations = $rewriter($this->_declarations, $parents);
@@ -65,11 +65,11 @@ abstract class ScriptGeneratedBase extends EditableNode {
     return new static($declarations);
   }
 
-  public function getDeclarationsUNTYPED(): EditableNode {
+  public function getDeclarationsUNTYPED(): Node {
     return $this->_declarations;
   }
 
-  public function withDeclarations(EditableNode $value): this {
+  public function withDeclarations(Node $value): this {
     if ($value === $this->_declarations) {
       return $this;
     }
@@ -81,16 +81,16 @@ abstract class ScriptGeneratedBase extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getDeclarations(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_declarations);
+  public function getDeclarations(): NodeList<Node> {
+    return TypeAssert\instance_of(NodeList::class, $this->_declarations);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getDeclarationsx(): EditableList<EditableNode> {
+  public function getDeclarationsx(): NodeList<Node> {
     return $this->getDeclarations();
   }
 }

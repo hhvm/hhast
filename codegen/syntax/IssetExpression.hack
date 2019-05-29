@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba1e510c56c9a6334f5a73e6a812acea>>
+ * @generated SignedSource<<628d4e2487359e682ca9def3a24b74e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class IssetExpression
-  extends EditableNode
-  implements ILambdaBody, IExpression {
+final class IssetExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'isset_expression';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_argument_list;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_argument_list;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $argument_list,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $argument_list,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class IssetExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['isset_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['isset_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $argument_list = EditableNode::fromJSON(
+    $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['isset_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['isset_right_paren'],
       $file,
       $offset,
@@ -84,7 +82,7 @@ final class IssetExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -96,7 +94,7 @@ final class IssetExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -114,11 +112,11 @@ final class IssetExpression
     return new static($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -148,11 +146,11 @@ final class IssetExpression
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -182,11 +180,11 @@ final class IssetExpression
     return $this->getLeftParen();
   }
 
-  public function getArgumentListUNTYPED(): EditableNode {
+  public function getArgumentListUNTYPED(): Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableNode $value): this {
+  public function withArgumentList(Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -203,30 +201,30 @@ final class IssetExpression
   }
 
   /**
-   * @return EditableList<FunctionCallExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<IExpression> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<VariableExpression>
+   * @return NodeList<FunctionCallExpression> |
+   * NodeList<MemberSelectionExpression> | NodeList<IExpression> |
+   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
+   * NodeList<VariableExpression>
    */
-  public function getArgumentList(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
+  public function getArgumentList(): NodeList<IExpression> {
+    return TypeAssert\instance_of(NodeList::class, $this->_argument_list);
   }
 
   /**
-   * @return EditableList<FunctionCallExpression> |
-   * EditableList<MemberSelectionExpression> | EditableList<IExpression> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<VariableExpression>
+   * @return NodeList<FunctionCallExpression> |
+   * NodeList<MemberSelectionExpression> | NodeList<IExpression> |
+   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
+   * NodeList<VariableExpression>
    */
-  public function getArgumentListx(): EditableList<IExpression> {
+  public function getArgumentListx(): NodeList<IExpression> {
     return $this->getArgumentList();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f03100aadebb1edcccdc7df186a4d7c3>>
+ * @generated SignedSource<<f5aed472035efba637f3e665d796cedc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DefineExpression
-  extends EditableNode
-  implements ILambdaBody, IExpression {
+final class DefineExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'define_expression';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_argument_list;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_argument_list;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $argument_list,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $argument_list,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class DefineExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['define_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['define_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $argument_list = EditableNode::fromJSON(
+    $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['define_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['define_right_paren'],
       $file,
       $offset,
@@ -84,7 +82,7 @@ final class DefineExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -96,7 +94,7 @@ final class DefineExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -114,11 +112,11 @@ final class DefineExpression
     return new static($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -137,22 +135,22 @@ final class DefineExpression
   /**
    * @return unknown
    */
-  public function getKeyword(): EditableNode {
+  public function getKeyword(): Node {
     return $this->_keyword;
   }
 
   /**
    * @return unknown
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -171,22 +169,22 @@ final class DefineExpression
   /**
    * @return unknown
    */
-  public function getLeftParen(): EditableNode {
+  public function getLeftParen(): Node {
     return $this->_left_paren;
   }
 
   /**
    * @return unknown
    */
-  public function getLeftParenx(): EditableNode {
+  public function getLeftParenx(): Node {
     return $this->getLeftParen();
   }
 
-  public function getArgumentListUNTYPED(): EditableNode {
+  public function getArgumentListUNTYPED(): Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableNode $value): this {
+  public function withArgumentList(Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -205,22 +203,22 @@ final class DefineExpression
   /**
    * @return unknown
    */
-  public function getArgumentList(): EditableNode {
+  public function getArgumentList(): Node {
     return $this->_argument_list;
   }
 
   /**
    * @return unknown
    */
-  public function getArgumentListx(): EditableNode {
+  public function getArgumentListx(): Node {
     return $this->getArgumentList();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -239,14 +237,14 @@ final class DefineExpression
   /**
    * @return unknown
    */
-  public function getRightParen(): EditableNode {
+  public function getRightParen(): Node {
     return $this->_right_paren;
   }
 
   /**
    * @return unknown
    */
-  public function getRightParenx(): EditableNode {
+  public function getRightParenx(): Node {
     return $this->getRightParen();
   }
 }

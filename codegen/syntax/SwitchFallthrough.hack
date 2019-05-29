@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c092188386da0502acc39b95af8d8d1>>
+ * @generated SignedSource<<50ed2393fb424aca88b542d79ef9b2aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class SwitchFallthrough extends EditableNode implements IStatement {
+final class SwitchFallthrough extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'switch_fallthrough';
 
-  private EditableNode $_keyword;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -32,14 +32,14 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['fallthrough_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['fallthrough_semicolon'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'semicolon' => $this->_semicolon,
@@ -66,7 +66,7 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -77,11 +77,11 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
     return new static($keyword, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -95,7 +95,7 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
   /**
    * @return null
    */
-  public function getKeyword(): ?EditableNode {
+  public function getKeyword(): ?Node {
     if ($this->_keyword->isMissing()) {
       return null;
     }
@@ -105,15 +105,15 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
   /**
    * @return
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): Node {
     return TypeAssert\not_null($this->getKeyword());
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -127,7 +127,7 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
   /**
    * @return null
    */
-  public function getSemicolon(): ?EditableNode {
+  public function getSemicolon(): ?Node {
     if ($this->_semicolon->isMissing()) {
       return null;
     }
@@ -137,7 +137,7 @@ final class SwitchFallthrough extends EditableNode implements IStatement {
   /**
    * @return
    */
-  public function getSemicolonx(): EditableNode {
+  public function getSemicolonx(): Node {
     return TypeAssert\not_null($this->getSemicolon());
   }
 }

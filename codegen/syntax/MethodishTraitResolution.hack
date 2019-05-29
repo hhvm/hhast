@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48771ad837f9a28f1bcab120998962cd>>
+ * @generated SignedSource<<d7119b0af909d245db89424c5315c040>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class MethodishTraitResolution
-  extends EditableNode
+  extends Node
   implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'methodish_trait_resolution';
 
-  private EditableNode $_attribute;
-  private EditableNode $_function_decl_header;
-  private EditableNode $_equal;
-  private EditableNode $_name;
-  private EditableNode $_semicolon;
+  private Node $_attribute;
+  private Node $_function_decl_header;
+  private Node $_equal;
+  private Node $_name;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $attribute,
-    EditableNode $function_decl_header,
-    EditableNode $equal,
-    EditableNode $name,
-    EditableNode $semicolon,
+    Node $attribute,
+    Node $function_decl_header,
+    Node $equal,
+    Node $name,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute = $attribute;
@@ -43,35 +43,35 @@ final class MethodishTraitResolution
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute = EditableNode::fromJSON(
+    $attribute = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_trait_attribute'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute->getWidth();
-    $function_decl_header = EditableNode::fromJSON(
+    $function_decl_header = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_trait_function_decl_header'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_decl_header->getWidth();
-    $equal = EditableNode::fromJSON(
+    $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_trait_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_trait_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_trait_semicolon'],
       $file,
       $offset,
@@ -95,7 +95,7 @@ final class MethodishTraitResolution
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute' => $this->_attribute,
       'function_decl_header' => $this->_function_decl_header,
@@ -108,7 +108,7 @@ final class MethodishTraitResolution
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute = $rewriter($this->_attribute, $parents);
@@ -134,11 +134,11 @@ final class MethodishTraitResolution
     );
   }
 
-  public function getAttributeUNTYPED(): EditableNode {
+  public function getAttributeUNTYPED(): Node {
     return $this->_attribute;
   }
 
-  public function withAttribute(EditableNode $value): this {
+  public function withAttribute(Node $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -158,7 +158,7 @@ final class MethodishTraitResolution
   /**
    * @return null
    */
-  public function getAttribute(): ?EditableNode {
+  public function getAttribute(): ?Node {
     if ($this->_attribute->isMissing()) {
       return null;
     }
@@ -168,15 +168,15 @@ final class MethodishTraitResolution
   /**
    * @return
    */
-  public function getAttributex(): EditableNode {
+  public function getAttributex(): Node {
     return TypeAssert\not_null($this->getAttribute());
   }
 
-  public function getFunctionDeclHeaderUNTYPED(): EditableNode {
+  public function getFunctionDeclHeaderUNTYPED(): Node {
     return $this->_function_decl_header;
   }
 
-  public function withFunctionDeclHeader(EditableNode $value): this {
+  public function withFunctionDeclHeader(Node $value): this {
     if ($value === $this->_function_decl_header) {
       return $this;
     }
@@ -210,11 +210,11 @@ final class MethodishTraitResolution
     return $this->getFunctionDeclHeader();
   }
 
-  public function getEqualUNTYPED(): EditableNode {
+  public function getEqualUNTYPED(): Node {
     return $this->_equal;
   }
 
-  public function withEqual(EditableNode $value): this {
+  public function withEqual(Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -245,11 +245,11 @@ final class MethodishTraitResolution
     return $this->getEqual();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -283,11 +283,11 @@ final class MethodishTraitResolution
     return $this->getName();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

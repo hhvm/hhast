@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f1e2ffe54f23e3555ab165584a8f513>>
+ * @generated SignedSource<<06ef11a98059ad040802692c737b2846>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class WhereClause extends EditableNode {
+final class WhereClause extends Node {
 
   const string SYNTAX_KIND = 'where_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_constraints;
+  private Node $_keyword;
+  private Node $_constraints;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $constraints,
+    Node $keyword,
+    Node $constraints,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -32,14 +32,14 @@ final class WhereClause extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['where_clause_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $constraints = EditableNode::fromJSON(
+    $constraints = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['where_clause_constraints'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class WhereClause extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'constraints' => $this->_constraints,
@@ -66,7 +66,7 @@ final class WhereClause extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -77,11 +77,11 @@ final class WhereClause extends EditableNode {
     return new static($keyword, $constraints);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class WhereClause extends EditableNode {
     return $this->getKeyword();
   }
 
-  public function getConstraintsUNTYPED(): EditableNode {
+  public function getConstraintsUNTYPED(): Node {
     return $this->_constraints;
   }
 
-  public function withConstraints(EditableNode $value): this {
+  public function withConstraints(Node $value): this {
     if ($value === $this->_constraints) {
       return $this;
     }
@@ -122,16 +122,16 @@ final class WhereClause extends EditableNode {
   }
 
   /**
-   * @return EditableList<WhereConstraint>
+   * @return NodeList<WhereConstraint>
    */
-  public function getConstraints(): EditableList<WhereConstraint> {
-    return TypeAssert\instance_of(EditableList::class, $this->_constraints);
+  public function getConstraints(): NodeList<WhereConstraint> {
+    return TypeAssert\instance_of(NodeList::class, $this->_constraints);
   }
 
   /**
-   * @return EditableList<WhereConstraint>
+   * @return NodeList<WhereConstraint>
    */
-  public function getConstraintsx(): EditableList<WhereConstraint> {
+  public function getConstraintsx(): NodeList<WhereConstraint> {
     return $this->getConstraints();
   }
 }

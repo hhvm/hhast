@@ -10,8 +10,8 @@
 namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
-  EditableList,
-  EditableNode,
+  NodeList,
+  Node,
   NamespaceGroupUseDeclaration,
   NamespaceToken,
   NamespaceUseClause,
@@ -21,7 +21,7 @@ use type Facebook\HHAST\{
 use namespace HH\Lib\{C, Str};
 
 function get_uses_directly_in_scope(
-  EditableList<EditableNode> $scope,
+  NodeList<Node> $scope,
 ): shape(
   'namespaces' => dict<string, string>,
   'types' => dict<string, string>,

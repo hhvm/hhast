@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d37acc76db723d4ead32fba276a82b58>>
+ * @generated SignedSource<<976c9e9047bea667bcfda25ef00d9d9d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NamespaceUseClause extends EditableNode {
+final class NamespaceUseClause extends Node {
 
   const string SYNTAX_KIND = 'namespace_use_clause';
 
-  private EditableNode $_clause_kind;
-  private EditableNode $_name;
-  private EditableNode $_as;
-  private EditableNode $_alias;
+  private Node $_clause_kind;
+  private Node $_name;
+  private Node $_as;
+  private Node $_alias;
 
   public function __construct(
-    EditableNode $clause_kind,
-    EditableNode $name,
-    EditableNode $as,
-    EditableNode $alias,
+    Node $clause_kind,
+    Node $name,
+    Node $as,
+    Node $alias,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_clause_kind = $clause_kind;
@@ -38,28 +38,28 @@ final class NamespaceUseClause extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $clause_kind = EditableNode::fromJSON(
+    $clause_kind = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_clause_kind'],
       $file,
       $offset,
       $source,
     );
     $offset += $clause_kind->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $as = EditableNode::fromJSON(
+    $as = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_as'],
       $file,
       $offset,
       $source,
     );
     $offset += $as->getWidth();
-    $alias = EditableNode::fromJSON(
+    $alias = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_alias'],
       $file,
       $offset,
@@ -76,7 +76,7 @@ final class NamespaceUseClause extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'clause_kind' => $this->_clause_kind,
       'name' => $this->_name,
@@ -88,7 +88,7 @@ final class NamespaceUseClause extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $clause_kind = $rewriter($this->_clause_kind, $parents);
@@ -106,11 +106,11 @@ final class NamespaceUseClause extends EditableNode {
     return new static($clause_kind, $name, $as, $alias);
   }
 
-  public function getClauseKindUNTYPED(): EditableNode {
+  public function getClauseKindUNTYPED(): Node {
     return $this->_clause_kind;
   }
 
-  public function withClauseKind(EditableNode $value): this {
+  public function withClauseKind(Node $value): this {
     if ($value === $this->_clause_kind) {
       return $this;
     }
@@ -124,25 +124,25 @@ final class NamespaceUseClause extends EditableNode {
   /**
    * @return null | ConstToken | FunctionToken
    */
-  public function getClauseKind(): ?EditableToken {
+  public function getClauseKind(): ?Token {
     if ($this->_clause_kind->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableToken::class, $this->_clause_kind);
+    return TypeAssert\instance_of(Token::class, $this->_clause_kind);
   }
 
   /**
    * @return ConstToken | FunctionToken
    */
-  public function getClauseKindx(): EditableToken {
+  public function getClauseKindx(): Token {
     return TypeAssert\not_null($this->getClauseKind());
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -167,11 +167,11 @@ final class NamespaceUseClause extends EditableNode {
     return $this->getName();
   }
 
-  public function getAsUNTYPED(): EditableNode {
+  public function getAsUNTYPED(): Node {
     return $this->_as;
   }
 
-  public function withAs(EditableNode $value): this {
+  public function withAs(Node $value): this {
     if ($value === $this->_as) {
       return $this;
     }
@@ -199,11 +199,11 @@ final class NamespaceUseClause extends EditableNode {
     return TypeAssert\not_null($this->getAs());
   }
 
-  public function getAliasUNTYPED(): EditableNode {
+  public function getAliasUNTYPED(): Node {
     return $this->_alias;
   }
 
-  public function withAlias(EditableNode $value): this {
+  public function withAlias(Node $value): this {
     if ($value === $this->_alias) {
       return $this;
     }

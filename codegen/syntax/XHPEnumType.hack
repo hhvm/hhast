@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43e0a7c97994dad03c56e2878cacb0c7>>
+ * @generated SignedSource<<eb95839d2506fbef98cd817372ffe1da>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPEnumType extends EditableNode implements ITypeSpecifier {
+final class XHPEnumType extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'xhp_enum_type';
 
-  private EditableNode $_optional;
-  private EditableNode $_keyword;
-  private EditableNode $_left_brace;
-  private EditableNode $_values;
-  private EditableNode $_right_brace;
+  private Node $_optional;
+  private Node $_keyword;
+  private Node $_left_brace;
+  private Node $_values;
+  private Node $_right_brace;
 
   public function __construct(
-    EditableNode $optional,
-    EditableNode $keyword,
-    EditableNode $left_brace,
-    EditableNode $values,
-    EditableNode $right_brace,
+    Node $optional,
+    Node $keyword,
+    Node $left_brace,
+    Node $values,
+    Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_optional = $optional;
@@ -41,35 +41,35 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $optional = EditableNode::fromJSON(
+    $optional = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_optional'],
       $file,
       $offset,
       $source,
     );
     $offset += $optional->getWidth();
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_brace = EditableNode::fromJSON(
+    $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
-    $values = EditableNode::fromJSON(
+    $values = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_values'],
       $file,
       $offset,
       $source,
     );
     $offset += $values->getWidth();
-    $right_brace = EditableNode::fromJSON(
+    $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_right_brace'],
       $file,
       $offset,
@@ -93,7 +93,7 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'optional' => $this->_optional,
       'keyword' => $this->_keyword,
@@ -106,7 +106,7 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $optional = $rewriter($this->_optional, $parents);
@@ -126,11 +126,11 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
     return new static($optional, $keyword, $left_brace, $values, $right_brace);
   }
 
-  public function getOptionalUNTYPED(): EditableNode {
+  public function getOptionalUNTYPED(): Node {
     return $this->_optional;
   }
 
-  public function withOptional(EditableNode $value): this {
+  public function withOptional(Node $value): this {
     if ($value === $this->_optional) {
       return $this;
     }
@@ -150,7 +150,7 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
   /**
    * @return null
    */
-  public function getOptional(): ?EditableNode {
+  public function getOptional(): ?Node {
     if ($this->_optional->isMissing()) {
       return null;
     }
@@ -160,15 +160,15 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
   /**
    * @return
    */
-  public function getOptionalx(): EditableNode {
+  public function getOptionalx(): Node {
     return TypeAssert\not_null($this->getOptional());
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -199,11 +199,11 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
+  public function getLeftBraceUNTYPED(): Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
+  public function withLeftBrace(Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -234,11 +234,11 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
     return $this->getLeftBrace();
   }
 
-  public function getValuesUNTYPED(): EditableNode {
+  public function getValuesUNTYPED(): Node {
     return $this->_values;
   }
 
-  public function withValues(EditableNode $value): this {
+  public function withValues(Node $value): this {
     if ($value === $this->_values) {
       return $this;
     }
@@ -256,24 +256,24 @@ final class XHPEnumType extends EditableNode implements ITypeSpecifier {
   }
 
   /**
-   * @return EditableList<LiteralExpression>
+   * @return NodeList<LiteralExpression>
    */
-  public function getValues(): EditableList<LiteralExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_values);
+  public function getValues(): NodeList<LiteralExpression> {
+    return TypeAssert\instance_of(NodeList::class, $this->_values);
   }
 
   /**
-   * @return EditableList<LiteralExpression>
+   * @return NodeList<LiteralExpression>
    */
-  public function getValuesx(): EditableList<LiteralExpression> {
+  public function getValuesx(): NodeList<LiteralExpression> {
     return $this->getValues();
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
+  public function getRightBraceUNTYPED(): Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableNode $value): this {
+  public function withRightBrace(Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

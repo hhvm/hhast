@@ -11,16 +11,16 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Vec};
 
-final class EditableList<+Titem as ?EditableNode> extends EditableNode {
+final class NodeList<+Titem as ?Node> extends Node {
   const string SYNTAX_KIND = 'list';
   /**
-   * Use `EditableList::createMaybeEmptyList()` or
-   * `EditableList::createNonEmptyListOrMissing()` instead to be explicit
+   * Use `NodeList::createMaybeEmptyList()` or
+   * `NodeList::createNonEmptyListOrMissing()` instead to be explicit
    * about desired behavior.
    */
   <<__Override>>
   public function __construct(
-    private vec<EditableNode> $_children,
+    private vec<Node> $_children,
     ?__Private\SourceRef $ref = null,
   ) {
     parent::__construct($ref);
@@ -32,12 +32,12 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   }
 
   <<__Override>>
-  public function toVec(): vec<EditableNode> {
+  public function toVec(): vec<Node> {
     return $this->_children;
   }
 
   <<__Override>>
-  public function getChildren(): vec<EditableNode> {
+  public function getChildren(): vec<Node> {
     return $this->_children;
   }
 
@@ -58,7 +58,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
     );
   }
 
-  final public function getItemsOfType<T as EditableNode>(
+  final public function getItemsOfType<T as Node>(
     classname<T> $what,
   ): vec<T> {
     $out = vec[];
@@ -71,13 +71,13 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   }
 
   <<__Deprecated("Use createNonEmptyListOrMissing() instead")>>
-  public static function fromItems(vec<EditableNode> $items): EditableNode {
+  public static function fromItems(vec<Node> $items): Node {
     return self::createNonEmptyListOrMissing($items);
   }
 
   public static function createNonEmptyListOrMissing(
-    vec<EditableNode> $items,
-  ): EditableNode {
+    vec<Node> $items,
+  ): Node {
     if (C\count($items) === 0) {
       return Missing();
     } else {
@@ -85,23 +85,23 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
     }
   }
 
-  public static function createMaybeEmptyList<T as EditableNode>(
+  public static function createMaybeEmptyList<T as Node>(
     vec<T> $items,
-  ): EditableList<T> {
+  ): NodeList<T> {
     return new self($items);
   }
 
   public static function concat(
-    EditableNode $left,
-    EditableNode $right,
-  ): EditableNode {
+    Node $left,
+    Node $right,
+  ): Node {
     if ($left->isMissing()) {
       return $right;
     }
     if ($right->isMissing()) {
       return $left;
     }
-    return new EditableList(Vec\concat($left->toVec(), $right->toVec()));
+    return new NodeList(Vec\concat($left->toVec(), $right->toVec()));
   }
 
   <<__Override>>
@@ -114,7 +114,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
     $children = vec[];
     $current_position = $offset;
     foreach (/* HH_FIXME[4110] */ $json['elements'] as $element) {
-      $child = EditableNode::fromJSON(
+      $child = Node::fromJSON(
         $element,
         $file,
         $current_position,
@@ -123,7 +123,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
       $children[] = $child;
       $current_position += $child->getWidth();
     }
-    return new EditableList($children, shape(
+    return new NodeList($children, shape(
       'file' => $file,
       'source' => $source,
       'offset' => $offset,
@@ -134,7 +134,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $old_children = $this->_children;
@@ -148,7 +148,7 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
       if ($new->isMissing()) {
         continue;
       }
-      if ($new instanceof EditableList) {
+      if ($new instanceof NodeList) {
         $new_children = Vec\concat($new_children, $new->getChildren());
         continue;
       }
@@ -159,11 +159,11 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
       return $this;
     }
 
-    return new EditableList($new_children);
+    return new NodeList($new_children);
   }
 
   <<__Override>>
-  protected function replaceImpl(int $old_id, EditableNode $new): this {
+  protected function replaceImpl(int $old_id, Node $new): this {
     $children = $this->_children;
     foreach ($children as $idx => $child) {
       if ($child->getUniqueID() === $old_id) {
@@ -182,8 +182,8 @@ final class EditableList<+Titem as ?EditableNode> extends EditableNode {
   <<__Override>>
   public function rewrite(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
-  ): EditableNode {
+    vec<Node> $parents = vec[],
+  ): Node {
     $with_rewritten_children = $this->rewriteDescendants($rewriter, $parents);
     if (C\is_empty($with_rewritten_children->_children)) {
       $node = Missing();

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f546f9237a8905590ffc5e5aed575c7>>
+ * @generated SignedSource<<ff65601fe17edc0fa3b1d6c449efdad3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class YieldFromExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'yield_from_expression';
 
-  private EditableNode $_yield_keyword;
-  private EditableNode $_from_keyword;
-  private EditableNode $_operand;
+  private Node $_yield_keyword;
+  private Node $_from_keyword;
+  private Node $_operand;
 
   public function __construct(
-    EditableNode $yield_keyword,
-    EditableNode $from_keyword,
-    EditableNode $operand,
+    Node $yield_keyword,
+    Node $from_keyword,
+    Node $operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_yield_keyword = $yield_keyword;
@@ -37,21 +37,21 @@ final class YieldFromExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $yield_keyword = EditableNode::fromJSON(
+    $yield_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['yield_from_yield_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $yield_keyword->getWidth();
-    $from_keyword = EditableNode::fromJSON(
+    $from_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['yield_from_from_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $from_keyword->getWidth();
-    $operand = EditableNode::fromJSON(
+    $operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['yield_from_operand'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class YieldFromExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'yield_keyword' => $this->_yield_keyword,
       'from_keyword' => $this->_from_keyword,
@@ -79,7 +79,7 @@ final class YieldFromExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $yield_keyword = $rewriter($this->_yield_keyword, $parents);
@@ -95,11 +95,11 @@ final class YieldFromExpression
     return new static($yield_keyword, $from_keyword, $operand);
   }
 
-  public function getYieldKeywordUNTYPED(): EditableNode {
+  public function getYieldKeywordUNTYPED(): Node {
     return $this->_yield_keyword;
   }
 
-  public function withYieldKeyword(EditableNode $value): this {
+  public function withYieldKeyword(Node $value): this {
     if ($value === $this->_yield_keyword) {
       return $this;
     }
@@ -124,11 +124,11 @@ final class YieldFromExpression
     return $this->getYieldKeyword();
   }
 
-  public function getFromKeywordUNTYPED(): EditableNode {
+  public function getFromKeywordUNTYPED(): Node {
     return $this->_from_keyword;
   }
 
-  public function withFromKeyword(EditableNode $value): this {
+  public function withFromKeyword(Node $value): this {
     if ($value === $this->_from_keyword) {
       return $this;
     }
@@ -153,11 +153,11 @@ final class YieldFromExpression
     return $this->getFromKeyword();
   }
 
-  public function getOperandUNTYPED(): EditableNode {
+  public function getOperandUNTYPED(): Node {
     return $this->_operand;
   }
 
-  public function withOperand(EditableNode $value): this {
+  public function withOperand(Node $value): this {
     if ($value === $this->_operand) {
       return $this;
     }

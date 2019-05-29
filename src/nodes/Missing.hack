@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-final class Missing extends EditableNode {
+final class Missing extends Node {
   const string SYNTAX_KIND = 'missing';
   <<__Override>>
   public function __construct() {
@@ -22,7 +22,7 @@ final class Missing extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[];
   }
 
@@ -44,7 +44,7 @@ final class Missing extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $_rewriter,
-    vec<EditableNode> $_parents = vec[],
+    vec<Node> $_parents = vec[],
   ): this {
     return $this;
   }

@@ -12,14 +12,14 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{Dict, Vec, C, Str};
 use namespace Facebook\TypeAssert;
 
-abstract class EditableNode {
+abstract class Node {
   abstract const string SYNTAX_KIND;
   const type TRewriter = (function(
-    EditableNode,
-    ?vec<EditableNode>,
-  ): EditableNode);
+    Node,
+    ?vec<Node>,
+  ): Node);
 
-  protected dict<int, EditableNode> $_descendants = dict[];
+  protected dict<int, Node> $_descendants = dict[];
   protected ?int $_width;
 
   public function __construct(
@@ -53,7 +53,7 @@ abstract class EditableNode {
     return $id;
   }
 
-  final public function isAncestorOf(EditableNode $other): bool {
+  final public function isAncestorOf(Node $other): bool {
     return C\contains_key($this->_descendants, $other->getUniqueID());
   }
 
@@ -61,15 +61,15 @@ abstract class EditableNode {
     return static::SYNTAX_KIND;
   }
 
-  public abstract function getChildren(): KeyedContainer<arraykey, EditableNode>;
+  public abstract function getChildren(): KeyedContainer<arraykey, Node>;
 
   final public function getChildrenWhere(
-    (function(EditableNode): bool) $filter,
-  ): KeyedContainer<arraykey, EditableNode> {
+    (function(Node): bool) $filter,
+  ): KeyedContainer<arraykey, Node> {
     return Dict\filter($this->getChildren(), $child ==> $filter($child));
   }
 
-  final public function getChildrenOfType<T as EditableNode>(
+  final public function getChildrenOfType<T as Node>(
     classname<T> $what,
   ): KeyedContainer<arraykey, T> {
     $out = dict[];
@@ -81,7 +81,7 @@ abstract class EditableNode {
     return $out;
   }
 
-  final public function traverse(): Container<EditableNode> {
+  final public function traverse(): Container<Node> {
     return $this->_descendants;
   }
 
@@ -137,15 +137,15 @@ abstract class EditableNode {
     string $file,
     int $offset,
     string $source,
-  ): EditableNode {
-    return __Private\editable_node_from_json($json, $file, $offset, $source);
+  ): Node {
+    return __Private\node_from_json($json, $file, $offset, $source);
   }
 
-  public function toVec(): vec<EditableNode> {
+  public function toVec(): vec<Node> {
     return vec[$this];
   }
 
-  final public function getDescendantsOfType<T as EditableNode>(
+  final public function getDescendantsOfType<T as Node>(
     classname<T> $what,
   ): vec<T> {
     $out = vec[];
@@ -158,7 +158,7 @@ abstract class EditableNode {
   }
 
   public function removeWhere(
-    (function(EditableNode, ?vec<EditableNode>): bool) $predicate,
+    (function(Node, ?vec<Node>): bool) $predicate,
   ): this {
     return $this->rewriteDescendants(
       ($node, $parents) ==>
@@ -166,11 +166,11 @@ abstract class EditableNode {
     );
   }
 
-  public function without(EditableNode $target): this {
+  public function without(Node $target): this {
     return $this->replace($target, Missing::getInstance());
   }
 
-  final public function replace(EditableNode $old, EditableNode $new): this {
+  final public function replace(Node $old, Node $new): this {
     if ($old === $new) {
       return $this;
     }
@@ -183,7 +183,7 @@ abstract class EditableNode {
 
   protected function replaceImpl(
     int $old_id,
-    EditableNode $new,
+    Node $new,
   ): this {
     return $this->rewriteChildren(
       ($child, $_) ==> {
@@ -198,11 +198,11 @@ abstract class EditableNode {
     );
   }
 
-  public function getFirstTokenx(): EditableToken {
+  public function getFirstTokenx(): Token {
     return TypeAssert\not_null($this->getFirstToken());
   }
 
-  public function getFirstToken(): ?EditableToken {
+  public function getFirstToken(): ?Token {
     foreach ($this->getChildren() as $child) {
       if (!$child->isMissing()) {
         return $child->getFirstToken();
@@ -211,11 +211,11 @@ abstract class EditableNode {
     return null;
   }
 
-  public function getLastTokenx(): EditableToken {
+  public function getLastTokenx(): Token {
     return TypeAssert\not_null($this->getLastToken());
   }
 
-  public function getLastToken(): ?EditableToken {
+  public function getLastToken(): ?Token {
     foreach (Vec\reverse($this->getChildren()) as $child) {
       if (!$child->isMissing()) {
         return $child->getLastToken();
@@ -225,8 +225,8 @@ abstract class EditableNode {
   }
 
   public function insertBefore(
-    EditableNode $target,
-    EditableNode $new_node,
+    Node $target,
+    Node $new_node,
   ): this {
     // Inserting before missing is an error.
     if ($target->isMissing()) {
@@ -243,21 +243,21 @@ abstract class EditableNode {
       if ($token === null) {
         throw new \Exception('Unable to find token to insert trivia.');
       }
-      $token = TypeAssert\instance_of(EditableToken::class, $token);
+      $token = TypeAssert\instance_of(Token::class, $token);
 
       // Inserting trivia before token is inserting to the right end of
       // the leading trivia.
-      $new_leading = EditableList::concat($token->getLeading(), $new_node);
+      $new_leading = NodeList::concat($token->getLeading(), $new_node);
       $new_token = $token->withLeading($new_leading);
       return $this->replace($token, $new_token);
     }
 
-    return $this->replace($target, EditableList::concat($new_node, $target));
+    return $this->replace($target, NodeList::concat($new_node, $target));
   }
 
   public function insertAfter(
-    EditableNode $target,
-    EditableNode $new_node,
+    Node $target,
+    Node $new_node,
   ): this {
 
     // Inserting after missing is an error.
@@ -276,21 +276,21 @@ abstract class EditableNode {
         throw new \Exception('Unable to find token to insert trivia.');
       }
 
-      $token = TypeAssert\instance_of(EditableToken::class, $token);
+      $token = TypeAssert\instance_of(Token::class, $token);
 
       // Inserting trivia after token is inserting to the left end of
       // the trailing trivia.
-      $new_trailing = EditableList::concat($new_node, $token->getTrailing());
+      $new_trailing = NodeList::concat($new_node, $token->getTrailing());
       $new_token = $token->withTrailing($new_trailing);
       return $this->replace($token, $new_token);
     }
 
-    return $this->replace($target, EditableList::concat($target, $new_node));
+    return $this->replace($target, NodeList::concat($target, $new_node));
   }
 
   final public function rewriteDescendants(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     return $this->rewriteChildren(
       ($c, $p) ==> $c->rewrite($rewriter, $p ?? vec[]),
@@ -300,20 +300,20 @@ abstract class EditableNode {
 
   abstract public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this;
 
   public function rewrite(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
-  ): EditableNode {
+    vec<Node> $parents = vec[],
+  ): Node {
     $with_rewritten_children = $this->rewriteDescendants($rewriter, $parents);
     return $rewriter($with_rewritten_children, $parents);
   }
 
   final public function getAncestorsOfDescendant(
-    EditableNode $node,
-  ): vec<EditableNode> {
+    Node $node,
+  ): vec<Node> {
     if ($node === $this) {
       return vec[$this];
     }
@@ -333,9 +333,9 @@ abstract class EditableNode {
   }
 
   final public function getFirstAncestorOfDescendantWhere(
-    EditableNode $node,
-    (function(EditableNode): bool) $predicate,
-  ): ?EditableNode {
+    Node $node,
+    (function(Node): bool) $predicate,
+  ): ?Node {
     if ($predicate($this)) {
       return $this;
     }

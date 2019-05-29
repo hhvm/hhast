@@ -11,9 +11,9 @@ namespace Facebook\HHAST;
 
 
 function find_node_at_offset(
-  EditableNode $root,
+  Node $root,
   int $offset,
-): EditableNode {
+): Node {
   invariant(
     $offset < $root->getWidth(),
     "Offset is out of bounds",

@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc4a13fad45d7107206a20de36289990>>
+ * @generated SignedSource<<2bb6b9e565151a0444fd43eb65fe0f69>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NamespaceBody extends EditableNode implements INamespaceBody {
+final class NamespaceBody extends Node implements INamespaceBody {
 
   const string SYNTAX_KIND = 'namespace_body';
 
-  private EditableNode $_left_brace;
-  private EditableNode $_declarations;
-  private EditableNode $_right_brace;
+  private Node $_left_brace;
+  private Node $_declarations;
+  private Node $_right_brace;
 
   public function __construct(
-    EditableNode $left_brace,
-    EditableNode $declarations,
-    EditableNode $right_brace,
+    Node $left_brace,
+    Node $declarations,
+    Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_brace = $left_brace;
@@ -35,21 +35,21 @@ final class NamespaceBody extends EditableNode implements INamespaceBody {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_brace = EditableNode::fromJSON(
+    $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
-    $declarations = EditableNode::fromJSON(
+    $declarations = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_declarations'],
       $file,
       $offset,
       $source,
     );
     $offset += $declarations->getWidth();
-    $right_brace = EditableNode::fromJSON(
+    $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_right_brace'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class NamespaceBody extends EditableNode implements INamespaceBody {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_brace' => $this->_left_brace,
       'declarations' => $this->_declarations,
@@ -77,7 +77,7 @@ final class NamespaceBody extends EditableNode implements INamespaceBody {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
@@ -93,11 +93,11 @@ final class NamespaceBody extends EditableNode implements INamespaceBody {
     return new static($left_brace, $declarations, $right_brace);
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
+  public function getLeftBraceUNTYPED(): Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
+  public function withLeftBrace(Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class NamespaceBody extends EditableNode implements INamespaceBody {
     return $this->getLeftBrace();
   }
 
-  public function getDeclarationsUNTYPED(): EditableNode {
+  public function getDeclarationsUNTYPED(): Node {
     return $this->_declarations;
   }
 
-  public function withDeclarations(EditableNode $value): this {
+  public function withDeclarations(Node $value): this {
     if ($value === $this->_declarations) {
       return $this;
     }
@@ -138,27 +138,27 @@ final class NamespaceBody extends EditableNode implements INamespaceBody {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getDeclarations(): ?EditableList<EditableNode> {
+  public function getDeclarations(): ?NodeList<Node> {
     if ($this->_declarations->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_declarations);
+    return TypeAssert\instance_of(NodeList::class, $this->_declarations);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getDeclarationsx(): EditableList<EditableNode> {
+  public function getDeclarationsx(): NodeList<Node> {
     return TypeAssert\not_null($this->getDeclarations());
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
+  public function getRightBraceUNTYPED(): Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableNode $value): this {
+  public function withRightBrace(Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

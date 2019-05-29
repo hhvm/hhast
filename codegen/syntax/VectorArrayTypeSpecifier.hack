@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4682ff81d3c21be4bc6b954949a65a2>>
+ * @generated SignedSource<<d7193af323e485e0f288199b5c68fb5c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class VectorArrayTypeSpecifier
-  extends EditableNode
-  implements ITypeSpecifier {
+final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'vector_array_type_specifier';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_angle;
-  private EditableNode $_type;
-  private EditableNode $_right_angle;
+  private Node $_keyword;
+  private Node $_left_angle;
+  private Node $_type;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_angle,
-    EditableNode $type,
-    EditableNode $right_angle,
+    Node $keyword,
+    Node $left_angle,
+    Node $type,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class VectorArrayTypeSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['vector_array_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['vector_array_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['vector_array_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['vector_array_right_angle'],
       $file,
       $offset,
@@ -78,7 +76,7 @@ final class VectorArrayTypeSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_angle' => $this->_left_angle,
@@ -90,7 +88,7 @@ final class VectorArrayTypeSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -108,11 +106,11 @@ final class VectorArrayTypeSpecifier
     return new static($keyword, $left_angle, $type, $right_angle);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -142,11 +140,11 @@ final class VectorArrayTypeSpecifier
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -176,11 +174,11 @@ final class VectorArrayTypeSpecifier
     return $this->getLeftAngle();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -214,11 +212,11 @@ final class VectorArrayTypeSpecifier
     return $this->getType();
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

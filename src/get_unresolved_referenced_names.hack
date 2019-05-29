@@ -17,7 +17,7 @@ use namespace HH\Lib\C;
  * and `namespace` statements to not affect the return value.
  */
 function get_unresolved_referenced_names(
-  EditableNode $root,
+  Node $root,
 ): shape(
   'namespaces' => keyset<string>,
   'types' => keyset<string>,

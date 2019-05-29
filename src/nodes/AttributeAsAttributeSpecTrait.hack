@@ -11,12 +11,12 @@ namespace Facebook\HHAST;
 
 
 trait AttributeAsAttributeSpecTrait {
-  require extends EditableNode;
+  require extends Node;
 
   abstract public function hasAttribute(): bool;
   abstract public function getAttribute(): ?AttributeSpecification;
   abstract public function getAttributex(): AttributeSpecification;
-  abstract public function getAttributeUNTYPED(): EditableNode;
+  abstract public function getAttributeUNTYPED(): Node;
 
   final public function hasAttributeSpec(): bool {
     return $this->hasAttribute();
@@ -30,7 +30,7 @@ trait AttributeAsAttributeSpecTrait {
     return $this->getAttributex();
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->getAttributeUNTYPED();
   }
 }

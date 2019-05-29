@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface INamespaceBody {
-  require extends EditableNode;
+  require extends Node;
 }

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b36a450f270ea0a915d15e1deb65976a>>
+ * @generated SignedSource<<4f2631604a9eab70d251d0d461961d25>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ScopeResolutionExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'scope_resolution_expression';
 
-  private EditableNode $_qualifier;
-  private EditableNode $_operator;
-  private EditableNode $_name;
+  private Node $_qualifier;
+  private Node $_operator;
+  private Node $_name;
 
   public function __construct(
-    EditableNode $qualifier,
-    EditableNode $operator,
-    EditableNode $name,
+    Node $qualifier,
+    Node $operator,
+    Node $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_qualifier = $qualifier;
@@ -37,21 +37,21 @@ final class ScopeResolutionExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $qualifier = EditableNode::fromJSON(
+    $qualifier = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['scope_resolution_qualifier'],
       $file,
       $offset,
       $source,
     );
     $offset += $qualifier->getWidth();
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['scope_resolution_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['scope_resolution_name'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class ScopeResolutionExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'qualifier' => $this->_qualifier,
       'operator' => $this->_operator,
@@ -79,7 +79,7 @@ final class ScopeResolutionExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $qualifier = $rewriter($this->_qualifier, $parents);
@@ -95,11 +95,11 @@ final class ScopeResolutionExpression
     return new static($qualifier, $operator, $name);
   }
 
-  public function getQualifierUNTYPED(): EditableNode {
+  public function getQualifierUNTYPED(): Node {
     return $this->_qualifier;
   }
 
-  public function withQualifier(EditableNode $value): this {
+  public function withQualifier(Node $value): this {
     if ($value === $this->_qualifier) {
       return $this;
     }
@@ -116,7 +116,7 @@ final class ScopeResolutionExpression
    * ScopeResolutionExpression | SimpleTypeSpecifier | XHPClassNameToken |
    * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */
-  public function getQualifier(): EditableNode {
+  public function getQualifier(): Node {
     return $this->_qualifier;
   }
 
@@ -126,15 +126,15 @@ final class ScopeResolutionExpression
    * ScopeResolutionExpression | SimpleTypeSpecifier | XHPClassNameToken |
    * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */
-  public function getQualifierx(): EditableNode {
+  public function getQualifierx(): Node {
     return $this->getQualifier();
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -159,11 +159,11 @@ final class ScopeResolutionExpression
     return $this->getOperator();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -178,7 +178,7 @@ final class ScopeResolutionExpression
    * @return BracedExpression | ConstructToken | ClassToken | NameToken |
    * VariableToken
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
@@ -186,7 +186,7 @@ final class ScopeResolutionExpression
    * @return BracedExpression | ConstructToken | ClassToken | NameToken |
    * VariableToken
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 }

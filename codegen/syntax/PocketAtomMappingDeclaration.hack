@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d1f0a3d849ce630e4e48358485905d6>>
+ * @generated SignedSource<<ffb36636fff0f95acb5405aa0705004b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class PocketAtomMappingDeclaration extends EditableNode {
+final class PocketAtomMappingDeclaration extends Node {
 
   const string SYNTAX_KIND = 'pocket_atom_mapping_declaration';
 
-  private EditableNode $_glyph;
-  private EditableNode $_name;
-  private EditableNode $_left_paren;
-  private EditableNode $_mappings;
-  private EditableNode $_right_paren;
-  private EditableNode $_semicolon;
+  private Node $_glyph;
+  private Node $_name;
+  private Node $_left_paren;
+  private Node $_mappings;
+  private Node $_right_paren;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $glyph,
-    EditableNode $name,
-    EditableNode $left_paren,
-    EditableNode $mappings,
-    EditableNode $right_paren,
-    EditableNode $semicolon,
+    Node $glyph,
+    Node $name,
+    Node $left_paren,
+    Node $mappings,
+    Node $right_paren,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_glyph = $glyph;
@@ -44,42 +44,42 @@ final class PocketAtomMappingDeclaration extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $glyph = EditableNode::fromJSON(
+    $glyph = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_glyph'],
       $file,
       $offset,
       $source,
     );
     $offset += $glyph->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $mappings = EditableNode::fromJSON(
+    $mappings = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_mappings'],
       $file,
       $offset,
       $source,
     );
     $offset += $mappings->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_semicolon'],
       $file,
       $offset,
@@ -104,7 +104,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'glyph' => $this->_glyph,
       'name' => $this->_name,
@@ -118,7 +118,7 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $glyph = $rewriter($this->_glyph, $parents);
@@ -147,11 +147,11 @@ final class PocketAtomMappingDeclaration extends EditableNode {
     );
   }
 
-  public function getGlyphUNTYPED(): EditableNode {
+  public function getGlyphUNTYPED(): Node {
     return $this->_glyph;
   }
 
-  public function withGlyph(EditableNode $value): this {
+  public function withGlyph(Node $value): this {
     if ($value === $this->_glyph) {
       return $this;
     }
@@ -172,22 +172,22 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getGlyph(): EditableNode {
+  public function getGlyph(): Node {
     return $this->_glyph;
   }
 
   /**
    * @return unknown
    */
-  public function getGlyphx(): EditableNode {
+  public function getGlyphx(): Node {
     return $this->getGlyph();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -208,22 +208,22 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return unknown
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -244,22 +244,22 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getLeftParen(): EditableNode {
+  public function getLeftParen(): Node {
     return $this->_left_paren;
   }
 
   /**
    * @return unknown
    */
-  public function getLeftParenx(): EditableNode {
+  public function getLeftParenx(): Node {
     return $this->getLeftParen();
   }
 
-  public function getMappingsUNTYPED(): EditableNode {
+  public function getMappingsUNTYPED(): Node {
     return $this->_mappings;
   }
 
-  public function withMappings(EditableNode $value): this {
+  public function withMappings(Node $value): this {
     if ($value === $this->_mappings) {
       return $this;
     }
@@ -280,22 +280,22 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getMappings(): EditableNode {
+  public function getMappings(): Node {
     return $this->_mappings;
   }
 
   /**
    * @return unknown
    */
-  public function getMappingsx(): EditableNode {
+  public function getMappingsx(): Node {
     return $this->getMappings();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -316,22 +316,22 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getRightParen(): EditableNode {
+  public function getRightParen(): Node {
     return $this->_right_paren;
   }
 
   /**
    * @return unknown
    */
-  public function getRightParenx(): EditableNode {
+  public function getRightParenx(): Node {
     return $this->getRightParen();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -352,14 +352,14 @@ final class PocketAtomMappingDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getSemicolon(): EditableNode {
+  public function getSemicolon(): Node {
     return $this->_semicolon;
   }
 
   /**
    * @return unknown
    */
-  public function getSemicolonx(): EditableNode {
+  public function getSemicolonx(): Node {
     return $this->getSemicolon();
   }
 }

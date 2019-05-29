@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed0418b7c1faccbedc72f41d5f8e3720>>
+ * @generated SignedSource<<acd76ed3993a7a09751edf326c6d331f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
+final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'tuple_type_specifier';
 
-  private EditableNode $_left_paren;
-  private EditableNode $_types;
-  private EditableNode $_right_paren;
+  private Node $_left_paren;
+  private Node $_types;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $left_paren,
-    EditableNode $types,
-    EditableNode $right_paren,
+    Node $left_paren,
+    Node $types,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -35,21 +35,21 @@ final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $types = EditableNode::fromJSON(
+    $types = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_types'],
       $file,
       $offset,
       $source,
     );
     $offset += $types->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_right_paren'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_paren' => $this->_left_paren,
       'types' => $this->_types,
@@ -77,7 +77,7 @@ final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_paren = $rewriter($this->_left_paren, $parents);
@@ -93,11 +93,11 @@ final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return new static($left_paren, $types, $right_paren);
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getLeftParen();
   }
 
-  public function getTypesUNTYPED(): EditableNode {
+  public function getTypesUNTYPED(): Node {
     return $this->_types;
   }
 
-  public function withTypes(EditableNode $value): this {
+  public function withTypes(Node $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -138,30 +138,30 @@ final class TupleTypeSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   /**
-   * @return EditableList<ITypeSpecifier> | EditableList<GenericTypeSpecifier>
-   * | EditableList<ISimpleCreationSpecifier> |
-   * EditableList<SimpleTypeSpecifier> | EditableList<TupleTypeSpecifier> |
-   * EditableList<VectorArrayTypeSpecifier> | EditableList<VectorTypeSpecifier>
+   * @return NodeList<ITypeSpecifier> | NodeList<GenericTypeSpecifier> |
+   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier> |
+   * NodeList<TupleTypeSpecifier> | NodeList<VectorArrayTypeSpecifier> |
+   * NodeList<VectorTypeSpecifier>
    */
-  public function getTypes(): EditableList<ITypeSpecifier> {
-    return TypeAssert\instance_of(EditableList::class, $this->_types);
+  public function getTypes(): NodeList<ITypeSpecifier> {
+    return TypeAssert\instance_of(NodeList::class, $this->_types);
   }
 
   /**
-   * @return EditableList<ITypeSpecifier> | EditableList<GenericTypeSpecifier>
-   * | EditableList<ISimpleCreationSpecifier> |
-   * EditableList<SimpleTypeSpecifier> | EditableList<TupleTypeSpecifier> |
-   * EditableList<VectorArrayTypeSpecifier> | EditableList<VectorTypeSpecifier>
+   * @return NodeList<ITypeSpecifier> | NodeList<GenericTypeSpecifier> |
+   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier> |
+   * NodeList<TupleTypeSpecifier> | NodeList<VectorArrayTypeSpecifier> |
+   * NodeList<VectorTypeSpecifier>
    */
-  public function getTypesx(): EditableList<ITypeSpecifier> {
+  public function getTypesx(): NodeList<ITypeSpecifier> {
     return $this->getTypes();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

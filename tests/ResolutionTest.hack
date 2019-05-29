@@ -42,7 +42,7 @@ final class ResolutionTest extends TestCase {
       |> Vec\map($$, $class ==> {
         return Resolution\get_current_namespace($ast, $class).
           "\\".
-          ($class->getName() as EditableToken)->getText();
+          ($class->getName() as Token)->getText();
       });
     expect($class_names)->toBeSame(vec[
       "MyNS\\SubNS\\Foo",

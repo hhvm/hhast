@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1106d5d6e9ff88bbef17b340384c09ce>>
+ * @generated SignedSource<<8aa37b8c5132b62f564720cb7b3d53a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ListItem extends EditableNode {
+final class ListItem extends Node {
 
   const string SYNTAX_KIND = 'list_item';
 
-  private EditableNode $_item;
-  private EditableNode $_separator;
+  private Node $_item;
+  private Node $_separator;
 
   public function __construct(
-    EditableNode $item,
-    EditableNode $separator,
+    Node $item,
+    Node $separator,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_item = $item;
@@ -32,14 +32,14 @@ final class ListItem extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $item = EditableNode::fromJSON(
+    $item = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_item'],
       $file,
       $offset,
       $source,
     );
     $offset += $item->getWidth();
-    $separator = EditableNode::fromJSON(
+    $separator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_separator'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class ListItem extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'item' => $this->_item,
       'separator' => $this->_separator,
@@ -66,7 +66,7 @@ final class ListItem extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $item = $rewriter($this->_item, $parents);
@@ -77,11 +77,11 @@ final class ListItem extends EditableNode {
     return new static($item, $separator);
   }
 
-  public function getItemUNTYPED(): EditableNode {
+  public function getItemUNTYPED(): Node {
     return $this->_item;
   }
 
-  public function withItem(EditableNode $value): this {
+  public function withItem(Node $value): this {
     if ($value === $this->_item) {
       return $this;
     }
@@ -120,7 +120,7 @@ final class ListItem extends EditableNode {
    * | WhereConstraint | XHPClassAttribute | XHPExpression |
    * XHPSimpleClassAttribute
    */
-  public function getItem(): ?EditableNode {
+  public function getItem(): ?Node {
     if ($this->_item->isMissing()) {
       return null;
     }
@@ -154,15 +154,15 @@ final class ListItem extends EditableNode {
    * | VectorTypeSpecifier | WhereConstraint | XHPClassAttribute |
    * XHPExpression | XHPSimpleClassAttribute
    */
-  public function getItemx(): EditableNode {
+  public function getItemx(): Node {
     return TypeAssert\not_null($this->getItem());
   }
 
-  public function getSeparatorUNTYPED(): EditableNode {
+  public function getSeparatorUNTYPED(): Node {
     return $this->_separator;
   }
 
-  public function withSeparator(EditableNode $value): this {
+  public function withSeparator(Node $value): this {
     if ($value === $this->_separator) {
       return $this;
     }
@@ -176,17 +176,17 @@ final class ListItem extends EditableNode {
   /**
    * @return null | CommaToken | SemicolonToken | BackslashToken
    */
-  public function getSeparator(): ?EditableToken {
+  public function getSeparator(): ?Token {
     if ($this->_separator->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableToken::class, $this->_separator);
+    return TypeAssert\instance_of(Token::class, $this->_separator);
   }
 
   /**
    * @return CommaToken | SemicolonToken | BackslashToken
    */
-  public function getSeparatorx(): EditableToken {
+  public function getSeparatorx(): Token {
     return TypeAssert\not_null($this->getSeparator());
   }
 }

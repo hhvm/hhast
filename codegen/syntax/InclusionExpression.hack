@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c7648dd461e49cf5d613d5bdc7241162>>
+ * @generated SignedSource<<b5c99ec91efa628b3a7d099f8e0f687c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class InclusionExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'inclusion_expression';
 
-  private EditableNode $_require;
-  private EditableNode $_filename;
+  private Node $_require;
+  private Node $_filename;
 
   public function __construct(
-    EditableNode $require,
-    EditableNode $filename,
+    Node $require,
+    Node $filename,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_require = $require;
@@ -34,14 +34,14 @@ final class InclusionExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $require = EditableNode::fromJSON(
+    $require = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['inclusion_require'],
       $file,
       $offset,
       $source,
     );
     $offset += $require->getWidth();
-    $filename = EditableNode::fromJSON(
+    $filename = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['inclusion_filename'],
       $file,
       $offset,
@@ -58,7 +58,7 @@ final class InclusionExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'require' => $this->_require,
       'filename' => $this->_filename,
@@ -68,7 +68,7 @@ final class InclusionExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $require = $rewriter($this->_require, $parents);
@@ -79,11 +79,11 @@ final class InclusionExpression
     return new static($require, $filename);
   }
 
-  public function getRequireUNTYPED(): EditableNode {
+  public function getRequireUNTYPED(): Node {
     return $this->_require;
   }
 
-  public function withRequire(EditableNode $value): this {
+  public function withRequire(Node $value): this {
     if ($value === $this->_require) {
       return $this;
     }
@@ -97,22 +97,22 @@ final class InclusionExpression
   /**
    * @return IncludeToken | Include_onceToken | RequireToken | Require_onceToken
    */
-  public function getRequire(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_require);
+  public function getRequire(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_require);
   }
 
   /**
    * @return IncludeToken | Include_onceToken | RequireToken | Require_onceToken
    */
-  public function getRequirex(): EditableToken {
+  public function getRequirex(): Token {
     return $this->getRequire();
   }
 
-  public function getFilenameUNTYPED(): EditableNode {
+  public function getFilenameUNTYPED(): Node {
     return $this->_filename;
   }
 
-  public function withFilename(EditableNode $value): this {
+  public function withFilename(Node $value): this {
     if ($value === $this->_filename) {
       return $this;
     }

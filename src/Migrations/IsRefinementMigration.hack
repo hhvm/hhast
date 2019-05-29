@@ -42,7 +42,7 @@ final class IsRefinementMigration extends BaseMigration {
       'is_dict' => () ==> new HHAST\DictionaryTypeSpecifier(
         new HHAST\DictToken($m, $m),
         new HHAST\LessThanToken($m, $m),
-        HHAST\EditableList::createMaybeEmptyList(vec[
+        HHAST\NodeList::createMaybeEmptyList(vec[
           new HHAST\ListItem(
             new HHAST\NameToken($m, $m, '_'),
             new HHAST\CommaToken($m, new HHAST\WhiteSpace(' ')),

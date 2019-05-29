@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface ITypeSpecifier {
-  require extends EditableNode;
+  require extends Node;
 }

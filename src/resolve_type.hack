@@ -15,7 +15,7 @@ use namespace Facebook\HHAST\__Private\Resolution;
 function resolve_type(
   string $type,
   Script $root,
-  EditableNode $node,
+  Node $node,
 ): string {
   if (Str\starts_with($type, '\\')) {
     return Str\strip_prefix($type, '\\');

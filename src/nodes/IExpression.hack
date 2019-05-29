@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface IExpression {
-  require extends EditableNode;
+  require extends Node;
 }

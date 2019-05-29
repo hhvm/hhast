@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{EditableNode, SchemaVersionError, Script};
+use type Facebook\HHAST\{Node, SchemaVersionError, Script};
 use const Facebook\HHAST\SCHEMA_VERSION;
 
 function from_decoded_json(
@@ -20,7 +20,7 @@ function from_decoded_json(
   if ($version is string && $version !== SCHEMA_VERSION) {
     throw new SchemaVersionError($file ?? '! no file !', $version);
   }
-  return EditableNode::fromJSON(
+  return Node::fromJSON(
     /* HH_IGNORE_ERROR[4110] */ $json['parse_tree'],
     $file ?? '! no file !',
     0,

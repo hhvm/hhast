@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface IXHPAttribute {
-  require extends EditableNode;
+  require extends Node;
 }

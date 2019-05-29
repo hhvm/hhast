@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97481cfb6fb45b8073a649fe460b9c36>>
+ * @generated SignedSource<<30f840368fc59f57625e41f54d2f7b9f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class InclusionDirective extends EditableNode implements IStatement {
+final class InclusionDirective extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'inclusion_directive';
 
-  private EditableNode $_expression;
-  private EditableNode $_semicolon;
+  private Node $_expression;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $expression,
-    EditableNode $semicolon,
+    Node $expression,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -32,14 +32,14 @@ final class InclusionDirective extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['inclusion_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['inclusion_semicolon'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class InclusionDirective extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
@@ -66,7 +66,7 @@ final class InclusionDirective extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $expression = $rewriter($this->_expression, $parents);
@@ -79,11 +79,11 @@ final class InclusionDirective extends EditableNode implements IStatement {
     return new static($expression, $semicolon);
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -111,11 +111,11 @@ final class InclusionDirective extends EditableNode implements IStatement {
     return $this->getExpression();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

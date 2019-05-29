@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e39effbc7828ae1d508ed09f405e7798>>
+ * @generated SignedSource<<5367ac34e8cedada04e7fa4b1b101b0f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class DecoratedExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'decorated_expression';
 
-  private EditableNode $_decorator;
-  private EditableNode $_expression;
+  private Node $_decorator;
+  private Node $_expression;
 
   public function __construct(
-    EditableNode $decorator,
-    EditableNode $expression,
+    Node $decorator,
+    Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_decorator = $decorator;
@@ -34,14 +34,14 @@ final class DecoratedExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $decorator = EditableNode::fromJSON(
+    $decorator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['decorated_expression_decorator'],
       $file,
       $offset,
       $source,
     );
     $offset += $decorator->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['decorated_expression_expression'],
       $file,
       $offset,
@@ -58,7 +58,7 @@ final class DecoratedExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'decorator' => $this->_decorator,
       'expression' => $this->_expression,
@@ -68,7 +68,7 @@ final class DecoratedExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $decorator = $rewriter($this->_decorator, $parents);
@@ -81,11 +81,11 @@ final class DecoratedExpression
     return new static($decorator, $expression);
   }
 
-  public function getDecoratorUNTYPED(): EditableNode {
+  public function getDecoratorUNTYPED(): Node {
     return $this->_decorator;
   }
 
-  public function withDecorator(EditableNode $value): this {
+  public function withDecorator(Node $value): this {
     if ($value === $this->_decorator) {
       return $this;
     }
@@ -99,22 +99,22 @@ final class DecoratedExpression
   /**
    * @return AmpersandToken | DotDotDotToken | InoutToken
    */
-  public function getDecorator(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_decorator);
+  public function getDecorator(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_decorator);
   }
 
   /**
    * @return AmpersandToken | DotDotDotToken | InoutToken
    */
-  public function getDecoratorx(): EditableToken {
+  public function getDecoratorx(): Token {
     return $this->getDecorator();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }

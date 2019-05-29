@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a1c56d18b430511cb0d03995c9a5559>>
+ * @generated SignedSource<<23e1da3161960618c8421c0539b57628>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class FinallyClause extends EditableNode {
+final class FinallyClause extends Node {
 
   const string SYNTAX_KIND = 'finally_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_body;
+  private Node $_keyword;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $body,
+    Node $keyword,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -32,14 +32,14 @@ final class FinallyClause extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['finally_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['finally_body'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class FinallyClause extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'body' => $this->_body,
@@ -66,7 +66,7 @@ final class FinallyClause extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -77,11 +77,11 @@ final class FinallyClause extends EditableNode {
     return new static($keyword, $body);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class FinallyClause extends EditableNode {
     return $this->getKeyword();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }

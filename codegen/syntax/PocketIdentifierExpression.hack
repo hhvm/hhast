@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ada3e1350672248f6b5ad8f801812c95>>
+ * @generated SignedSource<<c47bd741df21d54ea017ba9d9d7842e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PocketIdentifierExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'pocket_identifier_expression';
 
-  private EditableNode $_qualifier;
-  private EditableNode $_pu_operator;
-  private EditableNode $_field;
-  private EditableNode $_operator;
-  private EditableNode $_name;
+  private Node $_qualifier;
+  private Node $_pu_operator;
+  private Node $_field;
+  private Node $_operator;
+  private Node $_name;
 
   public function __construct(
-    EditableNode $qualifier,
-    EditableNode $pu_operator,
-    EditableNode $field,
-    EditableNode $operator,
-    EditableNode $name,
+    Node $qualifier,
+    Node $pu_operator,
+    Node $field,
+    Node $operator,
+    Node $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_qualifier = $qualifier;
@@ -43,35 +43,35 @@ final class PocketIdentifierExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $qualifier = EditableNode::fromJSON(
+    $qualifier = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_qualifier'],
       $file,
       $offset,
       $source,
     );
     $offset += $qualifier->getWidth();
-    $pu_operator = EditableNode::fromJSON(
+    $pu_operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_pu_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $pu_operator->getWidth();
-    $field = EditableNode::fromJSON(
+    $field = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_field'],
       $file,
       $offset,
       $source,
     );
     $offset += $field->getWidth();
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_name'],
       $file,
       $offset,
@@ -95,7 +95,7 @@ final class PocketIdentifierExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'qualifier' => $this->_qualifier,
       'pu_operator' => $this->_pu_operator,
@@ -108,7 +108,7 @@ final class PocketIdentifierExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $qualifier = $rewriter($this->_qualifier, $parents);
@@ -128,11 +128,11 @@ final class PocketIdentifierExpression
     return new static($qualifier, $pu_operator, $field, $operator, $name);
   }
 
-  public function getQualifierUNTYPED(): EditableNode {
+  public function getQualifierUNTYPED(): Node {
     return $this->_qualifier;
   }
 
-  public function withQualifier(EditableNode $value): this {
+  public function withQualifier(Node $value): this {
     if ($value === $this->_qualifier) {
       return $this;
     }
@@ -152,22 +152,22 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getQualifier(): EditableNode {
+  public function getQualifier(): Node {
     return $this->_qualifier;
   }
 
   /**
    * @return unknown
    */
-  public function getQualifierx(): EditableNode {
+  public function getQualifierx(): Node {
     return $this->getQualifier();
   }
 
-  public function getPuOperatorUNTYPED(): EditableNode {
+  public function getPuOperatorUNTYPED(): Node {
     return $this->_pu_operator;
   }
 
-  public function withPuOperator(EditableNode $value): this {
+  public function withPuOperator(Node $value): this {
     if ($value === $this->_pu_operator) {
       return $this;
     }
@@ -187,22 +187,22 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getPuOperator(): EditableNode {
+  public function getPuOperator(): Node {
     return $this->_pu_operator;
   }
 
   /**
    * @return unknown
    */
-  public function getPuOperatorx(): EditableNode {
+  public function getPuOperatorx(): Node {
     return $this->getPuOperator();
   }
 
-  public function getFieldUNTYPED(): EditableNode {
+  public function getFieldUNTYPED(): Node {
     return $this->_field;
   }
 
-  public function withField(EditableNode $value): this {
+  public function withField(Node $value): this {
     if ($value === $this->_field) {
       return $this;
     }
@@ -222,22 +222,22 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getField(): EditableNode {
+  public function getField(): Node {
     return $this->_field;
   }
 
   /**
    * @return unknown
    */
-  public function getFieldx(): EditableNode {
+  public function getFieldx(): Node {
     return $this->getField();
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -257,22 +257,22 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getOperator(): EditableNode {
+  public function getOperator(): Node {
     return $this->_operator;
   }
 
   /**
    * @return unknown
    */
-  public function getOperatorx(): EditableNode {
+  public function getOperatorx(): Node {
     return $this->getOperator();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -292,14 +292,14 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return unknown
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 }

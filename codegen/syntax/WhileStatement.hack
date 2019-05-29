@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1e45c93d5d2df0ce0bf4ea9604768b40>>
+ * @generated SignedSource<<212e4fa0838767969db6f4987b322862>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class WhileStatement
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
   const string SYNTAX_KIND = 'while_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_condition;
-  private EditableNode $_right_paren;
-  private EditableNode $_body;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_condition;
+  private Node $_right_paren;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $condition,
-    EditableNode $right_paren,
-    EditableNode $body,
+    Node $keyword,
+    Node $left_paren,
+    Node $condition,
+    Node $right_paren,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,35 +43,35 @@ final class WhileStatement
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $condition = EditableNode::fromJSON(
+    $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_body'],
       $file,
       $offset,
@@ -95,7 +95,7 @@ final class WhileStatement
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -108,7 +108,7 @@ final class WhileStatement
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -128,11 +128,11 @@ final class WhileStatement
     return new static($keyword, $left_paren, $condition, $right_paren, $body);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -163,11 +163,11 @@ final class WhileStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -198,11 +198,11 @@ final class WhileStatement
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): EditableNode {
+  public function getConditionUNTYPED(): Node {
     return $this->_condition;
   }
 
-  public function withCondition(EditableNode $value): this {
+  public function withCondition(Node $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -240,11 +240,11 @@ final class WhileStatement
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -275,11 +275,11 @@ final class WhileStatement
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }

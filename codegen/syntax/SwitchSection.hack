@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd6219283e5e7cc3382798901d1bc611>>
+ * @generated SignedSource<<642a9940ef8f1c4cb38bee2cb9881e26>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class SwitchSection extends EditableNode {
+final class SwitchSection extends Node {
 
   const string SYNTAX_KIND = 'switch_section';
 
-  private EditableNode $_labels;
-  private EditableNode $_statements;
-  private EditableNode $_fallthrough;
+  private Node $_labels;
+  private Node $_statements;
+  private Node $_fallthrough;
 
   public function __construct(
-    EditableNode $labels,
-    EditableNode $statements,
-    EditableNode $fallthrough,
+    Node $labels,
+    Node $statements,
+    Node $fallthrough,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_labels = $labels;
@@ -35,21 +35,21 @@ final class SwitchSection extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $labels = EditableNode::fromJSON(
+    $labels = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_section_labels'],
       $file,
       $offset,
       $source,
     );
     $offset += $labels->getWidth();
-    $statements = EditableNode::fromJSON(
+    $statements = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_section_statements'],
       $file,
       $offset,
       $source,
     );
     $offset += $statements->getWidth();
-    $fallthrough = EditableNode::fromJSON(
+    $fallthrough = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_section_fallthrough'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class SwitchSection extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'labels' => $this->_labels,
       'statements' => $this->_statements,
@@ -77,7 +77,7 @@ final class SwitchSection extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $labels = $rewriter($this->_labels, $parents);
@@ -93,11 +93,11 @@ final class SwitchSection extends EditableNode {
     return new static($labels, $statements, $fallthrough);
   }
 
-  public function getLabelsUNTYPED(): EditableNode {
+  public function getLabelsUNTYPED(): Node {
     return $this->_labels;
   }
 
-  public function withLabels(EditableNode $value): this {
+  public function withLabels(Node $value): this {
     if ($value === $this->_labels) {
       return $this;
     }
@@ -109,24 +109,24 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getLabels(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_labels);
+  public function getLabels(): NodeList<Node> {
+    return TypeAssert\instance_of(NodeList::class, $this->_labels);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getLabelsx(): EditableList<EditableNode> {
+  public function getLabelsx(): NodeList<Node> {
     return $this->getLabels();
   }
 
-  public function getStatementsUNTYPED(): EditableNode {
+  public function getStatementsUNTYPED(): Node {
     return $this->_statements;
   }
 
-  public function withStatements(EditableNode $value): this {
+  public function withStatements(Node $value): this {
     if ($value === $this->_statements) {
       return $this;
     }
@@ -138,27 +138,27 @@ final class SwitchSection extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getStatements(): ?EditableList<EditableNode> {
+  public function getStatements(): ?NodeList<Node> {
     if ($this->_statements->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_statements);
+    return TypeAssert\instance_of(NodeList::class, $this->_statements);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatementsx(): EditableList<EditableNode> {
+  public function getStatementsx(): NodeList<Node> {
     return TypeAssert\not_null($this->getStatements());
   }
 
-  public function getFallthroughUNTYPED(): EditableNode {
+  public function getFallthroughUNTYPED(): Node {
     return $this->_fallthrough;
   }
 
-  public function withFallthrough(EditableNode $value): this {
+  public function withFallthrough(Node $value): this {
     if ($value === $this->_fallthrough) {
       return $this;
     }

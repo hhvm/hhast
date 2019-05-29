@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ad4636d35aa5f5476e3d07c109cf0b9>>
+ * @generated SignedSource<<d438f27c27140f2a9255f225f0c2480c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class SimpleTypeSpecifier
-  extends EditableNode
+  extends Node
   implements ISimpleCreationSpecifier, ITypeSpecifier {
 
   const string SYNTAX_KIND = 'simple_type_specifier';
 
-  private EditableNode $_specifier;
+  private Node $_specifier;
 
   public function __construct(
-    EditableNode $specifier,
+    Node $specifier,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_specifier = $specifier;
@@ -31,7 +31,7 @@ final class SimpleTypeSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $specifier = EditableNode::fromJSON(
+    $specifier = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['simple_type_specifier'],
       $file,
       $offset,
@@ -48,7 +48,7 @@ final class SimpleTypeSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'specifier' => $this->_specifier,
     ];
@@ -57,7 +57,7 @@ final class SimpleTypeSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $specifier = $rewriter($this->_specifier, $parents);
@@ -67,11 +67,11 @@ final class SimpleTypeSpecifier
     return new static($specifier);
   }
 
-  public function getSpecifierUNTYPED(): EditableNode {
+  public function getSpecifierUNTYPED(): Node {
     return $this->_specifier;
   }
 
-  public function withSpecifier(EditableNode $value): this {
+  public function withSpecifier(Node $value): this {
     if ($value === $this->_specifier) {
       return $this;
     }
@@ -90,7 +90,7 @@ final class SimpleTypeSpecifier
    * ObjectToken | ParentToken | RealToken | ResourceToken | SelfToken |
    * StringToken | ThisToken | VarToken | VarrayToken | VecToken | VoidToken
    */
-  public function getSpecifier(): EditableNode {
+  public function getSpecifier(): Node {
     return $this->_specifier;
   }
 
@@ -102,7 +102,7 @@ final class SimpleTypeSpecifier
    * ObjectToken | ParentToken | RealToken | ResourceToken | SelfToken |
    * StringToken | ThisToken | VarToken | VarrayToken | VecToken | VoidToken
    */
-  public function getSpecifierx(): EditableNode {
+  public function getSpecifierx(): Node {
     return $this->getSpecifier();
   }
 }

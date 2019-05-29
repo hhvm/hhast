@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67c87ee3259a0811b970516ebad0df0d>>
+ * @generated SignedSource<<0c173085dc42f10444f3a7c242e5e3bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ConstructorCall extends EditableNode {
+final class ConstructorCall extends Node {
 
   const string SYNTAX_KIND = 'constructor_call';
 
-  private EditableNode $_type;
-  private EditableNode $_left_paren;
-  private EditableNode $_argument_list;
-  private EditableNode $_right_paren;
+  private Node $_type;
+  private Node $_left_paren;
+  private Node $_argument_list;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $type,
-    EditableNode $left_paren,
-    EditableNode $argument_list,
-    EditableNode $right_paren,
+    Node $type,
+    Node $left_paren,
+    Node $argument_list,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -38,28 +38,28 @@ final class ConstructorCall extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constructor_call_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constructor_call_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $argument_list = EditableNode::fromJSON(
+    $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constructor_call_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constructor_call_right_paren'],
       $file,
       $offset,
@@ -82,7 +82,7 @@ final class ConstructorCall extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'type' => $this->_type,
       'left_paren' => $this->_left_paren,
@@ -94,7 +94,7 @@ final class ConstructorCall extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
@@ -112,11 +112,11 @@ final class ConstructorCall extends EditableNode {
     return new static($type, $left_paren, $argument_list, $right_paren);
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -138,7 +138,7 @@ final class ConstructorCall extends EditableNode {
    * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
    * SelfToken | StaticToken | VariableExpression
    */
-  public function getType(): EditableNode {
+  public function getType(): Node {
     return $this->_type;
   }
 
@@ -148,15 +148,15 @@ final class ConstructorCall extends EditableNode {
    * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
    * SelfToken | StaticToken | VariableExpression
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): Node {
     return $this->getType();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -189,11 +189,11 @@ final class ConstructorCall extends EditableNode {
     return TypeAssert\not_null($this->getLeftParen());
   }
 
-  public function getArgumentListUNTYPED(): EditableNode {
+  public function getArgumentListUNTYPED(): Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableNode $value): this {
+  public function withArgumentList(Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -210,61 +210,53 @@ final class ConstructorCall extends EditableNode {
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
-   * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
-   * EditableList<ConditionalExpression> |
-   * EditableList<DarrayIntrinsicExpression> |
-   * EditableList<DecoratedExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
-   * EditableList<ParenthesizedExpression> |
-   * EditableList<PipeVariableExpression> | EditableList<PrefixUnaryExpression>
-   * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
-   * | EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VarrayIntrinsicExpression> |
-   * EditableList<VectorIntrinsicExpression> | null
+   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
+   * NodeList<ArrayCreationExpression> | NodeList<ArrayIntrinsicExpression> |
+   * NodeList<BinaryExpression> | NodeList<CastExpression> |
+   * NodeList<CollectionLiteralExpression> | NodeList<ConditionalExpression> |
+   * NodeList<DarrayIntrinsicExpression> | NodeList<DecoratedExpression> |
+   * NodeList<DictionaryIntrinsicExpression> | NodeList<FunctionCallExpression>
+   * | NodeList<LambdaExpression> | NodeList<LiteralExpression> |
+   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
+   * NodeList<ParenthesizedExpression> | NodeList<PipeVariableExpression> |
+   * NodeList<PrefixUnaryExpression> | NodeList<ScopeResolutionExpression> |
+   * NodeList<ShapeExpression> | NodeList<SubscriptExpression> |
+   * NodeList<NameToken> | NodeList<TupleExpression> |
+   * NodeList<VariableExpression> | NodeList<VarrayIntrinsicExpression> |
+   * NodeList<VectorIntrinsicExpression> | null
    */
-  public function getArgumentList(): ?EditableList<IExpression> {
+  public function getArgumentList(): ?NodeList<IExpression> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
+    return TypeAssert\instance_of(NodeList::class, $this->_argument_list);
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<BinaryExpression> |
-   * EditableList<CastExpression> | EditableList<CollectionLiteralExpression> |
-   * EditableList<ConditionalExpression> |
-   * EditableList<DarrayIntrinsicExpression> |
-   * EditableList<DecoratedExpression> |
-   * EditableList<DictionaryIntrinsicExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<LambdaExpression> |
-   * EditableList<LiteralExpression> | EditableList<MemberSelectionExpression>
-   * | EditableList<ObjectCreationExpression> |
-   * EditableList<ParenthesizedExpression> |
-   * EditableList<PipeVariableExpression> | EditableList<PrefixUnaryExpression>
-   * | EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression>
-   * | EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VarrayIntrinsicExpression> |
-   * EditableList<VectorIntrinsicExpression>
+   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
+   * NodeList<ArrayCreationExpression> | NodeList<ArrayIntrinsicExpression> |
+   * NodeList<BinaryExpression> | NodeList<CastExpression> |
+   * NodeList<CollectionLiteralExpression> | NodeList<ConditionalExpression> |
+   * NodeList<DarrayIntrinsicExpression> | NodeList<DecoratedExpression> |
+   * NodeList<DictionaryIntrinsicExpression> | NodeList<FunctionCallExpression>
+   * | NodeList<LambdaExpression> | NodeList<LiteralExpression> |
+   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
+   * NodeList<ParenthesizedExpression> | NodeList<PipeVariableExpression> |
+   * NodeList<PrefixUnaryExpression> | NodeList<ScopeResolutionExpression> |
+   * NodeList<ShapeExpression> | NodeList<SubscriptExpression> |
+   * NodeList<NameToken> | NodeList<TupleExpression> |
+   * NodeList<VariableExpression> | NodeList<VarrayIntrinsicExpression> |
+   * NodeList<VectorIntrinsicExpression>
    */
-  public function getArgumentListx(): EditableList<IExpression> {
+  public function getArgumentListx(): NodeList<IExpression> {
     return TypeAssert\not_null($this->getArgumentList());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

@@ -28,7 +28,7 @@ final class CodegenTrivia extends CodegenBase {
         $cg
           ->codegenClass($trivia['trivia_kind_name'])
           ->setIsFinal()
-          ->setExtends('EditableTrivia')
+          ->setExtends('Trivia')
           ->setInterfaces(
             Vec\map(
               $interfaces[$trivia['trivia_kind_name']] ?? vec[],

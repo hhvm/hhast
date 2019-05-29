@@ -15,8 +15,8 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Vec;
 
 abstract class ASTLinter extends BaseLinter {
-  abstract const type TContext as HHAST\EditableNode;
-  abstract const type TNode as HHAST\EditableNode;
+  abstract const type TContext as HHAST\Node;
+  abstract const type TNode as HHAST\Node;
   private ?HHAST\Script $ast;
 
   abstract protected function getLintErrorForNode(

@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4c4321add46bf3a1712b618331dcb37>>
+ * @generated SignedSource<<775a1ff180503add326884e97a0b003e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ListExpression
-  extends EditableNode
-  implements ILambdaBody, IExpression {
+final class ListExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'list_expression';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_members;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_members;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $members,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $members,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class ListExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $members = EditableNode::fromJSON(
+    $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_right_paren'],
       $file,
       $offset,
@@ -84,7 +82,7 @@ final class ListExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -96,7 +94,7 @@ final class ListExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -114,11 +112,11 @@ final class ListExpression
     return new static($keyword, $left_paren, $members, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -148,11 +146,11 @@ final class ListExpression
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -182,11 +180,11 @@ final class ListExpression
     return $this->getLeftParen();
   }
 
-  public function getMembersUNTYPED(): EditableNode {
+  public function getMembersUNTYPED(): Node {
     return $this->_members;
   }
 
-  public function withMembers(EditableNode $value): this {
+  public function withMembers(Node $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -203,35 +201,35 @@ final class ListExpression
   }
 
   /**
-   * @return EditableList<ListExpression> | EditableList<IExpression> |
-   * EditableList<?IExpression> | EditableList<MemberSelectionExpression> |
-   * EditableList<?EditableNode> | EditableList<?VariableExpression> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<VariableExpression> | null
+   * @return NodeList<ListExpression> | NodeList<IExpression> |
+   * NodeList<?IExpression> | NodeList<MemberSelectionExpression> |
+   * NodeList<?Node> | NodeList<?VariableExpression> |
+   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
+   * NodeList<VariableExpression> | null
    */
-  public function getMembers(): ?EditableList<?IExpression> {
+  public function getMembers(): ?NodeList<?IExpression> {
     if ($this->_members->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(NodeList::class, $this->_members);
   }
 
   /**
-   * @return EditableList<ListExpression> | EditableList<IExpression> |
-   * EditableList<?IExpression> | EditableList<MemberSelectionExpression> |
-   * EditableList<?EditableNode> | EditableList<?VariableExpression> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<VariableExpression>
+   * @return NodeList<ListExpression> | NodeList<IExpression> |
+   * NodeList<?IExpression> | NodeList<MemberSelectionExpression> |
+   * NodeList<?Node> | NodeList<?VariableExpression> |
+   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
+   * NodeList<VariableExpression>
    */
-  public function getMembersx(): EditableList<?IExpression> {
+  public function getMembersx(): NodeList<?IExpression> {
     return TypeAssert\not_null($this->getMembers());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

@@ -40,8 +40,8 @@ final class FixtureRewritingTest extends TestCase {
 
   public async function testRewriteComments(): Awaitable<void> {
     $rewriter = (
-      HHAST\EditableNode $node,
-      ?vec<HHAST\EditableNode> $_parents,
+      HHAST\Node $node,
+      ?vec<HHAST\Node> $_parents,
     ) ==> {
       if ($node instanceof HHAST\SingleLineComment) {
         return $node->withText('// blah blah blah');

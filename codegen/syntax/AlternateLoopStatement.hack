@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f45b71c9f5472c300b7485258b2eb795>>
+ * @generated SignedSource<<6cbdb29e3c98b73dcd40362371436ee2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 abstract class AlternateLoopStatementGeneratedBase
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
   const string SYNTAX_KIND = 'alternate_loop_statement';
 
-  private EditableNode $_opening_colon;
-  private EditableNode $_statements;
-  private EditableNode $_closing_keyword;
-  private EditableNode $_closing_semicolon;
+  private Node $_opening_colon;
+  private Node $_statements;
+  private Node $_closing_keyword;
+  private Node $_closing_semicolon;
 
   public function __construct(
-    EditableNode $opening_colon,
-    EditableNode $statements,
-    EditableNode $closing_keyword,
-    EditableNode $closing_semicolon,
+    Node $opening_colon,
+    Node $statements,
+    Node $closing_keyword,
+    Node $closing_semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_opening_colon = $opening_colon;
@@ -40,28 +40,28 @@ abstract class AlternateLoopStatementGeneratedBase
     string $source,
   ): this {
     $offset = $initial_offset;
-    $opening_colon = EditableNode::fromJSON(
+    $opening_colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_loop_opening_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $opening_colon->getWidth();
-    $statements = EditableNode::fromJSON(
+    $statements = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_loop_statements'],
       $file,
       $offset,
       $source,
     );
     $offset += $statements->getWidth();
-    $closing_keyword = EditableNode::fromJSON(
+    $closing_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_loop_closing_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $closing_keyword->getWidth();
-    $closing_semicolon = EditableNode::fromJSON(
+    $closing_semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_loop_closing_semicolon'],
       $file,
       $offset,
@@ -84,7 +84,7 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'opening_colon' => $this->_opening_colon,
       'statements' => $this->_statements,
@@ -96,7 +96,7 @@ abstract class AlternateLoopStatementGeneratedBase
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $opening_colon = $rewriter($this->_opening_colon, $parents);
@@ -119,11 +119,11 @@ abstract class AlternateLoopStatementGeneratedBase
     );
   }
 
-  public function getOpeningColonUNTYPED(): EditableNode {
+  public function getOpeningColonUNTYPED(): Node {
     return $this->_opening_colon;
   }
 
-  public function withOpeningColon(EditableNode $value): this {
+  public function withOpeningColon(Node $value): this {
     if ($value === $this->_opening_colon) {
       return $this;
     }
@@ -153,11 +153,11 @@ abstract class AlternateLoopStatementGeneratedBase
     return $this->getOpeningColon();
   }
 
-  public function getStatementsUNTYPED(): EditableNode {
+  public function getStatementsUNTYPED(): Node {
     return $this->_statements;
   }
 
-  public function withStatements(EditableNode $value): this {
+  public function withStatements(Node $value): this {
     if ($value === $this->_statements) {
       return $this;
     }
@@ -174,24 +174,24 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatements(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_statements);
+  public function getStatements(): NodeList<Node> {
+    return TypeAssert\instance_of(NodeList::class, $this->_statements);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatementsx(): EditableList<EditableNode> {
+  public function getStatementsx(): NodeList<Node> {
     return $this->getStatements();
   }
 
-  public function getClosingKeywordUNTYPED(): EditableNode {
+  public function getClosingKeywordUNTYPED(): Node {
     return $this->_closing_keyword;
   }
 
-  public function withClosingKeyword(EditableNode $value): this {
+  public function withClosingKeyword(Node $value): this {
     if ($value === $this->_closing_keyword) {
       return $this;
     }
@@ -210,25 +210,22 @@ abstract class AlternateLoopStatementGeneratedBase
   /**
    * @return EndforToken | EndforeachToken | EndwhileToken
    */
-  public function getClosingKeyword(): EditableToken {
-    return TypeAssert\instance_of(
-      EditableToken::class,
-      $this->_closing_keyword,
-    );
+  public function getClosingKeyword(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_closing_keyword);
   }
 
   /**
    * @return EndforToken | EndforeachToken | EndwhileToken
    */
-  public function getClosingKeywordx(): EditableToken {
+  public function getClosingKeywordx(): Token {
     return $this->getClosingKeyword();
   }
 
-  public function getClosingSemicolonUNTYPED(): EditableNode {
+  public function getClosingSemicolonUNTYPED(): Node {
     return $this->_closing_semicolon;
   }
 
-  public function withClosingSemicolon(EditableNode $value): this {
+  public function withClosingSemicolon(Node $value): this {
     if ($value === $this->_closing_semicolon) {
       return $this;
     }

@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2d35e9cedfaec3c7757f95438715343>>
+ * @generated SignedSource<<fd4ecc33ecf20ef60b492ef946e66d9e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PrefixedStringExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'prefixed_string_expression';
 
-  private EditableNode $_name;
-  private EditableNode $_str;
+  private Node $_name;
+  private Node $_str;
 
   public function __construct(
-    EditableNode $name,
-    EditableNode $str,
+    Node $name,
+    Node $str,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -34,14 +34,14 @@ final class PrefixedStringExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['prefixed_string_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $str = EditableNode::fromJSON(
+    $str = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['prefixed_string_str'],
       $file,
       $offset,
@@ -58,7 +58,7 @@ final class PrefixedStringExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'name' => $this->_name,
       'str' => $this->_str,
@@ -68,7 +68,7 @@ final class PrefixedStringExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
@@ -79,11 +79,11 @@ final class PrefixedStringExpression
     return new static($name, $str);
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -97,22 +97,22 @@ final class PrefixedStringExpression
   /**
    * @return unknown
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return unknown
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 
-  public function getStrUNTYPED(): EditableNode {
+  public function getStrUNTYPED(): Node {
     return $this->_str;
   }
 
-  public function withStr(EditableNode $value): this {
+  public function withStr(Node $value): this {
     if ($value === $this->_str) {
       return $this;
     }
@@ -126,14 +126,14 @@ final class PrefixedStringExpression
   /**
    * @return unknown
    */
-  public function getStr(): EditableNode {
+  public function getStr(): Node {
     return $this->_str;
   }
 
   /**
    * @return unknown
    */
-  public function getStrx(): EditableNode {
+  public function getStrx(): Node {
     return $this->getStr();
   }
 }

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f37446e33ff7c4795f4a3ac856e2452f>>
+ * @generated SignedSource<<45a166d984c713c8365ff2b6d747b86d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ArrayCreationExpression
-  extends EditableNode
+  extends Node
   implements IPHPArray, IContainer, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'array_creation_expression';
 
-  private EditableNode $_left_bracket;
-  private EditableNode $_members;
-  private EditableNode $_right_bracket;
+  private Node $_left_bracket;
+  private Node $_members;
+  private Node $_right_bracket;
 
   public function __construct(
-    EditableNode $left_bracket,
-    EditableNode $members,
-    EditableNode $right_bracket,
+    Node $left_bracket,
+    Node $members,
+    Node $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_bracket = $left_bracket;
@@ -37,21 +37,21 @@ final class ArrayCreationExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_bracket = EditableNode::fromJSON(
+    $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_creation_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
-    $members = EditableNode::fromJSON(
+    $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_creation_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
-    $right_bracket = EditableNode::fromJSON(
+    $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_creation_right_bracket'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class ArrayCreationExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
@@ -79,7 +79,7 @@ final class ArrayCreationExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_bracket = $rewriter($this->_left_bracket, $parents);
@@ -95,11 +95,11 @@ final class ArrayCreationExpression
     return new static($left_bracket, $members, $right_bracket);
   }
 
-  public function getLeftBracketUNTYPED(): EditableNode {
+  public function getLeftBracketUNTYPED(): Node {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(EditableNode $value): this {
+  public function withLeftBracket(Node $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -127,11 +127,11 @@ final class ArrayCreationExpression
     return $this->getLeftBracket();
   }
 
-  public function getMembersUNTYPED(): EditableNode {
+  public function getMembersUNTYPED(): Node {
     return $this->_members;
   }
 
-  public function withMembers(EditableNode $value): this {
+  public function withMembers(Node $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -143,53 +143,48 @@ final class ArrayCreationExpression
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> | EditableList<IPHPArray> |
-   * EditableList<IContainer> | EditableList<EditableNode> |
-   * EditableList<BinaryExpression> | EditableList<ConditionalExpression> |
-   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
-   * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
-   * | EditableList<MemberSelectionExpression> |
-   * EditableList<ObjectCreationExpression> |
-   * EditableList<PrefixUnaryExpression> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
-   * | EditableList<VectorIntrinsicExpression> | null
+   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
+   * NodeList<ArrayCreationExpression> | NodeList<IPHPArray> |
+   * NodeList<IContainer> | NodeList<Node> | NodeList<BinaryExpression> |
+   * NodeList<ConditionalExpression> | NodeList<DictionaryIntrinsicExpression>
+   * | NodeList<IHackArray> | NodeList<ElementInitializer> |
+   * NodeList<FunctionCallExpression> | NodeList<KeysetIntrinsicExpression> |
+   * NodeList<LiteralExpression> | NodeList<MemberSelectionExpression> |
+   * NodeList<ObjectCreationExpression> | NodeList<PrefixUnaryExpression> |
+   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
+   * NodeList<NameToken> | NodeList<VariableExpression> |
+   * NodeList<VarrayIntrinsicExpression> | NodeList<VectorIntrinsicExpression>
+   * | null
    */
-  public function getMembers(): ?EditableList<EditableNode> {
+  public function getMembers(): ?NodeList<Node> {
     if ($this->_members->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+    return TypeAssert\instance_of(NodeList::class, $this->_members);
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> | EditableList<IPHPArray> |
-   * EditableList<IContainer> | EditableList<EditableNode> |
-   * EditableList<BinaryExpression> | EditableList<ConditionalExpression> |
-   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
-   * EditableList<ElementInitializer> | EditableList<FunctionCallExpression> |
-   * EditableList<KeysetIntrinsicExpression> | EditableList<LiteralExpression>
-   * | EditableList<MemberSelectionExpression> |
-   * EditableList<ObjectCreationExpression> |
-   * EditableList<PrefixUnaryExpression> |
-   * EditableList<ScopeResolutionExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<VariableExpression> | EditableList<VarrayIntrinsicExpression>
-   * | EditableList<VectorIntrinsicExpression>
+   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
+   * NodeList<ArrayCreationExpression> | NodeList<IPHPArray> |
+   * NodeList<IContainer> | NodeList<Node> | NodeList<BinaryExpression> |
+   * NodeList<ConditionalExpression> | NodeList<DictionaryIntrinsicExpression>
+   * | NodeList<IHackArray> | NodeList<ElementInitializer> |
+   * NodeList<FunctionCallExpression> | NodeList<KeysetIntrinsicExpression> |
+   * NodeList<LiteralExpression> | NodeList<MemberSelectionExpression> |
+   * NodeList<ObjectCreationExpression> | NodeList<PrefixUnaryExpression> |
+   * NodeList<ScopeResolutionExpression> | NodeList<SubscriptExpression> |
+   * NodeList<NameToken> | NodeList<VariableExpression> |
+   * NodeList<VarrayIntrinsicExpression> | NodeList<VectorIntrinsicExpression>
    */
-  public function getMembersx(): EditableList<EditableNode> {
+  public function getMembersx(): NodeList<Node> {
     return TypeAssert\not_null($this->getMembers());
   }
 
-  public function getRightBracketUNTYPED(): EditableNode {
+  public function getRightBracketUNTYPED(): Node {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(EditableNode $value): this {
+  public function withRightBracket(Node $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }

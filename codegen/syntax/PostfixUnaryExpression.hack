@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b798a6d56c688e5470457bf45c06d6f8>>
+ * @generated SignedSource<<457b099fcd9365daaad94cb88172851f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PostfixUnaryExpression
-  extends EditableNode
+  extends Node
   implements IHasOperator, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'postfix_unary_expression';
 
-  private EditableNode $_operand;
-  private EditableNode $_operator;
+  private Node $_operand;
+  private Node $_operator;
 
   public function __construct(
-    EditableNode $operand,
-    EditableNode $operator,
+    Node $operand,
+    Node $operator,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_operand = $operand;
@@ -34,14 +34,14 @@ final class PostfixUnaryExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $operand = EditableNode::fromJSON(
+    $operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['postfix_unary_operand'],
       $file,
       $offset,
       $source,
     );
     $offset += $operand->getWidth();
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['postfix_unary_operator'],
       $file,
       $offset,
@@ -58,7 +58,7 @@ final class PostfixUnaryExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'operand' => $this->_operand,
       'operator' => $this->_operator,
@@ -68,7 +68,7 @@ final class PostfixUnaryExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $operand = $rewriter($this->_operand, $parents);
@@ -79,11 +79,11 @@ final class PostfixUnaryExpression
     return new static($operand, $operator);
   }
 
-  public function getOperandUNTYPED(): EditableNode {
+  public function getOperandUNTYPED(): Node {
     return $this->_operand;
   }
 
-  public function withOperand(EditableNode $value): this {
+  public function withOperand(Node $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
@@ -111,11 +111,11 @@ final class PostfixUnaryExpression
     return $this->getOperand();
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -129,14 +129,14 @@ final class PostfixUnaryExpression
   /**
    * @return PlusPlusToken | MinusMinusToken
    */
-  public function getOperator(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_operator);
+  public function getOperator(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_operator);
   }
 
   /**
    * @return PlusPlusToken | MinusMinusToken
    */
-  public function getOperatorx(): EditableToken {
+  public function getOperatorx(): Token {
     return $this->getOperator();
   }
 }

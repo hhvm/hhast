@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<312960c53ac2f0b0429426e034136511>>
+ * @generated SignedSource<<09342a64c505b4a221298faefa599747>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class VariableExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, ILambdaSignature, IExpression {
 
   const string SYNTAX_KIND = 'variable_expression';
 
-  private EditableNode $_expression;
+  private Node $_expression;
 
   public function __construct(
-    EditableNode $expression,
+    Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -31,7 +31,7 @@ final class VariableExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['variable_expression'],
       $file,
       $offset,
@@ -48,7 +48,7 @@ final class VariableExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
     ];
@@ -57,7 +57,7 @@ final class VariableExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $expression = $rewriter($this->_expression, $parents);
@@ -67,11 +67,11 @@ final class VariableExpression
     return new static($expression);
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -85,14 +85,14 @@ final class VariableExpression
   /**
    * @return unknown
    */
-  public function getExpression(): EditableNode {
+  public function getExpression(): Node {
     return $this->_expression;
   }
 
   /**
    * @return unknown
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): Node {
     return $this->getExpression();
   }
 }

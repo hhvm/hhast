@@ -11,8 +11,8 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   ClassishDeclaration,
-  EditableNode,
-  EditableToken,
+  Node,
+  Token,
   FunctionDeclaration,
   FunctionDeclarationHeader,
   IFunctionishDeclaration,
@@ -67,8 +67,8 @@ abstract class FunctionNamingLinter extends AutoFixingASTLinter {
   }
 
   private function getCurrentNameNodeForFunctionOrMethod(
-    EditableNode $node,
-  ): ?EditableToken {
+    Node $node,
+  ): ?Token {
     if ($node instanceof FunctionDeclaration) {
       return $node->getDeclarationHeader()->getName();
     }

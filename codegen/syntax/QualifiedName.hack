@@ -1,20 +1,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<690c6d9fccd34972b61931ba610da9f4>>
+ * @generated SignedSource<<7ac8e17a37d886e765d4382176dcc884>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class QualifiedName extends EditableNode implements INameishNode {
+final class QualifiedName extends Node implements INameishNode {
 
   const string SYNTAX_KIND = 'qualified_name';
 
-  private EditableNode $_parts;
+  private Node $_parts;
 
   public function __construct(
-    EditableNode $parts,
+    Node $parts,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_parts = $parts;
@@ -29,7 +29,7 @@ final class QualifiedName extends EditableNode implements INameishNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $parts = EditableNode::fromJSON(
+    $parts = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['qualified_name_parts'],
       $file,
       $offset,
@@ -46,7 +46,7 @@ final class QualifiedName extends EditableNode implements INameishNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'parts' => $this->_parts,
     ];
@@ -55,7 +55,7 @@ final class QualifiedName extends EditableNode implements INameishNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $parts = $rewriter($this->_parts, $parents);
@@ -65,11 +65,11 @@ final class QualifiedName extends EditableNode implements INameishNode {
     return new static($parts);
   }
 
-  public function getPartsUNTYPED(): EditableNode {
+  public function getPartsUNTYPED(): Node {
     return $this->_parts;
   }
 
-  public function withParts(EditableNode $value): this {
+  public function withParts(Node $value): this {
     if ($value === $this->_parts) {
       return $this;
     }
@@ -81,16 +81,16 @@ final class QualifiedName extends EditableNode implements INameishNode {
   }
 
   /**
-   * @return EditableList<?NameToken> | EditableList<NameToken>
+   * @return NodeList<?NameToken> | NodeList<NameToken>
    */
-  public function getParts(): EditableList<?NameToken> {
-    return TypeAssert\instance_of(EditableList::class, $this->_parts);
+  public function getParts(): NodeList<?NameToken> {
+    return TypeAssert\instance_of(NodeList::class, $this->_parts);
   }
 
   /**
-   * @return EditableList<?NameToken> | EditableList<NameToken>
+   * @return NodeList<?NameToken> | NodeList<NameToken>
    */
-  public function getPartsx(): EditableList<?NameToken> {
+  public function getPartsx(): NodeList<?NameToken> {
     return $this->getParts();
   }
 }

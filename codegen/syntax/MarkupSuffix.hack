@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bcdaf46dc8ddb84f8d089bad42b6089f>>
+ * @generated SignedSource<<57dd68a94c836e06b1542a2fefa896dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class MarkupSuffix extends EditableNode {
+final class MarkupSuffix extends Node {
 
   const string SYNTAX_KIND = 'markup_suffix';
 
-  private EditableNode $_less_than_question;
-  private EditableNode $_name;
+  private Node $_less_than_question;
+  private Node $_name;
 
   public function __construct(
-    EditableNode $less_than_question,
-    EditableNode $name,
+    Node $less_than_question,
+    Node $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_less_than_question = $less_than_question;
@@ -32,14 +32,14 @@ final class MarkupSuffix extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $less_than_question = EditableNode::fromJSON(
+    $less_than_question = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_suffix_less_than_question'],
       $file,
       $offset,
       $source,
     );
     $offset += $less_than_question->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_suffix_name'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class MarkupSuffix extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'less_than_question' => $this->_less_than_question,
       'name' => $this->_name,
@@ -66,7 +66,7 @@ final class MarkupSuffix extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $less_than_question = $rewriter($this->_less_than_question, $parents);
@@ -80,11 +80,11 @@ final class MarkupSuffix extends EditableNode {
     return new static($less_than_question, $name);
   }
 
-  public function getLessThanQuestionUNTYPED(): EditableNode {
+  public function getLessThanQuestionUNTYPED(): Node {
     return $this->_less_than_question;
   }
 
-  public function withLessThanQuestion(EditableNode $value): this {
+  public function withLessThanQuestion(Node $value): this {
     if ($value === $this->_less_than_question) {
       return $this;
     }
@@ -112,11 +112,11 @@ final class MarkupSuffix extends EditableNode {
     return $this->getLessThanQuestion();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }

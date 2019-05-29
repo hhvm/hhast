@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Migrations;
 use function Facebook\HHAST\find_node_at_position;
 use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
-  EditableList,
+  NodeList,
   FixMe,
   Missing,
   WhiteSpace,
@@ -62,16 +62,16 @@ final class AddFixmesMigration extends BaseMigration {
       $node = find_node_at_position($root, $line, $column)->getFirstTokenx();
       $leading = $node->getLeading();
       if ($leading instanceof Missing) {
-        $new_leading = EditableList::createNonEmptyListOrMissing($fixmes);
-      } else if ($leading instanceof EditableList) {
-        $new_leading = EditableList::createNonEmptyListOrMissing(
+        $new_leading = NodeList::createNonEmptyListOrMissing($fixmes);
+      } else if ($leading instanceof NodeList) {
+        $new_leading = NodeList::createNonEmptyListOrMissing(
           Vec\concat(
             $leading->getChildren(),
             $fixmes,
           ),
         );
       } else {
-        $new_leading = EditableList::createNonEmptyListOrMissing(
+        $new_leading = NodeList::createNonEmptyListOrMissing(
           Vec\concat(
             vec[$leading],
             $fixmes,

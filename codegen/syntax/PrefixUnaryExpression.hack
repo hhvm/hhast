@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c8f5fe4b2ba8f3a61f81b99db9032f5>>
+ * @generated SignedSource<<a1a33666811bbc04a6b0f3237d9ba357>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PrefixUnaryExpression
-  extends EditableNode
+  extends Node
   implements IHasOperator, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'prefix_unary_expression';
 
-  private EditableNode $_operator;
-  private EditableNode $_operand;
+  private Node $_operator;
+  private Node $_operand;
 
   public function __construct(
-    EditableNode $operator,
-    EditableNode $operand,
+    Node $operator,
+    Node $operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_operator = $operator;
@@ -34,14 +34,14 @@ final class PrefixUnaryExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['prefix_unary_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
-    $operand = EditableNode::fromJSON(
+    $operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['prefix_unary_operand'],
       $file,
       $offset,
@@ -58,7 +58,7 @@ final class PrefixUnaryExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'operator' => $this->_operator,
       'operand' => $this->_operand,
@@ -68,7 +68,7 @@ final class PrefixUnaryExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $operator = $rewriter($this->_operator, $parents);
@@ -79,11 +79,11 @@ final class PrefixUnaryExpression
     return new static($operator, $operand);
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -99,8 +99,8 @@ final class PrefixUnaryExpression
    * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
    * CloneToken | PrintToken | TildeToken
    */
-  public function getOperator(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_operator);
+  public function getOperator(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_operator);
   }
 
   /**
@@ -108,15 +108,15 @@ final class PrefixUnaryExpression
    * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
    * CloneToken | PrintToken | TildeToken
    */
-  public function getOperatorx(): EditableToken {
+  public function getOperatorx(): Token {
     return $this->getOperator();
   }
 
-  public function getOperandUNTYPED(): EditableNode {
+  public function getOperandUNTYPED(): Node {
     return $this->_operand;
   }
 
-  public function withOperand(EditableNode $value): this {
+  public function withOperand(Node $value): this {
     if ($value === $this->_operand) {
       return $this;
     }

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f00db7474305197c0e219764996f326>>
+ * @generated SignedSource<<eceaf3139c119727d25646ec154517c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class PocketFieldTypeExprDeclaration extends EditableNode {
+final class PocketFieldTypeExprDeclaration extends Node {
 
   const string SYNTAX_KIND = 'pocket_field_type_expr_declaration';
 
-  private EditableNode $_case;
-  private EditableNode $_type;
-  private EditableNode $_name;
-  private EditableNode $_semicolon;
+  private Node $_case;
+  private Node $_type;
+  private Node $_name;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $case,
-    EditableNode $type,
-    EditableNode $name,
-    EditableNode $semicolon,
+    Node $case,
+    Node $type,
+    Node $name,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_case = $case;
@@ -38,28 +38,28 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $case = EditableNode::fromJSON(
+    $case = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_field_type_expr_case'],
       $file,
       $offset,
       $source,
     );
     $offset += $case->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_field_type_expr_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_field_type_expr_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_field_type_expr_semicolon'],
       $file,
       $offset,
@@ -76,7 +76,7 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'case' => $this->_case,
       'type' => $this->_type,
@@ -88,7 +88,7 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $case = $rewriter($this->_case, $parents);
@@ -106,11 +106,11 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
     return new static($case, $type, $name, $semicolon);
   }
 
-  public function getCaseUNTYPED(): EditableNode {
+  public function getCaseUNTYPED(): Node {
     return $this->_case;
   }
 
-  public function withCase(EditableNode $value): this {
+  public function withCase(Node $value): this {
     if ($value === $this->_case) {
       return $this;
     }
@@ -124,22 +124,22 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getCase(): EditableNode {
+  public function getCase(): Node {
     return $this->_case;
   }
 
   /**
    * @return unknown
    */
-  public function getCasex(): EditableNode {
+  public function getCasex(): Node {
     return $this->getCase();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -153,22 +153,22 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getType(): EditableNode {
+  public function getType(): Node {
     return $this->_type;
   }
 
   /**
    * @return unknown
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): Node {
     return $this->getType();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -182,22 +182,22 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return unknown
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -211,14 +211,14 @@ final class PocketFieldTypeExprDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getSemicolon(): EditableNode {
+  public function getSemicolon(): Node {
     return $this->_semicolon;
   }
 
   /**
    * @return unknown
    */
-  public function getSemicolonx(): EditableNode {
+  public function getSemicolonx(): Node {
     return $this->getSemicolon();
   }
 }

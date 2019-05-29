@@ -1,26 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6c2c59e287262684c0db43806a928782>>
+ * @generated SignedSource<<307328eb4b268f49ecd982a5c447bc34>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPExpression
-  extends EditableNode
-  implements ILambdaBody, IExpression {
+final class XHPExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'xhp_expression';
 
-  private EditableNode $_open;
-  private EditableNode $_body;
-  private EditableNode $_close;
+  private Node $_open;
+  private Node $_body;
+  private Node $_close;
 
   public function __construct(
-    EditableNode $open,
-    EditableNode $body,
-    EditableNode $close,
+    Node $open,
+    Node $body,
+    Node $close,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_open = $open;
@@ -37,21 +35,21 @@ final class XHPExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $open = EditableNode::fromJSON(
+    $open = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_open'],
       $file,
       $offset,
       $source,
     );
     $offset += $open->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_body'],
       $file,
       $offset,
       $source,
     );
     $offset += $body->getWidth();
-    $close = EditableNode::fromJSON(
+    $close = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_close'],
       $file,
       $offset,
@@ -68,7 +66,7 @@ final class XHPExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'open' => $this->_open,
       'body' => $this->_body,
@@ -79,7 +77,7 @@ final class XHPExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $open = $rewriter($this->_open, $parents);
@@ -95,11 +93,11 @@ final class XHPExpression
     return new static($open, $body, $close);
   }
 
-  public function getOpenUNTYPED(): EditableNode {
+  public function getOpenUNTYPED(): Node {
     return $this->_open;
   }
 
-  public function withOpen(EditableNode $value): this {
+  public function withOpen(Node $value): this {
     if ($value === $this->_open) {
       return $this;
     }
@@ -124,11 +122,11 @@ final class XHPExpression
     return $this->getOpen();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -140,27 +138,27 @@ final class XHPExpression
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getBody(): ?EditableList<EditableNode> {
+  public function getBody(): ?NodeList<Node> {
     if ($this->_body->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_body);
+    return TypeAssert\instance_of(NodeList::class, $this->_body);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getBodyx(): EditableList<EditableNode> {
+  public function getBodyx(): NodeList<Node> {
     return TypeAssert\not_null($this->getBody());
   }
 
-  public function getCloseUNTYPED(): EditableNode {
+  public function getCloseUNTYPED(): Node {
     return $this->_close;
   }
 
-  public function withClose(EditableNode $value): this {
+  public function withClose(Node $value): this {
     if ($value === $this->_close) {
       return $this;
     }

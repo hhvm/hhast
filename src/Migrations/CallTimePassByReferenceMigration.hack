@@ -16,7 +16,7 @@ use function Facebook\HHAST\{
 use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{
   AmpersandToken,
-  EditableList,
+  NodeList,
   Script,
 };
 use namespace HH\Lib\{C, Vec};
@@ -51,7 +51,7 @@ final class CallTimePassByReferenceMigration extends BaseMigration {
       $node = $node->getFirstTokenx();
       $root = $root->replace(
         $node,
-        EditableList::createNonEmptyListOrMissing(
+        NodeList::createNonEmptyListOrMissing(
           vec[
             new AmpersandToken(
               $node->getLeading(),

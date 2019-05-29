@@ -1,24 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2d0c6d6becbbeb63563d95b6cd1e824>>
+ * @generated SignedSource<<630457e709bd8e27cd75fec4b2105e81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NullableTypeSpecifier
-  extends EditableNode
-  implements ITypeSpecifier {
+final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'nullable_type_specifier';
 
-  private EditableNode $_question;
-  private EditableNode $_type;
+  private Node $_question;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $question,
-    EditableNode $type,
+    Node $question,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_question = $question;
@@ -34,14 +32,14 @@ final class NullableTypeSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $question = EditableNode::fromJSON(
+    $question = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['nullable_question'],
       $file,
       $offset,
       $source,
     );
     $offset += $question->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['nullable_type'],
       $file,
       $offset,
@@ -58,7 +56,7 @@ final class NullableTypeSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'question' => $this->_question,
       'type' => $this->_type,
@@ -68,7 +66,7 @@ final class NullableTypeSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $question = $rewriter($this->_question, $parents);
@@ -79,11 +77,11 @@ final class NullableTypeSpecifier
     return new static($question, $type);
   }
 
-  public function getQuestionUNTYPED(): EditableNode {
+  public function getQuestionUNTYPED(): Node {
     return $this->_question;
   }
 
-  public function withQuestion(EditableNode $value): this {
+  public function withQuestion(Node $value): this {
     if ($value === $this->_question) {
       return $this;
     }
@@ -108,11 +106,11 @@ final class NullableTypeSpecifier
     return $this->getQuestion();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }

@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70766deab3b0a48ea78fa4ec6bbbf268>>
+ * @generated SignedSource<<090388527790386422eb12469af103dc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ElseClause extends EditableNode implements IControlFlowStatement {
+final class ElseClause extends Node implements IControlFlowStatement {
 
   const string SYNTAX_KIND = 'else_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_statement;
+  private Node $_keyword;
+  private Node $_statement;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $statement,
+    Node $keyword,
+    Node $statement,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -32,14 +32,14 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['else_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $statement = EditableNode::fromJSON(
+    $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['else_statement'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'statement' => $this->_statement,
@@ -66,7 +66,7 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -77,11 +77,11 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
     return new static($keyword, $statement);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class ElseClause extends EditableNode implements IControlFlowStatement {
     return $this->getKeyword();
   }
 
-  public function getStatementUNTYPED(): EditableNode {
+  public function getStatementUNTYPED(): Node {
     return $this->_statement;
   }
 
-  public function withStatement(EditableNode $value): this {
+  public function withStatement(Node $value): this {
     if ($value === $this->_statement) {
       return $this;
     }

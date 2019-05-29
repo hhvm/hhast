@@ -10,14 +10,14 @@
 namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
-  EditableNode,
+  Node,
   Script,
 };
 use namespace HH\Lib\C;
 
 function get_current_namespace(
   Script $root,
-  EditableNode $node,
+  Node $node,
 ): ?string {
   $namespaces = $root->getNamespaces();
   if (C\is_empty($namespaces)) {

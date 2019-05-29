@@ -1,20 +1,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<acb48c3e84a5ad131c228a144c95eb8b>>
+ * @generated SignedSource<<bc541eefd7f8e07bb4e05f75c9787415>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
-function editable_node_from_json(
+function node_from_json(
   dict<string, mixed> $json,
   string $file,
   int $offset,
   string $source,
-): HHAST\EditableNode {
+): HHAST\Node {
   $kind = $json["kind"] as string;
   if ($kind === "token") {
-    return HHAST\EditableToken::fromJSON(
+    return HHAST\Token::fromJSON(
       $json['token'] as dict<_, _>,
       $file,
       $offset,
@@ -22,7 +22,7 @@ function editable_node_from_json(
     );
   }
   $kind_to_class = dict[
-    'list' => HHAST\EditableList::class,
+    'list' => HHAST\NodeList::class,
     'missing' => HHAST\Missing::class,
     'after_halt_compiler' => HHAST\AfterHaltCompiler::class,
     'delimited_comment' => HHAST\DelimitedComment::class,

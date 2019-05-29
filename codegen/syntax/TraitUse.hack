@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f48b8728bd977d69dcf68aa44cf9678d>>
+ * @generated SignedSource<<d8ad43b1cfbd9fe2e68a029463a737fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TraitUse extends EditableNode implements IClassBodyDeclaration {
+final class TraitUse extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'trait_use';
 
-  private EditableNode $_keyword;
-  private EditableNode $_names;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_names;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $names,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $names,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -35,21 +35,21 @@ final class TraitUse extends EditableNode implements IClassBodyDeclaration {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $names = EditableNode::fromJSON(
+    $names = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_names'],
       $file,
       $offset,
       $source,
     );
     $offset += $names->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_semicolon'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class TraitUse extends EditableNode implements IClassBodyDeclaration {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'names' => $this->_names,
@@ -77,7 +77,7 @@ final class TraitUse extends EditableNode implements IClassBodyDeclaration {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -93,11 +93,11 @@ final class TraitUse extends EditableNode implements IClassBodyDeclaration {
     return new static($keyword, $names, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class TraitUse extends EditableNode implements IClassBodyDeclaration {
     return $this->getKeyword();
   }
 
-  public function getNamesUNTYPED(): EditableNode {
+  public function getNamesUNTYPED(): Node {
     return $this->_names;
   }
 
-  public function withNames(EditableNode $value): this {
+  public function withNames(Node $value): this {
     if ($value === $this->_names) {
       return $this;
     }
@@ -138,26 +138,26 @@ final class TraitUse extends EditableNode implements IClassBodyDeclaration {
   }
 
   /**
-   * @return EditableList<GenericTypeSpecifier> |
-   * EditableList<ISimpleCreationSpecifier> | EditableList<SimpleTypeSpecifier>
+   * @return NodeList<GenericTypeSpecifier> |
+   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier>
    */
-  public function getNames(): EditableList<ISimpleCreationSpecifier> {
-    return TypeAssert\instance_of(EditableList::class, $this->_names);
+  public function getNames(): NodeList<ISimpleCreationSpecifier> {
+    return TypeAssert\instance_of(NodeList::class, $this->_names);
   }
 
   /**
-   * @return EditableList<GenericTypeSpecifier> |
-   * EditableList<ISimpleCreationSpecifier> | EditableList<SimpleTypeSpecifier>
+   * @return NodeList<GenericTypeSpecifier> |
+   * NodeList<ISimpleCreationSpecifier> | NodeList<SimpleTypeSpecifier>
    */
-  public function getNamesx(): EditableList<ISimpleCreationSpecifier> {
+  public function getNamesx(): NodeList<ISimpleCreationSpecifier> {
     return $this->getNames();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

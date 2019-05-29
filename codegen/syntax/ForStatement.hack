@@ -1,38 +1,38 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1697331826f63a36763d6d30b53f9142>>
+ * @generated SignedSource<<07496ae879ed8b500d5e7d44ce199be2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ForStatement
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
   const string SYNTAX_KIND = 'for_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_initializer;
-  private EditableNode $_first_semicolon;
-  private EditableNode $_control;
-  private EditableNode $_second_semicolon;
-  private EditableNode $_end_of_loop;
-  private EditableNode $_right_paren;
-  private EditableNode $_body;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_initializer;
+  private Node $_first_semicolon;
+  private Node $_control;
+  private Node $_second_semicolon;
+  private Node $_end_of_loop;
+  private Node $_right_paren;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $initializer,
-    EditableNode $first_semicolon,
-    EditableNode $control,
-    EditableNode $second_semicolon,
-    EditableNode $end_of_loop,
-    EditableNode $right_paren,
-    EditableNode $body,
+    Node $keyword,
+    Node $left_paren,
+    Node $initializer,
+    Node $first_semicolon,
+    Node $control,
+    Node $second_semicolon,
+    Node $end_of_loop,
+    Node $right_paren,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -55,63 +55,63 @@ final class ForStatement
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $initializer = EditableNode::fromJSON(
+    $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_initializer'],
       $file,
       $offset,
       $source,
     );
     $offset += $initializer->getWidth();
-    $first_semicolon = EditableNode::fromJSON(
+    $first_semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_first_semicolon'],
       $file,
       $offset,
       $source,
     );
     $offset += $first_semicolon->getWidth();
-    $control = EditableNode::fromJSON(
+    $control = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_control'],
       $file,
       $offset,
       $source,
     );
     $offset += $control->getWidth();
-    $second_semicolon = EditableNode::fromJSON(
+    $second_semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_second_semicolon'],
       $file,
       $offset,
       $source,
     );
     $offset += $second_semicolon->getWidth();
-    $end_of_loop = EditableNode::fromJSON(
+    $end_of_loop = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_end_of_loop'],
       $file,
       $offset,
       $source,
     );
     $offset += $end_of_loop->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_body'],
       $file,
       $offset,
@@ -139,7 +139,7 @@ final class ForStatement
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -156,7 +156,7 @@ final class ForStatement
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -194,11 +194,11 @@ final class ForStatement
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -233,11 +233,11 @@ final class ForStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -272,11 +272,11 @@ final class ForStatement
     return $this->getLeftParen();
   }
 
-  public function getInitializerUNTYPED(): EditableNode {
+  public function getInitializerUNTYPED(): Node {
     return $this->_initializer;
   }
 
-  public function withInitializer(EditableNode $value): this {
+  public function withInitializer(Node $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
@@ -298,30 +298,29 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression> |
-   * null
+   * @return NodeList<BinaryExpression> | NodeList<IExpression> |
+   * NodeList<FunctionCallExpression> | NodeList<LiteralExpression> | null
    */
-  public function getInitializer(): ?EditableList<IExpression> {
+  public function getInitializer(): ?NodeList<IExpression> {
     if ($this->_initializer->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_initializer);
+    return TypeAssert\instance_of(NodeList::class, $this->_initializer);
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IExpression> |
-   * EditableList<FunctionCallExpression> | EditableList<LiteralExpression>
+   * @return NodeList<BinaryExpression> | NodeList<IExpression> |
+   * NodeList<FunctionCallExpression> | NodeList<LiteralExpression>
    */
-  public function getInitializerx(): EditableList<IExpression> {
+  public function getInitializerx(): NodeList<IExpression> {
     return TypeAssert\not_null($this->getInitializer());
   }
 
-  public function getFirstSemicolonUNTYPED(): EditableNode {
+  public function getFirstSemicolonUNTYPED(): Node {
     return $this->_first_semicolon;
   }
 
-  public function withFirstSemicolon(EditableNode $value): this {
+  public function withFirstSemicolon(Node $value): this {
     if ($value === $this->_first_semicolon) {
       return $this;
     }
@@ -359,11 +358,11 @@ final class ForStatement
     return $this->getFirstSemicolon();
   }
 
-  public function getControlUNTYPED(): EditableNode {
+  public function getControlUNTYPED(): Node {
     return $this->_control;
   }
 
-  public function withControl(EditableNode $value): this {
+  public function withControl(Node $value): this {
     if ($value === $this->_control) {
       return $this;
     }
@@ -385,32 +384,31 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IHasOperator> |
-   * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
-   * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression> |
-   * null
+   * @return NodeList<BinaryExpression> | NodeList<IHasOperator> |
+   * NodeList<ConditionalExpression> | NodeList<FunctionCallExpression> |
+   * NodeList<PrefixUnaryExpression> | NodeList<VariableExpression> | null
    */
-  public function getControl(): ?EditableList<IExpression> {
+  public function getControl(): ?NodeList<IExpression> {
     if ($this->_control->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_control);
+    return TypeAssert\instance_of(NodeList::class, $this->_control);
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IHasOperator> |
-   * EditableList<ConditionalExpression> | EditableList<FunctionCallExpression>
-   * | EditableList<PrefixUnaryExpression> | EditableList<VariableExpression>
+   * @return NodeList<BinaryExpression> | NodeList<IHasOperator> |
+   * NodeList<ConditionalExpression> | NodeList<FunctionCallExpression> |
+   * NodeList<PrefixUnaryExpression> | NodeList<VariableExpression>
    */
-  public function getControlx(): EditableList<IExpression> {
+  public function getControlx(): NodeList<IExpression> {
     return TypeAssert\not_null($this->getControl());
   }
 
-  public function getSecondSemicolonUNTYPED(): EditableNode {
+  public function getSecondSemicolonUNTYPED(): Node {
     return $this->_second_semicolon;
   }
 
-  public function withSecondSemicolon(EditableNode $value): this {
+  public function withSecondSemicolon(Node $value): this {
     if ($value === $this->_second_semicolon) {
       return $this;
     }
@@ -448,11 +446,11 @@ final class ForStatement
     return $this->getSecondSemicolon();
   }
 
-  public function getEndOfLoopUNTYPED(): EditableNode {
+  public function getEndOfLoopUNTYPED(): Node {
     return $this->_end_of_loop;
   }
 
-  public function withEndOfLoop(EditableNode $value): this {
+  public function withEndOfLoop(Node $value): this {
     if ($value === $this->_end_of_loop) {
       return $this;
     }
@@ -474,32 +472,31 @@ final class ForStatement
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IHasOperator> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
-   * | null
+   * @return NodeList<BinaryExpression> | NodeList<IHasOperator> |
+   * NodeList<FunctionCallExpression> | NodeList<PostfixUnaryExpression> |
+   * NodeList<PrefixUnaryExpression> | null
    */
-  public function getEndOfLoop(): ?EditableList<IExpression> {
+  public function getEndOfLoop(): ?NodeList<IExpression> {
     if ($this->_end_of_loop->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_end_of_loop);
+    return TypeAssert\instance_of(NodeList::class, $this->_end_of_loop);
   }
 
   /**
-   * @return EditableList<BinaryExpression> | EditableList<IHasOperator> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
+   * @return NodeList<BinaryExpression> | NodeList<IHasOperator> |
+   * NodeList<FunctionCallExpression> | NodeList<PostfixUnaryExpression> |
+   * NodeList<PrefixUnaryExpression>
    */
-  public function getEndOfLoopx(): EditableList<IExpression> {
+  public function getEndOfLoopx(): NodeList<IExpression> {
     return TypeAssert\not_null($this->getEndOfLoop());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -534,11 +531,11 @@ final class ForStatement
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }

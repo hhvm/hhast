@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b47efe01fa4bcd6c4ed44328c5681b6>>
+ * @generated SignedSource<<2d4a5542098ae77375d47683540c7086>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ClassishBody extends EditableNode {
+final class ClassishBody extends Node {
 
   const string SYNTAX_KIND = 'classish_body';
 
-  private EditableNode $_left_brace;
-  private EditableNode $_elements;
-  private EditableNode $_right_brace;
+  private Node $_left_brace;
+  private Node $_elements;
+  private Node $_right_brace;
 
   public function __construct(
-    EditableNode $left_brace,
-    EditableNode $elements,
-    EditableNode $right_brace,
+    Node $left_brace,
+    Node $elements,
+    Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_brace = $left_brace;
@@ -35,21 +35,21 @@ final class ClassishBody extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_brace = EditableNode::fromJSON(
+    $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_body_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
-    $elements = EditableNode::fromJSON(
+    $elements = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_body_elements'],
       $file,
       $offset,
       $source,
     );
     $offset += $elements->getWidth();
-    $right_brace = EditableNode::fromJSON(
+    $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_body_right_brace'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class ClassishBody extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_brace' => $this->_left_brace,
       'elements' => $this->_elements,
@@ -77,7 +77,7 @@ final class ClassishBody extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
@@ -93,11 +93,11 @@ final class ClassishBody extends EditableNode {
     return new static($left_brace, $elements, $right_brace);
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
+  public function getLeftBraceUNTYPED(): Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
+  public function withLeftBrace(Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class ClassishBody extends EditableNode {
     return $this->getLeftBrace();
   }
 
-  public function getElementsUNTYPED(): EditableNode {
+  public function getElementsUNTYPED(): Node {
     return $this->_elements;
   }
 
-  public function withElements(EditableNode $value): this {
+  public function withElements(Node $value): this {
     if ($value === $this->_elements) {
       return $this;
     }
@@ -138,27 +138,27 @@ final class ClassishBody extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getElements(): ?EditableList<EditableNode> {
+  public function getElements(): ?NodeList<Node> {
     if ($this->_elements->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_elements);
+    return TypeAssert\instance_of(NodeList::class, $this->_elements);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getElementsx(): EditableList<EditableNode> {
+  public function getElementsx(): NodeList<Node> {
     return TypeAssert\not_null($this->getElements());
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
+  public function getRightBraceUNTYPED(): Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableNode $value): this {
+  public function withRightBrace(Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

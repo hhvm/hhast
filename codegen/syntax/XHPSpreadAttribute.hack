@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c7706e5ad11e78f603bde0cd7f83e6d6>>
+ * @generated SignedSource<<d486bb738f00e9584b314a0d499d15b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPSpreadAttribute extends EditableNode {
+final class XHPSpreadAttribute extends Node {
 
   const string SYNTAX_KIND = 'xhp_spread_attribute';
 
-  private EditableNode $_left_brace;
-  private EditableNode $_spread_operator;
-  private EditableNode $_expression;
-  private EditableNode $_right_brace;
+  private Node $_left_brace;
+  private Node $_spread_operator;
+  private Node $_expression;
+  private Node $_right_brace;
 
   public function __construct(
-    EditableNode $left_brace,
-    EditableNode $spread_operator,
-    EditableNode $expression,
-    EditableNode $right_brace,
+    Node $left_brace,
+    Node $spread_operator,
+    Node $expression,
+    Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_brace = $left_brace;
@@ -38,28 +38,28 @@ final class XHPSpreadAttribute extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_brace = EditableNode::fromJSON(
+    $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_spread_attribute_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
-    $spread_operator = EditableNode::fromJSON(
+    $spread_operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_spread_attribute_spread_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $spread_operator->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_spread_attribute_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
-    $right_brace = EditableNode::fromJSON(
+    $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_spread_attribute_right_brace'],
       $file,
       $offset,
@@ -82,7 +82,7 @@ final class XHPSpreadAttribute extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_brace' => $this->_left_brace,
       'spread_operator' => $this->_spread_operator,
@@ -94,7 +94,7 @@ final class XHPSpreadAttribute extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
@@ -112,11 +112,11 @@ final class XHPSpreadAttribute extends EditableNode {
     return new static($left_brace, $spread_operator, $expression, $right_brace);
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
+  public function getLeftBraceUNTYPED(): Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
+  public function withLeftBrace(Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -146,11 +146,11 @@ final class XHPSpreadAttribute extends EditableNode {
     return $this->getLeftBrace();
   }
 
-  public function getSpreadOperatorUNTYPED(): EditableNode {
+  public function getSpreadOperatorUNTYPED(): Node {
     return $this->_spread_operator;
   }
 
-  public function withSpreadOperator(EditableNode $value): this {
+  public function withSpreadOperator(Node $value): this {
     if ($value === $this->_spread_operator) {
       return $this;
     }
@@ -183,11 +183,11 @@ final class XHPSpreadAttribute extends EditableNode {
     return $this->getSpreadOperator();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -218,11 +218,11 @@ final class XHPSpreadAttribute extends EditableNode {
     return $this->getExpression();
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
+  public function getRightBraceUNTYPED(): Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableNode $value): this {
+  public function withRightBrace(Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c72bd1811411849a8cabaec0b1f01e74>>
+ * @generated SignedSource<<14f3a9a7e4fb5750485d4941ff2c3bc1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class FunctionDeclaration
-  extends EditableNode
+  extends Node
   implements IFunctionishDeclaration, IHasFunctionBody, IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'function_declaration';
 
-  private EditableNode $_attribute_spec;
-  private EditableNode $_declaration_header;
-  private EditableNode $_body;
+  private Node $_attribute_spec;
+  private Node $_declaration_header;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $attribute_spec,
-    EditableNode $declaration_header,
-    EditableNode $body,
+    Node $attribute_spec,
+    Node $declaration_header,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -37,21 +37,21 @@ final class FunctionDeclaration
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute_spec = EditableNode::fromJSON(
+    $attribute_spec = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
-    $declaration_header = EditableNode::fromJSON(
+    $declaration_header = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_declaration_header'],
       $file,
       $offset,
       $source,
     );
     $offset += $declaration_header->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_body'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class FunctionDeclaration
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'declaration_header' => $this->_declaration_header,
@@ -79,7 +79,7 @@ final class FunctionDeclaration
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
@@ -95,11 +95,11 @@ final class FunctionDeclaration
     return new static($attribute_spec, $declaration_header, $body);
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableNode $value): this {
+  public function withAttributeSpec(Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -130,11 +130,11 @@ final class FunctionDeclaration
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getDeclarationHeaderUNTYPED(): EditableNode {
+  public function getDeclarationHeaderUNTYPED(): Node {
     return $this->_declaration_header;
   }
 
-  public function withDeclarationHeader(EditableNode $value): this {
+  public function withDeclarationHeader(Node $value): this {
     if ($value === $this->_declaration_header) {
       return $this;
     }
@@ -162,11 +162,11 @@ final class FunctionDeclaration
     return $this->getDeclarationHeader();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -184,14 +184,14 @@ final class FunctionDeclaration
   /**
    * @return CompoundStatement | SemicolonToken
    */
-  public function getBody(): EditableNode {
+  public function getBody(): Node {
     return $this->_body;
   }
 
   /**
    * @return CompoundStatement | SemicolonToken
    */
-  public function getBodyx(): EditableNode {
+  public function getBodyx(): Node {
     return $this->getBody();
   }
 }

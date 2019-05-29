@@ -11,10 +11,10 @@
  */
 
 use type Facebook\HHAST\Linters\AutoFixingASTLinter;
-use type Facebook\HHAST\EditableNode;
+use type Facebook\HHAST\Node;
 
-class Foo extends AutoFixingASTLinter<EditableNode> {
+class Foo extends AutoFixingASTLinter<Node> {
   <<__Override>>
-  public function getPrettyTextForNode(EditableNode $node): EditableNode {
+  public function getPrettyTextForNode(Node $node): Node {
   }
  }

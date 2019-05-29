@@ -17,7 +17,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
   private function replaceTypeSpecifier(
     HHAST\SimpleTypeSpecifier $in,
   ): HHAST\SimpleTypeSpecifier {
-    $name = $in->getDescendantsOfType(HHAST\EditableToken::class)
+    $name = $in->getDescendantsOfType(HHAST\Token::class)
       |> Vec\map($$, $t ==> $t->getText())
       |> Str\join($$, '');
     if (
@@ -48,7 +48,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $parts[$last_idx] =
       $parts[$last_idx]->withTrailing($in->getLastTokenx()->getTrailing());
     return $in->withSpecifier(
-      new HHAST\QualifiedName(HHAST\EditableList::createNonEmptyListOrMissing($parts)),
+      new HHAST\QualifiedName(HHAST\NodeList::createNonEmptyListOrMissing($parts)),
     );
   }
 
@@ -84,7 +84,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       |> $in->withReceiver($$);
   }
 
-  private function getAndRemoveDocTag<T as HHAST\EditableNode>(
+  private function getAndRemoveDocTag<T as HHAST\Node>(
     T $in,
     string $doc_tag,
   ): ?(HHAST\DelimitedComment, ?string, string) {
@@ -92,7 +92,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     if ($leading->isMissing()) {
       return null;
     }
-    if ($leading is HHAST\EditableList<_>) {
+    if ($leading is HHAST\NodeList<_>) {
       $leading = $leading->getItemsOfType(HHAST\DelimitedComment::class);
     } else if ($leading is HHAST\DelimitedComment) {
       $leading = vec[$leading];
@@ -143,7 +143,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $attr = new HHAST\ConstructorCall(
       new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), "DataProvider"),
       new HHAST\LeftParenToken(HHAST\Missing(), HHAST\Missing()),
-      HHAST\EditableList::createNonEmptyListOrMissing(vec[new HHAST\SingleQuotedStringLiteralToken(
+      HHAST\NodeList::createNonEmptyListOrMissing(vec[new HHAST\SingleQuotedStringLiteralToken(
         HHAST\Missing(),
         HHAST\Missing(),
         "'".$provider."'",
@@ -155,26 +155,26 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     if ($attrs === null) {
       if ($comment_text !== null) {
         $leading =
-          ($decl->getFirstTokenx()->getLeading() as HHAST\EditableList<_>)
+          ($decl->getFirstTokenx()->getLeading() as HHAST\NodeList<_>)
             ->replace($comment, $comment->withText($comment_text));
       } else {
         $leading = vec[];
         foreach (
-          ($decl->getFirstTokenx()->getLeading() as HHAST\EditableList<_>)
+          ($decl->getFirstTokenx()->getLeading() as HHAST\NodeList<_>)
             ->getItems() as $item
         ) {
           if ($item === $comment) {
             break;
           }
-          $leading[] = $item as HHAST\EditableTrivia;
+          $leading[] = $item as HHAST\Trivia;
         }
         $leading =
-          HHAST\EditableList::createNonEmptyListOrMissing($this->trimWhitespace($leading));
+          HHAST\NodeList::createNonEmptyListOrMissing($this->trimWhitespace($leading));
       }
       $decl = $decl->replace($comment, HHAST\Missing());
       $attrs = new HHAST\AttributeSpecification(
         new HHAST\LessThanLessThanToken($leading, HHAST\Missing()),
-        HHAST\EditableList::createNonEmptyListOrMissing(vec[$attr]),
+        HHAST\NodeList::createNonEmptyListOrMissing(vec[$attr]),
         new HHAST\GreaterThanGreaterThanToken(HHAST\Missing(), HHAST\Missing()),
       );
     } else {
@@ -185,7 +185,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           : $comment->withText($comment_text),
       );
       $attrs = $attrs->withAttributes(
-        HHAST\EditableList::createNonEmptyListOrMissing(
+        HHAST\NodeList::createNonEmptyListOrMissing(
           Vec\concat(
             $attrs->getAttributesx()->getChildren(),
             vec[new HHAST\ListItem(
@@ -199,19 +199,19 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $decl = $decl->withAttribute($attrs);
     $first = $decl->getFunctionDeclHeader()->getFirstTokenx();
-    $leading = ($first->getLeading() as HHAST\EditableList<_>)->getItems()
-      |> Vec\map($$, $n ==> $n as HHAST\EditableNode);
+    $leading = ($first->getLeading() as HHAST\NodeList<_>)->getItems()
+      |> Vec\map($$, $n ==> $n as HHAST\Node);
     return $decl->replace(
       $first,
       $first->withLeading(
-        HHAST\EditableList::createNonEmptyListOrMissing($this->trimWhitespace($leading)),
+        HHAST\NodeList::createNonEmptyListOrMissing($this->trimWhitespace($leading)),
       ),
     );
   }
 
   private function trimWhitespace(
-    vec<HHAST\EditableNode> $leading,
-  ): vec<HHAST\EditableNode> {
+    vec<HHAST\Node> $leading,
+  ): vec<HHAST\Node> {
     $saved = vec[];
     $whitespace = vec[];
     foreach ($leading as $item) {
@@ -288,7 +288,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
   private function getQualifiedNameForHackTest(): HHAST\QualifiedName {
     $m = HHAST\Missing();
     return new HHAST\QualifiedName(
-      HHAST\EditableList::createNonEmptyListOrMissing(
+      HHAST\NodeList::createNonEmptyListOrMissing(
         vec[
           new HHAST\NameToken($m, $m, "Facebook"),
           new HHAST\BackslashToken($m, $m),
@@ -316,7 +316,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       return $node;
     }
 
-    $text = $what->getDescendantsOfType(HHAST\EditableToken::class)
+    $text = $what->getDescendantsOfType(HHAST\Token::class)
       |> Vec\map($$, $t ==> $t->getText())
       |> Str\join($$, '')
       |> Str\strip_prefix($$, '\\');
@@ -356,7 +356,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           return
             new HHAST\PublicToken(HHAST\Missing(), new HHAST\WhiteSpace(' '));
         }
-        return ($m as HHAST\EditableToken)->withLeading(HHAST\Missing())
+        return ($m as HHAST\Token)->withLeading(HHAST\Missing())
           ->withTrailing(new HHAST\WhiteSpace(' '));
       },
     );
@@ -376,7 +376,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
             new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), 'Awaitable'),
             new HHAST\TypeArguments(
               new HHAST\LessThanToken(HHAST\Missing(), HHAST\Missing()),
-              HHAST\EditableList::createNonEmptyListOrMissing(vec[
+              HHAST\NodeList::createNonEmptyListOrMissing(vec[
                 new HHAST\VoidToken(HHAST\Missing(), HHAST\Missing()),
               ]),
               new HHAST\GreaterThanToken(
@@ -396,7 +396,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           ),
           new HHAST\TypeArguments(
             new HHAST\LessThanToken(HHAST\Missing(), HHAST\Missing()),
-            HHAST\EditableList::createNonEmptyListOrMissing(vec[
+            HHAST\NodeList::createNonEmptyListOrMissing(vec[
               $type
                 ->replace(
                   $type->getFirstTokenx(),
@@ -423,7 +423,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $new_name,
       ),
     )
-      ->withModifiers(HHAST\EditableList::createNonEmptyListOrMissing($new_modifiers));
+      ->withModifiers(HHAST\NodeList::createNonEmptyListOrMissing($new_modifiers));
   }
 
   final private function migrateExpectedExceptionAttribute(
@@ -460,7 +460,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
             ),
             HHAST\Missing(),
             new HHAST\LeftParenToken($m, $m),
-            HHAST\EditableList::createNonEmptyListOrMissing(vec[
+            HHAST\NodeList::createNonEmptyListOrMissing(vec[
               new HHAST\NameToken(
                 $m,
                 $m,
@@ -479,7 +479,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $node = $node->withFunctionBody(
       $node->getFunctionBodyx()
-        ->withStatements(HHAST\EditableList::createNonEmptyListOrMissing($body)),
+        ->withStatements(HHAST\NodeList::createNonEmptyListOrMissing($body)),
     );
 
     if ($comment_text !== null) {
@@ -488,14 +488,14 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $first = $node->getFirstTokenx();
     $leading = $first->getLeading();
-    $items = ($leading is HHAST\EditableList<_>)
-      ? Vec\map($leading->getItems(), $it ==> $it as HHAST\EditableNode)
+    $items = ($leading is HHAST\NodeList<_>)
+      ? Vec\map($leading->getItems(), $it ==> $it as HHAST\Node)
       : vec[$leading];
     $idx = C\find_key($items, $it ==> $it === $comment) as nonnull;
     return $node->replace(
       $first,
       $first->withLeading(
-        HHAST\EditableList::createNonEmptyListOrMissing(Vec\take($items, $idx)),
+        HHAST\NodeList::createNonEmptyListOrMissing(Vec\take($items, $idx)),
       ),
     );
   }
@@ -522,15 +522,15 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $ret = $node->withFunctionBody(
       $node->getFunctionBodyx()
-        ->withStatements(HHAST\EditableList::createNonEmptyListOrMissing($new)),
+        ->withStatements(HHAST\NodeList::createNonEmptyListOrMissing($new)),
     );
     return $ret;
   }
 
   final private function migrateExpectExceptionInStatements(
-    vec<HHAST\EditableNode> $statements,
+    vec<HHAST\Node> $statements,
     string $indent,
-  ): vec<HHAST\EditableNode> {
+  ): vec<HHAST\Node> {
     $idx = C\find_key(
       $statements,
       $n ==> {
@@ -596,8 +596,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
   }
 
   private function wrapStatementsInExpectException(
-    vec<HHAST\EditableNode> $statements,
-    HHAST\EditableNode $exception,
+    vec<HHAST\Node> $statements,
+    HHAST\Node $exception,
     string $indent,
   ): HHAST\FunctionCallExpression {
     $inner = $statements
@@ -615,13 +615,13 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       )
       |> $this->migrateExpectExceptionInStatements($$, $indent);
 
-    $new_line_leading = HHAST\EditableList::createNonEmptyListOrMissing(vec[
+    $new_line_leading = HHAST\NodeList::createNonEmptyListOrMissing(vec[
       C\first($statements)?->getFirstToken()?->getLeadingWhitespace() ??
         new HHAST\WhiteSpace($indent.$indent),
     ]);
 
-    $a = HHAST\EditableList::createNonEmptyListOrMissing($statements);
-    $b = HHAST\EditableList::createNonEmptyListOrMissing($inner);
+    $a = HHAST\NodeList::createNonEmptyListOrMissing($statements);
+    $b = HHAST\NodeList::createNonEmptyListOrMissing($inner);
     invariant($a->getCode() !== $b->getCode(), 'idempotency problem');
 
     $m = HHAST\Missing();
@@ -643,7 +643,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         new HHAST\EqualEqualGreaterThanToken($m, new HHAST\WhiteSpace(' ')),
         new HHAST\CompoundStatement(
           new HHAST\LeftBraceToken($m, new HHAST\EndOfLine("\n")),
-          HHAST\EditableList::createNonEmptyListOrMissing($inner),
+          HHAST\NodeList::createNonEmptyListOrMissing($inner),
           new HHAST\RightBraceToken($new_line_leading, $m),
         ),
       ),

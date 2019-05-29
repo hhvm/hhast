@@ -13,8 +13,8 @@ use namespace HH\Lib\{C, Dict, Vec};
 
 final class Script extends ScriptGeneratedBase {
   <<__Memoize>>
-  public function getTokens(): vec<EditableToken> {
-    return $this->getDescendantsOfType(EditableToken::class);
+  public function getTokens(): vec<Token> {
+    return $this->getDescendantsOfType(Token::class);
   }
 
   <<__Memoize>>
@@ -26,7 +26,7 @@ final class Script extends ScriptGeneratedBase {
     );
   }
 
-  public function getPreviousToken(EditableToken $token): ?EditableToken {
+  public function getPreviousToken(Token $token): ?Token {
     $idx = $this->getTokenIndices()[$token->getUniqueID()];
     if ($idx === 0) {
       return null;

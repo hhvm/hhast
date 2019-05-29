@@ -1,19 +1,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<899c79223b9d552b5f5c6c7ebccd54e1>>
+ * @generated SignedSource<<53247b990da7e2927d8eaaa65e425e9e>>
  */
 namespace Facebook\HHAST;
 
 final class HeredocStringLiteralToken
-  extends EditableTokenWithVariableText
+  extends TokenWithVariableText
   implements IStringLiteral {
 
   const string KIND = 'heredoc_string_literal';
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     string $text,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -25,7 +25,7 @@ final class HeredocStringLiteralToken
   }
 
   <<__Override>>
-  public function withLeading(EditableNode $value): this {
+  public function withLeading(Node $value): this {
     if ($value === $this->getLeading()) {
       return $this;
     }
@@ -37,7 +37,7 @@ final class HeredocStringLiteralToken
   }
 
   <<__Override>>
-  public function withTrailing(EditableNode $value): this {
+  public function withTrailing(Node $value): this {
     if ($value === $this->getTrailing()) {
       return $this;
     }
@@ -54,7 +54,7 @@ final class HeredocStringLiteralToken
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);

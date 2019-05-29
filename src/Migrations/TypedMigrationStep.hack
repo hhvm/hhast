@@ -9,11 +9,11 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use type Facebook\HHAST\EditableNode;
+use type Facebook\HHAST\Node;
 
 final class TypedMigrationStep<
-  Tin as EditableNode,
-  Tout as EditableNode
+  Tin as Node,
+  Tout as Node
 > implements IMigrationStep {
 
   public function __construct(
@@ -28,7 +28,7 @@ final class TypedMigrationStep<
     return $this->name;
   }
 
-  public function rewrite(EditableNode $node): EditableNode {
+  public function rewrite(Node $node): Node {
     if (!$node instanceof $this->tin) {
       return $node;
     }

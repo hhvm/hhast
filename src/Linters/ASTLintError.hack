@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\EditableNode;
+use type Facebook\HHAST\Node;
 use function Facebook\HHAST\find_position;
 use namespace HH\Lib\Str;
 
@@ -18,17 +18,17 @@ class ASTLintError extends LintError {
   public function __construct(
     protected ASTLinter $linter,
     string $description,
-    protected EditableNode $node,
-    private ?(function(): ?EditableNode) $fixer = null,
+    protected Node $node,
+    private ?(function(): ?Node) $fixer = null,
   ) {
     parent::__construct($linter, $description);
   }
 
-  final public function getBlameNode(): EditableNode {
+  final public function getBlameNode(): Node {
     return $this->node;
   }
 
-  final public function getFixedNode(): ?EditableNode {
+  final public function getFixedNode(): ?Node {
     $fixer = $this->fixer;
     if ($fixer) {
       return $fixer();

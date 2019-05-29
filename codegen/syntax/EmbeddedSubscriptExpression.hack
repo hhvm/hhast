@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f74861e24b5f2b91d8c58c9a0f36664>>
+ * @generated SignedSource<<c5293db3f5c9aa1c28d1dd1d469ae468>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class EmbeddedSubscriptExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'embedded_subscript_expression';
 
-  private EditableNode $_receiver;
-  private EditableNode $_left_bracket;
-  private EditableNode $_index;
-  private EditableNode $_right_bracket;
+  private Node $_receiver;
+  private Node $_left_bracket;
+  private Node $_index;
+  private Node $_right_bracket;
 
   public function __construct(
-    EditableNode $receiver,
-    EditableNode $left_bracket,
-    EditableNode $index,
-    EditableNode $right_bracket,
+    Node $receiver,
+    Node $left_bracket,
+    Node $index,
+    Node $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_receiver = $receiver;
@@ -40,28 +40,28 @@ final class EmbeddedSubscriptExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $receiver = EditableNode::fromJSON(
+    $receiver = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_receiver'],
       $file,
       $offset,
       $source,
     );
     $offset += $receiver->getWidth();
-    $left_bracket = EditableNode::fromJSON(
+    $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
-    $index = EditableNode::fromJSON(
+    $index = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_index'],
       $file,
       $offset,
       $source,
     );
     $offset += $index->getWidth();
-    $right_bracket = EditableNode::fromJSON(
+    $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_right_bracket'],
       $file,
       $offset,
@@ -84,7 +84,7 @@ final class EmbeddedSubscriptExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'receiver' => $this->_receiver,
       'left_bracket' => $this->_left_bracket,
@@ -96,7 +96,7 @@ final class EmbeddedSubscriptExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $receiver = $rewriter($this->_receiver, $parents);
@@ -114,11 +114,11 @@ final class EmbeddedSubscriptExpression
     return new static($receiver, $left_bracket, $index, $right_bracket);
   }
 
-  public function getReceiverUNTYPED(): EditableNode {
+  public function getReceiverUNTYPED(): Node {
     return $this->_receiver;
   }
 
-  public function withReceiver(EditableNode $value): this {
+  public function withReceiver(Node $value): this {
     if ($value === $this->_receiver) {
       return $this;
     }
@@ -137,22 +137,22 @@ final class EmbeddedSubscriptExpression
   /**
    * @return unknown
    */
-  public function getReceiver(): EditableNode {
+  public function getReceiver(): Node {
     return $this->_receiver;
   }
 
   /**
    * @return unknown
    */
-  public function getReceiverx(): EditableNode {
+  public function getReceiverx(): Node {
     return $this->getReceiver();
   }
 
-  public function getLeftBracketUNTYPED(): EditableNode {
+  public function getLeftBracketUNTYPED(): Node {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(EditableNode $value): this {
+  public function withLeftBracket(Node $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -171,22 +171,22 @@ final class EmbeddedSubscriptExpression
   /**
    * @return unknown
    */
-  public function getLeftBracket(): EditableNode {
+  public function getLeftBracket(): Node {
     return $this->_left_bracket;
   }
 
   /**
    * @return unknown
    */
-  public function getLeftBracketx(): EditableNode {
+  public function getLeftBracketx(): Node {
     return $this->getLeftBracket();
   }
 
-  public function getIndexUNTYPED(): EditableNode {
+  public function getIndexUNTYPED(): Node {
     return $this->_index;
   }
 
-  public function withIndex(EditableNode $value): this {
+  public function withIndex(Node $value): this {
     if ($value === $this->_index) {
       return $this;
     }
@@ -205,22 +205,22 @@ final class EmbeddedSubscriptExpression
   /**
    * @return unknown
    */
-  public function getIndex(): EditableNode {
+  public function getIndex(): Node {
     return $this->_index;
   }
 
   /**
    * @return unknown
    */
-  public function getIndexx(): EditableNode {
+  public function getIndexx(): Node {
     return $this->getIndex();
   }
 
-  public function getRightBracketUNTYPED(): EditableNode {
+  public function getRightBracketUNTYPED(): Node {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(EditableNode $value): this {
+  public function withRightBracket(Node $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
@@ -239,14 +239,14 @@ final class EmbeddedSubscriptExpression
   /**
    * @return unknown
    */
-  public function getRightBracket(): EditableNode {
+  public function getRightBracket(): Node {
     return $this->_right_bracket;
   }
 
   /**
    * @return unknown
    */
-  public function getRightBracketx(): EditableNode {
+  public function getRightBracketx(): Node {
     return $this->getRightBracket();
   }
 }

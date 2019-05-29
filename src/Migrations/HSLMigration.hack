@@ -18,8 +18,8 @@ use type Facebook\HHAST\{
   BooleanLiteralToken,
   CommaToken,
   DecimalLiteralToken,
-  EditableList,
-  EditableNode,
+  NodeList,
+  Node,
   ExpressionStatement,
   FunctionCallExpression,
   INamespaceUseDeclaration,
@@ -310,7 +310,7 @@ final class HSLMigration extends BaseMigration {
     invariant_violation('should not fail to insert new node');
   }
 
-  protected function resolveIntegerArgument(EditableNode $node): ?int {
+  protected function resolveIntegerArgument(Node $node): ?int {
     if ($node instanceof LiteralExpression) {
       $expr = $node->getExpression();
       if ($expr instanceof DecimalLiteralToken) {
@@ -337,7 +337,7 @@ final class HSLMigration extends BaseMigration {
 
   // change argument order or structure between PHP function and HSL function if necessary
   protected async function maybeMutateArgumentsAsync(
-    EditableNode $root,
+    Node $root,
     FunctionCallExpression $node,
     ?vec<int> $argument_order,
     string $path,
@@ -400,12 +400,12 @@ final class HSLMigration extends BaseMigration {
           ExpressionStatement::class,
         );
 
-        $new_argument_list = EditableList::createNonEmptyListOrMissing(vec[
+        $new_argument_list = NodeList::createNonEmptyListOrMissing(vec[
           new ListItem(
             $items[2],
             new CommaToken(
               HHAST\Missing(),
-              EditableList::createNonEmptyListOrMissing(
+              NodeList::createNonEmptyListOrMissing(
                 vec[new WhiteSpace(' ')],
               ),
             ),
@@ -494,7 +494,7 @@ final class HSLMigration extends BaseMigration {
         );
       }
 
-      $new_argument_list = EditableList::createNonEmptyListOrMissing(
+      $new_argument_list = NodeList::createNonEmptyListOrMissing(
         $new_argument_list,
       );
     }
@@ -706,7 +706,7 @@ final class HSLMigration extends BaseMigration {
     return $node->replace($receiver, $new_receiver);
   }
 
-  protected function nodeFromCode<T as EditableNode>(
+  protected function nodeFromCode<T as Node>(
     string $code,
     classname<T> $expected,
   ): T {

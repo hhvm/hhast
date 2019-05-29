@@ -1,32 +1,32 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d45dd30950b6509ff384ada1b32c9352>>
+ * @generated SignedSource<<e885be27563003416a58eef94695c508>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
+final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'darray_type_specifier';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_angle;
-  private EditableNode $_key;
-  private EditableNode $_comma;
-  private EditableNode $_value;
-  private EditableNode $_trailing_comma;
-  private EditableNode $_right_angle;
+  private Node $_keyword;
+  private Node $_left_angle;
+  private Node $_key;
+  private Node $_comma;
+  private Node $_value;
+  private Node $_trailing_comma;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_angle,
-    EditableNode $key,
-    EditableNode $comma,
-    EditableNode $value,
-    EditableNode $trailing_comma,
-    EditableNode $right_angle,
+    Node $keyword,
+    Node $left_angle,
+    Node $key,
+    Node $comma,
+    Node $value,
+    Node $trailing_comma,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -47,49 +47,49 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $key = EditableNode::fromJSON(
+    $key = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_key'],
       $file,
       $offset,
       $source,
     );
     $offset += $key->getWidth();
-    $comma = EditableNode::fromJSON(
+    $comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $comma->getWidth();
-    $value = EditableNode::fromJSON(
+    $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_value'],
       $file,
       $offset,
       $source,
     );
     $offset += $value->getWidth();
-    $trailing_comma = EditableNode::fromJSON(
+    $trailing_comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_trailing_comma'],
       $file,
       $offset,
       $source,
     );
     $offset += $trailing_comma->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_right_angle'],
       $file,
       $offset,
@@ -115,7 +115,7 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_angle' => $this->_left_angle,
@@ -130,7 +130,7 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -162,11 +162,11 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -199,11 +199,11 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -236,11 +236,11 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getLeftAngle();
   }
 
-  public function getKeyUNTYPED(): EditableNode {
+  public function getKeyUNTYPED(): Node {
     return $this->_key;
   }
 
-  public function withKey(EditableNode $value): this {
+  public function withKey(Node $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -273,11 +273,11 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getKey();
   }
 
-  public function getCommaUNTYPED(): EditableNode {
+  public function getCommaUNTYPED(): Node {
     return $this->_comma;
   }
 
-  public function withComma(EditableNode $value): this {
+  public function withComma(Node $value): this {
     if ($value === $this->_comma) {
       return $this;
     }
@@ -310,11 +310,11 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getComma();
   }
 
-  public function getValueUNTYPED(): EditableNode {
+  public function getValueUNTYPED(): Node {
     return $this->_value;
   }
 
-  public function withValue(EditableNode $value): this {
+  public function withValue(Node $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -349,11 +349,11 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getValue();
   }
 
-  public function getTrailingCommaUNTYPED(): EditableNode {
+  public function getTrailingCommaUNTYPED(): Node {
     return $this->_trailing_comma;
   }
 
-  public function withTrailingComma(EditableNode $value): this {
+  public function withTrailingComma(Node $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -375,7 +375,7 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
   /**
    * @return null
    */
-  public function getTrailingComma(): ?EditableNode {
+  public function getTrailingComma(): ?Node {
     if ($this->_trailing_comma->isMissing()) {
       return null;
     }
@@ -385,15 +385,15 @@ final class DarrayTypeSpecifier extends EditableNode implements ITypeSpecifier {
   /**
    * @return
    */
-  public function getTrailingCommax(): EditableNode {
+  public function getTrailingCommax(): Node {
     return TypeAssert\not_null($this->getTrailingComma());
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

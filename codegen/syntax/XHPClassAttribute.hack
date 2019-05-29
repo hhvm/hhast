@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d2cad3df7f105c83efb310ee5f713b14>>
+ * @generated SignedSource<<b8a7c05a585412971bcd5da954267a46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
+final class XHPClassAttribute extends Node implements IXHPAttribute {
 
   const string SYNTAX_KIND = 'xhp_class_attribute';
 
-  private EditableNode $_type;
-  private EditableNode $_name;
-  private EditableNode $_initializer;
-  private EditableNode $_required;
+  private Node $_type;
+  private Node $_name;
+  private Node $_initializer;
+  private Node $_required;
 
   public function __construct(
-    EditableNode $type,
-    EditableNode $name,
-    EditableNode $initializer,
-    EditableNode $required,
+    Node $type,
+    Node $name,
+    Node $initializer,
+    Node $required,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -38,28 +38,28 @@ final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_decl_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_decl_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $initializer = EditableNode::fromJSON(
+    $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_decl_initializer'],
       $file,
       $offset,
       $source,
     );
     $offset += $initializer->getWidth();
-    $required = EditableNode::fromJSON(
+    $required = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_decl_required'],
       $file,
       $offset,
@@ -76,7 +76,7 @@ final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'type' => $this->_type,
       'name' => $this->_name,
@@ -88,7 +88,7 @@ final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
@@ -106,11 +106,11 @@ final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
     return new static($type, $name, $initializer, $required);
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -144,11 +144,11 @@ final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
     return $this->getType();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -178,11 +178,11 @@ final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
     return $this->getName();
   }
 
-  public function getInitializerUNTYPED(): EditableNode {
+  public function getInitializerUNTYPED(): Node {
     return $this->_initializer;
   }
 
-  public function withInitializer(EditableNode $value): this {
+  public function withInitializer(Node $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
@@ -213,11 +213,11 @@ final class XHPClassAttribute extends EditableNode implements IXHPAttribute {
     return TypeAssert\not_null($this->getInitializer());
   }
 
-  public function getRequiredUNTYPED(): EditableNode {
+  public function getRequiredUNTYPED(): Node {
     return $this->_required;
   }
 
-  public function withRequired(EditableNode $value): this {
+  public function withRequired(Node $value): this {
     if ($value === $this->_required) {
       return $this;
     }

@@ -41,7 +41,7 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testListIdentity(): void {
-    $node = new HHAST\EditableList(
+    $node = new HHAST\NodeList(
       vec[
         new HHAST\SingleLineComment('foo'),
         new HHAST\DelimitedComment('bar'),
@@ -53,7 +53,7 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testRewritingListChildren(): void {
-    $orig = new HHAST\EditableList(
+    $orig = new HHAST\NodeList(
       vec[
         new HHAST\SingleLineComment('foo'),
       ],
@@ -73,7 +73,7 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testEditingCommentInList(): void {
-    $orig = new HHAST\EditableList(
+    $orig = new HHAST\NodeList(
       vec[
         new HHAST\SingleLineComment('foo'),
       ],
@@ -94,7 +94,7 @@ final class RewriteBehaviorTest extends TestCase {
 
   public function testRewriteLeadingComment(): void {
     $orig = new HHAST\VariableToken(
-      new HHAST\EditableList(
+      new HHAST\NodeList(
         vec[
           new HHAST\DelimitedComment('/* foo */'),
           new HHAST\WhiteSpace(' '),
@@ -119,7 +119,7 @@ final class RewriteBehaviorTest extends TestCase {
 
   public function testEmptyingList(): void {
     $orig = new HHAST\VariableToken(
-      new HHAST\EditableList(
+      new HHAST\NodeList(
         vec[
           new HHAST\DelimitedComment('/* foo */'),
           new HHAST\WhiteSpace(' '),
@@ -131,7 +131,7 @@ final class RewriteBehaviorTest extends TestCase {
 
     $new = $orig->rewrite(
       ($node, $parents) ==> {
-        if (!$node instanceof HHAST\EditableTrivia) {
+        if (!$node instanceof HHAST\Trivia) {
           return $node;
         }
         return HHAST\Missing();
@@ -170,7 +170,7 @@ final class RewriteBehaviorTest extends TestCase {
           ->getDescendantsOfType(HHAST\FieldSpecifier::class);
 
         return $shape->withFields(
-          new HHAST\EditableList(
+          new HHAST\NodeList(
             Vec\map(
               $shape->getFieldsx()->getChildren(),
               $field ==> {

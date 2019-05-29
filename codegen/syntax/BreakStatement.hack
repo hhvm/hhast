@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37a788a7ec4286d6d1800d52f0ed7f45>>
+ * @generated SignedSource<<55aee4e0aac5739d712fa0917e8abed7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class BreakStatement extends EditableNode implements IStatement {
+final class BreakStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'break_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_level;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_level;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $level,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $level,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -35,21 +35,21 @@ final class BreakStatement extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['break_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $level = EditableNode::fromJSON(
+    $level = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['break_level'],
       $file,
       $offset,
       $source,
     );
     $offset += $level->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['break_semicolon'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class BreakStatement extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'level' => $this->_level,
@@ -77,7 +77,7 @@ final class BreakStatement extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -93,11 +93,11 @@ final class BreakStatement extends EditableNode implements IStatement {
     return new static($keyword, $level, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class BreakStatement extends EditableNode implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getLevelUNTYPED(): EditableNode {
+  public function getLevelUNTYPED(): Node {
     return $this->_level;
   }
 
-  public function withLevel(EditableNode $value): this {
+  public function withLevel(Node $value): this {
     if ($value === $this->_level) {
       return $this;
     }
@@ -154,11 +154,11 @@ final class BreakStatement extends EditableNode implements IStatement {
     return TypeAssert\not_null($this->getLevel());
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -1,32 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f77a2fcb5e3455e12b7222cb3ea9429>>
+ * @generated SignedSource<<3053bae7dd62c7651407a3c7c10857cf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class UsingStatementBlockScoped
-  extends EditableNode
-  implements IStatement {
+final class UsingStatementBlockScoped extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'using_statement_block_scoped';
 
-  private EditableNode $_await_keyword;
-  private EditableNode $_using_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_expressions;
-  private EditableNode $_right_paren;
-  private EditableNode $_body;
+  private Node $_await_keyword;
+  private Node $_using_keyword;
+  private Node $_left_paren;
+  private Node $_expressions;
+  private Node $_right_paren;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $await_keyword,
-    EditableNode $using_keyword,
-    EditableNode $left_paren,
-    EditableNode $expressions,
-    EditableNode $right_paren,
-    EditableNode $body,
+    Node $await_keyword,
+    Node $using_keyword,
+    Node $left_paren,
+    Node $expressions,
+    Node $right_paren,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_await_keyword = $await_keyword;
@@ -46,42 +44,42 @@ final class UsingStatementBlockScoped
     string $source,
   ): this {
     $offset = $initial_offset;
-    $await_keyword = EditableNode::fromJSON(
+    $await_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_await_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $await_keyword->getWidth();
-    $using_keyword = EditableNode::fromJSON(
+    $using_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_using_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $using_keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $expressions = EditableNode::fromJSON(
+    $expressions = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_expressions'],
       $file,
       $offset,
       $source,
     );
     $offset += $expressions->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_body'],
       $file,
       $offset,
@@ -106,7 +104,7 @@ final class UsingStatementBlockScoped
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'await_keyword' => $this->_await_keyword,
       'using_keyword' => $this->_using_keyword,
@@ -120,7 +118,7 @@ final class UsingStatementBlockScoped
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $await_keyword = $rewriter($this->_await_keyword, $parents);
@@ -149,11 +147,11 @@ final class UsingStatementBlockScoped
     );
   }
 
-  public function getAwaitKeywordUNTYPED(): EditableNode {
+  public function getAwaitKeywordUNTYPED(): Node {
     return $this->_await_keyword;
   }
 
-  public function withAwaitKeyword(EditableNode $value): this {
+  public function withAwaitKeyword(Node $value): this {
     if ($value === $this->_await_keyword) {
       return $this;
     }
@@ -188,11 +186,11 @@ final class UsingStatementBlockScoped
     return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
-  public function getUsingKeywordUNTYPED(): EditableNode {
+  public function getUsingKeywordUNTYPED(): Node {
     return $this->_using_keyword;
   }
 
-  public function withUsingKeyword(EditableNode $value): this {
+  public function withUsingKeyword(Node $value): this {
     if ($value === $this->_using_keyword) {
       return $this;
     }
@@ -224,11 +222,11 @@ final class UsingStatementBlockScoped
     return $this->getUsingKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -260,11 +258,11 @@ final class UsingStatementBlockScoped
     return $this->getLeftParen();
   }
 
-  public function getExpressionsUNTYPED(): EditableNode {
+  public function getExpressionsUNTYPED(): Node {
     return $this->_expressions;
   }
 
-  public function withExpressions(EditableNode $value): this {
+  public function withExpressions(Node $value): this {
     if ($value === $this->_expressions) {
       return $this;
     }
@@ -283,30 +281,30 @@ final class UsingStatementBlockScoped
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<BinaryExpression> |
-   * EditableList<LambdaExpression> | EditableList<ObjectCreationExpression> |
-   * EditableList<IExpression> | EditableList<PrefixUnaryExpression> |
-   * EditableList<VariableExpression>
+   * @return NodeList<AnonymousFunction> | NodeList<BinaryExpression> |
+   * NodeList<LambdaExpression> | NodeList<ObjectCreationExpression> |
+   * NodeList<IExpression> | NodeList<PrefixUnaryExpression> |
+   * NodeList<VariableExpression>
    */
-  public function getExpressions(): EditableList<IExpression> {
-    return TypeAssert\instance_of(EditableList::class, $this->_expressions);
+  public function getExpressions(): NodeList<IExpression> {
+    return TypeAssert\instance_of(NodeList::class, $this->_expressions);
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<BinaryExpression> |
-   * EditableList<LambdaExpression> | EditableList<ObjectCreationExpression> |
-   * EditableList<IExpression> | EditableList<PrefixUnaryExpression> |
-   * EditableList<VariableExpression>
+   * @return NodeList<AnonymousFunction> | NodeList<BinaryExpression> |
+   * NodeList<LambdaExpression> | NodeList<ObjectCreationExpression> |
+   * NodeList<IExpression> | NodeList<PrefixUnaryExpression> |
+   * NodeList<VariableExpression>
    */
-  public function getExpressionsx(): EditableList<IExpression> {
+  public function getExpressionsx(): NodeList<IExpression> {
     return $this->getExpressions();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -338,11 +336,11 @@ final class UsingStatementBlockScoped
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }

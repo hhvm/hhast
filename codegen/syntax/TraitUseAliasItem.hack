@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d37dc354e4c4f2658637e7a60262980>>
+ * @generated SignedSource<<1d7c9d1b89733adeb7d801dc34e6ee88>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
+final class TraitUseAliasItem extends Node implements ITraitUseItem {
 
   const string SYNTAX_KIND = 'trait_use_alias_item';
 
-  private EditableNode $_aliasing_name;
-  private EditableNode $_keyword;
-  private EditableNode $_modifiers;
-  private EditableNode $_aliased_name;
+  private Node $_aliasing_name;
+  private Node $_keyword;
+  private Node $_modifiers;
+  private Node $_aliased_name;
 
   public function __construct(
-    EditableNode $aliasing_name,
-    EditableNode $keyword,
-    EditableNode $modifiers,
-    EditableNode $aliased_name,
+    Node $aliasing_name,
+    Node $keyword,
+    Node $modifiers,
+    Node $aliased_name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_aliasing_name = $aliasing_name;
@@ -38,28 +38,28 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $aliasing_name = EditableNode::fromJSON(
+    $aliasing_name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliasing_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $aliasing_name->getWidth();
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_alias_item_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $modifiers = EditableNode::fromJSON(
+    $modifiers = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_alias_item_modifiers'],
       $file,
       $offset,
       $source,
     );
     $offset += $modifiers->getWidth();
-    $aliased_name = EditableNode::fromJSON(
+    $aliased_name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliased_name'],
       $file,
       $offset,
@@ -82,7 +82,7 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'aliasing_name' => $this->_aliasing_name,
       'keyword' => $this->_keyword,
@@ -94,7 +94,7 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $aliasing_name = $rewriter($this->_aliasing_name, $parents);
@@ -112,11 +112,11 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
     return new static($aliasing_name, $keyword, $modifiers, $aliased_name);
   }
 
-  public function getAliasingNameUNTYPED(): EditableNode {
+  public function getAliasingNameUNTYPED(): Node {
     return $this->_aliasing_name;
   }
 
-  public function withAliasingName(EditableNode $value): this {
+  public function withAliasingName(Node $value): this {
     if ($value === $this->_aliasing_name) {
       return $this;
     }
@@ -135,22 +135,22 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
   /**
    * @return ScopeResolutionExpression | SimpleTypeSpecifier
    */
-  public function getAliasingName(): EditableNode {
+  public function getAliasingName(): Node {
     return $this->_aliasing_name;
   }
 
   /**
    * @return ScopeResolutionExpression | SimpleTypeSpecifier
    */
-  public function getAliasingNamex(): EditableNode {
+  public function getAliasingNamex(): Node {
     return $this->getAliasingName();
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -180,11 +180,11 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
     return $this->getKeyword();
   }
 
-  public function getModifiersUNTYPED(): EditableNode {
+  public function getModifiersUNTYPED(): Node {
     return $this->_modifiers;
   }
 
-  public function withModifiers(EditableNode $value): this {
+  public function withModifiers(Node $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -201,27 +201,27 @@ final class TraitUseAliasItem extends EditableNode implements ITraitUseItem {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getModifiers(): ?EditableList<EditableNode> {
+  public function getModifiers(): ?NodeList<Node> {
     if ($this->_modifiers->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
+    return TypeAssert\instance_of(NodeList::class, $this->_modifiers);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getModifiersx(): EditableList<EditableNode> {
+  public function getModifiersx(): NodeList<Node> {
     return TypeAssert\not_null($this->getModifiers());
   }
 
-  public function getAliasedNameUNTYPED(): EditableNode {
+  public function getAliasedNameUNTYPED(): Node {
     return $this->_aliased_name;
   }
 
-  public function withAliasedName(EditableNode $value): this {
+  public function withAliasedName(Node $value): this {
     if ($value === $this->_aliased_name) {
       return $this;
     }

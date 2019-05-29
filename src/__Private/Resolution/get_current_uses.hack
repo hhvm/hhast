@@ -10,13 +10,13 @@
 namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
-  EditableNode,
+  Node,
   Script,
 };
 
 function get_current_uses(
   Script $root,
-  EditableNode $node,
+  Node $node,
 ): shape(
   'namespaces' => dict<string, string>,
   'types' => dict<string, string>,

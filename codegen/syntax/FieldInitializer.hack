@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a906f8b6dd1f5eaf0e49b7d7c64c8d03>>
+ * @generated SignedSource<<f556023f693fc62ad6fc3803cc4bd188>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class FieldInitializer extends EditableNode {
+final class FieldInitializer extends Node {
 
   const string SYNTAX_KIND = 'field_initializer';
 
-  private EditableNode $_name;
-  private EditableNode $_arrow;
-  private EditableNode $_value;
+  private Node $_name;
+  private Node $_arrow;
+  private Node $_value;
 
   public function __construct(
-    EditableNode $name,
-    EditableNode $arrow,
-    EditableNode $value,
+    Node $name,
+    Node $arrow,
+    Node $value,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -35,21 +35,21 @@ final class FieldInitializer extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_initializer_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $arrow = EditableNode::fromJSON(
+    $arrow = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_initializer_arrow'],
       $file,
       $offset,
       $source,
     );
     $offset += $arrow->getWidth();
-    $value = EditableNode::fromJSON(
+    $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_initializer_value'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class FieldInitializer extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'name' => $this->_name,
       'arrow' => $this->_arrow,
@@ -77,7 +77,7 @@ final class FieldInitializer extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
@@ -93,11 +93,11 @@ final class FieldInitializer extends EditableNode {
     return new static($name, $arrow, $value);
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -123,11 +123,11 @@ final class FieldInitializer extends EditableNode {
     return $this->getName();
   }
 
-  public function getArrowUNTYPED(): EditableNode {
+  public function getArrowUNTYPED(): Node {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableNode $value): this {
+  public function withArrow(Node $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -152,11 +152,11 @@ final class FieldInitializer extends EditableNode {
     return $this->getArrow();
   }
 
-  public function getValueUNTYPED(): EditableNode {
+  public function getValueUNTYPED(): Node {
     return $this->_value;
   }
 
-  public function withValue(EditableNode $value): this {
+  public function withValue(Node $value): this {
     if ($value === $this->_value) {
       return $this;
     }

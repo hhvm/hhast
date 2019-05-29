@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<320538fb9ddc53d2d96edd67681b9692>>
+ * @generated SignedSource<<e55de89761e0f8186ca015d204de52da>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class FileAttributeSpecification extends EditableNode {
+final class FileAttributeSpecification extends Node {
 
   const string SYNTAX_KIND = 'file_attribute_specification';
 
-  private EditableNode $_left_double_angle;
-  private EditableNode $_keyword;
-  private EditableNode $_colon;
-  private EditableNode $_attributes;
-  private EditableNode $_right_double_angle;
+  private Node $_left_double_angle;
+  private Node $_keyword;
+  private Node $_colon;
+  private Node $_attributes;
+  private Node $_right_double_angle;
 
   public function __construct(
-    EditableNode $left_double_angle,
-    EditableNode $keyword,
-    EditableNode $colon,
-    EditableNode $attributes,
-    EditableNode $right_double_angle,
+    Node $left_double_angle,
+    Node $keyword,
+    Node $colon,
+    Node $attributes,
+    Node $right_double_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_double_angle = $left_double_angle;
@@ -41,35 +41,35 @@ final class FileAttributeSpecification extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_double_angle = EditableNode::fromJSON(
+    $left_double_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_left_double_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_double_angle->getWidth();
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $attributes = EditableNode::fromJSON(
+    $attributes = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_attributes'],
       $file,
       $offset,
       $source,
     );
     $offset += $attributes->getWidth();
-    $right_double_angle = EditableNode::fromJSON(
+    $right_double_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_right_double_angle'],
       $file,
       $offset,
@@ -93,7 +93,7 @@ final class FileAttributeSpecification extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_double_angle' => $this->_left_double_angle,
       'keyword' => $this->_keyword,
@@ -106,7 +106,7 @@ final class FileAttributeSpecification extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_double_angle = $rewriter($this->_left_double_angle, $parents);
@@ -132,11 +132,11 @@ final class FileAttributeSpecification extends EditableNode {
     );
   }
 
-  public function getLeftDoubleAngleUNTYPED(): EditableNode {
+  public function getLeftDoubleAngleUNTYPED(): Node {
     return $this->_left_double_angle;
   }
 
-  public function withLeftDoubleAngle(EditableNode $value): this {
+  public function withLeftDoubleAngle(Node $value): this {
     if ($value === $this->_left_double_angle) {
       return $this;
     }
@@ -170,11 +170,11 @@ final class FileAttributeSpecification extends EditableNode {
     return $this->getLeftDoubleAngle();
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -205,11 +205,11 @@ final class FileAttributeSpecification extends EditableNode {
     return $this->getKeyword();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -240,11 +240,11 @@ final class FileAttributeSpecification extends EditableNode {
     return $this->getColon();
   }
 
-  public function getAttributesUNTYPED(): EditableNode {
+  public function getAttributesUNTYPED(): Node {
     return $this->_attributes;
   }
 
-  public function withAttributes(EditableNode $value): this {
+  public function withAttributes(Node $value): this {
     if ($value === $this->_attributes) {
       return $this;
     }
@@ -262,24 +262,24 @@ final class FileAttributeSpecification extends EditableNode {
   }
 
   /**
-   * @return EditableList<ConstructorCall>
+   * @return NodeList<ConstructorCall>
    */
-  public function getAttributes(): EditableList<ConstructorCall> {
-    return TypeAssert\instance_of(EditableList::class, $this->_attributes);
+  public function getAttributes(): NodeList<ConstructorCall> {
+    return TypeAssert\instance_of(NodeList::class, $this->_attributes);
   }
 
   /**
-   * @return EditableList<ConstructorCall>
+   * @return NodeList<ConstructorCall>
    */
-  public function getAttributesx(): EditableList<ConstructorCall> {
+  public function getAttributesx(): NodeList<ConstructorCall> {
     return $this->getAttributes();
   }
 
-  public function getRightDoubleAngleUNTYPED(): EditableNode {
+  public function getRightDoubleAngleUNTYPED(): Node {
     return $this->_right_double_angle;
   }
 
-  public function withRightDoubleAngle(EditableNode $value): this {
+  public function withRightDoubleAngle(Node $value): this {
     if ($value === $this->_right_double_angle) {
       return $this;
     }

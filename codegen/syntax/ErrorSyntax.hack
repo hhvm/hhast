@@ -1,20 +1,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5fdf92f4bfa1b4db3a44f4a48b47b4ca>>
+ * @generated SignedSource<<f9fc9a94b0f3d0efc2e3744419726907>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ErrorSyntax extends EditableNode {
+final class ErrorSyntax extends Node {
 
   const string SYNTAX_KIND = 'error';
 
-  private EditableNode $_error;
+  private Node $_error;
 
   public function __construct(
-    EditableNode $error,
+    Node $error,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_error = $error;
@@ -29,7 +29,7 @@ final class ErrorSyntax extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $error = EditableNode::fromJSON(
+    $error = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['error_error'],
       $file,
       $offset,
@@ -46,7 +46,7 @@ final class ErrorSyntax extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'error' => $this->_error,
     ];
@@ -55,7 +55,7 @@ final class ErrorSyntax extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $error = $rewriter($this->_error, $parents);
@@ -65,11 +65,11 @@ final class ErrorSyntax extends EditableNode {
     return new static($error);
   }
 
-  public function getErrorUNTYPED(): EditableNode {
+  public function getErrorUNTYPED(): Node {
     return $this->_error;
   }
 
-  public function withError(EditableNode $value): this {
+  public function withError(Node $value): this {
     if ($value === $this->_error) {
       return $this;
     }
@@ -83,14 +83,14 @@ final class ErrorSyntax extends EditableNode {
   /**
    * @return unknown
    */
-  public function getError(): EditableNode {
+  public function getError(): Node {
     return $this->_error;
   }
 
   /**
    * @return unknown
    */
-  public function getErrorx(): EditableNode {
+  public function getErrorx(): Node {
     return $this->getError();
   }
 }

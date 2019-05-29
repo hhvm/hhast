@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{Str, Vec};
 
 function offset_from_position(
-  EditableNode $root,
+  Node $root,
   int $line,
   int $column,
 ): int {

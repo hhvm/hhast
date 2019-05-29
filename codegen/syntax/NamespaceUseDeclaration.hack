@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<11915a4897ab84fe06d944533e7a491d>>
+ * @generated SignedSource<<fae0f4934cb13d528f1226a32c95dd7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class NamespaceUseDeclaration
-  extends EditableNode
+  extends Node
   implements INamespaceUseDeclaration {
 
   const string SYNTAX_KIND = 'namespace_use_declaration';
 
-  private EditableNode $_keyword;
-  private EditableNode $_kind;
-  private EditableNode $_clauses;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_kind;
+  private Node $_clauses;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $kind,
-    EditableNode $clauses,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $kind,
+    Node $clauses,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +40,28 @@ final class NamespaceUseDeclaration
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $kind = EditableNode::fromJSON(
+    $kind = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_kind'],
       $file,
       $offset,
       $source,
     );
     $offset += $kind->getWidth();
-    $clauses = EditableNode::fromJSON(
+    $clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $clauses->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_semicolon'],
       $file,
       $offset,
@@ -78,7 +78,7 @@ final class NamespaceUseDeclaration
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'kind' => $this->_kind,
@@ -90,7 +90,7 @@ final class NamespaceUseDeclaration
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -108,11 +108,11 @@ final class NamespaceUseDeclaration
     return new static($keyword, $kind, $clauses, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -137,11 +137,11 @@ final class NamespaceUseDeclaration
     return $this->getKeyword();
   }
 
-  public function getKindUNTYPED(): EditableNode {
+  public function getKindUNTYPED(): Node {
     return $this->_kind;
   }
 
-  public function withKind(EditableNode $value): this {
+  public function withKind(Node $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
@@ -160,25 +160,25 @@ final class NamespaceUseDeclaration
   /**
    * @return null | ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
-  public function getKind(): ?EditableToken {
+  public function getKind(): ?Token {
     if ($this->_kind->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableToken::class, $this->_kind);
+    return TypeAssert\instance_of(Token::class, $this->_kind);
   }
 
   /**
    * @return ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
-  public function getKindx(): EditableToken {
+  public function getKindx(): Token {
     return TypeAssert\not_null($this->getKind());
   }
 
-  public function getClausesUNTYPED(): EditableNode {
+  public function getClausesUNTYPED(): Node {
     return $this->_clauses;
   }
 
-  public function withClauses(EditableNode $value): this {
+  public function withClauses(Node $value): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -190,24 +190,24 @@ final class NamespaceUseDeclaration
   }
 
   /**
-   * @return EditableList<NamespaceUseClause>
+   * @return NodeList<NamespaceUseClause>
    */
-  public function getClauses(): EditableList<NamespaceUseClause> {
-    return TypeAssert\instance_of(EditableList::class, $this->_clauses);
+  public function getClauses(): NodeList<NamespaceUseClause> {
+    return TypeAssert\instance_of(NodeList::class, $this->_clauses);
   }
 
   /**
-   * @return EditableList<NamespaceUseClause>
+   * @return NodeList<NamespaceUseClause>
    */
-  public function getClausesx(): EditableList<NamespaceUseClause> {
+  public function getClausesx(): NodeList<NamespaceUseClause> {
     return $this->getClauses();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

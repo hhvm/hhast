@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f76e24cd7cc8f3b603506dff411029a2>>
+ * @generated SignedSource<<f54af527bb07dadcac5e42fb191e5a6b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class NullableAsExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'nullable_as_expression';
 
-  private EditableNode $_left_operand;
-  private EditableNode $_operator;
-  private EditableNode $_right_operand;
+  private Node $_left_operand;
+  private Node $_operator;
+  private Node $_right_operand;
 
   public function __construct(
-    EditableNode $left_operand,
-    EditableNode $operator,
-    EditableNode $right_operand,
+    Node $left_operand,
+    Node $operator,
+    Node $right_operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_operand = $left_operand;
@@ -37,21 +37,21 @@ final class NullableAsExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_operand = EditableNode::fromJSON(
+    $left_operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['nullable_as_left_operand'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_operand->getWidth();
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['nullable_as_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
-    $right_operand = EditableNode::fromJSON(
+    $right_operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['nullable_as_right_operand'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class NullableAsExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_operand' => $this->_left_operand,
       'operator' => $this->_operator,
@@ -79,7 +79,7 @@ final class NullableAsExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_operand = $rewriter($this->_left_operand, $parents);
@@ -95,11 +95,11 @@ final class NullableAsExpression
     return new static($left_operand, $operator, $right_operand);
   }
 
-  public function getLeftOperandUNTYPED(): EditableNode {
+  public function getLeftOperandUNTYPED(): Node {
     return $this->_left_operand;
   }
 
-  public function withLeftOperand(EditableNode $value): this {
+  public function withLeftOperand(Node $value): this {
     if ($value === $this->_left_operand) {
       return $this;
     }
@@ -125,11 +125,11 @@ final class NullableAsExpression
     return $this->getLeftOperand();
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -154,11 +154,11 @@ final class NullableAsExpression
     return $this->getOperator();
   }
 
-  public function getRightOperandUNTYPED(): EditableNode {
+  public function getRightOperandUNTYPED(): Node {
     return $this->_right_operand;
   }
 
-  public function withRightOperand(EditableNode $value): this {
+  public function withRightOperand(Node $value): this {
     if ($value === $this->_right_operand) {
       return $this;
     }

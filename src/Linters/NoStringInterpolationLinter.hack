@@ -15,8 +15,8 @@ use type Facebook\HHAST\{
   DoubleQuotedStringLiteralToken,
   DoubleQuotedStringLiteralHeadToken,
   DoubleQuotedStringLiteralTailToken,
-  EditableList,
-  EditableNode,
+  NodeList,
+  Node,
   EmbeddedBracedExpression,
   HeredocStringLiteralHeadToken,
   LiteralExpression,
@@ -38,7 +38,7 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
     LiteralExpression $root_expr,
   ): ?ASTLintError {
     $expr = $root_expr->getExpression();
-    if (!$expr instanceof EditableList) {
+    if (!$expr instanceof NodeList) {
       return null;
     }
 
@@ -56,10 +56,10 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
     return 'Replace interpolation with concatenation';
   }
 
-  public function getFixedNode(LiteralExpression $root_expr): ?EditableNode {
+  public function getFixedNode(LiteralExpression $root_expr): ?Node {
     $expr = $root_expr->getExpression();
     invariant(
-      $expr instanceof EditableList,
+      $expr instanceof NodeList,
       "Expected list, got %s",
       \get_class($expr),
     );
@@ -159,6 +159,6 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
       ++$i;
     }
 
-    return EditableList::createNonEmptyListOrMissing($children);
+    return NodeList::createNonEmptyListOrMissing($children);
   }
 }

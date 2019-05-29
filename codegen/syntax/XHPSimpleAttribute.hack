@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bff0b737d3a22d01e946ef1cf444dcf1>>
+ * @generated SignedSource<<41032267411fff6d7f18218c464c6b33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
+final class XHPSimpleAttribute extends Node implements IXHPAttribute {
 
   const string SYNTAX_KIND = 'xhp_simple_attribute';
 
-  private EditableNode $_name;
-  private EditableNode $_equal;
-  private EditableNode $_expression;
+  private Node $_name;
+  private Node $_equal;
+  private Node $_expression;
 
   public function __construct(
-    EditableNode $name,
-    EditableNode $equal,
-    EditableNode $expression,
+    Node $name,
+    Node $equal,
+    Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -35,21 +35,21 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_simple_attribute_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $equal = EditableNode::fromJSON(
+    $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_simple_attribute_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_simple_attribute_expression'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'name' => $this->_name,
       'equal' => $this->_equal,
@@ -77,7 +77,7 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
@@ -93,11 +93,11 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
     return new static($name, $equal, $expression);
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
     return $this->getName();
   }
 
-  public function getEqualUNTYPED(): EditableNode {
+  public function getEqualUNTYPED(): Node {
     return $this->_equal;
   }
 
-  public function withEqual(EditableNode $value): this {
+  public function withEqual(Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -151,11 +151,11 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
     return $this->getEqual();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -169,14 +169,14 @@ final class XHPSimpleAttribute extends EditableNode implements IXHPAttribute {
   /**
    * @return BracedExpression | XHPStringLiteralToken
    */
-  public function getExpression(): EditableNode {
+  public function getExpression(): Node {
     return $this->_expression;
   }
 
   /**
    * @return BracedExpression | XHPStringLiteralToken
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): Node {
     return $this->getExpression();
   }
 }

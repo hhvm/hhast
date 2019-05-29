@@ -1,32 +1,32 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b772e9d26cf305eb023f922eab6a863>>
+ * @generated SignedSource<<d03393f6c1ac7d4d77bfd51bf4a15502>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 abstract class ParameterDeclarationGeneratedBase
-  extends EditableNode
+  extends Node
   implements IHasTypeHint, IHasAttributeSpec, IParameter {
 
   const string SYNTAX_KIND = 'parameter_declaration';
 
-  private EditableNode $_attribute;
-  private EditableNode $_visibility;
-  private EditableNode $_call_convention;
-  private EditableNode $_type;
-  private EditableNode $_name;
-  private EditableNode $_default_value;
+  private Node $_attribute;
+  private Node $_visibility;
+  private Node $_call_convention;
+  private Node $_type;
+  private Node $_name;
+  private Node $_default_value;
 
   public function __construct(
-    EditableNode $attribute,
-    EditableNode $visibility,
-    EditableNode $call_convention,
-    EditableNode $type,
-    EditableNode $name,
-    EditableNode $default_value,
+    Node $attribute,
+    Node $visibility,
+    Node $call_convention,
+    Node $type,
+    Node $name,
+    Node $default_value,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute = $attribute;
@@ -46,42 +46,42 @@ abstract class ParameterDeclarationGeneratedBase
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute = EditableNode::fromJSON(
+    $attribute = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_attribute'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute->getWidth();
-    $visibility = EditableNode::fromJSON(
+    $visibility = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_visibility'],
       $file,
       $offset,
       $source,
     );
     $offset += $visibility->getWidth();
-    $call_convention = EditableNode::fromJSON(
+    $call_convention = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_call_convention'],
       $file,
       $offset,
       $source,
     );
     $offset += $call_convention->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $default_value = EditableNode::fromJSON(
+    $default_value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_default_value'],
       $file,
       $offset,
@@ -106,7 +106,7 @@ abstract class ParameterDeclarationGeneratedBase
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute' => $this->_attribute,
       'visibility' => $this->_visibility,
@@ -120,7 +120,7 @@ abstract class ParameterDeclarationGeneratedBase
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute = $rewriter($this->_attribute, $parents);
@@ -149,11 +149,11 @@ abstract class ParameterDeclarationGeneratedBase
     );
   }
 
-  public function getAttributeUNTYPED(): EditableNode {
+  public function getAttributeUNTYPED(): Node {
     return $this->_attribute;
   }
 
-  public function withAttribute(EditableNode $value): this {
+  public function withAttribute(Node $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -191,11 +191,11 @@ abstract class ParameterDeclarationGeneratedBase
     return TypeAssert\not_null($this->getAttribute());
   }
 
-  public function getVisibilityUNTYPED(): EditableNode {
+  public function getVisibilityUNTYPED(): Node {
     return $this->_visibility;
   }
 
-  public function withVisibility(EditableNode $value): this {
+  public function withVisibility(Node $value): this {
     if ($value === $this->_visibility) {
       return $this;
     }
@@ -216,25 +216,25 @@ abstract class ParameterDeclarationGeneratedBase
   /**
    * @return null | PrivateToken | ProtectedToken | PublicToken
    */
-  public function getVisibility(): ?EditableToken {
+  public function getVisibility(): ?Token {
     if ($this->_visibility->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableToken::class, $this->_visibility);
+    return TypeAssert\instance_of(Token::class, $this->_visibility);
   }
 
   /**
    * @return PrivateToken | ProtectedToken | PublicToken
    */
-  public function getVisibilityx(): EditableToken {
+  public function getVisibilityx(): Token {
     return TypeAssert\not_null($this->getVisibility());
   }
 
-  public function getCallConventionUNTYPED(): EditableNode {
+  public function getCallConventionUNTYPED(): Node {
     return $this->_call_convention;
   }
 
-  public function withCallConvention(EditableNode $value): this {
+  public function withCallConvention(Node $value): this {
     if ($value === $this->_call_convention) {
       return $this;
     }
@@ -269,11 +269,11 @@ abstract class ParameterDeclarationGeneratedBase
     return TypeAssert\not_null($this->getCallConvention());
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -318,11 +318,11 @@ abstract class ParameterDeclarationGeneratedBase
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -355,11 +355,11 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->getName();
   }
 
-  public function getDefaultValueUNTYPED(): EditableNode {
+  public function getDefaultValueUNTYPED(): Node {
     return $this->_default_value;
   }
 
-  public function withDefaultValue(EditableNode $value): this {
+  public function withDefaultValue(Node $value): this {
     if ($value === $this->_default_value) {
       return $this;
     }

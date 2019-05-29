@@ -1,34 +1,34 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fdb39a04222a1de737cf324d2e8b54d6>>
+ * @generated SignedSource<<7a926154a006db4185204e7c127c1330>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class DoStatement
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
   const string SYNTAX_KIND = 'do_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_body;
-  private EditableNode $_while_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_condition;
-  private EditableNode $_right_paren;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_body;
+  private Node $_while_keyword;
+  private Node $_left_paren;
+  private Node $_condition;
+  private Node $_right_paren;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $body,
-    EditableNode $while_keyword,
-    EditableNode $left_paren,
-    EditableNode $condition,
-    EditableNode $right_paren,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $body,
+    Node $while_keyword,
+    Node $left_paren,
+    Node $condition,
+    Node $right_paren,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -49,49 +49,49 @@ final class DoStatement
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_body'],
       $file,
       $offset,
       $source,
     );
     $offset += $body->getWidth();
-    $while_keyword = EditableNode::fromJSON(
+    $while_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_while_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $while_keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $condition = EditableNode::fromJSON(
+    $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_semicolon'],
       $file,
       $offset,
@@ -117,7 +117,7 @@ final class DoStatement
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'body' => $this->_body,
@@ -132,7 +132,7 @@ final class DoStatement
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -164,11 +164,11 @@ final class DoStatement
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -201,11 +201,11 @@ final class DoStatement
     return $this->getKeyword();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -238,11 +238,11 @@ final class DoStatement
     return $this->getBody();
   }
 
-  public function getWhileKeywordUNTYPED(): EditableNode {
+  public function getWhileKeywordUNTYPED(): Node {
     return $this->_while_keyword;
   }
 
-  public function withWhileKeyword(EditableNode $value): this {
+  public function withWhileKeyword(Node $value): this {
     if ($value === $this->_while_keyword) {
       return $this;
     }
@@ -275,11 +275,11 @@ final class DoStatement
     return $this->getWhileKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -312,11 +312,11 @@ final class DoStatement
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): EditableNode {
+  public function getConditionUNTYPED(): Node {
     return $this->_condition;
   }
 
-  public function withCondition(EditableNode $value): this {
+  public function withCondition(Node $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -352,11 +352,11 @@ final class DoStatement
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -389,11 +389,11 @@ final class DoStatement
     return $this->getRightParen();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

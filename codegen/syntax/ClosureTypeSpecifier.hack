@@ -1,38 +1,36 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05f665059a7c68a59cf88a56ec8959f5>>
+ * @generated SignedSource<<ba77808d15bb3471ac46fdfc51419a35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ClosureTypeSpecifier
-  extends EditableNode
-  implements ITypeSpecifier {
+final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'closure_type_specifier';
 
-  private EditableNode $_outer_left_paren;
-  private EditableNode $_coroutine;
-  private EditableNode $_function_keyword;
-  private EditableNode $_inner_left_paren;
-  private EditableNode $_parameter_list;
-  private EditableNode $_inner_right_paren;
-  private EditableNode $_colon;
-  private EditableNode $_return_type;
-  private EditableNode $_outer_right_paren;
+  private Node $_outer_left_paren;
+  private Node $_coroutine;
+  private Node $_function_keyword;
+  private Node $_inner_left_paren;
+  private Node $_parameter_list;
+  private Node $_inner_right_paren;
+  private Node $_colon;
+  private Node $_return_type;
+  private Node $_outer_right_paren;
 
   public function __construct(
-    EditableNode $outer_left_paren,
-    EditableNode $coroutine,
-    EditableNode $function_keyword,
-    EditableNode $inner_left_paren,
-    EditableNode $parameter_list,
-    EditableNode $inner_right_paren,
-    EditableNode $colon,
-    EditableNode $return_type,
-    EditableNode $outer_right_paren,
+    Node $outer_left_paren,
+    Node $coroutine,
+    Node $function_keyword,
+    Node $inner_left_paren,
+    Node $parameter_list,
+    Node $inner_right_paren,
+    Node $colon,
+    Node $return_type,
+    Node $outer_right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_outer_left_paren = $outer_left_paren;
@@ -55,63 +53,63 @@ final class ClosureTypeSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $outer_left_paren = EditableNode::fromJSON(
+    $outer_left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_outer_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $outer_left_paren->getWidth();
-    $coroutine = EditableNode::fromJSON(
+    $coroutine = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_coroutine'],
       $file,
       $offset,
       $source,
     );
     $offset += $coroutine->getWidth();
-    $function_keyword = EditableNode::fromJSON(
+    $function_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_function_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_keyword->getWidth();
-    $inner_left_paren = EditableNode::fromJSON(
+    $inner_left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_inner_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $inner_left_paren->getWidth();
-    $parameter_list = EditableNode::fromJSON(
+    $parameter_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_parameter_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $parameter_list->getWidth();
-    $inner_right_paren = EditableNode::fromJSON(
+    $inner_right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_inner_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $inner_right_paren->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $return_type = EditableNode::fromJSON(
+    $return_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_return_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $return_type->getWidth();
-    $outer_right_paren = EditableNode::fromJSON(
+    $outer_right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_outer_right_paren'],
       $file,
       $offset,
@@ -139,7 +137,7 @@ final class ClosureTypeSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'outer_left_paren' => $this->_outer_left_paren,
       'coroutine' => $this->_coroutine,
@@ -156,7 +154,7 @@ final class ClosureTypeSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $outer_left_paren = $rewriter($this->_outer_left_paren, $parents);
@@ -194,11 +192,11 @@ final class ClosureTypeSpecifier
     );
   }
 
-  public function getOuterLeftParenUNTYPED(): EditableNode {
+  public function getOuterLeftParenUNTYPED(): Node {
     return $this->_outer_left_paren;
   }
 
-  public function withOuterLeftParen(EditableNode $value): this {
+  public function withOuterLeftParen(Node $value): this {
     if ($value === $this->_outer_left_paren) {
       return $this;
     }
@@ -236,11 +234,11 @@ final class ClosureTypeSpecifier
     return $this->getOuterLeftParen();
   }
 
-  public function getCoroutineUNTYPED(): EditableNode {
+  public function getCoroutineUNTYPED(): Node {
     return $this->_coroutine;
   }
 
-  public function withCoroutine(EditableNode $value): this {
+  public function withCoroutine(Node $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
@@ -264,7 +262,7 @@ final class ClosureTypeSpecifier
   /**
    * @return null
    */
-  public function getCoroutine(): ?EditableNode {
+  public function getCoroutine(): ?Node {
     if ($this->_coroutine->isMissing()) {
       return null;
     }
@@ -274,15 +272,15 @@ final class ClosureTypeSpecifier
   /**
    * @return
    */
-  public function getCoroutinex(): EditableNode {
+  public function getCoroutinex(): Node {
     return TypeAssert\not_null($this->getCoroutine());
   }
 
-  public function getFunctionKeywordUNTYPED(): EditableNode {
+  public function getFunctionKeywordUNTYPED(): Node {
     return $this->_function_keyword;
   }
 
-  public function withFunctionKeyword(EditableNode $value): this {
+  public function withFunctionKeyword(Node $value): this {
     if ($value === $this->_function_keyword) {
       return $this;
     }
@@ -320,11 +318,11 @@ final class ClosureTypeSpecifier
     return $this->getFunctionKeyword();
   }
 
-  public function getInnerLeftParenUNTYPED(): EditableNode {
+  public function getInnerLeftParenUNTYPED(): Node {
     return $this->_inner_left_paren;
   }
 
-  public function withInnerLeftParen(EditableNode $value): this {
+  public function withInnerLeftParen(Node $value): this {
     if ($value === $this->_inner_left_paren) {
       return $this;
     }
@@ -362,11 +360,11 @@ final class ClosureTypeSpecifier
     return $this->getInnerLeftParen();
   }
 
-  public function getParameterListUNTYPED(): EditableNode {
+  public function getParameterListUNTYPED(): Node {
     return $this->_parameter_list;
   }
 
-  public function withParameterList(EditableNode $value): this {
+  public function withParameterList(Node $value): this {
     if ($value === $this->_parameter_list) {
       return $this;
     }
@@ -388,29 +386,29 @@ final class ClosureTypeSpecifier
   }
 
   /**
-   * @return EditableList<ClosureParameterTypeSpecifier> |
-   * EditableList<ITypeSpecifier> | EditableList<VariadicParameter> | null
+   * @return NodeList<ClosureParameterTypeSpecifier> | NodeList<ITypeSpecifier>
+   * | NodeList<VariadicParameter> | null
    */
-  public function getParameterList(): ?EditableList<ITypeSpecifier> {
+  public function getParameterList(): ?NodeList<ITypeSpecifier> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
+    return TypeAssert\instance_of(NodeList::class, $this->_parameter_list);
   }
 
   /**
-   * @return EditableList<ClosureParameterTypeSpecifier> |
-   * EditableList<ITypeSpecifier> | EditableList<VariadicParameter>
+   * @return NodeList<ClosureParameterTypeSpecifier> | NodeList<ITypeSpecifier>
+   * | NodeList<VariadicParameter>
    */
-  public function getParameterListx(): EditableList<ITypeSpecifier> {
+  public function getParameterListx(): NodeList<ITypeSpecifier> {
     return TypeAssert\not_null($this->getParameterList());
   }
 
-  public function getInnerRightParenUNTYPED(): EditableNode {
+  public function getInnerRightParenUNTYPED(): Node {
     return $this->_inner_right_paren;
   }
 
-  public function withInnerRightParen(EditableNode $value): this {
+  public function withInnerRightParen(Node $value): this {
     if ($value === $this->_inner_right_paren) {
       return $this;
     }
@@ -448,11 +446,11 @@ final class ClosureTypeSpecifier
     return $this->getInnerRightParen();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -487,11 +485,11 @@ final class ClosureTypeSpecifier
     return $this->getColon();
   }
 
-  public function getReturnTypeUNTYPED(): EditableNode {
+  public function getReturnTypeUNTYPED(): Node {
     return $this->_return_type;
   }
 
-  public function withReturnType(EditableNode $value): this {
+  public function withReturnType(Node $value): this {
     if ($value === $this->_return_type) {
       return $this;
     }
@@ -528,11 +526,11 @@ final class ClosureTypeSpecifier
     return $this->getReturnType();
   }
 
-  public function getOuterRightParenUNTYPED(): EditableNode {
+  public function getOuterRightParenUNTYPED(): Node {
     return $this->_outer_right_paren;
   }
 
-  public function withOuterRightParen(EditableNode $value): this {
+  public function withOuterRightParen(Node $value): this {
     if ($value === $this->_outer_right_paren) {
       return $this;
     }

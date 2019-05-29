@@ -1,32 +1,32 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3c3f53536fd7765c578c571670f46a0>>
+ * @generated SignedSource<<e1bb00f9a17cac871fbddf7a14061970>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class AlternateElseifClause
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement {
 
   const string SYNTAX_KIND = 'alternate_elseif_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_condition;
-  private EditableNode $_right_paren;
-  private EditableNode $_colon;
-  private EditableNode $_statement;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_condition;
+  private Node $_right_paren;
+  private Node $_colon;
+  private Node $_statement;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $condition,
-    EditableNode $right_paren,
-    EditableNode $colon,
-    EditableNode $statement,
+    Node $keyword,
+    Node $left_paren,
+    Node $condition,
+    Node $right_paren,
+    Node $colon,
+    Node $statement,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,42 +46,42 @@ final class AlternateElseifClause
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_elseif_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_elseif_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $condition = EditableNode::fromJSON(
+    $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_elseif_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_elseif_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_elseif_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $statement = EditableNode::fromJSON(
+    $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_elseif_statement'],
       $file,
       $offset,
@@ -106,7 +106,7 @@ final class AlternateElseifClause
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -120,7 +120,7 @@ final class AlternateElseifClause
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -149,11 +149,11 @@ final class AlternateElseifClause
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -185,11 +185,11 @@ final class AlternateElseifClause
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -221,11 +221,11 @@ final class AlternateElseifClause
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): EditableNode {
+  public function getConditionUNTYPED(): Node {
     return $this->_condition;
   }
 
-  public function withCondition(EditableNode $value): this {
+  public function withCondition(Node $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -257,11 +257,11 @@ final class AlternateElseifClause
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -293,11 +293,11 @@ final class AlternateElseifClause
     return $this->getRightParen();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -329,11 +329,11 @@ final class AlternateElseifClause
     return $this->getColon();
   }
 
-  public function getStatementUNTYPED(): EditableNode {
+  public function getStatementUNTYPED(): Node {
     return $this->_statement;
   }
 
-  public function withStatement(EditableNode $value): this {
+  public function withStatement(Node $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -352,16 +352,16 @@ final class AlternateElseifClause
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatement(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_statement);
+  public function getStatement(): NodeList<Node> {
+    return TypeAssert\instance_of(NodeList::class, $this->_statement);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatementx(): EditableList<EditableNode> {
+  public function getStatementx(): NodeList<Node> {
     return $this->getStatement();
   }
 }

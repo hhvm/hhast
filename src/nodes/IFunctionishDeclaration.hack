@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface IFunctionishDeclaration extends IHasFunctionBody {
-  require extends EditableNode;
+  require extends Node;
 }

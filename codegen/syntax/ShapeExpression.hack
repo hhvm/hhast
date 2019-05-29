@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<254705985011128d25181c1ce970a422>>
+ * @generated SignedSource<<7468cbf37886bec0d1c6a9a859e93adf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ShapeExpression
-  extends EditableNode
-  implements ILambdaBody, IExpression {
+final class ShapeExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'shape_expression';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_fields;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_fields;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $fields,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $fields,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class ShapeExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_expression_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_expression_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $fields = EditableNode::fromJSON(
+    $fields = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_expression_fields'],
       $file,
       $offset,
       $source,
     );
     $offset += $fields->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_expression_right_paren'],
       $file,
       $offset,
@@ -84,7 +82,7 @@ final class ShapeExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -96,7 +94,7 @@ final class ShapeExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -114,11 +112,11 @@ final class ShapeExpression
     return new static($keyword, $left_paren, $fields, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -148,11 +146,11 @@ final class ShapeExpression
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -182,11 +180,11 @@ final class ShapeExpression
     return $this->getLeftParen();
   }
 
-  public function getFieldsUNTYPED(): EditableNode {
+  public function getFieldsUNTYPED(): Node {
     return $this->_fields;
   }
 
-  public function withFields(EditableNode $value): this {
+  public function withFields(Node $value): this {
     if ($value === $this->_fields) {
       return $this;
     }
@@ -203,27 +201,27 @@ final class ShapeExpression
   }
 
   /**
-   * @return EditableList<FieldInitializer> | null
+   * @return NodeList<FieldInitializer> | null
    */
-  public function getFields(): ?EditableList<FieldInitializer> {
+  public function getFields(): ?NodeList<FieldInitializer> {
     if ($this->_fields->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_fields);
+    return TypeAssert\instance_of(NodeList::class, $this->_fields);
   }
 
   /**
-   * @return EditableList<FieldInitializer>
+   * @return NodeList<FieldInitializer>
    */
-  public function getFieldsx(): EditableList<FieldInitializer> {
+  public function getFieldsx(): NodeList<FieldInitializer> {
     return TypeAssert\not_null($this->getFields());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

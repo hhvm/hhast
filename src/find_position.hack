@@ -12,8 +12,8 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
 function find_position(
-  EditableNode $root,
-  EditableNode $node,
+  Node $root,
+  Node $node,
 ): (int, int) {
   $offset = find_offset_after_leading($root, $node);
   $lines = $root->getCode()

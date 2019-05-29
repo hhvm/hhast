@@ -10,22 +10,22 @@
 namespace Facebook\HHAST;
 
 interface INamespaceUseDeclaration {
-  require extends EditableNode;
+  require extends Node;
 
-  public function withKeyword(EditableNode $value): this;
+  public function withKeyword(Node $value): this;
   public function hasKeyword(): bool;
   public function getKeyword(): UseToken;
   public function getKeywordx(): UseToken;
 
-  public function withKind(EditableNode $value): this;
+  public function withKind(Node $value): this;
   public function hasKind(): bool;
-  public function getKind(): ?EditableToken;
-  public function getKindx(): EditableToken;
+  public function getKind(): ?Token;
+  public function getKindx(): Token;
 
-  public function withClauses(EditableNode $value): this;
+  public function withClauses(Node $value): this;
   public function hasClauses(): bool;
-  public function getClauses(): EditableList<NamespaceUseClause>;
-  public function getClausesx(): EditableList<NamespaceUseClause>;
+  public function getClauses(): NodeList<NamespaceUseClause>;
+  public function getClausesx(): NodeList<NamespaceUseClause>;
 
   public function getSemicolon(): ?SemicolonToken;
 }

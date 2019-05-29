@@ -1,22 +1,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4cefac952b5e5ff6db7787fd01b9d43e>>
+ * @generated SignedSource<<2df3c44b8ff68d475bf99be752c5a56f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LiteralExpression
-  extends EditableNode
-  implements ILambdaBody, IExpression {
+final class LiteralExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'literal_expression';
 
-  private EditableNode $_expression;
+  private Node $_expression;
 
   public function __construct(
-    EditableNode $expression,
+    Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -31,7 +29,7 @@ final class LiteralExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['literal_expression'],
       $file,
       $offset,
@@ -48,7 +46,7 @@ final class LiteralExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
     ];
@@ -57,7 +55,7 @@ final class LiteralExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $expression = $rewriter($this->_expression, $parents);
@@ -67,11 +65,11 @@ final class LiteralExpression
     return new static($expression);
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -85,14 +83,14 @@ final class LiteralExpression
   /**
    * @return unknown
    */
-  public function getExpression(): EditableNode {
+  public function getExpression(): Node {
     return $this->_expression;
   }
 
   /**
    * @return unknown
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): Node {
     return $this->getExpression();
   }
 }

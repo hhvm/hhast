@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32d9e7ca46ea0380ed5d408f4e84c5d9>>
+ * @generated SignedSource<<ebb3f1220724cab5fd268dbd930c5012>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class RecordField extends EditableNode {
+final class RecordField extends Node {
 
   const string SYNTAX_KIND = 'record_field';
 
-  private EditableNode $_name;
-  private EditableNode $_colon;
-  private EditableNode $_type;
-  private EditableNode $_init;
-  private EditableNode $_comma;
+  private Node $_name;
+  private Node $_colon;
+  private Node $_type;
+  private Node $_init;
+  private Node $_comma;
 
   public function __construct(
-    EditableNode $name,
-    EditableNode $colon,
-    EditableNode $type,
-    EditableNode $init,
-    EditableNode $comma,
+    Node $name,
+    Node $colon,
+    Node $type,
+    Node $init,
+    Node $comma,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -41,35 +41,35 @@ final class RecordField extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $init = EditableNode::fromJSON(
+    $init = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_init'],
       $file,
       $offset,
       $source,
     );
     $offset += $init->getWidth();
-    $comma = EditableNode::fromJSON(
+    $comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_comma'],
       $file,
       $offset,
@@ -86,7 +86,7 @@ final class RecordField extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'name' => $this->_name,
       'colon' => $this->_colon,
@@ -99,7 +99,7 @@ final class RecordField extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
@@ -119,11 +119,11 @@ final class RecordField extends EditableNode {
     return new static($name, $colon, $type, $init, $comma);
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -143,22 +143,22 @@ final class RecordField extends EditableNode {
   /**
    * @return
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -178,22 +178,22 @@ final class RecordField extends EditableNode {
   /**
    * @return
    */
-  public function getColon(): EditableNode {
+  public function getColon(): Node {
     return $this->_colon;
   }
 
   /**
    * @return
    */
-  public function getColonx(): EditableNode {
+  public function getColonx(): Node {
     return $this->getColon();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -213,22 +213,22 @@ final class RecordField extends EditableNode {
   /**
    * @return
    */
-  public function getType(): EditableNode {
+  public function getType(): Node {
     return $this->_type;
   }
 
   /**
    * @return
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): Node {
     return $this->getType();
   }
 
-  public function getInitUNTYPED(): EditableNode {
+  public function getInitUNTYPED(): Node {
     return $this->_init;
   }
 
-  public function withInit(EditableNode $value): this {
+  public function withInit(Node $value): this {
     if ($value === $this->_init) {
       return $this;
     }
@@ -248,22 +248,22 @@ final class RecordField extends EditableNode {
   /**
    * @return
    */
-  public function getInit(): EditableNode {
+  public function getInit(): Node {
     return $this->_init;
   }
 
   /**
    * @return
    */
-  public function getInitx(): EditableNode {
+  public function getInitx(): Node {
     return $this->getInit();
   }
 
-  public function getCommaUNTYPED(): EditableNode {
+  public function getCommaUNTYPED(): Node {
     return $this->_comma;
   }
 
-  public function withComma(EditableNode $value): this {
+  public function withComma(Node $value): this {
     if ($value === $this->_comma) {
       return $this;
     }
@@ -283,14 +283,14 @@ final class RecordField extends EditableNode {
   /**
    * @return
    */
-  public function getComma(): EditableNode {
+  public function getComma(): Node {
     return $this->_comma;
   }
 
   /**
    * @return
    */
-  public function getCommax(): EditableNode {
+  public function getCommax(): Node {
     return $this->getComma();
   }
 }

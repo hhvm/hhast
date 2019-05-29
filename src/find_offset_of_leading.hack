@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 
-function find_offset_of_leading(EditableNode $root, EditableNode $node): int {
+function find_offset_of_leading(Node $root, Node $node): int {
   if ($root === $node) {
     return 0;
   }

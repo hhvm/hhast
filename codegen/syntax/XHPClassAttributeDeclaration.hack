@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b27fb9d0ce5b9c46f2c0e9ce30ccd671>>
+ * @generated SignedSource<<801bef5f9ee34138b44236f73d14088b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPClassAttributeDeclaration
-  extends EditableNode
+  extends Node
   implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'xhp_class_attribute_declaration';
 
-  private EditableNode $_keyword;
-  private EditableNode $_attributes;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_attributes;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $attributes,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $attributes,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -37,21 +37,21 @@ final class XHPClassAttributeDeclaration
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $attributes = EditableNode::fromJSON(
+    $attributes = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_attributes'],
       $file,
       $offset,
       $source,
     );
     $offset += $attributes->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_semicolon'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class XHPClassAttributeDeclaration
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'attributes' => $this->_attributes,
@@ -79,7 +79,7 @@ final class XHPClassAttributeDeclaration
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -95,11 +95,11 @@ final class XHPClassAttributeDeclaration
     return new static($keyword, $attributes, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -124,11 +124,11 @@ final class XHPClassAttributeDeclaration
     return $this->getKeyword();
   }
 
-  public function getAttributesUNTYPED(): EditableNode {
+  public function getAttributesUNTYPED(): Node {
     return $this->_attributes;
   }
 
-  public function withAttributes(EditableNode $value): this {
+  public function withAttributes(Node $value): this {
     if ($value === $this->_attributes) {
       return $this;
     }
@@ -140,26 +140,26 @@ final class XHPClassAttributeDeclaration
   }
 
   /**
-   * @return EditableList<XHPClassAttribute> | EditableList<EditableNode> |
-   * EditableList<XHPSimpleClassAttribute>
+   * @return NodeList<XHPClassAttribute> | NodeList<Node> |
+   * NodeList<XHPSimpleClassAttribute>
    */
-  public function getAttributes(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_attributes);
+  public function getAttributes(): NodeList<Node> {
+    return TypeAssert\instance_of(NodeList::class, $this->_attributes);
   }
 
   /**
-   * @return EditableList<XHPClassAttribute> | EditableList<EditableNode> |
-   * EditableList<XHPSimpleClassAttribute>
+   * @return NodeList<XHPClassAttribute> | NodeList<Node> |
+   * NodeList<XHPSimpleClassAttribute>
    */
-  public function getAttributesx(): EditableList<EditableNode> {
+  public function getAttributesx(): NodeList<Node> {
     return $this->getAttributes();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

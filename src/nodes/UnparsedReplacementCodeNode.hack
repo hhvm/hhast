@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 
-final class UnparsedReplacementCodeNode extends EditableNode {
+final class UnparsedReplacementCodeNode extends Node {
   const string SYNTAX_KIND = 'hhast_replacement_code';
 
   private string $code;
@@ -29,14 +29,14 @@ final class UnparsedReplacementCodeNode extends EditableNode {
 
 
   <<__Override>>
-  final public function getChildren(): dict<string, EditableNode> {
+  final public function getChildren(): dict<string, Node> {
     return dict[];
   }
 
   <<__Override>>
   final public function rewriteChildren(
     self::TRewriter $_rewriter,
-    vec<EditableNode> $_parents = vec[],
+    vec<Node> $_parents = vec[],
   ): this {
     return $this;
   }

@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6b214b5ed9b5ee13487fb22e2a911d6c>>
+ * @generated SignedSource<<a5015e5d09e9f0c4a416668befaa5f60>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PropertyDeclaration
-  extends EditableNode
+  extends Node
   implements IClassBodyDeclaration, IHasTypeHint, IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'property_declaration';
 
-  private EditableNode $_attribute_spec;
-  private EditableNode $_modifiers;
-  private EditableNode $_type;
-  private EditableNode $_declarators;
-  private EditableNode $_semicolon;
+  private Node $_attribute_spec;
+  private Node $_modifiers;
+  private Node $_type;
+  private Node $_declarators;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $attribute_spec,
-    EditableNode $modifiers,
-    EditableNode $type,
-    EditableNode $declarators,
-    EditableNode $semicolon,
+    Node $attribute_spec,
+    Node $modifiers,
+    Node $type,
+    Node $declarators,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -43,35 +43,35 @@ final class PropertyDeclaration
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute_spec = EditableNode::fromJSON(
+    $attribute_spec = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
-    $modifiers = EditableNode::fromJSON(
+    $modifiers = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_modifiers'],
       $file,
       $offset,
       $source,
     );
     $offset += $modifiers->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $declarators = EditableNode::fromJSON(
+    $declarators = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_declarators'],
       $file,
       $offset,
       $source,
     );
     $offset += $declarators->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_semicolon'],
       $file,
       $offset,
@@ -95,7 +95,7 @@ final class PropertyDeclaration
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'modifiers' => $this->_modifiers,
@@ -108,7 +108,7 @@ final class PropertyDeclaration
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
@@ -134,11 +134,11 @@ final class PropertyDeclaration
     );
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableNode $value): this {
+  public function withAttributeSpec(Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -175,11 +175,11 @@ final class PropertyDeclaration
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getModifiersUNTYPED(): EditableNode {
+  public function getModifiersUNTYPED(): Node {
     return $this->_modifiers;
   }
 
-  public function withModifiers(EditableNode $value): this {
+  public function withModifiers(Node $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -197,24 +197,24 @@ final class PropertyDeclaration
   }
 
   /**
-   * @return EditableList<EditableNode> | VarToken
+   * @return NodeList<Node> | VarToken
    */
-  public function getModifiers(): EditableNode {
+  public function getModifiers(): Node {
     return $this->_modifiers;
   }
 
   /**
-   * @return EditableList<EditableNode> | VarToken
+   * @return NodeList<Node> | VarToken
    */
-  public function getModifiersx(): EditableNode {
+  public function getModifiersx(): Node {
     return $this->getModifiers();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -256,11 +256,11 @@ final class PropertyDeclaration
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getDeclaratorsUNTYPED(): EditableNode {
+  public function getDeclaratorsUNTYPED(): Node {
     return $this->_declarators;
   }
 
-  public function withDeclarators(EditableNode $value): this {
+  public function withDeclarators(Node $value): this {
     if ($value === $this->_declarators) {
       return $this;
     }
@@ -278,24 +278,24 @@ final class PropertyDeclaration
   }
 
   /**
-   * @return EditableList<PropertyDeclarator>
+   * @return NodeList<PropertyDeclarator>
    */
-  public function getDeclarators(): EditableList<PropertyDeclarator> {
-    return TypeAssert\instance_of(EditableList::class, $this->_declarators);
+  public function getDeclarators(): NodeList<PropertyDeclarator> {
+    return TypeAssert\instance_of(NodeList::class, $this->_declarators);
   }
 
   /**
-   * @return EditableList<PropertyDeclarator>
+   * @return NodeList<PropertyDeclarator>
    */
-  public function getDeclaratorsx(): EditableList<PropertyDeclarator> {
+  public function getDeclaratorsx(): NodeList<PropertyDeclarator> {
     return $this->getDeclarators();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

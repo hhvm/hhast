@@ -194,7 +194,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     );
 
     return $node->withAttribute(
-      $attrs->withAttributes(new HHAST\EditableList($list)),
+      $attrs->withAttributes(new HHAST\NodeList($list)),
     );
   }
 }

@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6dc834ba207d91538175fd902dfcd254>>
+ * @generated SignedSource<<1bfc9360cc51b8f4088a587f731134d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TypeParameters extends EditableNode {
+final class TypeParameters extends Node {
 
   const string SYNTAX_KIND = 'type_parameters';
 
-  private EditableNode $_left_angle;
-  private EditableNode $_parameters;
-  private EditableNode $_right_angle;
+  private Node $_left_angle;
+  private Node $_parameters;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $left_angle,
-    EditableNode $parameters,
-    EditableNode $right_angle,
+    Node $left_angle,
+    Node $parameters,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_angle = $left_angle;
@@ -35,21 +35,21 @@ final class TypeParameters extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_parameters_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $parameters = EditableNode::fromJSON(
+    $parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_parameters_parameters'],
       $file,
       $offset,
       $source,
     );
     $offset += $parameters->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_parameters_right_angle'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class TypeParameters extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_angle' => $this->_left_angle,
       'parameters' => $this->_parameters,
@@ -77,7 +77,7 @@ final class TypeParameters extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_angle = $rewriter($this->_left_angle, $parents);
@@ -93,11 +93,11 @@ final class TypeParameters extends EditableNode {
     return new static($left_angle, $parameters, $right_angle);
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class TypeParameters extends EditableNode {
     return $this->getLeftAngle();
   }
 
-  public function getParametersUNTYPED(): EditableNode {
+  public function getParametersUNTYPED(): Node {
     return $this->_parameters;
   }
 
-  public function withParameters(EditableNode $value): this {
+  public function withParameters(Node $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -138,24 +138,24 @@ final class TypeParameters extends EditableNode {
   }
 
   /**
-   * @return EditableList<TypeParameter>
+   * @return NodeList<TypeParameter>
    */
-  public function getParameters(): EditableList<TypeParameter> {
-    return TypeAssert\instance_of(EditableList::class, $this->_parameters);
+  public function getParameters(): NodeList<TypeParameter> {
+    return TypeAssert\instance_of(NodeList::class, $this->_parameters);
   }
 
   /**
-   * @return EditableList<TypeParameter>
+   * @return NodeList<TypeParameter>
    */
-  public function getParametersx(): EditableList<TypeParameter> {
+  public function getParametersx(): NodeList<TypeParameter> {
     return $this->getParameters();
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

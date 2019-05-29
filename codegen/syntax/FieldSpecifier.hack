@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<afed3fb3995c1310e0c23e141fedbf44>>
+ * @generated SignedSource<<39836ee7cf15cf6750c8383b3b74dafc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
+final class FieldSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'field_specifier';
 
-  private EditableNode $_question;
-  private EditableNode $_name;
-  private EditableNode $_arrow;
-  private EditableNode $_type;
+  private Node $_question;
+  private Node $_name;
+  private Node $_arrow;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $question,
-    EditableNode $name,
-    EditableNode $arrow,
-    EditableNode $type,
+    Node $question,
+    Node $name,
+    Node $arrow,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_question = $question;
@@ -38,28 +38,28 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $question = EditableNode::fromJSON(
+    $question = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_question'],
       $file,
       $offset,
       $source,
     );
     $offset += $question->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $arrow = EditableNode::fromJSON(
+    $arrow = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_arrow'],
       $file,
       $offset,
       $source,
     );
     $offset += $arrow->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_type'],
       $file,
       $offset,
@@ -76,7 +76,7 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'question' => $this->_question,
       'name' => $this->_name,
@@ -88,7 +88,7 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $question = $rewriter($this->_question, $parents);
@@ -106,11 +106,11 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
     return new static($question, $name, $arrow, $type);
   }
 
-  public function getQuestionUNTYPED(): EditableNode {
+  public function getQuestionUNTYPED(): Node {
     return $this->_question;
   }
 
-  public function withQuestion(EditableNode $value): this {
+  public function withQuestion(Node $value): this {
     if ($value === $this->_question) {
       return $this;
     }
@@ -138,11 +138,11 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
     return TypeAssert\not_null($this->getQuestion());
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -168,11 +168,11 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getName();
   }
 
-  public function getArrowUNTYPED(): EditableNode {
+  public function getArrowUNTYPED(): Node {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableNode $value): this {
+  public function withArrow(Node $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -197,11 +197,11 @@ final class FieldSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getArrow();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }

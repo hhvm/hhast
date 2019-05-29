@@ -1,20 +1,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e544769379238f1173059f0cccb31d6f>>
+ * @generated SignedSource<<9433b556c5a7e59f65c9b08120347cdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPSimpleClassAttribute extends EditableNode {
+final class XHPSimpleClassAttribute extends Node {
 
   const string SYNTAX_KIND = 'xhp_simple_class_attribute';
 
-  private EditableNode $_type;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $type,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -29,7 +29,7 @@ final class XHPSimpleClassAttribute extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_simple_class_attribute_type'],
       $file,
       $offset,
@@ -46,7 +46,7 @@ final class XHPSimpleClassAttribute extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'type' => $this->_type,
     ];
@@ -55,7 +55,7 @@ final class XHPSimpleClassAttribute extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
@@ -65,11 +65,11 @@ final class XHPSimpleClassAttribute extends EditableNode {
     return new static($type);
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }

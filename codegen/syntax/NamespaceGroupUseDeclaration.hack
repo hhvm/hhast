@@ -1,34 +1,34 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a2b18be650eae6e621e55a466e58274>>
+ * @generated SignedSource<<a21be4792c13c868e14625e4b5da1064>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class NamespaceGroupUseDeclaration
-  extends EditableNode
+  extends Node
   implements INamespaceUseDeclaration {
 
   const string SYNTAX_KIND = 'namespace_group_use_declaration';
 
-  private EditableNode $_keyword;
-  private EditableNode $_kind;
-  private EditableNode $_prefix;
-  private EditableNode $_left_brace;
-  private EditableNode $_clauses;
-  private EditableNode $_right_brace;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_kind;
+  private Node $_prefix;
+  private Node $_left_brace;
+  private Node $_clauses;
+  private Node $_right_brace;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $kind,
-    EditableNode $prefix,
-    EditableNode $left_brace,
-    EditableNode $clauses,
-    EditableNode $right_brace,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $kind,
+    Node $prefix,
+    Node $left_brace,
+    Node $clauses,
+    Node $right_brace,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -49,49 +49,49 @@ final class NamespaceGroupUseDeclaration
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $kind = EditableNode::fromJSON(
+    $kind = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_kind'],
       $file,
       $offset,
       $source,
     );
     $offset += $kind->getWidth();
-    $prefix = EditableNode::fromJSON(
+    $prefix = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_prefix'],
       $file,
       $offset,
       $source,
     );
     $offset += $prefix->getWidth();
-    $left_brace = EditableNode::fromJSON(
+    $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
-    $clauses = EditableNode::fromJSON(
+    $clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $clauses->getWidth();
-    $right_brace = EditableNode::fromJSON(
+    $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_right_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_brace->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_semicolon'],
       $file,
       $offset,
@@ -117,7 +117,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'kind' => $this->_kind,
@@ -132,7 +132,7 @@ final class NamespaceGroupUseDeclaration
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -164,11 +164,11 @@ final class NamespaceGroupUseDeclaration
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -201,11 +201,11 @@ final class NamespaceGroupUseDeclaration
     return $this->getKeyword();
   }
 
-  public function getKindUNTYPED(): EditableNode {
+  public function getKindUNTYPED(): Node {
     return $this->_kind;
   }
 
-  public function withKind(EditableNode $value): this {
+  public function withKind(Node $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
@@ -227,25 +227,25 @@ final class NamespaceGroupUseDeclaration
   /**
    * @return null | ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
-  public function getKind(): ?EditableToken {
+  public function getKind(): ?Token {
     if ($this->_kind->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableToken::class, $this->_kind);
+    return TypeAssert\instance_of(Token::class, $this->_kind);
   }
 
   /**
    * @return ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
-  public function getKindx(): EditableToken {
+  public function getKindx(): Token {
     return TypeAssert\not_null($this->getKind());
   }
 
-  public function getPrefixUNTYPED(): EditableNode {
+  public function getPrefixUNTYPED(): Node {
     return $this->_prefix;
   }
 
-  public function withPrefix(EditableNode $value): this {
+  public function withPrefix(Node $value): this {
     if ($value === $this->_prefix) {
       return $this;
     }
@@ -278,11 +278,11 @@ final class NamespaceGroupUseDeclaration
     return $this->getPrefix();
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
+  public function getLeftBraceUNTYPED(): Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
+  public function withLeftBrace(Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -315,11 +315,11 @@ final class NamespaceGroupUseDeclaration
     return $this->getLeftBrace();
   }
 
-  public function getClausesUNTYPED(): EditableNode {
+  public function getClausesUNTYPED(): Node {
     return $this->_clauses;
   }
 
-  public function withClauses(EditableNode $value): this {
+  public function withClauses(Node $value): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -339,24 +339,24 @@ final class NamespaceGroupUseDeclaration
   }
 
   /**
-   * @return EditableList<NamespaceUseClause>
+   * @return NodeList<NamespaceUseClause>
    */
-  public function getClauses(): EditableList<NamespaceUseClause> {
-    return TypeAssert\instance_of(EditableList::class, $this->_clauses);
+  public function getClauses(): NodeList<NamespaceUseClause> {
+    return TypeAssert\instance_of(NodeList::class, $this->_clauses);
   }
 
   /**
-   * @return EditableList<NamespaceUseClause>
+   * @return NodeList<NamespaceUseClause>
    */
-  public function getClausesx(): EditableList<NamespaceUseClause> {
+  public function getClausesx(): NodeList<NamespaceUseClause> {
     return $this->getClauses();
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
+  public function getRightBraceUNTYPED(): Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableNode $value): this {
+  public function withRightBrace(Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -389,11 +389,11 @@ final class NamespaceGroupUseDeclaration
     return $this->getRightBrace();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e92ac125c2b3e55b06e0435f7cd9700>>
+ * @generated SignedSource<<6b602724aff6a49b06d00c1dee09a859>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AnonymousFunctionUseClause extends EditableNode {
+final class AnonymousFunctionUseClause extends Node {
 
   const string SYNTAX_KIND = 'anonymous_function_use_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_variables;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_variables;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $variables,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $variables,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -38,28 +38,28 @@ final class AnonymousFunctionUseClause extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $variables = EditableNode::fromJSON(
+    $variables = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use_variables'],
       $file,
       $offset,
       $source,
     );
     $offset += $variables->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use_right_paren'],
       $file,
       $offset,
@@ -82,7 +82,7 @@ final class AnonymousFunctionUseClause extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -94,7 +94,7 @@ final class AnonymousFunctionUseClause extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -112,11 +112,11 @@ final class AnonymousFunctionUseClause extends EditableNode {
     return new static($keyword, $left_paren, $variables, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -146,11 +146,11 @@ final class AnonymousFunctionUseClause extends EditableNode {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -180,11 +180,11 @@ final class AnonymousFunctionUseClause extends EditableNode {
     return $this->getLeftParen();
   }
 
-  public function getVariablesUNTYPED(): EditableNode {
+  public function getVariablesUNTYPED(): Node {
     return $this->_variables;
   }
 
-  public function withVariables(EditableNode $value): this {
+  public function withVariables(Node $value): this {
     if ($value === $this->_variables) {
       return $this;
     }
@@ -201,24 +201,24 @@ final class AnonymousFunctionUseClause extends EditableNode {
   }
 
   /**
-   * @return EditableList<VariableToken>
+   * @return NodeList<VariableToken>
    */
-  public function getVariables(): EditableList<VariableToken> {
-    return TypeAssert\instance_of(EditableList::class, $this->_variables);
+  public function getVariables(): NodeList<VariableToken> {
+    return TypeAssert\instance_of(NodeList::class, $this->_variables);
   }
 
   /**
-   * @return EditableList<VariableToken>
+   * @return NodeList<VariableToken>
    */
-  public function getVariablesx(): EditableList<VariableToken> {
+  public function getVariablesx(): NodeList<VariableToken> {
     return $this->getVariables();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

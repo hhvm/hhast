@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8117a6d305e19930dd7afbc8abfc8159>>
+ * @generated SignedSource<<6aec25f72fb29dca85089cf2f4f737cd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class RecordCreationExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'record_creation_expression';
 
-  private EditableNode $_type;
-  private EditableNode $_left_bracket;
-  private EditableNode $_members;
-  private EditableNode $_right_bracket;
+  private Node $_type;
+  private Node $_left_bracket;
+  private Node $_members;
+  private Node $_right_bracket;
 
   public function __construct(
-    EditableNode $type,
-    EditableNode $left_bracket,
-    EditableNode $members,
-    EditableNode $right_bracket,
+    Node $type,
+    Node $left_bracket,
+    Node $members,
+    Node $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -40,28 +40,28 @@ final class RecordCreationExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_creation_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $left_bracket = EditableNode::fromJSON(
+    $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_creation_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
-    $members = EditableNode::fromJSON(
+    $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_creation_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
-    $right_bracket = EditableNode::fromJSON(
+    $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_creation_right_bracket'],
       $file,
       $offset,
@@ -84,7 +84,7 @@ final class RecordCreationExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'type' => $this->_type,
       'left_bracket' => $this->_left_bracket,
@@ -96,7 +96,7 @@ final class RecordCreationExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
@@ -114,11 +114,11 @@ final class RecordCreationExpression
     return new static($type, $left_bracket, $members, $right_bracket);
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -148,11 +148,11 @@ final class RecordCreationExpression
     return $this->getType();
   }
 
-  public function getLeftBracketUNTYPED(): EditableNode {
+  public function getLeftBracketUNTYPED(): Node {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(EditableNode $value): this {
+  public function withLeftBracket(Node $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -185,11 +185,11 @@ final class RecordCreationExpression
     return $this->getLeftBracket();
   }
 
-  public function getMembersUNTYPED(): EditableNode {
+  public function getMembersUNTYPED(): Node {
     return $this->_members;
   }
 
-  public function withMembers(EditableNode $value): this {
+  public function withMembers(Node $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -206,24 +206,24 @@ final class RecordCreationExpression
   }
 
   /**
-   * @return EditableList<ElementInitializer>
+   * @return NodeList<ElementInitializer>
    */
-  public function getMembers(): EditableList<ElementInitializer> {
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+  public function getMembers(): NodeList<ElementInitializer> {
+    return TypeAssert\instance_of(NodeList::class, $this->_members);
   }
 
   /**
-   * @return EditableList<ElementInitializer>
+   * @return NodeList<ElementInitializer>
    */
-  public function getMembersx(): EditableList<ElementInitializer> {
+  public function getMembersx(): NodeList<ElementInitializer> {
     return $this->getMembers();
   }
 
-  public function getRightBracketUNTYPED(): EditableNode {
+  public function getRightBracketUNTYPED(): Node {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(EditableNode $value): this {
+  public function withRightBracket(Node $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }

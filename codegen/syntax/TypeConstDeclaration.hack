@@ -1,40 +1,38 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<655722b287e811fa2f4331ff656c55ae>>
+ * @generated SignedSource<<ff7d098b1dccd5cc175870bcf0cd8897>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TypeConstDeclaration
-  extends EditableNode
-  implements IClassBodyDeclaration {
+final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'type_const_declaration';
 
-  private EditableNode $_attribute_spec;
-  private EditableNode $_abstract;
-  private EditableNode $_keyword;
-  private EditableNode $_type_keyword;
-  private EditableNode $_name;
-  private EditableNode $_type_parameters;
-  private EditableNode $_type_constraint;
-  private EditableNode $_equal;
-  private EditableNode $_type_specifier;
-  private EditableNode $_semicolon;
+  private Node $_attribute_spec;
+  private Node $_abstract;
+  private Node $_keyword;
+  private Node $_type_keyword;
+  private Node $_name;
+  private Node $_type_parameters;
+  private Node $_type_constraint;
+  private Node $_equal;
+  private Node $_type_specifier;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $attribute_spec,
-    EditableNode $abstract,
-    EditableNode $keyword,
-    EditableNode $type_keyword,
-    EditableNode $name,
-    EditableNode $type_parameters,
-    EditableNode $type_constraint,
-    EditableNode $equal,
-    EditableNode $type_specifier,
-    EditableNode $semicolon,
+    Node $attribute_spec,
+    Node $abstract,
+    Node $keyword,
+    Node $type_keyword,
+    Node $name,
+    Node $type_parameters,
+    Node $type_constraint,
+    Node $equal,
+    Node $type_specifier,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -58,70 +56,70 @@ final class TypeConstDeclaration
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute_spec = EditableNode::fromJSON(
+    $attribute_spec = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
-    $abstract = EditableNode::fromJSON(
+    $abstract = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_abstract'],
       $file,
       $offset,
       $source,
     );
     $offset += $abstract->getWidth();
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $type_keyword = EditableNode::fromJSON(
+    $type_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_keyword->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $type_parameters = EditableNode::fromJSON(
+    $type_parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_type_parameters'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_parameters->getWidth();
-    $type_constraint = EditableNode::fromJSON(
+    $type_constraint = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_type_constraint'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_constraint->getWidth();
-    $equal = EditableNode::fromJSON(
+    $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
-    $type_specifier = EditableNode::fromJSON(
+    $type_specifier = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_type_specifier'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_specifier->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_semicolon'],
       $file,
       $offset,
@@ -150,7 +148,7 @@ final class TypeConstDeclaration
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'abstract' => $this->_abstract,
@@ -168,7 +166,7 @@ final class TypeConstDeclaration
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
@@ -209,11 +207,11 @@ final class TypeConstDeclaration
     );
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableNode $value): this {
+  public function withAttributeSpec(Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -238,7 +236,7 @@ final class TypeConstDeclaration
   /**
    * @return null
    */
-  public function getAttributeSpec(): ?EditableNode {
+  public function getAttributeSpec(): ?Node {
     if ($this->_attribute_spec->isMissing()) {
       return null;
     }
@@ -248,15 +246,15 @@ final class TypeConstDeclaration
   /**
    * @return
    */
-  public function getAttributeSpecx(): EditableNode {
+  public function getAttributeSpecx(): Node {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getAbstractUNTYPED(): EditableNode {
+  public function getAbstractUNTYPED(): Node {
     return $this->_abstract;
   }
 
-  public function withAbstract(EditableNode $value): this {
+  public function withAbstract(Node $value): this {
     if ($value === $this->_abstract) {
       return $this;
     }
@@ -295,11 +293,11 @@ final class TypeConstDeclaration
     return TypeAssert\not_null($this->getAbstract());
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -335,11 +333,11 @@ final class TypeConstDeclaration
     return $this->getKeyword();
   }
 
-  public function getTypeKeywordUNTYPED(): EditableNode {
+  public function getTypeKeywordUNTYPED(): Node {
     return $this->_type_keyword;
   }
 
-  public function withTypeKeyword(EditableNode $value): this {
+  public function withTypeKeyword(Node $value): this {
     if ($value === $this->_type_keyword) {
       return $this;
     }
@@ -375,11 +373,11 @@ final class TypeConstDeclaration
     return $this->getTypeKeyword();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -415,11 +413,11 @@ final class TypeConstDeclaration
     return $this->getName();
   }
 
-  public function getTypeParametersUNTYPED(): EditableNode {
+  public function getTypeParametersUNTYPED(): Node {
     return $this->_type_parameters;
   }
 
-  public function withTypeParameters(EditableNode $value): this {
+  public function withTypeParameters(Node $value): this {
     if ($value === $this->_type_parameters) {
       return $this;
     }
@@ -444,7 +442,7 @@ final class TypeConstDeclaration
   /**
    * @return null
    */
-  public function getTypeParameters(): ?EditableNode {
+  public function getTypeParameters(): ?Node {
     if ($this->_type_parameters->isMissing()) {
       return null;
     }
@@ -454,15 +452,15 @@ final class TypeConstDeclaration
   /**
    * @return
    */
-  public function getTypeParametersx(): EditableNode {
+  public function getTypeParametersx(): Node {
     return TypeAssert\not_null($this->getTypeParameters());
   }
 
-  public function getTypeConstraintUNTYPED(): EditableNode {
+  public function getTypeConstraintUNTYPED(): Node {
     return $this->_type_constraint;
   }
 
-  public function withTypeConstraint(EditableNode $value): this {
+  public function withTypeConstraint(Node $value): this {
     if ($value === $this->_type_constraint) {
       return $this;
     }
@@ -504,11 +502,11 @@ final class TypeConstDeclaration
     return TypeAssert\not_null($this->getTypeConstraint());
   }
 
-  public function getEqualUNTYPED(): EditableNode {
+  public function getEqualUNTYPED(): Node {
     return $this->_equal;
   }
 
-  public function withEqual(EditableNode $value): this {
+  public function withEqual(Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -547,11 +545,11 @@ final class TypeConstDeclaration
     return TypeAssert\not_null($this->getEqual());
   }
 
-  public function getTypeSpecifierUNTYPED(): EditableNode {
+  public function getTypeSpecifierUNTYPED(): Node {
     return $this->_type_specifier;
   }
 
-  public function withTypeSpecifier(EditableNode $value): this {
+  public function withTypeSpecifier(Node $value): this {
     if ($value === $this->_type_specifier) {
       return $this;
     }
@@ -601,11 +599,11 @@ final class TypeConstDeclaration
     return TypeAssert\not_null($this->getTypeSpecifier());
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

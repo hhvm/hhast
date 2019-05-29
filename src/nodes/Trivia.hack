@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 
-abstract class EditableTrivia extends EditableNode {
+abstract class Trivia extends Node {
   private string $_text;
   <<__Override>>
   public function __construct(
@@ -42,7 +42,7 @@ abstract class EditableTrivia extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[];
   }
 
@@ -52,8 +52,8 @@ abstract class EditableTrivia extends EditableNode {
     string $file,
     int $offset,
     string $source,
-  ): EditableTrivia {
-    return __Private\editable_trivia_from_json($json, shape(
+  ): Trivia {
+    return __Private\trivia_from_json($json, shape(
       'file' => $file,
       'source' => $source,
       'offset' => $offset,
@@ -64,7 +64,7 @@ abstract class EditableTrivia extends EditableNode {
   <<__Override>>
   final public function rewriteChildren(
     self::TRewriter $_rewriter,
-    vec<EditableNode> $_parents = vec[],
+    vec<Node> $_parents = vec[],
   ): this {
     // Trivia have no children
     return $this;

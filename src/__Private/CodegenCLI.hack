@@ -42,9 +42,9 @@ final class CodegenCLI extends CLIBase {
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
     $generators = keyset[
-      CodegenEditableNodeFromJSON::class,
-      CodegenEditableTokenFromData::class,
-      CodegenEditableTriviaFromJSON::class,
+      CodegenNodeFromJSON::class,
+      CodegenTokenFromData::class,
+      CodegenTriviaFromJSON::class,
       CodegenTokens::class,
       CodegenTrivia::class,
       CodegenSyntax::class,

@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c95172cd7231370b857a5a4ac65781a2>>
+ * @generated SignedSource<<8ca6457ee798b819e34ac74067d9aa4f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LetStatement extends EditableNode implements IStatement {
+final class LetStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'let_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_name;
-  private EditableNode $_colon;
-  private EditableNode $_type;
-  private EditableNode $_initializer;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_name;
+  private Node $_colon;
+  private Node $_type;
+  private Node $_initializer;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $name,
-    EditableNode $colon,
-    EditableNode $type,
-    EditableNode $initializer,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $name,
+    Node $colon,
+    Node $type,
+    Node $initializer,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -44,42 +44,42 @@ final class LetStatement extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $initializer = EditableNode::fromJSON(
+    $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_initializer'],
       $file,
       $offset,
       $source,
     );
     $offset += $initializer->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_semicolon'],
       $file,
       $offset,
@@ -104,7 +104,7 @@ final class LetStatement extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'name' => $this->_name,
@@ -118,7 +118,7 @@ final class LetStatement extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -140,11 +140,11 @@ final class LetStatement extends EditableNode implements IStatement {
     return new static($keyword, $name, $colon, $type, $initializer, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -165,22 +165,22 @@ final class LetStatement extends EditableNode implements IStatement {
   /**
    * @return
    */
-  public function getKeyword(): EditableNode {
+  public function getKeyword(): Node {
     return $this->_keyword;
   }
 
   /**
    * @return
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -201,22 +201,22 @@ final class LetStatement extends EditableNode implements IStatement {
   /**
    * @return
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -237,22 +237,22 @@ final class LetStatement extends EditableNode implements IStatement {
   /**
    * @return
    */
-  public function getColon(): EditableNode {
+  public function getColon(): Node {
     return $this->_colon;
   }
 
   /**
    * @return
    */
-  public function getColonx(): EditableNode {
+  public function getColonx(): Node {
     return $this->getColon();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -273,22 +273,22 @@ final class LetStatement extends EditableNode implements IStatement {
   /**
    * @return
    */
-  public function getType(): EditableNode {
+  public function getType(): Node {
     return $this->_type;
   }
 
   /**
    * @return
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): Node {
     return $this->getType();
   }
 
-  public function getInitializerUNTYPED(): EditableNode {
+  public function getInitializerUNTYPED(): Node {
     return $this->_initializer;
   }
 
-  public function withInitializer(EditableNode $value): this {
+  public function withInitializer(Node $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
@@ -309,22 +309,22 @@ final class LetStatement extends EditableNode implements IStatement {
   /**
    * @return
    */
-  public function getInitializer(): EditableNode {
+  public function getInitializer(): Node {
     return $this->_initializer;
   }
 
   /**
    * @return
    */
-  public function getInitializerx(): EditableNode {
+  public function getInitializerx(): Node {
     return $this->getInitializer();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -345,14 +345,14 @@ final class LetStatement extends EditableNode implements IStatement {
   /**
    * @return
    */
-  public function getSemicolon(): EditableNode {
+  public function getSemicolon(): Node {
     return $this->_semicolon;
   }
 
   /**
    * @return
    */
-  public function getSemicolonx(): EditableNode {
+  public function getSemicolonx(): Node {
     return $this->getSemicolon();
   }
 }

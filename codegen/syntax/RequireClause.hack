@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bfbae6eea30a5ed49cf842e465b4ec7a>>
+ * @generated SignedSource<<97f5ac934d64067749256e4508a115e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class RequireClause
-  extends EditableNode
-  implements IClassBodyDeclaration {
+final class RequireClause extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'require_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_kind;
-  private EditableNode $_name;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_kind;
+  private Node $_name;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $kind,
-    EditableNode $name,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $kind,
+    Node $name,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class RequireClause
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['require_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $kind = EditableNode::fromJSON(
+    $kind = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['require_kind'],
       $file,
       $offset,
       $source,
     );
     $offset += $kind->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['require_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['require_semicolon'],
       $file,
       $offset,
@@ -78,7 +76,7 @@ final class RequireClause
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'kind' => $this->_kind,
@@ -90,7 +88,7 @@ final class RequireClause
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -108,11 +106,11 @@ final class RequireClause
     return new static($keyword, $kind, $name, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -137,11 +135,11 @@ final class RequireClause
     return $this->getKeyword();
   }
 
-  public function getKindUNTYPED(): EditableNode {
+  public function getKindUNTYPED(): Node {
     return $this->_kind;
   }
 
-  public function withKind(EditableNode $value): this {
+  public function withKind(Node $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
@@ -155,22 +153,22 @@ final class RequireClause
   /**
    * @return ExtendsToken | ImplementsToken
    */
-  public function getKind(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_kind);
+  public function getKind(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_kind);
   }
 
   /**
    * @return ExtendsToken | ImplementsToken
    */
-  public function getKindx(): EditableToken {
+  public function getKindx(): Token {
     return $this->getKind();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -198,11 +196,11 @@ final class RequireClause
     return $this->getName();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

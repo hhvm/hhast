@@ -1,20 +1,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba17c82340c189f1e40aa2324dd37ae2>>
+ * @generated SignedSource<<20fde7b8c3faac85cbb1639a96f513b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
+final class NamespaceEmptyBody extends Node implements INamespaceBody {
 
   const string SYNTAX_KIND = 'namespace_empty_body';
 
-  private EditableNode $_semicolon;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $semicolon,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_semicolon = $semicolon;
@@ -29,7 +29,7 @@ final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_semicolon'],
       $file,
       $offset,
@@ -46,7 +46,7 @@ final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'semicolon' => $this->_semicolon,
     ];
@@ -55,7 +55,7 @@ final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $semicolon = $rewriter($this->_semicolon, $parents);
@@ -65,11 +65,11 @@ final class NamespaceEmptyBody extends EditableNode implements INamespaceBody {
     return new static($semicolon);
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

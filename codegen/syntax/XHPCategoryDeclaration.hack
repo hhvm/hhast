@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83a422ee4af5f9f07d1e4f9999108477>>
+ * @generated SignedSource<<d077fdbe437db53542e98b80d7a9311e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPCategoryDeclaration
-  extends EditableNode
+  extends Node
   implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'xhp_category_declaration';
 
-  private EditableNode $_keyword;
-  private EditableNode $_categories;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_categories;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $categories,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $categories,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -37,21 +37,21 @@ final class XHPCategoryDeclaration
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_category_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $categories = EditableNode::fromJSON(
+    $categories = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_category_categories'],
       $file,
       $offset,
       $source,
     );
     $offset += $categories->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_category_semicolon'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class XHPCategoryDeclaration
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'categories' => $this->_categories,
@@ -79,7 +79,7 @@ final class XHPCategoryDeclaration
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -95,11 +95,11 @@ final class XHPCategoryDeclaration
     return new static($keyword, $categories, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -113,22 +113,22 @@ final class XHPCategoryDeclaration
   /**
    * @return unknown
    */
-  public function getKeyword(): EditableNode {
+  public function getKeyword(): Node {
     return $this->_keyword;
   }
 
   /**
    * @return unknown
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
-  public function getCategoriesUNTYPED(): EditableNode {
+  public function getCategoriesUNTYPED(): Node {
     return $this->_categories;
   }
 
-  public function withCategories(EditableNode $value): this {
+  public function withCategories(Node $value): this {
     if ($value === $this->_categories) {
       return $this;
     }
@@ -142,22 +142,22 @@ final class XHPCategoryDeclaration
   /**
    * @return unknown
    */
-  public function getCategories(): EditableNode {
+  public function getCategories(): Node {
     return $this->_categories;
   }
 
   /**
    * @return unknown
    */
-  public function getCategoriesx(): EditableNode {
+  public function getCategoriesx(): Node {
     return $this->getCategories();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -171,14 +171,14 @@ final class XHPCategoryDeclaration
   /**
    * @return unknown
    */
-  public function getSemicolon(): EditableNode {
+  public function getSemicolon(): Node {
     return $this->_semicolon;
   }
 
   /**
    * @return unknown
    */
-  public function getSemicolonx(): EditableNode {
+  public function getSemicolonx(): Node {
     return $this->getSemicolon();
   }
 }

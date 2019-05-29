@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<308f19dc2a18d2f3d8e979007578e1f0>>
+ * @generated SignedSource<<96b2276fab12123ca27707248a844f5b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ConditionalExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'conditional_expression';
 
-  private EditableNode $_test;
-  private EditableNode $_question;
-  private EditableNode $_consequence;
-  private EditableNode $_colon;
-  private EditableNode $_alternative;
+  private Node $_test;
+  private Node $_question;
+  private Node $_consequence;
+  private Node $_colon;
+  private Node $_alternative;
 
   public function __construct(
-    EditableNode $test,
-    EditableNode $question,
-    EditableNode $consequence,
-    EditableNode $colon,
-    EditableNode $alternative,
+    Node $test,
+    Node $question,
+    Node $consequence,
+    Node $colon,
+    Node $alternative,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_test = $test;
@@ -43,35 +43,35 @@ final class ConditionalExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $test = EditableNode::fromJSON(
+    $test = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_test'],
       $file,
       $offset,
       $source,
     );
     $offset += $test->getWidth();
-    $question = EditableNode::fromJSON(
+    $question = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_question'],
       $file,
       $offset,
       $source,
     );
     $offset += $question->getWidth();
-    $consequence = EditableNode::fromJSON(
+    $consequence = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_consequence'],
       $file,
       $offset,
       $source,
     );
     $offset += $consequence->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $alternative = EditableNode::fromJSON(
+    $alternative = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_alternative'],
       $file,
       $offset,
@@ -95,7 +95,7 @@ final class ConditionalExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'test' => $this->_test,
       'question' => $this->_question,
@@ -108,7 +108,7 @@ final class ConditionalExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $test = $rewriter($this->_test, $parents);
@@ -128,11 +128,11 @@ final class ConditionalExpression
     return new static($test, $question, $consequence, $colon, $alternative);
   }
 
-  public function getTestUNTYPED(): EditableNode {
+  public function getTestUNTYPED(): Node {
     return $this->_test;
   }
 
-  public function withTest(EditableNode $value): this {
+  public function withTest(Node $value): this {
     if ($value === $this->_test) {
       return $this;
     }
@@ -174,11 +174,11 @@ final class ConditionalExpression
     return $this->getTest();
   }
 
-  public function getQuestionUNTYPED(): EditableNode {
+  public function getQuestionUNTYPED(): Node {
     return $this->_question;
   }
 
-  public function withQuestion(EditableNode $value): this {
+  public function withQuestion(Node $value): this {
     if ($value === $this->_question) {
       return $this;
     }
@@ -209,11 +209,11 @@ final class ConditionalExpression
     return $this->getQuestion();
   }
 
-  public function getConsequenceUNTYPED(): EditableNode {
+  public function getConsequenceUNTYPED(): Node {
     return $this->_consequence;
   }
 
-  public function withConsequence(EditableNode $value): this {
+  public function withConsequence(Node $value): this {
     if ($value === $this->_consequence) {
       return $this;
     }
@@ -260,11 +260,11 @@ final class ConditionalExpression
     return TypeAssert\not_null($this->getConsequence());
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -295,11 +295,11 @@ final class ConditionalExpression
     return $this->getColon();
   }
 
-  public function getAlternativeUNTYPED(): EditableNode {
+  public function getAlternativeUNTYPED(): Node {
     return $this->_alternative;
   }
 
-  public function withAlternative(EditableNode $value): this {
+  public function withAlternative(Node $value): this {
     if ($value === $this->_alternative) {
       return $this;
     }

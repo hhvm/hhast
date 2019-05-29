@@ -1,14 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<705993a259087318f6a92a9bf4fff4c4>>
+ * @generated SignedSource<<a9388b48f0c75c5094ee204375aa20b2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 abstract class MethodishDeclarationGeneratedBase
-  extends EditableNode
+  extends Node
   implements
     IClassBodyDeclaration,
     IFunctionishDeclaration,
@@ -17,16 +17,16 @@ abstract class MethodishDeclarationGeneratedBase
 
   const string SYNTAX_KIND = 'methodish_declaration';
 
-  private EditableNode $_attribute;
-  private EditableNode $_function_decl_header;
-  private EditableNode $_function_body;
-  private EditableNode $_semicolon;
+  private Node $_attribute;
+  private Node $_function_decl_header;
+  private Node $_function_body;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $attribute,
-    EditableNode $function_decl_header,
-    EditableNode $function_body,
-    EditableNode $semicolon,
+    Node $attribute,
+    Node $function_decl_header,
+    Node $function_body,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute = $attribute;
@@ -44,28 +44,28 @@ abstract class MethodishDeclarationGeneratedBase
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute = EditableNode::fromJSON(
+    $attribute = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_attribute'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute->getWidth();
-    $function_decl_header = EditableNode::fromJSON(
+    $function_decl_header = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_function_decl_header'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_decl_header->getWidth();
-    $function_body = EditableNode::fromJSON(
+    $function_body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_function_body'],
       $file,
       $offset,
       $source,
     );
     $offset += $function_body->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['methodish_semicolon'],
       $file,
       $offset,
@@ -88,7 +88,7 @@ abstract class MethodishDeclarationGeneratedBase
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute' => $this->_attribute,
       'function_decl_header' => $this->_function_decl_header,
@@ -100,7 +100,7 @@ abstract class MethodishDeclarationGeneratedBase
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute = $rewriter($this->_attribute, $parents);
@@ -123,11 +123,11 @@ abstract class MethodishDeclarationGeneratedBase
     );
   }
 
-  public function getAttributeUNTYPED(): EditableNode {
+  public function getAttributeUNTYPED(): Node {
     return $this->_attribute;
   }
 
-  public function withAttribute(EditableNode $value): this {
+  public function withAttribute(Node $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -163,11 +163,11 @@ abstract class MethodishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getAttribute());
   }
 
-  public function getFunctionDeclHeaderUNTYPED(): EditableNode {
+  public function getFunctionDeclHeaderUNTYPED(): Node {
     return $this->_function_decl_header;
   }
 
-  public function withFunctionDeclHeader(EditableNode $value): this {
+  public function withFunctionDeclHeader(Node $value): this {
     if ($value === $this->_function_decl_header) {
       return $this;
     }
@@ -200,11 +200,11 @@ abstract class MethodishDeclarationGeneratedBase
     return $this->getFunctionDeclHeader();
   }
 
-  public function getFunctionBodyUNTYPED(): EditableNode {
+  public function getFunctionBodyUNTYPED(): Node {
     return $this->_function_body;
   }
 
-  public function withFunctionBody(EditableNode $value): this {
+  public function withFunctionBody(Node $value): this {
     if ($value === $this->_function_body) {
       return $this;
     }
@@ -240,11 +240,11 @@ abstract class MethodishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getFunctionBody());
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bfacebe53fc33863d14284d95062c7cd>>
+ * @generated SignedSource<<2e8f534a44a4592ce3b7d1aa58a31eb8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class CaseLabel extends EditableNode implements ISwitchLabel {
+final class CaseLabel extends Node implements ISwitchLabel {
 
   const string SYNTAX_KIND = 'case_label';
 
-  private EditableNode $_keyword;
-  private EditableNode $_expression;
-  private EditableNode $_colon;
+  private Node $_keyword;
+  private Node $_expression;
+  private Node $_colon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $expression,
-    EditableNode $colon,
+    Node $keyword,
+    Node $expression,
+    Node $colon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -35,21 +35,21 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['case_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['case_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['case_colon'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
@@ -77,7 +77,7 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -93,11 +93,11 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
     return new static($keyword, $expression, $colon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
     return $this->getKeyword();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -158,11 +158,11 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
     return $this->getExpression();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -176,14 +176,14 @@ final class CaseLabel extends EditableNode implements ISwitchLabel {
   /**
    * @return ColonToken | SemicolonToken
    */
-  public function getColon(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_colon);
+  public function getColon(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_colon);
   }
 
   /**
    * @return ColonToken | SemicolonToken
    */
-  public function getColonx(): EditableToken {
+  public function getColonx(): Token {
     return $this->getColon();
   }
 }

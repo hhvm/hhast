@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c0c9cef356d1850f7e3ad74bfdd3185a>>
+ * @generated SignedSource<<f5957466510697f11c146460dfb087b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class XHPChildrenDeclaration
-  extends EditableNode
+  extends Node
   implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'xhp_children_declaration';
 
-  private EditableNode $_keyword;
-  private EditableNode $_expression;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_expression;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $expression,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $expression,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -37,21 +37,21 @@ final class XHPChildrenDeclaration
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_semicolon'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class XHPChildrenDeclaration
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
@@ -79,7 +79,7 @@ final class XHPChildrenDeclaration
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -95,11 +95,11 @@ final class XHPChildrenDeclaration
     return new static($keyword, $expression, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -124,11 +124,11 @@ final class XHPChildrenDeclaration
     return $this->getKeyword();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -153,11 +153,11 @@ final class XHPChildrenDeclaration
     return $this->getExpression();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

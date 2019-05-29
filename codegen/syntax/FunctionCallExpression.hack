@@ -1,30 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb5d8fbd54da7edffc58ee6a00fb6c25>>
+ * @generated SignedSource<<6476ec2ecf79454cd4902f6d79ffc865>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class FunctionCallExpression
-  extends EditableNode
+  extends Node
   implements IFunctionCallishExpression, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'function_call_expression';
 
-  private EditableNode $_receiver;
-  private EditableNode $_type_args;
-  private EditableNode $_left_paren;
-  private EditableNode $_argument_list;
-  private EditableNode $_right_paren;
+  private Node $_receiver;
+  private Node $_type_args;
+  private Node $_left_paren;
+  private Node $_argument_list;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $receiver,
-    EditableNode $type_args,
-    EditableNode $left_paren,
-    EditableNode $argument_list,
-    EditableNode $right_paren,
+    Node $receiver,
+    Node $type_args,
+    Node $left_paren,
+    Node $argument_list,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_receiver = $receiver;
@@ -43,35 +43,35 @@ final class FunctionCallExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $receiver = EditableNode::fromJSON(
+    $receiver = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_receiver'],
       $file,
       $offset,
       $source,
     );
     $offset += $receiver->getWidth();
-    $type_args = EditableNode::fromJSON(
+    $type_args = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_type_args'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_args->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $argument_list = EditableNode::fromJSON(
+    $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_right_paren'],
       $file,
       $offset,
@@ -95,7 +95,7 @@ final class FunctionCallExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'receiver' => $this->_receiver,
       'type_args' => $this->_type_args,
@@ -108,7 +108,7 @@ final class FunctionCallExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $receiver = $rewriter($this->_receiver, $parents);
@@ -134,11 +134,11 @@ final class FunctionCallExpression
     );
   }
 
-  public function getReceiverUNTYPED(): EditableNode {
+  public function getReceiverUNTYPED(): Node {
     return $this->_receiver;
   }
 
-  public function withReceiver(EditableNode $value): this {
+  public function withReceiver(Node $value): this {
     if ($value === $this->_receiver) {
       return $this;
     }
@@ -161,7 +161,7 @@ final class FunctionCallExpression
    * safe_member_selection_expression | scope_resolution_expression |
    * subscript_expression | token:name | variable
    */
-  public function getReceiver(): EditableNode {
+  public function getReceiver(): Node {
     return $this->_receiver;
   }
 
@@ -171,15 +171,15 @@ final class FunctionCallExpression
    * safe_member_selection_expression | scope_resolution_expression |
    * subscript_expression | token:name | variable
    */
-  public function getReceiverx(): EditableNode {
+  public function getReceiverx(): Node {
     return $this->getReceiver();
   }
 
-  public function getTypeArgsUNTYPED(): EditableNode {
+  public function getTypeArgsUNTYPED(): Node {
     return $this->_type_args;
   }
 
-  public function withTypeArgs(EditableNode $value): this {
+  public function withTypeArgs(Node $value): this {
     if ($value === $this->_type_args) {
       return $this;
     }
@@ -213,11 +213,11 @@ final class FunctionCallExpression
     return TypeAssert\not_null($this->getTypeArgs());
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -248,11 +248,11 @@ final class FunctionCallExpression
     return $this->getLeftParen();
   }
 
-  public function getArgumentListUNTYPED(): EditableNode {
+  public function getArgumentListUNTYPED(): Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableNode $value): this {
+  public function withArgumentList(Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -270,82 +270,69 @@ final class FunctionCallExpression
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> | EditableList<IContainer> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
-   * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
-   * | EditableList<IHasOperator> | EditableList<CastExpression> |
-   * EditableList<CollectionLiteralExpression> |
-   * EditableList<ConditionalExpression> |
-   * EditableList<DarrayIntrinsicExpression> |
-   * EditableList<DecoratedExpression> |
-   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
-   * EditableList<EmptyExpression> | EditableList<EvalExpression> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<IFunctionCallishExpression> |
-   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
-   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
-   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> |
-   * EditableList<ObjectCreationExpression> |
-   * EditableList<ParenthesizedExpression> |
-   * EditableList<PipeVariableExpression> |
-   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
-   * | EditableList<QualifiedName> |
-   * EditableList<SafeMemberSelectionExpression> |
-   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VarrayIntrinsicExpression> |
-   * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression> |
-   * null
+   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
+   * NodeList<ArrayCreationExpression> | NodeList<IContainer> |
+   * NodeList<ArrayIntrinsicExpression> | NodeList<AsExpression> |
+   * NodeList<AwaitableCreationExpression> | NodeList<BinaryExpression> |
+   * NodeList<IHasOperator> | NodeList<CastExpression> |
+   * NodeList<CollectionLiteralExpression> | NodeList<ConditionalExpression> |
+   * NodeList<DarrayIntrinsicExpression> | NodeList<DecoratedExpression> |
+   * NodeList<DictionaryIntrinsicExpression> | NodeList<IHackArray> |
+   * NodeList<EmptyExpression> | NodeList<EvalExpression> |
+   * NodeList<FunctionCallExpression> | NodeList<IFunctionCallishExpression> |
+   * NodeList<InstanceofExpression> | NodeList<IsExpression> |
+   * NodeList<IssetExpression> | NodeList<KeysetIntrinsicExpression> |
+   * NodeList<LambdaExpression> | NodeList<LiteralExpression> |
+   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
+   * NodeList<ParenthesizedExpression> | NodeList<PipeVariableExpression> |
+   * NodeList<PostfixUnaryExpression> | NodeList<PrefixUnaryExpression> |
+   * NodeList<QualifiedName> | NodeList<SafeMemberSelectionExpression> |
+   * NodeList<ScopeResolutionExpression> | NodeList<ShapeExpression> |
+   * NodeList<SubscriptExpression> | NodeList<NameToken> |
+   * NodeList<TupleExpression> | NodeList<VariableExpression> |
+   * NodeList<VarrayIntrinsicExpression> | NodeList<VectorIntrinsicExpression>
+   * | NodeList<XHPExpression> | null
    */
-  public function getArgumentList(): ?EditableList<IExpression> {
+  public function getArgumentList(): ?NodeList<IExpression> {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_argument_list);
+    return TypeAssert\instance_of(NodeList::class, $this->_argument_list);
   }
 
   /**
-   * @return EditableList<AnonymousFunction> | EditableList<IExpression> |
-   * EditableList<ArrayCreationExpression> | EditableList<IContainer> |
-   * EditableList<ArrayIntrinsicExpression> | EditableList<AsExpression> |
-   * EditableList<AwaitableCreationExpression> | EditableList<BinaryExpression>
-   * | EditableList<IHasOperator> | EditableList<CastExpression> |
-   * EditableList<CollectionLiteralExpression> |
-   * EditableList<ConditionalExpression> |
-   * EditableList<DarrayIntrinsicExpression> |
-   * EditableList<DecoratedExpression> |
-   * EditableList<DictionaryIntrinsicExpression> | EditableList<IHackArray> |
-   * EditableList<EmptyExpression> | EditableList<EvalExpression> |
-   * EditableList<FunctionCallExpression> |
-   * EditableList<IFunctionCallishExpression> |
-   * EditableList<InstanceofExpression> | EditableList<IsExpression> |
-   * EditableList<IssetExpression> | EditableList<KeysetIntrinsicExpression> |
-   * EditableList<LambdaExpression> | EditableList<LiteralExpression> |
-   * EditableList<MemberSelectionExpression> |
-   * EditableList<ObjectCreationExpression> |
-   * EditableList<ParenthesizedExpression> |
-   * EditableList<PipeVariableExpression> |
-   * EditableList<PostfixUnaryExpression> | EditableList<PrefixUnaryExpression>
-   * | EditableList<QualifiedName> |
-   * EditableList<SafeMemberSelectionExpression> |
-   * EditableList<ScopeResolutionExpression> | EditableList<ShapeExpression> |
-   * EditableList<SubscriptExpression> | EditableList<NameToken> |
-   * EditableList<TupleExpression> | EditableList<VariableExpression> |
-   * EditableList<VarrayIntrinsicExpression> |
-   * EditableList<VectorIntrinsicExpression> | EditableList<XHPExpression>
+   * @return NodeList<AnonymousFunction> | NodeList<IExpression> |
+   * NodeList<ArrayCreationExpression> | NodeList<IContainer> |
+   * NodeList<ArrayIntrinsicExpression> | NodeList<AsExpression> |
+   * NodeList<AwaitableCreationExpression> | NodeList<BinaryExpression> |
+   * NodeList<IHasOperator> | NodeList<CastExpression> |
+   * NodeList<CollectionLiteralExpression> | NodeList<ConditionalExpression> |
+   * NodeList<DarrayIntrinsicExpression> | NodeList<DecoratedExpression> |
+   * NodeList<DictionaryIntrinsicExpression> | NodeList<IHackArray> |
+   * NodeList<EmptyExpression> | NodeList<EvalExpression> |
+   * NodeList<FunctionCallExpression> | NodeList<IFunctionCallishExpression> |
+   * NodeList<InstanceofExpression> | NodeList<IsExpression> |
+   * NodeList<IssetExpression> | NodeList<KeysetIntrinsicExpression> |
+   * NodeList<LambdaExpression> | NodeList<LiteralExpression> |
+   * NodeList<MemberSelectionExpression> | NodeList<ObjectCreationExpression> |
+   * NodeList<ParenthesizedExpression> | NodeList<PipeVariableExpression> |
+   * NodeList<PostfixUnaryExpression> | NodeList<PrefixUnaryExpression> |
+   * NodeList<QualifiedName> | NodeList<SafeMemberSelectionExpression> |
+   * NodeList<ScopeResolutionExpression> | NodeList<ShapeExpression> |
+   * NodeList<SubscriptExpression> | NodeList<NameToken> |
+   * NodeList<TupleExpression> | NodeList<VariableExpression> |
+   * NodeList<VarrayIntrinsicExpression> | NodeList<VectorIntrinsicExpression>
+   * | NodeList<XHPExpression>
    */
-  public function getArgumentListx(): EditableList<IExpression> {
+  public function getArgumentListx(): NodeList<IExpression> {
     return TypeAssert\not_null($this->getArgumentList());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

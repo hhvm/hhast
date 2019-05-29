@@ -1,20 +1,20 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3ed7cc480f3d97dcb5b195cd0c277aa>>
+ * @generated SignedSource<<63cdc7100dc8dc828d90a89adb93d805>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class EndOfFile extends EditableNode {
+final class EndOfFile extends Node {
 
   const string SYNTAX_KIND = 'end_of_file';
 
-  private EditableNode $_token;
+  private Node $_token;
 
   public function __construct(
-    EditableNode $token,
+    Node $token,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_token = $token;
@@ -29,7 +29,7 @@ final class EndOfFile extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $token = EditableNode::fromJSON(
+    $token = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['end_of_file_token'],
       $file,
       $offset,
@@ -46,7 +46,7 @@ final class EndOfFile extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'token' => $this->_token,
     ];
@@ -55,7 +55,7 @@ final class EndOfFile extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $token = $rewriter($this->_token, $parents);
@@ -65,11 +65,11 @@ final class EndOfFile extends EditableNode {
     return new static($token);
   }
 
-  public function getTokenUNTYPED(): EditableNode {
+  public function getTokenUNTYPED(): Node {
     return $this->_token;
   }
 
-  public function withToken(EditableNode $value): this {
+  public function withToken(Node $value): this {
     if ($value === $this->_token) {
       return $this;
     }

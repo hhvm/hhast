@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
-use type Facebook\HHAST\{EditableNode, IStatement, Script};
+use type Facebook\HHAST\{Node, IStatement, Script};
 
 use type Facebook\HHAST\Linters\BaseLinter;
 
@@ -20,7 +20,7 @@ use namespace HH\Lib\{C, Str, Vec};
  **/
 function is_linter_error_suppressed(
   BaseLinter $linter,
-  EditableNode $node,
+  Node $node,
   Script $root,
 ): bool {
   $fixme = $linter->getFixmeMarker();
@@ -36,7 +36,7 @@ function is_linter_error_suppressed(
 
 // Check the current token's leading trivia. For example a comment on the line before
 function is_linter_suppressed_in_current_node(
-  EditableNode $node,
+  Node $node,
   string $fixme,
   string $ignore,
 ): bool {
@@ -51,7 +51,7 @@ function is_linter_suppressed_in_current_node(
 
 // Check sibling node as the comment might be attached there instead of on the current node
 function is_linter_suppressed_in_sibling_node(
-  EditableNode $node,
+  Node $node,
   Script $root,
   string $fixme,
   string $ignore,
@@ -66,7 +66,7 @@ function is_linter_suppressed_in_sibling_node(
 
 // Walk up the parents and check the leading trivia until we hit a Statement type node.
 function is_linter_suppressed_up_to_statement(
-  EditableNode $node,
+  Node $node,
   Script $root,
   string $fixme,
   string $ignore,

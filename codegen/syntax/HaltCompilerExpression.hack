@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c081eb67b13c756b8e691d1c61e9263>>
+ * @generated SignedSource<<eaf6935e52a7dfe0b87c6ab1bc018cef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class HaltCompilerExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'halt_compiler_expression';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_argument_list;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_argument_list;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $argument_list,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $argument_list,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +40,28 @@ final class HaltCompilerExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['halt_compiler_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['halt_compiler_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $argument_list = EditableNode::fromJSON(
+    $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['halt_compiler_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['halt_compiler_right_paren'],
       $file,
       $offset,
@@ -84,7 +84,7 @@ final class HaltCompilerExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -96,7 +96,7 @@ final class HaltCompilerExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -114,11 +114,11 @@ final class HaltCompilerExpression
     return new static($keyword, $left_paren, $argument_list, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -148,11 +148,11 @@ final class HaltCompilerExpression
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -182,11 +182,11 @@ final class HaltCompilerExpression
     return $this->getLeftParen();
   }
 
-  public function getArgumentListUNTYPED(): EditableNode {
+  public function getArgumentListUNTYPED(): Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableNode $value): this {
+  public function withArgumentList(Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -205,7 +205,7 @@ final class HaltCompilerExpression
   /**
    * @return null
    */
-  public function getArgumentList(): ?EditableNode {
+  public function getArgumentList(): ?Node {
     if ($this->_argument_list->isMissing()) {
       return null;
     }
@@ -215,15 +215,15 @@ final class HaltCompilerExpression
   /**
    * @return
    */
-  public function getArgumentListx(): EditableNode {
+  public function getArgumentListx(): Node {
     return TypeAssert\not_null($this->getArgumentList());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

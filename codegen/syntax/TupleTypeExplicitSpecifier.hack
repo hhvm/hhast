@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29491a60e193628590a437a498033b52>>
+ * @generated SignedSource<<e9a1d9707746cbc658cfde7bdfa8902f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class TupleTypeExplicitSpecifier
-  extends EditableNode
-  implements ITypeSpecifier {
+final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'tuple_type_explicit_specifier';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_angle;
-  private EditableNode $_types;
-  private EditableNode $_right_angle;
+  private Node $_keyword;
+  private Node $_left_angle;
+  private Node $_types;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_angle,
-    EditableNode $types,
-    EditableNode $right_angle,
+    Node $keyword,
+    Node $left_angle,
+    Node $types,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class TupleTypeExplicitSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_type_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $types = EditableNode::fromJSON(
+    $types = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_type_types'],
       $file,
       $offset,
       $source,
     );
     $offset += $types->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_type_right_angle'],
       $file,
       $offset,
@@ -78,7 +76,7 @@ final class TupleTypeExplicitSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_angle' => $this->_left_angle,
@@ -90,7 +88,7 @@ final class TupleTypeExplicitSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -108,11 +106,11 @@ final class TupleTypeExplicitSpecifier
     return new static($keyword, $left_angle, $types, $right_angle);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -131,22 +129,22 @@ final class TupleTypeExplicitSpecifier
   /**
    * @return unknown
    */
-  public function getKeyword(): EditableNode {
+  public function getKeyword(): Node {
     return $this->_keyword;
   }
 
   /**
    * @return unknown
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -165,22 +163,22 @@ final class TupleTypeExplicitSpecifier
   /**
    * @return unknown
    */
-  public function getLeftAngle(): EditableNode {
+  public function getLeftAngle(): Node {
     return $this->_left_angle;
   }
 
   /**
    * @return unknown
    */
-  public function getLeftAnglex(): EditableNode {
+  public function getLeftAnglex(): Node {
     return $this->getLeftAngle();
   }
 
-  public function getTypesUNTYPED(): EditableNode {
+  public function getTypesUNTYPED(): Node {
     return $this->_types;
   }
 
-  public function withTypes(EditableNode $value): this {
+  public function withTypes(Node $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -199,22 +197,22 @@ final class TupleTypeExplicitSpecifier
   /**
    * @return unknown
    */
-  public function getTypes(): EditableNode {
+  public function getTypes(): Node {
     return $this->_types;
   }
 
   /**
    * @return unknown
    */
-  public function getTypesx(): EditableNode {
+  public function getTypesx(): Node {
     return $this->getTypes();
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -233,14 +231,14 @@ final class TupleTypeExplicitSpecifier
   /**
    * @return unknown
    */
-  public function getRightAngle(): EditableNode {
+  public function getRightAngle(): Node {
     return $this->_right_angle;
   }
 
   /**
    * @return unknown
    */
-  public function getRightAnglex(): EditableNode {
+  public function getRightAnglex(): Node {
     return $this->getRightAngle();
   }
 }

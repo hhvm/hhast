@@ -10,10 +10,10 @@
 namespace Facebook\HHAST;
 
 interface IHasOperator {
-  require extends EditableNode;
+  require extends Node;
 
   public function hasOperator(): bool;
-  public function getOperator(): ?EditableToken;
-  public function getOperatorx(): EditableToken;
-  public function getOperatorUNTYPED(): EditableNode;
+  public function getOperator(): ?Token;
+  public function getOperatorx(): Token;
+  public function getOperatorUNTYPED(): Node;
 }

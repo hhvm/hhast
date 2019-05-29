@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<09ec5397add7288b8fc7d643b492cb8e>>
+ * @generated SignedSource<<094cf4e944bdaa77586512eb2f882ce0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class GotoStatement extends EditableNode implements IStatement {
+final class GotoStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'goto_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_label_name;
-  private EditableNode $_semicolon;
+  private Node $_keyword;
+  private Node $_label_name;
+  private Node $_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $label_name,
-    EditableNode $semicolon,
+    Node $keyword,
+    Node $label_name,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -35,21 +35,21 @@ final class GotoStatement extends EditableNode implements IStatement {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['goto_statement_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $label_name = EditableNode::fromJSON(
+    $label_name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['goto_statement_label_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $label_name->getWidth();
-    $semicolon = EditableNode::fromJSON(
+    $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['goto_statement_semicolon'],
       $file,
       $offset,
@@ -66,7 +66,7 @@ final class GotoStatement extends EditableNode implements IStatement {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'label_name' => $this->_label_name,
@@ -77,7 +77,7 @@ final class GotoStatement extends EditableNode implements IStatement {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -93,11 +93,11 @@ final class GotoStatement extends EditableNode implements IStatement {
     return new static($keyword, $label_name, $semicolon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -122,11 +122,11 @@ final class GotoStatement extends EditableNode implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getLabelNameUNTYPED(): EditableNode {
+  public function getLabelNameUNTYPED(): Node {
     return $this->_label_name;
   }
 
-  public function withLabelName(EditableNode $value): this {
+  public function withLabelName(Node $value): this {
     if ($value === $this->_label_name) {
       return $this;
     }
@@ -151,11 +151,11 @@ final class GotoStatement extends EditableNode implements IStatement {
     return $this->getLabelName();
   }
 
-  public function getSemicolonUNTYPED(): EditableNode {
+  public function getSemicolonUNTYPED(): Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(EditableNode $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }

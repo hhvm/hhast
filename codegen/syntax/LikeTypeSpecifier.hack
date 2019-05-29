@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ebd9e0f2ebe11d4abf23caa72cd5a9fe>>
+ * @generated SignedSource<<6d8faec3ac3febbb3a93dbd1db3c4e51>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
+final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'like_type_specifier';
 
-  private EditableNode $_tilde;
-  private EditableNode $_type;
+  private Node $_tilde;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $tilde,
-    EditableNode $type,
+    Node $tilde,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_tilde = $tilde;
@@ -32,14 +32,14 @@ final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $tilde = EditableNode::fromJSON(
+    $tilde = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['like_tilde'],
       $file,
       $offset,
       $source,
     );
     $offset += $tilde->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['like_type'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'tilde' => $this->_tilde,
       'type' => $this->_type,
@@ -66,7 +66,7 @@ final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $tilde = $rewriter($this->_tilde, $parents);
@@ -77,11 +77,11 @@ final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return new static($tilde, $type);
   }
 
-  public function getTildeUNTYPED(): EditableNode {
+  public function getTildeUNTYPED(): Node {
     return $this->_tilde;
   }
 
-  public function withTilde(EditableNode $value): this {
+  public function withTilde(Node $value): this {
     if ($value === $this->_tilde) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class LikeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getTilde();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }

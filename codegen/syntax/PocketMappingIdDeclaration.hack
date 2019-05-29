@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<516ea633cb92b7e358e19067c9459d95>>
+ * @generated SignedSource<<b2d7ca5535ee15bc00087c870847570d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class PocketMappingIdDeclaration extends EditableNode {
+final class PocketMappingIdDeclaration extends Node {
 
   const string SYNTAX_KIND = 'pocket_mapping_id_declaration';
 
-  private EditableNode $_name;
-  private EditableNode $_initializer;
+  private Node $_name;
+  private Node $_initializer;
 
   public function __construct(
-    EditableNode $name,
-    EditableNode $initializer,
+    Node $name,
+    Node $initializer,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -32,14 +32,14 @@ final class PocketMappingIdDeclaration extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_id_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $initializer = EditableNode::fromJSON(
+    $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_id_initializer'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class PocketMappingIdDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
@@ -66,7 +66,7 @@ final class PocketMappingIdDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
@@ -77,11 +77,11 @@ final class PocketMappingIdDeclaration extends EditableNode {
     return new static($name, $initializer);
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -95,22 +95,22 @@ final class PocketMappingIdDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return unknown
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 
-  public function getInitializerUNTYPED(): EditableNode {
+  public function getInitializerUNTYPED(): Node {
     return $this->_initializer;
   }
 
-  public function withInitializer(EditableNode $value): this {
+  public function withInitializer(Node $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
@@ -124,14 +124,14 @@ final class PocketMappingIdDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getInitializer(): EditableNode {
+  public function getInitializer(): Node {
     return $this->_initializer;
   }
 
   /**
    * @return unknown
    */
-  public function getInitializerx(): EditableNode {
+  public function getInitializerx(): Node {
     return $this->getInitializer();
   }
 }

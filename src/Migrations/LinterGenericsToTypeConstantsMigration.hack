@@ -59,7 +59,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
       new TypedMigrationStep(
         'Removed getTargetType() method',
         HHAST\MethodishDeclaration::class,
-        HHAST\EditableNode::class,
+        HHAST\Node::class,
         $decl ==> $this->removeGetTargetTypeMethod($decl),
       ),
       new TypedMigrationStep(
@@ -101,7 +101,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
         ? $leading
         : (
             (
-              $leading instanceof HHAST\EditableList &&
+              $leading instanceof HHAST\NodeList &&
               $leading->getItems()[0] is HHAST\EndOfLine
             )
               ? $leading->getItems()[0]
@@ -115,7 +115,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
       if ($want_empty /* && !$have_empty */ ) {
         $body = $body->replace(
           $first,
-          $first->withLeading(new HHAST\EditableList(vec[
+          $first->withLeading(new HHAST\NodeList(vec[
             new HHAST\EndOfLine("\n"),
             $leading,
           ])),
@@ -131,7 +131,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
 
   private function removeGetTargetTypeMethod(
     HHAST\MethodishDeclaration $decl,
-  ): HHAST\EditableNode {
+  ): HHAST\Node {
     if (
       $decl->getFunctionDeclHeader()->getName()->getText() !== 'getTargetType'
     ) {
@@ -201,7 +201,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     }
     $missing = HHAST\Missing();
     return $cc->withArgumentList(
-      new HHAST\EditableList(
+      new HHAST\NodeList(
         Vec\concat(
           $al->getChildren(),
           vec[
@@ -234,7 +234,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     if (C\count($params) === 1) {
       $missing = HHAST\Missing();
       $header = $header->withParameterList(
-        new HHAST\EditableList(Vec\concat(
+        new HHAST\NodeList(Vec\concat(
           vec[
             $last->withName(
               new HHAST\VariableToken($missing, $missing, '$_context'),
@@ -288,7 +288,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     return $decl->replace(
       $parent,
       new HHAST\SimpleTypeSpecifier(
-        ($parent->getClassTypex() as HHAST\EditableToken)->withTrailing(
+        ($parent->getClassTypex() as HHAST\Token)->withTrailing(
           $parent->getArgumentList()->getRightAngle()->getTrailing(),
         ),
       ),
@@ -376,8 +376,8 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     );
     return $decl->replace(
       $elements,
-      HHAST\EditableList::concat(
-        new HHAST\EditableList($new_elements),
+      HHAST\NodeList::concat(
+        new HHAST\NodeList($new_elements),
         $elements,
       ),
     );

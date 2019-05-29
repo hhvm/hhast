@@ -34,7 +34,7 @@ abstract class StepBasedMigrationTest extends MigrationTest {
     Migrations\IMigrationStep $step,
     string $example,
   ): Awaitable<void> {
-    $rewrite = (HHAST\EditableNode $ast) ==>
+    $rewrite = (HHAST\Node $ast) ==>
       $ast->rewrite(($n, $_) ==> $step->rewrite($n));
 
     $ast = await HHAST\from_file_async(

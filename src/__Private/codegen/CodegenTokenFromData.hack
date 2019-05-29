@@ -17,7 +17,7 @@ use type Facebook\HackCodegen\{
   HackBuilderValues,
 };
 
-final class CodegenEditableTokenFromData extends CodegenBase {
+final class CodegenTokenFromData extends CodegenBase {
   <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
@@ -57,7 +57,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
     }
 
     $cg
-      ->codegenFile($this->getOutputDirectory().'/editable_token_from_data.hack')
+      ->codegenFile($this->getOutputDirectory().'/token_from_data.hack')
       ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
@@ -68,7 +68,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
             $cg
               ->codegenClassConstant('WITH_TEXT')
               ->setType(
-                'dict<string, classname<HHAST\EditableTokenWithVariableText>>',
+                'dict<string, classname<HHAST\TokenWithVariableText>>',
               )
               ->setValue(
                 $class_map_with_text,
@@ -82,7 +82,7 @@ final class CodegenEditableTokenFromData extends CodegenBase {
             $cg
               ->codegenClassConstant('WITHOUT_TEXT')
               ->setType(
-                'dict<string, classname<HHAST\EditableTokenWithFixedText>>',
+                'dict<string, classname<HHAST\TokenWithFixedText>>',
               )
               ->setValue(
                 $class_map,
@@ -95,12 +95,12 @@ final class CodegenEditableTokenFromData extends CodegenBase {
       )
       ->addFunction(
         $cg
-          ->codegenFunction('editable_token_from_data')
-          ->setReturnType('HHAST\\EditableToken')
+          ->codegenFunction('token_from_data')
+          ->setReturnType('HHAST\\Token')
           ->addParameter('SourceRef $source_ref')
           ->addParameter('string $token_kind')
-          ->addParameter('HHAST\\EditableNode $leading')
-          ->addParameter('HHAST\\EditableNode $trailing')
+          ->addParameter('HHAST\\Node $leading')
+          ->addParameter('HHAST\\Node $trailing')
           ->addParameter('string $token_text')
           ->setBody(
             $cg

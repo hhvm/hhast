@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<547c7c9b2945fba2b3af2a784c01d8bd>>
+ * @generated SignedSource<<6d4907a742d3c4ae240b3ece98d3f7b3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class SubscriptExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'subscript_expression';
 
-  private EditableNode $_receiver;
-  private EditableNode $_left_bracket;
-  private EditableNode $_index;
-  private EditableNode $_right_bracket;
+  private Node $_receiver;
+  private Node $_left_bracket;
+  private Node $_index;
+  private Node $_right_bracket;
 
   public function __construct(
-    EditableNode $receiver,
-    EditableNode $left_bracket,
-    EditableNode $index,
-    EditableNode $right_bracket,
+    Node $receiver,
+    Node $left_bracket,
+    Node $index,
+    Node $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_receiver = $receiver;
@@ -40,28 +40,28 @@ final class SubscriptExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $receiver = EditableNode::fromJSON(
+    $receiver = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['subscript_receiver'],
       $file,
       $offset,
       $source,
     );
     $offset += $receiver->getWidth();
-    $left_bracket = EditableNode::fromJSON(
+    $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['subscript_left_bracket'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_bracket->getWidth();
-    $index = EditableNode::fromJSON(
+    $index = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['subscript_index'],
       $file,
       $offset,
       $source,
     );
     $offset += $index->getWidth();
-    $right_bracket = EditableNode::fromJSON(
+    $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['subscript_right_bracket'],
       $file,
       $offset,
@@ -84,7 +84,7 @@ final class SubscriptExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'receiver' => $this->_receiver,
       'left_bracket' => $this->_left_bracket,
@@ -96,7 +96,7 @@ final class SubscriptExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $receiver = $rewriter($this->_receiver, $parents);
@@ -114,11 +114,11 @@ final class SubscriptExpression
     return new static($receiver, $left_bracket, $index, $right_bracket);
   }
 
-  public function getReceiverUNTYPED(): EditableNode {
+  public function getReceiverUNTYPED(): Node {
     return $this->_receiver;
   }
 
-  public function withReceiver(EditableNode $value): this {
+  public function withReceiver(Node $value): this {
     if ($value === $this->_receiver) {
       return $this;
     }
@@ -157,11 +157,11 @@ final class SubscriptExpression
     return $this->getReceiver();
   }
 
-  public function getLeftBracketUNTYPED(): EditableNode {
+  public function getLeftBracketUNTYPED(): Node {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(EditableNode $value): this {
+  public function withLeftBracket(Node $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -180,22 +180,22 @@ final class SubscriptExpression
   /**
    * @return LeftBracketToken | LeftBraceToken
    */
-  public function getLeftBracket(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_left_bracket);
+  public function getLeftBracket(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_left_bracket);
   }
 
   /**
    * @return LeftBracketToken | LeftBraceToken
    */
-  public function getLeftBracketx(): EditableToken {
+  public function getLeftBracketx(): Token {
     return $this->getLeftBracket();
   }
 
-  public function getIndexUNTYPED(): EditableNode {
+  public function getIndexUNTYPED(): Node {
     return $this->_index;
   }
 
-  public function withIndex(EditableNode $value): this {
+  public function withIndex(Node $value): this {
     if ($value === $this->_index) {
       return $this;
     }
@@ -239,11 +239,11 @@ final class SubscriptExpression
     return TypeAssert\not_null($this->getIndex());
   }
 
-  public function getRightBracketUNTYPED(): EditableNode {
+  public function getRightBracketUNTYPED(): Node {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(EditableNode $value): this {
+  public function withRightBracket(Node $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
@@ -262,14 +262,14 @@ final class SubscriptExpression
   /**
    * @return RightBracketToken | RightBraceToken
    */
-  public function getRightBracket(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_right_bracket);
+  public function getRightBracket(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_right_bracket);
   }
 
   /**
    * @return RightBracketToken | RightBraceToken
    */
-  public function getRightBracketx(): EditableToken {
+  public function getRightBracketx(): Token {
     return $this->getRightBracket();
   }
 }

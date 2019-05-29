@@ -10,14 +10,14 @@
 namespace Facebook\HHAST;
 
 <<__ConsistentConstruct>>
-abstract class WrapperNode extends EditableNode {
+abstract class WrapperNode extends Node {
   const string SYNTAX_KIND = 'hhhast_wrapper';
-  abstract const type TWrapped as EditableNode;
+  abstract const type TWrapped as Node;
 
   abstract public function getWrappedNode(): this::TWrapped;
 
   <<__Override>>
-  final public function __construct(protected EditableNode $wrapped) {
+  final public function __construct(protected Node $wrapped) {
     parent::__construct($wrapped->sourceRef);
   }
 
@@ -28,14 +28,14 @@ abstract class WrapperNode extends EditableNode {
 
 
   <<__Override>>
-  final public function getChildren(): dict<string, EditableNode> {
+  final public function getChildren(): dict<string, Node> {
     return dict['wrapped' => $this->wrapped];
   }
 
   <<__Override>>
   final public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $new = $rewriter($this->wrapped, $parents);

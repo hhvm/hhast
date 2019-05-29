@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d94d2396ce26c3a3661e2097a2bde44>>
+ * @generated SignedSource<<cb6a373381404ac5e2e8c8297185916d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class EvalExpression
-  extends EditableNode
-  implements ILambdaBody, IExpression {
+final class EvalExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'eval_expression';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_argument;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_argument;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $argument,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $argument,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class EvalExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['eval_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['eval_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $argument = EditableNode::fromJSON(
+    $argument = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['eval_argument'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['eval_right_paren'],
       $file,
       $offset,
@@ -84,7 +82,7 @@ final class EvalExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -96,7 +94,7 @@ final class EvalExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -114,11 +112,11 @@ final class EvalExpression
     return new static($keyword, $left_paren, $argument, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -148,11 +146,11 @@ final class EvalExpression
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -182,11 +180,11 @@ final class EvalExpression
     return $this->getLeftParen();
   }
 
-  public function getArgumentUNTYPED(): EditableNode {
+  public function getArgumentUNTYPED(): Node {
     return $this->_argument;
   }
 
-  public function withArgument(EditableNode $value): this {
+  public function withArgument(Node $value): this {
     if ($value === $this->_argument) {
       return $this;
     }
@@ -219,11 +217,11 @@ final class EvalExpression
     return $this->getArgument();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

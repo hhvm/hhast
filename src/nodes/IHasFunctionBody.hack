@@ -10,13 +10,13 @@
 namespace Facebook\HHAST;
 
 interface IHasFunctionBody {
-  require extends EditableNode;
+  require extends Node;
 
   // We can't refine the type further as lambdas can have expressions as
   // bodies, and making IExpression implement an IFunctionBody would make the
   // interface pretty meaningless.
   public function hasBody(): bool;
-  public function getBody(): ?EditableNode;
-  public function getBodyx(): EditableNode;
-  public function getBodyUNTYPED(): EditableNode;
+  public function getBody(): ?Node;
+  public function getBodyx(): Node;
+  public function getBodyUNTYPED(): Node;
 }

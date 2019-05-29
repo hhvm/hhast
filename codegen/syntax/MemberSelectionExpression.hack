@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bbee865736d0c7aacf182688876b1dc1>>
+ * @generated SignedSource<<b9cc312d583d8529bd599af7edf73ac2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class MemberSelectionExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'member_selection_expression';
 
-  private EditableNode $_object;
-  private EditableNode $_operator;
-  private EditableNode $_name;
+  private Node $_object;
+  private Node $_operator;
+  private Node $_name;
 
   public function __construct(
-    EditableNode $object,
-    EditableNode $operator,
-    EditableNode $name,
+    Node $object,
+    Node $operator,
+    Node $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_object = $object;
@@ -37,21 +37,21 @@ final class MemberSelectionExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $object = EditableNode::fromJSON(
+    $object = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['member_object'],
       $file,
       $offset,
       $source,
     );
     $offset += $object->getWidth();
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['member_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['member_name'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class MemberSelectionExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'object' => $this->_object,
       'operator' => $this->_operator,
@@ -79,7 +79,7 @@ final class MemberSelectionExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $object = $rewriter($this->_object, $parents);
@@ -95,11 +95,11 @@ final class MemberSelectionExpression
     return new static($object, $operator, $name);
   }
 
-  public function getObjectUNTYPED(): EditableNode {
+  public function getObjectUNTYPED(): Node {
     return $this->_object;
   }
 
-  public function withObject(EditableNode $value): this {
+  public function withObject(Node $value): this {
     if ($value === $this->_object) {
       return $this;
     }
@@ -131,11 +131,11 @@ final class MemberSelectionExpression
     return $this->getObject();
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -163,11 +163,11 @@ final class MemberSelectionExpression
     return $this->getOperator();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -181,14 +181,14 @@ final class MemberSelectionExpression
   /**
    * @return BracedExpression | XHPClassNameToken | NameToken | VariableToken
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return BracedExpression | XHPClassNameToken | NameToken | VariableToken
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 }

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d3251bad87fc3beaea6faa36b20a6cf>>
+ * @generated SignedSource<<6f32bcb2949930514292a9d5d32e547f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class VariadicParameter
-  extends EditableNode
+  extends Node
   implements IHasTypeHint, IParameter, ITypeSpecifier {
 
   const string SYNTAX_KIND = 'variadic_parameter';
 
-  private EditableNode $_call_convention;
-  private EditableNode $_type;
-  private EditableNode $_ellipsis;
+  private Node $_call_convention;
+  private Node $_type;
+  private Node $_ellipsis;
 
   public function __construct(
-    EditableNode $call_convention,
-    EditableNode $type,
-    EditableNode $ellipsis,
+    Node $call_convention,
+    Node $type,
+    Node $ellipsis,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_call_convention = $call_convention;
@@ -37,21 +37,21 @@ final class VariadicParameter
     string $source,
   ): this {
     $offset = $initial_offset;
-    $call_convention = EditableNode::fromJSON(
+    $call_convention = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['variadic_parameter_call_convention'],
       $file,
       $offset,
       $source,
     );
     $offset += $call_convention->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['variadic_parameter_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $ellipsis = EditableNode::fromJSON(
+    $ellipsis = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['variadic_parameter_ellipsis'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class VariadicParameter
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'call_convention' => $this->_call_convention,
       'type' => $this->_type,
@@ -79,7 +79,7 @@ final class VariadicParameter
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $call_convention = $rewriter($this->_call_convention, $parents);
@@ -95,11 +95,11 @@ final class VariadicParameter
     return new static($call_convention, $type, $ellipsis);
   }
 
-  public function getCallConventionUNTYPED(): EditableNode {
+  public function getCallConventionUNTYPED(): Node {
     return $this->_call_convention;
   }
 
-  public function withCallConvention(EditableNode $value): this {
+  public function withCallConvention(Node $value): this {
     if ($value === $this->_call_convention) {
       return $this;
     }
@@ -113,7 +113,7 @@ final class VariadicParameter
   /**
    * @return null
    */
-  public function getCallConvention(): ?EditableNode {
+  public function getCallConvention(): ?Node {
     if ($this->_call_convention->isMissing()) {
       return null;
     }
@@ -123,15 +123,15 @@ final class VariadicParameter
   /**
    * @return
    */
-  public function getCallConventionx(): EditableNode {
+  public function getCallConventionx(): Node {
     return TypeAssert\not_null($this->getCallConvention());
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -160,11 +160,11 @@ final class VariadicParameter
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getEllipsisUNTYPED(): EditableNode {
+  public function getEllipsisUNTYPED(): Node {
     return $this->_ellipsis;
   }
 
-  public function withEllipsis(EditableNode $value): this {
+  public function withEllipsis(Node $value): this {
     if ($value === $this->_ellipsis) {
       return $this;
     }

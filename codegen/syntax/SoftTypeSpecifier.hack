@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d57b7d69639a91a5aa54490723b1566f>>
+ * @generated SignedSource<<64ebe128bacee7ae450827f8b821c877>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
+final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'soft_type_specifier';
 
-  private EditableNode $_at;
-  private EditableNode $_type;
+  private Node $_at;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $at,
-    EditableNode $type,
+    Node $at,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_at = $at;
@@ -32,14 +32,14 @@ final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $at = EditableNode::fromJSON(
+    $at = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['soft_at'],
       $file,
       $offset,
       $source,
     );
     $offset += $at->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['soft_type'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'at' => $this->_at,
       'type' => $this->_type,
@@ -66,7 +66,7 @@ final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $at = $rewriter($this->_at, $parents);
@@ -77,11 +77,11 @@ final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return new static($at, $type);
   }
 
-  public function getAtUNTYPED(): EditableNode {
+  public function getAtUNTYPED(): Node {
     return $this->_at;
   }
 
-  public function withAt(EditableNode $value): this {
+  public function withAt(Node $value): this {
     if ($value === $this->_at) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class SoftTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getAt();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }

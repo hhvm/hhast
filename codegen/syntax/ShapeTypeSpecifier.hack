@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e6c0e4b33b6e6f8e5a807364e901b26>>
+ * @generated SignedSource<<88efeca41dd0508abcef80b809914642>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
+final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'shape_type_specifier';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_fields;
-  private EditableNode $_ellipsis;
-  private EditableNode $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_fields;
+  private Node $_ellipsis;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $fields,
-    EditableNode $ellipsis,
-    EditableNode $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $fields,
+    Node $ellipsis,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -41,35 +41,35 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $fields = EditableNode::fromJSON(
+    $fields = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_fields'],
       $file,
       $offset,
       $source,
     );
     $offset += $fields->getWidth();
-    $ellipsis = EditableNode::fromJSON(
+    $ellipsis = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_ellipsis'],
       $file,
       $offset,
       $source,
     );
     $offset += $ellipsis->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_right_paren'],
       $file,
       $offset,
@@ -93,7 +93,7 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -106,7 +106,7 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -126,11 +126,11 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return new static($keyword, $left_paren, $fields, $ellipsis, $right_paren);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -161,11 +161,11 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -196,11 +196,11 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return $this->getLeftParen();
   }
 
-  public function getFieldsUNTYPED(): EditableNode {
+  public function getFieldsUNTYPED(): Node {
     return $this->_fields;
   }
 
-  public function withFields(EditableNode $value): this {
+  public function withFields(Node $value): this {
     if ($value === $this->_fields) {
       return $this;
     }
@@ -218,27 +218,27 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
   }
 
   /**
-   * @return EditableList<FieldSpecifier> | null
+   * @return NodeList<FieldSpecifier> | null
    */
-  public function getFields(): ?EditableList<FieldSpecifier> {
+  public function getFields(): ?NodeList<FieldSpecifier> {
     if ($this->_fields->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_fields);
+    return TypeAssert\instance_of(NodeList::class, $this->_fields);
   }
 
   /**
-   * @return EditableList<FieldSpecifier>
+   * @return NodeList<FieldSpecifier>
    */
-  public function getFieldsx(): EditableList<FieldSpecifier> {
+  public function getFieldsx(): NodeList<FieldSpecifier> {
     return TypeAssert\not_null($this->getFields());
   }
 
-  public function getEllipsisUNTYPED(): EditableNode {
+  public function getEllipsisUNTYPED(): Node {
     return $this->_ellipsis;
   }
 
-  public function withEllipsis(EditableNode $value): this {
+  public function withEllipsis(Node $value): this {
     if ($value === $this->_ellipsis) {
       return $this;
     }
@@ -272,11 +272,11 @@ final class ShapeTypeSpecifier extends EditableNode implements ITypeSpecifier {
     return TypeAssert\not_null($this->getEllipsis());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

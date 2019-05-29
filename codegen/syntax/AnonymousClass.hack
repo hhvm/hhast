@@ -1,36 +1,36 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9d75a7acbbe83d48162c676e6a8e702>>
+ * @generated SignedSource<<1744346ea77dc69f90f51b34ebdc03ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AnonymousClass extends EditableNode {
+final class AnonymousClass extends Node {
 
   const string SYNTAX_KIND = 'anonymous_class';
 
-  private EditableNode $_class_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_argument_list;
-  private EditableNode $_right_paren;
-  private EditableNode $_extends_keyword;
-  private EditableNode $_extends_list;
-  private EditableNode $_implements_keyword;
-  private EditableNode $_implements_list;
-  private EditableNode $_body;
+  private Node $_class_keyword;
+  private Node $_left_paren;
+  private Node $_argument_list;
+  private Node $_right_paren;
+  private Node $_extends_keyword;
+  private Node $_extends_list;
+  private Node $_implements_keyword;
+  private Node $_implements_list;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $class_keyword,
-    EditableNode $left_paren,
-    EditableNode $argument_list,
-    EditableNode $right_paren,
-    EditableNode $extends_keyword,
-    EditableNode $extends_list,
-    EditableNode $implements_keyword,
-    EditableNode $implements_list,
-    EditableNode $body,
+    Node $class_keyword,
+    Node $left_paren,
+    Node $argument_list,
+    Node $right_paren,
+    Node $extends_keyword,
+    Node $extends_list,
+    Node $implements_keyword,
+    Node $implements_list,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_class_keyword = $class_keyword;
@@ -53,63 +53,63 @@ final class AnonymousClass extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $class_keyword = EditableNode::fromJSON(
+    $class_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_class_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $class_keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $argument_list = EditableNode::fromJSON(
+    $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_argument_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $argument_list->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $extends_keyword = EditableNode::fromJSON(
+    $extends_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_extends_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $extends_keyword->getWidth();
-    $extends_list = EditableNode::fromJSON(
+    $extends_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_extends_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $extends_list->getWidth();
-    $implements_keyword = EditableNode::fromJSON(
+    $implements_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_implements_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $implements_keyword->getWidth();
-    $implements_list = EditableNode::fromJSON(
+    $implements_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_implements_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $implements_list->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_body'],
       $file,
       $offset,
@@ -137,7 +137,7 @@ final class AnonymousClass extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'class_keyword' => $this->_class_keyword,
       'left_paren' => $this->_left_paren,
@@ -154,7 +154,7 @@ final class AnonymousClass extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $class_keyword = $rewriter($this->_class_keyword, $parents);
@@ -192,11 +192,11 @@ final class AnonymousClass extends EditableNode {
     );
   }
 
-  public function getClassKeywordUNTYPED(): EditableNode {
+  public function getClassKeywordUNTYPED(): Node {
     return $this->_class_keyword;
   }
 
-  public function withClassKeyword(EditableNode $value): this {
+  public function withClassKeyword(Node $value): this {
     if ($value === $this->_class_keyword) {
       return $this;
     }
@@ -220,22 +220,22 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getClassKeyword(): EditableNode {
+  public function getClassKeyword(): Node {
     return $this->_class_keyword;
   }
 
   /**
    * @return unknown
    */
-  public function getClassKeywordx(): EditableNode {
+  public function getClassKeywordx(): Node {
     return $this->getClassKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -259,22 +259,22 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getLeftParen(): EditableNode {
+  public function getLeftParen(): Node {
     return $this->_left_paren;
   }
 
   /**
    * @return unknown
    */
-  public function getLeftParenx(): EditableNode {
+  public function getLeftParenx(): Node {
     return $this->getLeftParen();
   }
 
-  public function getArgumentListUNTYPED(): EditableNode {
+  public function getArgumentListUNTYPED(): Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableNode $value): this {
+  public function withArgumentList(Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -298,22 +298,22 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getArgumentList(): EditableNode {
+  public function getArgumentList(): Node {
     return $this->_argument_list;
   }
 
   /**
    * @return unknown
    */
-  public function getArgumentListx(): EditableNode {
+  public function getArgumentListx(): Node {
     return $this->getArgumentList();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -337,22 +337,22 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getRightParen(): EditableNode {
+  public function getRightParen(): Node {
     return $this->_right_paren;
   }
 
   /**
    * @return unknown
    */
-  public function getRightParenx(): EditableNode {
+  public function getRightParenx(): Node {
     return $this->getRightParen();
   }
 
-  public function getExtendsKeywordUNTYPED(): EditableNode {
+  public function getExtendsKeywordUNTYPED(): Node {
     return $this->_extends_keyword;
   }
 
-  public function withExtendsKeyword(EditableNode $value): this {
+  public function withExtendsKeyword(Node $value): this {
     if ($value === $this->_extends_keyword) {
       return $this;
     }
@@ -376,22 +376,22 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getExtendsKeyword(): EditableNode {
+  public function getExtendsKeyword(): Node {
     return $this->_extends_keyword;
   }
 
   /**
    * @return unknown
    */
-  public function getExtendsKeywordx(): EditableNode {
+  public function getExtendsKeywordx(): Node {
     return $this->getExtendsKeyword();
   }
 
-  public function getExtendsListUNTYPED(): EditableNode {
+  public function getExtendsListUNTYPED(): Node {
     return $this->_extends_list;
   }
 
-  public function withExtendsList(EditableNode $value): this {
+  public function withExtendsList(Node $value): this {
     if ($value === $this->_extends_list) {
       return $this;
     }
@@ -415,22 +415,22 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getExtendsList(): EditableNode {
+  public function getExtendsList(): Node {
     return $this->_extends_list;
   }
 
   /**
    * @return unknown
    */
-  public function getExtendsListx(): EditableNode {
+  public function getExtendsListx(): Node {
     return $this->getExtendsList();
   }
 
-  public function getImplementsKeywordUNTYPED(): EditableNode {
+  public function getImplementsKeywordUNTYPED(): Node {
     return $this->_implements_keyword;
   }
 
-  public function withImplementsKeyword(EditableNode $value): this {
+  public function withImplementsKeyword(Node $value): this {
     if ($value === $this->_implements_keyword) {
       return $this;
     }
@@ -454,22 +454,22 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getImplementsKeyword(): EditableNode {
+  public function getImplementsKeyword(): Node {
     return $this->_implements_keyword;
   }
 
   /**
    * @return unknown
    */
-  public function getImplementsKeywordx(): EditableNode {
+  public function getImplementsKeywordx(): Node {
     return $this->getImplementsKeyword();
   }
 
-  public function getImplementsListUNTYPED(): EditableNode {
+  public function getImplementsListUNTYPED(): Node {
     return $this->_implements_list;
   }
 
-  public function withImplementsList(EditableNode $value): this {
+  public function withImplementsList(Node $value): this {
     if ($value === $this->_implements_list) {
       return $this;
     }
@@ -493,22 +493,22 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getImplementsList(): EditableNode {
+  public function getImplementsList(): Node {
     return $this->_implements_list;
   }
 
   /**
    * @return unknown
    */
-  public function getImplementsListx(): EditableNode {
+  public function getImplementsListx(): Node {
     return $this->getImplementsList();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -532,14 +532,14 @@ final class AnonymousClass extends EditableNode {
   /**
    * @return unknown
    */
-  public function getBody(): EditableNode {
+  public function getBody(): Node {
     return $this->_body;
   }
 
   /**
    * @return unknown
    */
-  public function getBodyx(): EditableNode {
+  public function getBodyx(): Node {
     return $this->getBody();
   }
 }

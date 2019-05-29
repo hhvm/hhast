@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23a1a0f6688a3d4b75e4d64c23eec0c7>>
+ * @generated SignedSource<<8dfc0fccc655bd1550872f5d72a31b62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class EmbeddedMemberSelectionExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'embedded_member_selection_expression';
 
-  private EditableNode $_object;
-  private EditableNode $_operator;
-  private EditableNode $_name;
+  private Node $_object;
+  private Node $_operator;
+  private Node $_name;
 
   public function __construct(
-    EditableNode $object,
-    EditableNode $operator,
-    EditableNode $name,
+    Node $object,
+    Node $operator,
+    Node $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_object = $object;
@@ -37,21 +37,21 @@ final class EmbeddedMemberSelectionExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $object = EditableNode::fromJSON(
+    $object = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_member_object'],
       $file,
       $offset,
       $source,
     );
     $offset += $object->getWidth();
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_member_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_member_name'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class EmbeddedMemberSelectionExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'object' => $this->_object,
       'operator' => $this->_operator,
@@ -79,7 +79,7 @@ final class EmbeddedMemberSelectionExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $object = $rewriter($this->_object, $parents);
@@ -95,11 +95,11 @@ final class EmbeddedMemberSelectionExpression
     return new static($object, $operator, $name);
   }
 
-  public function getObjectUNTYPED(): EditableNode {
+  public function getObjectUNTYPED(): Node {
     return $this->_object;
   }
 
-  public function withObject(EditableNode $value): this {
+  public function withObject(Node $value): this {
     if ($value === $this->_object) {
       return $this;
     }
@@ -113,22 +113,22 @@ final class EmbeddedMemberSelectionExpression
   /**
    * @return unknown
    */
-  public function getObject(): EditableNode {
+  public function getObject(): Node {
     return $this->_object;
   }
 
   /**
    * @return unknown
    */
-  public function getObjectx(): EditableNode {
+  public function getObjectx(): Node {
     return $this->getObject();
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -142,22 +142,22 @@ final class EmbeddedMemberSelectionExpression
   /**
    * @return unknown
    */
-  public function getOperator(): EditableNode {
+  public function getOperator(): Node {
     return $this->_operator;
   }
 
   /**
    * @return unknown
    */
-  public function getOperatorx(): EditableNode {
+  public function getOperatorx(): Node {
     return $this->getOperator();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -171,14 +171,14 @@ final class EmbeddedMemberSelectionExpression
   /**
    * @return unknown
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return unknown
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 }

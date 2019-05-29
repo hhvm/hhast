@@ -1,40 +1,40 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac0ba09f8e08de04021439065764cee9>>
+ * @generated SignedSource<<5532a2fe340e80628c50f391692656c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ForeachStatement
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement, ILoopStatement, IStatement {
 
   const string SYNTAX_KIND = 'foreach_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_collection;
-  private EditableNode $_await_keyword;
-  private EditableNode $_as;
-  private EditableNode $_key;
-  private EditableNode $_arrow;
-  private EditableNode $_value;
-  private EditableNode $_right_paren;
-  private EditableNode $_body;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_collection;
+  private Node $_await_keyword;
+  private Node $_as;
+  private Node $_key;
+  private Node $_arrow;
+  private Node $_value;
+  private Node $_right_paren;
+  private Node $_body;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $collection,
-    EditableNode $await_keyword,
-    EditableNode $as,
-    EditableNode $key,
-    EditableNode $arrow,
-    EditableNode $value,
-    EditableNode $right_paren,
-    EditableNode $body,
+    Node $keyword,
+    Node $left_paren,
+    Node $collection,
+    Node $await_keyword,
+    Node $as,
+    Node $key,
+    Node $arrow,
+    Node $value,
+    Node $right_paren,
+    Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -58,70 +58,70 @@ final class ForeachStatement
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $collection = EditableNode::fromJSON(
+    $collection = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_collection'],
       $file,
       $offset,
       $source,
     );
     $offset += $collection->getWidth();
-    $await_keyword = EditableNode::fromJSON(
+    $await_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_await_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $await_keyword->getWidth();
-    $as = EditableNode::fromJSON(
+    $as = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_as'],
       $file,
       $offset,
       $source,
     );
     $offset += $as->getWidth();
-    $key = EditableNode::fromJSON(
+    $key = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_key'],
       $file,
       $offset,
       $source,
     );
     $offset += $key->getWidth();
-    $arrow = EditableNode::fromJSON(
+    $arrow = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_arrow'],
       $file,
       $offset,
       $source,
     );
     $offset += $arrow->getWidth();
-    $value = EditableNode::fromJSON(
+    $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_value'],
       $file,
       $offset,
       $source,
     );
     $offset += $value->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $body = EditableNode::fromJSON(
+    $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_body'],
       $file,
       $offset,
@@ -150,7 +150,7 @@ final class ForeachStatement
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -168,7 +168,7 @@ final class ForeachStatement
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -209,11 +209,11 @@ final class ForeachStatement
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -249,11 +249,11 @@ final class ForeachStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -289,11 +289,11 @@ final class ForeachStatement
     return $this->getLeftParen();
   }
 
-  public function getCollectionUNTYPED(): EditableNode {
+  public function getCollectionUNTYPED(): Node {
     return $this->_collection;
   }
 
-  public function withCollection(EditableNode $value): this {
+  public function withCollection(Node $value): this {
     if ($value === $this->_collection) {
       return $this;
     }
@@ -340,11 +340,11 @@ final class ForeachStatement
     return $this->getCollection();
   }
 
-  public function getAwaitKeywordUNTYPED(): EditableNode {
+  public function getAwaitKeywordUNTYPED(): Node {
     return $this->_await_keyword;
   }
 
-  public function withAwaitKeyword(EditableNode $value): this {
+  public function withAwaitKeyword(Node $value): this {
     if ($value === $this->_await_keyword) {
       return $this;
     }
@@ -383,11 +383,11 @@ final class ForeachStatement
     return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
-  public function getAsUNTYPED(): EditableNode {
+  public function getAsUNTYPED(): Node {
     return $this->_as;
   }
 
-  public function withAs(EditableNode $value): this {
+  public function withAs(Node $value): this {
     if ($value === $this->_as) {
       return $this;
     }
@@ -423,11 +423,11 @@ final class ForeachStatement
     return $this->getAs();
   }
 
-  public function getKeyUNTYPED(): EditableNode {
+  public function getKeyUNTYPED(): Node {
     return $this->_key;
   }
 
-  public function withKey(EditableNode $value): this {
+  public function withKey(Node $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -469,11 +469,11 @@ final class ForeachStatement
     return TypeAssert\not_null($this->getKey());
   }
 
-  public function getArrowUNTYPED(): EditableNode {
+  public function getArrowUNTYPED(): Node {
     return $this->_arrow;
   }
 
-  public function withArrow(EditableNode $value): this {
+  public function withArrow(Node $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -512,11 +512,11 @@ final class ForeachStatement
     return TypeAssert\not_null($this->getArrow());
   }
 
-  public function getValueUNTYPED(): EditableNode {
+  public function getValueUNTYPED(): Node {
     return $this->_value;
   }
 
-  public function withValue(EditableNode $value): this {
+  public function withValue(Node $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -555,11 +555,11 @@ final class ForeachStatement
     return $this->getValue();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -595,11 +595,11 @@ final class ForeachStatement
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): EditableNode {
+  public function getBodyUNTYPED(): Node {
     return $this->_body;
   }
 
-  public function withBody(EditableNode $value): this {
+  public function withBody(Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }

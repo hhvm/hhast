@@ -17,14 +17,14 @@ use type Facebook\HackCodegen\{
   HackBuilderValues,
 };
 
-final class CodegenEditableNodeFromJSON extends CodegenBase {
+final class CodegenNodeFromJSON extends CodegenBase {
   <<__Override>>
   public function generate(): void {
     $cg = $this->getCodegenFactory();
 
     $kind_to_class = Dict\merge(
       dict[
-        'list' => 'EditableList',
+        'list' => 'NodeList',
         'missing' => 'Missing',
       ],
       Dict\pull(
@@ -46,14 +46,14 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
     );
 
     $cg
-      ->codegenFile($this->getOutputDirectory().'/editable_node_from_json.hack')
+      ->codegenFile($this->getOutputDirectory().'/node_from_json.hack')
       ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')
       ->addFunction(
         $cg
-          ->codegenFunction('editable_node_from_json')
-          ->setReturnType('HHAST\\EditableNode')
+          ->codegenFunction('node_from_json')
+          ->setReturnType('HHAST\\Node')
           ->addParameter('dict<string, mixed> $json')
           ->addParameter('string $file')
           ->addParameter('int $offset')
@@ -69,7 +69,7 @@ final class CodegenEditableNodeFromJSON extends CodegenBase {
               ->startIfBlock('$kind === "token"')
               ->add('return ')
               ->addMultilineCall(
-                'HHAST\\EditableToken::fromJSON',
+                'HHAST\\Token::fromJSON',
                 vec[
                   '$json[\'token\'] as dict<_, _>',
                   '$file',

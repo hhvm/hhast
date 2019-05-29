@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\TypeAssert;
 use namespace Facebook\HHAST;
-use type Facebook\HHAST\EditableNode;
+use type Facebook\HHAST\Node;
 
 type TTypeAtPosOutput = shape(
   ?'full_type' => shape(
@@ -23,8 +23,8 @@ type TTypeAtPosOutput = shape(
 );
 
 async function find_type_for_node_async(
-  EditableNode $root,
-  EditableNode $node,
+  Node $root,
+  Node $node,
   string $path,
 ): Awaitable<?string> {
   list($line, $offset) = HHAST\find_position($root, $node);

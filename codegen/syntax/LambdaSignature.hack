@@ -1,28 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8883caac40dcb164cac4e1b444ad7cc>>
+ * @generated SignedSource<<82f187537117888b83651052170c4677>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class LambdaSignature extends EditableNode implements ILambdaSignature {
+final class LambdaSignature extends Node implements ILambdaSignature {
 
   const string SYNTAX_KIND = 'lambda_signature';
 
-  private EditableNode $_left_paren;
-  private EditableNode $_parameters;
-  private EditableNode $_right_paren;
-  private EditableNode $_colon;
-  private EditableNode $_type;
+  private Node $_left_paren;
+  private Node $_parameters;
+  private Node $_right_paren;
+  private Node $_colon;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $left_paren,
-    EditableNode $parameters,
-    EditableNode $right_paren,
-    EditableNode $colon,
-    EditableNode $type,
+    Node $left_paren,
+    Node $parameters,
+    Node $right_paren,
+    Node $colon,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -41,35 +41,35 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $parameters = EditableNode::fromJSON(
+    $parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_parameters'],
       $file,
       $offset,
       $source,
     );
     $offset += $parameters->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_type'],
       $file,
       $offset,
@@ -93,7 +93,7 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_paren' => $this->_left_paren,
       'parameters' => $this->_parameters,
@@ -106,7 +106,7 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_paren = $rewriter($this->_left_paren, $parents);
@@ -126,11 +126,11 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
     return new static($left_paren, $parameters, $right_paren, $colon, $type);
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -161,11 +161,11 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
     return $this->getLeftParen();
   }
 
-  public function getParametersUNTYPED(): EditableNode {
+  public function getParametersUNTYPED(): Node {
     return $this->_parameters;
   }
 
-  public function withParameters(EditableNode $value): this {
+  public function withParameters(Node $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -183,29 +183,27 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
   }
 
   /**
-   * @return EditableList<ParameterDeclaration> |
-   * EditableList<VariadicParameter> | null
+   * @return NodeList<ParameterDeclaration> | NodeList<VariadicParameter> | null
    */
-  public function getParameters(): ?EditableList<IParameter> {
+  public function getParameters(): ?NodeList<IParameter> {
     if ($this->_parameters->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_parameters);
+    return TypeAssert\instance_of(NodeList::class, $this->_parameters);
   }
 
   /**
-   * @return EditableList<ParameterDeclaration> |
-   * EditableList<VariadicParameter>
+   * @return NodeList<ParameterDeclaration> | NodeList<VariadicParameter>
    */
-  public function getParametersx(): EditableList<IParameter> {
+  public function getParametersx(): NodeList<IParameter> {
     return TypeAssert\not_null($this->getParameters());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -236,11 +234,11 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
     return $this->getRightParen();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -274,11 +272,11 @@ final class LambdaSignature extends EditableNode implements ILambdaSignature {
     return TypeAssert\not_null($this->getColon());
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }

@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5bd203fb7a956886337761915973e2cc>>
+ * @generated SignedSource<<b4d05cfa9a130a166f77844070d21cef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class ParenthesizedExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'parenthesized_expression';
 
-  private EditableNode $_left_paren;
-  private EditableNode $_expression;
-  private EditableNode $_right_paren;
+  private Node $_left_paren;
+  private Node $_expression;
+  private Node $_right_paren;
 
   public function __construct(
-    EditableNode $left_paren,
-    EditableNode $expression,
-    EditableNode $right_paren,
+    Node $left_paren,
+    Node $expression,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -37,21 +37,21 @@ final class ParenthesizedExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parenthesized_expression_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parenthesized_expression_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parenthesized_expression_right_paren'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class ParenthesizedExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_paren' => $this->_left_paren,
       'expression' => $this->_expression,
@@ -79,7 +79,7 @@ final class ParenthesizedExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_paren = $rewriter($this->_left_paren, $parents);
@@ -95,11 +95,11 @@ final class ParenthesizedExpression
     return new static($left_paren, $expression, $right_paren);
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -124,11 +124,11 @@ final class ParenthesizedExpression
     return $this->getLeftParen();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -170,11 +170,11 @@ final class ParenthesizedExpression
     return $this->getExpression();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }

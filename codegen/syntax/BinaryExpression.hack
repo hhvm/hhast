@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5d9cf67c8e31faca35f927af016b101>>
+ * @generated SignedSource<<6382921cce40ad3541583a130546d198>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class BinaryExpression
-  extends EditableNode
+  extends Node
   implements IHasOperator, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'binary_expression';
 
-  private EditableNode $_left_operand;
-  private EditableNode $_operator;
-  private EditableNode $_right_operand;
+  private Node $_left_operand;
+  private Node $_operator;
+  private Node $_right_operand;
 
   public function __construct(
-    EditableNode $left_operand,
-    EditableNode $operator,
-    EditableNode $right_operand,
+    Node $left_operand,
+    Node $operator,
+    Node $right_operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_operand = $left_operand;
@@ -37,21 +37,21 @@ final class BinaryExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $left_operand = EditableNode::fromJSON(
+    $left_operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['binary_left_operand'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_operand->getWidth();
-    $operator = EditableNode::fromJSON(
+    $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['binary_operator'],
       $file,
       $offset,
       $source,
     );
     $offset += $operator->getWidth();
-    $right_operand = EditableNode::fromJSON(
+    $right_operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['binary_right_operand'],
       $file,
       $offset,
@@ -68,7 +68,7 @@ final class BinaryExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'left_operand' => $this->_left_operand,
       'operator' => $this->_operator,
@@ -79,7 +79,7 @@ final class BinaryExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $left_operand = $rewriter($this->_left_operand, $parents);
@@ -95,11 +95,11 @@ final class BinaryExpression
     return new static($left_operand, $operator, $right_operand);
   }
 
-  public function getLeftOperandUNTYPED(): EditableNode {
+  public function getLeftOperandUNTYPED(): Node {
     return $this->_left_operand;
   }
 
-  public function withLeftOperand(EditableNode $value): this {
+  public function withLeftOperand(Node $value): this {
     if ($value === $this->_left_operand) {
       return $this;
     }
@@ -145,11 +145,11 @@ final class BinaryExpression
     return $this->getLeftOperand();
   }
 
-  public function getOperatorUNTYPED(): EditableNode {
+  public function getOperatorUNTYPED(): Node {
     return $this->_operator;
   }
 
-  public function withOperator(EditableNode $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -174,8 +174,8 @@ final class BinaryExpression
    * CaratToken | CaratEqualToken | AndToken | OrToken | XorToken | BarToken |
    * BarEqualToken | BarGreaterThanToken | BarBarToken
    */
-  public function getOperator(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_operator);
+  public function getOperator(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_operator);
   }
 
   /**
@@ -192,15 +192,15 @@ final class BinaryExpression
    * CaratToken | CaratEqualToken | AndToken | OrToken | XorToken | BarToken |
    * BarEqualToken | BarGreaterThanToken | BarBarToken
    */
-  public function getOperatorx(): EditableToken {
+  public function getOperatorx(): Token {
     return $this->getOperator();
   }
 
-  public function getRightOperandUNTYPED(): EditableNode {
+  public function getRightOperandUNTYPED(): Node {
     return $this->_right_operand;
   }
 
-  public function withRightOperand(EditableNode $value): this {
+  public function withRightOperand(Node $value): this {
     if ($value === $this->_right_operand) {
       return $this;
     }

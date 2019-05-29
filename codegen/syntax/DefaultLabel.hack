@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46cf20f189cf3ab9e91da5b147150435>>
+ * @generated SignedSource<<5bb8838ff1c67a83a00d9e2e0e4a8a8b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DefaultLabel extends EditableNode implements ISwitchLabel {
+final class DefaultLabel extends Node implements ISwitchLabel {
 
   const string SYNTAX_KIND = 'default_label';
 
-  private EditableNode $_keyword;
-  private EditableNode $_colon;
+  private Node $_keyword;
+  private Node $_colon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $colon,
+    Node $keyword,
+    Node $colon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -32,14 +32,14 @@ final class DefaultLabel extends EditableNode implements ISwitchLabel {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['default_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['default_colon'],
       $file,
       $offset,
@@ -56,7 +56,7 @@ final class DefaultLabel extends EditableNode implements ISwitchLabel {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'colon' => $this->_colon,
@@ -66,7 +66,7 @@ final class DefaultLabel extends EditableNode implements ISwitchLabel {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -77,11 +77,11 @@ final class DefaultLabel extends EditableNode implements ISwitchLabel {
     return new static($keyword, $colon);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -106,11 +106,11 @@ final class DefaultLabel extends EditableNode implements ISwitchLabel {
     return $this->getKeyword();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -124,14 +124,14 @@ final class DefaultLabel extends EditableNode implements ISwitchLabel {
   /**
    * @return ColonToken | SemicolonToken
    */
-  public function getColon(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_colon);
+  public function getColon(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_colon);
   }
 
   /**
    * @return ColonToken | SemicolonToken
    */
-  public function getColonx(): EditableToken {
+  public function getColonx(): Token {
     return $this->getColon();
   }
 }

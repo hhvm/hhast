@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface IParameter extends IHasTypeHint {
-  require extends EditableNode;
+  require extends Node;
 }

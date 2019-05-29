@@ -11,9 +11,9 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   CompoundStatement,
-  EditableList,
-  EditableNode,
-  EditableToken,
+  NodeList,
+  Node,
+  Token,
   ElseClause,
   ElseifClause,
   EndOfLine,
@@ -65,7 +65,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
     );
   }
 
-  private function getBody(EditableNode $node): ?EditableNode {
+  private function getBody(Node $node): ?Node {
     if ($node instanceof IfStatement) {
       return $node->getStatement();
     }
@@ -84,7 +84,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
     return null;
   }
 
-  private function getLastHeadToken(EditableNode $node): EditableToken {
+  private function getLastHeadToken(Node $node): Token {
     if ($node instanceof IfStatement) {
       $paren = $node->getRightParen();
       if ($paren !== null) {
@@ -137,7 +137,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
         }
         $no_newlines[] = $whitespace;
       }
-      $right_brace_leading = EditableList::createNonEmptyListOrMissing(Vec\reverse($no_newlines));
+      $right_brace_leading = NodeList::createNonEmptyListOrMissing(Vec\reverse($no_newlines));
       $body_trailing = $body->getLastTokenx()->getTrailing();
     }
     return $node

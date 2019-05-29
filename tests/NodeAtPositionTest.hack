@@ -14,7 +14,7 @@ use type Facebook\HackTest\DataProvider;
 
 final class NodeAtPositionTest extends TestCase {
   public function getExamples(
-  ): array<(string, (int, int), classname<EditableNode>, string)> {
+  ): array<(string, (int, int), classname<Node>, string)> {
     return [
       tuple(
         "<?hh\nreturn 123;\n",
@@ -35,7 +35,7 @@ final class NodeAtPositionTest extends TestCase {
   public async function testNodeAtPosition(
     string $code,
     (int, int) $position,
-    classname<EditableNode> $node_class,
+    classname<Node> $node_class,
     string $node_code,
   ): Awaitable<void> {
     list($line, $column) = $position;

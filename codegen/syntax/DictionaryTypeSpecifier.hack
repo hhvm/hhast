@@ -1,28 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b035f7de4dd26d15571033a7f87a0d1>>
+ * @generated SignedSource<<527d91e0c5479264c4abc7313d490cdf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class DictionaryTypeSpecifier
-  extends EditableNode
-  implements ITypeSpecifier {
+final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'dictionary_type_specifier';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_angle;
-  private EditableNode $_members;
-  private EditableNode $_right_angle;
+  private Node $_keyword;
+  private Node $_left_angle;
+  private Node $_members;
+  private Node $_right_angle;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_angle,
-    EditableNode $members,
-    EditableNode $right_angle,
+    Node $keyword,
+    Node $left_angle,
+    Node $members,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,28 +38,28 @@ final class DictionaryTypeSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['dictionary_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_angle = EditableNode::fromJSON(
+    $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['dictionary_type_left_angle'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_angle->getWidth();
-    $members = EditableNode::fromJSON(
+    $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['dictionary_type_members'],
       $file,
       $offset,
       $source,
     );
     $offset += $members->getWidth();
-    $right_angle = EditableNode::fromJSON(
+    $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['dictionary_type_right_angle'],
       $file,
       $offset,
@@ -84,7 +82,7 @@ final class DictionaryTypeSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_angle' => $this->_left_angle,
@@ -96,7 +94,7 @@ final class DictionaryTypeSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -114,11 +112,11 @@ final class DictionaryTypeSpecifier
     return new static($keyword, $left_angle, $members, $right_angle);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -148,11 +146,11 @@ final class DictionaryTypeSpecifier
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): EditableNode {
+  public function getLeftAngleUNTYPED(): Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(EditableNode $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -182,11 +180,11 @@ final class DictionaryTypeSpecifier
     return $this->getLeftAngle();
   }
 
-  public function getMembersUNTYPED(): EditableNode {
+  public function getMembersUNTYPED(): Node {
     return $this->_members;
   }
 
-  public function withMembers(EditableNode $value): this {
+  public function withMembers(Node $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -203,24 +201,24 @@ final class DictionaryTypeSpecifier
   }
 
   /**
-   * @return EditableList<ITypeSpecifier> | EditableList<SimpleTypeSpecifier>
+   * @return NodeList<ITypeSpecifier> | NodeList<SimpleTypeSpecifier>
    */
-  public function getMembers(): EditableList<ITypeSpecifier> {
-    return TypeAssert\instance_of(EditableList::class, $this->_members);
+  public function getMembers(): NodeList<ITypeSpecifier> {
+    return TypeAssert\instance_of(NodeList::class, $this->_members);
   }
 
   /**
-   * @return EditableList<ITypeSpecifier> | EditableList<SimpleTypeSpecifier>
+   * @return NodeList<ITypeSpecifier> | NodeList<SimpleTypeSpecifier>
    */
-  public function getMembersx(): EditableList<ITypeSpecifier> {
+  public function getMembersx(): NodeList<ITypeSpecifier> {
     return $this->getMembers();
   }
 
-  public function getRightAngleUNTYPED(): EditableNode {
+  public function getRightAngleUNTYPED(): Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(EditableNode $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }

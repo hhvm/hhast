@@ -1,36 +1,36 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83c23638afbda5f02321a3d93e5fd6cb>>
+ * @generated SignedSource<<a55ce399012a11e981d2f1f5634230e6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class AlternateSwitchStatement
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement, IStatement {
 
   const string SYNTAX_KIND = 'alternate_switch_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_expression;
-  private EditableNode $_right_paren;
-  private EditableNode $_opening_colon;
-  private EditableNode $_sections;
-  private EditableNode $_closing_endswitch;
-  private EditableNode $_closing_semicolon;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_expression;
+  private Node $_right_paren;
+  private Node $_opening_colon;
+  private Node $_sections;
+  private Node $_closing_endswitch;
+  private Node $_closing_semicolon;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $expression,
-    EditableNode $right_paren,
-    EditableNode $opening_colon,
-    EditableNode $sections,
-    EditableNode $closing_endswitch,
-    EditableNode $closing_semicolon,
+    Node $keyword,
+    Node $left_paren,
+    Node $expression,
+    Node $right_paren,
+    Node $opening_colon,
+    Node $sections,
+    Node $closing_endswitch,
+    Node $closing_semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -52,56 +52,56 @@ final class AlternateSwitchStatement
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_expression'],
       $file,
       $offset,
       $source,
     );
     $offset += $expression->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $opening_colon = EditableNode::fromJSON(
+    $opening_colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_opening_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $opening_colon->getWidth();
-    $sections = EditableNode::fromJSON(
+    $sections = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_sections'],
       $file,
       $offset,
       $source,
     );
     $offset += $sections->getWidth();
-    $closing_endswitch = EditableNode::fromJSON(
+    $closing_endswitch = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_closing_endswitch'],
       $file,
       $offset,
       $source,
     );
     $offset += $closing_endswitch->getWidth();
-    $closing_semicolon = EditableNode::fromJSON(
+    $closing_semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_closing_semicolon'],
       $file,
       $offset,
@@ -128,7 +128,7 @@ final class AlternateSwitchStatement
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -144,7 +144,7 @@ final class AlternateSwitchStatement
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -179,11 +179,11 @@ final class AlternateSwitchStatement
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -217,11 +217,11 @@ final class AlternateSwitchStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -255,11 +255,11 @@ final class AlternateSwitchStatement
     return $this->getLeftParen();
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -296,11 +296,11 @@ final class AlternateSwitchStatement
     return $this->getExpression();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -334,11 +334,11 @@ final class AlternateSwitchStatement
     return $this->getRightParen();
   }
 
-  public function getOpeningColonUNTYPED(): EditableNode {
+  public function getOpeningColonUNTYPED(): Node {
     return $this->_opening_colon;
   }
 
-  public function withOpeningColon(EditableNode $value): this {
+  public function withOpeningColon(Node $value): this {
     if ($value === $this->_opening_colon) {
       return $this;
     }
@@ -372,11 +372,11 @@ final class AlternateSwitchStatement
     return $this->getOpeningColon();
   }
 
-  public function getSectionsUNTYPED(): EditableNode {
+  public function getSectionsUNTYPED(): Node {
     return $this->_sections;
   }
 
-  public function withSections(EditableNode $value): this {
+  public function withSections(Node $value): this {
     if ($value === $this->_sections) {
       return $this;
     }
@@ -397,27 +397,27 @@ final class AlternateSwitchStatement
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getSections(): ?EditableList<EditableNode> {
+  public function getSections(): ?NodeList<Node> {
     if ($this->_sections->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_sections);
+    return TypeAssert\instance_of(NodeList::class, $this->_sections);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getSectionsx(): EditableList<EditableNode> {
+  public function getSectionsx(): NodeList<Node> {
     return TypeAssert\not_null($this->getSections());
   }
 
-  public function getClosingEndswitchUNTYPED(): EditableNode {
+  public function getClosingEndswitchUNTYPED(): Node {
     return $this->_closing_endswitch;
   }
 
-  public function withClosingEndswitch(EditableNode $value): this {
+  public function withClosingEndswitch(Node $value): this {
     if ($value === $this->_closing_endswitch) {
       return $this;
     }
@@ -454,11 +454,11 @@ final class AlternateSwitchStatement
     return $this->getClosingEndswitch();
   }
 
-  public function getClosingSemicolonUNTYPED(): EditableNode {
+  public function getClosingSemicolonUNTYPED(): Node {
     return $this->_closing_semicolon;
   }
 
-  public function withClosingSemicolon(EditableNode $value): this {
+  public function withClosingSemicolon(Node $value): this {
     if ($value === $this->_closing_semicolon) {
       return $this;
     }

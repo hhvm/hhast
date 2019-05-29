@@ -1,38 +1,38 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<91975441f8b7213120a3ef9c38484ba6>>
+ * @generated SignedSource<<022717070329480bb5bd8cb1ae04d15e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class FunctionDeclarationHeader extends EditableNode {
+final class FunctionDeclarationHeader extends Node {
 
   const string SYNTAX_KIND = 'function_declaration_header';
 
-  private EditableNode $_modifiers;
-  private EditableNode $_keyword;
-  private EditableNode $_name;
-  private EditableNode $_type_parameter_list;
-  private EditableNode $_left_paren;
-  private EditableNode $_parameter_list;
-  private EditableNode $_right_paren;
-  private EditableNode $_colon;
-  private EditableNode $_type;
-  private EditableNode $_where_clause;
+  private Node $_modifiers;
+  private Node $_keyword;
+  private Node $_name;
+  private Node $_type_parameter_list;
+  private Node $_left_paren;
+  private Node $_parameter_list;
+  private Node $_right_paren;
+  private Node $_colon;
+  private Node $_type;
+  private Node $_where_clause;
 
   public function __construct(
-    EditableNode $modifiers,
-    EditableNode $keyword,
-    EditableNode $name,
-    EditableNode $type_parameter_list,
-    EditableNode $left_paren,
-    EditableNode $parameter_list,
-    EditableNode $right_paren,
-    EditableNode $colon,
-    EditableNode $type,
-    EditableNode $where_clause,
+    Node $modifiers,
+    Node $keyword,
+    Node $name,
+    Node $type_parameter_list,
+    Node $left_paren,
+    Node $parameter_list,
+    Node $right_paren,
+    Node $colon,
+    Node $type,
+    Node $where_clause,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_modifiers = $modifiers;
@@ -56,70 +56,70 @@ final class FunctionDeclarationHeader extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $modifiers = EditableNode::fromJSON(
+    $modifiers = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_modifiers'],
       $file,
       $offset,
       $source,
     );
     $offset += $modifiers->getWidth();
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $type_parameter_list = EditableNode::fromJSON(
+    $type_parameter_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_type_parameter_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $type_parameter_list->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $parameter_list = EditableNode::fromJSON(
+    $parameter_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_parameter_list'],
       $file,
       $offset,
       $source,
     );
     $offset += $parameter_list->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $where_clause = EditableNode::fromJSON(
+    $where_clause = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_where_clause'],
       $file,
       $offset,
@@ -148,7 +148,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'modifiers' => $this->_modifiers,
       'keyword' => $this->_keyword,
@@ -166,7 +166,7 @@ final class FunctionDeclarationHeader extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $modifiers = $rewriter($this->_modifiers, $parents);
@@ -207,11 +207,11 @@ final class FunctionDeclarationHeader extends EditableNode {
     );
   }
 
-  public function getModifiersUNTYPED(): EditableNode {
+  public function getModifiersUNTYPED(): Node {
     return $this->_modifiers;
   }
 
-  public function withModifiers(EditableNode $value): this {
+  public function withModifiers(Node $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -234,27 +234,27 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getModifiers(): ?EditableList<EditableNode> {
+  public function getModifiers(): ?NodeList<Node> {
     if ($this->_modifiers->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_modifiers);
+    return TypeAssert\instance_of(NodeList::class, $this->_modifiers);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getModifiersx(): EditableList<EditableNode> {
+  public function getModifiersx(): NodeList<Node> {
     return TypeAssert\not_null($this->getModifiers());
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -290,11 +290,11 @@ final class FunctionDeclarationHeader extends EditableNode {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -319,22 +319,22 @@ final class FunctionDeclarationHeader extends EditableNode {
   /**
    * @return ConstructToken | DestructToken | NameToken
    */
-  public function getName(): EditableToken {
-    return TypeAssert\instance_of(EditableToken::class, $this->_name);
+  public function getName(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_name);
   }
 
   /**
    * @return ConstructToken | DestructToken | NameToken
    */
-  public function getNamex(): EditableToken {
+  public function getNamex(): Token {
     return $this->getName();
   }
 
-  public function getTypeParameterListUNTYPED(): EditableNode {
+  public function getTypeParameterListUNTYPED(): Node {
     return $this->_type_parameter_list;
   }
 
-  public function withTypeParameterList(EditableNode $value): this {
+  public function withTypeParameterList(Node $value): this {
     if ($value === $this->_type_parameter_list) {
       return $this;
     }
@@ -376,11 +376,11 @@ final class FunctionDeclarationHeader extends EditableNode {
     return TypeAssert\not_null($this->getTypeParameterList());
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -416,11 +416,11 @@ final class FunctionDeclarationHeader extends EditableNode {
     return $this->getLeftParen();
   }
 
-  public function getParameterListUNTYPED(): EditableNode {
+  public function getParameterListUNTYPED(): Node {
     return $this->_parameter_list;
   }
 
-  public function withParameterList(EditableNode $value): this {
+  public function withParameterList(Node $value): this {
     if ($value === $this->_parameter_list) {
       return $this;
     }
@@ -443,29 +443,29 @@ final class FunctionDeclarationHeader extends EditableNode {
   }
 
   /**
-   * @return EditableList<ParameterDeclaration> | EditableList<IParameter> |
-   * EditableList<VariadicParameter> | null
+   * @return NodeList<ParameterDeclaration> | NodeList<IParameter> |
+   * NodeList<VariadicParameter> | null
    */
-  public function getParameterList(): ?EditableList<IParameter> {
+  public function getParameterList(): ?NodeList<IParameter> {
     if ($this->_parameter_list->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_parameter_list);
+    return TypeAssert\instance_of(NodeList::class, $this->_parameter_list);
   }
 
   /**
-   * @return EditableList<ParameterDeclaration> | EditableList<IParameter> |
-   * EditableList<VariadicParameter>
+   * @return NodeList<ParameterDeclaration> | NodeList<IParameter> |
+   * NodeList<VariadicParameter>
    */
-  public function getParameterListx(): EditableList<IParameter> {
+  public function getParameterListx(): NodeList<IParameter> {
     return TypeAssert\not_null($this->getParameterList());
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -501,11 +501,11 @@ final class FunctionDeclarationHeader extends EditableNode {
     return $this->getRightParen();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -544,11 +544,11 @@ final class FunctionDeclarationHeader extends EditableNode {
     return TypeAssert\not_null($this->getColon());
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -578,7 +578,7 @@ final class FunctionDeclarationHeader extends EditableNode {
    * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): ?EditableNode {
+  public function getType(): ?Node {
     if ($this->_type->isMissing()) {
       return null;
     }
@@ -593,15 +593,15 @@ final class FunctionDeclarationHeader extends EditableNode {
    * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): Node {
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getWhereClauseUNTYPED(): EditableNode {
+  public function getWhereClauseUNTYPED(): Node {
     return $this->_where_clause;
   }
 
-  public function withWhereClause(EditableNode $value): this {
+  public function withWhereClause(Node $value): this {
     if ($value === $this->_where_clause) {
       return $this;
     }

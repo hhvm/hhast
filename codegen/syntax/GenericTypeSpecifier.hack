@@ -1,24 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<665f749e5d6757ce87687a4bc9d52fe4>>
+ * @generated SignedSource<<9251c4c85f59d81be07131a4fd2f96e1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class GenericTypeSpecifier
-  extends EditableNode
+  extends Node
   implements ISimpleCreationSpecifier, ITypeSpecifier {
 
   const string SYNTAX_KIND = 'generic_type_specifier';
 
-  private EditableNode $_class_type;
-  private EditableNode $_argument_list;
+  private Node $_class_type;
+  private Node $_argument_list;
 
   public function __construct(
-    EditableNode $class_type,
-    EditableNode $argument_list,
+    Node $class_type,
+    Node $argument_list,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_class_type = $class_type;
@@ -34,14 +34,14 @@ final class GenericTypeSpecifier
     string $source,
   ): this {
     $offset = $initial_offset;
-    $class_type = EditableNode::fromJSON(
+    $class_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['generic_class_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $class_type->getWidth();
-    $argument_list = EditableNode::fromJSON(
+    $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['generic_argument_list'],
       $file,
       $offset,
@@ -58,7 +58,7 @@ final class GenericTypeSpecifier
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'class_type' => $this->_class_type,
       'argument_list' => $this->_argument_list,
@@ -68,7 +68,7 @@ final class GenericTypeSpecifier
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $class_type = $rewriter($this->_class_type, $parents);
@@ -82,11 +82,11 @@ final class GenericTypeSpecifier
     return new static($class_type, $argument_list);
   }
 
-  public function getClassTypeUNTYPED(): EditableNode {
+  public function getClassTypeUNTYPED(): Node {
     return $this->_class_type;
   }
 
-  public function withClassType(EditableNode $value): this {
+  public function withClassType(Node $value): this {
     if ($value === $this->_class_type) {
       return $this;
     }
@@ -100,22 +100,22 @@ final class GenericTypeSpecifier
   /**
    * @return QualifiedName | XHPClassNameToken | NameToken | StringToken
    */
-  public function getClassType(): EditableNode {
+  public function getClassType(): Node {
     return $this->_class_type;
   }
 
   /**
    * @return QualifiedName | XHPClassNameToken | NameToken | StringToken
    */
-  public function getClassTypex(): EditableNode {
+  public function getClassTypex(): Node {
     return $this->getClassType();
   }
 
-  public function getArgumentListUNTYPED(): EditableNode {
+  public function getArgumentListUNTYPED(): Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(EditableNode $value): this {
+  public function withArgumentList(Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }

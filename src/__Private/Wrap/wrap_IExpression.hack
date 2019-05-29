@@ -10,13 +10,13 @@
 namespace Facebook\HHAST\__Private\Wrap;
 
 use type Facebook\HHAST\{
-  EditableNode,
+  Node,
   IExpression,
   INameishNode,
   NameExpression,
 };
 
-function wrap_IExpression(EditableNode $node): IExpression {
+function wrap_IExpression(Node $node): IExpression {
   if ($node instanceof IExpression) {
     return $node;
   }

@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface IStringLiteral {
-  require extends EditableToken;
+  require extends Token;
 }

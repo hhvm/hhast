@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 interface ILambdaBody {
-  require extends EditableNode;
+  require extends Node;
 }

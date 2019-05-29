@@ -1,36 +1,36 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c54390b91797d5e79d09a628311954d>>
+ * @generated SignedSource<<cb522316f14ced56af8c762ee9bb7d08>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
+final class EnumDeclaration extends Node implements IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'enum_declaration';
 
-  private EditableNode $_attribute_spec;
-  private EditableNode $_keyword;
-  private EditableNode $_name;
-  private EditableNode $_colon;
-  private EditableNode $_base;
-  private EditableNode $_type;
-  private EditableNode $_left_brace;
-  private EditableNode $_enumerators;
-  private EditableNode $_right_brace;
+  private Node $_attribute_spec;
+  private Node $_keyword;
+  private Node $_name;
+  private Node $_colon;
+  private Node $_base;
+  private Node $_type;
+  private Node $_left_brace;
+  private Node $_enumerators;
+  private Node $_right_brace;
 
   public function __construct(
-    EditableNode $attribute_spec,
-    EditableNode $keyword,
-    EditableNode $name,
-    EditableNode $colon,
-    EditableNode $base,
-    EditableNode $type,
-    EditableNode $left_brace,
-    EditableNode $enumerators,
-    EditableNode $right_brace,
+    Node $attribute_spec,
+    Node $keyword,
+    Node $name,
+    Node $colon,
+    Node $base,
+    Node $type,
+    Node $left_brace,
+    Node $enumerators,
+    Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -53,63 +53,63 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $attribute_spec = EditableNode::fromJSON(
+    $attribute_spec = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_attribute_spec'],
       $file,
       $offset,
       $source,
     );
     $offset += $attribute_spec->getWidth();
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $base = EditableNode::fromJSON(
+    $base = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_base'],
       $file,
       $offset,
       $source,
     );
     $offset += $base->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_type'],
       $file,
       $offset,
       $source,
     );
     $offset += $type->getWidth();
-    $left_brace = EditableNode::fromJSON(
+    $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_left_brace'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_brace->getWidth();
-    $enumerators = EditableNode::fromJSON(
+    $enumerators = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_enumerators'],
       $file,
       $offset,
       $source,
     );
     $offset += $enumerators->getWidth();
-    $right_brace = EditableNode::fromJSON(
+    $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_right_brace'],
       $file,
       $offset,
@@ -137,7 +137,7 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'keyword' => $this->_keyword,
@@ -154,7 +154,7 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
@@ -192,11 +192,11 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     );
   }
 
-  public function getAttributeSpecUNTYPED(): EditableNode {
+  public function getAttributeSpecUNTYPED(): Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(EditableNode $value): this {
+  public function withAttributeSpec(Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -237,11 +237,11 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -276,11 +276,11 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -315,11 +315,11 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     return $this->getName();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -354,11 +354,11 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     return $this->getColon();
   }
 
-  public function getBaseUNTYPED(): EditableNode {
+  public function getBaseUNTYPED(): Node {
     return $this->_base;
   }
 
-  public function withBase(EditableNode $value): this {
+  public function withBase(Node $value): this {
     if ($value === $this->_base) {
       return $this;
     }
@@ -393,11 +393,11 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     return $this->getBase();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -435,11 +435,11 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getLeftBraceUNTYPED(): EditableNode {
+  public function getLeftBraceUNTYPED(): Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(EditableNode $value): this {
+  public function withLeftBrace(Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -474,11 +474,11 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
     return $this->getLeftBrace();
   }
 
-  public function getEnumeratorsUNTYPED(): EditableNode {
+  public function getEnumeratorsUNTYPED(): Node {
     return $this->_enumerators;
   }
 
-  public function withEnumerators(EditableNode $value): this {
+  public function withEnumerators(Node $value): this {
     if ($value === $this->_enumerators) {
       return $this;
     }
@@ -500,27 +500,27 @@ final class EnumDeclaration extends EditableNode implements IHasAttributeSpec {
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getEnumerators(): ?EditableList<EditableNode> {
+  public function getEnumerators(): ?NodeList<Node> {
     if ($this->_enumerators->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_enumerators);
+    return TypeAssert\instance_of(NodeList::class, $this->_enumerators);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getEnumeratorsx(): EditableList<EditableNode> {
+  public function getEnumeratorsx(): NodeList<Node> {
     return TypeAssert\not_null($this->getEnumerators());
   }
 
-  public function getRightBraceUNTYPED(): EditableNode {
+  public function getRightBraceUNTYPED(): Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(EditableNode $value): this {
+  public function withRightBrace(Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }

@@ -1,22 +1,22 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f281e2b8cd8e086ef1e904c59b22291>>
+ * @generated SignedSource<<d955ebaa8c2857668e8de4860c77d9e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class PipeVariableExpression
-  extends EditableNode
+  extends Node
   implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'pipe_variable_expression';
 
-  private EditableNode $_expression;
+  private Node $_expression;
 
   public function __construct(
-    EditableNode $expression,
+    Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -31,7 +31,7 @@ final class PipeVariableExpression
     string $source,
   ): this {
     $offset = $initial_offset;
-    $expression = EditableNode::fromJSON(
+    $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pipe_variable_expression'],
       $file,
       $offset,
@@ -48,7 +48,7 @@ final class PipeVariableExpression
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
     ];
@@ -57,7 +57,7 @@ final class PipeVariableExpression
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $expression = $rewriter($this->_expression, $parents);
@@ -67,11 +67,11 @@ final class PipeVariableExpression
     return new static($expression);
   }
 
-  public function getExpressionUNTYPED(): EditableNode {
+  public function getExpressionUNTYPED(): Node {
     return $this->_expression;
   }
 
-  public function withExpression(EditableNode $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -85,14 +85,14 @@ final class PipeVariableExpression
   /**
    * @return unknown
    */
-  public function getExpression(): EditableNode {
+  public function getExpression(): Node {
     return $this->_expression;
   }
 
   /**
    * @return unknown
    */
-  public function getExpressionx(): EditableNode {
+  public function getExpressionx(): Node {
     return $this->getExpression();
   }
 }

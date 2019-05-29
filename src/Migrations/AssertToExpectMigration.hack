@@ -14,8 +14,8 @@ use type Facebook\HHAST\{
   BackslashToken,
   CommaToken,
   DelimitedComment,
-  EditableList,
-  EditableNode,
+  NodeList,
+  Node,
   FunctionCallExpression,
   FunctionToken,
   LeftParenToken,
@@ -51,7 +51,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
       new UseToken(Missing(), new WhiteSpace(' ')),
       new FunctionToken(Missing(), new WhiteSpace(' ')),
       new QualifiedName(
-        new EditableList(
+        new NodeList(
           vec[
             new ListItem(new NameToken(Missing(), Missing(), 'Facebook'), $sep),
             new ListItem(new NameToken(Missing(), Missing(), 'FBExpect'), $sep),
@@ -127,14 +127,14 @@ final class AssertToExpectMigration extends StepBasedMigration {
     );
   }
 
-  private function addExpectAfterComment(DelimitedComment $node): EditableNode {
+  private function addExpectAfterComment(DelimitedComment $node): Node {
     if (!$this->useExpectFunctionNeeded) {
       return $node;
     }
     $expectFunction = self::getExpectFunction();
     $this->useExpectFunctionNeeded = false;
     if (!Str\contains($node->getText(), "/**")) {
-      return EditableList::concat(
+      return NodeList::concat(
         $node,
         $expectFunction->insertBefore(
           $expectFunction->getFirstTokenx(),
@@ -176,7 +176,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     return self::getNewNode(
       $node,
       $actual,
-      new EditableList(vec[$msg]),
+      new NodeList(vec[$msg]),
       $func_name,
     );
   }
@@ -229,7 +229,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     } else {
       $actual = $actual->replace($actual->getLastTokenx(), Missing());
     }
-    $args = new EditableList(Vec\concat(vec[$expected], $rest));
+    $args = new NodeList(Vec\concat(vec[$expected], $rest));
 
     return self::getNewNode($node, $actual, $args, $func_name);
   }
@@ -257,11 +257,11 @@ final class AssertToExpectMigration extends StepBasedMigration {
     );
     $make_step_add_comment = (
       string $name,
-      (function(DelimitedComment): EditableNode) $impl,
+      (function(DelimitedComment): Node) $impl,
     ) ==> new TypedMigrationStep(
       $name,
       DelimitedComment::class,
-      EditableNode::class,
+      Node::class,
       $impl,
     );
     $make_step_expect = (
@@ -307,8 +307,8 @@ final class AssertToExpectMigration extends StepBasedMigration {
 
   private static function getNewNode(
     FunctionCallExpression $node,
-    EditableNode $actual,
-    EditableList<EditableNode> $args,
+    Node $actual,
+    NodeList<Node> $args,
     string $funcName,
   ): FunctionCallExpression {
     $rec = $node->getReceiver();
@@ -335,7 +335,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
             new NameToken($leading, Missing(), 'expect'),
             Missing(),
             new LeftParenToken(Missing(), Missing()),
-            new EditableList(vec[$actual]),
+            new NodeList(vec[$actual]),
             new RightParenToken(Missing(), Missing()),
           ),
         )

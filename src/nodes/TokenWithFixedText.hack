@@ -11,14 +11,14 @@ namespace Facebook\HHAST;
 
 
 <<__ConsistentConstruct>>
-abstract class EditableTokenWithFixedText extends EditableToken {
+abstract class TokenWithFixedText extends Token {
 
   abstract const string KIND;
   abstract const string TEXT;
 
   public function __construct(
-    EditableNode $leading,
-    EditableNode $trailing,
+    Node $leading,
+    Node $trailing,
     ?__Private\SourceRef $ref,
   ) {
     parent::__construct(static::KIND, $leading, $trailing, static::TEXT, $ref);

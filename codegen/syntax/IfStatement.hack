@@ -1,34 +1,34 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc860a40b7280c0efc556615f22d1569>>
+ * @generated SignedSource<<32835385be76d110abc0c5bfb1f53968>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
 final class IfStatement
-  extends EditableNode
+  extends Node
   implements IControlFlowStatement, IStatement {
 
   const string SYNTAX_KIND = 'if_statement';
 
-  private EditableNode $_keyword;
-  private EditableNode $_left_paren;
-  private EditableNode $_condition;
-  private EditableNode $_right_paren;
-  private EditableNode $_statement;
-  private EditableNode $_elseif_clauses;
-  private EditableNode $_else_clause;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_condition;
+  private Node $_right_paren;
+  private Node $_statement;
+  private Node $_elseif_clauses;
+  private Node $_else_clause;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $left_paren,
-    EditableNode $condition,
-    EditableNode $right_paren,
-    EditableNode $statement,
-    EditableNode $elseif_clauses,
-    EditableNode $else_clause,
+    Node $keyword,
+    Node $left_paren,
+    Node $condition,
+    Node $right_paren,
+    Node $statement,
+    Node $elseif_clauses,
+    Node $else_clause,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -49,49 +49,49 @@ final class IfStatement
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $left_paren = EditableNode::fromJSON(
+    $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_left_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $left_paren->getWidth();
-    $condition = EditableNode::fromJSON(
+    $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_condition'],
       $file,
       $offset,
       $source,
     );
     $offset += $condition->getWidth();
-    $right_paren = EditableNode::fromJSON(
+    $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_right_paren'],
       $file,
       $offset,
       $source,
     );
     $offset += $right_paren->getWidth();
-    $statement = EditableNode::fromJSON(
+    $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_statement'],
       $file,
       $offset,
       $source,
     );
     $offset += $statement->getWidth();
-    $elseif_clauses = EditableNode::fromJSON(
+    $elseif_clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_elseif_clauses'],
       $file,
       $offset,
       $source,
     );
     $offset += $elseif_clauses->getWidth();
-    $else_clause = EditableNode::fromJSON(
+    $else_clause = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_else_clause'],
       $file,
       $offset,
@@ -117,7 +117,7 @@ final class IfStatement
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'left_paren' => $this->_left_paren,
@@ -132,7 +132,7 @@ final class IfStatement
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -164,11 +164,11 @@ final class IfStatement
     );
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -201,11 +201,11 @@ final class IfStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): EditableNode {
+  public function getLeftParenUNTYPED(): Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(EditableNode $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -238,11 +238,11 @@ final class IfStatement
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): EditableNode {
+  public function getConditionUNTYPED(): Node {
     return $this->_condition;
   }
 
-  public function withCondition(EditableNode $value): this {
+  public function withCondition(Node $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -286,11 +286,11 @@ final class IfStatement
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): EditableNode {
+  public function getRightParenUNTYPED(): Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(EditableNode $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -323,11 +323,11 @@ final class IfStatement
     return $this->getRightParen();
   }
 
-  public function getStatementUNTYPED(): EditableNode {
+  public function getStatementUNTYPED(): Node {
     return $this->_statement;
   }
 
-  public function withStatement(EditableNode $value): this {
+  public function withStatement(Node $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -364,11 +364,11 @@ final class IfStatement
     return $this->getStatement();
   }
 
-  public function getElseifClausesUNTYPED(): EditableNode {
+  public function getElseifClausesUNTYPED(): Node {
     return $this->_elseif_clauses;
   }
 
-  public function withElseifClauses(EditableNode $value): this {
+  public function withElseifClauses(Node $value): this {
     if ($value === $this->_elseif_clauses) {
       return $this;
     }
@@ -388,27 +388,27 @@ final class IfStatement
   }
 
   /**
-   * @return EditableList<EditableNode> | null
+   * @return NodeList<Node> | null
    */
-  public function getElseifClauses(): ?EditableList<EditableNode> {
+  public function getElseifClauses(): ?NodeList<Node> {
     if ($this->_elseif_clauses->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(EditableList::class, $this->_elseif_clauses);
+    return TypeAssert\instance_of(NodeList::class, $this->_elseif_clauses);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getElseifClausesx(): EditableList<EditableNode> {
+  public function getElseifClausesx(): NodeList<Node> {
     return TypeAssert\not_null($this->getElseifClauses());
   }
 
-  public function getElseClauseUNTYPED(): EditableNode {
+  public function getElseClauseUNTYPED(): Node {
     return $this->_else_clause;
   }
 
-  public function withElseClause(EditableNode $value): this {
+  public function withElseClause(Node $value): this {
     if ($value === $this->_else_clause) {
       return $this;
     }

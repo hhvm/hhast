@@ -1,26 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0aa5bb1cea4283fec109aeeb8e725ebb>>
+ * @generated SignedSource<<eea066c18a6561017d12db8f9ecc3e3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class AlternateElseClause
-  extends EditableNode
-  implements IControlFlowStatement {
+final class AlternateElseClause extends Node implements IControlFlowStatement {
 
   const string SYNTAX_KIND = 'alternate_else_clause';
 
-  private EditableNode $_keyword;
-  private EditableNode $_colon;
-  private EditableNode $_statement;
+  private Node $_keyword;
+  private Node $_colon;
+  private Node $_statement;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $colon,
-    EditableNode $statement,
+    Node $keyword,
+    Node $colon,
+    Node $statement,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -37,21 +35,21 @@ final class AlternateElseClause
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_else_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $colon = EditableNode::fromJSON(
+    $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_else_colon'],
       $file,
       $offset,
       $source,
     );
     $offset += $colon->getWidth();
-    $statement = EditableNode::fromJSON(
+    $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_else_statement'],
       $file,
       $offset,
@@ -68,7 +66,7 @@ final class AlternateElseClause
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'colon' => $this->_colon,
@@ -79,7 +77,7 @@ final class AlternateElseClause
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -95,11 +93,11 @@ final class AlternateElseClause
     return new static($keyword, $colon, $statement);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -124,11 +122,11 @@ final class AlternateElseClause
     return $this->getKeyword();
   }
 
-  public function getColonUNTYPED(): EditableNode {
+  public function getColonUNTYPED(): Node {
     return $this->_colon;
   }
 
-  public function withColon(EditableNode $value): this {
+  public function withColon(Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -153,11 +151,11 @@ final class AlternateElseClause
     return $this->getColon();
   }
 
-  public function getStatementUNTYPED(): EditableNode {
+  public function getStatementUNTYPED(): Node {
     return $this->_statement;
   }
 
-  public function withStatement(EditableNode $value): this {
+  public function withStatement(Node $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -169,16 +167,16 @@ final class AlternateElseClause
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatement(): EditableList<EditableNode> {
-    return TypeAssert\instance_of(EditableList::class, $this->_statement);
+  public function getStatement(): NodeList<Node> {
+    return TypeAssert\instance_of(NodeList::class, $this->_statement);
   }
 
   /**
-   * @return EditableList<EditableNode>
+   * @return NodeList<Node>
    */
-  public function getStatementx(): EditableList<EditableNode> {
+  public function getStatementx(): NodeList<Node> {
     return $this->getStatement();
   }
 }

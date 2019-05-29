@@ -1,26 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf04e772ee4ae1fbd37c62b9c09659ac>>
+ * @generated SignedSource<<650e45924bd4b6bb6c7b67d572eefe32>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class PocketMappingTypeDeclaration extends EditableNode {
+final class PocketMappingTypeDeclaration extends Node {
 
   const string SYNTAX_KIND = 'pocket_mapping_type_declaration';
 
-  private EditableNode $_keyword;
-  private EditableNode $_name;
-  private EditableNode $_equal;
-  private EditableNode $_type;
+  private Node $_keyword;
+  private Node $_name;
+  private Node $_equal;
+  private Node $_type;
 
   public function __construct(
-    EditableNode $keyword,
-    EditableNode $name,
-    EditableNode $equal,
-    EditableNode $type,
+    Node $keyword,
+    Node $name,
+    Node $equal,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -38,28 +38,28 @@ final class PocketMappingTypeDeclaration extends EditableNode {
     string $source,
   ): this {
     $offset = $initial_offset;
-    $keyword = EditableNode::fromJSON(
+    $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_type_keyword'],
       $file,
       $offset,
       $source,
     );
     $offset += $keyword->getWidth();
-    $name = EditableNode::fromJSON(
+    $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_type_name'],
       $file,
       $offset,
       $source,
     );
     $offset += $name->getWidth();
-    $equal = EditableNode::fromJSON(
+    $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_type_equal'],
       $file,
       $offset,
       $source,
     );
     $offset += $equal->getWidth();
-    $type = EditableNode::fromJSON(
+    $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_type_type'],
       $file,
       $offset,
@@ -76,7 +76,7 @@ final class PocketMappingTypeDeclaration extends EditableNode {
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, EditableNode> {
+  public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
       'name' => $this->_name,
@@ -88,7 +88,7 @@ final class PocketMappingTypeDeclaration extends EditableNode {
   <<__Override>>
   public function rewriteChildren(
     self::TRewriter $rewriter,
-    vec<EditableNode> $parents = vec[],
+    vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
@@ -106,11 +106,11 @@ final class PocketMappingTypeDeclaration extends EditableNode {
     return new static($keyword, $name, $equal, $type);
   }
 
-  public function getKeywordUNTYPED(): EditableNode {
+  public function getKeywordUNTYPED(): Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(EditableNode $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -124,22 +124,22 @@ final class PocketMappingTypeDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getKeyword(): EditableNode {
+  public function getKeyword(): Node {
     return $this->_keyword;
   }
 
   /**
    * @return unknown
    */
-  public function getKeywordx(): EditableNode {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): EditableNode {
+  public function getNameUNTYPED(): Node {
     return $this->_name;
   }
 
-  public function withName(EditableNode $value): this {
+  public function withName(Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -153,22 +153,22 @@ final class PocketMappingTypeDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getName(): EditableNode {
+  public function getName(): Node {
     return $this->_name;
   }
 
   /**
    * @return unknown
    */
-  public function getNamex(): EditableNode {
+  public function getNamex(): Node {
     return $this->getName();
   }
 
-  public function getEqualUNTYPED(): EditableNode {
+  public function getEqualUNTYPED(): Node {
     return $this->_equal;
   }
 
-  public function withEqual(EditableNode $value): this {
+  public function withEqual(Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -182,22 +182,22 @@ final class PocketMappingTypeDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getEqual(): EditableNode {
+  public function getEqual(): Node {
     return $this->_equal;
   }
 
   /**
    * @return unknown
    */
-  public function getEqualx(): EditableNode {
+  public function getEqualx(): Node {
     return $this->getEqual();
   }
 
-  public function getTypeUNTYPED(): EditableNode {
+  public function getTypeUNTYPED(): Node {
     return $this->_type;
   }
 
-  public function withType(EditableNode $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -211,14 +211,14 @@ final class PocketMappingTypeDeclaration extends EditableNode {
   /**
    * @return unknown
    */
-  public function getType(): EditableNode {
+  public function getType(): Node {
     return $this->_type;
   }
 
   /**
    * @return unknown
    */
-  public function getTypex(): EditableNode {
+  public function getTypex(): Node {
     return $this->getType();
   }
 }
