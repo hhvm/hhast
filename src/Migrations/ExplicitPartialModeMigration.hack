@@ -12,7 +12,7 @@ namespace Facebook\HHAST\Migrations;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
-final class ExplicitPartialModeMigration extends StepBasedMigration {
+final class ExplicitPartialModeMigration extends BaseMigration {
   protected static function addPartialModeIfNoneSpecified(
     HHAST\MarkupSuffix $node,
   ): HHAST\MarkupSuffix {
@@ -60,14 +60,15 @@ final class ExplicitPartialModeMigration extends StepBasedMigration {
   }
 
   <<__Override>>
-  final public function getSteps(): Traversable<IMigrationStep> {
-    return vec[
-      new TypedMigrationStep(
-        "add '// partial' to header lines that don't specify a mode",
-        HHAST\MarkupSuffix::class,
-        HHAST\MarkupSuffix::class,
-        $node ==> self::addPartialModeIfNoneSpecified($node),
-      ),
-    ];
+  final public function migrateFile(
+    string $_path,
+    HHAST\Script $ast,
+  ): HHAST\Script {
+    $markup = C\first($ast->getDeclarationsx()->getItems());
+    if (!$markup is HHAST\MarkupSection) {
+      return $ast;
+    }
+    $suffix = $markup->getSuffix();
+    return $ast->replace($suffix, self::addPartialModeIfNoneSpecified($suffix));
   }
 }
