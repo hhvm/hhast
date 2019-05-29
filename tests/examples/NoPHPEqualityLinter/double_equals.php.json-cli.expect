@@ -1,0 +1,35 @@
+{
+    "passed": false,
+    "errors": [
+        {
+            "path": "__DIR__/examples/NoPHPEqualityLinter/double_equals.php.in",
+            "range": {
+                "start": {
+                    "line": 12,
+                    "character": 11
+                },
+                "end": {
+                    "line": 12,
+                    "character": 29
+                }
+            },
+            "message": "Do not use PHP equality - use \"===\" instead.",
+            "linter": "NoPHPEquality"
+        },
+        {
+            "path": "__DIR__/examples/NoPHPEqualityLinter/double_equals.php.in",
+            "range": {
+                "start": {
+                    "line": 13,
+                    "character": 11
+                },
+                "end": {
+                    "line": 13,
+                    "character": 29
+                }
+            },
+            "message": "Do not use PHP equality - use \"!==\" instead.",
+            "linter": "NoPHPEquality"
+        }
+    ]
+}

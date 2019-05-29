@@ -10,17 +10,20 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\FBExpect\expect;
+use function Facebook\HHAST\TestLib\expect;
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Keyset, Vec};
+use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class JSONOutputTest extends TestCase {
   use LinterCLITestTrait;
 
-  public function testWithNoErrors(): void {
-    list($cli, $_, $stdout, $stderr) =
-      $this->getCLI('--mode', 'json', __FILE__);
-    $exit_code = \HH\Asio\join($cli->mainAsync());
+  public async function testWithNoErrors(): Awaitable<void> {
+    list($cli, $_, $stdout, $stderr) = $this->getCLI(
+      '--mode',
+      'json',
+      __FILE__,
+    );
+    $exit_code = await $cli->mainAsync();
     expect($exit_code)->toBeSame(0);
     expect($stderr->getBuffer())->toBeSame('');
     $json = $stdout->getBuffer();
@@ -38,13 +41,10 @@ final class JSONOutputTest extends TestCase {
     expect($data['errors'])->toBeSame(vec[]);
   }
 
-  public function testWithErrors(): void {
-    list($cli, $_, $stdout, $stderr) = $this->getCLI(
-      '--mode',
-      'json',
-      __DIR__.'/examples/NoPHPEqualityLinter/double_equals.php.in',
-    );
-    $exit_code = \HH\Asio\join($cli->mainAsync());
+  public async function testWithErrors(): Awaitable<void> {
+    $fname = __DIR__.'/examples/NoPHPEqualityLinter/double_equals.php.in';
+    list($cli, $_, $stdout, $stderr) = $this->getCLI('--mode', 'json', $fname);
+    $exit_code = await $cli->mainAsync();
     expect($exit_code)->toNotBeSame(0);
     expect($stderr->getBuffer())->toBeSame('');
     $json = $stdout->getBuffer();
@@ -63,10 +63,18 @@ final class JSONOutputTest extends TestCase {
     $linters = Keyset\map($data['errors'], $e ==> $e['linter']);
     expect($linters)->toBeSame(keyset['NoPHPEquality']);
 
-    $lines =
-      Vec\map($data['errors'], $e ==> $e['range']['start']['line'] ?? null);
+    $lines = Vec\map(
+      $data['errors'],
+      $e ==> $e['range']['start']['line'] ?? null,
+    );
     expect($lines)->toBeSame(vec[12, 13]);
-
-    static::markTestIncomplete("range ends are not currently set");
+    expect(
+      \json_encode($data, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES)."\n"
+        |> Str\replace($$, __DIR__, '__DIR__'),
+    )
+      ->toMatchExpectFileWithInputFile(
+        Str\strip_suffix($fname, '.in').'.json-cli.expect',
+        $fname,
+      );
   }
 }
