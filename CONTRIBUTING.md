@@ -14,11 +14,11 @@ We develop HHAST purely on GitHub, and welcome pull requests.
    it is inferred from the HHVM and Hack unit tests. This should only need to
    be regenerated when there are changes to the Hack language itself. It is
    unlikely you'll need to update this, and regenerating it is *very* slow.
- - the base classes for AST nodes: `src/Editable{Node,Token,List}.php`: these
+ - the base classes for AST nodes: `src/{Node,Token,List}.php`: these
    are hand-written, and changes to functionality that don't require
    per-subclass type information should go here
  - the remainder of `codegen/`: these are subclasses of
-   `Editable{Node,Token,List}` - one for each kind of node that exists in the
+   `{Node,Token,List}` - one for each kind of node that exists in the
    AST schema. These classes should only contain methods that can not be
    correctly implemented in the hand-written base classes. If you need to
    extend any of these, **do not modify them directly** - instead, edit the
