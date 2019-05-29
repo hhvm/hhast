@@ -18,7 +18,7 @@ final class EncodingTest extends TestCase {
   public async function testEucJp(): Awaitable<void> {
     // Make sure that we can handle EUC-JP in output from `hh_parse`
     $ast = await from_file_async(
-      File::fromPath(__DIR__.'/fixtures/eucjp2sjis.php'),
+      File::fromPath(__DIR__.'/examples/eucjp2sjis.php'),
     );
     $str = $ast->getDescendantsOfType(DoubleQuotedStringLiteralToken::class)[0];
 

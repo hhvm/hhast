@@ -32,8 +32,8 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
     string $input_file,
   ): void where T = string {
     if (!Str\starts_with($expect_file, '/')) {
-      $expect_file = __DIR__.'/../fixtures/'.$expect_file;
-      $input_file = __DIR__.'/../fixtures/'.$input_file;
+      $expect_file = __DIR__.'/../examples/'.$expect_file;
+      $input_file = __DIR__.'/../examples/'.$input_file;
     }
     $out_file = Str\strip_suffix($expect_file, '.expect').'.out';
     $code = $this->var;

@@ -53,7 +53,7 @@
         "jsonrpc": "2.0",
         "method": "textDocument/publishDiagnostics",
         "params": {
-            "uri": "HHAST_ROOT_URI/tests/fixtures/NoPHPEqualityLinter/double_equals.php.in",
+            "uri": "HHAST_ROOT_URI/tests/examples/NoPHPEqualityLinter/double_equals.php.in",
             "diagnostics": [
                 {
                     "range": {
@@ -100,7 +100,7 @@
                 "arguments": [
                     {
                         "changes": {
-                            "HHAST_ROOT_URI/tests/fixtures/NoPHPEqualityLinter/double_equals.php.in": [
+                            "HHAST_ROOT_URI/tests/examples/NoPHPEqualityLinter/double_equals.php.in": [
                                 {
                                     "range": {
                                         "start": {
@@ -125,7 +125,7 @@
                 "arguments": [
                     {
                         "changes": {
-                            "HHAST_ROOT_URI/tests/fixtures/NoPHPEqualityLinter/double_equals.php.in": [
+                            "HHAST_ROOT_URI/tests/examples/NoPHPEqualityLinter/double_equals.php.in": [
                                 {
                                     "range": {
                                         "start": {

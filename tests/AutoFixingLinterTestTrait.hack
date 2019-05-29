@@ -23,10 +23,10 @@ trait AutoFixingLinterTestTrait<Terror as Linters\LintError> {
 	): Linters\AutoFixingLinter<Terror>;
 
 	<<DataProvider('getDirtyFixtures')>>
-	final public function testAutofix(string $fixture): void {
-		$fixture = $this->getFullFixtureName($fixture);
+	final public function testAutofix(string $example): void {
+		$example = $this->getFullFixtureName($example);
 
-		$in = __DIR__.'/fixtures/'.$fixture.'.in';
+		$in = __DIR__.'/examples/'.$example.'.in';
 		$out = Str\strip_suffix($in, '.in').'.autofix.out';
 		\copy($in, $out);
 		$linter = $this->getLinter($out);
@@ -37,11 +37,11 @@ trait AutoFixingLinterTestTrait<Terror as Linters\LintError> {
 		\file_put_contents($out, $code);
 
 		expect($code)->toMatchExpectFileWithInputFile(
-			$fixture.'.autofix.expect',
-			$fixture.'.in',
+			$example.'.autofix.expect',
+			$example.'.in',
 		);
 
-		$linter = $this->getLinter(__DIR__.'/fixtures/'.$fixture.'.autofix.expect');
+		$linter = $this->getLinter(__DIR__.'/examples/'.$example.'.autofix.expect');
 		$errors = \HH\Asio\join($linter->getLintErrorsAsync());
 		$re_fixed = $linter->getFixedFile($errors)->getContents();
 		expect($re_fixed)->toBeSame($code, "Not all fixable errors were fixed");

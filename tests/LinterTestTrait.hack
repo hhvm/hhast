@@ -25,7 +25,7 @@ trait LinterTestTrait {
       |> \explode('\\', $$)
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Test')
-      |> \glob(__DIR__.'/fixtures/'.$$.'/*.in')
+      |> \glob(__DIR__.'/examples/'.$$.'/*.in')
       |> Vec\map($$, $path ==> \basename($path, '.in'))
       |> Vec\map($$, $path ==> Str\strip_suffix($path, '.php'))
       |> Vec\map($$, $path ==> Str\strip_suffix($path, '.hack'))
@@ -38,7 +38,7 @@ trait LinterTestTrait {
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Test')
       |> $$.'/'.$name;
-    if (\file_exists(__DIR__.'/fixtures/'.$base.'.php.in')) {
+    if (\file_exists(__DIR__.'/examples/'.$base.'.php.in')) {
       return $base.'.php';
     }
     return $base.'.hack';
@@ -77,10 +77,10 @@ trait LinterTestTrait {
   }
 
   <<DataProvider('getDirtyFixtures')>>
-  final public function testDirtyFixtures(string $fixture): void {
-    $fixture = $this->getFullFixtureName($fixture);
+  final public function testDirtyFixtures(string $example): void {
+    $example = $this->getFullFixtureName($example);
 
-    $linter = $this->getLinter(__DIR__.'/fixtures/'.$fixture.'.in');
+    $linter = $this->getLinter(__DIR__.'/examples/'.$example.'.in');
 
     $out = \HH\Asio\join($linter->getLintErrorsAsync())
       |> Vec\map(
@@ -88,7 +88,7 @@ trait LinterTestTrait {
         $error ==> self::getErrorAsShape($error),
       )
       |> \json_encode($$, \JSON_PRETTY_PRINT)."\n";
-    expect($out)->toMatchExpectFile($fixture.'.expect');
+    expect($out)->toMatchExpectFile($example.'.expect');
   }
 
   final protected static function getErrorAsShape(

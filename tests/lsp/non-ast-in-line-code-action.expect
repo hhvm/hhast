@@ -53,7 +53,7 @@
         "jsonrpc": "2.0",
         "method": "textDocument/publishDiagnostics",
         "params": {
-            "uri": "HHAST_ROOT_URI/tests/fixtures/NoWhitespaceAtEndOfLineLinter/trailing_whitespace.php.in",
+            "uri": "HHAST_ROOT_URI/tests/examples/NoWhitespaceAtEndOfLineLinter/trailing_whitespace.php.in",
             "diagnostics": [
                 {
                     "range": {
@@ -116,7 +116,7 @@
                 "arguments": [
                     {
                         "changes": {
-                            "HHAST_ROOT_URI/tests/fixtures/NoWhitespaceAtEndOfLineLinter/trailing_whitespace.php.in": [
+                            "HHAST_ROOT_URI/tests/examples/NoWhitespaceAtEndOfLineLinter/trailing_whitespace.php.in": [
                                 {
                                     "range": {
                                         "start": {

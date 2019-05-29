@@ -27,10 +27,10 @@ abstract class MigrationTest extends TestCase {
         |> Str\lowercase($$)
         |> Str\strip_suffix($$, '_migration'),
     );
-    $full = __DIR__.'/fixtures/'.$fname.'.in';
+    $full = __DIR__.'/examples/'.$fname.'.in';
     if (!\file_exists($full)) {
       $fname = Str\strip_suffix($fname, '.php').'.hack';
-      $full = __DIR__.'/fixtures/'.$fname.'.in';
+      $full = __DIR__.'/examples/'.$fname.'.in';
     }
     expect(\file_exists($full))->toBeTrue('File "%s" does not exist', $full);
     return vec[tuple($fname)];
@@ -43,11 +43,11 @@ abstract class MigrationTest extends TestCase {
 
   <<DataProvider('getExamples')>>
   final public async function testMigrationHasExpectedOutput(
-    string $fixture,
+    string $example,
   ): Awaitable<void> {
     $migration = static::getClassname();
     await using $temp = new TestLib\TemporaryProject(
-      __DIR__.'/fixtures/'.$fixture.'.in',
+      __DIR__.'/examples/'.$example.'.in',
     );
     $file = $temp->getFilePath();
     $ast = await HHAST\from_file_async(HHAST\File::fromPath($file));
@@ -56,16 +56,16 @@ abstract class MigrationTest extends TestCase {
 
     $ast = $migration->migrateFile($file, $ast);
 
-    expect($ast->getCode())->toMatchExpectFile($fixture.'.expect');
+    expect($ast->getCode())->toMatchExpectFile($example.'.expect');
   }
 
   <<DataProvider('getExamples')>>
   public async function testMigrationIsIdempotent(
-    string $fixture,
+    string $example,
   ): Awaitable<void> {
     $migration = static::getClassname();
     await using $temp = new TestLib\TemporaryProject(
-      __DIR__.'/fixtures/'.$fixture.'.in',
+      __DIR__.'/examples/'.$example.'.in',
     );
     $file = $temp->getFilePath();
     $ast = await HHAST\from_file_async(HHAST\File::fromPath($file));

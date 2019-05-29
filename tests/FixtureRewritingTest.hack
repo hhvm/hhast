@@ -19,7 +19,7 @@ final class FixtureRewritingTest extends TestCase {
    * the catch body */
   public async function testInsert(): Awaitable<void> {
     $original = await HHAST\from_file_async(
-      File::fromPath(__DIR__.'/fixtures/insert.php.in'),
+      File::fromPath(__DIR__.'/examples/insert.php.in'),
     );
 
     $comment = new HHAST\DelimitedComment('/* HELLO WORLD */');
@@ -56,7 +56,7 @@ final class FixtureRewritingTest extends TestCase {
     };
 
     $ast = await HHAST\from_file_async(
-      HHAST\File::fromPath(__DIR__.'/fixtures/rewrite_comments.php.in'),
+      HHAST\File::fromPath(__DIR__.'/examples/rewrite_comments.php.in'),
     );
     $code = $ast->rewrite($rewriter)->getCode();
     expect($code)->toMatchExpectFile('rewrite_comments.php.expect');
@@ -64,7 +64,7 @@ final class FixtureRewritingTest extends TestCase {
 
   public async function testRemove(): Awaitable<void> {
     $ast = await HHAST\from_file_async(
-      HHAST\File::fromPath(__DIR__.'/fixtures/remove.php.in'),
+      HHAST\File::fromPath(__DIR__.'/examples/remove.php.in'),
     );
 
     // Remove all try statements

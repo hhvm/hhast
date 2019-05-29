@@ -32,13 +32,13 @@ abstract class StepBasedMigrationTest extends MigrationTest {
   <<DataProvider('getStepsAndExamples')>>
   final public async function testMigrationStepsAreIdempotent(
     Migrations\IMigrationStep $step,
-    string $fixture,
+    string $example,
   ): Awaitable<void> {
     $rewrite = (HHAST\EditableNode $ast) ==>
       $ast->rewrite(($n, $_) ==> $step->rewrite($n));
 
     $ast = await HHAST\from_file_async(
-      HHAST\File::fromPath(__DIR__.'/fixtures/'.$fixture.'.in'),
+      HHAST\File::fromPath(__DIR__.'/examples/'.$example.'.in'),
     );
     $ast = $rewrite($ast);
 

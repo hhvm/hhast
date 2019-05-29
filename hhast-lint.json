@@ -3,7 +3,7 @@
   "builtinLinters": "all",
   "overrides": [
     {
-      "patterns": [ "codegen/*", "tests/fixtures/*" ],
+      "patterns": [ "codegen/*", "tests/examples/*" ],
       "disabledLinters": [
         "Facebook\\HHAST\\Linters\\UnusedUseClauseLinter",
         "Facebook\\HHAST\\Linters\\LicenseHeaderLinter"

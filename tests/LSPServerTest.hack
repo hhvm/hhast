@@ -90,7 +90,7 @@ final class LSPServerTest extends TestCase {
   public async function testExampleExchange(string $name): Awaitable<void> {
     $mappings = dict[
       'HHAST_ROOT_URI' => 'file://'.\realpath(\dirname(__DIR__)),
-      'HHAST_FIXTURES_URI' => 'file://'.\realpath(__DIR__.'/fixtures'),
+      'HHAST_FIXTURES_URI' => 'file://'.\realpath(__DIR__.'/examples'),
     ];
 
     $messages = \file_get_contents(__DIR__.'/lsp/'.$name.'.json')

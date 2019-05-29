@@ -42,7 +42,7 @@ final class JSONOutputTest extends TestCase {
     list($cli, $_, $stdout, $stderr) = $this->getCLI(
       '--mode',
       'json',
-      __DIR__.'/fixtures/NoPHPEqualityLinter/double_equals.php.in',
+      __DIR__.'/examples/NoPHPEqualityLinter/double_equals.php.in',
     );
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toNotBeSame(0);
