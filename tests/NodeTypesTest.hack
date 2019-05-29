@@ -12,7 +12,10 @@ namespace Facebook\HHAST;
 
 final class NodeTypesTest extends TestCase {
   public function testListVariance(): void {
-    $_typecheck = ((?NodeList<IParameter> $_) ==> null)(
+    $_typecheck = ((?NodeList<ListItem<IParameter>> $_) ==> null)(
+      (null ?as FunctionDeclarationHeader)?->getParameterListx(),
+    );
+    $_typecheck = ((?NodeList<ListItem<Node>> $_) ==> null)(
       (null ?as FunctionDeclarationHeader)?->getParameterListx(),
     );
     $_typecheck = ((?NodeList<Node> $_) ==> null)(

@@ -46,7 +46,8 @@ final class Script extends ScriptGeneratedBase {
   <<__Memoize>>
   public function getNamespaces(): vec<this::TNamespace> {
     $namespaces = $this->getDeclarationsx()
-      ->getItemsOfType(NamespaceDeclaration::class);
+      ->getChildrenOfType(NamespaceDeclaration::class)
+      |> vec($$);
     $count = C\count($namespaces);
     if ($count === 0) {
       return vec[];

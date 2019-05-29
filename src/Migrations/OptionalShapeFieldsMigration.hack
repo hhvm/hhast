@@ -13,8 +13,8 @@ use namespace Facebook\HHAST;
 
 final class OptionalShapeFieldsMigration extends StepBasedMigration {
   private static function makeNullableFieldsOptional(
-    HHAST\ListItem $node,
-  ): HHAST\ListItem {
+    HHAST\ListItem<HHAST\Node> $node,
+  ): HHAST\ListItem<HHAST\Node> {
     $field = $node->getItem();
 
     if (!$field instanceof HHAST\FieldSpecifier) {

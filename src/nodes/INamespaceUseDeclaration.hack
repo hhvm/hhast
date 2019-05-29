@@ -24,8 +24,8 @@ interface INamespaceUseDeclaration {
 
   public function withClauses(Node $value): this;
   public function hasClauses(): bool;
-  public function getClauses(): NodeList<NamespaceUseClause>;
-  public function getClausesx(): NodeList<NamespaceUseClause>;
+  public function getClauses(): NodeList<ListItem<NamespaceUseClause>>;
+  public function getClausesx(): NodeList<ListItem<NamespaceUseClause>>;
 
   public function getSemicolon(): ?SemicolonToken;
 }

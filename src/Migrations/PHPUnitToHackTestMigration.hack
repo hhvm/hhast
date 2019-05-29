@@ -93,7 +93,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       return null;
     }
     if ($leading is HHAST\NodeList<_>) {
-      $leading = $leading->getItemsOfType(HHAST\DelimitedComment::class);
+      $leading = $leading->getChildrenOfType(HHAST\DelimitedComment::class);
     } else if ($leading is HHAST\DelimitedComment) {
       $leading = vec[$leading];
     } else {
@@ -161,7 +161,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $leading = vec[];
         foreach (
           ($decl->getFirstTokenx()->getLeading() as HHAST\NodeList<_>)
-            ->getItems() as $item
+            ->getChildren() as $item
         ) {
           if ($item === $comment) {
             break;
@@ -199,7 +199,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $decl = $decl->withAttribute($attrs);
     $first = $decl->getFunctionDeclHeader()->getFirstTokenx();
-    $leading = ($first->getLeading() as HHAST\NodeList<_>)->getItems()
+    $leading = ($first->getLeading() as HHAST\NodeList<_>)->getChildren()
       |> Vec\map($$, $n ==> $n as HHAST\Node);
     return $decl->replace(
       $first,
@@ -350,7 +350,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     }
     $leading = $node->getFirstTokenx()->getLeading();
     $new_modifiers = Vec\map(
-      $node->getModifiers()?->getItems() ?? vec[],
+      $node->getModifiers()?->getChildren() ?? vec[],
       $m ==> {
         if ($m is HHAST\PrivateToken || $m is HHAST\ProtectedToken) {
           return
@@ -434,7 +434,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       return $node;
     }
     list($comment, $comment_text, $exception) = $match;
-    $body = $node->getFunctionBody()?->getStatements()?->getItems();
+    $body = $node->getFunctionBody()?->getStatements()?->getChildren();
     if ($body === null) {
       return $node;
     }
@@ -489,7 +489,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $first = $node->getFirstTokenx();
     $leading = $first->getLeading();
     $items = ($leading is HHAST\NodeList<_>)
-      ? Vec\map($leading->getItems(), $it ==> $it as HHAST\Node)
+      ? Vec\map($leading->getChildren(), $it ==> $it as HHAST\Node)
       : vec[$leading];
     $idx = C\find_key($items, $it ==> $it === $comment) as nonnull;
     return $node->replace(
@@ -503,7 +503,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
   final private function migrateExpectException(
     HHAST\MethodishDeclaration $node,
   ): HHAST\MethodishDeclaration {
-    $body = $node->getFunctionBody()?->getStatements()?->getItems();
+    $body = $node->getFunctionBody()?->getStatements()?->getChildren();
     if ($body === null) {
       return $node;
     }

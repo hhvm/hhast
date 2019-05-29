@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Vec};
 
-final class NodeList<+Titem as ?Node> extends Node {
+final class NodeList<+Titem as Node> extends Node {
   const string SYNTAX_KIND = 'list';
   /**
    * Use `NodeList::createMaybeEmptyList()` or
@@ -32,35 +32,27 @@ final class NodeList<+Titem as ?Node> extends Node {
   }
 
   <<__Override>>
-  public function toVec(): vec<Node> {
-    return $this->_children;
+  public function toVec(): vec<Titem> {
+    return /* HH_FIXME[4110] */ $this->_children;
   }
 
   <<__Override>>
-  public function getChildren(): vec<Node> {
-    return $this->_children;
+  public function getChildren(): vec<Titem> {
+    return /* HH_FIXME[4110] */ $this->_children;
   }
 
-  final public function getItems(): vec<Titem> {
-    // The `filter_nulls()` is needed for for expressions like
-    // `list($a,,$c) = $foo` and types like `\Foo\Bar`, now that the first
-    // is parsed as name token items with  backslash separators - i.e. the first
-    // item is empty.
-
+  final public function getItems<T>(): vec<T> where Titem as ListItem<T> {
     /* HH_FIXME[4110] we have to trust the typechecker here; in future, use
      * reified generics */
     return Vec\map(
-      $this->_children,
-      $child ==>
-        /* HH_FIXME[4110] Generic ListItem? */ $child instanceof ListItem
-        ? $child->getItem()
-        : $child,
+      $this->getChildren(),
+      $child ==> $child->getItem(),
     );
   }
 
-  final public function getItemsOfType<T as Node>(
+  final public function getItemsOfType<T>(
     classname<T> $what,
-  ): vec<T> {
+  ): vec<T> where Titem as ListItem<T> {
     $out = vec[];
     foreach ($this->getItems() as $item) {
       if ($item instanceof $what) {
@@ -75,9 +67,7 @@ final class NodeList<+Titem as ?Node> extends Node {
     return self::createNonEmptyListOrMissing($items);
   }
 
-  public static function createNonEmptyListOrMissing(
-    vec<Node> $items,
-  ): Node {
+  public static function createNonEmptyListOrMissing(vec<Node> $items): Node {
     if (C\count($items) === 0) {
       return Missing();
     } else {
@@ -91,10 +81,7 @@ final class NodeList<+Titem as ?Node> extends Node {
     return new self($items);
   }
 
-  public static function concat(
-    Node $left,
-    Node $right,
-  ): Node {
+  public static function concat(Node $left, Node $right): Node {
     if ($left->isMissing()) {
       return $right;
     }
@@ -114,12 +101,7 @@ final class NodeList<+Titem as ?Node> extends Node {
     $children = vec[];
     $current_position = $offset;
     foreach (/* HH_FIXME[4110] */ $json['elements'] as $element) {
-      $child = Node::fromJSON(
-        $element,
-        $file,
-        $current_position,
-        $source,
-      );
+      $child = Node::fromJSON($element, $file, $current_position, $source);
       $children[] = $child;
       $current_position += $child->getWidth();
     }

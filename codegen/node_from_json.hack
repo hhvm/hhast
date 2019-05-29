@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc541eefd7f8e07bb4e05f75c9787415>>
+ * @generated SignedSource<<f2796ba3c35dededc48d28023b4b3920>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -23,6 +23,7 @@ function node_from_json(
   }
   $kind_to_class = dict[
     'list' => HHAST\NodeList::class,
+    'list_item' => HHAST\ListItem::class,
     'missing' => HHAST\Missing::class,
     'after_halt_compiler' => HHAST\AfterHaltCompiler::class,
     'delimited_comment' => HHAST\DelimitedComment::class,
@@ -119,7 +120,6 @@ function node_from_json(
     'let_statement' => HHAST\LetStatement::class,
     'like_type_specifier' => HHAST\LikeTypeSpecifier::class,
     'list_expression' => HHAST\ListExpression::class,
-    'list_item' => HHAST\ListItem::class,
     'literal' => HHAST\LiteralExpression::class,
     'map_array_type_specifier' => HHAST\MapArrayTypeSpecifier::class,
     'markup_section' => HHAST\MarkupSection::class,

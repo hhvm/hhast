@@ -78,7 +78,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
   ): string {
     $super = C\onlyx($class->getExtendsListx()->getChildren());
     if ($super instanceof ListItem) {
-      $super = $super->getItemx();
+      $super = $super->getItemUNTYPED();
     }
     if ($super instanceof GenericTypeSpecifier) {
       $super = $super->getClassType();
@@ -181,7 +181,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
 
     $list = $attrs->getAttributes()->toVec();
     $last_idx = C\count($list) - 1;
-    $last = $list[$last_idx] as HHAST\ListItem;
+    $last = $list[$last_idx];
     if (!$last->hasSeparator()) {
       $list[$last_idx] = $last->withSeparator(
         new HHAST\CommaToken(HHAST\Missing(), new HHAST\WhiteSpace(' ')),

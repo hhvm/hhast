@@ -24,8 +24,8 @@ final class JSONOutputTest extends TestCase {
       __FILE__,
     );
     $exit_code = await $cli->mainAsync();
-    expect($exit_code)->toBeSame(0);
     expect($stderr->getBuffer())->toBeSame('');
+    expect($exit_code)->toBeSame(0);
     $json = $stdout->getBuffer();
     $data = \json_decode(
       $json, /* assoc = */

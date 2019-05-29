@@ -72,7 +72,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
         } else {
           invariant($name instanceof QualifiedName, "Unhandled name type");
           $as = $name->getParts()->getItemsOfType(NameToken::class)
-            |> C\lastx($$)->getText();
+            |> (C\lastx($$) as nonnull)->getText();
         }
       }
       if ($kind instanceof NamespaceToken) {

@@ -570,7 +570,7 @@ final class HSLMigration extends BaseMigration {
         }
         $found_prefix = true;
         foreach ($parts as $i => $token) {
-          if ($token->getText() === $search[$i]) {
+          if ($token?->getText() === $search[$i]) {
             continue;
           }
           $found_prefix = false;
@@ -617,14 +617,14 @@ final class HSLMigration extends BaseMigration {
             }
 
             foreach ($parts as $i => $token) {
-              if ($i < 2 && $token->getText() !== $search[$i]) {
+              if ($i < 2 && $token?->getText() !== $search[$i]) {
                 break;
               }
 
               if ($i === 2) {
                 // we found an HH\Lib\* use statement, add the node and suffix
                 $nodes[] = $decl;
-                $ns = HslNamespace::coerce($token->getText());
+                $ns = HslNamespace::coerce($token?->getText());
                 if ($ns !== null) {
                   $suffixes[] = $ns;
                 }
@@ -662,10 +662,9 @@ final class HSLMigration extends BaseMigration {
       return $receiver->getText();
     } else if ($receiver instanceof QualifiedName) {
       foreach ($receiver->getParts()->getChildren() as $child) {
-        invariant($child instanceof ListItem, 'expected ListItem');
-        $item = $child->getItem();
+        $item = $child->getItemUNTYPED();
         if (
-          $item === null && $child->getSeparator() instanceof BackslashToken
+          !$child->hasItem() && $child->getSeparator() instanceof BackslashToken
         ) {
           // leading backslash such as \implode(), skip over this to get the name token
           continue;

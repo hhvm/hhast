@@ -33,7 +33,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
     Script $_context,
     Script $script,
   ): ?ASTLintError {
-    $decls = $script->getDeclarations()->getItems();
+    $decls = $script->getDeclarations()->getChildren();
     $first = C\first($decls);
     if ($first is MarkupSection) {
       // <?hh or <?php ; not present in .hack files
@@ -47,7 +47,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
     }
     $leading = $first->getFirstToken()?->getLeading();
     if ($leading instanceof NodeList) {
-      $leading = $leading->getItems()[0];
+      $leading = $leading->getChildren()[0];
     }
 
     if ($leading instanceof DelimitedComment) {
@@ -70,7 +70,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
   public function getPrettyTextForNode(
     Script $node,
   ): string {
-    return $node->getDeclarations()->getItems()
+    return $node->getDeclarations()->getChildren()
       |> Vec\take($$, 2)
       |> NodeList::createNonEmptyListOrMissing($$)
       |> $$->getCode();
@@ -85,10 +85,10 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
   }
 
   public function getFixedNode(Script $node): Script {
-    $first = $node->getDeclarations()->getItems()[1]->getFirstTokenx();
+    $first = $node->getDeclarations()->getChildren()[1]->getFirstTokenx();
     $leading = $first->getLeading();
     if ($leading instanceof NodeList) {
-      $leading = $leading->getItems();
+      $leading = $leading->getChildren();
     } else if ($leading === null) {
       $leading = vec[];
     } else {

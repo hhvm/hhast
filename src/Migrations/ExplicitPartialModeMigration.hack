@@ -64,7 +64,7 @@ final class ExplicitPartialModeMigration extends BaseMigration {
     string $_path,
     HHAST\Script $ast,
   ): HHAST\Script {
-    $markup = C\first($ast->getDeclarationsx()->getItems());
+    $markup = C\first($ast->getDeclarationsx()->getChildren());
     if (!$markup is HHAST\MarkupSection) {
       return $ast;
     }

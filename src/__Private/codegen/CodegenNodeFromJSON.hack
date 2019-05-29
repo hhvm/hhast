@@ -25,6 +25,7 @@ final class CodegenNodeFromJSON extends CodegenBase {
     $kind_to_class = Dict\merge(
       dict[
         'list' => 'NodeList',
+        'list_item' => 'ListItem',
         'missing' => 'Missing',
       ],
       Dict\pull(

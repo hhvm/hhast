@@ -74,7 +74,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
   private function normalizeEmptyLines(
     HHAST\ClassishBody $body,
   ): HHAST\ClassishBody {
-    $elements = $body->getElements()?->getItems();
+    $elements = $body->getElements()?->getChildren();
     if ($elements === null) {
       return $body;
     }
@@ -102,9 +102,9 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
         : (
             (
               $leading instanceof HHAST\NodeList &&
-              $leading->getItems()[0] is HHAST\EndOfLine
+              $leading->getChildren()[0] is HHAST\EndOfLine
             )
-              ? $leading->getItems()[0]
+              ? $leading->getChildren()[0]
               : null
           );
       $have_empty = $empty !== null;
@@ -165,7 +165,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
 
     $override = C\find(
       $attr_items,
-      $attr ==> (($attr as HHAST\ListItem)->getItem() as HHAST\ConstructorCall)
+      $attr ==> $attr->getItemx()
         ->getType()
         ->getFirstTokenx()
         ->getText() ===
@@ -308,7 +308,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     $new_elements = vec[];
     if (
       C\any(
-        $elements->getItemsOfType(HHAST\TypeConstDeclaration::class),
+        $elements->getChildrenOfType(HHAST\TypeConstDeclaration::class),
         $tc ==> $tc->getName()->getText() === 'TNode',
       )
     ) {
@@ -317,7 +317,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     $first = C\first($elements->getChildren()) ?? $missing;
     if (
       !C\any(
-        $elements->getItemsOfType(HHAST\TypeConstDeclaration::class),
+        $elements->getChildrenOfType(HHAST\TypeConstDeclaration::class),
         $tc ==> $tc->getName()->getText() === 'TContext',
       )
     ) {

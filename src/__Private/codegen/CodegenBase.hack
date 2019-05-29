@@ -98,7 +98,7 @@ abstract class CodegenBase {
   }
 
   final protected static function getHandWrittenSyntaxKinds(): keyset<string> {
-    return keyset['Missing', 'SyntaxList', 'Token'];
+    return keyset['Missing', 'SyntaxList', 'Token', 'ListItem'];
   }
 
   <<__Memoize>>
