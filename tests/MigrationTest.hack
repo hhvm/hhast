@@ -24,6 +24,7 @@ abstract class MigrationTest extends TestCase {
         |> Str\split($$, '\\')
         |> C\lastx($$)
         |> __Private\StrP\underscored($$)
+        |> Str\lowercase($$)
         |> Str\strip_suffix($$, '_migration'),
     );
     $full = __DIR__.'/fixtures/'.$fname.'.in';
