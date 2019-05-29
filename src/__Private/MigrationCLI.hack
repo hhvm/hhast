@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HHAST\Migrations\{
-  AddFixMesMigration,
+  AddFixmesMigration,
   AssertToExpectMigration,
   BaseMigration,
   CallTimePassByReferenceMigration,
@@ -212,7 +212,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = AddFixMesMigration::class;
+          $this->migrations[] = AddFixmesMigration::class;
         },
         'Add /* HH_FIXME[] */ comments where needed',
         '--add-fixmes',

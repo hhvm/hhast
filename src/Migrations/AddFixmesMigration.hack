@@ -20,7 +20,7 @@ use type Facebook\HHAST\{
 };
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
-final class AddFixMesMigration extends BaseMigration {
+final class AddFixmesMigration extends BaseMigration {
   use TypeErrorMigrationTrait;
 
   protected static function filterTypecheckerError(TTypecheckerError $_): bool {
