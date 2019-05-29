@@ -16,7 +16,6 @@ use type Facebook\HHAST\{
   NodeList,
   EqualToken,
   FunctionCallExpression,
-  ListItem,
   Script,
   WhiteSpace,
 };
