@@ -13,7 +13,8 @@ use type Facebook\HHAST\File;
 use namespace HH\Lib\Str;
 
 abstract class AutoFixingLineLinter<Terr as LineLintError>
-  extends LineLinter<Terr> implements AutoFixingLinter<Terr> {
+  extends LineLinter<Terr>
+  implements AutoFixingLinter<Terr> {
 
   use AutoFixingLinterTrait<Terr>;
 

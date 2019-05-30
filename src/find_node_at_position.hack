@@ -10,13 +10,6 @@
 namespace Facebook\HHAST;
 
 
-function find_node_at_position(
-  Node $root,
-  int $line,
-  int $char,
-): Node {
-  return find_node_at_offset(
-    $root,
-    offset_from_position($root, $line, $char),
-  );
+function find_node_at_position(Node $root, int $line, int $char): Node {
+  return find_node_at_offset($root, offset_from_position($root, $line, $char));
 }

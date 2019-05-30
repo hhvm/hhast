@@ -11,13 +11,7 @@ namespace Facebook\HHAST\Migrations;
 
 use function Facebook\HHAST\find_node_at_position;
 use type Facebook\HHAST\__Private\TTypecheckerError;
-use type Facebook\HHAST\{
-  NodeList,
-  FixMe,
-  Missing,
-  WhiteSpace,
-  Script,
-};
+use type Facebook\HHAST\{NodeList, FixMe, Missing, WhiteSpace, Script};
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 final class AddFixmesMigration extends BaseMigration {
@@ -28,10 +22,7 @@ final class AddFixmesMigration extends BaseMigration {
   }
 
   <<__Override>>
-  public function migrateFile(
-    string $path,
-    Script $root,
-  ): Script {
+  public function migrateFile(string $path, Script $root): Script {
     $errors_by_position = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $error ==> C\firstx($error['message']))
       |> Dict\group_by($$, $error ==> ($error['line'] << 32) + $error['start']);
@@ -65,27 +56,18 @@ final class AddFixmesMigration extends BaseMigration {
         $new_leading = NodeList::createNonEmptyListOrMissing($fixmes);
       } else if ($leading instanceof NodeList) {
         $new_leading = NodeList::createNonEmptyListOrMissing(
-          Vec\concat(
-            $leading->getChildren(),
-            $fixmes,
-          ),
+          Vec\concat($leading->getChildren(), $fixmes),
         );
       } else {
         $new_leading = NodeList::createNonEmptyListOrMissing(
-          Vec\concat(
-            vec[$leading],
-            $fixmes,
-          )
+          Vec\concat(vec[$leading], $fixmes),
         );
       }
 
-      $column_offset +=
-        Str\length($new_leading->getCode()) - Str\length($leading->getCode());
+      $column_offset += Str\length($new_leading->getCode()) -
+        Str\length($leading->getCode());
 
-      $root = $root->replace(
-        $node,
-        $node->withLeading($new_leading),
-      );
+      $root = $root->replace($node, $node->withLeading($new_leading));
     }
 
     return $root;

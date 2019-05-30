@@ -22,7 +22,9 @@ function find_offset_of_leading(Node $root, Node $node): int {
   // - Modified copies do not have a source-ref
   // So, if we have a top-level item with a source-ref, there have been no
   // modifications, so the original sourceref is valid for any descendants
-  if ($root is Script && __Private\NodeImplementationDetails::getSourceRef($root)) {
+  if (
+    $root is Script && __Private\NodeImplementationDetails::getSourceRef($root)
+  ) {
     $source = __Private\NodeImplementationDetails::getSourceRef($node);
     if ($source is nonnull) {
       return $source['offset'];

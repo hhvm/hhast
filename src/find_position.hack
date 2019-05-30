@@ -11,17 +11,11 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Str};
 
-function find_position(
-  Node $root,
-  Node $node,
-): (int, int) {
+function find_position(Node $root, Node $node): (int, int) {
   $offset = find_offset_after_leading($root, $node);
   $lines = $root->getCode()
     |> Str\slice($$, 0, $offset)
     |> \explode("\n", $$);
 
-  return tuple(
-    C\count($lines),
-    Str\length(C\lastx($lines)),
-  );
+  return tuple(C\count($lines), Str\length(C\lastx($lines)));
 }

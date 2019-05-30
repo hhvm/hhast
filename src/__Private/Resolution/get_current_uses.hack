@@ -9,10 +9,7 @@
 
 namespace Facebook\HHAST\__Private\Resolution;
 
-use type Facebook\HHAST\{
-  Node,
-  Script,
-};
+use type Facebook\HHAST\{Node, Script};
 
 function get_current_uses(
   Script $root,

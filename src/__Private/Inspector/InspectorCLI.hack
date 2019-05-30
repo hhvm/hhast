@@ -27,13 +27,17 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     return vec[
       CLIOptions\with_required_string(
-        $path ==> { $this->outputPath = $path; },
+        $path ==> {
+          $this->outputPath = $path;
+        },
         'File path to use for output',
         '--output',
         '-o',
       ),
       CLIOptions\flag(
-        () ==> { $this->open = true; },
+        () ==> {
+          $this->open = true;
+        },
         'Automatically open the generated file',
         '--open',
       ),
@@ -107,8 +111,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
 
       $leading = $node->getLeading();
       if (!$leading instanceof HHAST\Missing) {
-        $inner .=
-          '<span data-field="leading">'.
+        $inner .= '<span data-field="leading">'.
           $this->getHTMLForNode($leading).
           '</span>';
       }
@@ -117,8 +120,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
 
       $trailing = $node->getTrailing();
       if (!$trailing instanceof HHAST\Missing) {
-        $inner .=
-          '<span data-field="trailing">'.
+        $inner .= '<span data-field="trailing">'.
           $this->getHTMLForNode($trailing).
           '</span>';
       }
@@ -128,7 +130,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
           $$,
           ($key, $child) ==> Str\format(
             '<span data-field="%s">%s</span>',
-            (string) $key,
+            (string)$key,
             $this->getHTMLForNode($child),
           ),
         )

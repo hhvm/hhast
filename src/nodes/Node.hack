@@ -14,17 +14,12 @@ use namespace Facebook\TypeAssert;
 
 abstract class Node {
   abstract const string SYNTAX_KIND;
-  const type TRewriter = (function(
-    Node,
-    ?vec<Node>,
-  ): Node);
+  const type TRewriter = (function(Node, ?vec<Node>): Node);
 
   protected dict<int, Node> $_descendants = dict[];
   protected ?int $_width;
 
-  public function __construct(
-    protected ?__Private\SourceRef $sourceRef,
-  ) {
+  public function __construct(protected ?__Private\SourceRef $sourceRef) {
     $this->_descendants = Dict\merge(
       dict[$this->getUniqueID() => $this],
       ...Vec\map($this->getChildren(), $c ==> $c->_descendants)
@@ -181,10 +176,7 @@ abstract class Node {
     return $this->replaceImpl($old_id, $new);
   }
 
-  protected function replaceImpl(
-    int $old_id,
-    Node $new,
-  ): this {
+  protected function replaceImpl(int $old_id, Node $new): this {
     return $this->rewriteChildren(
       ($child, $_) ==> {
         if ($child->getUniqueID() === $old_id) {
@@ -224,10 +216,7 @@ abstract class Node {
     return null;
   }
 
-  public function insertBefore(
-    Node $target,
-    Node $new_node,
-  ): this {
+  public function insertBefore(Node $target, Node $new_node): this {
     // Inserting before missing is an error.
     if ($target->isMissing()) {
       throw new \Exception('Target must not be missing in insert_before.');
@@ -255,10 +244,7 @@ abstract class Node {
     return $this->replace($target, NodeList::concat($new_node, $target));
   }
 
-  public function insertAfter(
-    Node $target,
-    Node $new_node,
-  ): this {
+  public function insertAfter(Node $target, Node $new_node): this {
 
     // Inserting after missing is an error.
     if ($target->isMissing()) {
@@ -311,9 +297,7 @@ abstract class Node {
     return $rewriter($with_rewritten_children, $parents);
   }
 
-  final public function getAncestorsOfDescendant(
-    Node $node,
-  ): vec<Node> {
+  final public function getAncestorsOfDescendant(Node $node): vec<Node> {
     if ($node === $this) {
       return vec[$this];
     }
@@ -341,7 +325,7 @@ abstract class Node {
     }
     $children = $this->getChildren();
     while ($children) {
-    $child = C\firstx($children);
+      $child = C\firstx($children);
       if ($child === $node) {
         return null;
       }

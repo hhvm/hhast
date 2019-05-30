@@ -17,8 +17,7 @@ final class CodegenTriviaFromJSON extends CodegenBase {
     $cg = $this->getCodegenFactory();
 
     $cg
-      ->codegenFile($this->getOutputDirectory().
-        '/trivia_from_json.hack')
+      ->codegenFile($this->getOutputDirectory().'/trivia_from_json.hack')
       ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
       ->useNamespace('Facebook\\HHAST')

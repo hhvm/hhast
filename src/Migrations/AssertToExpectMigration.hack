@@ -73,7 +73,9 @@ final class AssertToExpectMigration extends StepBasedMigration {
     if (!$this->useExpectFunctionNeeded) {
       return $node;
     }
-    if (\preg_match('/^use function .*\\\\expect;$/', Str\trim($node->getCode()))) {
+    if (
+      \preg_match('/^use function .*\\\\expect;$/', Str\trim($node->getCode()))
+    ) {
       $this->useExpectFunctionNeeded = false;
     }
 
@@ -88,8 +90,10 @@ final class AssertToExpectMigration extends StepBasedMigration {
     }
     $useKind = $node->getKind();
     if ($useKind !== null && $useKind instanceof FunctionToken) {
-      $node =
-        $node->insertAfter($node->getLastTokenx(), self::getExpectFunction());
+      $node = $node->insertAfter(
+        $node->getLastTokenx(),
+        self::getExpectFunction(),
+      );
       $this->useExpectFunctionNeeded = false;
     }
     return $node;
@@ -102,8 +106,10 @@ final class AssertToExpectMigration extends StepBasedMigration {
       return $node;
     }
     $this->useExpectFunctionNeeded = false;
-    return
-      $node->insertAfter($node->getLastTokenx(), self::getExpectFunction());
+    return $node->insertAfter(
+      $node->getLastTokenx(),
+      self::getExpectFunction(),
+    );
   }
 
   private function addExpectAfterNamespaceDecl(

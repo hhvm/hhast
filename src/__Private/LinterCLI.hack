@@ -78,15 +78,16 @@ final class LinterCLI extends CLIWithArguments {
         XHProf::disableAndDump(\STDERR);
       } else {
         $dot = XHProf::disableAndGenerateDot();
-        await using ($file = \HH\Lib\Experimental\Filesystem\open_write_only(
-          $dotfile,
-          \HH\Lib\Experimental\Filesystem\FileWriteMode::TRUNCATE,
-        )) {
+        await using (
+          $file = \HH\Lib\Experimental\Filesystem\open_write_only(
+            $dotfile,
+            \HH\Lib\Experimental\Filesystem\FileWriteMode::TRUNCATE,
+          )
+        ) {
           await $file->writeAsync($dot);
         }
-        await $this->getStderr()->writeAsync(
-          Str\format("Wrote XHProf data to %s\n", $dotfile)
-        );
+        await $this->getStderr()
+          ->writeAsync(Str\format("Wrote XHProf data to %s\n", $dotfile));
       }
     }
 
@@ -144,8 +145,9 @@ final class LinterCLI extends CLIWithArguments {
     }
 
     try {
-      $result =
-        await (new LintRun($config, $error_handler, $roots))->runAsync();
+      $result = await (
+        new LintRun($config, $error_handler, $roots)
+      )->runAsync();
     } catch (Linters\LinterException $e) {
       $orig = $e->getPrevious() ?? $e;
       $err = $terminal->getStderr();
@@ -159,14 +161,16 @@ final class LinterCLI extends CLIWithArguments {
       if ($pos !== null && \is_readable($e->getFileBeingLinted())) {
         list($line, $column) = $pos;
         $content = \file_get_contents($e->getFileBeingLinted());
-        await (\file_get_contents($e->getFileBeingLinted())
+        await (
+          \file_get_contents($e->getFileBeingLinted())
           |> Str\split($$, "\n")
           |> Vec\take($$, $line)
           |> Vec\slice($$, Math\maxva($line - 3, 0))
           |> Vec\map($$, $line ==> '    > '.$line)
           |> Str\join($$, "\n")
           |> Str\format("%s\n      %s^ HERE\n", $$, Str\repeat(' ', $column))
-          |> $err->writeAsync($$));
+          |> $err->writeAsync($$)
+        );
       }
       await $err->writeAsync(Str\format(
         "  Exception: %s\n"."  Message: %s\n",

@@ -9,8 +9,9 @@
 
 namespace Facebook\HHAST\__Private\LSP;
 
-type VersionedTextDocumentIdentifier /* extends TextDocumentIdentifier */ = shape(
-  'version' => ?int,
-  /* TextDocumentIdentifier */
-  'uri' => DocumentUri,
-);
+type VersionedTextDocumentIdentifier /* extends TextDocumentIdentifier */ =
+  shape(
+    'version' => ?int,
+    /* TextDocumentIdentifier */
+    'uri' => DocumentUri,
+  );

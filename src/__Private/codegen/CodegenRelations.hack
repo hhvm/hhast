@@ -311,7 +311,7 @@ final class CodegenRelations extends CodegenBase {
     $types = ($node['elements'] ?? vec[])
       |> Vec\map(
         $$,
-        $e ==> self::getTypeString(TypeAssert\matches_type_structure($ts, $e))
+        $e ==> self::getTypeString(TypeAssert\matches_type_structure($ts, $e)),
       )
       |> Keyset\sort($$);
     return 'list<'.Str\join($types, '|').'>';

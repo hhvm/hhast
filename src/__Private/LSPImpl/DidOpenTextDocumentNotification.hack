@@ -28,13 +28,15 @@ final class DidOpenTextDocumentNotification
     if (!Str\starts_with($uri, 'file://')) {
       return;
     }
-    if (!(
-      $this->state->ignoreFilenameExtensions
-      || Str\ends_with($uri, '.php')
-      || Str\ends_with($uri, '.hh')
-      || Str\ends_with($uri, '.hack')
-      || Str\ends_with($uri, '.hck')
-    )) {
+    if (
+      !(
+        $this->state->ignoreFilenameExtensions ||
+        Str\ends_with($uri, '.php') ||
+        Str\ends_with($uri, '.hh') ||
+        Str\ends_with($uri, '.hack') ||
+        Str\ends_with($uri, '.hck')
+      )
+    ) {
       return;
     }
 

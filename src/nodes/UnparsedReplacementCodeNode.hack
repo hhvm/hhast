@@ -17,7 +17,10 @@ final class UnparsedReplacementCodeNode extends Node {
   private string $code;
 
   <<__Override>>
-  final public function __construct(Str\SprintfFormatString $format, mixed ...$args) {
+  final public function __construct(
+    Str\SprintfFormatString $format,
+    mixed ...$args
+  ) {
     $this->code = Str\format(/* HH_FIXME[4027] */ $format, ...$args);
     parent::__construct(/* sourceref = */ null);
   }

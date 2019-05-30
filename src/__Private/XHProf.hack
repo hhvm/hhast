@@ -95,7 +95,7 @@ final abstract class XHProf {
     $max = $counters
       |> Vec\map($$, $data ==> $data['inclusive'])
       |> Math\max($$) as nonnull
-      |> (float) $$;
+      |> (float)$$;
     $cull = $cull_rate * $max;
     $alert = $alert_rate * $max;
 

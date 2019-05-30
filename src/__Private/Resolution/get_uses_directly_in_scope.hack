@@ -16,7 +16,7 @@ use type Facebook\HHAST\{
   NamespaceToken,
   NamespaceUseClause,
   NamespaceUseDeclaration,
-  TypeToken
+  TypeToken,
 };
 use namespace HH\Lib\{C, Str};
 
@@ -32,9 +32,8 @@ function get_uses_directly_in_scope(
   $statements = $scope->getChildrenOfType(NamespaceUseDeclaration::class);
   foreach ($statements as $statement) {
     $kind = $statement->getKind();
-    $clauses = $statement->getClauses()->getDescendantsOfType(
-      NamespaceUseClause::class,
-    );
+    $clauses = $statement->getClauses()
+      ->getDescendantsOfType(NamespaceUseClause::class);
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
@@ -51,9 +50,8 @@ function get_uses_directly_in_scope(
     $prefix = $statement->getPrefix()->getCode()
       |> Str\trim($$)
       |> Str\strip_prefix($$, '\\');
-    $clauses = $statement->getClauses()->getDescendantsOfType(
-      NamespaceUseClause::class,
-    );
+    $clauses = $statement->getClauses()
+      ->getDescendantsOfType(NamespaceUseClause::class);
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
@@ -72,8 +70,8 @@ function get_uses_directly_in_scope(
         |> \explode('\\', $$)
         |> C\lastx($$)
       : $alias->getCode()
-        |> Str\trim($$)
-        |> Str\strip_prefix($$, '\\');
+      |> Str\trim($$)
+      |> Str\strip_prefix($$, '\\');
     if ($kind === null) {
       $namespaces[$alias] = $name;
       $types[$alias] = $name;

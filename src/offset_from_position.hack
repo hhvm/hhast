@@ -11,11 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{Str, Vec};
 
-function offset_from_position(
-  Node $root,
-  int $line,
-  int $column,
-): int {
+function offset_from_position(Node $root, int $line, int $column): int {
   if ($line === 1) {
     return $column - 1;
   }

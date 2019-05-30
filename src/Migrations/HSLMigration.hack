@@ -405,9 +405,7 @@ final class HSLMigration extends BaseMigration {
             $items[2],
             new CommaToken(
               HHAST\Missing(),
-              NodeList::createNonEmptyListOrMissing(
-                vec[new WhiteSpace(' ')],
-              ),
+              NodeList::createNonEmptyListOrMissing(vec[new WhiteSpace(' ')]),
             ),
           ),
           new ListItem($replacement_patterns, HHAST\Missing()),
@@ -611,7 +609,8 @@ final class HSLMigration extends BaseMigration {
 
           $name = $clause->getName();
           if ($name instanceof QualifiedName) {
-            $parts = $name->getParts()->getChildrenOfItemsOfType(NameToken::class);
+            $parts = $name->getParts()
+              ->getChildrenOfItemsOfType(NameToken::class);
             if (C\count($parts) !== 3) {
               continue;
             }

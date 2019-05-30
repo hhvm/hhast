@@ -32,20 +32,15 @@ final class OptionalShapeFieldsMigration extends StepBasedMigration {
 
     $name = $field->getName()->getLastTokenx();
     $field = $field->withQuestion(
-      new HHAST\QuestionToken(
-        $name->getLeading(),
-        HHAST\Missing(),
-      ),
-    )->withName(
-      $name->withLeading(HHAST\Missing()),
-    );
+      new HHAST\QuestionToken($name->getLeading(), HHAST\Missing()),
+    )
+      ->withName($name->withLeading(HHAST\Missing()));
 
     return $node->withItem($field);
   }
 
   <<__Override>>
-  final public function getSteps(
-  ): Traversable<IMigrationStep> {
+  final public function getSteps(): Traversable<IMigrationStep> {
     return vec[
       new TypedMigrationStep(
         'make nullable fields optional',

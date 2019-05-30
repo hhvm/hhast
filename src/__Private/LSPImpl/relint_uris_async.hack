@@ -9,8 +9,7 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use type Facebook\HHAST\__Private\{
-  LintRunConfig, LintRunEventHandler};
+use type Facebook\HHAST\__Private\{LintRunConfig, LintRunEventHandler};
 use namespace HH\Lib\Vec;
 
 async function relint_uris_async(

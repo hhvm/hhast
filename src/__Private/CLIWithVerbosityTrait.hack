@@ -25,7 +25,7 @@ trait CLIWithVerbosityTrait {
     if ($this->verbosity < $level) {
       return;
     }
-    print (\vsprintf($format, $args));
+    print(\vsprintf($format, $args));
   }
 
   protected function getVerbosityOption(): CLIOptions\CLIOption {

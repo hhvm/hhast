@@ -278,7 +278,9 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
       return $decl;
     }
 
-    $t_node->set(C\onlyx($parent->getArgumentList()->getTypes()->getChildrenOfItems()));
+    $t_node->set(
+      C\onlyx($parent->getArgumentList()->getTypes()->getChildrenOfItems()),
+    );
     $is_autofixing->set(
       Str\starts_with(
         ($parent->getClassType() ?as HHAST\NameToken)?->getText() ?? '',
@@ -376,10 +378,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     );
     return $decl->replace(
       $elements,
-      HHAST\NodeList::concat(
-        new HHAST\NodeList($new_elements),
-        $elements,
-      ),
+      HHAST\NodeList::concat(new HHAST\NodeList($new_elements), $elements),
     );
   }
 }

@@ -33,7 +33,10 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     Traversable<Linters\LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     $file = self::realPath($linter->getFile()->getPath());
-    $this->errors[$file] = Vec\concat($this->errors[$file] ?? vec[], vec($errors));
+    $this->errors[$file] = Vec\concat(
+      $this->errors[$file] ?? vec[],
+      vec($errors),
+    );
     return LintAutoFixResult::SOME_UNFIXED;
   }
 

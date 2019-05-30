@@ -14,9 +14,13 @@ use namespace Facebook\HHAST\__Private\LSP;
 
 abstract class Client {
 
-  abstract protected function sendMessageAsync(LSP\Message $message): Awaitable<void>;
+  abstract protected function sendMessageAsync(
+    LSP\Message $message,
+  ): Awaitable<void>;
 
-  final public async function sendRequestMessageAsync(LSP\RequestMessage $message): Awaitable<void> {
+  final public async function sendRequestMessageAsync(
+    LSP\RequestMessage $message,
+  ): Awaitable<void> {
     await $this->sendMessageAsync($message);
   }
 

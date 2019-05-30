@@ -38,7 +38,7 @@ final class Error<TResult, TErrorCode as int, TErrorData>
   public function asResponseError(): LSP\ResponseError {
     $s = shape(
       'code' => $this->code,
-      'message' => $this->message
+      'message' => $this->message,
     );
     if ($this->data !== null) {
       $s['data'] = $this->data;

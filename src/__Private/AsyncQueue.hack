@@ -13,8 +13,8 @@ class AsyncQueue {
   private ?Awaitable<mixed> $queue;
 
   public async function enqueueAndWaitForAsync<T>(
-    (function():Awaitable<T>) $item,
-    ): Awaitable<T> {
+    (function(): Awaitable<T>) $item,
+  ): Awaitable<T> {
     $prev = $this->queue;
     $next = async {
       await $prev;

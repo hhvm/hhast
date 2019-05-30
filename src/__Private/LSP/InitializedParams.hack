@@ -9,5 +9,4 @@
 
 namespace Facebook\HHAST\__Private\LSP;
 
-type InitializedParams = shape(
-);
+type InitializedParams = shape();

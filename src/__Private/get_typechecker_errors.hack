@@ -7,7 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\__Private;;
+namespace Facebook\HHAST\__Private;
+;
 
 
 use namespace HH\Lib\Str;
@@ -23,7 +24,7 @@ type TTypecheckerError = shape(
       'end' => int,
       'code' => int,
       ...
-    ),
+    )
   >,
   ...
 );
@@ -34,23 +35,17 @@ type TTypecheckerOutput = shape(
   ...
 );
 
-function get_typechecker_errors(
-  string $path,
-): vec<TTypecheckerError> {
+function get_typechecker_errors(string $path): vec<TTypecheckerError> {
   $path = \realpath($path);
   $command = vec[
     'hh_client',
     '--json',
-    '--from', 'hhast',
+    '--from',
+    'hhast',
     \escapeshellarg($path),
   ];
-  $output = \tempnam(
-    \sys_get_temp_dir(),
-    'hhast-temp',
-  );
-  \exec(
-    Str\join($command, ' ').' >/dev/null 2>'.\escapeshellarg($output),
-  );
+  $output = \tempnam(\sys_get_temp_dir(), 'hhast-temp');
+  \exec(Str\join($command, ' ').' >/dev/null 2>'.\escapeshellarg($output));
   // Exit code is unstable, so not checking it
 
   $lines = \file_get_contents($output);
@@ -63,7 +58,8 @@ function get_typechecker_errors(
       /* depth = */ 512,
       \JSON_FB_HACK_ARRAYS,
     );
-  };
+  }
+  ;
 
   $data = TypeAssert\matches_type_structure(
     type_alias_structure(TTypecheckerOutput::class),

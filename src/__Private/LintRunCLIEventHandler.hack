@@ -27,16 +27,16 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     Traversable<Linters\LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     if (!$this->terminal->isInteractive()) {
-      return
-        await $this->linterRaisedErrorsImplAsync($linter, $config, $errors);
-    }
-
-    return await $this->interactivityQueue->enqueueAndWaitForAsync(
-      async () ==> await $this->linterRaisedErrorsImplAsync(
+      return await $this->linterRaisedErrorsImplAsync(
         $linter,
         $config,
         $errors,
-      ),
+      );
+    }
+
+    return await $this->interactivityQueue->enqueueAndWaitForAsync(
+      async () ==>
+        await $this->linterRaisedErrorsImplAsync($linter, $config, $errors),
     );
   }
 

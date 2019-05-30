@@ -47,10 +47,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
     }
 
     // Consider '} else if {' to be the same as '} elseif {'
-    if (
-      $node instanceof ElseClause
-      && $body instanceof IfStatement
-    ) {
+    if ($node instanceof ElseClause && $body instanceof IfStatement) {
       return null;
     }
 
@@ -104,24 +101,20 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
     if ($node instanceof WhileStatement) {
       return $node->getRightParen()->getLastTokenx();
     }
-    invariant_violation(
-      'unhandled type: %s',
-      \get_class($node),
-    );
+    invariant_violation('unhandled type: %s', \get_class($node));
   }
 
-  public function getFixedNode(IControlFlowStatement $node): IControlFlowStatement {
+  public function getFixedNode(
+    IControlFlowStatement $node,
+  ): IControlFlowStatement {
     $body = $this->getBody($node);
-    invariant(
-      $body !== null,
-      "Can't fix a node with no body",
-    );
+    invariant($body !== null, "Can't fix a node with no body");
     $last_token = $this->getLastHeadToken($node);
 
     if (
       $last_token->getTrailingWhitespace()
-      ->getDescendantsOfType(EndOfLine::class)
-      |>C\is_empty(vec($$))
+        ->getDescendantsOfType(EndOfLine::class)
+      |> C\is_empty(vec($$))
     ) {
       $right_brace_leading = new WhiteSpace(' ');
       $body_trailing = HHAST\Missing();
@@ -137,12 +130,14 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
         }
         $no_newlines[] = $whitespace;
       }
-      $right_brace_leading = NodeList::createNonEmptyListOrMissing(Vec\reverse($no_newlines));
+      $right_brace_leading = NodeList::createNonEmptyListOrMissing(
+        Vec\reverse($no_newlines),
+      );
       $body_trailing = $body->getLastTokenx()->getTrailing();
     }
     return $node
       ->replace(
-      $body,
+        $body,
         new CompoundStatement(
           new LeftBraceToken(
             new WhiteSpace(' '),
@@ -158,10 +153,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
           ),
         ),
       )
-      ->replace(
-        $last_token,
-        $last_token->withTrailing(HHAST\Missing()),
-      );
+      ->replace($last_token, $last_token->withTrailing(HHAST\Missing()));
   }
 
   <<__Override>>
@@ -170,9 +162,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
   }
 
   <<__Override>>
-  public function getPrettyTextForNode(
-    IControlFlowStatement $node,
-  ): string {
+  public function getPrettyTextForNode(IControlFlowStatement $node): string {
     $token = $node->getFirstTokenx();
     return $node
       ->replace($token, $token->withLeading($token->getLeadingWhitespace()))

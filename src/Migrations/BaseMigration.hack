@@ -20,8 +20,5 @@ abstract class BaseMigration {
     return $this->root;
   }
 
-  abstract public function migrateFile(
-    string $path,
-    Script $ast,
-  ): Script;
+  abstract public function migrateFile(string $path, Script $ast): Script;
 }

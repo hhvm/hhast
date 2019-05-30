@@ -28,9 +28,9 @@ final class LintRun {
     return $this;
   }
 
-	private function getFileForPath(string $path): File {
+  private function getFileForPath(string $path): File {
     return $this->files[$path] ?? File::fromPath($path);
-	}
+  }
 
   private static function worstResult(
     LintRunResult ...$results
@@ -121,7 +121,8 @@ final class LintRun {
     if (!$errors) {
       return LintRunResult::NO_ERRORS;
     }
-    $result = await $this->handler->linterRaisedErrorsAsync($linter, $config, $errors);
+    $result = await $this->handler
+      ->linterRaisedErrorsAsync($linter, $config, $errors);
     return $result === LintAutoFixResult::ALL_FIXED
       ? LintRunResult::HAD_AUTOFIXED_ERRORS
       : LintRunResult::HAVE_UNFIXED_ERRORS;
@@ -131,15 +132,18 @@ final class LintRun {
     LintRunConfig $config,
     string $path,
   ): Awaitable<LintRunResult> {
-    $it =
-      new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path));
+    $it = new \RecursiveIteratorIterator(
+      new \RecursiveDirectoryIterator($path),
+    );
     $files = vec[];
     foreach ($it as $info) {
       if (!$info->isFile()) {
         continue;
       }
       $ext = Str\lowercase($info->getExtension());
-      if ($ext === 'hh' || $ext === 'php' || $ext === 'hack' || $ext === 'hck') {
+      if (
+        $ext === 'hh' || $ext === 'php' || $ext === 'hack' || $ext === 'hck'
+      ) {
         $files[] = $this->getFileForPath($info->getPathname());
       }
     }

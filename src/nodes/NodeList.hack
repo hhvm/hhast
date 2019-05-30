@@ -41,13 +41,11 @@ final class NodeList<+Titem as Node> extends Node {
     return /* HH_FIXME[4110] */ $this->_children;
   }
 
-  final public function getChildrenOfItems<T>(): vec<T> where Titem as ListItem<T> {
+  final public function getChildrenOfItems<T>(
+  ): vec<T> where Titem as ListItem<T> {
     /* HH_FIXME[4110] we have to trust the typechecker here; in future, use
      * reified generics */
-    return Vec\map(
-      $this->getChildren(),
-      $child ==> $child->getItem(),
-    );
+    return Vec\map($this->getChildren(), $child ==> $child->getItem());
   }
 
   final public function getChildrenOfItemsOfType<T>(

@@ -20,8 +20,7 @@ use type Facebook\HHAST\{
 };
 use function Facebook\HHAST\Missing;
 
-final class NoElseifLinter
-  extends AutoFixingASTLinter {
+final class NoElseifLinter extends AutoFixingASTLinter {
   const type TNode = ElseifToken;
   const type TContext = Script;
 

@@ -14,10 +14,7 @@ use namespace HH\Lib\{C, Str, Vec};
 
 final class IsRefinementMigration extends BaseMigration {
   <<__Override>>
-  public function migrateFile(
-    string $_path,
-    HHAST\Script $ast,
-  ): HHAST\Script {
+  public function migrateFile(string $_path, HHAST\Script $ast): HHAST\Script {
     $m = HHAST\Missing();
     $map = dict[
       'is_string' => () ==> new HHAST\StringToken($m, $m),
@@ -30,14 +27,14 @@ final class IsRefinementMigration extends BaseMigration {
         new HHAST\LessThanToken($m, $m),
         new HHAST\NameToken($m, $m, '_'),
         /* trailing comma */ $m,
-        new HHAST\GreaterThanToken($m, $m)
+        new HHAST\GreaterThanToken($m, $m),
       ),
       'is_keyset' => () ==> new HHAST\KeysetTypeSpecifier(
         new HHAST\KeysetToken($m, $m),
         new HHAST\LessThanToken($m, $m),
         new HHAST\NameToken($m, $m, '_'),
         /* trailing comma */ $m,
-        new HHAST\GreaterThanToken($m, $m)
+        new HHAST\GreaterThanToken($m, $m),
       ),
       'is_dict' => () ==> new HHAST\DictionaryTypeSpecifier(
         new HHAST\DictToken($m, $m),

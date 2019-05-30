@@ -9,12 +9,7 @@
 
 namespace Facebook\HHAST\__Private\Wrap;
 
-use type Facebook\HHAST\{
-  Node,
-  IExpression,
-  INameishNode,
-  NameExpression,
-};
+use type Facebook\HHAST\{Node, IExpression, INameishNode, NameExpression};
 
 function wrap_IExpression(Node $node): IExpression {
   if ($node instanceof IExpression) {

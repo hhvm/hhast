@@ -14,10 +14,7 @@ use namespace HH\Lib\Str;
 abstract class Trivia extends Node {
   private string $_text;
   <<__Override>>
-  public function __construct(
-    string $text,
-    ?__Private\SourceRef $ref,
-  ) {
+  public function __construct(string $text, ?__Private\SourceRef $ref) {
     $this->_text = $text;
     parent::__construct($ref);
   }

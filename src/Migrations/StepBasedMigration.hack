@@ -15,10 +15,7 @@ abstract class StepBasedMigration extends BaseMigration {
   abstract public function getSteps(): Traversable<IMigrationStep>;
 
   <<__Override>>
-  final public function migrateFile(
-    string $_path,
-    Script $ast,
-  ): Script {
+  final public function migrateFile(string $_path, Script $ast): Script {
     foreach ($this->getSteps() as $step) {
       $ast = $ast->rewrite(($node, $_) ==> $step->rewrite($node)) as Script;
     }

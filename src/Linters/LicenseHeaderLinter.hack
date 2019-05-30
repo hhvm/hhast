@@ -67,9 +67,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
   }
 
   <<__Override>>
-  public function getPrettyTextForNode(
-    Script $node,
-  ): string {
+  public function getPrettyTextForNode(Script $node): string {
     return $node->getDeclarations()->getChildren()
       |> Vec\take($$, 2)
       |> NodeList::createNonEmptyListOrMissing($$)
@@ -115,7 +113,10 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
         $new[] = new EndOfLine("\n");
       }
 
-      return $node->replace($existing, NodeList::createNonEmptyListOrMissing($new));
+      return $node->replace(
+        $existing,
+        NodeList::createNonEmptyListOrMissing($new),
+      );
     }
 
 
@@ -123,7 +124,9 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
       vec[
         new DelimitedComment(
           TypeAssert\not_null(
-            self::getLicenseHeaderForPath(\dirname($this->getFile()->getPath())),
+            self::getLicenseHeaderForPath(
+              \dirname($this->getFile()->getPath()),
+            ),
           ),
         ),
         new EndOfLine("\n"),

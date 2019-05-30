@@ -11,10 +11,8 @@ namespace Facebook\HHAST\Migrations;
 
 use type Facebook\HHAST\Node;
 
-final class TypedMigrationStep<
-  Tin as Node,
-  Tout as Node
-> implements IMigrationStep {
+final class TypedMigrationStep<Tin as Node, Tout as Node>
+  implements IMigrationStep {
 
   public function __construct(
     private string $name,

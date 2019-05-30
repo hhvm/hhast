@@ -30,7 +30,8 @@ class InitializeCommand<TState as ServerState> extends ServerCommand {
     $this->state
       ->setStatus(ServerStatus::INITIALIZING)
       ->setClientCapabilities($p['capabilities']);
-    return
-      static::success(shape('capabilities' => static::SERVER_CAPABILITIES));
+    return static::success(
+      shape('capabilities' => static::SERVER_CAPABILITIES),
+    );
   }
 }

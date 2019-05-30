@@ -9,26 +9,17 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\{
-  FunctionDeclaration,
-  MethodishDeclaration
-};
+use type Facebook\HHAST\{FunctionDeclaration, MethodishDeclaration};
 use namespace HH\Lib\{C, Str};
 
-class CamelCasedMethodsUnderscoredFunctionsLinter
-extends FunctionNamingLinter {
+class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   <<__Override>>
   final public function getSuggestedNameForFunction(
     string $name,
     FunctionDeclaration $func,
   ): string {
     list($head, $suffix) = self::splitName($name);
-    if (
-      \preg_match(
-        '/^[a-z0-9_]+$/',
-        $head,
-      ) === 1
-    ) {
+    if (\preg_match('/^[a-z0-9_]+$/', $head) === 1) {
       return $name;
     }
 
@@ -64,12 +55,7 @@ extends FunctionNamingLinter {
     MethodishDeclaration $_,
   ): string {
     list($head, $suffix) = self::splitName($name);
-    if (
-      \preg_match(
-        '/^[a-z][a-zA-Z0-9]+$/',
-        $head,
-      ) === 1
-    ) {
+    if (\preg_match('/^[a-z][a-zA-Z0-9]+$/', $head) === 1) {
       return $name;
     }
 
@@ -77,7 +63,8 @@ extends FunctionNamingLinter {
       '/_[a-z]/',
       $matches ==> Str\uppercase($matches[0][1]),
       $head,
-    ) |> ($suffix === null ? $$ : $$.'_'.$suffix);
+    )
+      |> ($suffix === null ? $$ : $$.'_'.$suffix);
     $name[0] = Str\lowercase($name[0]);
     return $name;
   }
@@ -90,9 +77,7 @@ extends FunctionNamingLinter {
     return $this->getSuggestedNameForInstanceMethod($name, $meth);
   }
 
-  protected static function splitName(
-    string $name,
-  ): (string, ?string) {
+  protected static function splitName(string $name): (string, ?string) {
     $suffixes = vec['UNTYPED', 'UNSAFE', 'DEPRECATED'];
     foreach ($suffixes as $suffix) {
       if (Str\ends_with_ci($name, $suffix)) {

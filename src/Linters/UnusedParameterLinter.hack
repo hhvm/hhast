@@ -47,7 +47,9 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
     } else if ($functionish instanceof MethodishDeclaration) {
       $body = $functionish->getFunctionBody();
     } else {
-      invariant_violation("Couldn't find functionish for parameter declaration");
+      invariant_violation(
+        "Couldn't find functionish for parameter declaration",
+      );
     }
 
     if ($body === null || $body is SemicolonToken) {

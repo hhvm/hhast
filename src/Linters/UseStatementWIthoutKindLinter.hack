@@ -64,8 +64,9 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
         $name = $clause->getName();
         if ($name instanceof QualifiedName) {
           return (
-            C\lastx($name->getParts()->getChildrenOfItemsOfType(NameToken::class)) as
-              nonnull
+            C\lastx(
+              $name->getParts()->getChildrenOfItemsOfType(NameToken::class),
+            ) as nonnull
           )->getText();
         }
         invariant(

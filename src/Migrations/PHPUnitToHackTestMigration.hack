@@ -45,10 +45,13 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $parts[0] = $parts[0]->withLeading($in->getFirstTokenx()->getLeading());
     $last_idx = C\count($parts) - 1;
-    $parts[$last_idx] =
-      $parts[$last_idx]->withTrailing($in->getLastTokenx()->getTrailing());
+    $parts[$last_idx] = $parts[$last_idx]->withTrailing(
+      $in->getLastTokenx()->getTrailing(),
+    );
     return $in->withSpecifier(
-      new HHAST\QualifiedName(HHAST\NodeList::createNonEmptyListOrMissing($parts)),
+      new HHAST\QualifiedName(
+        HHAST\NodeList::createNonEmptyListOrMissing($parts),
+      ),
     );
   }
 
@@ -100,8 +103,10 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       return null;
     }
 
-    $doc_comments =
-      Vec\filter($leading, $c ==> Str\starts_with($c->getText(), '/**'));
+    $doc_comments = Vec\filter(
+      $leading,
+      $c ==> Str\starts_with($c->getText(), '/**'),
+    );
     if (C\count($doc_comments) !== 1) {
       return null;
     }
@@ -143,20 +148,21 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     $attr = new HHAST\ConstructorCall(
       new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), "DataProvider"),
       new HHAST\LeftParenToken(HHAST\Missing(), HHAST\Missing()),
-      HHAST\NodeList::createNonEmptyListOrMissing(vec[new HHAST\SingleQuotedStringLiteralToken(
-        HHAST\Missing(),
-        HHAST\Missing(),
-        "'".$provider."'",
-      )]),
+      HHAST\NodeList::createNonEmptyListOrMissing(vec[
+        new HHAST\SingleQuotedStringLiteralToken(
+          HHAST\Missing(),
+          HHAST\Missing(),
+          "'".$provider."'",
+        ),
+      ]),
       new HHAST\RightParenToken(HHAST\Missing(), HHAST\Missing()),
     );
 
     $attrs = $decl->getAttribute();
     if ($attrs === null) {
       if ($comment_text !== null) {
-        $leading =
-          ($decl->getFirstTokenx()->getLeading() as HHAST\NodeList<_>)
-            ->replace($comment, $comment->withText($comment_text));
+        $leading = ($decl->getFirstTokenx()->getLeading() as HHAST\NodeList<_>)
+          ->replace($comment, $comment->withText($comment_text));
       } else {
         $leading = vec[];
         foreach (
@@ -168,8 +174,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           }
           $leading[] = $item as HHAST\Trivia;
         }
-        $leading =
-          HHAST\NodeList::createNonEmptyListOrMissing($this->trimWhitespace($leading));
+        $leading = HHAST\NodeList::createNonEmptyListOrMissing(
+          $this->trimWhitespace($leading),
+        );
       }
       $decl = $decl->replace($comment, HHAST\Missing());
       $attrs = new HHAST\AttributeSpecification(
@@ -204,14 +211,14 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     return $decl->replace(
       $first,
       $first->withLeading(
-        HHAST\NodeList::createNonEmptyListOrMissing($this->trimWhitespace($leading)),
+        HHAST\NodeList::createNonEmptyListOrMissing(
+          $this->trimWhitespace($leading),
+        ),
       ),
     );
   }
 
-  private function trimWhitespace(
-    vec<HHAST\Node> $leading,
-  ): vec<HHAST\Node> {
+  private function trimWhitespace(vec<HHAST\Node> $leading): vec<HHAST\Node> {
     $saved = vec[];
     $whitespace = vec[];
     foreach ($leading as $item) {
@@ -353,15 +360,19 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       $node->getModifiers()?->getChildren() ?? vec[],
       $m ==> {
         if ($m is HHAST\PrivateToken || $m is HHAST\ProtectedToken) {
-          return
-            new HHAST\PublicToken(HHAST\Missing(), new HHAST\WhiteSpace(' '));
+          return new HHAST\PublicToken(
+            HHAST\Missing(),
+            new HHAST\WhiteSpace(' '),
+          );
         }
         return ($m as HHAST\Token)->withLeading(HHAST\Missing())
           ->withTrailing(new HHAST\WhiteSpace(' '));
       },
     );
-    $new_modifiers[] =
-      new HHAST\AsyncToken(HHAST\Missing(), new HHAST\WhiteSpace(' '));
+    $new_modifiers[] = new HHAST\AsyncToken(
+      HHAST\Missing(),
+      new HHAST\WhiteSpace(' '),
+    );
     $new_modifiers[0] = $new_modifiers[0]->withLeading($leading);
 
     $type = $node->getType();
@@ -423,7 +434,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $new_name,
       ),
     )
-      ->withModifiers(HHAST\NodeList::createNonEmptyListOrMissing($new_modifiers));
+      ->withModifiers(
+        HHAST\NodeList::createNonEmptyListOrMissing($new_modifiers),
+      );
   }
 
   final private function migrateExpectedExceptionAttribute(
@@ -513,7 +526,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $indent = $node->getFunctionDeclHeader()
       ->getFirstTokenx()
-      ->getLeadingWhitespace()->getCode();
+      ->getLeadingWhitespace()
+      ->getCode();
 
     $new = $this->migrateExpectExceptionInStatements($body, $indent);
     if ($new === $body) {
@@ -567,9 +581,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       return $statements;
     }
 
-    $expect_exception =
-      ($statements[$idx] as HHAST\ExpressionStatement)->getExpressionx() as
-        HHAST\FunctionCallExpression;
+    $expect_exception = (
+      $statements[$idx] as HHAST\ExpressionStatement
+    )->getExpressionx() as HHAST\FunctionCallExpression;
 
     $pre = Vec\take($statements, $idx);
     $post = Vec\drop($statements, $idx + 1);
@@ -608,7 +622,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           return $statement->replace(
             $t,
             $t->withLeading(
-              new HHAST\WhiteSpace($t->getLeadingWhitespace()->getCode().$indent),
+              new HHAST\WhiteSpace(
+                $t->getLeadingWhitespace()->getCode().$indent,
+              ),
             ),
           );
         },
@@ -656,7 +672,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         new HHAST\MinusGreaterThanToken($m, $m),
         new HHAST\NameToken($m, $m, 'toThrow'),
       ),
-       HHAST\Missing(),
+      HHAST\Missing(),
       new HHAST\LeftParenToken($m, $m),
       $exception,
       new HHAST\RightParenToken($m, $m),

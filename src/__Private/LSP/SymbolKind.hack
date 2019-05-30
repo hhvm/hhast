@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private\LSP;
 
-enum SymbolKind : int {
+enum SymbolKind: int {
   // K prefix because of reserved words
   K_FILE = 1;
   K_MODULE = 2;

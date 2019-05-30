@@ -67,9 +67,7 @@ final class CodegenTokenFromData extends CodegenBase {
           ->addConstant(
             $cg
               ->codegenClassConstant('WITH_TEXT')
-              ->setType(
-                'dict<string, classname<HHAST\TokenWithVariableText>>',
-              )
+              ->setType('dict<string, classname<HHAST\TokenWithVariableText>>')
               ->setValue(
                 $class_map_with_text,
                 HackBuilderValues::dict(
@@ -81,9 +79,7 @@ final class CodegenTokenFromData extends CodegenBase {
           ->addConstant(
             $cg
               ->codegenClassConstant('WITHOUT_TEXT')
-              ->setType(
-                'dict<string, classname<HHAST\TokenWithFixedText>>',
-              )
+              ->setType('dict<string, classname<HHAST\TokenWithFixedText>>')
               ->setValue(
                 $class_map,
                 HackBuilderValues::dict(

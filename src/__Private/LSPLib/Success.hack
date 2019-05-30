@@ -9,7 +9,8 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
-final class Success<TResult, TErrorCode as int, TErrorData> extends SuccessOrError<TResult, TErrorCode, TErrorData> {
+final class Success<TResult, TErrorCode as int, TErrorData>
+  extends SuccessOrError<TResult, TErrorCode, TErrorData> {
   public function __construct(private TResult $result) {
   }
 

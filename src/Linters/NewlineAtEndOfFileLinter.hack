@@ -18,8 +18,7 @@ final class NewlineAtEndOfFileLinter
   use AutoFixingLinterTrait<LintError>;
 
   <<__Override>>
-  public async function getLintErrorsAsync(
-  ): Awaitable<vec<LintError>> {
+  public async function getLintErrorsAsync(): Awaitable<vec<LintError>> {
     $contents = $this->getFile()->getContents();
     $fixed = $this->getFixedFile(vec[])->getContents();
     if ($contents === $fixed) {

@@ -14,9 +14,7 @@ use type Facebook\HHAST\File;
 abstract class AutoFixingASTLinter extends ASTLinter {
   use AutoFixingLinterTrait<ASTLintError>;
 
-  final public function getFixedFile(
-    Traversable<ASTLintError> $errors,
-  ): File {
+  final public function getFixedFile(Traversable<ASTLintError> $errors): File {
     $ast = $this->getAST();
     foreach ($errors as $error) {
       invariant(

@@ -14,9 +14,7 @@ use type Facebook\HHAST\Node;
 /* HH_IGNORE_ERROR[4047] not implementing abstract methods */
 abstract final class NodeImplementationDetails extends Node {
   const string SYNTAX_KIND = 'hhast_nonimplementable';
-  public static function getSourceRef(
-    Node $node,
-  ): ?SourceRef {
+  public static function getSourceRef(Node $node): ?SourceRef {
     return $node->sourceRef;
   }
 }

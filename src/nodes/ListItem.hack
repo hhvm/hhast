@@ -96,12 +96,12 @@ final class ListItem<+T as ?Node> extends Node {
     return $this->_item;
   }
 
-	public function getItem(): T {
-		if ($this->_item->isMissing()) {
-			return /* HH_FIXME[4110] trust that T is nullable */ null;
-		}
-		return /* HH_FIXME[4110] */ $this->_item;
-	}
+  public function getItem(): T {
+    if ($this->_item->isMissing()) {
+      return /* HH_FIXME[4110] trust that T is nullable */ null;
+    }
+    return /* HH_FIXME[4110] */ $this->_item;
+  }
 
   public function getItemx(): T where T as nonnull {
     return $this->getItem() as nonnull;

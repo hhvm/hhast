@@ -9,16 +9,9 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use function Facebook\HHAST\{
-  find_node_at_position,
-  Missing,
-};
+use function Facebook\HHAST\{find_node_at_position, Missing};
 use type Facebook\HHAST\__Private\TTypecheckerError;
-use type Facebook\HHAST\{
-  BackslashToken,
-  NodeList,
-  Script,
-};
+use type Facebook\HHAST\{BackslashToken, NodeList, Script};
 use function Facebook\HHAST\__Private\execute_async;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
@@ -30,50 +23,37 @@ final class NamespaceFallbackMigration extends BaseMigration {
   protected static function filterTypecheckerError(
     TTypecheckerError $error,
   ): bool {
-    return C\contains(
-      self::ERROR_CODES,
-      C\firstx($error['message'])['code'],
-    );
+    return C\contains(self::ERROR_CODES, C\firstx($error['message'])['code']);
   }
 
   <<__Override>>
-  public function migrateFile(
-    string $path,
-    Script $root,
-  ): Script {
+  public function migrateFile(string $path, Script $root): Script {
     $nodes = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $error ==> C\firstx($error['message']))
-      |> Vec\unique_by(
-        $$,
-        $error ==> $error['line'].':'.$error['start'],
-      )
+      |> Vec\unique_by($$, $error ==> $error['line'].':'.$error['start'])
       |> Vec\map(
         $$,
-        $error ==> find_node_at_position(
-          $root,
-          $error['line'],
-          $error['start'],
-        ),
+        $error ==>
+          find_node_at_position($root, $error['line'], $error['start']),
       );
 
     foreach ($nodes as $node) {
       $node = $node->getFirstTokenx();
       $name = $node->getText();
-      if (!(
-        \function_exists($name) ||
-        \defined($name) ||
-        self::isTypecheckerAware($name, $path)
-      )) {
+      if (
+        !(
+          \function_exists($name) ||
+          \defined($name) ||
+          self::isTypecheckerAware($name, $path)
+        )
+      ) {
         continue;
       }
       $root = $root->replace(
         $node,
         NodeList::createNonEmptyListOrMissing(
           vec[
-            new BackslashToken(
-              $node->getLeading(),
-              Missing(),
-            ),
+            new BackslashToken($node->getLeading(), Missing()),
             $node->withLeading(Missing()),
           ],
         ),
@@ -89,16 +69,10 @@ final class NamespaceFallbackMigration extends BaseMigration {
     ...
   )>;
 
-  private static function isTypecheckerAware(
-    string $name,
-    string $path,
-  ): bool {
-    $lines = \HH\Asio\join(execute_async(
-      'hh_client',
-      '--search', "\\".$name,
-      '--json',
-      $path,
-    ));
+  private static function isTypecheckerAware(string $name, string $path): bool {
+    $lines = \HH\Asio\join(
+      execute_async('hh_client', '--search', "\\".$name, '--json', $path),
+    );
     $json = Str\join($lines, "\n");
     $results = TypeAssert\matches_type_structure(
       type_structure(self::class, 'TSearchResult'),
@@ -111,10 +85,8 @@ final class NamespaceFallbackMigration extends BaseMigration {
     );
     return C\any(
       $results,
-      $result ==>
-        $result['name'] === $name && (
-          $result['desc'] === 'function' || $result['desc'] === 'constant'
-        ),
+      $result ==> $result['name'] === $name &&
+        ($result['desc'] === 'function' || $result['desc'] === 'constant'),
     );
   }
 }

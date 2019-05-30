@@ -66,9 +66,7 @@ abstract class FunctionNamingLinter extends AutoFixingASTLinter {
     );
   }
 
-  private function getCurrentNameNodeForFunctionOrMethod(
-    Node $node,
-  ): ?Token {
+  private function getCurrentNameNodeForFunctionOrMethod(Node $node): ?Token {
     if ($node instanceof FunctionDeclaration) {
       return $node->getDeclarationHeader()->getName();
     }
@@ -98,7 +96,7 @@ abstract class FunctionNamingLinter extends AutoFixingASTLinter {
       $new = $this->getSuggestedNameForFunction($old, $func);
     } else if ($func instanceof MethodishDeclaration) {
       if (
-          $header->getModifiers()
+        $header->getModifiers()
           ?->getDescendantsOfType(StaticToken::class)
         |> ($$ ?? vec[])
         |> C\is_empty(vec($$))

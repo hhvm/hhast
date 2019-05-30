@@ -9,16 +9,9 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use function Facebook\HHAST\{
-  find_node_at_position,
-  Missing,
-};
+use function Facebook\HHAST\{find_node_at_position, Missing};
 use type Facebook\HHAST\__Private\TTypecheckerError;
-use type Facebook\HHAST\{
-  AmpersandToken,
-  NodeList,
-  Script,
-};
+use type Facebook\HHAST\{AmpersandToken, NodeList, Script};
 use namespace HH\Lib\{C, Vec};
 
 final class CallTimePassByReferenceMigration extends BaseMigration {
@@ -32,19 +25,13 @@ final class CallTimePassByReferenceMigration extends BaseMigration {
   }
 
   <<__Override>>
-  public function migrateFile(
-    string $path,
-    Script $root,
-  ): Script {
+  public function migrateFile(string $path, Script $root): Script {
     $nodes = $this->getTypecheckerErrorsForFile($path)
       |> Vec\map($$, $err ==> C\firstx($err['message']))
       |> Vec\map(
         $$,
-        $error ==> find_node_at_position(
-          $root,
-          $error['line'],
-          $error['start'],
-        ),
+        $error ==>
+          find_node_at_position($root, $error['line'], $error['start']),
       );
 
     foreach ($nodes as $node) {
@@ -53,10 +40,7 @@ final class CallTimePassByReferenceMigration extends BaseMigration {
         $node,
         NodeList::createNonEmptyListOrMissing(
           vec[
-            new AmpersandToken(
-              $node->getLeading(),
-              Missing(),
-            ),
+            new AmpersandToken($node->getLeading(), Missing()),
             $node->withLeading(Missing()),
           ],
         ),

@@ -10,14 +10,8 @@
 namespace Facebook\HHAST;
 
 
-function find_node_at_offset(
-  Node $root,
-  int $offset,
-): Node {
-  invariant(
-    $offset < $root->getWidth(),
-    "Offset is out of bounds",
-  );
+function find_node_at_offset(Node $root, int $offset): Node {
+  invariant($offset < $root->getWidth(), "Offset is out of bounds");
 
   if ($offset === 0) {
     return $root;

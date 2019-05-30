@@ -136,8 +136,11 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
           $inner instanceof NameToken,
           '"${}" should contain a variable name',
         );
-        $new_children[] =
-          new VariableToken(Missing(), Missing(), '$'.$inner->getText());
+        $new_children[] = new VariableToken(
+          Missing(),
+          Missing(),
+          '$'.$inner->getText(),
+        );
         continue;
       }
 

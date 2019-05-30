@@ -12,11 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\HHAST\__Private\Resolution;
 
-function resolve_type(
-  string $type,
-  Script $root,
-  Node $node,
-): string {
+function resolve_type(string $type, Script $root, Node $node): string {
   if (Str\starts_with($type, '\\')) {
     return Str\strip_prefix($type, '\\');
   }

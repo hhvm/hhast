@@ -26,20 +26,19 @@ final class InitializeCommand extends LSPLib\InitializeCommand<ServerState> {
     ),
   );
 
-  const LSP\ServerCapabilities
-    SERVER_CAPABILITIES = shape(
-      'textDocumentSync' => shape(
-        'save' => shape(
-          'includeText' => false,
-        ),
-        'openClose' => true,
-        'change' => LSP\TextDocumentSyncKind::FULL,
+  const LSP\ServerCapabilities SERVER_CAPABILITIES = shape(
+    'textDocumentSync' => shape(
+      'save' => shape(
+        'includeText' => false,
       ),
-      'codeActionProvider' => true,
-      'executeCommandProvider' => shape(
-        'commands' => ExecuteCommandCommand::COMMANDS,
-      ),
-    );
+      'openClose' => true,
+      'change' => LSP\TextDocumentSyncKind::FULL,
+    ),
+    'codeActionProvider' => true,
+    'executeCommandProvider' => shape(
+      'commands' => ExecuteCommandCommand::COMMANDS,
+    ),
+  );
 
   <<__Override>>
   public async function executeAsync(

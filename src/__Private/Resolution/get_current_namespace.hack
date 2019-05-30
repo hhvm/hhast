@@ -9,16 +9,10 @@
 
 namespace Facebook\HHAST\__Private\Resolution;
 
-use type Facebook\HHAST\{
-  Node,
-  Script,
-};
+use type Facebook\HHAST\{Node, Script};
 use namespace HH\Lib\C;
 
-function get_current_namespace(
-  Script $root,
-  Node $node,
-): ?string {
+function get_current_namespace(Script $root, Node $node): ?string {
   $namespaces = $root->getNamespaces();
   if (C\is_empty($namespaces)) {
     return null;
