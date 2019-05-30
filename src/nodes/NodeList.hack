@@ -62,11 +62,6 @@ final class NodeList<+Titem as Node> extends Node {
     return $out;
   }
 
-  <<__Deprecated("Use createNonEmptyListOrMissing() instead")>>
-  public static function fromItems(vec<Node> $items): Node {
-    return self::createNonEmptyListOrMissing($items);
-  }
-
   public static function createNonEmptyListOrMissing(vec<Node> $items): Node {
     if (C\count($items) === 0) {
       return Missing();
