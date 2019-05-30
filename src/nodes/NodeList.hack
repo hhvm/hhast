@@ -41,7 +41,7 @@ final class NodeList<+Titem as Node> extends Node {
     return /* HH_FIXME[4110] */ $this->_children;
   }
 
-  final public function getItems<T>(): vec<T> where Titem as ListItem<T> {
+  final public function getChildrenOfItems<T>(): vec<T> where Titem as ListItem<T> {
     /* HH_FIXME[4110] we have to trust the typechecker here; in future, use
      * reified generics */
     return Vec\map(
@@ -50,11 +50,11 @@ final class NodeList<+Titem as Node> extends Node {
     );
   }
 
-  final public function getItemsOfType<T>(
+  final public function getChildrenOfItemsOfType<T>(
     classname<T> $what,
   ): vec<T> where Titem as ListItem<T> {
     $out = vec[];
-    foreach ($this->getItems() as $item) {
+    foreach ($this->getChildrenOfItems() as $item) {
       if ($item instanceof $what) {
         $out[] = $item;
       }

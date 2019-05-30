@@ -121,7 +121,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     if ($attrs === null) {
       return false;
     }
-    $attrs = $attrs->getAttributes()->getItems()
+    $attrs = $attrs->getAttributes()->getChildrenOfItems()
       |> Vec\map($$, $attr ==> ($attr->getType() ?as NameToken)?->getText());
     return C\contains($attrs, '__Override');
   }

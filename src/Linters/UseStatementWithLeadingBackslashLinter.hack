@@ -34,7 +34,7 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
       }
       $matched = true;
     } else {
-      foreach ($node->getClausesx()->getItems() as $clause) {
+      foreach ($node->getClausesx()->getChildrenOfItems() as $clause) {
         $name = $clause->getName()->getFirstToken();
         if ($name instanceof BackslashToken) {
           $matched = true;
@@ -63,7 +63,7 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
   ): INamespaceUseDeclaration {
     if ($node instanceof NamespaceUseDeclaration) {
       $clauses = $node->getClauses();
-      foreach ($clauses->getItems() as $clause) {
+      foreach ($clauses->getChildrenOfItems() as $clause) {
         $t = $clause->getName()->getFirstTokenx();
         if (!$t instanceof BackslashToken) {
           continue;

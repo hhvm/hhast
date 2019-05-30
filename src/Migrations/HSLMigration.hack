@@ -564,7 +564,7 @@ final class HSLMigration extends BaseMigration {
         // group declarations: does prefix match?
         $parts = $decl->getPrefix()
           ->getParts()
-          ->getItemsOfType(NameToken::class);
+          ->getChildrenOfItemsOfType(NameToken::class);
         if (C\count($parts) !== 2) {
           continue;
         }
@@ -606,12 +606,12 @@ final class HSLMigration extends BaseMigration {
           'Unhandled declaration type',
         );
 
-        $clauses = $decl->getClauses()->getItems();
+        $clauses = $decl->getClauses()->getChildrenOfItems();
         foreach ($clauses as $clause) {
 
           $name = $clause->getName();
           if ($name instanceof QualifiedName) {
-            $parts = $name->getParts()->getItemsOfType(NameToken::class);
+            $parts = $name->getParts()->getChildrenOfItemsOfType(NameToken::class);
             if (C\count($parts) !== 3) {
               continue;
             }

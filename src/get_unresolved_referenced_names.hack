@@ -31,7 +31,7 @@ function get_unresolved_referenced_names(
 
   foreach ($root->traverse() as $node) {
     if ($node instanceof QualifiedName) {
-      $name = C\firstx($node->getParts()->getItems());
+      $name = C\firstx($node->getParts()->getChildrenOfItems());
       if ($name instanceof NameToken) {
         $ret['namespaces'][] = $name->getText();
       }

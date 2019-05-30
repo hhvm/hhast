@@ -61,7 +61,7 @@ final class IsRefinementMigration extends BaseMigration {
       if ($name is HHAST\NameToken) {
         $key = $name->getText();
       } else if ($name is HHAST\QualifiedName) {
-        $key = $name->getParts()->getItems()
+        $key = $name->getParts()->getChildrenOfItems()
           |> Vec\map($$, $item ==> $item?->getText() ?? '')
           |> Str\join($$, '\\')
           |> Str\strip_prefix($$, '\\');
@@ -74,7 +74,7 @@ final class IsRefinementMigration extends BaseMigration {
         return $node;
       }
       $replacement = new HHAST\IsExpression(
-        $node->getArgumentListx()->getItems()[0] as nonnull,
+        $node->getArgumentListx()->getChildrenOfItems()[0] as nonnull,
         new HHAST\IsToken(new HHAST\WhiteSpace(' '), new HHAST\WhiteSpace(' ')),
         $make_replacement(),
       );

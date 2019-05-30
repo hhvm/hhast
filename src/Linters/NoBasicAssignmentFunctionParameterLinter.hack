@@ -33,7 +33,7 @@ class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
   ): ?ASTLintError {
     $exps = $node
       ->getArgumentList()
-      ?->getItemsOfType(BinaryExpression::class);
+      ?->getChildrenOfItemsOfType(BinaryExpression::class);
     if ($exps === null) {
       return null;
     }

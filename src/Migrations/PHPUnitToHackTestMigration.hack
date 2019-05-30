@@ -258,7 +258,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         if (!$node is HHAST\ClassishDeclaration) {
           return $node;
         }
-        $extends = $node->getExtendsList()?->getItems();
+        $extends = $node->getExtendsList()?->getChildrenOfItems();
         if ($extends === null) {
           return $node;
         }

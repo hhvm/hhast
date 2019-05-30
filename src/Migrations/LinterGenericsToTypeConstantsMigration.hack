@@ -227,7 +227,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     }
 
     $param_list = $header->getParameterListx();
-    $params = $param_list->getItems();
+    $params = $param_list->getChildrenOfItems();
     $last = C\lastx($params) as HHAST\ParameterDeclaration;
     $node_param_name->set(($last->getName() as HHAST\VariableToken)->getText());
     // Add TContext parameter if needed
@@ -272,13 +272,13 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
     Ref<?HHAST\ITypeSpecifier> $t_node,
     Ref<bool> $is_autofixing,
   ): HHAST\ClassishDeclaration {
-    $parent = ($decl->getExtendsListx()->getItems()[0] ?? null) ?as
+    $parent = ($decl->getExtendsListx()->getChildrenOfItems()[0] ?? null) ?as
       HHAST\GenericTypeSpecifier;
     if ($parent === null) {
       return $decl;
     }
 
-    $t_node->set(C\onlyx($parent->getArgumentList()->getTypes()->getItems()));
+    $t_node->set(C\onlyx($parent->getArgumentList()->getTypes()->getChildrenOfItems()));
     $is_autofixing->set(
       Str\starts_with(
         ($parent->getClassType() ?as HHAST\NameToken)?->getText() ?? '',

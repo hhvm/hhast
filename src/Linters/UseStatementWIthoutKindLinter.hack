@@ -56,7 +56,7 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
   ): ?INamespaceUseDeclaration {
     // Figure out what names are imported
     $names = Keyset\map(
-      $node->getClauses()->getItems(),
+      $node->getClauses()->getChildrenOfItems(),
       $clause ==> {
         if ($clause->hasAs()) {
           return $clause->getAsx()->getText();
@@ -64,7 +64,7 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
         $name = $clause->getName();
         if ($name instanceof QualifiedName) {
           return (
-            C\lastx($name->getParts()->getItemsOfType(NameToken::class)) as
+            C\lastx($name->getParts()->getChildrenOfItemsOfType(NameToken::class)) as
               nonnull
           )->getText();
         }

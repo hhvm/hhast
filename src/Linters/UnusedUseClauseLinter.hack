@@ -37,7 +37,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
     Script $_context,
     INamespaceUseDeclaration $node,
   ): ?ASTLintError {
-    $clauses = $node->getClauses()->getItems();
+    $clauses = $node->getClauses()->getChildrenOfItems();
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);
 
     if (C\is_empty($unused)) {
@@ -71,7 +71,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
           $as = $name->getText();
         } else {
           invariant($name instanceof QualifiedName, "Unhandled name type");
-          $as = $name->getParts()->getItemsOfType(NameToken::class)
+          $as = $name->getParts()->getChildrenOfItemsOfType(NameToken::class)
             |> (C\lastx($$) as nonnull)->getText();
         }
       }
@@ -115,7 +115,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
   <<__Override>>
   protected function getTitleForFix(ASTLintError $error): string {
     $node = $error->getBlameNode() as this::TNode;
-    $clauses = $node->getClauses()->getItems();
+    $clauses = $node->getClauses()->getChildrenOfItems();
     $unused = $this->getUnusedClauses($node->getKind(), $clauses);
     if (C\count($clauses) === C\count($unused)) {
       return 'Remove `use` statement';
@@ -128,7 +128,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
   }
 
   public function getFixedNode(INamespaceUseDeclaration $node): Node {
-    $clauses = $node->getClauses()->getItems();
+    $clauses = $node->getClauses()->getChildrenOfItems();
     $clause_count = C\count($clauses);
     $unused = $this->getUnusedClauses($node->getKind(), $clauses)
       |> Vec\map($$, $p ==> $p[1]);
