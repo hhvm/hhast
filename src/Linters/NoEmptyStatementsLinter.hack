@@ -81,7 +81,6 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
       $expr instanceof HHAST\CollectionLiteralExpression ||
       $expr instanceof HHAST\DarrayIntrinsicExpression ||
       $expr instanceof HHAST\DictionaryIntrinsicExpression ||
-      $expr instanceof HHAST\EmptyExpression ||
       $expr instanceof HHAST\InstanceofExpression ||
       $expr instanceof HHAST\IsExpression ||
       $expr instanceof HHAST\IssetExpression ||
