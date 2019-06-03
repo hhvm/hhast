@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18e1f579787b789f3e315a1b64494243>>
+ * @generated SignedSource<<6fc0b894a860543fd5449a0e83b8dda1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,8 +171,8 @@ final class BinaryExpression
    * EqualEqualEqualToken | GreaterThanToken | GreaterThanEqualToken |
    * GreaterThanGreaterThanToken | GreaterThanGreaterThanEqualToken |
    * QuestionColonToken | QuestionQuestionToken | QuestionQuestionEqualToken |
-   * CaratToken | CaratEqualToken | AndToken | OrToken | XorToken | BarToken |
-   * BarEqualToken | BarGreaterThanToken | BarBarToken
+   * CaratToken | CaratEqualToken | OrToken | BarToken | BarEqualToken |
+   * BarGreaterThanToken | BarBarToken
    */
   public function getOperator(): Token {
     return TypeAssert\instance_of(Token::class, $this->_operator);
@@ -189,8 +189,8 @@ final class BinaryExpression
    * EqualEqualEqualToken | GreaterThanToken | GreaterThanEqualToken |
    * GreaterThanGreaterThanToken | GreaterThanGreaterThanEqualToken |
    * QuestionColonToken | QuestionQuestionToken | QuestionQuestionEqualToken |
-   * CaratToken | CaratEqualToken | AndToken | OrToken | XorToken | BarToken |
-   * BarEqualToken | BarGreaterThanToken | BarBarToken
+   * CaratToken | CaratEqualToken | OrToken | BarToken | BarEqualToken |
+   * BarGreaterThanToken | BarBarToken
    */
   public function getOperatorx(): Token {
     return $this->getOperator();

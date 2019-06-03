@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64984e5f5cdb1f7d64b2894d60c4fa72>>
+ * @generated SignedSource<<9649bef7a48b76662641537c0564f446>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -502,9 +502,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:??=',
     'token:^',
     'token:^=',
-    'token:and',
     'token:or',
-    'token:xor',
     'token:|',
     'token:|=',
     'token:|>',
@@ -1906,7 +1904,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<array_intrinsic_expression>|list_item<literal>|list_item<variable>>',
     'list<list_item<array_intrinsic_expression>|list_item<member_selection_expression>>',
     'list<list_item<array_intrinsic_expression>|list_item<object_creation_expression>>',
-    'list<list_item<array_intrinsic_expression>|list_item<object_creation_expression>|list_item<prefix_unary_expression>|list_item<variable>>',
+    'list<list_item<array_intrinsic_expression>|list_item<object_creation_expression>|list_item<variable>>',
     'list<list_item<array_intrinsic_expression>|list_item<prefix_unary_expression>>',
     'list<list_item<array_intrinsic_expression>|list_item<prefix_unary_expression>|list_item<token:name>>',
     'list<list_item<array_intrinsic_expression>|list_item<prefix_unary_expression>|list_item<variable>>',
@@ -3331,12 +3329,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|echo_statement|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<classish_declaration|echo_statement|end_of_file|expression_statement|for_statement|foreach_statement|markup_section|unset_statement>',
     'list<classish_declaration|echo_statement|end_of_file|expression_statement|for_statement|function_declaration|markup_section>',
-    'list<classish_declaration|echo_statement|end_of_file|expression_statement|for_statement|markup_section>',
-    'list<classish_declaration|echo_statement|end_of_file|expression_statement|for_statement|markup_section|unset_statement>',
     'list<classish_declaration|echo_statement|end_of_file|expression_statement|foreach_statement|function_declaration|markup_section>',
     'list<classish_declaration|echo_statement|end_of_file|expression_statement|foreach_statement|function_declaration|markup_section|unset_statement>',
     'list<classish_declaration|echo_statement|end_of_file|expression_statement|foreach_statement|inclusion_directive|markup_section>',
-    'list<classish_declaration|echo_statement|end_of_file|expression_statement|foreach_statement|inclusion_directive|markup_section|unset_statement>',
     'list<classish_declaration|echo_statement|end_of_file|expression_statement|foreach_statement|markup_section>',
     'list<classish_declaration|echo_statement|end_of_file|expression_statement|foreach_statement|markup_section|try_statement>',
     'list<classish_declaration|echo_statement|end_of_file|expression_statement|foreach_statement|markup_section|unset_statement>',
@@ -3404,7 +3399,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|end_of_file|markup_section|throw_statement|try_statement>',
     'list<classish_declaration|end_of_file|markup_section|try_statement>',
     'list<classish_declaration|end_of_file|namespace_declaration|namespace_group_use_declaration|namespace_use_declaration>',
-    'list<const_declaration|echo_statement|end_of_file|expression_statement|for_statement|if_statement|markup_section|while_statement>',
     'list<const_declaration|echo_statement|end_of_file|expression_statement|for_statement|markup_section>',
     'list<const_declaration|echo_statement|end_of_file|expression_statement|function_declaration|markup_section|unset_statement>',
     'list<const_declaration|echo_statement|end_of_file|expression_statement|if_statement|markup_section>',
@@ -3431,14 +3425,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<echo_statement|end_of_file|expression_statement|for_statement|if_statement|markup_section|unset_statement>',
     'list<echo_statement|end_of_file|expression_statement|for_statement|inclusion_directive|markup_section>',
     'list<echo_statement|end_of_file|expression_statement|for_statement|markup_section>',
-    'list<echo_statement|end_of_file|expression_statement|for_statement|markup_section|try_statement>',
     'list<echo_statement|end_of_file|expression_statement|foreach_statement|function_declaration|if_statement|markup_section>',
     'list<echo_statement|end_of_file|expression_statement|foreach_statement|function_declaration|markup_section>',
     'list<echo_statement|end_of_file|expression_statement|foreach_statement|function_declaration|markup_section|unset_statement>',
-    'list<echo_statement|end_of_file|expression_statement|foreach_statement|function_declaration|markup_section|while_statement>',
     'list<echo_statement|end_of_file|expression_statement|foreach_statement|if_statement|inclusion_directive|markup_section>',
     'list<echo_statement|end_of_file|expression_statement|foreach_statement|if_statement|inclusion_directive|markup_section|while_statement>',
-    'list<echo_statement|end_of_file|expression_statement|foreach_statement|if_statement|markup_section>',
     'list<echo_statement|end_of_file|expression_statement|foreach_statement|inclusion_directive|markup_section>',
     'list<echo_statement|end_of_file|expression_statement|foreach_statement|inclusion_directive|markup_section|try_statement>',
     'list<echo_statement|end_of_file|expression_statement|foreach_statement|markup_section>',
@@ -3521,7 +3512,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<end_of_file|expression_statement|if_statement|inclusion_directive|markup_section|try_statement>',
     'list<end_of_file|expression_statement|if_statement|inclusion_directive|markup_section|while_statement>',
     'list<end_of_file|expression_statement|if_statement|markup_section>',
-    'list<end_of_file|expression_statement|if_statement|markup_section|while_statement>',
     'list<end_of_file|expression_statement|inclusion_directive|markup_section>',
     'list<end_of_file|expression_statement|inclusion_directive|markup_section|namespace_use_declaration>',
     'list<end_of_file|expression_statement|inclusion_directive|markup_section|try_statement>',
@@ -4235,9 +4225,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<keyset_intrinsic_expression>|list_item<literal>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<variable>>',
     'list<list_item<literal>>',
-    'list<list_item<literal>|list_item<object_creation_expression>>',
     'list<list_item<literal>|list_item<scope_resolution_expression>>',
-    'list<list_item<literal>|list_item<variable>>',
     'list<list_item<literal>|list_item<vector_intrinsic_expression>>',
     'list<list_item<member_selection_expression>|list_item<variable>>',
     'list<list_item<object_creation_expression>>',
@@ -4350,6 +4338,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'xhp_class_attribute.xhp_attribute_decl_required' => keyset[
     'missing',
+    'xhp_lateinit',
     'xhp_required',
   ],
   'xhp_class_attribute.xhp_attribute_decl_type' => keyset[
@@ -4411,6 +4400,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'xhp_expression.xhp_open' => keyset[
     'xhp_open',
+  ],
+  'xhp_lateinit.xhp_lateinit_at' => keyset[
+    'token:@',
+  ],
+  'xhp_lateinit.xhp_lateinit_keyword' => keyset[
+    'token:lateinit',
   ],
   'xhp_open.xhp_open_attributes' => keyset[
     'list<xhp_simple_attribute>',

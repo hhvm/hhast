@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2796ba3c35dededc48d28023b4b3920>>
+ * @generated SignedSource<<8f34279a4c1a6fd21bbc06653547c514>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -87,7 +87,6 @@ function node_from_json(
     'embedded_member_selection_expression' =>
       HHAST\EmbeddedMemberSelectionExpression::class,
     'embedded_subscript_expression' => HHAST\EmbeddedSubscriptExpression::class,
-    'empty_expression' => HHAST\EmptyExpression::class,
     'end_of_file' => HHAST\EndOfFile::class,
     'enum_declaration' => HHAST\EnumDeclaration::class,
     'enumerator' => HHAST\Enumerator::class,
@@ -215,6 +214,7 @@ function node_from_json(
     'xhp_close' => HHAST\XHPClose::class,
     'xhp_enum_type' => HHAST\XHPEnumType::class,
     'xhp_expression' => HHAST\XHPExpression::class,
+    'xhp_lateinit' => HHAST\XHPLateinit::class,
     'xhp_open' => HHAST\XHPOpen::class,
     'xhp_required' => HHAST\XHPRequired::class,
     'xhp_simple_attribute' => HHAST\XHPSimpleAttribute::class,

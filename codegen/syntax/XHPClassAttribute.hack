@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8a7c05a585412971bcd5da954267a46>>
+ * @generated SignedSource<<0ba0d8b862bda999ba2ef50b4f448296>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -229,19 +229,19 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
   }
 
   /**
-   * @return null | XHPRequired
+   * @return null | XHPLateinit | XHPRequired
    */
-  public function getRequired(): ?XHPRequired {
+  public function getRequired(): ?Node {
     if ($this->_required->isMissing()) {
       return null;
     }
-    return TypeAssert\instance_of(XHPRequired::class, $this->_required);
+    return $this->_required;
   }
 
   /**
-   * @return XHPRequired
+   * @return XHPLateinit | XHPRequired
    */
-  public function getRequiredx(): XHPRequired {
+  public function getRequiredx(): Node {
     return TypeAssert\not_null($this->getRequired());
   }
 }
