@@ -258,20 +258,5 @@
         "blame": "  $a * $b;\n",
         "blame_pretty": "  $a * $b;\n",
         "description": "This statement includes an expression that has no effect"
-    },
-    {
-        "blame": "\n  \/* HH_FIXME[1002] *\/\n  $a or $b;\n",
-        "blame_pretty": "\n  \/* HH_FIXME[1002] *\/\n  $a or $b;\n",
-        "description": "This statement includes an expression that has no effect"
-    },
-    {
-        "blame": "  \/* HH_FIXME[1002] *\/\n  $a and $b;\n",
-        "blame_pretty": "  \/* HH_FIXME[1002] *\/\n  $a and $b;\n",
-        "description": "This statement includes an expression that has no effect"
-    },
-    {
-        "blame": "  \/* HH_FIXME[1002] *\/\n  $a xor $b;\n",
-        "blame_pretty": "  \/* HH_FIXME[1002] *\/\n  $a xor $b;\n",
-        "description": "This statement includes an expression that has no effect"
     }
 ]

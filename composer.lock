@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9384e3444318c04fa8208579e6f8d411",
+    "content-hash": "03b728b76cd0774a2e24224fb3398a99",
     "packages": [
         {
             "name": "facebook/difflib",
@@ -126,16 +126,16 @@
         },
         {
             "name": "hhvm/hsl",
-            "version": "v4.5.0",
+            "version": "v4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl.git",
-                "reference": "97e555a0ca3ec346c659fb3b5aec769be1242fbe"
+                "reference": "0150e1f860f6e695c022b0def700ccce46bb5999"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl/zipball/97e555a0ca3ec346c659fb3b5aec769be1242fbe",
-                "reference": "97e555a0ca3ec346c659fb3b5aec769be1242fbe",
+                "url": "https://api.github.com/repos/hhvm/hsl/zipball/0150e1f860f6e695c022b0def700ccce46bb5999",
+                "reference": "0150e1f860f6e695c022b0def700ccce46bb5999",
                 "shasum": ""
             },
             "require": {
@@ -157,25 +157,25 @@
                 "MIT"
             ],
             "description": "The Hack Standard Library",
-            "time": "2019-05-13T17:13:14+00:00"
+            "time": "2019-05-31T16:46:29+00:00"
         },
         {
             "name": "hhvm/hsl-experimental",
-            "version": "v4.5.0",
+            "version": "v4.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/hsl-experimental.git",
-                "reference": "2090e5ab401449545b66bb20ee3ec4a0901a1883"
+                "reference": "c6d0f561b52b27e8ef245efabf12655a02d202cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/hsl-experimental/zipball/2090e5ab401449545b66bb20ee3ec4a0901a1883",
-                "reference": "2090e5ab401449545b66bb20ee3ec4a0901a1883",
+                "url": "https://api.github.com/repos/hhvm/hsl-experimental/zipball/c6d0f561b52b27e8ef245efabf12655a02d202cf",
+                "reference": "c6d0f561b52b27e8ef245efabf12655a02d202cf",
                 "shasum": ""
             },
             "require": {
-                "hhvm": "^4.1",
-                "hhvm/hsl": "^4.0"
+                "hhvm": "^4.3",
+                "hhvm/hsl": "^4.7"
             },
             "require-dev": {
                 "facebook/fbexpect": "^2.0",
@@ -193,20 +193,20 @@
                 "MIT"
             ],
             "description": "The Hack Standard Library - Experimental Additions",
-            "time": "2019-05-13T17:18:40+00:00"
+            "time": "2019-05-31T20:11:34+00:00"
         },
         {
             "name": "hhvm/type-assert",
-            "version": "v3.4.0",
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hhvm/type-assert.git",
-                "reference": "bc266f1e5a9f0797094a740a5988b8a442f1b46f"
+                "reference": "ede976dec385f33931ea58dc1aad0902a07e1c58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/bc266f1e5a9f0797094a740a5988b8a442f1b46f",
-                "reference": "bc266f1e5a9f0797094a740a5988b8a442f1b46f",
+                "url": "https://api.github.com/repos/hhvm/type-assert/zipball/ede976dec385f33931ea58dc1aad0902a07e1c58",
+                "reference": "ede976dec385f33931ea58dc1aad0902a07e1c58",
                 "shasum": ""
             },
             "require": {
@@ -234,7 +234,7 @@
                 "TypeAssert",
                 "hack"
             ],
-            "time": "2019-05-23T18:10:19+00:00"
+            "time": "2019-05-31T16:35:52+00:00"
         }
     ],
     "packages-dev": [
@@ -380,7 +380,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "hhvm": "^4.7"
+        "hhvm": "^4.8"
     },
     "platform-dev": []
 }

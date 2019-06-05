@@ -77,13 +77,6 @@ function empty_binary_expr(int $a, int $b): void {
   $a / $b;
   $a ** $b;
   $a * $b;
-
-  /* HH_FIXME[1002] */
-  $a or $b;
-  /* HH_FIXME[1002] */
-  $a and $b;
-  /* HH_FIXME[1002] */
-  $a xor $b;
 }
 
 function not_empty_exprs(): void {
