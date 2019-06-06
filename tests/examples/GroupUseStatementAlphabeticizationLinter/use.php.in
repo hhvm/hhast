@@ -24,3 +24,5 @@ use type Facebook\HHAST\{
   GreaterThanEqualToken,
   IfToken,
 };
+
+use type Facebook\{HHAST\LessThanEqualToken, HHAST\FloatToken};

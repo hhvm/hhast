@@ -56,17 +56,21 @@ final class GroupUseStatementAlphabeticizationLinter
           NamespaceUseClause::class,
         );
         if (C\count($namespace_use_clauses) === 1) {
-          $name_tokens = $namespace_use_clauses[0]->getDescendantsOfType(
+          $parts = vec[];
+          foreach ($namespace_use_clauses[0]->getDescendantsOfType(
             NameToken::class,
-          );
-          if (C\count($name_tokens) === 1) {
+          ) as $name_token) {
+            $parts[] = $name_token->getText();
+          }
+
+          if (C\count($parts) > 0) {
             // NamespaceUseClauses should all belong to the same NodeList
             if ($items_list is nonnull && $items_list !== $list) {
               return null;
             }
 
             $items_list = $list;
-            $items[$name_tokens[0]->getText()] = $item;
+            $items[Str\join($parts, '\\')] = $item;
           }
         }
       }

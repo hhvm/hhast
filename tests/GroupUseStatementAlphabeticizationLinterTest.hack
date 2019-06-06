@@ -22,6 +22,7 @@ final class GroupUseStatementAlphabeticizationLinterTest extends TestCase {
     return [
       ['<?hh use type Facebook\HHAST\{AbstractToken};'],
       ['<?hh use type Facebook\HHAST\{AbstractToken, AsToken};'],
+      ['<?hh use type Facebook\{HHAST\AbstractToken, HHAST\AsToken};'],
     ];
   }
 }

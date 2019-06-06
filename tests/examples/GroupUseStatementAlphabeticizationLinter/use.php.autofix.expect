@@ -24,3 +24,5 @@ use type Facebook\HHAST\{
   PublicToken, // trailing after comma
   /*leading*/ StaticToken /*trailing before comma*/,
 };
+
+use type Facebook\{HHAST\FloatToken, HHAST\LessThanEqualToken};

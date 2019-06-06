@@ -18,5 +18,10 @@
         "blame": "use type Facebook\\HHAST\\{\n  \/*leading*\/ StaticToken \/*trailing before comma*\/,\n  MinusEqualToken,\n  PublicToken, \/\/ trailing after comma\n  GreaterThanEqualToken,\n  IfToken,\n};\n",
         "blame_pretty": "use type Facebook\\HHAST\\{\n  \/*leading*\/ StaticToken \/*trailing before comma*\/,\n  MinusEqualToken,\n  PublicToken, \/\/ trailing after comma\n  GreaterThanEqualToken,\n  IfToken,\n};\n",
         "description": "Group use statements should be sorted alphabetically"
+    },
+    {
+        "blame": "\nuse type Facebook\\{HHAST\\LessThanEqualToken, HHAST\\FloatToken};",
+        "blame_pretty": "\nuse type Facebook\\{HHAST\\LessThanEqualToken, HHAST\\FloatToken};",
+        "description": "Group use statements should be sorted alphabetically"
     }
 ]
