@@ -10,12 +10,12 @@
 namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
-  NodeList,
-  Node,
   NamespaceGroupUseDeclaration,
   NamespaceToken,
   NamespaceUseClause,
   NamespaceUseDeclaration,
+  Node,
+  NodeList,
   TypeToken,
 };
 use namespace HH\Lib\{C, Str};

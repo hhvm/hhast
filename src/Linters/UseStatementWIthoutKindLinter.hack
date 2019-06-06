@@ -11,11 +11,11 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   INamespaceUseDeclaration,
-  NamespaceToken,
   NameToken,
+  NamespaceToken,
+  QualifiedName,
   Script,
   TypeToken,
-  QualifiedName,
 };
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset};

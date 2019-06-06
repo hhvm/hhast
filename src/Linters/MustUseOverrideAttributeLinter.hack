@@ -11,8 +11,8 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   AttributeSpecification,
-  ClassishDeclaration,
   ClassToken,
+  ClassishDeclaration,
   GenericTypeSpecifier,
   ListItem,
   MethodishDeclaration,

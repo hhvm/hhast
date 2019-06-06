@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Dict, Vec, C, Str};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 use namespace Facebook\TypeAssert;
 
 abstract class Node {

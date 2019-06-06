@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Linters\SuppressASTLinter;
 
-use type Facebook\HHAST\{Node, IStatement, Script};
+use type Facebook\HHAST\{IStatement, Node, Script};
 
 use type Facebook\HHAST\Linters\BaseLinter;
 

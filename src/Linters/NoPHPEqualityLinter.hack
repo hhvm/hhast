@@ -11,10 +11,10 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   BinaryExpression,
-  EqualEqualToken,
   EqualEqualEqualToken,
-  ExclamationEqualToken,
+  EqualEqualToken,
   ExclamationEqualEqualToken,
+  ExclamationEqualToken,
   Script,
 };
 use namespace HH\Lib\Str;

@@ -11,14 +11,14 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   ClassishDeclaration,
-  Node,
-  Token,
   FunctionDeclaration,
   FunctionDeclarationHeader,
   IFunctionishDeclaration,
   MethodishDeclaration,
   NameToken,
+  Node,
   StaticToken,
+  Token,
 };
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};

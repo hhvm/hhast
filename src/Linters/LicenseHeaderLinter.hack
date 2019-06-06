@@ -11,11 +11,11 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   DelimitedComment,
-  NodeList,
   EndOfFile,
   EndOfLine,
   File,
   MarkupSection,
+  NodeList,
   Script,
 };
 use namespace Facebook\TypeAssert;

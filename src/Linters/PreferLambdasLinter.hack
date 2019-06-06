@@ -13,11 +13,11 @@ use type Facebook\HHAST\Linters\{ASTLintError, AutoFixingASTLinter};
 use type Facebook\HHAST\{
   AmpersandToken,
   AnonymousFunction,
-  Node,
   EqualEqualGreaterThanToken,
   LambdaExpression,
   LambdaSignature,
   LeftParenToken,
+  Node,
   PrefixUnaryExpression,
   Script,
   WhiteSpace,

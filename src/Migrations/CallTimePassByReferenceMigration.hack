@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use function Facebook\HHAST\{find_node_at_position, Missing};
+use function Facebook\HHAST\{Missing, find_node_at_position};
 use type Facebook\HHAST\__Private\TTypecheckerError;
 use type Facebook\HHAST\{AmpersandToken, NodeList, Script};
 use namespace HH\Lib\{C, Vec};

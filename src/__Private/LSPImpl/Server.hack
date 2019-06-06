@@ -10,8 +10,8 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
-  LintRunLSPPublishDiagnosticsEventHandler,
   LintRun,
+  LintRunLSPPublishDiagnosticsEventHandler,
 };
 use namespace Facebook\HHAST\__Private\{LSPImpl, LSPLib};
 use type Facebook\CLILib\{ExitException, ITerminal};

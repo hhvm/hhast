@@ -11,9 +11,6 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   CompoundStatement,
-  NodeList,
-  Node,
-  Token,
   ElseClause,
   ElseifClause,
   EndOfLine,
@@ -21,8 +18,11 @@ use type Facebook\HHAST\{
   IControlFlowStatement,
   IfStatement,
   LeftBraceToken,
+  Node,
+  NodeList,
   RightBraceToken,
   Script,
+  Token,
   WhileStatement,
   WhiteSpace,
 };

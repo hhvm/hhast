@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\Migrations;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec, Math, Keyset};
+use namespace HH\Lib\{C, Keyset, Math, Str, Vec};
 
 use type Facebook\HHAST\{
   BackslashToken,
@@ -18,8 +18,6 @@ use type Facebook\HHAST\{
   BooleanLiteralToken,
   CommaToken,
   DecimalLiteralToken,
-  NodeList,
-  Node,
   ExpressionStatement,
   FunctionCallExpression,
   INamespaceUseDeclaration,
@@ -35,6 +33,8 @@ use type Facebook\HHAST\{
   NamespaceToken,
   NamespaceUseClause,
   NamespaceUseDeclaration,
+  Node,
+  NodeList,
   NullLiteralToken,
   OctalLiteralToken,
   PrefixUnaryExpression,

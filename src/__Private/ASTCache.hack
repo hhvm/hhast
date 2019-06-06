@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{Script, File};
+use type Facebook\HHAST\{File, Script};
 
 final class ASTCache extends InMemoryFileKeyedCache {
   const type TResult = Script;

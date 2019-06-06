@@ -11,19 +11,19 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   ConstToken,
-  NodeList,
-  Node,
-  Token,
   FunctionToken,
   INamespaceUseDeclaration,
-  NamespaceGroupUseDeclaration,
-  NamespaceUseDeclaration,
-  NamespaceUseClause,
-  NamespaceToken,
   NameToken,
-  Script,
-  TypeToken,
+  NamespaceGroupUseDeclaration,
+  NamespaceToken,
+  NamespaceUseClause,
+  NamespaceUseDeclaration,
+  Node,
+  NodeList,
   QualifiedName,
+  Script,
+  Token,
+  TypeToken,
 };
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};

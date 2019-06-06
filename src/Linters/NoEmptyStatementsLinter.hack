@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use type Facebook\HHAST\{ExpressionStatement, Token, Node, NodeList, Script};
+use type Facebook\HHAST\{ExpressionStatement, Node, NodeList, Script, Token};
 
 use namespace Facebook\HHAST;
 

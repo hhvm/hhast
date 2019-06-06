@@ -14,18 +14,18 @@ use type Facebook\HHAST\{
   BackslashToken,
   CommaToken,
   DelimitedComment,
-  NodeList,
-  Node,
   FunctionCallExpression,
   FunctionToken,
   LeftParenToken,
   ListItem,
   MemberSelectionExpression,
   MinusGreaterThanToken,
+  NameToken,
   NamespaceDeclaration,
   NamespaceEmptyBody,
   NamespaceUseDeclaration,
-  NameToken,
+  Node,
+  NodeList,
   QualifiedName,
   RightParenToken,
   ScopeResolutionExpression,
@@ -35,7 +35,7 @@ use type Facebook\HHAST\{
   VariableToken,
   WhiteSpace,
 };
-use namespace HH\Lib\{Str, Vec, C};
+use namespace HH\Lib\{C, Str, Vec};
 
 final class AssertToExpectMigration extends StepBasedMigration {
 
