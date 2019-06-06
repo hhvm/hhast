@@ -1,0 +1,26 @@
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
+
+use type Facebook\HHAST\BinaryToken;
+use type Facebook\HHAST\{AwaitToken /*trailing*/, AsyncToken};
+use type Facebook\HHAST\{
+  /* leading */ ElseToken,
+  DefaultToken as DT,
+  BreakToken, // trailing after comma
+  CaseToken /* trailing before comma */,
+};
+use type Facebook\{
+  HHAST\MinusEqualToken as MET /*alias trailing*/,
+  // multiple single-line comments
+  // before PublicToken
+  HHAST\PublicToken, /*trailing*/
+};
+
+use namespace HH\{Lib\Vec, Lib\Math};
+use namespace HH\Lib\Math as M; // already in use without alias
