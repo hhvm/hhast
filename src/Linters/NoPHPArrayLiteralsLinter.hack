@@ -13,8 +13,8 @@ use type Facebook\HHAST\{
   ArrayCreationExpression,
   ArrayIntrinsicExpression,
   ArrayToken,
+  DictionaryIntrinsicExpression,
   DictToken,
-  NodeList,
   Node,
   ElementInitializer,
   IPHPArray,
@@ -25,8 +25,9 @@ use type Facebook\HHAST\{
   RightParenToken,
   Script,
   VecToken,
+  VectorIntrinsicExpression,
 };
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\C;
 use function Facebook\HHAST\Missing;
 
 final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
@@ -47,24 +48,20 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
   }
 
   public function getFixedNode(IPHPArray $expr): Node {
-    /*
-     * Cannot use getDescendantsOfType(ElementInitializer::class) because an
-     * associative array inside a list array would return a false positive.
-     */
+    // Cannot use getDescendantsOfType(ElementInitializer::class) because an
+    // associative array inside a list array would return a false positive.
     $is_assoc = false;
     foreach ($expr->getChildren() as $child) {
       if ($child->isList()) {
         foreach ($child->getChildren() as $item) {
-          if ($item is ListItem<_>) {
-            foreach ($item->getChildren() as $initializer) {
-              if ($initializer is ElementInitializer) {
-                $is_assoc = true;
-                break;
-              }
-            }
-          }
-
-          if ($is_assoc) {
+          if (
+            $item instanceof ListItem &&
+            C\any(
+              $item->getChildren(),
+              $child ==> $child instanceof ElementInitializer,
+            )
+          ) {
+            $is_assoc = true;
             break;
           }
         }
@@ -77,77 +74,59 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
 
     $children = vec($expr->getChildren());
 
-    if (
-      $expr is ArrayCreationExpression &&
-      C\count($children) === 3 &&
-      $children[0] is LeftBracketToken &&
-      $children[1]->isList() &&
-      $children[2] is RightBracketToken
-    ) {
-      $left = $children[0] as LeftBracketToken;
-      $list = $children[1] as NodeList<_>;
-      $right = $children[2] as RightBracketToken;
-
-      if ($is_assoc) {
-        return new DictToken(
-          $left->getLeading(),
-          new NodeList(Vec\concat(
-            vec[new LeftBracketToken(Missing(), $left->getTrailing())],
-            $list->getChildren(),
-            vec[new RightBracketToken(
-              $right->getLeading(),
-              $right->getTrailing(),
-            )],
-          )),
-        );
-      } else {
-        return new VecToken(
-          $left->getLeading(),
-          new NodeList(Vec\concat(
-            vec[new LeftBracketToken(Missing(), $left->getTrailing())],
-            $list->getChildren(),
-            vec[new RightBracketToken(
-              $right->getLeading(),
-              $right->getTrailing(),
-            )],
-          )),
-        );
+    if ($expr instanceof ArrayCreationExpression && C\count($children) === 3) {
+      list($left, $list, $right) = $children;
+      if (
+        $left instanceof LeftBracketToken &&
+        $list->isList() &&
+        $right instanceof RightBracketToken
+      ) {
+        if ($is_assoc) {
+          return new DictionaryIntrinsicExpression(
+            new DictToken($left->getLeading(), Missing()),
+            Missing(),
+            $left->without($left->getLeading()),
+            $list,
+            $right,
+          );
+        } else {
+          return new VectorIntrinsicExpression(
+            new VecToken($left->getLeading(), Missing()),
+            Missing(),
+            $left->without($left->getLeading()),
+            $list,
+            $right,
+          );
+        }
       }
     }
 
-    if (
-      $expr is ArrayIntrinsicExpression &&
-      C\count($children) === 4 &&
-      $children[0] is ArrayToken &&
-      $children[1] is LeftParenToken &&
-      $children[2]->isList() &&
-      $children[3] is RightParenToken
-    ) {
-      return $expr->rewriteChildren(
-        ($node, $_parents) ==> {
-          if ($node is ArrayToken) {
-            if ($is_assoc) {
-              return new DictToken($node->getLeading(), $node->getTrailing());
-            } else {
-              return new VecToken($node->getLeading(), $node->getTrailing());
-            }
-          }
-          if ($node is LeftParenToken) {
-            return new LeftBracketToken(
-              $node->getLeading(),
-              $node->getTrailing(),
-            );
-          }
-          if ($node is RightParenToken) {
-            return new RightBracketToken(
-              $node->getLeading(),
-              $node->getTrailing(),
-            );
-          }
-          return $node;
-        },
-        vec[],
-      );
+    if ($expr instanceof ArrayIntrinsicExpression && C\count($children) === 4) {
+      list($array, $left, $list, $right) = $children;
+      if (
+        $array instanceof ArrayToken &&
+        $left instanceof LeftParenToken &&
+        $list->isList() &&
+        $right instanceof RightParenToken
+      ) {
+        if ($is_assoc) {
+          return new DictionaryIntrinsicExpression(
+            new DictToken($array->getLeading(), $array->getTrailing()),
+            Missing(),
+            new LeftBracketToken($left->getLeading(), $left->getTrailing()),
+            $list,
+            new RightBracketToken($right->getLeading(), $right->getTrailing()),
+          );
+        } else {
+          return new VectorIntrinsicExpression(
+            new VecToken($array->getLeading(), $array->getTrailing()),
+            Missing(),
+            new LeftBracketToken($left->getLeading(), $left->getTrailing()),
+            $list,
+            new RightBracketToken($right->getLeading(), $right->getTrailing()),
+          );
+        }
+      }
     }
 
     return $expr;
