@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d2ebf81ea78cfd40618da9c5532d88e>>
+ * @generated SignedSource<<76e8f763ffd916444f65f08a47ed3c27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class TraitUseConflictResolution
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -48,6 +49,7 @@ final class TraitUseConflictResolution
       $file,
       $offset,
       $source,
+      'UseToken',
     );
     $offset += $keyword->getWidth();
     $names = Node::fromJSON(
@@ -55,6 +57,7 @@ final class TraitUseConflictResolution
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<SimpleTypeSpecifier>>',
     );
     $offset += $names->getWidth();
     $left_brace = Node::fromJSON(
@@ -62,6 +65,7 @@ final class TraitUseConflictResolution
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $clauses = Node::fromJSON(
@@ -69,6 +73,7 @@ final class TraitUseConflictResolution
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ITraitUseItem>>',
     );
     $offset += $clauses->getWidth();
     $right_brace = Node::fromJSON(
@@ -76,6 +81,7 @@ final class TraitUseConflictResolution
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

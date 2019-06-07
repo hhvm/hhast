@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\{C, Str, Vec};
 
 final class NodeList<+Titem as Node> extends Node {
   const string SYNTAX_KIND = 'list';
@@ -90,11 +90,25 @@ final class NodeList<+Titem as Node> extends Node {
     string $file,
     int $offset,
     string $source,
+    string $type_hint,
   ): this {
+    if (Str\starts_with($type_hint, 'NodeList<')) {
+      $type_hint = $type_hint
+        |> Str\strip_prefix($$, 'NodeList<')
+        |> Str\strip_suffix($$, '>');
+    } else {
+      $type_hint = 'Node';
+    }
     $children = vec[];
     $current_position = $offset;
     foreach (/* HH_FIXME[4110] */ $json['elements'] as $element) {
-      $child = Node::fromJSON($element, $file, $current_position, $source);
+      $child = Node::fromJSON(
+        $element,
+        $file,
+        $current_position,
+        $source,
+        $type_hint,
+      );
       $children[] = $child;
       $current_position += $child->getWidth();
     }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5efda498e8c3773f9d83597c704be650>>
+ * @generated SignedSource<<a9c3c3fdb0a2bbbcb2067c1c72a9ed22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -40,6 +41,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'UseToken',
     );
     $offset += $keyword->getWidth();
     $names = Node::fromJSON(
@@ -47,6 +49,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ISimpleCreationSpecifier>>',
     );
     $offset += $names->getWidth();
     $semicolon = Node::fromJSON(
@@ -54,6 +57,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

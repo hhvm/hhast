@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39836ee7cf15cf6750c8383b3b74dafc>>
+ * @generated SignedSource<<66fe0a6d24e32470ed7fc0e9f0059d3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $question = Node::fromJSON(
@@ -43,6 +44,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'QuestionToken',
     );
     $offset += $question->getWidth();
     $name = Node::fromJSON(
@@ -50,6 +52,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $name->getWidth();
     $arrow = Node::fromJSON(
@@ -57,6 +60,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'EqualGreaterThanToken',
     );
     $offset += $arrow->getWidth();
     $type = Node::fromJSON(
@@ -64,6 +68,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $source_ref = shape(
@@ -156,9 +161,8 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
   /**
    * @return LiteralExpression | ScopeResolutionExpression
    */
-  <<__Memoize>>
   public function getName(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_name);
+    return TypeAssert\instance_of(IExpression::class, $this->_name);
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29ccb52d6a1df80a539a28015edd6d64>>
+ * @generated SignedSource<<6f46d0e50788d2906e212bc865acb907>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class ExpressionStatement extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
@@ -37,6 +38,7 @@ final class ExpressionStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
@@ -44,6 +46,7 @@ final class ExpressionStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(
@@ -107,12 +110,11 @@ final class ExpressionStatement extends Node implements IStatement {
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
    */
-  <<__Memoize>>
   public function getExpression(): ?IExpression {
     if ($this->_expression->isMissing()) {
       return null;
     }
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

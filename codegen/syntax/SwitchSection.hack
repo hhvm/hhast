@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c01d700da9f1cc3d7c57d691abc7502>>
+ * @generated SignedSource<<6acdfecd5ca5cbc1b73973ff210ae23c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class SwitchSection extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $labels = Node::fromJSON(
@@ -40,6 +41,7 @@ final class SwitchSection extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<ISwitchLabel>',
     );
     $offset += $labels->getWidth();
     $statements = Node::fromJSON(
@@ -47,6 +49,7 @@ final class SwitchSection extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<IStatement>',
     );
     $offset += $statements->getWidth();
     $fallthrough = Node::fromJSON(
@@ -54,6 +57,7 @@ final class SwitchSection extends Node {
       $file,
       $offset,
       $source,
+      'SwitchFallthrough',
     );
     $offset += $fallthrough->getWidth();
     $source_ref = shape(

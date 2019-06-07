@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3cb2ef422a1dfefcec33b0e300092767>>
+ * @generated SignedSource<<b7cb7aaf0e75bec4254ba8e74b4f1a32>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,6 +51,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -58,6 +59,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute_spec->getWidth();
     $keyword = Node::fromJSON(
@@ -65,6 +67,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'EnumToken',
     );
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
@@ -72,6 +75,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
@@ -79,6 +83,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $base = Node::fromJSON(
@@ -86,6 +91,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $base->getWidth();
     $type = Node::fromJSON(
@@ -93,6 +99,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'TypeConstraint',
     );
     $offset += $type->getWidth();
     $left_brace = Node::fromJSON(
@@ -100,6 +107,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $enumerators = Node::fromJSON(
@@ -107,6 +115,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'NodeList<Enumerator>',
     );
     $offset += $enumerators->getWidth();
     $right_brace = Node::fromJSON(
@@ -114,6 +123,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

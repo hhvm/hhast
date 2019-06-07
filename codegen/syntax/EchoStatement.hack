@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c597b24b32483ea76f7044ea946b97df>>
+ * @generated SignedSource<<77b27e354fc18a4cdfb388dc190c322f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class EchoStatement extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -40,6 +41,7 @@ final class EchoStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'EchoToken',
     );
     $offset += $keyword->getWidth();
     $expressions = Node::fromJSON(
@@ -47,6 +49,7 @@ final class EchoStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $expressions->getWidth();
     $semicolon = Node::fromJSON(
@@ -54,6 +57,7 @@ final class EchoStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c87d3103b23b5df837162c8e3696facd>>
+ * @generated SignedSource<<89b79d84e1b45b532d3906ebfdbfb227>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
@@ -46,6 +47,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
@@ -53,6 +55,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IParameter>>',
     );
     $offset += $parameters->getWidth();
     $right_paren = Node::fromJSON(
@@ -60,6 +63,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
@@ -67,6 +71,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $type = Node::fromJSON(
@@ -74,6 +79,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $source_ref = shape(

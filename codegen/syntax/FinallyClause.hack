@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23e1da3161960618c8421c0539b57628>>
+ * @generated SignedSource<<7f5abaecbe53a04e8ad88eb1783590cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class FinallyClause extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -37,6 +38,7 @@ final class FinallyClause extends Node {
       $file,
       $offset,
       $source,
+      'FinallyToken',
     );
     $offset += $keyword->getWidth();
     $body = Node::fromJSON(
@@ -44,6 +46,7 @@ final class FinallyClause extends Node {
       $file,
       $offset,
       $source,
+      'CompoundStatement',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

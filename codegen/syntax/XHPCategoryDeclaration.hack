@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d077fdbe437db53542e98b80d7a9311e>>
+ * @generated SignedSource<<13ad778082e980379254334629223844>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class XHPCategoryDeclaration
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -42,6 +43,7 @@ final class XHPCategoryDeclaration
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $keyword->getWidth();
     $categories = Node::fromJSON(
@@ -49,6 +51,7 @@ final class XHPCategoryDeclaration
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $categories->getWidth();
     $semicolon = Node::fromJSON(
@@ -56,6 +59,7 @@ final class XHPCategoryDeclaration
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

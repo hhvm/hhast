@@ -146,7 +146,7 @@ final class RewriteBehaviorTest extends TestCase {
 
   public async function testRewritePreservesCaseOfFixedTextTokens(
   ): Awaitable<void> {
-    $code = "<?hh NuLl; aRrAy; aNd; oR; cAsE";
+    $code = "<?hh \$x = NuLl;";
     $ast = await HHAST\from_file_async(
       HHAST\File::fromPathAndContents('/dev/null', $code),
     );

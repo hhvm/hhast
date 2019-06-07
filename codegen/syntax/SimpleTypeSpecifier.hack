@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d438f27c27140f2a9255f225f0c2480c>>
+ * @generated SignedSource<<fb137ec6490dc64b204f9e84aac2778d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,6 +29,7 @@ final class SimpleTypeSpecifier
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $specifier = Node::fromJSON(
@@ -36,6 +37,7 @@ final class SimpleTypeSpecifier
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $specifier->getWidth();
     $source_ref = shape(

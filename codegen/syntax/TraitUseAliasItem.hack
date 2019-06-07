@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ffa2f50febea8a6803a6fe310f16eec>>
+ * @generated SignedSource<<8ccc2bbf27ab8128da10c60a25368a92>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $aliasing_name = Node::fromJSON(
@@ -43,6 +44,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $aliasing_name->getWidth();
     $keyword = Node::fromJSON(
@@ -50,6 +52,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $file,
       $offset,
       $source,
+      'AsToken',
     );
     $offset += $keyword->getWidth();
     $modifiers = Node::fromJSON(
@@ -57,6 +60,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $file,
       $offset,
       $source,
+      'NodeList<Token>',
     );
     $offset += $modifiers->getWidth();
     $aliased_name = Node::fromJSON(
@@ -64,6 +68,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $file,
       $offset,
       $source,
+      'SimpleTypeSpecifier',
     );
     $offset += $aliased_name->getWidth();
     $source_ref = shape(

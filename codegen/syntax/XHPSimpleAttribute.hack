@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<41032267411fff6d7f18218c464c6b33>>
+ * @generated SignedSource<<28a918a6293eaaac7ffc3ec88cab2931>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -40,6 +41,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       $file,
       $offset,
       $source,
+      'XHPElementNameToken',
     );
     $offset += $name->getWidth();
     $equal = Node::fromJSON(
@@ -47,6 +49,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       $file,
       $offset,
       $source,
+      'EqualToken',
     );
     $offset += $equal->getWidth();
     $expression = Node::fromJSON(
@@ -54,6 +57,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $expression->getWidth();
     $source_ref = shape(

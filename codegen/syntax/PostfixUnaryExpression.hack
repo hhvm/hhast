@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<457b099fcd9365daaad94cb88172851f>>
+ * @generated SignedSource<<24867f5ac723493c49195d0a69d32905>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,6 +32,7 @@ final class PostfixUnaryExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $operand = Node::fromJSON(
@@ -39,6 +40,7 @@ final class PostfixUnaryExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $operand->getWidth();
     $operator = Node::fromJSON(
@@ -46,6 +48,7 @@ final class PostfixUnaryExpression
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $operator->getWidth();
     $source_ref = shape(
@@ -98,9 +101,8 @@ final class PostfixUnaryExpression
    * @return MemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_operand);
+    return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**

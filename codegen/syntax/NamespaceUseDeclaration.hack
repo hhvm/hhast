@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88410c279e201735d7746b39b21d1ec4>>
+ * @generated SignedSource<<60b8d171a9a015620885587259b1bf97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,6 +38,7 @@ final class NamespaceUseDeclaration
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -45,6 +46,7 @@ final class NamespaceUseDeclaration
       $file,
       $offset,
       $source,
+      'UseToken',
     );
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
@@ -52,6 +54,7 @@ final class NamespaceUseDeclaration
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $kind->getWidth();
     $clauses = Node::fromJSON(
@@ -59,6 +62,7 @@ final class NamespaceUseDeclaration
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<NamespaceUseClause>>',
     );
     $offset += $clauses->getWidth();
     $semicolon = Node::fromJSON(
@@ -66,6 +70,7 @@ final class NamespaceUseDeclaration
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

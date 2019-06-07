@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a195c58fdee48d5e441e57878baa4006>>
+ * @generated SignedSource<<23f17706853ed278eccda99d0cb8a24c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -46,6 +47,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ShapeToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -53,6 +55,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
@@ -60,6 +63,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<FieldSpecifier>>',
     );
     $offset += $fields->getWidth();
     $ellipsis = Node::fromJSON(
@@ -67,6 +71,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'DotDotDotToken',
     );
     $offset += $ellipsis->getWidth();
     $right_paren = Node::fromJSON(
@@ -74,6 +79,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

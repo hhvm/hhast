@@ -1,24 +1,26 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f34279a4c1a6fd21bbc06653547c514>>
+ * @generated SignedSource<<5c6ffcc311022b149d0fb1337c916ebb>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
-function node_from_json(
+function node_from_json_unwrapped(
   dict<string, mixed> $json,
   string $file,
   int $offset,
   string $source,
+  string $type_hint,
 ): HHAST\Node {
   $kind = $json["kind"] as string;
   if ($kind === "token") {
     return HHAST\Token::fromJSON(
-      $json['token'] as dict<_, _>,
+      /* HH_FIXME[4110] */ $json['token'],
       $file,
       $offset,
       $source,
+      $type_hint,
     );
   }
   $kind_to_class = dict[
@@ -225,7 +227,7 @@ function node_from_json(
   ];
   $class = $kind_to_class[$kind] ?? null;
   if ($class is nonnull) {
-    return $class::fromJSON($json, $file, $offset, $source);
+    return $class::fromJSON($json, $file, $offset, $source, $type_hint);
   }
   throw new HHAST\UnsupportedASTNodeError(
     $file,

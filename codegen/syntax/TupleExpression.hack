@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1e490e84791d0f638963584ab260494>>
+ * @generated SignedSource<<acc13291f813556c918422cde5c678ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'TupleToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -50,6 +52,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $items = Node::fromJSON(
@@ -57,6 +60,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $items->getWidth();
     $right_paren = Node::fromJSON(
@@ -64,6 +68,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

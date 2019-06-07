@@ -126,10 +126,11 @@ abstract class Token extends Node {
     string $file,
     int $offset,
     string $source,
+    string $_type_hint,
   ): Token {
     $leading_list = __Private\fold_map(
       /* HH_FIXME[4110] use like-types when available*/ $json['leading'],
-      ($j, $p) ==> Node::fromJSON($j, $file, $p, $source),
+      ($j, $p) ==> Node::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] + $p,
       $offset,
     );
@@ -151,7 +152,7 @@ abstract class Token extends Node {
     $trailing_position = $token_position + $token_width;
     $trailing_list = __Private\fold_map(
       /* HH_IGNORE_ERROR[4110] */ $json['trailing'],
-      ($j, $p) ==> Node::fromJSON($j, $file, $p, $source),
+      ($j, $p) ==> Node::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
     );
@@ -169,6 +170,7 @@ abstract class Token extends Node {
     $width = $json['leading_width'] as int +
       $json['width'] as int +
       $json['trailing_width'] as int;
+
     return __Private\token_from_data(
       shape(
         'file' => $file,

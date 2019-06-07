@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b444c63f01bf01c5e43c37fff9e05351>>
+ * @generated SignedSource<<f27a8ab02c0b8ac59b421d27c4ceef00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class XHPRequired extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $at = Node::fromJSON(
@@ -37,6 +38,7 @@ final class XHPRequired extends Node {
       $file,
       $offset,
       $source,
+      'AtToken',
     );
     $offset += $at->getWidth();
     $keyword = Node::fromJSON(
@@ -44,6 +46,7 @@ final class XHPRequired extends Node {
       $file,
       $offset,
       $source,
+      'RequiredToken',
     );
     $offset += $keyword->getWidth();
     $source_ref = shape(

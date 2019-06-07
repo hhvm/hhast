@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d8faec3ac3febbb3a93dbd1db3c4e51>>
+ * @generated SignedSource<<0d8d6db37d832ce5c35db9b7f65aa977>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $tilde = Node::fromJSON(
@@ -37,6 +38,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'TildeToken',
     );
     $offset += $tilde->getWidth();
     $type = Node::fromJSON(
@@ -44,6 +46,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $source_ref = shape(

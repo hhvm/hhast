@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0043a07bd0f6609dd2008f0886f74b82>>
+ * @generated SignedSource<<e5263f069a2a4f7f3730fab8e46dd96f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,6 +38,7 @@ final class CollectionLiteralExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -45,6 +46,7 @@ final class CollectionLiteralExpression
       $file,
       $offset,
       $source,
+      'ISimpleCreationSpecifier',
     );
     $offset += $name->getWidth();
     $left_brace = Node::fromJSON(
@@ -52,6 +54,7 @@ final class CollectionLiteralExpression
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $initializers = Node::fromJSON(
@@ -59,6 +62,7 @@ final class CollectionLiteralExpression
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<Node>>',
     );
     $offset += $initializers->getWidth();
     $right_brace = Node::fromJSON(
@@ -66,6 +70,7 @@ final class CollectionLiteralExpression
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

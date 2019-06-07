@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25dce71f555b2388d692c926ee6224a4>>
+ * @generated SignedSource<<de073e8834f1d6854e7fe13128304578>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class WhereClause extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -37,6 +38,7 @@ final class WhereClause extends Node {
       $file,
       $offset,
       $source,
+      'WhereToken',
     );
     $offset += $keyword->getWidth();
     $constraints = Node::fromJSON(
@@ -44,6 +46,7 @@ final class WhereClause extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<WhereConstraint>>',
     );
     $offset += $constraints->getWidth();
     $source_ref = shape(

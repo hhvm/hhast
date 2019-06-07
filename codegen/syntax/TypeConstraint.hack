@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<470d3a8cbcb3f319844e1eb6a93819b1>>
+ * @generated SignedSource<<fc308f69cbd373c0b51ee21bfd22cc33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class TypeConstraint extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -37,6 +38,7 @@ final class TypeConstraint extends Node {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $keyword->getWidth();
     $type = Node::fromJSON(
@@ -44,6 +46,7 @@ final class TypeConstraint extends Node {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $source_ref = shape(

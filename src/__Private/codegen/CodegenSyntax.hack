@@ -233,13 +233,6 @@ final class CodegenSyntax extends CodegenBase {
         ->setReturnType($type);
       if ($spec['class'] === 'Node') {
         yield $get->setBodyf('return $this->_%s;', $underscored);
-      } else if ($spec['needsWrapper']) {
-        yield $get->setIsMemoized(true)
-          ->setBodyf(
-            'return __Private\\Wrap\\wrap_%s($this->_%s);',
-            $spec['class'],
-            $underscored,
-          );
       } else {
         yield $get->setBodyf(
           'return TypeAssert\instance_of(%s::class, $this->_%s);',
@@ -265,12 +258,6 @@ final class CodegenSyntax extends CodegenBase {
       ->endIfBlock();
     if ($spec['class'] === 'Node') {
       $get_body->addReturnf('$this->_%s', $underscored);
-    } else if ($spec['needsWrapper']) {
-      $get_body->addReturnf(
-        '__Private\\Wrap\\wrap_%s($this->_%s)',
-        $spec['class'],
-        $underscored,
-      );
     } else {
       $get_body->addReturnf(
         'TypeAssert\instance_of(%s::class, $this->_%s)',
@@ -285,7 +272,6 @@ final class CodegenSyntax extends CodegenBase {
           |> Str\join($$, ' | ')
           |> '@return '.$$,
       )
-      ->setIsMemoized($spec['needsWrapper'])
       ->setReturnType($type)
       ->setBody($get_body->getCode());
 
@@ -338,6 +324,7 @@ final class CodegenSyntax extends CodegenBase {
         HackBuilderValues::literal(),
       );
     foreach ($syntax['fields'] as $field) {
+      $spec = $this->getTypeSpecForField($syntax, $field['field_name']);
       $body
         ->addf('$%s = ', $field['field_name'])
         ->addMultilineCall(
@@ -351,6 +338,7 @@ final class CodegenSyntax extends CodegenBase {
             '$file',
             '$offset',
             '$source',
+            \var_export($spec['class'], true),
           ],
         )
         ->addLinef('$offset += $%s->getWidth();', $field['field_name']);
@@ -364,6 +352,7 @@ final class CodegenSyntax extends CodegenBase {
       ->addParameter('string $file')
       ->addParameter('int $initial_offset')
       ->addParameter('string $source')
+      ->addParameter('string $_type_hint')
       ->setReturnType('this')
       ->setBody(
         $body
@@ -531,7 +520,6 @@ final class CodegenSyntax extends CodegenBase {
 
   const type TFieldSpec = shape(
     'class' => string,
-    'needsWrapper' => bool,
     'nullable' => bool,
     'possibleTypes' => keyset<string>,
   );
@@ -555,7 +543,6 @@ final class CodegenSyntax extends CodegenBase {
     if (!C\contains_key($specs, $key)) {
       return shape(
         'class' => 'Node',
-        'needsWrapper' => false,
         'nullable' => false,
         'possibleTypes' => keyset['unknown'],
       );
@@ -576,7 +563,6 @@ final class CodegenSyntax extends CodegenBase {
     $unified = $this->getUnifiedSyntaxClass($children);
     return shape(
       'class' => $unified,
-      'needsWrapper' => $this->needsInterfaceWrapper($unified),
       'nullable' => $nullable,
       'possibleTypes' => $possible_types,
     );
@@ -636,13 +622,6 @@ final class CodegenSyntax extends CodegenBase {
     return $token['token_kind'].'Token';
   }
 
-  private function needsInterfaceWrapper(string $kind): bool {
-    return C\any(
-      $this->getInterfaceWrappers(),
-      $inner ==> C\contains_key($inner, $kind),
-    );
-  }
-
   private function getInterfaceWrappers(): dict<string, keyset<string>> {
     return dict[
       'NameToken' => keyset['IExpression'],
@@ -670,7 +649,6 @@ final class CodegenSyntax extends CodegenBase {
   ): dict<string, dict<string, self::TFieldSpec>> {
     $node = (bool $nullable, string $key) ==> shape(
       'class' => 'Node',
-      'needsWrapper' => false,
       'nullable' => $nullable,
       'possibleTypes' => $this->getRelationships()[$key] ?? keyset['unknown'],
     );

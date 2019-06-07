@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5bc645da1c817c2aee0310249abf8c6e>>
+ * @generated SignedSource<<1d1090749d73abe156e1ceaae85fe614>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,6 +42,7 @@ final class RecordDeclaration extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -49,6 +50,7 @@ final class RecordDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $attribute_spec->getWidth();
     $keyword = Node::fromJSON(
@@ -56,6 +58,7 @@ final class RecordDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
@@ -63,6 +66,7 @@ final class RecordDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $left_brace = Node::fromJSON(
@@ -70,6 +74,7 @@ final class RecordDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_brace->getWidth();
     $fields = Node::fromJSON(
@@ -77,6 +82,7 @@ final class RecordDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $fields->getWidth();
     $right_brace = Node::fromJSON(
@@ -84,6 +90,7 @@ final class RecordDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

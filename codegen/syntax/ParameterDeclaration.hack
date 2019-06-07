@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d03393f6c1ac7d4d77bfd51bf4a15502>>
+ * @generated SignedSource<<c4801c2d0713b191d5768dfd5ee1fcbe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,6 +44,7 @@ abstract class ParameterDeclarationGeneratedBase
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
@@ -51,6 +52,7 @@ abstract class ParameterDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute->getWidth();
     $visibility = Node::fromJSON(
@@ -58,6 +60,7 @@ abstract class ParameterDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $visibility->getWidth();
     $call_convention = Node::fromJSON(
@@ -65,6 +68,7 @@ abstract class ParameterDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'InoutToken',
     );
     $offset += $call_convention->getWidth();
     $type = Node::fromJSON(
@@ -72,6 +76,7 @@ abstract class ParameterDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $name = Node::fromJSON(
@@ -79,6 +84,7 @@ abstract class ParameterDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $name->getWidth();
     $default_value = Node::fromJSON(
@@ -86,6 +92,7 @@ abstract class ParameterDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'SimpleInitializer',
     );
     $offset += $default_value->getWidth();
     $source_ref = shape(
@@ -343,9 +350,8 @@ abstract class ParameterDeclarationGeneratedBase
   /**
    * @return DecoratedExpression | VariableToken
    */
-  <<__Memoize>>
   public function getName(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_name);
+    return TypeAssert\instance_of(IExpression::class, $this->_name);
   }
 
   /**

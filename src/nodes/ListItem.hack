@@ -10,6 +10,7 @@
 namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Str;
 
 final class ListItem<+T as ?Node> extends Node {
 
@@ -34,13 +35,22 @@ final class ListItem<+T as ?Node> extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $type_hint,
   ): this {
+    if (Str\starts_with($type_hint, 'ListItem<')) {
+      $type_hint = $type_hint
+        |> Str\strip_prefix($$, 'ListItem<')
+        |> Str\strip_suffix($$, '>');
+    } else {
+      $type_hint = 'Node';
+    }
     $offset = $initial_offset;
     $item = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_item'],
       $file,
       $offset,
       $source,
+      $type_hint,
     );
     $offset += $item->getWidth();
     $separator = Node::fromJSON(
@@ -48,6 +58,7 @@ final class ListItem<+T as ?Node> extends Node {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $separator->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9abeb6a827c24dc26cb5004cfa78f29>>
+ * @generated SignedSource<<f16dc34bbc573c99c9e08772d2eef242>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
@@ -40,6 +41,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $types = Node::fromJSON(
@@ -47,6 +49,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ITypeSpecifier>>',
     );
     $offset += $types->getWidth();
     $right_paren = Node::fromJSON(
@@ -54,6 +57,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

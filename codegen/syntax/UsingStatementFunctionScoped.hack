@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6be609978c4644de520955a43f28f6f9>>
+ * @generated SignedSource<<cb5c0e337224d9c6934fd46600d9ed35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $await_keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'AwaitToken',
     );
     $offset += $await_keyword->getWidth();
     $using_keyword = Node::fromJSON(
@@ -50,6 +52,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'UsingToken',
     );
     $offset += $using_keyword->getWidth();
     $expression = Node::fromJSON(
@@ -57,6 +60,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
@@ -64,6 +68,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(
@@ -207,9 +212,8 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
    * @return BinaryExpression | LambdaExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression
    */
-  <<__Memoize>>
   public function getExpression(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

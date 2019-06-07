@@ -132,8 +132,9 @@ abstract class Node {
     string $file,
     int $offset,
     string $source,
+    string $type_hint,
   ): Node {
-    return __Private\node_from_json($json, $file, $offset, $source);
+    return __Private\node_from_json($json, $file, $offset, $source, $type_hint);
   }
 
   public function toVec(): vec<Node> {

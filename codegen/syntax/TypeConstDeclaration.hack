@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff7d098b1dccd5cc175870bcf0cd8897>>
+ * @generated SignedSource<<7e335736f1c1ecfa419be821f29f8b22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -54,6 +54,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -61,6 +62,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $attribute_spec->getWidth();
     $abstract = Node::fromJSON(
@@ -68,6 +70,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'AbstractToken',
     );
     $offset += $abstract->getWidth();
     $keyword = Node::fromJSON(
@@ -75,6 +78,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'ConstToken',
     );
     $offset += $keyword->getWidth();
     $type_keyword = Node::fromJSON(
@@ -82,6 +86,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'TypeToken',
     );
     $offset += $type_keyword->getWidth();
     $name = Node::fromJSON(
@@ -89,6 +94,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $name->getWidth();
     $type_parameters = Node::fromJSON(
@@ -96,6 +102,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $type_parameters->getWidth();
     $type_constraint = Node::fromJSON(
@@ -103,6 +110,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'TypeConstraint',
     );
     $offset += $type_constraint->getWidth();
     $equal = Node::fromJSON(
@@ -110,6 +118,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'EqualToken',
     );
     $offset += $equal->getWidth();
     $type_specifier = Node::fromJSON(
@@ -117,6 +126,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type_specifier->getWidth();
     $semicolon = Node::fromJSON(
@@ -124,6 +134,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

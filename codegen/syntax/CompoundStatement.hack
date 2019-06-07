@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<921ac59972a7c3c081d182766e9bffdb>>
+ * @generated SignedSource<<842f296696f380b68222e5eb42772e1e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
@@ -40,6 +41,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $statements = Node::fromJSON(
@@ -47,6 +49,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       $file,
       $offset,
       $source,
+      'NodeList<IStatement>',
     );
     $offset += $statements->getWidth();
     $right_brace = Node::fromJSON(
@@ -54,6 +57,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

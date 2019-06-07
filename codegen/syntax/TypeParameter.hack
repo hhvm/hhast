@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e38163cf72c09d2ed37a7477bf266ccd>>
+ * @generated SignedSource<<3b875b23fe5f344bf7509028b6a17e52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class TypeParameter extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -46,6 +47,7 @@ final class TypeParameter extends Node {
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute_spec->getWidth();
     $reified = Node::fromJSON(
@@ -53,6 +55,7 @@ final class TypeParameter extends Node {
       $file,
       $offset,
       $source,
+      'ReifyToken',
     );
     $offset += $reified->getWidth();
     $variance = Node::fromJSON(
@@ -60,6 +63,7 @@ final class TypeParameter extends Node {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $variance->getWidth();
     $name = Node::fromJSON(
@@ -67,6 +71,7 @@ final class TypeParameter extends Node {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $name->getWidth();
     $constraints = Node::fromJSON(
@@ -74,6 +79,7 @@ final class TypeParameter extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<TypeConstraint>',
     );
     $offset += $constraints->getWidth();
     $source_ref = shape(

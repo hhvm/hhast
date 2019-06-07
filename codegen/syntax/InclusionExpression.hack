@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5c99ec91efa628b3a7d099f8e0f687c>>
+ * @generated SignedSource<<894e892a4bee6b21934fae278530b638>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,6 +32,7 @@ final class InclusionExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $require = Node::fromJSON(
@@ -39,6 +40,7 @@ final class InclusionExpression
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $require->getWidth();
     $filename = Node::fromJSON(
@@ -46,6 +48,7 @@ final class InclusionExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $filename->getWidth();
     $source_ref = shape(
@@ -127,9 +130,8 @@ final class InclusionExpression
    * @return BinaryExpression | LiteralExpression | ParenthesizedExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  <<__Memoize>>
   public function getFilename(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_filename);
+    return TypeAssert\instance_of(IExpression::class, $this->_filename);
   }
 
   /**

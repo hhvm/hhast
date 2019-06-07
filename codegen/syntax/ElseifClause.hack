@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0b8805f7d858f6eb572f7959318f780>>
+ * @generated SignedSource<<d267de316252933283c1e761267097d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -46,6 +47,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
       $file,
       $offset,
       $source,
+      'ElseifToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -53,6 +55,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
@@ -60,6 +63,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
@@ -67,6 +71,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $statement = Node::fromJSON(
@@ -74,6 +79,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
       $file,
       $offset,
       $source,
+      'IStatement',
     );
     $offset += $statement->getWidth();
     $source_ref = shape(
@@ -227,9 +233,8 @@ final class ElseifClause extends Node implements IControlFlowStatement {
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getCondition(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_condition);
+    return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**

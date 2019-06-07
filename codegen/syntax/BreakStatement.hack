@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55aee4e0aac5739d712fa0917e8abed7>>
+ * @generated SignedSource<<9f5c2bf60cb3ad5db75f6ad6499e6c33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class BreakStatement extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -40,6 +41,7 @@ final class BreakStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'BreakToken',
     );
     $offset += $keyword->getWidth();
     $level = Node::fromJSON(
@@ -47,6 +49,7 @@ final class BreakStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'LiteralExpression',
     );
     $offset += $level->getWidth();
     $semicolon = Node::fromJSON(
@@ -54,6 +57,7 @@ final class BreakStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

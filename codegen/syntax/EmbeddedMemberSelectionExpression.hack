@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8dfc0fccc655bd1550872f5d72a31b62>>
+ * @generated SignedSource<<ff5aa4bb4aaa72ead0d87b4ca9d437cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class EmbeddedMemberSelectionExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $object = Node::fromJSON(
@@ -42,6 +43,7 @@ final class EmbeddedMemberSelectionExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $object->getWidth();
     $operator = Node::fromJSON(
@@ -49,6 +51,7 @@ final class EmbeddedMemberSelectionExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
@@ -56,6 +59,7 @@ final class EmbeddedMemberSelectionExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $source_ref = shape(

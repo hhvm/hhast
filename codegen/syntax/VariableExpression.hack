@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<09342a64c505b4a221298faefa599747>>
+ * @generated SignedSource<<d86f00cbc281a39ffe24b47fef09281f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,6 +29,7 @@ final class VariableExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
@@ -36,6 +37,7 @@ final class VariableExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $expression->getWidth();
     $source_ref = shape(

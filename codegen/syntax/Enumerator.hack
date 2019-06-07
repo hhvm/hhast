@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4bee579cf32a5bc1da29738f9040709e>>
+ * @generated SignedSource<<f409a8808a38de3135b483f02c74f612>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class Enumerator extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -43,6 +44,7 @@ final class Enumerator extends Node {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $name->getWidth();
     $equal = Node::fromJSON(
@@ -50,6 +52,7 @@ final class Enumerator extends Node {
       $file,
       $offset,
       $source,
+      'EqualToken',
     );
     $offset += $equal->getWidth();
     $value = Node::fromJSON(
@@ -57,6 +60,7 @@ final class Enumerator extends Node {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $value->getWidth();
     $semicolon = Node::fromJSON(
@@ -64,6 +68,7 @@ final class Enumerator extends Node {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(
@@ -183,9 +188,8 @@ final class Enumerator extends Node {
    * @return BinaryExpression | LiteralExpression | ScopeResolutionExpression |
    * NameToken
    */
-  <<__Memoize>>
   public function getValue(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_value);
+    return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**

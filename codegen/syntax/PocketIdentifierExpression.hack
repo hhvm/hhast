@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c47bd741df21d54ea017ba9d9d7842e7>>
+ * @generated SignedSource<<78723bfec8a76d76953b335a1575cae8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class PocketIdentifierExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $qualifier = Node::fromJSON(
@@ -48,6 +49,7 @@ final class PocketIdentifierExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $qualifier->getWidth();
     $pu_operator = Node::fromJSON(
@@ -55,6 +57,7 @@ final class PocketIdentifierExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $pu_operator->getWidth();
     $field = Node::fromJSON(
@@ -62,6 +65,7 @@ final class PocketIdentifierExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $field->getWidth();
     $operator = Node::fromJSON(
@@ -69,6 +73,7 @@ final class PocketIdentifierExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
@@ -76,6 +81,7 @@ final class PocketIdentifierExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $source_ref = shape(

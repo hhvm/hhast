@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5367ac34e8cedada04e7fa4b1b101b0f>>
+ * @generated SignedSource<<63013fc119ba4f23be89c5a896d84a1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,6 +32,7 @@ final class DecoratedExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $decorator = Node::fromJSON(
@@ -39,6 +40,7 @@ final class DecoratedExpression
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $decorator->getWidth();
     $expression = Node::fromJSON(
@@ -46,6 +48,7 @@ final class DecoratedExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $source_ref = shape(
@@ -130,9 +133,8 @@ final class DecoratedExpression
    * DecoratedExpression | FunctionCallExpression | ScopeResolutionExpression |
    * SubscriptExpression | VariableToken | VariableExpression
    */
-  <<__Memoize>>
   public function getExpression(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

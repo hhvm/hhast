@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e56e686820eef9aa508709deb961bf4>>
+ * @generated SignedSource<<a2e66269c1f2f1b60fdc33f66e1acd15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,6 +32,7 @@ final class ClosureParameterTypeSpecifier
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $call_convention = Node::fromJSON(
@@ -39,6 +40,7 @@ final class ClosureParameterTypeSpecifier
       $file,
       $offset,
       $source,
+      'InoutToken',
     );
     $offset += $call_convention->getWidth();
     $type = Node::fromJSON(
@@ -46,6 +48,7 @@ final class ClosureParameterTypeSpecifier
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $source_ref = shape(

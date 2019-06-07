@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ffb36636fff0f95acb5405aa0705004b>>
+ * @generated SignedSource<<7714f704bf3a975a5ad0f3c5e200425f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,6 +42,7 @@ final class PocketAtomMappingDeclaration extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $glyph = Node::fromJSON(
@@ -49,6 +50,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $glyph->getWidth();
     $name = Node::fromJSON(
@@ -56,6 +58,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $left_paren = Node::fromJSON(
@@ -63,6 +66,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_paren->getWidth();
     $mappings = Node::fromJSON(
@@ -70,6 +74,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $mappings->getWidth();
     $right_paren = Node::fromJSON(
@@ -77,6 +82,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_paren->getWidth();
     $semicolon = Node::fromJSON(
@@ -84,6 +90,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c19dec084a54ea49c29d50fd5bc4211>>
+ * @generated SignedSource<<39eca4cc53038cda07c1c744d9d1175f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $open = Node::fromJSON(
@@ -40,6 +41,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'XHPOpen',
     );
     $offset += $open->getWidth();
     $body = Node::fromJSON(
@@ -47,6 +49,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'NodeList<Node>',
     );
     $offset += $body->getWidth();
     $close = Node::fromJSON(
@@ -54,6 +57,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'XHPClose',
     );
     $offset += $close->getWidth();
     $source_ref = shape(

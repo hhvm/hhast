@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43f53b520cfed33e9a1603310764d122>>
+ * @generated SignedSource<<5d064c191ef6f878d81b8e64bb39c928>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,6 +42,7 @@ final class CatchClause extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -49,6 +50,7 @@ final class CatchClause extends Node {
       $file,
       $offset,
       $source,
+      'CatchToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -56,6 +58,7 @@ final class CatchClause extends Node {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $type = Node::fromJSON(
@@ -63,6 +66,7 @@ final class CatchClause extends Node {
       $file,
       $offset,
       $source,
+      'SimpleTypeSpecifier',
     );
     $offset += $type->getWidth();
     $variable = Node::fromJSON(
@@ -70,6 +74,7 @@ final class CatchClause extends Node {
       $file,
       $offset,
       $source,
+      'VariableToken',
     );
     $offset += $variable->getWidth();
     $right_paren = Node::fromJSON(
@@ -77,6 +82,7 @@ final class CatchClause extends Node {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
@@ -84,6 +90,7 @@ final class CatchClause extends Node {
       $file,
       $offset,
       $source,
+      'CompoundStatement',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

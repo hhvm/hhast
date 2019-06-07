@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47ab62e35bdf83d501f03e9b27554a95>>
+ * @generated SignedSource<<c8ff2912c7fcc447392e8a2a13faa2fc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class MarkupSection extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $prefix = Node::fromJSON(
@@ -43,6 +44,7 @@ final class MarkupSection extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $prefix->getWidth();
     $text = Node::fromJSON(
@@ -50,6 +52,7 @@ final class MarkupSection extends Node {
       $file,
       $offset,
       $source,
+      'MarkupToken',
     );
     $offset += $text->getWidth();
     $suffix = Node::fromJSON(
@@ -57,6 +60,7 @@ final class MarkupSection extends Node {
       $file,
       $offset,
       $source,
+      'MarkupSuffix',
     );
     $offset += $suffix->getWidth();
     $expression = Node::fromJSON(
@@ -64,6 +68,7 @@ final class MarkupSection extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $expression->getWidth();
     $source_ref = shape(

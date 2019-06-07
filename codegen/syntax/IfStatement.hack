@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<37e1848f69eb5eafc31ba6f71c470a21>>
+ * @generated SignedSource<<1bfc73a7aebf0ddb3668ab5a27f73611>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,6 +47,7 @@ final class IfStatement
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -54,6 +55,7 @@ final class IfStatement
       $file,
       $offset,
       $source,
+      'IfToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -61,6 +63,7 @@ final class IfStatement
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
@@ -68,6 +71,7 @@ final class IfStatement
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
@@ -75,6 +79,7 @@ final class IfStatement
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $statement = Node::fromJSON(
@@ -82,6 +87,7 @@ final class IfStatement
       $file,
       $offset,
       $source,
+      'IStatement',
     );
     $offset += $statement->getWidth();
     $elseif_clauses = Node::fromJSON(
@@ -89,6 +95,7 @@ final class IfStatement
       $file,
       $offset,
       $source,
+      'NodeList<ElseifClause>',
     );
     $offset += $elseif_clauses->getWidth();
     $else_clause = Node::fromJSON(
@@ -96,6 +103,7 @@ final class IfStatement
       $file,
       $offset,
       $source,
+      'ElseClause',
     );
     $offset += $else_clause->getWidth();
     $source_ref = shape(
@@ -269,9 +277,8 @@ final class IfStatement
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
-  <<__Memoize>>
   public function getCondition(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_condition);
+    return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**

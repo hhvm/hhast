@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<195f581cf5be7f250339842127bb6104>>
+ * @generated SignedSource<<ca799afa61c0ae3d9d46ef62dde14cbc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class InstanceofExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_operand = Node::fromJSON(
@@ -42,6 +43,7 @@ final class InstanceofExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
@@ -49,6 +51,7 @@ final class InstanceofExpression
       $file,
       $offset,
       $source,
+      'InstanceofToken',
     );
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
@@ -56,6 +59,7 @@ final class InstanceofExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_operand->getWidth();
     $source_ref = shape(
@@ -116,9 +120,8 @@ final class InstanceofExpression
    * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getLeftOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_left_operand);
+    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**

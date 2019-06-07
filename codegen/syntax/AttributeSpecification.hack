@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e785f9d139d966c69b11799056f547d5>>
+ * @generated SignedSource<<826c6be9221e76c155a9811cbb3d1e3d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class AttributeSpecification extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_double_angle = Node::fromJSON(
@@ -40,6 +41,7 @@ final class AttributeSpecification extends Node {
       $file,
       $offset,
       $source,
+      'LessThanLessThanToken',
     );
     $offset += $left_double_angle->getWidth();
     $attributes = Node::fromJSON(
@@ -47,6 +49,7 @@ final class AttributeSpecification extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ConstructorCall>>',
     );
     $offset += $attributes->getWidth();
     $right_double_angle = Node::fromJSON(
@@ -54,6 +57,7 @@ final class AttributeSpecification extends Node {
       $file,
       $offset,
       $source,
+      'GreaterThanGreaterThanToken',
     );
     $offset += $right_double_angle->getWidth();
     $source_ref = shape(

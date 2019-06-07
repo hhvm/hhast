@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<02af91c1bcd9a97e99962ad03fa71688>>
+ * @generated SignedSource<<eaa44c633341d0a77f93de8048fb69dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class ElementInitializer extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $key = Node::fromJSON(
@@ -40,6 +41,7 @@ final class ElementInitializer extends Node {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $key->getWidth();
     $arrow = Node::fromJSON(
@@ -47,6 +49,7 @@ final class ElementInitializer extends Node {
       $file,
       $offset,
       $source,
+      'EqualGreaterThanToken',
     );
     $offset += $arrow->getWidth();
     $value = Node::fromJSON(
@@ -54,6 +57,7 @@ final class ElementInitializer extends Node {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $value->getWidth();
     $source_ref = shape(
@@ -116,9 +120,8 @@ final class ElementInitializer extends Node {
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getKey(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_key);
+    return TypeAssert\instance_of(IExpression::class, $this->_key);
   }
 
   /**
@@ -189,9 +192,8 @@ final class ElementInitializer extends Node {
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
-  <<__Memoize>>
   public function getValue(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_value);
+    return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**

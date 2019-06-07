@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5532a2fe340e80628c50f391692656c3>>
+ * @generated SignedSource<<0aed06c1d62a792de472a50231a32bdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,6 +56,7 @@ final class ForeachStatement
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -63,6 +64,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'ForeachToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -70,6 +72,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $collection = Node::fromJSON(
@@ -77,6 +80,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $collection->getWidth();
     $await_keyword = Node::fromJSON(
@@ -84,6 +88,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'AwaitToken',
     );
     $offset += $await_keyword->getWidth();
     $as = Node::fromJSON(
@@ -91,6 +96,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'AsToken',
     );
     $offset += $as->getWidth();
     $key = Node::fromJSON(
@@ -98,6 +104,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $key->getWidth();
     $arrow = Node::fromJSON(
@@ -105,6 +112,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'EqualGreaterThanToken',
     );
     $offset += $arrow->getWidth();
     $value = Node::fromJSON(
@@ -112,6 +120,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $value->getWidth();
     $right_paren = Node::fromJSON(
@@ -119,6 +128,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
@@ -126,6 +136,7 @@ final class ForeachStatement
       $file,
       $offset,
       $source,
+      'IStatement',
     );
     $offset += $body->getWidth();
     $source_ref = shape(
@@ -323,9 +334,8 @@ final class ForeachStatement
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | VectorIntrinsicExpression
    */
-  <<__Memoize>>
   public function getCollection(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_collection);
+    return TypeAssert\instance_of(IExpression::class, $this->_collection);
   }
 
   /**
@@ -453,12 +463,11 @@ final class ForeachStatement
    * @return ListExpression | MemberSelectionExpression | null |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getKey(): ?IExpression {
     if ($this->_key->isMissing()) {
       return null;
     }
-    return __Private\Wrap\wrap_IExpression($this->_key);
+    return TypeAssert\instance_of(IExpression::class, $this->_key);
   }
 
   /**
@@ -542,9 +551,8 @@ final class ForeachStatement
    * @return ListExpression | MemberSelectionExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getValue(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_value);
+    return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**

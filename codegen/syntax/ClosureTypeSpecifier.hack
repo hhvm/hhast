@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dcea8eae32ea7b388a76d113ed488fe4>>
+ * @generated SignedSource<<6d49f0e51a518ba316c3531f225d06e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,6 +51,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $outer_left_paren = Node::fromJSON(
@@ -58,6 +59,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $outer_left_paren->getWidth();
     $coroutine = Node::fromJSON(
@@ -65,6 +67,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $coroutine->getWidth();
     $function_keyword = Node::fromJSON(
@@ -72,6 +75,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'FunctionToken',
     );
     $offset += $function_keyword->getWidth();
     $inner_left_paren = Node::fromJSON(
@@ -79,6 +83,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $inner_left_paren->getWidth();
     $parameter_list = Node::fromJSON(
@@ -86,6 +91,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ITypeSpecifier>>',
     );
     $offset += $parameter_list->getWidth();
     $inner_right_paren = Node::fromJSON(
@@ -93,6 +99,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $inner_right_paren->getWidth();
     $colon = Node::fromJSON(
@@ -100,6 +107,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $return_type = Node::fromJSON(
@@ -107,6 +115,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $return_type->getWidth();
     $outer_right_paren = Node::fromJSON(
@@ -114,6 +123,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $outer_right_paren->getWidth();
     $source_ref = shape(

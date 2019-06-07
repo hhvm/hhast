@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9225194eaaec971791daa8c46b77de4b>>
+ * @generated SignedSource<<68a976e87d6302184ee2703cf306cc04>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -54,6 +54,7 @@ final class FunctionDeclarationHeader extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
@@ -61,6 +62,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<Token>',
     );
     $offset += $modifiers->getWidth();
     $keyword = Node::fromJSON(
@@ -68,6 +70,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'FunctionToken',
     );
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
@@ -75,6 +78,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $name->getWidth();
     $type_parameter_list = Node::fromJSON(
@@ -82,6 +86,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'TypeParameters',
     );
     $offset += $type_parameter_list->getWidth();
     $left_paren = Node::fromJSON(
@@ -89,6 +94,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $parameter_list = Node::fromJSON(
@@ -96,6 +102,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IParameter>>',
     );
     $offset += $parameter_list->getWidth();
     $right_paren = Node::fromJSON(
@@ -103,6 +110,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
@@ -110,6 +118,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $type = Node::fromJSON(
@@ -117,6 +126,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $type->getWidth();
     $where_clause = Node::fromJSON(
@@ -124,6 +134,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
+      'WhereClause',
     );
     $offset += $where_clause->getWidth();
     $source_ref = shape(

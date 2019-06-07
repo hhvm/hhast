@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9a1d9707746cbc658cfde7bdfa8902f>>
+ * @generated SignedSource<<d02cf2a7a85adea874116d4578466556>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
@@ -50,6 +52,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_angle->getWidth();
     $types = Node::fromJSON(
@@ -57,6 +60,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $types->getWidth();
     $right_angle = Node::fromJSON(
@@ -64,6 +68,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_angle->getWidth();
     $source_ref = shape(

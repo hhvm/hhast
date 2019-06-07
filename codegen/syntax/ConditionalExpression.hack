@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bea6749ad282b20a3ce20c943ba9b0e>>
+ * @generated SignedSource<<51644b6632ff31ec16be2054b8b1e19e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class ConditionalExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $test = Node::fromJSON(
@@ -48,6 +49,7 @@ final class ConditionalExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $test->getWidth();
     $question = Node::fromJSON(
@@ -55,6 +57,7 @@ final class ConditionalExpression
       $file,
       $offset,
       $source,
+      'QuestionToken',
     );
     $offset += $question->getWidth();
     $consequence = Node::fromJSON(
@@ -62,6 +65,7 @@ final class ConditionalExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $consequence->getWidth();
     $colon = Node::fromJSON(
@@ -69,6 +73,7 @@ final class ConditionalExpression
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $alternative = Node::fromJSON(
@@ -76,6 +81,7 @@ final class ConditionalExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $alternative->getWidth();
     $source_ref = shape(
@@ -157,9 +163,8 @@ final class ConditionalExpression
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getTest(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_test);
+    return TypeAssert\instance_of(IExpression::class, $this->_test);
   }
 
   /**
@@ -239,12 +244,11 @@ final class ConditionalExpression
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
-  <<__Memoize>>
   public function getConsequence(): ?IExpression {
     if ($this->_consequence->isMissing()) {
       return null;
     }
-    return __Private\Wrap\wrap_IExpression($this->_consequence);
+    return TypeAssert\instance_of(IExpression::class, $this->_consequence);
   }
 
   /**
@@ -325,9 +329,8 @@ final class ConditionalExpression
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getAlternative(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_alternative);
+    return TypeAssert\instance_of(IExpression::class, $this->_alternative);
   }
 
   /**

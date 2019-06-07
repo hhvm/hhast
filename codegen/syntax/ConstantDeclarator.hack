@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24f4b143d3fee5f903edcacbbb824776>>
+ * @generated SignedSource<<1e70d4e2ba13265ee4302833eca0ee29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class ConstantDeclarator extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -37,6 +38,7 @@ final class ConstantDeclarator extends Node {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
@@ -44,6 +46,7 @@ final class ConstantDeclarator extends Node {
       $file,
       $offset,
       $source,
+      'SimpleInitializer',
     );
     $offset += $initializer->getWidth();
     $source_ref = shape(

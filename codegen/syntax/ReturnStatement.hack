@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a81d7ce2d67cdd241890b69dea50bc02>>
+ * @generated SignedSource<<9a5dee24e4e48095ee1d26dee024df22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class ReturnStatement extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -40,6 +41,7 @@ final class ReturnStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'ReturnToken',
     );
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
@@ -47,6 +49,7 @@ final class ReturnStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
@@ -54,6 +57,7 @@ final class ReturnStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(
@@ -152,12 +156,11 @@ final class ReturnStatement extends Node implements IStatement {
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
-  <<__Memoize>>
   public function getExpression(): ?IExpression {
     if ($this->_expression->isMissing()) {
       return null;
     }
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

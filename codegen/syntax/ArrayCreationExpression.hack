@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a408bb589e45a547ef7500c3ee65e8a8>>
+ * @generated SignedSource<<135f8f8dcc91620ad67053164d805cff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class ArrayCreationExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_bracket = Node::fromJSON(
@@ -42,6 +43,7 @@ final class ArrayCreationExpression
       $file,
       $offset,
       $source,
+      'LeftBracketToken',
     );
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
@@ -49,6 +51,7 @@ final class ArrayCreationExpression
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<Node>>',
     );
     $offset += $members->getWidth();
     $right_bracket = Node::fromJSON(
@@ -56,6 +59,7 @@ final class ArrayCreationExpression
       $file,
       $offset,
       $source,
+      'RightBracketToken',
     );
     $offset += $right_bracket->getWidth();
     $source_ref = shape(

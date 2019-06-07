@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff65601fe17edc0fa3b1d6c449efdad3>>
+ * @generated SignedSource<<022e4a110ba843ebbed26887258bf858>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class YieldFromExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $yield_keyword = Node::fromJSON(
@@ -42,6 +43,7 @@ final class YieldFromExpression
       $file,
       $offset,
       $source,
+      'YieldToken',
     );
     $offset += $yield_keyword->getWidth();
     $from_keyword = Node::fromJSON(
@@ -49,6 +51,7 @@ final class YieldFromExpression
       $file,
       $offset,
       $source,
+      'FromToken',
     );
     $offset += $from_keyword->getWidth();
     $operand = Node::fromJSON(
@@ -56,6 +59,7 @@ final class YieldFromExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $operand->getWidth();
     $source_ref = shape(
@@ -172,9 +176,8 @@ final class YieldFromExpression
    * @return ArrayCreationExpression | FunctionCallExpression |
    * LiteralExpression | ParenthesizedExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_operand);
+    return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**
