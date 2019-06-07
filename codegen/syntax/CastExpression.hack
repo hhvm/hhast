@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08a8dd01470b702b214e75762d7f6549>>
+ * @generated SignedSource<<6cbfb29de23d00ebf73f300b6ec371b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
@@ -43,6 +44,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $type = Node::fromJSON(
@@ -50,6 +52,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $type->getWidth();
     $right_paren = Node::fromJSON(
@@ -57,6 +60,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $operand = Node::fromJSON(
@@ -64,6 +68,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $operand->getWidth();
     $source_ref = shape(
@@ -241,9 +246,8 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
    * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
    * | SubscriptExpression | NameToken | VariableExpression | XHPExpression
    */
-  <<__Memoize>>
   public function getOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_operand);
+    return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**

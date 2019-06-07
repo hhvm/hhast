@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f9fc9a94b0f3d0efc2e3744419726907>>
+ * @generated SignedSource<<44c099a88227667432fb6ffb346c8502>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,6 +27,7 @@ final class ErrorSyntax extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $error = Node::fromJSON(
@@ -34,6 +35,7 @@ final class ErrorSyntax extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $error->getWidth();
     $source_ref = shape(

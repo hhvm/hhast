@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b1effc3f028c9b752a414040ef1b83e>>
+ * @generated SignedSource<<e00fdb285c59235a5cc549d62735d797>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,6 +50,7 @@ final class AlternateSwitchStatement
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -57,6 +58,7 @@ final class AlternateSwitchStatement
       $file,
       $offset,
       $source,
+      'SwitchToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -64,6 +66,7 @@ final class AlternateSwitchStatement
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $expression = Node::fromJSON(
@@ -71,6 +74,7 @@ final class AlternateSwitchStatement
       $file,
       $offset,
       $source,
+      'VariableExpression',
     );
     $offset += $expression->getWidth();
     $right_paren = Node::fromJSON(
@@ -78,6 +82,7 @@ final class AlternateSwitchStatement
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $opening_colon = Node::fromJSON(
@@ -85,6 +90,7 @@ final class AlternateSwitchStatement
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $opening_colon->getWidth();
     $sections = Node::fromJSON(
@@ -92,6 +98,7 @@ final class AlternateSwitchStatement
       $file,
       $offset,
       $source,
+      'NodeList<SwitchSection>',
     );
     $offset += $sections->getWidth();
     $closing_endswitch = Node::fromJSON(
@@ -99,6 +106,7 @@ final class AlternateSwitchStatement
       $file,
       $offset,
       $source,
+      'EndswitchToken',
     );
     $offset += $closing_endswitch->getWidth();
     $closing_semicolon = Node::fromJSON(
@@ -106,6 +114,7 @@ final class AlternateSwitchStatement
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $closing_semicolon->getWidth();
     $source_ref = shape(

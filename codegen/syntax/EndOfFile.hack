@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63cdc7100dc8dc828d90a89adb93d805>>
+ * @generated SignedSource<<a79d4fffd42d9e7c7268c6341108e7ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,6 +27,7 @@ final class EndOfFile extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $token = Node::fromJSON(
@@ -34,6 +35,7 @@ final class EndOfFile extends Node {
       $file,
       $offset,
       $source,
+      'EndOfFileToken',
     );
     $offset += $token->getWidth();
     $source_ref = shape(

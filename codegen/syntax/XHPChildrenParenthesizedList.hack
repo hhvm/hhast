@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7637b4f24f415d37378d14a980d11d5>>
+ * @generated SignedSource<<097d322067c73882ebd5b3a79f5192e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class XHPChildrenParenthesizedList extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
@@ -40,6 +41,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_paren->getWidth();
     $xhp_children = Node::fromJSON(
@@ -47,6 +49,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $xhp_children->getWidth();
     $right_paren = Node::fromJSON(
@@ -54,6 +57,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

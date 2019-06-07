@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ca534ded10669cd29f38303cafb0f35>>
+ * @generated SignedSource<<e5c51db1f1e08116da9528c4c65a2092>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class ThrowStatement extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -40,6 +41,7 @@ final class ThrowStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'ThrowToken',
     );
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
@@ -47,6 +49,7 @@ final class ThrowStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
@@ -54,6 +57,7 @@ final class ThrowStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(
@@ -142,9 +146,8 @@ final class ThrowStatement extends Node implements IStatement {
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getExpression(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

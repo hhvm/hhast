@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<041dba44baf6fe1e20ac4ac364ec05d6>>
+ * @generated SignedSource<<f56da4ad3e8b298db24afc8587ff2a87>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,6 +62,7 @@ final class AnonymousFunction
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -69,6 +70,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute_spec->getWidth();
     $static_keyword = Node::fromJSON(
@@ -76,6 +78,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'StaticToken',
     );
     $offset += $static_keyword->getWidth();
     $async_keyword = Node::fromJSON(
@@ -83,6 +86,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'AsyncToken',
     );
     $offset += $async_keyword->getWidth();
     $coroutine_keyword = Node::fromJSON(
@@ -90,6 +94,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $coroutine_keyword->getWidth();
     $function_keyword = Node::fromJSON(
@@ -97,6 +102,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'FunctionToken',
     );
     $offset += $function_keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -104,6 +110,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
@@ -111,6 +118,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IParameter>>',
     );
     $offset += $parameters->getWidth();
     $right_paren = Node::fromJSON(
@@ -118,6 +126,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
@@ -125,6 +134,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $type = Node::fromJSON(
@@ -132,6 +142,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $use = Node::fromJSON(
@@ -139,6 +150,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'AnonymousFunctionUseClause',
     );
     $offset += $use->getWidth();
     $body = Node::fromJSON(
@@ -146,6 +158,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
+      'CompoundStatement',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

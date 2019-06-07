@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d955ebaa8c2857668e8de4860c77d9e4>>
+ * @generated SignedSource<<324fa33a6188ae7ec41a535e2fcc0047>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,6 +29,7 @@ final class PipeVariableExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
@@ -36,6 +37,7 @@ final class PipeVariableExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $expression->getWidth();
     $source_ref = shape(

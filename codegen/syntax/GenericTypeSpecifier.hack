@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9251c4c85f59d81be07131a4fd2f96e1>>
+ * @generated SignedSource<<6e39412924f6aebd44ab7a4e227c1061>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,6 +32,7 @@ final class GenericTypeSpecifier
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $class_type = Node::fromJSON(
@@ -39,6 +40,7 @@ final class GenericTypeSpecifier
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $class_type->getWidth();
     $argument_list = Node::fromJSON(
@@ -46,6 +48,7 @@ final class GenericTypeSpecifier
       $file,
       $offset,
       $source,
+      'TypeArguments',
     );
     $offset += $argument_list->getWidth();
     $source_ref = shape(

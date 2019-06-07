@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<976c9e9047bea667bcfda25ef00d9d9d>>
+ * @generated SignedSource<<c4b899c30af1d90134c547de3c7dbf19>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class NamespaceUseClause extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $clause_kind = Node::fromJSON(
@@ -43,6 +44,7 @@ final class NamespaceUseClause extends Node {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $clause_kind->getWidth();
     $name = Node::fromJSON(
@@ -50,6 +52,7 @@ final class NamespaceUseClause extends Node {
       $file,
       $offset,
       $source,
+      'INameishNode',
     );
     $offset += $name->getWidth();
     $as = Node::fromJSON(
@@ -57,6 +60,7 @@ final class NamespaceUseClause extends Node {
       $file,
       $offset,
       $source,
+      'AsToken',
     );
     $offset += $as->getWidth();
     $alias = Node::fromJSON(
@@ -64,6 +68,7 @@ final class NamespaceUseClause extends Node {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $alias->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc564c5d626e713a6c1fdcaa12040bcf>>
+ * @generated SignedSource<<bc969f73143bfe64782fbc4549a54170>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,6 +53,7 @@ final class ForStatement
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -60,6 +61,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'ForToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -67,6 +69,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $initializer = Node::fromJSON(
@@ -74,6 +77,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $initializer->getWidth();
     $first_semicolon = Node::fromJSON(
@@ -81,6 +85,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $first_semicolon->getWidth();
     $control = Node::fromJSON(
@@ -88,6 +93,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $control->getWidth();
     $second_semicolon = Node::fromJSON(
@@ -95,6 +101,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $second_semicolon->getWidth();
     $end_of_loop = Node::fromJSON(
@@ -102,6 +109,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $end_of_loop->getWidth();
     $right_paren = Node::fromJSON(
@@ -109,6 +117,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
@@ -116,6 +125,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
+      'IStatement',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<243eac4f15c984749462307510c4a560>>
+ * @generated SignedSource<<95a488a5048a21e14632e000603b10bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class PropertyDeclaration
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -48,6 +49,7 @@ final class PropertyDeclaration
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute_spec->getWidth();
     $modifiers = Node::fromJSON(
@@ -55,6 +57,7 @@ final class PropertyDeclaration
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $modifiers->getWidth();
     $type = Node::fromJSON(
@@ -62,6 +65,7 @@ final class PropertyDeclaration
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $declarators = Node::fromJSON(
@@ -69,6 +73,7 @@ final class PropertyDeclaration
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<PropertyDeclarator>>',
     );
     $offset += $declarators->getWidth();
     $semicolon = Node::fromJSON(
@@ -76,6 +81,7 @@ final class PropertyDeclaration
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

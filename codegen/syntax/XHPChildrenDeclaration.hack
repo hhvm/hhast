@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5957466510697f11c146460dfb087b7>>
+ * @generated SignedSource<<2b30c798b5cf378a6998341fcd736a9c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class XHPChildrenDeclaration
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -42,6 +43,7 @@ final class XHPChildrenDeclaration
       $file,
       $offset,
       $source,
+      'ChildrenToken',
     );
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
@@ -49,6 +51,7 @@ final class XHPChildrenDeclaration
       $file,
       $offset,
       $source,
+      'EmptyToken',
     );
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
@@ -56,6 +59,7 @@ final class XHPChildrenDeclaration
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

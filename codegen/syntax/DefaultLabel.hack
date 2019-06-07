@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5bb8838ff1c67a83a00d9e2e0e4a8a8b>>
+ * @generated SignedSource<<5e2f7f283b5fdd95e39c6d6a90fe219c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -37,6 +38,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
+      'DefaultToken',
     );
     $offset += $keyword->getWidth();
     $colon = Node::fromJSON(
@@ -44,6 +46,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $colon->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb6a373381404ac5e2e8c8297185916d>>
+ * @generated SignedSource<<882032352082d90f39c0b7cebd00e80e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'EvalToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -50,6 +52,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $argument = Node::fromJSON(
@@ -57,6 +60,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $argument->getWidth();
     $right_paren = Node::fromJSON(
@@ -64,6 +68,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(
@@ -204,9 +209,8 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getArgument(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_argument);
+    return TypeAssert\instance_of(IExpression::class, $this->_argument);
   }
 
   /**

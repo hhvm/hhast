@@ -4,7 +4,7 @@ use namespace hi;
 use function hello;
 use type that;
 
-public class Test {
+class Test {
 
   public function testMethod(): void {
     self::assertSame($a, $a);

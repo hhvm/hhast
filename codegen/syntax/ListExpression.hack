@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a91fa65bebaeb5f7f450ac4a7d00bc86>>
+ * @generated SignedSource<<70d6d883ca9ca0229197c4eaee7588b2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'ListToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -50,6 +52,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $members = Node::fromJSON(
@@ -57,6 +60,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<?IExpression>>',
     );
     $offset += $members->getWidth();
     $right_paren = Node::fromJSON(
@@ -64,6 +68,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

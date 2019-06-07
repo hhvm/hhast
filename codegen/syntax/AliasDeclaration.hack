@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<659957077cac828841d48c035d55c0cf>>
+ * @generated SignedSource<<ea875e05464076527aa9addbba8ef702>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,6 +48,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -55,6 +56,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute_spec->getWidth();
     $keyword = Node::fromJSON(
@@ -62,6 +64,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
@@ -69,6 +72,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $name->getWidth();
     $generic_parameter = Node::fromJSON(
@@ -76,6 +80,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'TypeParameters',
     );
     $offset += $generic_parameter->getWidth();
     $constraint = Node::fromJSON(
@@ -83,6 +88,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'TypeConstraint',
     );
     $offset += $constraint->getWidth();
     $equal = Node::fromJSON(
@@ -90,6 +96,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'EqualToken',
     );
     $offset += $equal->getWidth();
     $type = Node::fromJSON(
@@ -97,6 +104,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $semicolon = Node::fromJSON(
@@ -104,6 +112,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

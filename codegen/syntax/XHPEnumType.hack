@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92d947291afda1e0dca7fad20a566a41>>
+ * @generated SignedSource<<7e88b4bb12b8b17eee9c1b97854bf529>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $optional = Node::fromJSON(
@@ -46,6 +47,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $optional->getWidth();
     $keyword = Node::fromJSON(
@@ -53,6 +55,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'EnumToken',
     );
     $offset += $keyword->getWidth();
     $left_brace = Node::fromJSON(
@@ -60,6 +63,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $values = Node::fromJSON(
@@ -67,6 +71,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<LiteralExpression>>',
     );
     $offset += $values->getWidth();
     $right_brace = Node::fromJSON(
@@ -74,6 +79,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

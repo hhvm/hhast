@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88470f643ba82b71916a3a5b5fd18a0a>>
+ * @generated SignedSource<<d54b1a198f8a7a173a36cd3e76ef3dc9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class FunctionCallExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $receiver = Node::fromJSON(
@@ -48,6 +49,7 @@ final class FunctionCallExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $receiver->getWidth();
     $type_args = Node::fromJSON(
@@ -55,6 +57,7 @@ final class FunctionCallExpression
       $file,
       $offset,
       $source,
+      'TypeArguments',
     );
     $offset += $type_args->getWidth();
     $left_paren = Node::fromJSON(
@@ -62,6 +65,7 @@ final class FunctionCallExpression
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
@@ -69,6 +73,7 @@ final class FunctionCallExpression
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $argument_list->getWidth();
     $right_paren = Node::fromJSON(
@@ -76,6 +81,7 @@ final class FunctionCallExpression
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

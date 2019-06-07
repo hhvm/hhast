@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d4907a742d3c4ae240b3ece98d3f7b3>>
+ * @generated SignedSource<<27b6f6e8a0ed2917436f75c29b6b60db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,6 +38,7 @@ final class SubscriptExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $receiver = Node::fromJSON(
@@ -45,6 +46,7 @@ final class SubscriptExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $receiver->getWidth();
     $left_bracket = Node::fromJSON(
@@ -52,6 +54,7 @@ final class SubscriptExpression
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $left_bracket->getWidth();
     $index = Node::fromJSON(
@@ -59,6 +62,7 @@ final class SubscriptExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $index->getWidth();
     $right_bracket = Node::fromJSON(
@@ -66,6 +70,7 @@ final class SubscriptExpression
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $right_bracket->getWidth();
     $source_ref = shape(
@@ -141,9 +146,8 @@ final class SubscriptExpression
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getReceiver(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_receiver);
+    return TypeAssert\instance_of(IExpression::class, $this->_receiver);
   }
 
   /**
@@ -219,12 +223,11 @@ final class SubscriptExpression
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getIndex(): ?IExpression {
     if ($this->_index->isMissing()) {
       return null;
     }
-    return __Private\Wrap\wrap_IExpression($this->_index);
+    return TypeAssert\instance_of(IExpression::class, $this->_index);
   }
 
   /**

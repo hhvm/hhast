@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<630457e709bd8e27cd75fec4b2105e81>>
+ * @generated SignedSource<<a8a52e1f40ce6a8d28a65992f79a0127>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $question = Node::fromJSON(
@@ -37,6 +38,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'QuestionToken',
     );
     $offset += $question->getWidth();
     $type = Node::fromJSON(
@@ -44,6 +46,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<91bc9351db081e6e635dcbd37d89efc0>>
+ * @generated SignedSource<<eb74024e09973bf5bec4a2be7b4ec251>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,6 +27,7 @@ abstract class ScriptGeneratedBase extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $declarations = Node::fromJSON(
@@ -34,6 +35,7 @@ abstract class ScriptGeneratedBase extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<Node>',
     );
     $offset += $declarations->getWidth();
     $source_ref = shape(

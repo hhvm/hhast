@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8ca6457ee798b819e34ac74067d9aa4f>>
+ * @generated SignedSource<<6fa80650d0bbdb26b3258510177ffaf2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,6 +42,7 @@ final class LetStatement extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -49,6 +50,7 @@ final class LetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
@@ -56,6 +58,7 @@ final class LetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
@@ -63,6 +66,7 @@ final class LetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $colon->getWidth();
     $type = Node::fromJSON(
@@ -70,6 +74,7 @@ final class LetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $type->getWidth();
     $initializer = Node::fromJSON(
@@ -77,6 +82,7 @@ final class LetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $initializer->getWidth();
     $semicolon = Node::fromJSON(
@@ -84,6 +90,7 @@ final class LetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

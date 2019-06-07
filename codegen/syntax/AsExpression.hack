@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e46cf03bb63ea226188932de42f6cf8>>
+ * @generated SignedSource<<8d08c5ddf3a0e4fd2787224d01198a13>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_operand = Node::fromJSON(
@@ -40,6 +41,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
@@ -47,6 +49,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'AsToken',
     );
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
@@ -54,6 +57,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $right_operand->getWidth();
     $source_ref = shape(
@@ -113,9 +117,8 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
    * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getLeftOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_left_operand);
+    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**

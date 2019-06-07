@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64ebe128bacee7ae450827f8b821c877>>
+ * @generated SignedSource<<224a16da114f87a6cdeeee7fce81aca4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $at = Node::fromJSON(
@@ -37,6 +38,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'AtToken',
     );
     $offset += $at->getWidth();
     $type = Node::fromJSON(
@@ -44,6 +46,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $source_ref = shape(

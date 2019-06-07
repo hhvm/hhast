@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55b080d7b80c341a59ec6858e0143ff9>>
+ * @generated SignedSource<<a8535c01af2708d1dec6a6d0b966d5aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class TryStatement extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class TryStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'TryToken',
     );
     $offset += $keyword->getWidth();
     $compound_statement = Node::fromJSON(
@@ -50,6 +52,7 @@ final class TryStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'CompoundStatement',
     );
     $offset += $compound_statement->getWidth();
     $catch_clauses = Node::fromJSON(
@@ -57,6 +60,7 @@ final class TryStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'NodeList<CatchClause>',
     );
     $offset += $catch_clauses->getWidth();
     $finally_clause = Node::fromJSON(
@@ -64,6 +68,7 @@ final class TryStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'FinallyClause',
     );
     $offset += $finally_clause->getWidth();
     $source_ref = shape(

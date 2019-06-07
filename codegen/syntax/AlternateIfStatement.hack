@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<410bc17ce82f53eb8d9bbf5837941404>>
+ * @generated SignedSource<<2117b89c7410cd75c05ab5f06fa9f825>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,6 +56,7 @@ final class AlternateIfStatement
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -63,6 +64,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'IfToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -70,6 +72,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
@@ -77,6 +80,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
@@ -84,6 +88,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
@@ -91,6 +96,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $statement = Node::fromJSON(
@@ -98,6 +104,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'NodeList<IStatement>',
     );
     $offset += $statement->getWidth();
     $elseif_clauses = Node::fromJSON(
@@ -105,6 +112,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'NodeList<AlternateElseifClause>',
     );
     $offset += $elseif_clauses->getWidth();
     $else_clause = Node::fromJSON(
@@ -112,6 +120,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'AlternateElseClause',
     );
     $offset += $else_clause->getWidth();
     $endif_keyword = Node::fromJSON(
@@ -119,6 +128,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'EndifToken',
     );
     $offset += $endif_keyword->getWidth();
     $semicolon = Node::fromJSON(
@@ -126,6 +136,7 @@ final class AlternateIfStatement
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(
@@ -318,9 +329,8 @@ final class AlternateIfStatement
   /**
    * @return BinaryExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getCondition(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_condition);
+    return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**

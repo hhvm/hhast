@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<58b21db1c8c73b36986fa90ea78b13d6>>
+ * @generated SignedSource<<5fb69d9276adbbecd6d5d8227d57594e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -46,6 +47,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'VarrayToken',
     );
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
@@ -53,6 +55,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'LessThanToken',
     );
     $offset += $left_angle->getWidth();
     $type = Node::fromJSON(
@@ -60,6 +63,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $trailing_comma = Node::fromJSON(
@@ -67,6 +71,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $trailing_comma->getWidth();
     $right_angle = Node::fromJSON(
@@ -74,6 +79,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'GreaterThanToken',
     );
     $offset += $right_angle->getWidth();
     $source_ref = shape(

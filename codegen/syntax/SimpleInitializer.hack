@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ccf49eb9f9d317d2385939821cd9df1>>
+ * @generated SignedSource<<af535f7d5805667245cd7bc78756a97a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class SimpleInitializer extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $equal = Node::fromJSON(
@@ -37,6 +38,7 @@ final class SimpleInitializer extends Node {
       $file,
       $offset,
       $source,
+      'EqualToken',
     );
     $offset += $equal->getWidth();
     $value = Node::fromJSON(
@@ -44,6 +46,7 @@ final class SimpleInitializer extends Node {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $value->getWidth();
     $source_ref = shape(
@@ -131,9 +134,8 @@ final class SimpleInitializer extends Node {
    * TupleExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression |
    * XHPExpression
    */
-  <<__Memoize>>
   public function getValue(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_value);
+    return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2862ec76cb0768ccba8b9c45076c07f>>
+ * @generated SignedSource<<a3c1c4731b395bf60dfccaed640916da>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class AnonymousFunctionUseClause extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class AnonymousFunctionUseClause extends Node {
       $file,
       $offset,
       $source,
+      'UseToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -50,6 +52,7 @@ final class AnonymousFunctionUseClause extends Node {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $variables = Node::fromJSON(
@@ -57,6 +60,7 @@ final class AnonymousFunctionUseClause extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<VariableToken>>',
     );
     $offset += $variables->getWidth();
     $right_paren = Node::fromJSON(
@@ -64,6 +68,7 @@ final class AnonymousFunctionUseClause extends Node {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

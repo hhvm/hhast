@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5293db3f5c9aa1c28d1dd1d469ae468>>
+ * @generated SignedSource<<a59ad50a4fccce3ce7dfa0ae45409976>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,6 +38,7 @@ final class EmbeddedSubscriptExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $receiver = Node::fromJSON(
@@ -45,6 +46,7 @@ final class EmbeddedSubscriptExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $receiver->getWidth();
     $left_bracket = Node::fromJSON(
@@ -52,6 +54,7 @@ final class EmbeddedSubscriptExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_bracket->getWidth();
     $index = Node::fromJSON(
@@ -59,6 +62,7 @@ final class EmbeddedSubscriptExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $index->getWidth();
     $right_bracket = Node::fromJSON(
@@ -66,6 +70,7 @@ final class EmbeddedSubscriptExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_bracket->getWidth();
     $source_ref = shape(

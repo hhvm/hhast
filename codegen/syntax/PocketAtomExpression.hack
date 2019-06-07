@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c666615d5bc9e947e9a19635c870b22a>>
+ * @generated SignedSource<<80b3a228a22e337ec78b2c78a5274793>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,6 +32,7 @@ final class PocketAtomExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $glyph = Node::fromJSON(
@@ -39,6 +40,7 @@ final class PocketAtomExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $glyph->getWidth();
     $expression = Node::fromJSON(
@@ -46,6 +48,7 @@ final class PocketAtomExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $expression->getWidth();
     $source_ref = shape(

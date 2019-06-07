@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97f5ac934d64067749256e4508a115e8>>
+ * @generated SignedSource<<5490f3e831a50a4240c3a3c9e2e31218>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'RequireToken',
     );
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
@@ -50,6 +52,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $kind->getWidth();
     $name = Node::fromJSON(
@@ -57,6 +60,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'ISimpleCreationSpecifier',
     );
     $offset += $name->getWidth();
     $semicolon = Node::fromJSON(
@@ -64,6 +68,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

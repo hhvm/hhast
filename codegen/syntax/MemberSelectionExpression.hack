@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9cc312d583d8529bd599af7edf73ac2>>
+ * @generated SignedSource<<82e3b281688487f1f2029fc20ccba6ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class MemberSelectionExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $object = Node::fromJSON(
@@ -42,6 +43,7 @@ final class MemberSelectionExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $object->getWidth();
     $operator = Node::fromJSON(
@@ -49,6 +51,7 @@ final class MemberSelectionExpression
       $file,
       $offset,
       $source,
+      'MinusGreaterThanToken',
     );
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
@@ -56,6 +59,7 @@ final class MemberSelectionExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $source_ref = shape(
@@ -116,9 +120,8 @@ final class MemberSelectionExpression
    * PipeVariableExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getObject(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_object);
+    return TypeAssert\instance_of(IExpression::class, $this->_object);
   }
 
   /**

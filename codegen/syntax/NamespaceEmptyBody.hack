@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20fde7b8c3faac85cbb1639a96f513b0>>
+ * @generated SignedSource<<d9419c540e074269ba854c45982ce6fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,6 +27,7 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $semicolon = Node::fromJSON(
@@ -34,6 +35,7 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

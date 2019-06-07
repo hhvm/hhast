@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<325d3bcfd27c55600c6e1e0fc28b8ee2>>
+ * @generated SignedSource<<878bf8d7184554d6ad473da32bb0ee0e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,6 +38,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -45,6 +46,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute_spec->getWidth();
     $async = Node::fromJSON(
@@ -52,6 +54,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
       $file,
       $offset,
       $source,
+      'AsyncToken',
     );
     $offset += $async->getWidth();
     $coroutine = Node::fromJSON(
@@ -59,6 +62,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $coroutine->getWidth();
     $compound_statement = Node::fromJSON(
@@ -66,6 +70,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
       $file,
       $offset,
       $source,
+      'CompoundStatement',
     );
     $offset += $compound_statement->getWidth();
     $source_ref = shape(

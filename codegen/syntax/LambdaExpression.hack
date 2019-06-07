@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19098dbd1b284204aa23b76441d2ad7e>>
+ * @generated SignedSource<<e0d8a2561c170dc146c72b7ccac92676>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,6 +44,7 @@ final class LambdaExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -51,6 +52,7 @@ final class LambdaExpression
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute_spec->getWidth();
     $async = Node::fromJSON(
@@ -58,6 +60,7 @@ final class LambdaExpression
       $file,
       $offset,
       $source,
+      'AsyncToken',
     );
     $offset += $async->getWidth();
     $coroutine = Node::fromJSON(
@@ -65,6 +68,7 @@ final class LambdaExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $coroutine->getWidth();
     $signature = Node::fromJSON(
@@ -72,6 +76,7 @@ final class LambdaExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $signature->getWidth();
     $arrow = Node::fromJSON(
@@ -79,6 +84,7 @@ final class LambdaExpression
       $file,
       $offset,
       $source,
+      'EqualEqualGreaterThanToken',
     );
     $offset += $arrow->getWidth();
     $body = Node::fromJSON(
@@ -86,6 +92,7 @@ final class LambdaExpression
       $file,
       $offset,
       $source,
+      'ILambdaBody',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

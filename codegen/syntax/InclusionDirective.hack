@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30f840368fc59f57625e41f54d2f7b9f>>
+ * @generated SignedSource<<b27ec9d2cc7b01211fdac942391021ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class InclusionDirective extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
@@ -37,6 +38,7 @@ final class InclusionDirective extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'InclusionExpression',
     );
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
@@ -44,6 +46,7 @@ final class InclusionDirective extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57dd68a94c836e06b1542a2fefa896dd>>
+ * @generated SignedSource<<5a09c017d5d8cdbe96d06dbf2b494ad4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class MarkupSuffix extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $less_than_question = Node::fromJSON(
@@ -37,6 +38,7 @@ final class MarkupSuffix extends Node {
       $file,
       $offset,
       $source,
+      'LessThanQuestionToken',
     );
     $offset += $less_than_question->getWidth();
     $name = Node::fromJSON(
@@ -44,6 +46,7 @@ final class MarkupSuffix extends Node {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $name->getWidth();
     $source_ref = shape(

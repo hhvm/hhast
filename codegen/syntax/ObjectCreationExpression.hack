@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<368a2014ec663c4bbf081ffdbd67b986>>
+ * @generated SignedSource<<243837dea5303bb8a6d73a7c9a92670b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,6 +32,7 @@ final class ObjectCreationExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $new_keyword = Node::fromJSON(
@@ -39,6 +40,7 @@ final class ObjectCreationExpression
       $file,
       $offset,
       $source,
+      'NewToken',
     );
     $offset += $new_keyword->getWidth();
     $object = Node::fromJSON(
@@ -46,6 +48,7 @@ final class ObjectCreationExpression
       $file,
       $offset,
       $source,
+      'ConstructorCall',
     );
     $offset += $object->getWidth();
     $source_ref = shape(

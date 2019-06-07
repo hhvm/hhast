@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b83391d4a301984615f746d3370aa0a>>
+ * @generated SignedSource<<da542a3dd6a74d762ca043818bf74335>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,6 +42,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $visibility = Node::fromJSON(
@@ -49,6 +50,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $visibility->getWidth();
     $abstract = Node::fromJSON(
@@ -56,6 +58,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'AbstractToken',
     );
     $offset += $abstract->getWidth();
     $keyword = Node::fromJSON(
@@ -63,6 +66,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'ConstToken',
     );
     $offset += $keyword->getWidth();
     $type_specifier = Node::fromJSON(
@@ -70,6 +74,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type_specifier->getWidth();
     $declarators = Node::fromJSON(
@@ -77,6 +82,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ConstantDeclarator>>',
     );
     $offset += $declarators->getWidth();
     $semicolon = Node::fromJSON(
@@ -84,6 +90,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

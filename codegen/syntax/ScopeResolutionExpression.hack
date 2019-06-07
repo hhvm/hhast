@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f2631604a9eab70d251d0d461961d25>>
+ * @generated SignedSource<<5d6c7266183e68fd9b98502dd92a17a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class ScopeResolutionExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $qualifier = Node::fromJSON(
@@ -42,6 +43,7 @@ final class ScopeResolutionExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $qualifier->getWidth();
     $operator = Node::fromJSON(
@@ -49,6 +51,7 @@ final class ScopeResolutionExpression
       $file,
       $offset,
       $source,
+      'ColonColonToken',
     );
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
@@ -56,6 +59,7 @@ final class ScopeResolutionExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $source_ref = shape(

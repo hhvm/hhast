@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1744346ea77dc69f90f51b34ebdc03ac>>
+ * @generated SignedSource<<c3c90018a412cfce5b535373831850c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,6 +51,7 @@ final class AnonymousClass extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $class_keyword = Node::fromJSON(
@@ -58,6 +59,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $class_keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -65,6 +67,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
@@ -72,6 +75,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $argument_list->getWidth();
     $right_paren = Node::fromJSON(
@@ -79,6 +83,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_paren->getWidth();
     $extends_keyword = Node::fromJSON(
@@ -86,6 +91,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $extends_keyword->getWidth();
     $extends_list = Node::fromJSON(
@@ -93,6 +99,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $extends_list->getWidth();
     $implements_keyword = Node::fromJSON(
@@ -100,6 +107,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $implements_keyword->getWidth();
     $implements_list = Node::fromJSON(
@@ -107,6 +115,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $implements_list->getWidth();
     $body = Node::fromJSON(
@@ -114,6 +123,7 @@ final class AnonymousClass extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

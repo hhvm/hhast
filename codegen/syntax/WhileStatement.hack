@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<212e4fa0838767969db6f4987b322862>>
+ * @generated SignedSource<<e394c99b6ceed117b732688a7b81728f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class WhileStatement
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -48,6 +49,7 @@ final class WhileStatement
       $file,
       $offset,
       $source,
+      'WhileToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -55,6 +57,7 @@ final class WhileStatement
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
@@ -62,6 +65,7 @@ final class WhileStatement
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
@@ -69,6 +73,7 @@ final class WhileStatement
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
@@ -76,6 +81,7 @@ final class WhileStatement
       $file,
       $offset,
       $source,
+      'IStatement',
     );
     $offset += $body->getWidth();
     $source_ref = shape(
@@ -225,9 +231,8 @@ final class WhileStatement
    * MemberSelectionExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getCondition(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_condition);
+    return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**

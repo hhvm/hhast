@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da6cb5e89e01b119d9ecade176c5bf73>>
+ * @generated SignedSource<<2d38758f23f7a5e4efc909101cffaa6f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,6 +47,7 @@ final class SwitchStatement
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -54,6 +55,7 @@ final class SwitchStatement
       $file,
       $offset,
       $source,
+      'SwitchToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -61,6 +63,7 @@ final class SwitchStatement
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $expression = Node::fromJSON(
@@ -68,6 +71,7 @@ final class SwitchStatement
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $right_paren = Node::fromJSON(
@@ -75,6 +79,7 @@ final class SwitchStatement
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $left_brace = Node::fromJSON(
@@ -82,6 +87,7 @@ final class SwitchStatement
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $sections = Node::fromJSON(
@@ -89,6 +95,7 @@ final class SwitchStatement
       $file,
       $offset,
       $source,
+      'NodeList<SwitchSection>',
     );
     $offset += $sections->getWidth();
     $right_brace = Node::fromJSON(
@@ -96,6 +103,7 @@ final class SwitchStatement
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(
@@ -266,9 +274,8 @@ final class SwitchStatement
    * MemberSelectionExpression | ObjectCreationExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getExpression(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

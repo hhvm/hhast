@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e8f534a44a4592ce3b7d1aa58a31eb8>>
+ * @generated SignedSource<<729f95cc40736b197663eb12e737393c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -40,6 +41,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
+      'CaseToken',
     );
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
@@ -47,6 +49,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $colon = Node::fromJSON(
@@ -54,6 +57,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $colon->getWidth();
     $source_ref = shape(
@@ -143,9 +147,8 @@ final class CaseLabel extends Node implements ISwitchLabel {
    * PrefixUnaryExpression | ScopeResolutionExpression | NameToken |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getExpression(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
