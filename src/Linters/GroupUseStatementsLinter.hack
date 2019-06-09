@@ -60,28 +60,18 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
     ];
 
     $use_kind = (INamespaceUseDeclaration $node): ?string ==> {
-      if (
-        C\any(
-          $node->getChildren(),
-          ($child) ==> $child instanceof FunctionToken,
-        )
-      ) {
-        return 'function';
-      }
+      foreach ($node->getChildren() as $child) {
+        if ($child instanceof FunctionToken) {
+          return 'function';
+        }
 
-      if (
-        C\any(
-          $node->getChildren(),
-          ($child) ==> $child instanceof NamespaceToken,
-        )
-      ) {
-        return 'namespace';
-      }
+        if ($child instanceof NamespaceToken) {
+          return 'namespace';
+        }
 
-      if (
-        C\any($node->getChildren(), ($child) ==> $child instanceof TypeToken)
-      ) {
-        return 'type';
+        if ($child instanceof TypeToken) {
+          return 'type';
+        }
       }
 
       return null;
