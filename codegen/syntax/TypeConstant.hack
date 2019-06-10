@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<630f1fb8b66a4814196ac1680341a031>>
+ * @generated SignedSource<<46a420bea9c2bf006078ed8f26e368ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
     $offset += $left_type->getWidth();
     $separator = Node::fromJSON(
@@ -115,14 +115,14 @@ final class TypeConstant extends Node implements ITypeSpecifier {
   /**
    * @return NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
    */
-  public function getLeftType(): Node {
-    return $this->_left_type;
+  public function getLeftType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_left_type);
   }
 
   /**
    * @return NameToken | ParentToken | SelfToken | ThisToken | TypeConstant
    */
-  public function getLeftTypex(): Node {
+  public function getLeftTypex(): ITypeSpecifier {
     return $this->getLeftType();
   }
 

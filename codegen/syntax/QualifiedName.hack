@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<73645230ec3e051a6a8724c4d58710b3>>
+ * @generated SignedSource<<ff0bd698d081151340bceaf1447018c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class QualifiedName extends Node implements INameishNode {
+final class QualifiedName
+  extends Node
+  implements INameishNode, __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string SYNTAX_KIND = 'qualified_name';
 

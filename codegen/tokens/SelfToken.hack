@@ -1,11 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edbc85d6438d0492b81aa185b9268efb>>
+ * @generated SignedSource<<328d78587080ce033c7aeb92fcb91885>>
  */
 namespace Facebook\HHAST;
 
-final class SelfToken extends TokenWithVariableText {
+final class SelfToken
+  extends TokenWithVariableText
+  implements __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string KIND = 'self';
 
