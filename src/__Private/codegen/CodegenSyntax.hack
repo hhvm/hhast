@@ -622,11 +622,26 @@ final class CodegenSyntax extends CodegenBase {
     return $token['token_kind'].'Token';
   }
 
+  <<__Memoize>>
   private function getInterfaceWrappers(): dict<string, keyset<string>> {
-    return dict[
-      'NameToken' => keyset['IExpression'],
-      'QualifiedName' => keyset['IExpression'],
+    $wrappable_to_marker = dict[
+      HHAST\INameishNode::class => keyset['IExpression'],
+      IWrappableWithSimpleTypeSpecifier::class => keyset['ITypeSpecifier'],
     ];
+    $impls_to_interfaces = dict[];
+    foreach ($wrappable_to_marker as $w => $m) {
+      $impls = $this->getMarkerInterfacesByInterface()[Str\strip_prefix(
+        $w,
+        "Facebook\\HHAST\\",
+      )];
+      foreach ($impls as $impl) {
+        $impls_to_interfaces[$impl] = Keyset\union(
+          $impls_to_interfaces[$impl] ?? keyset[],
+          $m,
+        );
+      }
+    }
+    return $impls_to_interfaces;
   }
 
   private static function getKindsWithManualSubclasses(): keyset<string> {

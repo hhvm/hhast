@@ -1,11 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fca02aadb9efc81c49e6ce91108453c9>>
+ * @generated SignedSource<<33f4249de289907e3f54ace30a00ac21>>
  */
 namespace Facebook\HHAST;
 
-final class StaticToken extends TokenWithVariableText {
+final class StaticToken
+  extends TokenWithVariableText
+  implements __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string KIND = 'static';
 

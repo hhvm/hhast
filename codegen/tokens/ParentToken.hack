@@ -1,11 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab391ee1cf5ee4a373f86cd764ad8f9d>>
+ * @generated SignedSource<<1251d2a9008b4526c131684fa9b7ee7c>>
  */
 namespace Facebook\HHAST;
 
-final class ParentToken extends TokenWithVariableText {
+final class ParentToken
+  extends TokenWithVariableText
+  implements __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string KIND = 'parent';
 

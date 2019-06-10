@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68a976e87d6302184ee2703cf306cc04>>
+ * @generated SignedSource<<efab945ac104eacc0d7745e9fcf72569>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,7 +126,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $where_clause = Node::fromJSON(
@@ -594,11 +594,11 @@ final class FunctionDeclarationHeader extends Node {
    * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): ?Node {
+  public function getType(): ?ITypeSpecifier {
     if ($this->_type->isMissing()) {
       return null;
     }
-    return $this->_type;
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
@@ -609,7 +609,7 @@ final class FunctionDeclarationHeader extends Node {
    * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getTypex(): Node {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 

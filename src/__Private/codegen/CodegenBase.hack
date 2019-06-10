@@ -291,6 +291,16 @@ abstract class CodegenBase {
         HHAST\XHPClassAttribute::class,
         HHAST\XHPSimpleAttribute::class,
       ],
+      IWrappableWithSimpleTypeSpecifier::class => keyset[
+        HHAST\NameToken::class,
+        HHAST\NoreturnToken::class,
+        HHAST\ParentToken::class,
+        HHAST\QualifiedName::class,
+        HHAST\SelfToken::class,
+        HHAST\StaticToken::class,
+        HHAST\ThisToken::class,
+        HHAST\XHPClassNameToken::class,
+      ],
     ]
       |> Dict\map_keys($$, $key ==> Str\strip_prefix($key, "Facebook\\HHAST\\"))
       |> Dict\map(

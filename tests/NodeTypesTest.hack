@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
-use namespace HH\Lib\{Str, Vec};
+use namespace HH\Lib\{C, Str, Vec};
 
 final class NodeTypesTest extends TestCase {
   public function testListVariance(): void {
@@ -30,6 +30,38 @@ final class NodeTypesTest extends TestCase {
     $be = null ?as BinaryExpression;
     $typecheck($be?->getLeftOperand());
     $typecheck($be?->getRightOperand());
+  }
+
+  public function testFunctionTypeIsITypeSpecifier(): void {
+    $typecheck = (?ITypeSpecifier $_) ==> null;
+    $func = null ?as FunctionDeclarationHeader;
+    $typecheck($func?->getType());
+  }
+
+  public async function testNoreturnFunctionTypeIsWrapped(): Awaitable<void> {
+    $code = "<?hh function foo(): noreturn {}";
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
+    list($_markup, $func) = $ast->getDeclarations()->getChildren();
+    $func = expect($func)->toBeInstanceOf(FunctionDeclaration::class);
+    $ret = $func->getDeclarationHeader()->getType();
+    $ret = expect($ret)->toBeInstanceOf(SimpleTypeSpecifier::class);
+    expect($ret->getSpecifier())->toBeInstanceOf(NoreturnToken::class);
+  }
+
+  public async function testTypeConstantLHSIsWrapped(): Awaitable<void> {
+    $code = "<?hh function foo(this::TFoo \$_): void {}";
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
+    list($_markup, $func) = $ast->getDeclarations()->getChildren();
+    $func = expect($func)->toBeInstanceOf(FunctionDeclaration::class);
+    $p = $func->getDeclarationHeader()
+      ->getParameterListx()
+      ->getChildrenOfItems()
+      |> C\firstx($$);
+    $t = expect($p->getType())->toBeInstanceOf(TypeConstant::class);
+    $lhs = expect($t->getLeftType())->toBeInstanceOf(
+      SimpleTypeSpecifier::class,
+    );
+    expect($lhs->getSpecifier())->toBeInstanceOf(ThisToken::class);
   }
 
   public async function testNameTokenWrappedAsExpression(): Awaitable<void> {
