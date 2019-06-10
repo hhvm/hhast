@@ -34,12 +34,12 @@ abstract class ASTLinter extends BaseLinter {
 
   <<__MemoizeLSB>>
   final protected static function getAncestorType(): classname<this::TContext> {
-    return \type_structure(static::class, 'TContext')['classname'];
+    return type_structure(static::class, 'TContext')['classname'];
   }
 
   <<__MemoizeLSB>>
   final protected static function getTargetType(): classname<this::TNode> {
-    return \type_structure(static::class, 'TNode')['classname'];
+    return type_structure(static::class, 'TNode')['classname'];
   }
 
   <<__Override>>
