@@ -19,12 +19,20 @@ async function relint_uri_async(
   string $uri,
   ?string $content = null,
 ): Awaitable<void> {
-  $path = Str\strip_prefix($uri, 'file://');
-  $config = $config ?? LintRunConfig::getForPath($path);
+  try {
+    $path = Str\strip_prefix($uri, 'file://');
+    $config = $config ?? LintRunConfig::getForPath($path);
 
-  $lint_run = new LintRun($config, $handler, vec[$path]);
-  if ($content !== null) {
-    $lint_run = $lint_run->withFile(File::fromPathAndContents($path, $content));
+    $lint_run = new LintRun($config, $handler, vec[$path]);
+    if ($content !== null) {
+      $lint_run = $lint_run->withFile(
+        File::fromPathAndContents($path, $content),
+      );
+    }
+    await $lint_run->runAsync();
+  } catch (\Throwable $_) {
+    // ignore in the context of LSP; if we crash:
+    // - the user probably wont' see as the IDE will restart
+    // - we'll lose the jit cache.
   }
-  await $lint_run->runAsync();
 }
