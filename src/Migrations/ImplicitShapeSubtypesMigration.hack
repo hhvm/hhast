@@ -9,9 +9,8 @@
 
 namespace Facebook\HHAST\Migrations;
 
-use namespace Facebook\HHAST;
+use namespace Facebook\{HHAST, TypeAssert};
 use namespace HH\Lib\{C, Str};
-use namespace Facebook\TypeAssert;
 
 final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
   // Required for adding ellipsis
