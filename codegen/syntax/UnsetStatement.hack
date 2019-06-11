@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d2e8c448c3a042e43f04d00a6a237ce8>>
+ * @generated SignedSource<<56f725c5b34e86bcbac6bcef3f6ee3ab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class UnsetStatement extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -46,6 +47,7 @@ final class UnsetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'UnsetToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -53,6 +55,7 @@ final class UnsetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $variables = Node::fromJSON(
@@ -60,6 +63,7 @@ final class UnsetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $variables->getWidth();
     $right_paren = Node::fromJSON(
@@ -67,6 +71,7 @@ final class UnsetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $semicolon = Node::fromJSON(
@@ -74,6 +79,7 @@ final class UnsetStatement extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

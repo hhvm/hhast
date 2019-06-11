@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95b5820b8150b15d8b91b2ba16d9f3e1>>
+ * @generated SignedSource<<188844105e5ec996df6b03e1dbe14943>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,6 +47,7 @@ final class NamespaceGroupUseDeclaration
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -54,6 +55,7 @@ final class NamespaceGroupUseDeclaration
       $file,
       $offset,
       $source,
+      'UseToken',
     );
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
@@ -61,6 +63,7 @@ final class NamespaceGroupUseDeclaration
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $kind->getWidth();
     $prefix = Node::fromJSON(
@@ -68,6 +71,7 @@ final class NamespaceGroupUseDeclaration
       $file,
       $offset,
       $source,
+      'QualifiedName',
     );
     $offset += $prefix->getWidth();
     $left_brace = Node::fromJSON(
@@ -75,6 +79,7 @@ final class NamespaceGroupUseDeclaration
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $clauses = Node::fromJSON(
@@ -82,6 +87,7 @@ final class NamespaceGroupUseDeclaration
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<NamespaceUseClause>>',
     );
     $offset += $clauses->getWidth();
     $right_brace = Node::fromJSON(
@@ -89,6 +95,7 @@ final class NamespaceGroupUseDeclaration
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $semicolon = Node::fromJSON(
@@ -96,6 +103,7 @@ final class NamespaceGroupUseDeclaration
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

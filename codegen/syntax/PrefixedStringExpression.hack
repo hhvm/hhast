@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd4ecc33ecf20ef60b492ef946e66d9e>>
+ * @generated SignedSource<<100b4900ef6544058cba789dfaa9fc95>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,6 +32,7 @@ final class PrefixedStringExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -39,6 +40,7 @@ final class PrefixedStringExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $str = Node::fromJSON(
@@ -46,6 +48,7 @@ final class PrefixedStringExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $str->getWidth();
     $source_ref = shape(

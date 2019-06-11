@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6558c22af6e2283fe48b8d74f3d91fc3>>
+ * @generated SignedSource<<80d952c366c9abf0c03a44ed44e6fd11>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class ClassishBody extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
@@ -40,6 +41,7 @@ final class ClassishBody extends Node {
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $elements = Node::fromJSON(
@@ -47,6 +49,7 @@ final class ClassishBody extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<IClassBodyDeclaration>',
     );
     $offset += $elements->getWidth();
     $right_brace = Node::fromJSON(
@@ -54,6 +57,7 @@ final class ClassishBody extends Node {
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

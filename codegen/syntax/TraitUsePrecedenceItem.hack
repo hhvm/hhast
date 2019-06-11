@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a94d686782758f5d62a7cf79b6bcccd9>>
+ * @generated SignedSource<<7ca837e1ed44ccbf4b46f0af0948b092>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -40,6 +41,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       $file,
       $offset,
       $source,
+      'ScopeResolutionExpression',
     );
     $offset += $name->getWidth();
     $keyword = Node::fromJSON(
@@ -47,6 +49,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       $file,
       $offset,
       $source,
+      'InsteadofToken',
     );
     $offset += $keyword->getWidth();
     $removed_names = Node::fromJSON(
@@ -54,6 +57,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<SimpleTypeSpecifier>>',
     );
     $offset += $removed_names->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<366906cd5886b2ad20b59200bd34f713>>
+ * @generated SignedSource<<2975b528fead91803c8451f619ccc8b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class EmbeddedBracedExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
@@ -42,6 +43,7 @@ final class EmbeddedBracedExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_brace->getWidth();
     $expression = Node::fromJSON(
@@ -49,6 +51,7 @@ final class EmbeddedBracedExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $expression->getWidth();
     $right_brace = Node::fromJSON(
@@ -56,6 +59,7 @@ final class EmbeddedBracedExpression
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

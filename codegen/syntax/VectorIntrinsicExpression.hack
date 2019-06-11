@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05313c6d21da51ef093d0b67dd02e8d8>>
+ * @generated SignedSource<<dceeb47af83a8691fb726d370e0c253b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class VectorIntrinsicExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -48,6 +49,7 @@ final class VectorIntrinsicExpression
       $file,
       $offset,
       $source,
+      'VecToken',
     );
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
@@ -55,6 +57,7 @@ final class VectorIntrinsicExpression
       $file,
       $offset,
       $source,
+      'TypeArguments',
     );
     $offset += $explicit_type->getWidth();
     $left_bracket = Node::fromJSON(
@@ -62,6 +65,7 @@ final class VectorIntrinsicExpression
       $file,
       $offset,
       $source,
+      'LeftBracketToken',
     );
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
@@ -69,6 +73,7 @@ final class VectorIntrinsicExpression
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $members->getWidth();
     $right_bracket = Node::fromJSON(
@@ -76,6 +81,7 @@ final class VectorIntrinsicExpression
       $file,
       $offset,
       $source,
+      'RightBracketToken',
     );
     $offset += $right_bracket->getWidth();
     $source_ref = shape(

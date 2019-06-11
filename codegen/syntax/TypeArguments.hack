@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfb6e2201b0c8a36673767a7fcff0ac2>>
+ * @generated SignedSource<<6afb3f7b3497231cd3fd6c2f48ffd221>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class TypeArguments extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_angle = Node::fromJSON(
@@ -40,6 +41,7 @@ final class TypeArguments extends Node {
       $file,
       $offset,
       $source,
+      'LessThanToken',
     );
     $offset += $left_angle->getWidth();
     $types = Node::fromJSON(
@@ -47,6 +49,7 @@ final class TypeArguments extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ITypeSpecifier>>',
     );
     $offset += $types->getWidth();
     $right_angle = Node::fromJSON(
@@ -54,6 +57,7 @@ final class TypeArguments extends Node {
       $file,
       $offset,
       $source,
+      'GreaterThanToken',
     );
     $offset += $right_angle->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ed95cb8772325e67f9fb29a8bb665a7>>
+ * @generated SignedSource<<7a33afc3140267fd5b3f1326d361a811>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,6 +44,7 @@ final class AlternateElseifClause
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -51,6 +52,7 @@ final class AlternateElseifClause
       $file,
       $offset,
       $source,
+      'ElseifToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -58,6 +60,7 @@ final class AlternateElseifClause
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
@@ -65,6 +68,7 @@ final class AlternateElseifClause
       $file,
       $offset,
       $source,
+      'BinaryExpression',
     );
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
@@ -72,6 +76,7 @@ final class AlternateElseifClause
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
@@ -79,6 +84,7 @@ final class AlternateElseifClause
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $statement = Node::fromJSON(
@@ -86,6 +92,7 @@ final class AlternateElseifClause
       $file,
       $offset,
       $source,
+      'NodeList<ExpressionStatement>',
     );
     $offset += $statement->getWidth();
     $source_ref = shape(

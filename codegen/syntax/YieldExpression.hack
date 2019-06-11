@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ede251cea165871dd27ccf1b3fe97538>>
+ * @generated SignedSource<<852380d4a7f3541f7583b4b0496cad0c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -37,6 +38,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'YieldToken',
     );
     $offset += $keyword->getWidth();
     $operand = Node::fromJSON(
@@ -44,6 +46,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $operand->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eceaf3139c119727d25646ec154517c1>>
+ * @generated SignedSource<<2bbb9da2420e8f5136e4e256203bb60b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $case = Node::fromJSON(
@@ -43,6 +44,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $case->getWidth();
     $type = Node::fromJSON(
@@ -50,6 +52,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $type->getWidth();
     $name = Node::fromJSON(
@@ -57,6 +60,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $semicolon = Node::fromJSON(
@@ -64,6 +68,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

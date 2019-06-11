@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c61eddfb25d0eb0ab6b73c52b2c930ca>>
+ * @generated SignedSource<<a29b8db49672bff51776daf8a9be065b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class PropertyDeclarator extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -37,6 +38,7 @@ final class PropertyDeclarator extends Node {
       $file,
       $offset,
       $source,
+      'VariableToken',
     );
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
@@ -44,6 +46,7 @@ final class PropertyDeclarator extends Node {
       $file,
       $offset,
       $source,
+      'SimpleInitializer',
     );
     $offset += $initializer->getWidth();
     $source_ref = shape(

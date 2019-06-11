@@ -49,6 +49,7 @@ abstract class Trivia extends Node {
     string $file,
     int $offset,
     string $source,
+    string $_type_hint,
   ): Trivia {
     return __Private\trivia_from_json($json, shape(
       'file' => $file,

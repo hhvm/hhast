@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d1debfb76515cd9b1f26a3e84ac8b925>>
+ * @generated SignedSource<<297d859cad7a2810cec92ec8756c7ca3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class VarrayIntrinsicExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -48,6 +49,7 @@ final class VarrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'VarrayToken',
     );
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
@@ -55,6 +57,7 @@ final class VarrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'TypeArguments',
     );
     $offset += $explicit_type->getWidth();
     $left_bracket = Node::fromJSON(
@@ -62,6 +65,7 @@ final class VarrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'LeftBracketToken',
     );
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
@@ -69,6 +73,7 @@ final class VarrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $members->getWidth();
     $right_bracket = Node::fromJSON(
@@ -76,6 +81,7 @@ final class VarrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'RightBracketToken',
     );
     $offset += $right_bracket->getWidth();
     $source_ref = shape(

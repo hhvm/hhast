@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71ea432759231ca3aa9de36157081da8>>
+ * @generated SignedSource<<10190cba6bfca7243e771d50a0e735bd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,6 +56,7 @@ abstract class ClassishDeclarationGeneratedBase
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
@@ -63,6 +64,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute->getWidth();
     $modifiers = Node::fromJSON(
@@ -70,6 +72,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'NodeList<Token>',
     );
     $offset += $modifiers->getWidth();
     $keyword = Node::fromJSON(
@@ -77,6 +80,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
@@ -84,6 +88,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $name->getWidth();
     $type_parameters = Node::fromJSON(
@@ -91,6 +96,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'TypeParameters',
     );
     $offset += $type_parameters->getWidth();
     $extends_keyword = Node::fromJSON(
@@ -98,6 +104,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'ExtendsToken',
     );
     $offset += $extends_keyword->getWidth();
     $extends_list = Node::fromJSON(
@@ -105,6 +112,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ISimpleCreationSpecifier>>',
     );
     $offset += $extends_list->getWidth();
     $implements_keyword = Node::fromJSON(
@@ -112,6 +120,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'ImplementsToken',
     );
     $offset += $implements_keyword->getWidth();
     $implements_list = Node::fromJSON(
@@ -119,6 +128,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<ISimpleCreationSpecifier>>',
     );
     $offset += $implements_list->getWidth();
     $body = Node::fromJSON(
@@ -126,6 +136,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'ClassishBody',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

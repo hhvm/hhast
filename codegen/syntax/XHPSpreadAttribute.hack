@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d486bb738f00e9584b314a0d499d15b0>>
+ * @generated SignedSource<<564edf970d3e104255ef7ef04574b896>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class XHPSpreadAttribute extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
@@ -43,6 +44,7 @@ final class XHPSpreadAttribute extends Node {
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $spread_operator = Node::fromJSON(
@@ -50,6 +52,7 @@ final class XHPSpreadAttribute extends Node {
       $file,
       $offset,
       $source,
+      'DotDotDotToken',
     );
     $offset += $spread_operator->getWidth();
     $expression = Node::fromJSON(
@@ -57,6 +60,7 @@ final class XHPSpreadAttribute extends Node {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $right_brace = Node::fromJSON(
@@ -64,6 +68,7 @@ final class XHPSpreadAttribute extends Node {
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(
@@ -206,9 +211,8 @@ final class XHPSpreadAttribute extends Node {
   /**
    * @return VariableExpression | XHPExpression
    */
-  <<__Memoize>>
   public function getExpression(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

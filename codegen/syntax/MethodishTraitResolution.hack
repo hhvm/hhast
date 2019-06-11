@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7119b0af909d245db89424c5315c040>>
+ * @generated SignedSource<<8b731ddef412e725f7f75a4f369afb13>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,6 +41,7 @@ final class MethodishTraitResolution
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
@@ -48,6 +49,7 @@ final class MethodishTraitResolution
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $attribute->getWidth();
     $function_decl_header = Node::fromJSON(
@@ -55,6 +57,7 @@ final class MethodishTraitResolution
       $file,
       $offset,
       $source,
+      'FunctionDeclarationHeader',
     );
     $offset += $function_decl_header->getWidth();
     $equal = Node::fromJSON(
@@ -62,6 +65,7 @@ final class MethodishTraitResolution
       $file,
       $offset,
       $source,
+      'EqualToken',
     );
     $offset += $equal->getWidth();
     $name = Node::fromJSON(
@@ -69,6 +73,7 @@ final class MethodishTraitResolution
       $file,
       $offset,
       $source,
+      'ScopeResolutionExpression',
     );
     $offset += $name->getWidth();
     $semicolon = Node::fromJSON(
@@ -76,6 +81,7 @@ final class MethodishTraitResolution
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

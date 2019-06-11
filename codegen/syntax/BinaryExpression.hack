@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6fc0b894a860543fd5449a0e83b8dda1>>
+ * @generated SignedSource<<3434f09673771772f178fb9d1dd7df68>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class BinaryExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_operand = Node::fromJSON(
@@ -42,6 +43,7 @@ final class BinaryExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
@@ -49,6 +51,7 @@ final class BinaryExpression
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
@@ -56,6 +59,7 @@ final class BinaryExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $right_operand->getWidth();
     $source_ref = shape(
@@ -123,9 +127,8 @@ final class BinaryExpression
    * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
-  <<__Memoize>>
   public function getLeftOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_left_operand);
+    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**
@@ -228,9 +231,8 @@ final class BinaryExpression
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldExpression | YieldFromExpression
    */
-  <<__Memoize>>
   public function getRightOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_right_operand);
+    return TypeAssert\instance_of(IExpression::class, $this->_right_operand);
   }
 
   /**

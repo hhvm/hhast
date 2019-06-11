@@ -24,7 +24,7 @@ use type Facebook\HHAST\{
 use function Facebook\HHAST\Missing;
 use namespace HH\Lib\{C, Str, Vec};
 
-final class GroupUseStatementAlphabeticizationLinter
+final class GroupUseStatementAlphabetizationLinter
   extends AutoFixingASTLinter {
   const type TNode = NamespaceGroupUseDeclaration;
   const type TContext = Script;

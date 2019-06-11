@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc8134054d44f553de73ac4d01c5e5cc>>
+ * @generated SignedSource<<e5e98a08705b1919e4047250cb9a6d70>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,6 +38,7 @@ final class ArrayIntrinsicExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -45,6 +46,7 @@ final class ArrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'ArrayToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -52,6 +54,7 @@ final class ArrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $members = Node::fromJSON(
@@ -59,6 +62,7 @@ final class ArrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<Node>>',
     );
     $offset += $members->getWidth();
     $right_paren = Node::fromJSON(
@@ -66,6 +70,7 @@ final class ArrayIntrinsicExpression
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

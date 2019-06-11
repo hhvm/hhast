@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c34a7f583858332c2129955c781f803c>>
+ * @generated SignedSource<<a04291c78f6bd9f23074270f4e2a2625>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
@@ -40,6 +41,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $declarations = Node::fromJSON(
@@ -47,6 +49,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
       $file,
       $offset,
       $source,
+      'NodeList<Node>',
     );
     $offset += $declarations->getWidth();
     $right_brace = Node::fromJSON(
@@ -54,6 +57,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

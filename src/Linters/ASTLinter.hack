@@ -9,9 +9,8 @@
 
 namespace Facebook\HHAST\Linters;
 
-use namespace Facebook\HHAST;
+use namespace Facebook\{HHAST, TypeAssert};
 use namespace Facebook\HHAST\Linters\SuppressASTLinter;
-use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Vec;
 
 abstract class ASTLinter extends BaseLinter {
@@ -34,12 +33,12 @@ abstract class ASTLinter extends BaseLinter {
 
   <<__MemoizeLSB>>
   final protected static function getAncestorType(): classname<this::TContext> {
-    return \type_structure(static::class, 'TContext')['classname'];
+    return type_structure(static::class, 'TContext')['classname'];
   }
 
   <<__MemoizeLSB>>
   final protected static function getTargetType(): classname<this::TNode> {
-    return \type_structure(static::class, 'TNode')['classname'];
+    return type_structure(static::class, 'TNode')['classname'];
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<270e4ea2d779be04781f01e6caae33bf>>
+ * @generated SignedSource<<630f1fb8b66a4814196ac1680341a031>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_type = Node::fromJSON(
@@ -40,6 +41,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_type->getWidth();
     $separator = Node::fromJSON(
@@ -47,6 +49,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ColonColonToken',
     );
     $offset += $separator->getWidth();
     $right_type = Node::fromJSON(
@@ -54,6 +57,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $right_type->getWidth();
     $source_ref = shape(

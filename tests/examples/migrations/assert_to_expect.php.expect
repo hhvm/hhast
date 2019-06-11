@@ -5,7 +5,7 @@ use function hello;
 use function Facebook\FBExpect\expect;
 use type that;
 
-public class Test {
+class Test {
 
   public function testMethod(): void {
     expect($a)->toBeSame($a);

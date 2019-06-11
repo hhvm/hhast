@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17fb78e0196c0a2afae66e73360c90cc>>
+ * @generated SignedSource<<a2895f18d8e8986de8d08ae76c32ca5c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -40,6 +41,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       $file,
       $offset,
       $source,
+      'NamespaceToken',
     );
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
@@ -47,6 +49,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       $file,
       $offset,
       $source,
+      'INameishNode',
     );
     $offset += $name->getWidth();
     $body = Node::fromJSON(
@@ -54,6 +57,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       $file,
       $offset,
       $source,
+      'INamespaceBody',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

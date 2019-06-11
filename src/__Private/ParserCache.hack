@@ -78,6 +78,6 @@ final class ParserCache {
 
   <<__Memoize>>
   private static function getCacheTS(): TypeStructure<self::TCached> {
-    return \type_structure(self::class, 'TCached');
+    return type_structure(self::class, 'TCached');
   }
 }

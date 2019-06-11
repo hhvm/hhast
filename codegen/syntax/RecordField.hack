@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ebb3f1220724cab5fd268dbd930c5012>>
+ * @generated SignedSource<<f0801335fb93e1d1ddbea52d97b9afbd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,6 +39,7 @@ final class RecordField extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -46,6 +47,7 @@ final class RecordField extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
@@ -53,6 +55,7 @@ final class RecordField extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $colon->getWidth();
     $type = Node::fromJSON(
@@ -60,6 +63,7 @@ final class RecordField extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $type->getWidth();
     $init = Node::fromJSON(
@@ -67,6 +71,7 @@ final class RecordField extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $init->getWidth();
     $comma = Node::fromJSON(
@@ -74,6 +79,7 @@ final class RecordField extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $comma->getWidth();
     $source_ref = shape(

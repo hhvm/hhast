@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e1fa44ede08f9ea391c5bf42d6aba29>>
+ * @generated SignedSource<<edcd3d79c5b8752b17bd3fddc1bf00d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -40,6 +41,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
       $file,
       $offset,
       $source,
+      'ElseToken',
     );
     $offset += $keyword->getWidth();
     $colon = Node::fromJSON(
@@ -47,6 +49,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $statement = Node::fromJSON(
@@ -54,6 +57,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
       $file,
       $offset,
       $source,
+      'NodeList<IStatement>',
     );
     $offset += $statement->getWidth();
     $source_ref = shape(

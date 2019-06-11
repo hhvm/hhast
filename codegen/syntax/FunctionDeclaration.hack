@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14f3a9a7e4fb5750485d4941ff2c3bc1>>
+ * @generated SignedSource<<18efd766b549697d1dadc96261ee7971>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class FunctionDeclaration
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
@@ -42,6 +43,7 @@ final class FunctionDeclaration
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute_spec->getWidth();
     $declaration_header = Node::fromJSON(
@@ -49,6 +51,7 @@ final class FunctionDeclaration
       $file,
       $offset,
       $source,
+      'FunctionDeclarationHeader',
     );
     $offset += $declaration_header->getWidth();
     $body = Node::fromJSON(
@@ -56,6 +59,7 @@ final class FunctionDeclaration
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

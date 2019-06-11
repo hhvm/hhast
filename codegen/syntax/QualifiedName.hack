@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c14907c38daf863c293ca7729c2e0fb>>
+ * @generated SignedSource<<73645230ec3e051a6a8724c4d58710b3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,6 +27,7 @@ final class QualifiedName extends Node implements INameishNode {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $parts = Node::fromJSON(
@@ -34,6 +35,7 @@ final class QualifiedName extends Node implements INameishNode {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<?NameToken>>',
     );
     $offset += $parts->getWidth();
     $source_ref = shape(

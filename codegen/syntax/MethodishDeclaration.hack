@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9388b48f0c75c5094ee204375aa20b2>>
+ * @generated SignedSource<<36373e73e084d7ea5bea56cef214e4ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,6 +42,7 @@ abstract class MethodishDeclarationGeneratedBase
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
@@ -49,6 +50,7 @@ abstract class MethodishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'AttributeSpecification',
     );
     $offset += $attribute->getWidth();
     $function_decl_header = Node::fromJSON(
@@ -56,6 +58,7 @@ abstract class MethodishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'FunctionDeclarationHeader',
     );
     $offset += $function_decl_header->getWidth();
     $function_body = Node::fromJSON(
@@ -63,6 +66,7 @@ abstract class MethodishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'CompoundStatement',
     );
     $offset += $function_body->getWidth();
     $semicolon = Node::fromJSON(
@@ -70,6 +74,7 @@ abstract class MethodishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $semicolon->getWidth();
     $source_ref = shape(

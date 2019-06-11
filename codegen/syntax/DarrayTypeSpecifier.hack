@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e885be27563003416a58eef94695c508>>
+ * @generated SignedSource<<30da85d5c1ca19c9a1f627c29ca20220>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,6 +45,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -52,6 +53,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'DarrayToken',
     );
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
@@ -59,6 +61,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'LessThanToken',
     );
     $offset += $left_angle->getWidth();
     $key = Node::fromJSON(
@@ -66,6 +69,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'SimpleTypeSpecifier',
     );
     $offset += $key->getWidth();
     $comma = Node::fromJSON(
@@ -73,6 +77,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'CommaToken',
     );
     $offset += $comma->getWidth();
     $value = Node::fromJSON(
@@ -80,6 +85,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $value->getWidth();
     $trailing_comma = Node::fromJSON(
@@ -87,6 +93,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $trailing_comma->getWidth();
     $right_angle = Node::fromJSON(
@@ -94,6 +101,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
+      'GreaterThanToken',
     );
     $offset += $right_angle->getWidth();
     $source_ref = shape(

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f54af527bb07dadcac5e42fb191e5a6b>>
+ * @generated SignedSource<<8c616416416e6bb192d62846be701e87>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class NullableAsExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_operand = Node::fromJSON(
@@ -42,6 +43,7 @@ final class NullableAsExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
@@ -49,6 +51,7 @@ final class NullableAsExpression
       $file,
       $offset,
       $source,
+      'QuestionAsToken',
     );
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
@@ -56,6 +59,7 @@ final class NullableAsExpression
       $file,
       $offset,
       $source,
+      'SimpleTypeSpecifier',
     );
     $offset += $right_operand->getWidth();
     $source_ref = shape(
@@ -113,9 +117,8 @@ final class NullableAsExpression
   /**
    * @return FunctionCallExpression | VariableExpression
    */
-  <<__Memoize>>
   public function getLeftOperand(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_left_operand);
+    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**

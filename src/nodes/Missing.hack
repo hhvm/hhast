@@ -37,6 +37,7 @@ final class Missing extends Node {
     string $_file,
     int $_position,
     string $_source,
+    string $_type_hint,
   ): this {
     return self::getInstance();
   }

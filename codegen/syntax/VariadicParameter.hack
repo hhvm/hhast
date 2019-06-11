@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6f32bcb2949930514292a9d5d32e547f>>
+ * @generated SignedSource<<dfb3960edcbfb6912f6dfe769d471359>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class VariadicParameter
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $call_convention = Node::fromJSON(
@@ -42,6 +43,7 @@ final class VariadicParameter
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $call_convention->getWidth();
     $type = Node::fromJSON(
@@ -49,6 +51,7 @@ final class VariadicParameter
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $type->getWidth();
     $ellipsis = Node::fromJSON(
@@ -56,6 +59,7 @@ final class VariadicParameter
       $file,
       $offset,
       $source,
+      'DotDotDotToken',
     );
     $offset += $ellipsis->getWidth();
     $source_ref = shape(

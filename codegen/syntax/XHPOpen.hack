@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd1407b81f17608fccc7e1421b0a60f3>>
+ * @generated SignedSource<<a89dd50ac7f3d502f0c104cf3cfc4776>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class XHPOpen extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_angle = Node::fromJSON(
@@ -43,6 +44,7 @@ final class XHPOpen extends Node {
       $file,
       $offset,
       $source,
+      'LessThanToken',
     );
     $offset += $left_angle->getWidth();
     $name = Node::fromJSON(
@@ -50,6 +52,7 @@ final class XHPOpen extends Node {
       $file,
       $offset,
       $source,
+      'XHPElementNameToken',
     );
     $offset += $name->getWidth();
     $attributes = Node::fromJSON(
@@ -57,6 +60,7 @@ final class XHPOpen extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<Node>',
     );
     $offset += $attributes->getWidth();
     $right_angle = Node::fromJSON(
@@ -64,6 +68,7 @@ final class XHPOpen extends Node {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $right_angle->getWidth();
     $source_ref = shape(

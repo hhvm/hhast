@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f2ecf6b6033245f50757112f91da14b>>
+ * @generated SignedSource<<da3b641d34a5b5a4c796df37f71ac4dc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,6 +35,7 @@ final class ParenthesizedExpression
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
@@ -42,6 +43,7 @@ final class ParenthesizedExpression
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $expression = Node::fromJSON(
@@ -49,6 +51,7 @@ final class ParenthesizedExpression
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $right_paren = Node::fromJSON(
@@ -56,6 +59,7 @@ final class ParenthesizedExpression
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(
@@ -150,9 +154,8 @@ final class ParenthesizedExpression
    * NameToken | VariableExpression | VectorIntrinsicExpression | XHPExpression
    * | YieldExpression
    */
-  <<__Memoize>>
   public function getExpression(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

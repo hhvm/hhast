@@ -53,12 +53,13 @@ final class CodegenNodeFromJSON extends CodegenBase {
       ->useNamespace('Facebook\\HHAST')
       ->addFunction(
         $cg
-          ->codegenFunction('node_from_json')
+          ->codegenFunction('node_from_json_unwrapped')
           ->setReturnType('HHAST\\Node')
           ->addParameter('dict<string, mixed> $json')
           ->addParameter('string $file')
           ->addParameter('int $offset')
           ->addParameter('string $source')
+          ->addParameter('string $type_hint')
           ->setBody(
             $cg
               ->codegenHackBuilder()
@@ -72,10 +73,11 @@ final class CodegenNodeFromJSON extends CodegenBase {
               ->addMultilineCall(
                 'HHAST\\Token::fromJSON',
                 vec[
-                  '$json[\'token\'] as dict<_, _>',
+                  '/* HH_FIXME[4110] */ $json[\'token\']',
                   '$file',
                   '$offset',
                   '$source',
+                  '$type_hint',
                 ],
               )
               ->endIfBlock()
@@ -98,7 +100,7 @@ final class CodegenNodeFromJSON extends CodegenBase {
               ->add('return ')
               ->addMultilineCall(
                 '$class::fromJSON',
-                vec['$json', '$file', '$offset', '$source'],
+                vec['$json', '$file', '$offset', '$source', '$type_hint'],
               )
               ->endIfBlock()
               ->addMultilineCall(

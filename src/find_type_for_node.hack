@@ -9,8 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace Facebook\TypeAssert;
-use namespace Facebook\HHAST;
+use namespace Facebook\{HHAST, TypeAssert};
 use type Facebook\HHAST\Node;
 
 type TTypeAtPosOutput = shape(

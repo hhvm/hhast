@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99def36e8ae63ccf064801fa238d317a>>
+ * @generated SignedSource<<d91942428b0eb9e2d8fd3e9351f87164>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class WhereConstraint extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_type = Node::fromJSON(
@@ -40,6 +41,7 @@ final class WhereConstraint extends Node {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $left_type->getWidth();
     $operator = Node::fromJSON(
@@ -47,6 +49,7 @@ final class WhereConstraint extends Node {
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $operator->getWidth();
     $right_type = Node::fromJSON(
@@ -54,6 +57,7 @@ final class WhereConstraint extends Node {
       $file,
       $offset,
       $source,
+      'ITypeSpecifier',
     );
     $offset += $right_type->getWidth();
     $source_ref = shape(

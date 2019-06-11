@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<347f565eb162fc34361095e05bc5722f>>
+ * @generated SignedSource<<b6d5a8bacc08f747f7fe1436b29cd988>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,6 +33,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
@@ -40,6 +41,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'LeftBraceToken',
     );
     $offset += $left_brace->getWidth();
     $expression = Node::fromJSON(
@@ -47,6 +49,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'IExpression',
     );
     $offset += $expression->getWidth();
     $right_brace = Node::fromJSON(
@@ -54,6 +57,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'RightBraceToken',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(
@@ -143,9 +147,8 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
    * MemberSelectionExpression | ObjectCreationExpression | NameToken |
    * VariableExpression
    */
-  <<__Memoize>>
   public function getExpression(): IExpression {
-    return __Private\Wrap\wrap_IExpression($this->_expression);
+    return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**

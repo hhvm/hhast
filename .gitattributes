@@ -2,6 +2,6 @@ bin/update-* export-ignore
 src/__Private/codegen/ export-ignore
 src/__Private/CodegenCLI.hack export-ignore
 tests/ export-ignore
-codegen/ linguist-generated=true
+codegen/**/* linguist-generated
 .hhconfig export-ignore
 *.hack linguist-language=Hack

@@ -1,0 +1,24 @@
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
+
+use type Facebook\HHAST\{
+  AsyncToken,
+  AwaitToken /*trailing*/,
+  BinaryToken,
+  BreakToken, // trailing after comma
+  CaseToken /* trailing before comma */,
+  DefaultToken as DT,
+  /* leading */ ElseToken,
+  MinusEqualToken as MET /*alias trailing*/,
+  // multiple single-line comments
+  // before PublicToken
+  PublicToken, /*trailing*/
+};
+
+use namespace HH\Lib\{Math, Math as M, Vec};

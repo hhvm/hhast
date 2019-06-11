@@ -1,0 +1,60 @@
+<?hh // strict
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
+
+function foo(): void {
+  $a = array();
+  $a = array(1);
+  $a = array(1, 2, 3, 4, 5);
+  $a = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+  $a = array(
+    array(),
+    array(1, 2, 3, 4, 5),
+    array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5),
+  );
+
+  $a = [];
+  $a = [1];
+  $a = [1, 2, 3, 4, 5];
+  $a = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+  $a = [
+    [],
+    [1, 2, 3, 4, 5],
+    ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5],
+  ];
+
+  $a = array(
+    'a' => [array(1, 2), [], array('a', 'b'), array(1 => 'a', 2 => 'b')],
+    'b' => array(
+      'a' => [],
+      'b' => array(1, 2),
+      'c' => array('a' => 'b', 'b' => 'b'),
+    ),
+    'c' => [array([array([])])],
+    'd' => array([array([1, 2])]),
+    'e' => array([array(['a' => 1, 'b' => 2])]),
+  );
+
+  $a = /*foo*/ array( // bar
+    /*baz*/ 'a' => /*hip*/ [
+      array(1, 2),
+      [/*hop*/],
+      array('a', 'b'),
+      array(1 => /*hhvm*/ 'a', 2 => 'b'),
+    ] /*hack*/ , // lang
+    'b' => /*yet*/ array(
+      'a' => [], // an
+      'b' => array(1, 2), /* other */
+      /* comment */'c' => array('a' => 'b', 'b' => 'b'),
+    ),
+    'c' => [/*for*/array(/*testing*/[array([])])],
+    'd' => array([array([1, /*leading*/ 2])]),
+    'e' /*trailing*/ => array([array(['a' => 1, 'b' => 2])]),
+  ); // trivia
+}

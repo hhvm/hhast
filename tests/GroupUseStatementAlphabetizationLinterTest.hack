@@ -9,13 +9,13 @@
 
 namespace Facebook\HHAST;
 
-final class GroupUseStatementAlphabeticizationLinterTest extends TestCase {
+final class GroupUseStatementAlphabetizationLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<Linters\ASTLintError>;
 
   protected function getLinter(
     string $file,
-  ): Linters\GroupUseStatementAlphabeticizationLinter {
-    return Linters\GroupUseStatementAlphabeticizationLinter::fromPath($file);
+  ): Linters\GroupUseStatementAlphabetizationLinter {
+    return Linters\GroupUseStatementAlphabetizationLinter::fromPath($file);
   }
 
   public function getCleanExamples(): array<array<string>> {

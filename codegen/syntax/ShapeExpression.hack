@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19a1beac96305cdd7a262e3947d4c6e2>>
+ * @generated SignedSource<<adc24154db926c69086fa452a5ebc67b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
@@ -43,6 +44,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'ShapeToken',
     );
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -50,6 +52,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
@@ -57,6 +60,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<FieldInitializer>>',
     );
     $offset += $fields->getWidth();
     $right_paren = Node::fromJSON(
@@ -64,6 +68,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(

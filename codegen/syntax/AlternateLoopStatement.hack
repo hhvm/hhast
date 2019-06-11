@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db93d43724f973c329c15c83405d54c5>>
+ * @generated SignedSource<<ca0999a331f99a06138a78d6baf58413>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,6 +38,7 @@ abstract class AlternateLoopStatementGeneratedBase
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $opening_colon = Node::fromJSON(
@@ -45,6 +46,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $opening_colon->getWidth();
     $statements = Node::fromJSON(
@@ -52,6 +54,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $file,
       $offset,
       $source,
+      'NodeList<IStatement>',
     );
     $offset += $statements->getWidth();
     $closing_keyword = Node::fromJSON(
@@ -59,6 +62,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $file,
       $offset,
       $source,
+      'Token',
     );
     $offset += $closing_keyword->getWidth();
     $closing_semicolon = Node::fromJSON(
@@ -66,6 +70,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $file,
       $offset,
       $source,
+      'SemicolonToken',
     );
     $offset += $closing_semicolon->getWidth();
     $source_ref = shape(

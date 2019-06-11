@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e053f0e7be3619714cfdecbc6275f9f0>>
+ * @generated SignedSource<<68aa3bd7c3b4fe6cb3808d493b8f333e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,6 +42,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $await_keyword = Node::fromJSON(
@@ -49,6 +50,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'AwaitToken',
     );
     $offset += $await_keyword->getWidth();
     $using_keyword = Node::fromJSON(
@@ -56,6 +58,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'UsingToken',
     );
     $offset += $using_keyword->getWidth();
     $left_paren = Node::fromJSON(
@@ -63,6 +66,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $expressions = Node::fromJSON(
@@ -70,6 +74,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $expressions->getWidth();
     $right_paren = Node::fromJSON(
@@ -77,6 +82,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
@@ -84,6 +90,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'CompoundStatement',
     );
     $offset += $body->getWidth();
     $source_ref = shape(

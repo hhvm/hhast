@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a63eaff4c9984bca047a26a75e905b2>>
+ * @generated SignedSource<<3a36a0b8386545b648851d69b3701ce9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,6 +42,7 @@ final class PocketEnumDeclaration extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
@@ -49,6 +50,7 @@ final class PocketEnumDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $modifiers->getWidth();
     $enum = Node::fromJSON(
@@ -56,6 +58,7 @@ final class PocketEnumDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $enum->getWidth();
     $name = Node::fromJSON(
@@ -63,6 +66,7 @@ final class PocketEnumDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $name->getWidth();
     $left_brace = Node::fromJSON(
@@ -70,6 +74,7 @@ final class PocketEnumDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $left_brace->getWidth();
     $fields = Node::fromJSON(
@@ -77,6 +82,7 @@ final class PocketEnumDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $fields->getWidth();
     $right_brace = Node::fromJSON(
@@ -84,6 +90,7 @@ final class PocketEnumDeclaration extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $right_brace->getWidth();
     $source_ref = shape(

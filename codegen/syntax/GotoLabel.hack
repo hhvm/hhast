@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65378173ef7d341793f153ba5db43a06>>
+ * @generated SignedSource<<e44f8fc05aaf91e263c64e72442a39da>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,6 +30,7 @@ final class GotoLabel extends Node implements IStatement {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
@@ -37,6 +38,7 @@ final class GotoLabel extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'NameToken',
     );
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
@@ -44,6 +46,7 @@ final class GotoLabel extends Node implements IStatement {
       $file,
       $offset,
       $source,
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $source_ref = shape(

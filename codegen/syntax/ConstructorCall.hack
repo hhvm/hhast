@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8259505aba81bc48aeea6931821156d7>>
+ * @generated SignedSource<<250c41c40a038151bed2878a7c855d55>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,6 +36,7 @@ final class ConstructorCall extends Node {
     string $file,
     int $initial_offset,
     string $source,
+    string $_type_hint,
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
@@ -43,6 +44,7 @@ final class ConstructorCall extends Node {
       $file,
       $offset,
       $source,
+      'Node',
     );
     $offset += $type->getWidth();
     $left_paren = Node::fromJSON(
@@ -50,6 +52,7 @@ final class ConstructorCall extends Node {
       $file,
       $offset,
       $source,
+      'LeftParenToken',
     );
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
@@ -57,6 +60,7 @@ final class ConstructorCall extends Node {
       $file,
       $offset,
       $source,
+      'NodeList<ListItem<IExpression>>',
     );
     $offset += $argument_list->getWidth();
     $right_paren = Node::fromJSON(
@@ -64,6 +68,7 @@ final class ConstructorCall extends Node {
       $file,
       $offset,
       $source,
+      'RightParenToken',
     );
     $offset += $right_paren->getWidth();
     $source_ref = shape(
