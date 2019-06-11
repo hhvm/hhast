@@ -11,6 +11,7 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   CommaToken,
+  EndOfLine,
   ListItem,
   NameToken,
   NamespaceGroupUseDeclaration,
@@ -18,6 +19,7 @@ use type Facebook\HHAST\{
   Node,
   NodeList,
   Script,
+  WhiteSpace,
 };
 use function Facebook\HHAST\Missing;
 use namespace HH\Lib\{C, Str, Vec};
@@ -51,15 +53,16 @@ final class GroupUseStatementAlphabeticizationLinter
     $items = dict[];
     $items_list = null;
     foreach ($node->getDescendantsOfType(NodeList::class) as $list) {
-      foreach ($list->getDescendantsOfType(ListItem::class) as $item) {
+      foreach ($list->getChildrenOfType(ListItem::class) as $item) {
         $namespace_use_clauses = $item->getDescendantsOfType(
           NamespaceUseClause::class,
         );
         if (C\count($namespace_use_clauses) === 1) {
           $parts = vec[];
-          foreach ($namespace_use_clauses[0]->getDescendantsOfType(
-            NameToken::class,
-          ) as $name_token) {
+          foreach (
+            $namespace_use_clauses[0]->getDescendantsOfType(NameToken::class) as
+              $name_token
+          ) {
             $parts[] = $name_token->getText();
           }
 
@@ -127,7 +130,6 @@ final class GroupUseStatementAlphabeticizationLinter
             if (C\count($comma_tokens) === 0) {
               // Skip if this is the latest item on the ordered list
               if ($i !== $count - 1) {
-                $leading = Missing();
                 $trailing = Missing();
 
                 // Retrieve trivia from NamespaceUseClause originally at this
@@ -136,13 +138,21 @@ final class GroupUseStatementAlphabeticizationLinter
                   CommaToken::class,
                 );
                 if (C\count($comma_tokens) > 0) {
-                  $leading = $comma_tokens[0]->getLeading();
-                  $trailing = $comma_tokens[0]->getTrailing();
+                  if (
+                    C\any(
+                      $comma_tokens[0]->getTrailing()->getChildren(),
+                      $child ==> $child instanceof EndOfLine,
+                    )
+                  ) {
+                    $trailing = new EndOfLine("\n");
+                  } else {
+                    $trailing = new WhiteSpace(' ');
+                  }
                 }
 
                 $item = $item->insertAfter(
                   $item->getDescendantsOfType(NamespaceUseClause::class)[0],
-                  new CommaToken($leading, $trailing),
+                  new CommaToken(Missing(), $trailing),
                 );
               }
             } else {
