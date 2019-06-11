@@ -1,0 +1,312 @@
+[
+    {
+        "blame": "array()",
+        "blame_pretty": "array()",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(1)",
+        "blame_pretty": "array(1)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(1, 2, 3, 4, 5)",
+        "blame_pretty": "array(1, 2, 3, 4, 5)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5)",
+        "blame_pretty": "array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(\n    array(),\n    array(1, 2, 3, 4, 5),\n    array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5),\n  )",
+        "blame_pretty": "array(\n    array(),\n    array(1, 2, 3, 4, 5),\n    array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5),\n  )",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "    array()",
+        "blame_pretty": "    array()",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "    array(1, 2, 3, 4, 5)",
+        "blame_pretty": "    array(1, 2, 3, 4, 5)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "    array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5)",
+        "blame_pretty": "    array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[]",
+        "blame_pretty": "[]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[1]",
+        "blame_pretty": "[1]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[1, 2, 3, 4, 5]",
+        "blame_pretty": "[1, 2, 3, 4, 5]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5]",
+        "blame_pretty": "['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[\n    [],\n    [1, 2, 3, 4, 5],\n    ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5],\n  ]",
+        "blame_pretty": "[\n    [],\n    [1, 2, 3, 4, 5],\n    ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5],\n  ]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "    []",
+        "blame_pretty": "    []",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "    [1, 2, 3, 4, 5]",
+        "blame_pretty": "    [1, 2, 3, 4, 5]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "    ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5]",
+        "blame_pretty": "    ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(\n    'a' => [array(1, 2), [], array('a', 'b'), array(1 => 'a', 2 => 'b')],\n    'b' => array(\n      'a' => [],\n      'b' => array(1, 2),\n      'c' => array('a' => 'b', 'b' => 'b'),\n    ),\n    'c' => [array([array([])])],\n    'd' => array([array([1, 2])]),\n    'e' => array([array(['a' => 1, 'b' => 2])]),\n  )",
+        "blame_pretty": "array(\n    'a' => [array(1, 2), [], array('a', 'b'), array(1 => 'a', 2 => 'b')],\n    'b' => array(\n      'a' => [],\n      'b' => array(1, 2),\n      'c' => array('a' => 'b', 'b' => 'b'),\n    ),\n    'c' => [array([array([])])],\n    'd' => array([array([1, 2])]),\n    'e' => array([array(['a' => 1, 'b' => 2])]),\n  )",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[array(1, 2), [], array('a', 'b'), array(1 => 'a', 2 => 'b')]",
+        "blame_pretty": "[array(1, 2), [], array('a', 'b'), array(1 => 'a', 2 => 'b')]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(1, 2)",
+        "blame_pretty": "array(1, 2)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[]",
+        "blame_pretty": "[]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array('a', 'b')",
+        "blame_pretty": "array('a', 'b')",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(1 => 'a', 2 => 'b')",
+        "blame_pretty": "array(1 => 'a', 2 => 'b')",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(\n      'a' => [],\n      'b' => array(1, 2),\n      'c' => array('a' => 'b', 'b' => 'b'),\n    )",
+        "blame_pretty": "array(\n      'a' => [],\n      'b' => array(1, 2),\n      'c' => array('a' => 'b', 'b' => 'b'),\n    )",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[]",
+        "blame_pretty": "[]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(1, 2)",
+        "blame_pretty": "array(1, 2)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array('a' => 'b', 'b' => 'b')",
+        "blame_pretty": "array('a' => 'b', 'b' => 'b')",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[array([array([])])]",
+        "blame_pretty": "[array([array([])])]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([array([])])",
+        "blame_pretty": "array([array([])])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[array([])]",
+        "blame_pretty": "[array([])]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([])",
+        "blame_pretty": "array([])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[]",
+        "blame_pretty": "[]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([array([1, 2])])",
+        "blame_pretty": "array([array([1, 2])])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[array([1, 2])]",
+        "blame_pretty": "[array([1, 2])]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([1, 2])",
+        "blame_pretty": "array([1, 2])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[1, 2]",
+        "blame_pretty": "[1, 2]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([array(['a' => 1, 'b' => 2])])",
+        "blame_pretty": "array([array(['a' => 1, 'b' => 2])])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[array(['a' => 1, 'b' => 2])]",
+        "blame_pretty": "[array(['a' => 1, 'b' => 2])]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(['a' => 1, 'b' => 2])",
+        "blame_pretty": "array(['a' => 1, 'b' => 2])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "['a' => 1, 'b' => 2]",
+        "blame_pretty": "['a' => 1, 'b' => 2]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array( \/\/ bar\n    \/*baz*\/ 'a' => \/*hip*\/ [\n      array(1, 2),\n      [\/*hop*\/],\n      array('a', 'b'),\n      array(1 => \/*hhvm*\/ 'a', 2 => 'b'),\n    ] \/*hack*\/ , \/\/ lang\n    'b' => \/*yet*\/ array(\n      'a' => [], \/\/ an\n      'b' => array(1, 2), \/* other *\/\n      \/* comment *\/'c' => array('a' => 'b', 'b' => 'b'),\n    ),\n    'c' => [\/*for*\/array(\/*testing*\/[array([])])],\n    'd' => array([array([1, \/*leading*\/ 2])]),\n    'e' \/*trailing*\/ => array([array(['a' => 1, 'b' => 2])]),\n  )",
+        "blame_pretty": "array( \/\/ bar\n    \/*baz*\/ 'a' => \/*hip*\/ [\n      array(1, 2),\n      [\/*hop*\/],\n      array('a', 'b'),\n      array(1 => \/*hhvm*\/ 'a', 2 => 'b'),\n    ] \/*hack*\/ , \/\/ lang\n    'b' => \/*yet*\/ array(\n      'a' => [], \/\/ an\n      'b' => array(1, 2), \/* other *\/\n      \/* comment *\/'c' => array('a' => 'b', 'b' => 'b'),\n    ),\n    'c' => [\/*for*\/array(\/*testing*\/[array([])])],\n    'd' => array([array([1, \/*leading*\/ 2])]),\n    'e' \/*trailing*\/ => array([array(['a' => 1, 'b' => 2])]),\n  )",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[\n      array(1, 2),\n      [\/*hop*\/],\n      array('a', 'b'),\n      array(1 => \/*hhvm*\/ 'a', 2 => 'b'),\n    ] \/*hack*\/ ",
+        "blame_pretty": "[\n      array(1, 2),\n      [\/*hop*\/],\n      array('a', 'b'),\n      array(1 => \/*hhvm*\/ 'a', 2 => 'b'),\n    ] \/*hack*\/ ",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "      array(1, 2)",
+        "blame_pretty": "      array(1, 2)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "      [\/*hop*\/]",
+        "blame_pretty": "      [\/*hop*\/]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "      array('a', 'b')",
+        "blame_pretty": "      array('a', 'b')",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "      array(1 => \/*hhvm*\/ 'a', 2 => 'b')",
+        "blame_pretty": "      array(1 => \/*hhvm*\/ 'a', 2 => 'b')",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(\n      'a' => [], \/\/ an\n      'b' => array(1, 2), \/* other *\/\n      \/* comment *\/'c' => array('a' => 'b', 'b' => 'b'),\n    )",
+        "blame_pretty": "array(\n      'a' => [], \/\/ an\n      'b' => array(1, 2), \/* other *\/\n      \/* comment *\/'c' => array('a' => 'b', 'b' => 'b'),\n    )",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[]",
+        "blame_pretty": "[]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(1, 2)",
+        "blame_pretty": "array(1, 2)",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array('a' => 'b', 'b' => 'b')",
+        "blame_pretty": "array('a' => 'b', 'b' => 'b')",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[\/*for*\/array(\/*testing*\/[array([])])]",
+        "blame_pretty": "[\/*for*\/array(\/*testing*\/[array([])])]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(\/*testing*\/[array([])])",
+        "blame_pretty": "array(\/*testing*\/[array([])])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[array([])]",
+        "blame_pretty": "[array([])]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([])",
+        "blame_pretty": "array([])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[]",
+        "blame_pretty": "[]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([array([1, \/*leading*\/ 2])])",
+        "blame_pretty": "array([array([1, \/*leading*\/ 2])])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[array([1, \/*leading*\/ 2])]",
+        "blame_pretty": "[array([1, \/*leading*\/ 2])]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([1, \/*leading*\/ 2])",
+        "blame_pretty": "array([1, \/*leading*\/ 2])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[1, \/*leading*\/ 2]",
+        "blame_pretty": "[1, \/*leading*\/ 2]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array([array(['a' => 1, 'b' => 2])])",
+        "blame_pretty": "array([array(['a' => 1, 'b' => 2])])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "[array(['a' => 1, 'b' => 2])]",
+        "blame_pretty": "[array(['a' => 1, 'b' => 2])]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "array(['a' => 1, 'b' => 2])",
+        "blame_pretty": "array(['a' => 1, 'b' => 2])",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    },
+    {
+        "blame": "['a' => 1, 'b' => 2]",
+        "blame_pretty": "['a' => 1, 'b' => 2]",
+        "description": "Do not use PHP array literals, use Hack arrays instead."
+    }
+]

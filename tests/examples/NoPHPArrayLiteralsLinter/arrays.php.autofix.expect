@@ -1,0 +1,60 @@
+<?hh // strict
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
+
+function foo(): void {
+  $a = array();
+  $a = vec[1];
+  $a = vec[1, 2, 3, 4, 5];
+  $a = dict['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+  $a = vec[
+    array(),
+    vec[1, 2, 3, 4, 5],
+    dict['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5],
+  ];
+
+  $a = [];
+  $a = vec[1];
+  $a = vec[1, 2, 3, 4, 5];
+  $a = dict['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+  $a = vec[
+    [],
+    vec[1, 2, 3, 4, 5],
+    dict['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5],
+  ];
+
+  $a = dict[
+    'a' => vec[vec[1, 2], [], vec['a', 'b'], dict[1 => 'a', 2 => 'b']],
+    'b' => dict[
+      'a' => [],
+      'b' => vec[1, 2],
+      'c' => dict['a' => 'b', 'b' => 'b'],
+    ],
+    'c' => vec[vec[vec[vec[[]]]]],
+    'd' => vec[vec[vec[vec[1, 2]]]],
+    'e' => vec[vec[vec[dict['a' => 1, 'b' => 2]]]],
+  ];
+
+  $a = /*foo*/ dict[ // bar
+    /*baz*/ 'a' => /*hip*/ vec[
+      vec[1, 2],
+      [/*hop*/],
+      vec['a', 'b'],
+      dict[1 => /*hhvm*/ 'a', 2 => 'b'],
+    ] /*hack*/ , // lang
+    'b' => /*yet*/ dict[
+      'a' => [], // an
+      'b' => vec[1, 2], /* other */
+      /* comment */'c' => dict['a' => 'b', 'b' => 'b'],
+    ],
+    'c' => vec[/*for*/vec[/*testing*/vec[vec[[]]]]],
+    'd' => vec[vec[vec[vec[1, /*leading*/ 2]]]],
+    'e' /*trailing*/ => vec[vec[vec[dict['a' => 1, 'b' => 2]]]],
+  ]; // trivia
+}
