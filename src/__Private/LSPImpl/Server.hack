@@ -74,16 +74,24 @@ final class Server extends LSPLib\Server<ServerState> {
     } catch (ExitException $e) {
       return $e->getCode();
     } catch (\Throwable $e) {
+      $message = Str\format(
+        "Uncaught exception: %s:\n%s\n%s\n",
+        \get_class($e),
+        $e->getMessage(),
+        $e->getTraceAsString(),
+      );
+      $previous = $e->getPrevious();
+      if ($previous !== null) {
+        $message .= Str\format(
+          "Previous exception: %s:\n%s\n%s\n",
+          \get_class($previous),
+          $previous->getMessage(),
+          $previous->getTraceAsString(),
+        );
+      }
       await $this->terminal
         ->getStderr()
-        ->writeAsync(
-          Str\format(
-            "Uncaught exception: %s:\n%s\n%s\n",
-            \get_class($e),
-            $e->getMessage(),
-            $e->getTraceAsString(),
-          ),
-        );
+        ->writeAsync($message);
       throw $e;
     }
     return 0;
