@@ -13,9 +13,9 @@ use type Facebook\HHAST\{
   BinaryExpression,
   CommaToken,
   DelimitedComment,
-  NodeList,
   EqualToken,
   FunctionCallExpression,
+  NodeList,
   Script,
   WhiteSpace,
 };

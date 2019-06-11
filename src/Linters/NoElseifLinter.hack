@@ -10,11 +10,11 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  ElseifToken,
   ElseToken,
+  ElseifToken,
   IfToken,
-  NodeList,
   Node,
+  NodeList,
   Script,
   WhiteSpace,
 };

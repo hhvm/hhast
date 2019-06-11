@@ -17,7 +17,7 @@ use type Facebook\HHAST\{
   Script,
 };
 
-use type Facebook\HHAST\Linters\{ASTLinter, ASTLintError};
+use type Facebook\HHAST\Linters\{ASTLintError, ASTLinter};
 
 /*
  * This linter ensures we always qualify classes as final or abstract

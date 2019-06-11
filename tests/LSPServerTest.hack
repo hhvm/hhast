@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\HHAST\TestLib\{expect, Ref};
+use function Facebook\HHAST\TestLib\{Ref, expect};
 use function Facebook\HHAST\__Private\LSPImpl\read_message_async;
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
 use namespace Facebook\TypeAssert;

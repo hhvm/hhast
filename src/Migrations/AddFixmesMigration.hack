@@ -11,7 +11,7 @@ namespace Facebook\HHAST\Migrations;
 
 use function Facebook\HHAST\find_node_at_position;
 use type Facebook\HHAST\__Private\TTypecheckerError;
-use type Facebook\HHAST\{NodeList, FixMe, Missing, WhiteSpace, Script};
+use type Facebook\HHAST\{FixMe, Missing, NodeList, Script, WhiteSpace};
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 final class AddFixmesMigration extends BaseMigration {

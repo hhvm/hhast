@@ -10,11 +10,11 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
-  NodeList,
   EndOfLine,
   MarkupSuffix,
-  SingleLineComment,
+  NodeList,
   Script,
+  SingleLineComment,
   WhiteSpace,
 };
 

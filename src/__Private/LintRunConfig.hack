@@ -75,8 +75,9 @@ final class LintRunConfig {
     Linters\UnusedUseClauseLinter::class,
     Linters\UseStatementWithLeadingBackslashLinter::class,
     Linters\UseStatementWithoutKindLinter::class,
-    Linters\NoWhitespaceAtEndOfLineLinter::class,
     Linters\GroupUseStatementsLinter::class,
+    Linters\GroupUseStatementAlphabetizationLinter::class,
+    Linters\NoWhitespaceAtEndOfLineLinter::class,
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[

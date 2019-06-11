@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\Linters;
 
-use namespace HH\Lib\{C, Vec, Str};
+use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HHAST\{
   AwaitToken,
   IHasFunctionBody,

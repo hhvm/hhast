@@ -18,11 +18,11 @@ use type Facebook\HHAST\{
   INamespaceUseDeclaration,
   LeftBraceToken,
   ListItem,
+  NameToken,
   NamespaceGroupUseDeclaration,
   NamespaceToken,
   NamespaceUseClause,
   NamespaceUseDeclaration,
-  NameToken,
   Node,
   NodeList,
   QualifiedName,
@@ -33,7 +33,7 @@ use type Facebook\HHAST\{
   UseToken,
   WhiteSpace,
 };
-use namespace HH\Lib\{C, Str, Vec, Dict};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 use function Facebook\HHAST\Missing;
 
 final class GroupUseStatementsLinter extends AutoFixingASTLinter {
