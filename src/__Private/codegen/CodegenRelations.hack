@@ -248,7 +248,7 @@ final class CodegenRelations extends CodegenBase {
         /* depth = */ 512, // default
         \JSON_FB_HACK_ARRAYS,
       );
-      if (!\is_dict($json)) {
+      if (!is_dict($json)) {
         return dict[];
       }
       /* HH_IGNORE_ERROR[4110] making assumptions about JSON */
