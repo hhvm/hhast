@@ -40,7 +40,7 @@ async function execute_async(string ...$args): Awaitable<vec<string>> {
       break;
     }
     /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-    await \stream_await($stdout, \STREAM_AWAIT_READ | \STREAM_AWAIT_ERROR);
+    await \stream_await($stdout, \STREAM_AWAIT_READ);
   }
   $output .= \stream_get_contents($stdout);
   \fclose($stdout);
