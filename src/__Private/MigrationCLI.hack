@@ -15,7 +15,6 @@ use type Facebook\HHAST\Migrations\{
   AddFixmesMigration,
   AssertToExpectMigration,
   BaseMigration,
-  CallTimePassByReferenceMigration,
   ExplicitPartialModeMigration,
   HSLMigration,
   IMigrationWithFileList,
@@ -89,14 +88,20 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = CallTimePassByReferenceMigration::class;
+          throw new ExitException(
+            1,
+            "Use HHAST 4.8.* or below for this migration",
+          );
         },
-        'Add required ampersands at call sites for byref arguments',
+        'no longer supported',
         '--ctpbr',
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = CallTimePassByReferenceMigration::class;
+          throw new ExitException(
+            1,
+            "Use HHAST 4.8.* or below for this migration",
+          );
         },
         'Apply all migrations for moving from 3.23 to 3.24',
         '--hhvm-3.23-to-3.24',
