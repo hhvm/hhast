@@ -15,6 +15,7 @@ use type Facebook\HHAST\Migrations\{
   AddFixmesMigration,
   AssertToExpectMigration,
   BaseMigration,
+  DollarBraceEmbeddedVariableMigration,
   ExplicitPartialModeMigration,
   HSLMigration,
   IMigrationWithFileList,
@@ -77,6 +78,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Migrate nullable shape fields to be both nullable and optional',
         '--optional-shape-fields',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = DollarBraceEmbeddedVariableMigration::class;
+        },
+        'Migrate instances of "${foo}" to "{$foo}"',
+        '--dollar-brace-variable-interpolation',
       ),
       CLIOptions\flag(
         () ==> {
