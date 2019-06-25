@@ -6,3 +6,4 @@ tests/lsp/*.out
 *.swo
 .DS_Store
 *.hhast.parser-cache
+composer.lock
