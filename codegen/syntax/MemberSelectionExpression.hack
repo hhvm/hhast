@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<82e3b281688487f1f2029fc20ccba6ed>>
+ * @generated SignedSource<<96e8cbeb5ef93eb6cdd6d510ea327b0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,7 @@ final class MemberSelectionExpression
       $file,
       $offset,
       $source,
-      'Node',
+      'IExpression',
     );
     $offset += $name->getWidth();
     $source_ref = shape(
@@ -184,14 +184,14 @@ final class MemberSelectionExpression
   /**
    * @return BracedExpression | XHPClassNameToken | NameToken | VariableToken
    */
-  public function getName(): Node {
-    return $this->_name;
+  public function getName(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_name);
   }
 
   /**
    * @return BracedExpression | XHPClassNameToken | NameToken | VariableToken
    */
-  public function getNamex(): Node {
+  public function getNamex(): IExpression {
     return $this->getName();
   }
 }

@@ -122,4 +122,22 @@ final class NodeTypesTest extends TestCase {
         |> Str\join($$, ''),
     )->toBeSame("SOME\\NAMESPACED\\CONST");
   }
+
+  public async function testXHPClassNameAsNameExpression(
+  ): Awaitable<void> {
+    $code = "<?hh class :foo { children (pcdata | :bar+); }";
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
+    list($_markup, $x) = $ast->getDeclarations()->getChildren();
+    $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
+    $decl = $class->getBody()->getElementsx()->getChildrenOfType(XHPChildrenDeclaration::class) |> C\onlyx($$);
+
+    // :bar+
+    $bin_expr = $decl->getDescendantsOfType(PostfixUnaryExpression::class) |> C\onlyx($$);
+    $lhs = $bin_expr->getOperand();
+    $lhs = expect($lhs)->toBeInstanceOf(NameExpression::class);
+    expect($lhs->getCode())->toBeSame(':bar');
+    expect($lhs->getWrappedNode())->toBeInstanceOf(XHPClassNameToken::class);
+    $rhs = $bin_expr->getOperator();
+    expect($rhs)->toBeInstanceOf(PlusToken::class);
+  }
 }
