@@ -10,6 +10,7 @@
 namespace Facebook\HHAST\__Private\Wrap;
 
 use type Facebook\HHAST\{IExpression, INameishNode, NameExpression, Node};
+use namespace HH\Lib\{C, Str};
 
 function wrap_IExpression(Node $node): IExpression {
   if ($node instanceof IExpression) {
@@ -20,5 +21,24 @@ function wrap_IExpression(Node $node): IExpression {
     return new NameExpression($node);
   }
 
-  invariant_violation('IExpression expected, got: %s', \get_class($node));
+  $loc = \Facebook\HHAST\__Private\NodeImplementationDetails::getSourceRef(
+    $node,
+  );
+  $line = null;
+  $col = null;
+  if ($loc !== null) {
+    $source = $loc['source'];
+    $prefix = Str\slice($source, 0, $loc['offset']);
+    $lines = Str\split($prefix, "\n");
+    $line = C\count($lines);
+    $col = Str\length(C\lastx($lines));
+  }
+
+  invariant_violation(
+    'IExpression expected, got %s at %s:%d:%d',
+    \get_class($node),
+    $loc['file'] ?? 'unknown',
+    $line,
+    $col,
+  );
 }
