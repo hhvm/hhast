@@ -18,7 +18,7 @@ async function from_file_async(
   $cache = __Private\ParserCache::get();
   $data = ($user_args === vec[]) ? $cache->fetch($file) : null;
   if ($data is nonnull) {
-    return __Private\from_decoded_json($data);
+    return __Private\from_decoded_json($data, $file->getPath());
   }
   using $odf = new __Private\OnDiskFile($file);
   $path = $odf->getPath();
@@ -77,5 +77,6 @@ async function from_file_async(
   if ($user_args === vec[]) {
     $cache->store($file, $data);
   }
-  return /* HH_FIXME[4110] */ __Private\from_decoded_json($data);
+  return
+    /* HH_FIXME[4110] */ __Private\from_decoded_json($data, $file->getPath());
 }
