@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d91942428b0eb9e2d8fd3e9351f87164>>
+ * @generated SignedSource<<3d2ff3a06d25e5154776458a5c43995e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class WhereConstraint extends Node {
     return $this->_left_type;
   }
 
-  public function withLeftType(Node $value): this {
+  public function withLeftType(ITypeSpecifier $value): this {
     if ($value === $this->_left_type) {
       return $this;
     }
-    return new static($value, $this->_operator, $this->_right_type);
+    return new static(
+      $value ?? Missing(),
+      $this->_operator,
+      $this->_right_type,
+    );
   }
 
   public function hasLeftType(): bool {
@@ -132,11 +136,15 @@ final class WhereConstraint extends Node {
     return $this->_operator;
   }
 
-  public function withOperator(Node $value): this {
+  public function withOperator(Token $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_left_type, $value, $this->_right_type);
+    return new static(
+      $this->_left_type,
+      $value ?? Missing(),
+      $this->_right_type,
+    );
   }
 
   public function hasOperator(): bool {
@@ -161,11 +169,11 @@ final class WhereConstraint extends Node {
     return $this->_right_type;
   }
 
-  public function withRightType(Node $value): this {
+  public function withRightType(ITypeSpecifier $value): this {
     if ($value === $this->_right_type) {
       return $this;
     }
-    return new static($this->_left_type, $this->_operator, $value);
+    return new static($this->_left_type, $this->_operator, $value ?? Missing());
   }
 
   public function hasRightType(): bool {

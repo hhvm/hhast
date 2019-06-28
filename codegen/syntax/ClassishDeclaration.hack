@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10190cba6bfca7243e771d50a0e735bd>>
+ * @generated SignedSource<<4ab7329fcda141572c0a25ca7fabcc49>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -224,12 +224,12 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_attribute;
   }
 
-  public function withAttribute(Node $value): this {
+  public function withAttribute(?AttributeSpecification $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_modifiers,
       $this->_keyword,
       $this->_name,
@@ -270,13 +270,13 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_modifiers;
   }
 
-  public function withModifiers(Node $value): this {
+  public function withModifiers(?NodeList<Token> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
     return new static(
       $this->_attribute,
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -314,14 +314,14 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(Token $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
       $this->_attribute,
       $this->_modifiers,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_type_parameters,
       $this->_extends_keyword,
@@ -354,7 +354,7 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(Token $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -362,7 +362,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_type_parameters,
       $this->_extends_keyword,
       $this->_extends_list,
@@ -394,7 +394,7 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_type_parameters;
   }
 
-  public function withTypeParameters(Node $value): this {
+  public function withTypeParameters(?TypeParameters $value): this {
     if ($value === $this->_type_parameters) {
       return $this;
     }
@@ -403,7 +403,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_modifiers,
       $this->_keyword,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_extends_keyword,
       $this->_extends_list,
       $this->_implements_keyword,
@@ -440,7 +440,7 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_extends_keyword;
   }
 
-  public function withExtendsKeyword(Node $value): this {
+  public function withExtendsKeyword(?ExtendsToken $value): this {
     if ($value === $this->_extends_keyword) {
       return $this;
     }
@@ -450,7 +450,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
-      $value,
+      $value ?? Missing(),
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
@@ -483,7 +483,9 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_extends_list;
   }
 
-  public function withExtendsList(Node $value): this {
+  public function withExtendsList(
+    ?NodeList<ListItem<ISimpleCreationSpecifier>> $value,
+  ): this {
     if ($value === $this->_extends_list) {
       return $this;
     }
@@ -494,7 +496,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_name,
       $this->_type_parameters,
       $this->_extends_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_implements_keyword,
       $this->_implements_list,
       $this->_body,
@@ -532,7 +534,7 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_implements_keyword;
   }
 
-  public function withImplementsKeyword(Node $value): this {
+  public function withImplementsKeyword(?ImplementsToken $value): this {
     if ($value === $this->_implements_keyword) {
       return $this;
     }
@@ -544,7 +546,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_type_parameters,
       $this->_extends_keyword,
       $this->_extends_list,
-      $value,
+      $value ?? Missing(),
       $this->_implements_list,
       $this->_body,
     );
@@ -578,7 +580,9 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_implements_list;
   }
 
-  public function withImplementsList(Node $value): this {
+  public function withImplementsList(
+    ?NodeList<ListItem<ISimpleCreationSpecifier>> $value,
+  ): this {
     if ($value === $this->_implements_list) {
       return $this;
     }
@@ -591,7 +595,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_keyword,
       $this->_extends_list,
       $this->_implements_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -627,7 +631,7 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(ClassishBody $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -641,7 +645,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
-      $value,
+      $value ?? Missing(),
     );
   }
 

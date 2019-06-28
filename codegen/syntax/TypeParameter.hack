@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b875b23fe5f344bf7509028b6a17e52>>
+ * @generated SignedSource<<f34dd54c0507f29861a8be227c2a5fd5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,12 +142,12 @@ final class TypeParameter extends Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(Node $value): this {
+  public function withAttributeSpec(?AttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_reified,
       $this->_variance,
       $this->_name,
@@ -183,13 +183,13 @@ final class TypeParameter extends Node {
     return $this->_reified;
   }
 
-  public function withReified(Node $value): this {
+  public function withReified(?ReifyToken $value): this {
     if ($value === $this->_reified) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
-      $value,
+      $value ?? Missing(),
       $this->_variance,
       $this->_name,
       $this->_constraints,
@@ -221,14 +221,14 @@ final class TypeParameter extends Node {
     return $this->_variance;
   }
 
-  public function withVariance(Node $value): this {
+  public function withVariance(?Token $value): this {
     if ($value === $this->_variance) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
       $this->_reified,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_constraints,
     );
@@ -259,7 +259,7 @@ final class TypeParameter extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(NameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -267,7 +267,7 @@ final class TypeParameter extends Node {
       $this->_attribute_spec,
       $this->_reified,
       $this->_variance,
-      $value,
+      $value ?? Missing(),
       $this->_constraints,
     );
   }
@@ -294,7 +294,7 @@ final class TypeParameter extends Node {
     return $this->_constraints;
   }
 
-  public function withConstraints(Node $value): this {
+  public function withConstraints(?NodeList<TypeConstraint> $value): this {
     if ($value === $this->_constraints) {
       return $this;
     }
@@ -303,7 +303,7 @@ final class TypeParameter extends Node {
       $this->_reified,
       $this->_variance,
       $this->_name,
-      $value,
+      $value ?? Missing(),
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8dc31e20a946786d224ea7f6b2ca4655>>
+ * @generated SignedSource<<2b27c7d94f78684cc93c804c295333c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -176,12 +176,12 @@ final class DoStatement
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(DoToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_body,
       $this->_while_keyword,
       $this->_left_paren,
@@ -213,13 +213,13 @@ final class DoStatement
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(IStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_while_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -250,14 +250,14 @@ final class DoStatement
     return $this->_while_keyword;
   }
 
-  public function withWhileKeyword(Node $value): this {
+  public function withWhileKeyword(WhileToken $value): this {
     if ($value === $this->_while_keyword) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_body,
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -287,7 +287,7 @@ final class DoStatement
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -295,7 +295,7 @@ final class DoStatement
       $this->_keyword,
       $this->_body,
       $this->_while_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_condition,
       $this->_right_paren,
       $this->_semicolon,
@@ -324,7 +324,7 @@ final class DoStatement
     return $this->_condition;
   }
 
-  public function withCondition(Node $value): this {
+  public function withCondition(IExpression $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
@@ -333,7 +333,7 @@ final class DoStatement
       $this->_body,
       $this->_while_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_semicolon,
     );
@@ -363,7 +363,7 @@ final class DoStatement
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -373,7 +373,7 @@ final class DoStatement
       $this->_while_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -400,7 +400,7 @@ final class DoStatement
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -411,7 +411,7 @@ final class DoStatement
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

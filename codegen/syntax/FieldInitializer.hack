@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0fab761aa9ef08401088d4a9d95f174>>
+ * @generated SignedSource<<b9079b1953f6e647fb54358fa319a145>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class FieldInitializer extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(IExpression $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value, $this->_arrow, $this->_value);
+    return new static($value ?? Missing(), $this->_arrow, $this->_value);
   }
 
   public function hasName(): bool {
@@ -130,11 +130,11 @@ final class FieldInitializer extends Node {
     return $this->_arrow;
   }
 
-  public function withArrow(Node $value): this {
+  public function withArrow(EqualGreaterThanToken $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
-    return new static($this->_name, $value, $this->_value);
+    return new static($this->_name, $value ?? Missing(), $this->_value);
   }
 
   public function hasArrow(): bool {
@@ -159,11 +159,11 @@ final class FieldInitializer extends Node {
     return $this->_value;
   }
 
-  public function withValue(Node $value): this {
+  public function withValue(IExpression $value): this {
     if ($value === $this->_value) {
       return $this;
     }
-    return new static($this->_name, $this->_arrow, $value);
+    return new static($this->_name, $this->_arrow, $value ?? Missing());
   }
 
   public function hasValue(): bool {

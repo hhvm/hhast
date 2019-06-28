@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7714f704bf3a975a5ad0f3c5e200425f>>
+ * @generated SignedSource<<c5e3d6ec6f9e568cc2e2e73b50613cb3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,7 +163,7 @@ final class PocketAtomMappingDeclaration extends Node {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_left_paren,
       $this->_mappings,
@@ -200,7 +200,7 @@ final class PocketAtomMappingDeclaration extends Node {
     }
     return new static(
       $this->_glyph,
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_mappings,
       $this->_right_paren,
@@ -237,7 +237,7 @@ final class PocketAtomMappingDeclaration extends Node {
     return new static(
       $this->_glyph,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_mappings,
       $this->_right_paren,
       $this->_semicolon,
@@ -274,7 +274,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $this->_glyph,
       $this->_name,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_semicolon,
     );
@@ -311,7 +311,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $this->_name,
       $this->_left_paren,
       $this->_mappings,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -348,7 +348,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $this->_left_paren,
       $this->_mappings,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

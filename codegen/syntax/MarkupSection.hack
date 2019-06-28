@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8ff2912c7fcc447392e8a2a13faa2fc>>
+ * @generated SignedSource<<2b1d702029d946f39ab2da9a628b4783>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,11 +115,16 @@ final class MarkupSection extends Node {
     return $this->_prefix;
   }
 
-  public function withPrefix(Node $value): this {
+  public function withPrefix(?Node $value): this {
     if ($value === $this->_prefix) {
       return $this;
     }
-    return new static($value, $this->_text, $this->_suffix, $this->_expression);
+    return new static(
+      $value ?? Missing(),
+      $this->_text,
+      $this->_suffix,
+      $this->_expression,
+    );
   }
 
   public function hasPrefix(): bool {
@@ -147,13 +152,13 @@ final class MarkupSection extends Node {
     return $this->_text;
   }
 
-  public function withText(Node $value): this {
+  public function withText(MarkupToken $value): this {
     if ($value === $this->_text) {
       return $this;
     }
     return new static(
       $this->_prefix,
-      $value,
+      $value ?? Missing(),
       $this->_suffix,
       $this->_expression,
     );
@@ -181,11 +186,16 @@ final class MarkupSection extends Node {
     return $this->_suffix;
   }
 
-  public function withSuffix(Node $value): this {
+  public function withSuffix(MarkupSuffix $value): this {
     if ($value === $this->_suffix) {
       return $this;
     }
-    return new static($this->_prefix, $this->_text, $value, $this->_expression);
+    return new static(
+      $this->_prefix,
+      $this->_text,
+      $value ?? Missing(),
+      $this->_expression,
+    );
   }
 
   public function hasSuffix(): bool {
@@ -210,11 +220,16 @@ final class MarkupSection extends Node {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(?Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_prefix, $this->_text, $this->_suffix, $value);
+    return new static(
+      $this->_prefix,
+      $this->_text,
+      $this->_suffix,
+      $value ?? Missing(),
+    );
   }
 
   public function hasExpression(): bool {

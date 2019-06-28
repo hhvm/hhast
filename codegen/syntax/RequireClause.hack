@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5490f3e831a50a4240c3a3c9e2e31218>>
+ * @generated SignedSource<<90cb3018b126905e9b883e96798c3977>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,11 +115,16 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(RequireToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_kind, $this->_name, $this->_semicolon);
+    return new static(
+      $value ?? Missing(),
+      $this->_kind,
+      $this->_name,
+      $this->_semicolon,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -144,11 +149,16 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     return $this->_kind;
   }
 
-  public function withKind(Node $value): this {
+  public function withKind(Token $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_name, $this->_semicolon);
+    return new static(
+      $this->_keyword,
+      $value ?? Missing(),
+      $this->_name,
+      $this->_semicolon,
+    );
   }
 
   public function hasKind(): bool {
@@ -173,11 +183,16 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(ISimpleCreationSpecifier $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_keyword, $this->_kind, $value, $this->_semicolon);
+    return new static(
+      $this->_keyword,
+      $this->_kind,
+      $value ?? Missing(),
+      $this->_semicolon,
+    );
   }
 
   public function hasName(): bool {
@@ -205,11 +220,16 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_kind, $this->_name, $value);
+    return new static(
+      $this->_keyword,
+      $this->_kind,
+      $this->_name,
+      $value ?? Missing(),
+    );
   }
 
   public function hasSemicolon(): bool {

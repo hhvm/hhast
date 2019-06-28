@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea886d2dc463cdce81327cd0c408e0c7>>
+ * @generated SignedSource<<1562022a5c46f0dab6c6501e2728caf5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,12 +142,12 @@ final class FileAttributeSpecification extends Node {
     return $this->_left_double_angle;
   }
 
-  public function withLeftDoubleAngle(Node $value): this {
+  public function withLeftDoubleAngle(LessThanLessThanToken $value): this {
     if ($value === $this->_left_double_angle) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_colon,
       $this->_attributes,
@@ -180,13 +180,13 @@ final class FileAttributeSpecification extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(FileToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
       $this->_left_double_angle,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_attributes,
       $this->_right_double_angle,
@@ -215,14 +215,14 @@ final class FileAttributeSpecification extends Node {
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
     return new static(
       $this->_left_double_angle,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_attributes,
       $this->_right_double_angle,
     );
@@ -250,7 +250,9 @@ final class FileAttributeSpecification extends Node {
     return $this->_attributes;
   }
 
-  public function withAttributes(Node $value): this {
+  public function withAttributes(
+    NodeList<ListItem<ConstructorCall>> $value,
+  ): this {
     if ($value === $this->_attributes) {
       return $this;
     }
@@ -258,7 +260,7 @@ final class FileAttributeSpecification extends Node {
       $this->_left_double_angle,
       $this->_keyword,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
       $this->_right_double_angle,
     );
   }
@@ -285,7 +287,9 @@ final class FileAttributeSpecification extends Node {
     return $this->_right_double_angle;
   }
 
-  public function withRightDoubleAngle(Node $value): this {
+  public function withRightDoubleAngle(
+    GreaterThanGreaterThanToken $value,
+  ): this {
     if ($value === $this->_right_double_angle) {
       return $this;
     }
@@ -294,7 +298,7 @@ final class FileAttributeSpecification extends Node {
       $this->_keyword,
       $this->_colon,
       $this->_attributes,
-      $value,
+      $value ?? Missing(),
     );
   }
 

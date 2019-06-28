@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d02cf2a7a85adea874116d4578466556>>
+ * @generated SignedSource<<0ff130734ab54e5349995396d1c7f688>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,7 +120,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_angle,
       $this->_types,
       $this->_right_angle,
@@ -155,7 +155,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_types,
       $this->_right_angle,
     );
@@ -190,7 +190,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $this->_keyword,
       $this->_left_angle,
-      $value,
+      $value ?? Missing(),
       $this->_right_angle,
     );
   }
@@ -225,7 +225,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_angle,
       $this->_types,
-      $value,
+      $value ?? Missing(),
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af535f7d5805667245cd7bc78756a97a>>
+ * @generated SignedSource<<df1b6c90174faab815c6d8df9ca1106d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class SimpleInitializer extends Node {
     return $this->_equal;
   }
 
-  public function withEqual(Node $value): this {
+  public function withEqual(EqualToken $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new static($value, $this->_value);
+    return new static($value ?? Missing(), $this->_value);
   }
 
   public function hasEqual(): bool {
@@ -113,11 +113,11 @@ final class SimpleInitializer extends Node {
     return $this->_value;
   }
 
-  public function withValue(Node $value): this {
+  public function withValue(IExpression $value): this {
     if ($value === $this->_value) {
       return $this;
     }
-    return new static($this->_equal, $value);
+    return new static($this->_equal, $value ?? Missing());
   }
 
   public function hasValue(): bool {

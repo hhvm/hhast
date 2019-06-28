@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb05156869770b52ca64f0280c3b18ae>>
+ * @generated SignedSource<<ad0c04291b10fe8c7764f3290bb41db6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,11 +103,15 @@ final class XHPClassAttributeDeclaration
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(AttributeToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_attributes, $this->_semicolon);
+    return new static(
+      $value ?? Missing(),
+      $this->_attributes,
+      $this->_semicolon,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -132,11 +136,11 @@ final class XHPClassAttributeDeclaration
     return $this->_attributes;
   }
 
-  public function withAttributes(Node $value): this {
+  public function withAttributes(NodeList<ListItem<Node>> $value): this {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
   }
 
   public function hasAttributes(): bool {
@@ -163,11 +167,11 @@ final class XHPClassAttributeDeclaration
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_attributes, $value);
+    return new static($this->_keyword, $this->_attributes, $value ?? Missing());
   }
 
   public function hasSemicolon(): bool {

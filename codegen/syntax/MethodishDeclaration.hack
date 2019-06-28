@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36373e73e084d7ea5bea56cef214e4ef>>
+ * @generated SignedSource<<cc9a3bdc5abd39fd7c4efc6d3b820893>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -132,12 +132,12 @@ abstract class MethodishDeclarationGeneratedBase
     return $this->_attribute;
   }
 
-  public function withAttribute(Node $value): this {
+  public function withAttribute(?AttributeSpecification $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_function_decl_header,
       $this->_function_body,
       $this->_semicolon,
@@ -172,13 +172,15 @@ abstract class MethodishDeclarationGeneratedBase
     return $this->_function_decl_header;
   }
 
-  public function withFunctionDeclHeader(Node $value): this {
+  public function withFunctionDeclHeader(
+    FunctionDeclarationHeader $value,
+  ): this {
     if ($value === $this->_function_decl_header) {
       return $this;
     }
     return new static(
       $this->_attribute,
-      $value,
+      $value ?? Missing(),
       $this->_function_body,
       $this->_semicolon,
     );
@@ -209,14 +211,14 @@ abstract class MethodishDeclarationGeneratedBase
     return $this->_function_body;
   }
 
-  public function withFunctionBody(Node $value): this {
+  public function withFunctionBody(?CompoundStatement $value): this {
     if ($value === $this->_function_body) {
       return $this;
     }
     return new static(
       $this->_attribute,
       $this->_function_decl_header,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -249,7 +251,7 @@ abstract class MethodishDeclarationGeneratedBase
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(?SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -257,7 +259,7 @@ abstract class MethodishDeclarationGeneratedBase
       $this->_attribute,
       $this->_function_decl_header,
       $this->_function_body,
-      $value,
+      $value ?? Missing(),
     );
   }
 

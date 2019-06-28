@@ -16,10 +16,12 @@ use type Facebook\HHAST\{
   DelimitedComment,
   FunctionCallExpression,
   FunctionToken,
+  IExpression,
   LeftParenToken,
   ListItem,
   MemberSelectionExpression,
   MinusGreaterThanToken,
+  NameExpression,
   NameToken,
   NamespaceDeclaration,
   NamespaceEmptyBody,
@@ -314,7 +316,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
   private static function getNewNode(
     FunctionCallExpression $node,
     Node $actual,
-    NodeList<Node> $args,
+    NodeList<ListItem<IExpression>> $args,
     string $funcName,
   ): FunctionCallExpression {
     $rec = $node->getReceiver();
@@ -345,7 +347,9 @@ final class AssertToExpectMigration extends StepBasedMigration {
             new RightParenToken(Missing(), Missing()),
           ),
         )
-          ->withName(new NameToken(Missing(), Missing(), $funcName)),
+          ->withName(
+            new NameExpression(new NameToken(Missing(), Missing(), $funcName)),
+          ),
       )
       ->withArgumentList($args);
 

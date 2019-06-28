@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<878bf8d7184554d6ad473da32bb0ee0e>>
+ * @generated SignedSource<<541315218eac81460bf87f73bf50e58b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,12 +123,12 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(Node $value): this {
+  public function withAttributeSpec(?AttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_async,
       $this->_coroutine,
       $this->_compound_statement,
@@ -163,13 +163,13 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return $this->_async;
   }
 
-  public function withAsync(Node $value): this {
+  public function withAsync(AsyncToken $value): this {
     if ($value === $this->_async) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
-      $value,
+      $value ?? Missing(),
       $this->_coroutine,
       $this->_compound_statement,
     );
@@ -197,14 +197,14 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return $this->_coroutine;
   }
 
-  public function withCoroutine(Node $value): this {
+  public function withCoroutine(?Node $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
       $this->_async,
-      $value,
+      $value ?? Missing(),
       $this->_compound_statement,
     );
   }
@@ -234,7 +234,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return $this->_compound_statement;
   }
 
-  public function withCompoundStatement(Node $value): this {
+  public function withCompoundStatement(CompoundStatement $value): this {
     if ($value === $this->_compound_statement) {
       return $this;
     }
@@ -242,7 +242,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
       $this->_attribute_spec,
       $this->_async,
       $this->_coroutine,
-      $value,
+      $value ?? Missing(),
     );
   }
 

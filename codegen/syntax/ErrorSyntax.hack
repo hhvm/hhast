@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44c099a88227667432fb6ffb346c8502>>
+ * @generated SignedSource<<c1a40d5b1601da9aae5ccffa2a54ebf6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,7 +75,7 @@ final class ErrorSyntax extends Node {
     if ($value === $this->_error) {
       return $this;
     }
-    return new static($value);
+    return new static($value ?? Missing());
   }
 
   public function hasError(): bool {

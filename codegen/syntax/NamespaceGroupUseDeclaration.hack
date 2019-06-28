@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<188844105e5ec996df6b03e1dbe14943>>
+ * @generated SignedSource<<9397a003057a6fb6ac399b4dd5011e27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -176,12 +176,12 @@ final class NamespaceGroupUseDeclaration
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(UseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_kind,
       $this->_prefix,
       $this->_left_brace,
@@ -213,13 +213,13 @@ final class NamespaceGroupUseDeclaration
     return $this->_kind;
   }
 
-  public function withKind(Node $value): this {
+  public function withKind(?Token $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_prefix,
       $this->_left_brace,
       $this->_clauses,
@@ -253,14 +253,14 @@ final class NamespaceGroupUseDeclaration
     return $this->_prefix;
   }
 
-  public function withPrefix(Node $value): this {
+  public function withPrefix(QualifiedName $value): this {
     if ($value === $this->_prefix) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_kind,
-      $value,
+      $value ?? Missing(),
       $this->_left_brace,
       $this->_clauses,
       $this->_right_brace,
@@ -290,7 +290,7 @@ final class NamespaceGroupUseDeclaration
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -298,7 +298,7 @@ final class NamespaceGroupUseDeclaration
       $this->_keyword,
       $this->_kind,
       $this->_prefix,
-      $value,
+      $value ?? Missing(),
       $this->_clauses,
       $this->_right_brace,
       $this->_semicolon,
@@ -327,7 +327,9 @@ final class NamespaceGroupUseDeclaration
     return $this->_clauses;
   }
 
-  public function withClauses(Node $value): this {
+  public function withClauses(
+    NodeList<ListItem<NamespaceUseClause>> $value,
+  ): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -336,7 +338,7 @@ final class NamespaceGroupUseDeclaration
       $this->_kind,
       $this->_prefix,
       $this->_left_brace,
-      $value,
+      $value ?? Missing(),
       $this->_right_brace,
       $this->_semicolon,
     );
@@ -364,7 +366,7 @@ final class NamespaceGroupUseDeclaration
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -374,7 +376,7 @@ final class NamespaceGroupUseDeclaration
       $this->_prefix,
       $this->_left_brace,
       $this->_clauses,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -401,7 +403,7 @@ final class NamespaceGroupUseDeclaration
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -412,7 +414,7 @@ final class NamespaceGroupUseDeclaration
       $this->_left_brace,
       $this->_clauses,
       $this->_right_brace,
-      $value,
+      $value ?? Missing(),
     );
   }
 

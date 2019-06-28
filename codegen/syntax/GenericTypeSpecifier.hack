@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e39412924f6aebd44ab7a4e227c1061>>
+ * @generated SignedSource<<3e68678d56698c046f309c928ca615b8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -93,7 +93,7 @@ final class GenericTypeSpecifier
     if ($value === $this->_class_type) {
       return $this;
     }
-    return new static($value, $this->_argument_list);
+    return new static($value ?? Missing(), $this->_argument_list);
   }
 
   public function hasClassType(): bool {
@@ -118,11 +118,11 @@ final class GenericTypeSpecifier
     return $this->_argument_list;
   }
 
-  public function withArgumentList(Node $value): this {
+  public function withArgumentList(TypeArguments $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new static($this->_class_type, $value);
+    return new static($this->_class_type, $value ?? Missing());
   }
 
   public function hasArgumentList(): bool {

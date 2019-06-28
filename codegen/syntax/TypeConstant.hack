@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46a420bea9c2bf006078ed8f26e368ed>>
+ * @generated SignedSource<<5b0985ea024b2813b712e19e6111abc9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     return $this->_left_type;
   }
 
-  public function withLeftType(Node $value): this {
+  public function withLeftType(ITypeSpecifier $value): this {
     if ($value === $this->_left_type) {
       return $this;
     }
-    return new static($value, $this->_separator, $this->_right_type);
+    return new static(
+      $value ?? Missing(),
+      $this->_separator,
+      $this->_right_type,
+    );
   }
 
   public function hasLeftType(): bool {
@@ -130,11 +134,15 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     return $this->_separator;
   }
 
-  public function withSeparator(Node $value): this {
+  public function withSeparator(ColonColonToken $value): this {
     if ($value === $this->_separator) {
       return $this;
     }
-    return new static($this->_left_type, $value, $this->_right_type);
+    return new static(
+      $this->_left_type,
+      $value ?? Missing(),
+      $this->_right_type,
+    );
   }
 
   public function hasSeparator(): bool {
@@ -159,11 +167,15 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     return $this->_right_type;
   }
 
-  public function withRightType(Node $value): this {
+  public function withRightType(NameToken $value): this {
     if ($value === $this->_right_type) {
       return $this;
     }
-    return new static($this->_left_type, $this->_separator, $value);
+    return new static(
+      $this->_left_type,
+      $this->_separator,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightType(): bool {

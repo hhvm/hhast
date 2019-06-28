@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d267de316252933283c1e761267097d3>>
+ * @generated SignedSource<<23f6d7a82912086c55fc0e80796d9944>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,12 +142,12 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ElseifToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -177,13 +177,13 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_condition,
       $this->_right_paren,
       $this->_statement,
@@ -212,14 +212,14 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     return $this->_condition;
   }
 
-  public function withCondition(Node $value): this {
+  public function withCondition(IExpression $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_statement,
     );
@@ -249,7 +249,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -257,7 +257,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value,
+      $value ?? Missing(),
       $this->_statement,
     );
   }
@@ -284,7 +284,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     return $this->_statement;
   }
 
-  public function withStatement(Node $value): this {
+  public function withStatement(IStatement $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -293,7 +293,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

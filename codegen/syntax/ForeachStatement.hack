@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0aed06c1d62a792de472a50231a32bdb>>
+ * @generated SignedSource<<11c93e9d4b3096507efca3606549f865>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -224,12 +224,12 @@ final class ForeachStatement
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ForeachToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_collection,
       $this->_await_keyword,
@@ -264,13 +264,13 @@ final class ForeachStatement
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_collection,
       $this->_await_keyword,
       $this->_as,
@@ -304,14 +304,14 @@ final class ForeachStatement
     return $this->_collection;
   }
 
-  public function withCollection(Node $value): this {
+  public function withCollection(IExpression $value): this {
     if ($value === $this->_collection) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_await_keyword,
       $this->_as,
       $this->_key,
@@ -354,7 +354,7 @@ final class ForeachStatement
     return $this->_await_keyword;
   }
 
-  public function withAwaitKeyword(Node $value): this {
+  public function withAwaitKeyword(?AwaitToken $value): this {
     if ($value === $this->_await_keyword) {
       return $this;
     }
@@ -362,7 +362,7 @@ final class ForeachStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,
-      $value,
+      $value ?? Missing(),
       $this->_as,
       $this->_key,
       $this->_arrow,
@@ -397,7 +397,7 @@ final class ForeachStatement
     return $this->_as;
   }
 
-  public function withAs(Node $value): this {
+  public function withAs(AsToken $value): this {
     if ($value === $this->_as) {
       return $this;
     }
@@ -406,7 +406,7 @@ final class ForeachStatement
       $this->_left_paren,
       $this->_collection,
       $this->_await_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_key,
       $this->_arrow,
       $this->_value,
@@ -437,7 +437,7 @@ final class ForeachStatement
     return $this->_key;
   }
 
-  public function withKey(Node $value): this {
+  public function withKey(?IExpression $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -447,7 +447,7 @@ final class ForeachStatement
       $this->_collection,
       $this->_await_keyword,
       $this->_as,
-      $value,
+      $value ?? Missing(),
       $this->_arrow,
       $this->_value,
       $this->_right_paren,
@@ -482,7 +482,7 @@ final class ForeachStatement
     return $this->_arrow;
   }
 
-  public function withArrow(Node $value): this {
+  public function withArrow(?EqualGreaterThanToken $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -493,7 +493,7 @@ final class ForeachStatement
       $this->_await_keyword,
       $this->_as,
       $this->_key,
-      $value,
+      $value ?? Missing(),
       $this->_value,
       $this->_right_paren,
       $this->_body,
@@ -525,7 +525,7 @@ final class ForeachStatement
     return $this->_value;
   }
 
-  public function withValue(Node $value): this {
+  public function withValue(IExpression $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -537,7 +537,7 @@ final class ForeachStatement
       $this->_as,
       $this->_key,
       $this->_arrow,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_body,
     );
@@ -567,7 +567,7 @@ final class ForeachStatement
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -580,7 +580,7 @@ final class ForeachStatement
       $this->_key,
       $this->_arrow,
       $this->_value,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -607,7 +607,7 @@ final class ForeachStatement
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(IStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -621,7 +621,7 @@ final class ForeachStatement
       $this->_arrow,
       $this->_value,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

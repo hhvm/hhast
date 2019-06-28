@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3c1c4731b395bf60dfccaed640916da>>
+ * @generated SignedSource<<913c87663d0bbaf1fa4844c0024133cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,12 +121,12 @@ final class AnonymousFunctionUseClause extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(UseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_variables,
       $this->_right_paren,
@@ -155,13 +155,13 @@ final class AnonymousFunctionUseClause extends Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_variables,
       $this->_right_paren,
     );
@@ -189,14 +189,16 @@ final class AnonymousFunctionUseClause extends Node {
     return $this->_variables;
   }
 
-  public function withVariables(Node $value): this {
+  public function withVariables(
+    NodeList<ListItem<VariableToken>> $value,
+  ): this {
     if ($value === $this->_variables) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -223,7 +225,7 @@ final class AnonymousFunctionUseClause extends Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -231,7 +233,7 @@ final class AnonymousFunctionUseClause extends Node {
       $this->_keyword,
       $this->_left_paren,
       $this->_variables,
-      $value,
+      $value ?? Missing(),
     );
   }
 

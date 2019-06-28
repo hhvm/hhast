@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<852380d4a7f3541f7583b4b0496cad0c>>
+ * @generated SignedSource<<5b67c33d2f668e556ab4b7d82f5c11e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(YieldToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_operand);
+    return new static($value ?? Missing(), $this->_operand);
   }
 
   public function hasKeyword(): bool {
@@ -113,11 +113,11 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     return $this->_operand;
   }
 
-  public function withOperand(Node $value): this {
+  public function withOperand(?Node $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static($this->_keyword, $value);
+    return new static($this->_keyword, $value ?? Missing());
   }
 
   public function hasOperand(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5fb69d9276adbbecd6d5d8227d57594e>>
+ * @generated SignedSource<<3c2b6779882fcbd87fda82c6023f62eb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,12 +142,12 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(VarrayToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_angle,
       $this->_type,
       $this->_trailing_comma,
@@ -177,13 +177,13 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(Node $value): this {
+  public function withLeftAngle(LessThanToken $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_trailing_comma,
       $this->_right_angle,
@@ -212,14 +212,14 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_angle,
-      $value,
+      $value ?? Missing(),
       $this->_trailing_comma,
       $this->_right_angle,
     );
@@ -249,7 +249,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_trailing_comma;
   }
 
-  public function withTrailingComma(Node $value): this {
+  public function withTrailingComma(?Node $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -257,7 +257,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_angle,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_right_angle,
     );
   }
@@ -287,7 +287,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(Node $value): this {
+  public function withRightAngle(GreaterThanToken $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -296,7 +296,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_left_angle,
       $this->_type,
       $this->_trailing_comma,
-      $value,
+      $value ?? Missing(),
     );
   }
 

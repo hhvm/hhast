@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d86f00cbc281a39ffe24b47fef09281f>>
+ * @generated SignedSource<<40deb14fe62321b57a9cb3124b497860>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -77,7 +77,7 @@ final class VariableExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($value);
+    return new static($value ?? Missing());
   }
 
   public function hasExpression(): bool {

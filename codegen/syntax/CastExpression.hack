@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6cbfb29de23d00ebf73f300b6ec371b0>>
+ * @generated SignedSource<<a7edd19f4feaf82d976298e07a66a741>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,12 +115,12 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_right_paren,
       $this->_operand,
@@ -149,13 +149,13 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(Token $value): this {
     if ($value === $this->_type) {
       return $this;
     }
     return new static(
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_operand,
     );
@@ -187,14 +187,14 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
     return new static(
       $this->_left_paren,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_operand,
     );
   }
@@ -221,7 +221,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     return $this->_operand;
   }
 
-  public function withOperand(Node $value): this {
+  public function withOperand(IExpression $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
@@ -229,7 +229,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $this->_left_paren,
       $this->_type,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

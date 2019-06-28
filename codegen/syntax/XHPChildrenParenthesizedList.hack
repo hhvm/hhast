@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<097d322067c73882ebd5b3a79f5192e5>>
+ * @generated SignedSource<<766cd1cc8447ea30d95aa5d5bd8f7a59>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,7 +105,11 @@ final class XHPChildrenParenthesizedList extends Node {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($value, $this->_xhp_children, $this->_right_paren);
+    return new static(
+      $value ?? Missing(),
+      $this->_xhp_children,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -134,7 +138,11 @@ final class XHPChildrenParenthesizedList extends Node {
     if ($value === $this->_xhp_children) {
       return $this;
     }
-    return new static($this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_left_paren,
+      $value ?? Missing(),
+      $this->_right_paren,
+    );
   }
 
   public function hasXhpChildren(): bool {
@@ -163,7 +171,11 @@ final class XHPChildrenParenthesizedList extends Node {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_left_paren, $this->_xhp_children, $value);
+    return new static(
+      $this->_left_paren,
+      $this->_xhp_children,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightParen(): bool {

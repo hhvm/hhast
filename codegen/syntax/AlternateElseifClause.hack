@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a33afc3140267fd5b3f1326d361a811>>
+ * @generated SignedSource<<a0d68cd2d378f64ff3a959637a83af27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,12 +160,12 @@ final class AlternateElseifClause
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ElseifToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -196,13 +196,13 @@ final class AlternateElseifClause
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_condition,
       $this->_right_paren,
       $this->_colon,
@@ -232,14 +232,14 @@ final class AlternateElseifClause
     return $this->_condition;
   }
 
-  public function withCondition(Node $value): this {
+  public function withCondition(BinaryExpression $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_colon,
       $this->_statement,
@@ -268,7 +268,7 @@ final class AlternateElseifClause
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -276,7 +276,7 @@ final class AlternateElseifClause
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_statement,
     );
@@ -304,7 +304,7 @@ final class AlternateElseifClause
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -313,7 +313,7 @@ final class AlternateElseifClause
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_statement,
     );
   }
@@ -340,7 +340,7 @@ final class AlternateElseifClause
     return $this->_statement;
   }
 
-  public function withStatement(Node $value): this {
+  public function withStatement(NodeList<ExpressionStatement> $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -350,7 +350,7 @@ final class AlternateElseifClause
       $this->_condition,
       $this->_right_paren,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35a3971af13e582fc54b1f20b6e5fb6e>>
+ * @generated SignedSource<<9579ac4ca733b4f254b9aed7c684dd17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,11 +71,11 @@ final class XHPSimpleClassAttribute extends Node {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(SimpleTypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($value);
+    return new static($value ?? Missing());
   }
 
   public function hasType(): bool {

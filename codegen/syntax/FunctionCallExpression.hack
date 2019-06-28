@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d54b1a198f8a7a173a36cd3e76ef3dc9>>
+ * @generated SignedSource<<c67448498114a4838256910f6bd7fb31>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class FunctionCallExpression
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_type_args,
       $this->_left_paren,
       $this->_argument_list,
@@ -185,13 +185,13 @@ final class FunctionCallExpression
     return $this->_type_args;
   }
 
-  public function withTypeArgs(Node $value): this {
+  public function withTypeArgs(?TypeArguments $value): this {
     if ($value === $this->_type_args) {
       return $this;
     }
     return new static(
       $this->_receiver,
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -223,14 +223,14 @@ final class FunctionCallExpression
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_receiver,
       $this->_type_args,
-      $value,
+      $value ?? Missing(),
       $this->_argument_list,
       $this->_right_paren,
     );
@@ -258,7 +258,9 @@ final class FunctionCallExpression
     return $this->_argument_list;
   }
 
-  public function withArgumentList(Node $value): this {
+  public function withArgumentList(
+    ?NodeList<ListItem<IExpression>> $value,
+  ): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -266,7 +268,7 @@ final class FunctionCallExpression
       $this->_receiver,
       $this->_type_args,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -370,7 +372,7 @@ final class FunctionCallExpression
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -379,7 +381,7 @@ final class FunctionCallExpression
       $this->_type_args,
       $this->_left_paren,
       $this->_argument_list,
-      $value,
+      $value ?? Missing(),
     );
   }
 

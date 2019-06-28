@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2e66269c1f2f1b60fdc33f66e1acd15>>
+ * @generated SignedSource<<003c3374efeb40e84d0e0cc6760e9786>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,11 +88,11 @@ final class ClosureParameterTypeSpecifier
     return $this->_call_convention;
   }
 
-  public function withCallConvention(Node $value): this {
+  public function withCallConvention(?InoutToken $value): this {
     if ($value === $this->_call_convention) {
       return $this;
     }
-    return new static($value, $this->_type);
+    return new static($value ?? Missing(), $this->_type);
   }
 
   public function hasCallConvention(): bool {
@@ -120,11 +120,11 @@ final class ClosureParameterTypeSpecifier
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_call_convention, $value);
+    return new static($this->_call_convention, $value ?? Missing());
   }
 
   public function hasType(): bool {

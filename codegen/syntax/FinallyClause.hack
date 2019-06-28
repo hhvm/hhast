@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f5abaecbe53a04e8ad88eb1783590cb>>
+ * @generated SignedSource<<131f04b3378f4df3d2982c0c39ca1d7f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class FinallyClause extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(FinallyToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_body);
+    return new static($value ?? Missing(), $this->_body);
   }
 
   public function hasKeyword(): bool {
@@ -113,11 +113,11 @@ final class FinallyClause extends Node {
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(CompoundStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
-    return new static($this->_keyword, $value);
+    return new static($this->_keyword, $value ?? Missing());
   }
 
   public function hasBody(): bool {

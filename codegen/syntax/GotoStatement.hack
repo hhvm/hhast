@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f1aa40f6c9ddc5030fec8b4a5fd6db3>>
+ * @generated SignedSource<<75c049f0e5d9947c8b82cd95c9de5435>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class GotoStatement extends Node implements IStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(GotoToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_label_name, $this->_semicolon);
+    return new static(
+      $value ?? Missing(),
+      $this->_label_name,
+      $this->_semicolon,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -130,11 +134,11 @@ final class GotoStatement extends Node implements IStatement {
     return $this->_label_name;
   }
 
-  public function withLabelName(Node $value): this {
+  public function withLabelName(NameToken $value): this {
     if ($value === $this->_label_name) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
   }
 
   public function hasLabelName(): bool {
@@ -159,11 +163,11 @@ final class GotoStatement extends Node implements IStatement {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_label_name, $value);
+    return new static($this->_keyword, $this->_label_name, $value ?? Missing());
   }
 
   public function hasSemicolon(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<250c41c40a038151bed2878a7c855d55>>
+ * @generated SignedSource<<a412ff6ec5981ad188e641ab2429e069>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,7 +126,7 @@ final class ConstructorCall extends Node {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -161,13 +161,13 @@ final class ConstructorCall extends Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(?LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_argument_list,
       $this->_right_paren,
     );
@@ -198,14 +198,16 @@ final class ConstructorCall extends Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(Node $value): this {
+  public function withArgumentList(
+    ?NodeList<ListItem<IExpression>> $value,
+  ): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
     return new static(
       $this->_type,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -283,7 +285,7 @@ final class ConstructorCall extends Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(?RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -291,7 +293,7 @@ final class ConstructorCall extends Node {
       $this->_type,
       $this->_left_paren,
       $this->_argument_list,
-      $value,
+      $value ?? Missing(),
     );
   }
 

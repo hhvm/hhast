@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<429117f8a19d90254238ad76e82c0919>>
+ * @generated SignedSource<<526e219e144691e0755e02a44075ad2d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,7 +119,12 @@ final class PocketMappingTypeDeclaration extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_name, $this->_equal, $this->_type);
+    return new static(
+      $value ?? Missing(),
+      $this->_name,
+      $this->_equal,
+      $this->_type,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -148,7 +153,12 @@ final class PocketMappingTypeDeclaration extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_equal, $this->_type);
+    return new static(
+      $this->_keyword,
+      $value ?? Missing(),
+      $this->_equal,
+      $this->_type,
+    );
   }
 
   public function hasName(): bool {
@@ -177,7 +187,12 @@ final class PocketMappingTypeDeclaration extends Node {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new static($this->_keyword, $this->_name, $value, $this->_type);
+    return new static(
+      $this->_keyword,
+      $this->_name,
+      $value ?? Missing(),
+      $this->_type,
+    );
   }
 
   public function hasEqual(): bool {
@@ -206,7 +221,12 @@ final class PocketMappingTypeDeclaration extends Node {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_keyword, $this->_name, $this->_equal, $value);
+    return new static(
+      $this->_keyword,
+      $this->_name,
+      $this->_equal,
+      $value ?? Missing(),
+    );
   }
 
   public function hasType(): bool {

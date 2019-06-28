@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<243837dea5303bb8a6d73a7c9a92670b>>
+ * @generated SignedSource<<c5e47b2bf5dbf9217c4bc7e97f7435c6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,11 +86,11 @@ final class ObjectCreationExpression
     return $this->_new_keyword;
   }
 
-  public function withNewKeyword(Node $value): this {
+  public function withNewKeyword(NewToken $value): this {
     if ($value === $this->_new_keyword) {
       return $this;
     }
-    return new static($value, $this->_object);
+    return new static($value ?? Missing(), $this->_object);
   }
 
   public function hasNewKeyword(): bool {
@@ -115,11 +115,11 @@ final class ObjectCreationExpression
     return $this->_object;
   }
 
-  public function withObject(Node $value): this {
+  public function withObject(ConstructorCall $value): this {
     if ($value === $this->_object) {
       return $this;
     }
-    return new static($this->_new_keyword, $value);
+    return new static($this->_new_keyword, $value ?? Missing());
   }
 
   public function hasObject(): bool {

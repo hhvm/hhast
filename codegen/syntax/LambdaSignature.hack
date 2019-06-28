@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89b79d84e1b45b532d3906ebfdbfb227>>
+ * @generated SignedSource<<2430bcd686531beeb41aa6fdf5ae76b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,12 +136,12 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_parameters,
       $this->_right_paren,
       $this->_colon,
@@ -171,13 +171,13 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->_parameters;
   }
 
-  public function withParameters(Node $value): this {
+  public function withParameters(?NodeList<ListItem<IParameter>> $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
     return new static(
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_colon,
       $this->_type,
@@ -211,14 +211,14 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
     return new static(
       $this->_left_paren,
       $this->_parameters,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_type,
     );
@@ -246,7 +246,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(?ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -254,7 +254,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_type,
     );
   }
@@ -284,7 +284,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -293,7 +293,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_parameters,
       $this->_right_paren,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
     );
   }
 

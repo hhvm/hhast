@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d9419c540e074269ba854c45982ce6fd>>
+ * @generated SignedSource<<23bd84955084460cc61f650268c701f1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,11 +71,11 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($value);
+    return new static($value ?? Missing());
   }
 
   public function hasSemicolon(): bool {

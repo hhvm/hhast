@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<135f8f8dcc91620ad67053164d805cff>>
+ * @generated SignedSource<<002a43b7f90f37e07befd6f3e1e730de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,11 +103,15 @@ final class ArrayCreationExpression
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(Node $value): this {
+  public function withLeftBracket(LeftBracketToken $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new static($value, $this->_members, $this->_right_bracket);
+    return new static(
+      $value ?? Missing(),
+      $this->_members,
+      $this->_right_bracket,
+    );
   }
 
   public function hasLeftBracket(): bool {
@@ -135,11 +139,15 @@ final class ArrayCreationExpression
     return $this->_members;
   }
 
-  public function withMembers(Node $value): this {
+  public function withMembers(?NodeList<ListItem<Node>> $value): this {
     if ($value === $this->_members) {
       return $this;
     }
-    return new static($this->_left_bracket, $value, $this->_right_bracket);
+    return new static(
+      $this->_left_bracket,
+      $value ?? Missing(),
+      $this->_right_bracket,
+    );
   }
 
   public function hasMembers(): bool {
@@ -203,11 +211,15 @@ final class ArrayCreationExpression
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(Node $value): this {
+  public function withRightBracket(RightBracketToken $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new static($this->_left_bracket, $this->_members, $value);
+    return new static(
+      $this->_left_bracket,
+      $this->_members,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightBracket(): bool {

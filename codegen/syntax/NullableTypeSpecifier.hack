@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a8a52e1f40ce6a8d28a65992f79a0127>>
+ * @generated SignedSource<<b2330eebfc237bbd6a5d1d92e196dd98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_question;
   }
 
-  public function withQuestion(Node $value): this {
+  public function withQuestion(QuestionToken $value): this {
     if ($value === $this->_question) {
       return $this;
     }
-    return new static($value, $this->_type);
+    return new static($value ?? Missing(), $this->_type);
   }
 
   public function hasQuestion(): bool {
@@ -113,11 +113,11 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_question, $value);
+    return new static($this->_question, $value ?? Missing());
   }
 
   public function hasType(): bool {

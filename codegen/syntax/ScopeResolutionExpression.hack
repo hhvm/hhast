@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d6c7266183e68fd9b98502dd92a17a2>>
+ * @generated SignedSource<<b1d784c45ba607ec8ddd04015c961e68>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,7 +107,7 @@ final class ScopeResolutionExpression
     if ($value === $this->_qualifier) {
       return $this;
     }
-    return new static($value, $this->_operator, $this->_name);
+    return new static($value ?? Missing(), $this->_operator, $this->_name);
   }
 
   public function hasQualifier(): bool {
@@ -138,11 +138,11 @@ final class ScopeResolutionExpression
     return $this->_operator;
   }
 
-  public function withOperator(Node $value): this {
+  public function withOperator(ColonColonToken $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_qualifier, $value, $this->_name);
+    return new static($this->_qualifier, $value ?? Missing(), $this->_name);
   }
 
   public function hasOperator(): bool {
@@ -171,7 +171,7 @@ final class ScopeResolutionExpression
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_qualifier, $this->_operator, $value);
+    return new static($this->_qualifier, $this->_operator, $value ?? Missing());
   }
 
   public function hasName(): bool {

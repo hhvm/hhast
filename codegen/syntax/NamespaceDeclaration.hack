@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2895f18d8e8986de8d08ae76c32ca5c>>
+ * @generated SignedSource<<67e894d98918ce8c77d25c61b73dc588>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(NamespaceToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_name, $this->_body);
+    return new static($value ?? Missing(), $this->_name, $this->_body);
   }
 
   public function hasKeyword(): bool {
@@ -130,11 +130,11 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(?INameishNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_body);
+    return new static($this->_keyword, $value ?? Missing(), $this->_body);
   }
 
   public function hasName(): bool {
@@ -162,11 +162,11 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(INamespaceBody $value): this {
     if ($value === $this->_body) {
       return $this;
     }
-    return new static($this->_keyword, $this->_name, $value);
+    return new static($this->_keyword, $this->_name, $value ?? Missing());
   }
 
   public function hasBody(): bool {

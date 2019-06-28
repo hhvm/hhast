@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf785d861225663d290c497fdf095a7c>>
+ * @generated SignedSource<<58544d69a01be02e521592f05833e3d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,7 +126,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -161,7 +161,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_argument_list,
       $this->_right_paren,
     );
@@ -196,7 +196,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -231,7 +231,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
       $this->_keyword,
       $this->_left_paren,
       $this->_argument_list,
-      $value,
+      $value ?? Missing(),
     );
   }
 

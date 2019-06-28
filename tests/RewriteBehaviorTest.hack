@@ -181,24 +181,25 @@ final class RewriteBehaviorTest extends TestCase {
                   return $field;
                 }
 
-                $name = $field->getName()->getDescendantsOfType(
+                $name = $field->getName();
+                $name_t = $name->getDescendantsOfType(
                   HHAST\SingleQuotedStringLiteralToken::class,
                 )
                   |> C\first($$);
-                if ($name === null) {
+                if ($name_t === null) {
                   return $field;
                 }
 
                 return $field->withName(
-                  $name->withText(
+                  $name->replace($name_t, $name_t->withText(
                     Str\slice(
-                      $name->getText(),
+                      $name_t->getText(),
                       1,
-                      Str\length($name->getText()) - 2,
+                      Str\length($name_t->getText()) - 2,
                     )
                       |> \sprintf("'%s_new'", $$),
                   ),
-                );
+                ));
               },
             ),
           ),

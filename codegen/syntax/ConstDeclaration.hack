@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da542a3dd6a74d762ca043818bf74335>>
+ * @generated SignedSource<<352a2c80991f724953cbf66609181c5d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,12 +158,12 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_visibility;
   }
 
-  public function withVisibility(Node $value): this {
+  public function withVisibility(?Token $value): this {
     if ($value === $this->_visibility) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_abstract,
       $this->_keyword,
       $this->_type_specifier,
@@ -197,13 +197,13 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_abstract;
   }
 
-  public function withAbstract(Node $value): this {
+  public function withAbstract(?AbstractToken $value): this {
     if ($value === $this->_abstract) {
       return $this;
     }
     return new static(
       $this->_visibility,
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_type_specifier,
       $this->_declarators,
@@ -236,14 +236,14 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ConstToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
       $this->_visibility,
       $this->_abstract,
-      $value,
+      $value ?? Missing(),
       $this->_type_specifier,
       $this->_declarators,
       $this->_semicolon,
@@ -272,7 +272,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_type_specifier;
   }
 
-  public function withTypeSpecifier(Node $value): this {
+  public function withTypeSpecifier(?ITypeSpecifier $value): this {
     if ($value === $this->_type_specifier) {
       return $this;
     }
@@ -280,7 +280,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_visibility,
       $this->_abstract,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_declarators,
       $this->_semicolon,
     );
@@ -320,7 +320,9 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_declarators;
   }
 
-  public function withDeclarators(Node $value): this {
+  public function withDeclarators(
+    NodeList<ListItem<ConstantDeclarator>> $value,
+  ): this {
     if ($value === $this->_declarators) {
       return $this;
     }
@@ -329,7 +331,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_abstract,
       $this->_keyword,
       $this->_type_specifier,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -356,7 +358,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -366,7 +368,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_keyword,
       $this->_type_specifier,
       $this->_declarators,
-      $value,
+      $value ?? Missing(),
     );
   }
 

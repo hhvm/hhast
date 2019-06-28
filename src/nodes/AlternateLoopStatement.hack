@@ -12,12 +12,15 @@ namespace Facebook\HHAST;
 
 final class AlternateLoopStatement extends AlternateLoopStatementGeneratedBase {
   <<__Override>>
-  public function getBody(): ?Node {
-    return $this->getStatements();
+  public function getBody(): IStatement {
+    return new CompoundStatement(Missing(), $this->getStatements(), Missing());
   }
 
   <<__Override>>
-  public function withBody(Node $body): this {
-    return $this->withStatements($body);
+  public function withBody(IStatement $body): this {
+    if ($body instanceof CompoundStatement && !$body->hasLeftBrace()) {
+      return $this->withStatements($body->getStatements() as nonnull);
+    }
+    return $this->withStatements(NodeList::createMaybeEmptyList(vec[$body]));
   }
 }

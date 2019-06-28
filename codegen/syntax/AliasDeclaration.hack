@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea875e05464076527aa9addbba8ef702>>
+ * @generated SignedSource<<875e4e80b3741054e4706afb652cfadf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -190,12 +190,12 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(Node $value): this {
+  public function withAttributeSpec(?AttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,
@@ -234,13 +234,13 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(Token $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_generic_parameter,
       $this->_constraint,
@@ -272,14 +272,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(NameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_generic_parameter,
       $this->_constraint,
       $this->_equal,
@@ -310,7 +310,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_generic_parameter;
   }
 
-  public function withGenericParameter(Node $value): this {
+  public function withGenericParameter(?TypeParameters $value): this {
     if ($value === $this->_generic_parameter) {
       return $this;
     }
@@ -318,7 +318,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_constraint,
       $this->_equal,
       $this->_type,
@@ -354,7 +354,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_constraint;
   }
 
-  public function withConstraint(Node $value): this {
+  public function withConstraint(?TypeConstraint $value): this {
     if ($value === $this->_constraint) {
       return $this;
     }
@@ -363,7 +363,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,
-      $value,
+      $value ?? Missing(),
       $this->_equal,
       $this->_type,
       $this->_semicolon,
@@ -395,7 +395,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_equal;
   }
 
-  public function withEqual(Node $value): this {
+  public function withEqual(EqualToken $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -405,7 +405,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_name,
       $this->_generic_parameter,
       $this->_constraint,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_semicolon,
     );
@@ -433,7 +433,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -444,7 +444,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_generic_parameter,
       $this->_constraint,
       $this->_equal,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -477,7 +477,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -489,7 +489,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_constraint,
       $this->_equal,
       $this->_type,
-      $value,
+      $value ?? Missing(),
     );
   }
 

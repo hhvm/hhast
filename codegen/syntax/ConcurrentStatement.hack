@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0039ac54603f5f7785ba20f60ee6f97>>
+ * @generated SignedSource<<8c645ae687b3faca6ff2e70b9522044e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class ConcurrentStatement extends Node implements IStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ConcurrentToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_statement);
+    return new static($value ?? Missing(), $this->_statement);
   }
 
   public function hasKeyword(): bool {
@@ -113,11 +113,11 @@ final class ConcurrentStatement extends Node implements IStatement {
     return $this->_statement;
   }
 
-  public function withStatement(Node $value): this {
+  public function withStatement(CompoundStatement $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new static($this->_keyword, $value);
+    return new static($this->_keyword, $value ?? Missing());
   }
 
   public function hasStatement(): bool {

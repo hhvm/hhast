@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2fbf0a18545ede026eb61b5e7ac631fc>>
+ * @generated SignedSource<<d68806acc59f5d66b44ec0be517c2513>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,12 +115,12 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_initializer,
       $this->_required,
@@ -153,13 +153,13 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(XHPElementNameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
     return new static(
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_initializer,
       $this->_required,
     );
@@ -187,11 +187,16 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     return $this->_initializer;
   }
 
-  public function withInitializer(Node $value): this {
+  public function withInitializer(?SimpleInitializer $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
-    return new static($this->_type, $this->_name, $value, $this->_required);
+    return new static(
+      $this->_type,
+      $this->_name,
+      $value ?? Missing(),
+      $this->_required,
+    );
   }
 
   public function hasInitializer(): bool {
@@ -222,11 +227,16 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     return $this->_required;
   }
 
-  public function withRequired(Node $value): this {
+  public function withRequired(?Node $value): this {
     if ($value === $this->_required) {
       return $this;
     }
-    return new static($this->_type, $this->_name, $this->_initializer, $value);
+    return new static(
+      $this->_type,
+      $this->_name,
+      $this->_initializer,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRequired(): bool {

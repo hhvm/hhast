@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e44f8fc05aaf91e263c64e72442a39da>>
+ * @generated SignedSource<<c0d02fb5feda791bbda99c421fa88385>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class GotoLabel extends Node implements IStatement {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(NameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value, $this->_colon);
+    return new static($value ?? Missing(), $this->_colon);
   }
 
   public function hasName(): bool {
@@ -113,11 +113,11 @@ final class GotoLabel extends Node implements IStatement {
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new static($this->_name, $value);
+    return new static($this->_name, $value ?? Missing());
   }
 
   public function hasColon(): bool {

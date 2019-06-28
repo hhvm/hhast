@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2117b89c7410cd75c05ab5f06fa9f825>>
+ * @generated SignedSource<<ada279540738db85f58dd1fb16318826>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -224,12 +224,12 @@ final class AlternateIfStatement
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(IfToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -264,13 +264,13 @@ final class AlternateIfStatement
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_condition,
       $this->_right_paren,
       $this->_colon,
@@ -304,14 +304,14 @@ final class AlternateIfStatement
     return $this->_condition;
   }
 
-  public function withCondition(Node $value): this {
+  public function withCondition(IExpression $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_colon,
       $this->_statement,
@@ -344,7 +344,7 @@ final class AlternateIfStatement
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -352,7 +352,7 @@ final class AlternateIfStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_statement,
       $this->_elseif_clauses,
@@ -384,7 +384,7 @@ final class AlternateIfStatement
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -393,7 +393,7 @@ final class AlternateIfStatement
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_statement,
       $this->_elseif_clauses,
       $this->_else_clause,
@@ -424,7 +424,7 @@ final class AlternateIfStatement
     return $this->_statement;
   }
 
-  public function withStatement(Node $value): this {
+  public function withStatement(NodeList<IStatement> $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
@@ -434,7 +434,7 @@ final class AlternateIfStatement
       $this->_condition,
       $this->_right_paren,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
       $this->_elseif_clauses,
       $this->_else_clause,
       $this->_endif_keyword,
@@ -464,7 +464,9 @@ final class AlternateIfStatement
     return $this->_elseif_clauses;
   }
 
-  public function withElseifClauses(Node $value): this {
+  public function withElseifClauses(
+    ?NodeList<AlternateElseifClause> $value,
+  ): this {
     if ($value === $this->_elseif_clauses) {
       return $this;
     }
@@ -475,7 +477,7 @@ final class AlternateIfStatement
       $this->_right_paren,
       $this->_colon,
       $this->_statement,
-      $value,
+      $value ?? Missing(),
       $this->_else_clause,
       $this->_endif_keyword,
       $this->_semicolon,
@@ -507,7 +509,7 @@ final class AlternateIfStatement
     return $this->_else_clause;
   }
 
-  public function withElseClause(Node $value): this {
+  public function withElseClause(?AlternateElseClause $value): this {
     if ($value === $this->_else_clause) {
       return $this;
     }
@@ -519,7 +521,7 @@ final class AlternateIfStatement
       $this->_colon,
       $this->_statement,
       $this->_elseif_clauses,
-      $value,
+      $value ?? Missing(),
       $this->_endif_keyword,
       $this->_semicolon,
     );
@@ -553,7 +555,7 @@ final class AlternateIfStatement
     return $this->_endif_keyword;
   }
 
-  public function withEndifKeyword(Node $value): this {
+  public function withEndifKeyword(EndifToken $value): this {
     if ($value === $this->_endif_keyword) {
       return $this;
     }
@@ -566,7 +568,7 @@ final class AlternateIfStatement
       $this->_statement,
       $this->_elseif_clauses,
       $this->_else_clause,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -593,7 +595,7 @@ final class AlternateIfStatement
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -607,7 +609,7 @@ final class AlternateIfStatement
       $this->_elseif_clauses,
       $this->_else_clause,
       $this->_endif_keyword,
-      $value,
+      $value ?? Missing(),
     );
   }
 

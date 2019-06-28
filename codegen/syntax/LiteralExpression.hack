@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<871827f8c4883a32ae792ff4ecc7b36f>>
+ * @generated SignedSource<<e81172457be45b004047a5cfb195978a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,7 +75,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($value);
+    return new static($value ?? Missing());
   }
 
   public function hasExpression(): bool {

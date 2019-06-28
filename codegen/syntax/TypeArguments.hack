@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6afb3f7b3497231cd3fd6c2f48ffd221>>
+ * @generated SignedSource<<3212988be231887793663f08d94c02f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class TypeArguments extends Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(Node $value): this {
+  public function withLeftAngle(LessThanToken $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static($value, $this->_types, $this->_right_angle);
+    return new static($value ?? Missing(), $this->_types, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -130,11 +130,15 @@ final class TypeArguments extends Node {
     return $this->_types;
   }
 
-  public function withTypes(Node $value): this {
+  public function withTypes(NodeList<ListItem<ITypeSpecifier>> $value): this {
     if ($value === $this->_types) {
       return $this;
     }
-    return new static($this->_left_angle, $value, $this->_right_angle);
+    return new static(
+      $this->_left_angle,
+      $value ?? Missing(),
+      $this->_right_angle,
+    );
   }
 
   public function hasTypes(): bool {
@@ -189,11 +193,11 @@ final class TypeArguments extends Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(Node $value): this {
+  public function withRightAngle(GreaterThanToken $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static($this->_left_angle, $this->_types, $value);
+    return new static($this->_left_angle, $this->_types, $value ?? Missing());
   }
 
   public function hasRightAngle(): bool {

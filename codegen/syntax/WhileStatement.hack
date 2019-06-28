@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e394c99b6ceed117b732688a7b81728f>>
+ * @generated SignedSource<<08a5f425add6b6d275d4459953b2f2b3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,12 +138,12 @@ final class WhileStatement
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(WhileToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -173,13 +173,13 @@ final class WhileStatement
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_condition,
       $this->_right_paren,
       $this->_body,
@@ -208,14 +208,14 @@ final class WhileStatement
     return $this->_condition;
   }
 
-  public function withCondition(Node $value): this {
+  public function withCondition(IExpression $value): this {
     if ($value === $this->_condition) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_body,
     );
@@ -249,7 +249,7 @@ final class WhileStatement
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -257,7 +257,7 @@ final class WhileStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -284,7 +284,7 @@ final class WhileStatement
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(IStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -293,7 +293,7 @@ final class WhileStatement
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

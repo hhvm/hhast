@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ca837e1ed44ccbf4b46f0af0948b092>>
+ * @generated SignedSource<<7418dd8fdc4c3e400b82e64e010c4fc2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(ScopeResolutionExpression $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value, $this->_keyword, $this->_removed_names);
+    return new static(
+      $value ?? Missing(),
+      $this->_keyword,
+      $this->_removed_names,
+    );
   }
 
   public function hasName(): bool {
@@ -133,11 +137,11 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(InsteadofToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($this->_name, $value, $this->_removed_names);
+    return new static($this->_name, $value ?? Missing(), $this->_removed_names);
   }
 
   public function hasKeyword(): bool {
@@ -162,11 +166,13 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     return $this->_removed_names;
   }
 
-  public function withRemovedNames(Node $value): this {
+  public function withRemovedNames(
+    NodeList<ListItem<SimpleTypeSpecifier>> $value,
+  ): this {
     if ($value === $this->_removed_names) {
       return $this;
     }
-    return new static($this->_name, $this->_keyword, $value);
+    return new static($this->_name, $this->_keyword, $value ?? Missing());
   }
 
   public function hasRemovedNames(): bool {

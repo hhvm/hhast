@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0439b6b67876c3c73acaa140499560a3>>
+ * @generated SignedSource<<0bce49a74d98d5e6c0248686f89efea9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,12 +142,12 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(KeysetToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_angle,
       $this->_type,
       $this->_trailing_comma,
@@ -177,13 +177,13 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(Node $value): this {
+  public function withLeftAngle(LessThanToken $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_trailing_comma,
       $this->_right_angle,
@@ -212,14 +212,14 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_angle,
-      $value,
+      $value ?? Missing(),
       $this->_trailing_comma,
       $this->_right_angle,
     );
@@ -247,7 +247,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_trailing_comma;
   }
 
-  public function withTrailingComma(Node $value): this {
+  public function withTrailingComma(?Node $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -255,7 +255,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_angle,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_right_angle,
     );
   }
@@ -285,7 +285,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(Node $value): this {
+  public function withRightAngle(GreaterThanToken $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -294,7 +294,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_left_angle,
       $this->_type,
       $this->_trailing_comma,
-      $value,
+      $value ?? Missing(),
     );
   }
 

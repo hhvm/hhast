@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96e8cbeb5ef93eb6cdd6d510ea327b0a>>
+ * @generated SignedSource<<d05b428e55f8c618a05cc96d670cf7f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,11 +103,11 @@ final class MemberSelectionExpression
     return $this->_object;
   }
 
-  public function withObject(Node $value): this {
+  public function withObject(IExpression $value): this {
     if ($value === $this->_object) {
       return $this;
     }
-    return new static($value, $this->_operator, $this->_name);
+    return new static($value ?? Missing(), $this->_operator, $this->_name);
   }
 
   public function hasObject(): bool {
@@ -138,11 +138,11 @@ final class MemberSelectionExpression
     return $this->_operator;
   }
 
-  public function withOperator(Node $value): this {
+  public function withOperator(MinusGreaterThanToken $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_object, $value, $this->_name);
+    return new static($this->_object, $value ?? Missing(), $this->_name);
   }
 
   public function hasOperator(): bool {
@@ -170,11 +170,11 @@ final class MemberSelectionExpression
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(IExpression $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_object, $this->_operator, $value);
+    return new static($this->_object, $this->_operator, $value ?? Missing());
   }
 
   public function hasName(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<564edf970d3e104255ef7ef04574b896>>
+ * @generated SignedSource<<c3a9ea5d47b0b86f477988f48ffd2345>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,12 +121,12 @@ final class XHPSpreadAttribute extends Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_spread_operator,
       $this->_expression,
       $this->_right_brace,
@@ -155,13 +155,13 @@ final class XHPSpreadAttribute extends Node {
     return $this->_spread_operator;
   }
 
-  public function withSpreadOperator(Node $value): this {
+  public function withSpreadOperator(DotDotDotToken $value): this {
     if ($value === $this->_spread_operator) {
       return $this;
     }
     return new static(
       $this->_left_brace,
-      $value,
+      $value ?? Missing(),
       $this->_expression,
       $this->_right_brace,
     );
@@ -192,14 +192,14 @@ final class XHPSpreadAttribute extends Node {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(IExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
     return new static(
       $this->_left_brace,
       $this->_spread_operator,
-      $value,
+      $value ?? Missing(),
       $this->_right_brace,
     );
   }
@@ -226,7 +226,7 @@ final class XHPSpreadAttribute extends Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -234,7 +234,7 @@ final class XHPSpreadAttribute extends Node {
       $this->_left_brace,
       $this->_spread_operator,
       $this->_expression,
-      $value,
+      $value ?? Missing(),
     );
   }
 

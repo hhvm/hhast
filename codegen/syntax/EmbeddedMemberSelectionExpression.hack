@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff5aa4bb4aaa72ead0d87b4ca9d437cb>>
+ * @generated SignedSource<<696383a3a591816a13f84f28bb1452f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,7 +107,7 @@ final class EmbeddedMemberSelectionExpression
     if ($value === $this->_object) {
       return $this;
     }
-    return new static($value, $this->_operator, $this->_name);
+    return new static($value ?? Missing(), $this->_operator, $this->_name);
   }
 
   public function hasObject(): bool {
@@ -136,7 +136,7 @@ final class EmbeddedMemberSelectionExpression
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_object, $value, $this->_name);
+    return new static($this->_object, $value ?? Missing(), $this->_name);
   }
 
   public function hasOperator(): bool {
@@ -165,7 +165,7 @@ final class EmbeddedMemberSelectionExpression
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_object, $this->_operator, $value);
+    return new static($this->_object, $this->_operator, $value ?? Missing());
   }
 
   public function hasName(): bool {

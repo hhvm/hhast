@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5e98a08705b1919e4047250cb9a6d70>>
+ * @generated SignedSource<<f6f5b60885fb1ca9aa2c74d56f98d7d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,12 +123,12 @@ final class ArrayIntrinsicExpression
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ArrayToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_members,
       $this->_right_paren,
@@ -157,13 +157,13 @@ final class ArrayIntrinsicExpression
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_members,
       $this->_right_paren,
     );
@@ -191,14 +191,14 @@ final class ArrayIntrinsicExpression
     return $this->_members;
   }
 
-  public function withMembers(Node $value): this {
+  public function withMembers(?NodeList<ListItem<Node>> $value): this {
     if ($value === $this->_members) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -268,7 +268,7 @@ final class ArrayIntrinsicExpression
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -276,7 +276,7 @@ final class ArrayIntrinsicExpression
       $this->_keyword,
       $this->_left_paren,
       $this->_members,
-      $value,
+      $value ?? Missing(),
     );
   }
 

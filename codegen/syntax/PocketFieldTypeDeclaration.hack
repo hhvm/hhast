@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f47413b43df71c99e4cf249acb92cbe>>
+ * @generated SignedSource<<0f688faa6d39e8ddc9f1e8e923eb37b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,7 +119,12 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_case) {
       return $this;
     }
-    return new static($value, $this->_type, $this->_name, $this->_semicolon);
+    return new static(
+      $value ?? Missing(),
+      $this->_type,
+      $this->_name,
+      $this->_semicolon,
+    );
   }
 
   public function hasCase(): bool {
@@ -148,7 +153,12 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_case, $value, $this->_name, $this->_semicolon);
+    return new static(
+      $this->_case,
+      $value ?? Missing(),
+      $this->_name,
+      $this->_semicolon,
+    );
   }
 
   public function hasType(): bool {
@@ -177,7 +187,12 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_case, $this->_type, $value, $this->_semicolon);
+    return new static(
+      $this->_case,
+      $this->_type,
+      $value ?? Missing(),
+      $this->_semicolon,
+    );
   }
 
   public function hasName(): bool {
@@ -206,7 +221,12 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_case, $this->_type, $this->_name, $value);
+    return new static(
+      $this->_case,
+      $this->_type,
+      $this->_name,
+      $value ?? Missing(),
+    );
   }
 
   public function hasSemicolon(): bool {

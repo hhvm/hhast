@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<882032352082d90f39c0b7cebd00e80e>>
+ * @generated SignedSource<<5010a865dd1696c78d0171bd56a842ba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,12 +121,12 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(EvalToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_argument,
       $this->_right_paren,
@@ -155,13 +155,13 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_argument,
       $this->_right_paren,
     );
@@ -189,14 +189,14 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     return $this->_argument;
   }
 
-  public function withArgument(Node $value): this {
+  public function withArgument(IExpression $value): this {
     if ($value === $this->_argument) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -225,7 +225,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -233,7 +233,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $this->_keyword,
       $this->_left_paren,
       $this->_argument,
-      $value,
+      $value ?? Missing(),
     );
   }
 

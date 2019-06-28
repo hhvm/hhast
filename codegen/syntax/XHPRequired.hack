@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f27a8ab02c0b8ac59b421d27c4ceef00>>
+ * @generated SignedSource<<530bb19e9de45b6fb5e1561cc969a2e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class XHPRequired extends Node {
     return $this->_at;
   }
 
-  public function withAt(Node $value): this {
+  public function withAt(AtToken $value): this {
     if ($value === $this->_at) {
       return $this;
     }
-    return new static($value, $this->_keyword);
+    return new static($value ?? Missing(), $this->_keyword);
   }
 
   public function hasAt(): bool {
@@ -113,11 +113,11 @@ final class XHPRequired extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(RequiredToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($this->_at, $value);
+    return new static($this->_at, $value ?? Missing());
   }
 
   public function hasKeyword(): bool {

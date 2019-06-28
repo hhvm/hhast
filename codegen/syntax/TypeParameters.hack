@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a885138941c9c6543a70328f104bf6ec>>
+ * @generated SignedSource<<e5b247548f14e58fae7523233ecd56c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class TypeParameters extends Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(Node $value): this {
+  public function withLeftAngle(LessThanToken $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static($value, $this->_parameters, $this->_right_angle);
+    return new static(
+      $value ?? Missing(),
+      $this->_parameters,
+      $this->_right_angle,
+    );
   }
 
   public function hasLeftAngle(): bool {
@@ -130,11 +134,17 @@ final class TypeParameters extends Node {
     return $this->_parameters;
   }
 
-  public function withParameters(Node $value): this {
+  public function withParameters(
+    NodeList<ListItem<TypeParameter>> $value,
+  ): this {
     if ($value === $this->_parameters) {
       return $this;
     }
-    return new static($this->_left_angle, $value, $this->_right_angle);
+    return new static(
+      $this->_left_angle,
+      $value ?? Missing(),
+      $this->_right_angle,
+    );
   }
 
   public function hasParameters(): bool {
@@ -159,11 +169,15 @@ final class TypeParameters extends Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(Node $value): this {
+  public function withRightAngle(GreaterThanToken $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static($this->_left_angle, $this->_parameters, $value);
+    return new static(
+      $this->_left_angle,
+      $this->_parameters,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightAngle(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56f725c5b34e86bcbac6bcef3f6ee3ab>>
+ * @generated SignedSource<<7fbca9f61d409219c88ef71f78b6a516>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,12 +142,12 @@ final class UnsetStatement extends Node implements IStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(UnsetToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_variables,
       $this->_right_paren,
@@ -177,13 +177,13 @@ final class UnsetStatement extends Node implements IStatement {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_variables,
       $this->_right_paren,
       $this->_semicolon,
@@ -212,14 +212,14 @@ final class UnsetStatement extends Node implements IStatement {
     return $this->_variables;
   }
 
-  public function withVariables(Node $value): this {
+  public function withVariables(NodeList<ListItem<IExpression>> $value): this {
     if ($value === $this->_variables) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_semicolon,
     );
@@ -255,7 +255,7 @@ final class UnsetStatement extends Node implements IStatement {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -263,7 +263,7 @@ final class UnsetStatement extends Node implements IStatement {
       $this->_keyword,
       $this->_left_paren,
       $this->_variables,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -290,7 +290,7 @@ final class UnsetStatement extends Node implements IStatement {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -299,7 +299,7 @@ final class UnsetStatement extends Node implements IStatement {
       $this->_left_paren,
       $this->_variables,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

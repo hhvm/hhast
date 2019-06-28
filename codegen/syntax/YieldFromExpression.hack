@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<022e4a110ba843ebbed26887258bf858>>
+ * @generated SignedSource<<c41a0ed2923f8be72468eab84e3a555a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,11 +103,15 @@ final class YieldFromExpression
     return $this->_yield_keyword;
   }
 
-  public function withYieldKeyword(Node $value): this {
+  public function withYieldKeyword(YieldToken $value): this {
     if ($value === $this->_yield_keyword) {
       return $this;
     }
-    return new static($value, $this->_from_keyword, $this->_operand);
+    return new static(
+      $value ?? Missing(),
+      $this->_from_keyword,
+      $this->_operand,
+    );
   }
 
   public function hasYieldKeyword(): bool {
@@ -132,11 +136,15 @@ final class YieldFromExpression
     return $this->_from_keyword;
   }
 
-  public function withFromKeyword(Node $value): this {
+  public function withFromKeyword(FromToken $value): this {
     if ($value === $this->_from_keyword) {
       return $this;
     }
-    return new static($this->_yield_keyword, $value, $this->_operand);
+    return new static(
+      $this->_yield_keyword,
+      $value ?? Missing(),
+      $this->_operand,
+    );
   }
 
   public function hasFromKeyword(): bool {
@@ -161,11 +169,15 @@ final class YieldFromExpression
     return $this->_operand;
   }
 
-  public function withOperand(Node $value): this {
+  public function withOperand(IExpression $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static($this->_yield_keyword, $this->_from_keyword, $value);
+    return new static(
+      $this->_yield_keyword,
+      $this->_from_keyword,
+      $value ?? Missing(),
+    );
   }
 
   public function hasOperand(): bool {

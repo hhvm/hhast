@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc969f73143bfe64782fbc4549a54170>>
+ * @generated SignedSource<<6238f997816c7acb22cd6821f28ef32e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -208,12 +208,12 @@ final class ForStatement
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ForToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_initializer,
       $this->_first_semicolon,
@@ -247,13 +247,13 @@ final class ForStatement
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_initializer,
       $this->_first_semicolon,
       $this->_control,
@@ -286,14 +286,16 @@ final class ForStatement
     return $this->_initializer;
   }
 
-  public function withInitializer(Node $value): this {
+  public function withInitializer(
+    ?NodeList<ListItem<IExpression>> $value,
+  ): this {
     if ($value === $this->_initializer) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_first_semicolon,
       $this->_control,
       $this->_second_semicolon,
@@ -334,7 +336,7 @@ final class ForStatement
     return $this->_first_semicolon;
   }
 
-  public function withFirstSemicolon(Node $value): this {
+  public function withFirstSemicolon(SemicolonToken $value): this {
     if ($value === $this->_first_semicolon) {
       return $this;
     }
@@ -342,7 +344,7 @@ final class ForStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_initializer,
-      $value,
+      $value ?? Missing(),
       $this->_control,
       $this->_second_semicolon,
       $this->_end_of_loop,
@@ -376,7 +378,7 @@ final class ForStatement
     return $this->_control;
   }
 
-  public function withControl(Node $value): this {
+  public function withControl(?NodeList<ListItem<IExpression>> $value): this {
     if ($value === $this->_control) {
       return $this;
     }
@@ -385,7 +387,7 @@ final class ForStatement
       $this->_left_paren,
       $this->_initializer,
       $this->_first_semicolon,
-      $value,
+      $value ?? Missing(),
       $this->_second_semicolon,
       $this->_end_of_loop,
       $this->_right_paren,
@@ -428,7 +430,7 @@ final class ForStatement
     return $this->_second_semicolon;
   }
 
-  public function withSecondSemicolon(Node $value): this {
+  public function withSecondSemicolon(SemicolonToken $value): this {
     if ($value === $this->_second_semicolon) {
       return $this;
     }
@@ -438,7 +440,7 @@ final class ForStatement
       $this->_initializer,
       $this->_first_semicolon,
       $this->_control,
-      $value,
+      $value ?? Missing(),
       $this->_end_of_loop,
       $this->_right_paren,
       $this->_body,
@@ -470,7 +472,7 @@ final class ForStatement
     return $this->_end_of_loop;
   }
 
-  public function withEndOfLoop(Node $value): this {
+  public function withEndOfLoop(?NodeList<ListItem<IExpression>> $value): this {
     if ($value === $this->_end_of_loop) {
       return $this;
     }
@@ -481,7 +483,7 @@ final class ForStatement
       $this->_first_semicolon,
       $this->_control,
       $this->_second_semicolon,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_body,
     );
@@ -520,7 +522,7 @@ final class ForStatement
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -532,7 +534,7 @@ final class ForStatement
       $this->_control,
       $this->_second_semicolon,
       $this->_end_of_loop,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -559,7 +561,7 @@ final class ForStatement
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(IStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -572,7 +574,7 @@ final class ForStatement
       $this->_second_semicolon,
       $this->_end_of_loop,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

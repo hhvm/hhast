@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb5c0e337224d9c6934fd46600d9ed35>>
+ * @generated SignedSource<<348e2a073efdfc51f2a116242e67ba7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,12 +121,12 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     return $this->_await_keyword;
   }
 
-  public function withAwaitKeyword(Node $value): this {
+  public function withAwaitKeyword(?AwaitToken $value): this {
     if ($value === $this->_await_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_using_keyword,
       $this->_expression,
       $this->_semicolon,
@@ -158,13 +158,13 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     return $this->_using_keyword;
   }
 
-  public function withUsingKeyword(Node $value): this {
+  public function withUsingKeyword(UsingToken $value): this {
     if ($value === $this->_using_keyword) {
       return $this;
     }
     return new static(
       $this->_await_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_expression,
       $this->_semicolon,
     );
@@ -192,14 +192,14 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(IExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
     return new static(
       $this->_await_keyword,
       $this->_using_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -228,7 +228,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -236,7 +236,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $this->_await_keyword,
       $this->_using_keyword,
       $this->_expression,
-      $value,
+      $value ?? Missing(),
     );
   }
 

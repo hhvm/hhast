@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a8535c01af2708d1dec6a6d0b966d5aa>>
+ * @generated SignedSource<<6ade8c1b341ec74bb03677bc168ac3b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,12 +126,12 @@ final class TryStatement extends Node implements IStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(TryToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_compound_statement,
       $this->_catch_clauses,
       $this->_finally_clause,
@@ -160,13 +160,13 @@ final class TryStatement extends Node implements IStatement {
     return $this->_compound_statement;
   }
 
-  public function withCompoundStatement(Node $value): this {
+  public function withCompoundStatement(CompoundStatement $value): this {
     if ($value === $this->_compound_statement) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_catch_clauses,
       $this->_finally_clause,
     );
@@ -197,14 +197,14 @@ final class TryStatement extends Node implements IStatement {
     return $this->_catch_clauses;
   }
 
-  public function withCatchClauses(Node $value): this {
+  public function withCatchClauses(?NodeList<CatchClause> $value): this {
     if ($value === $this->_catch_clauses) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_compound_statement,
-      $value,
+      $value ?? Missing(),
       $this->_finally_clause,
     );
   }
@@ -234,7 +234,7 @@ final class TryStatement extends Node implements IStatement {
     return $this->_finally_clause;
   }
 
-  public function withFinallyClause(Node $value): this {
+  public function withFinallyClause(?FinallyClause $value): this {
     if ($value === $this->_finally_clause) {
       return $this;
     }
@@ -242,7 +242,7 @@ final class TryStatement extends Node implements IStatement {
       $this->_keyword,
       $this->_compound_statement,
       $this->_catch_clauses,
-      $value,
+      $value ?? Missing(),
     );
   }
 

@@ -30,11 +30,14 @@ final class OptionalShapeFieldsMigration extends StepBasedMigration {
       return $node;
     }
 
-    $name = $field->getName()->getLastTokenx();
+    $name = $field->getName();
+    $name_t = $name->getFirstTokenx();
     $field = $field->withQuestion(
-      new HHAST\QuestionToken($name->getLeading(), HHAST\Missing()),
+      new HHAST\QuestionToken($name_t->getLeading(), HHAST\Missing()),
     )
-      ->withName($name->withLeading(HHAST\Missing()));
+      ->withName(
+        $name->replace($name_t, $name_t->withLeading(HHAST\Missing())),
+      );
 
     return $node->withItem($field);
   }

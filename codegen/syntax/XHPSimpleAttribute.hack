@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28a918a6293eaaac7ffc3ec88cab2931>>
+ * @generated SignedSource<<3bdca08abd2309070d4e0d060373a3f0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(XHPElementNameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value, $this->_equal, $this->_expression);
+    return new static($value ?? Missing(), $this->_equal, $this->_expression);
   }
 
   public function hasName(): bool {
@@ -130,11 +130,11 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     return $this->_equal;
   }
 
-  public function withEqual(Node $value): this {
+  public function withEqual(EqualToken $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new static($this->_name, $value, $this->_expression);
+    return new static($this->_name, $value ?? Missing(), $this->_expression);
   }
 
   public function hasEqual(): bool {
@@ -163,7 +163,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_name, $this->_equal, $value);
+    return new static($this->_name, $this->_equal, $value ?? Missing());
   }
 
   public function hasExpression(): bool {

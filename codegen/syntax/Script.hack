@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb74024e09973bf5bec4a2be7b4ec251>>
+ * @generated SignedSource<<ce95dd85c848e74a3b746ff9178bfd98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,11 +71,11 @@ abstract class ScriptGeneratedBase extends Node {
     return $this->_declarations;
   }
 
-  public function withDeclarations(Node $value): this {
+  public function withDeclarations(NodeList<Node> $value): this {
     if ($value === $this->_declarations) {
       return $this;
     }
-    return new static($value);
+    return new static($value ?? Missing());
   }
 
   public function hasDeclarations(): bool {

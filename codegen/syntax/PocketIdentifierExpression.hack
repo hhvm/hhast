@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78723bfec8a76d76953b335a1575cae8>>
+ * @generated SignedSource<<77e82a9c1f48edc028c47adc3da6d769>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -143,7 +143,7 @@ final class PocketIdentifierExpression
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_pu_operator,
       $this->_field,
       $this->_operator,
@@ -179,7 +179,7 @@ final class PocketIdentifierExpression
     }
     return new static(
       $this->_qualifier,
-      $value,
+      $value ?? Missing(),
       $this->_field,
       $this->_operator,
       $this->_name,
@@ -215,7 +215,7 @@ final class PocketIdentifierExpression
     return new static(
       $this->_qualifier,
       $this->_pu_operator,
-      $value,
+      $value ?? Missing(),
       $this->_operator,
       $this->_name,
     );
@@ -251,7 +251,7 @@ final class PocketIdentifierExpression
       $this->_qualifier,
       $this->_pu_operator,
       $this->_field,
-      $value,
+      $value ?? Missing(),
       $this->_name,
     );
   }
@@ -287,7 +287,7 @@ final class PocketIdentifierExpression
       $this->_pu_operator,
       $this->_field,
       $this->_operator,
-      $value,
+      $value ?? Missing(),
     );
   }
 

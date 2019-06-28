@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8364839b82a761a57403280578a583c9>>
+ * @generated SignedSource<<60cde0bf7986615705451feddc4cbc5b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,12 +121,12 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(DictToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_angle,
       $this->_members,
       $this->_right_angle,
@@ -155,13 +155,13 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(Node $value): this {
+  public function withLeftAngle(LessThanToken $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_members,
       $this->_right_angle,
     );
@@ -189,14 +189,14 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_members;
   }
 
-  public function withMembers(Node $value): this {
+  public function withMembers(NodeList<ListItem<ITypeSpecifier>> $value): this {
     if ($value === $this->_members) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_angle,
-      $value,
+      $value ?? Missing(),
       $this->_right_angle,
     );
   }
@@ -225,7 +225,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(Node $value): this {
+  public function withRightAngle(GreaterThanToken $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -233,7 +233,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_angle,
       $this->_members,
-      $value,
+      $value ?? Missing(),
     );
   }
 

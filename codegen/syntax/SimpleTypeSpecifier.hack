@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb137ec6490dc64b204f9e84aac2778d>>
+ * @generated SignedSource<<cad053a3effdb15ea945c07b4859cce7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -77,7 +77,7 @@ final class SimpleTypeSpecifier
     if ($value === $this->_specifier) {
       return $this;
     }
-    return new static($value);
+    return new static($value ?? Missing());
   }
 
   public function hasSpecifier(): bool {

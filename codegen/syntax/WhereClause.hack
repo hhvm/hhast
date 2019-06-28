@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de073e8834f1d6854e7fe13128304578>>
+ * @generated SignedSource<<b48a96690ba121134197998012fe1615>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class WhereClause extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(WhereToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_constraints);
+    return new static($value ?? Missing(), $this->_constraints);
   }
 
   public function hasKeyword(): bool {
@@ -113,11 +113,13 @@ final class WhereClause extends Node {
     return $this->_constraints;
   }
 
-  public function withConstraints(Node $value): this {
+  public function withConstraints(
+    NodeList<ListItem<WhereConstraint>> $value,
+  ): this {
     if ($value === $this->_constraints) {
       return $this;
     }
-    return new static($this->_keyword, $value);
+    return new static($this->_keyword, $value ?? Missing());
   }
 
   public function hasConstraints(): bool {

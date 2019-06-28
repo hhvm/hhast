@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<729f95cc40736b197663eb12e737393c>>
+ * @generated SignedSource<<2f950e4e94f428daeb59c0445ae805c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class CaseLabel extends Node implements ISwitchLabel {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(CaseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_expression, $this->_colon);
+    return new static($value ?? Missing(), $this->_expression, $this->_colon);
   }
 
   public function hasKeyword(): bool {
@@ -130,11 +130,11 @@ final class CaseLabel extends Node implements ISwitchLabel {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(IExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_colon);
+    return new static($this->_keyword, $value ?? Missing(), $this->_colon);
   }
 
   public function hasExpression(): bool {
@@ -165,11 +165,11 @@ final class CaseLabel extends Node implements ISwitchLabel {
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(Token $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_expression, $value);
+    return new static($this->_keyword, $this->_expression, $value ?? Missing());
   }
 
   public function hasColon(): bool {

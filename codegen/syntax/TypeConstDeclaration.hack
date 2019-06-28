@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e335736f1c1ecfa419be821f29f8b22>>
+ * @generated SignedSource<<6206bcd396507bf10c2d0ff6e00890de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -222,12 +222,12 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(Node $value): this {
+  public function withAttributeSpec(?Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
@@ -265,13 +265,13 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_abstract;
   }
 
-  public function withAbstract(Node $value): this {
+  public function withAbstract(?AbstractToken $value): this {
     if ($value === $this->_abstract) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_type_keyword,
       $this->_name,
@@ -308,14 +308,14 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ConstToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
       $this->_abstract,
-      $value,
+      $value ?? Missing(),
       $this->_type_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -348,7 +348,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_type_keyword;
   }
 
-  public function withTypeKeyword(Node $value): this {
+  public function withTypeKeyword(TypeToken $value): this {
     if ($value === $this->_type_keyword) {
       return $this;
     }
@@ -356,7 +356,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_attribute_spec,
       $this->_abstract,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_type_parameters,
       $this->_type_constraint,
@@ -388,7 +388,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(NameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -397,7 +397,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_abstract,
       $this->_keyword,
       $this->_type_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_type_parameters,
       $this->_type_constraint,
       $this->_equal,
@@ -428,7 +428,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_type_parameters;
   }
 
-  public function withTypeParameters(Node $value): this {
+  public function withTypeParameters(?Node $value): this {
     if ($value === $this->_type_parameters) {
       return $this;
     }
@@ -438,7 +438,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_keyword,
       $this->_type_keyword,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_type_constraint,
       $this->_equal,
       $this->_type_specifier,
@@ -471,7 +471,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_type_constraint;
   }
 
-  public function withTypeConstraint(Node $value): this {
+  public function withTypeConstraint(?TypeConstraint $value): this {
     if ($value === $this->_type_constraint) {
       return $this;
     }
@@ -482,7 +482,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $this->_name,
       $this->_type_parameters,
-      $value,
+      $value ?? Missing(),
       $this->_equal,
       $this->_type_specifier,
       $this->_semicolon,
@@ -517,7 +517,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_equal;
   }
 
-  public function withEqual(Node $value): this {
+  public function withEqual(?EqualToken $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -529,7 +529,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_name,
       $this->_type_parameters,
       $this->_type_constraint,
-      $value,
+      $value ?? Missing(),
       $this->_type_specifier,
       $this->_semicolon,
     );
@@ -560,7 +560,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_type_specifier;
   }
 
-  public function withTypeSpecifier(Node $value): this {
+  public function withTypeSpecifier(?ITypeSpecifier $value): this {
     if ($value === $this->_type_specifier) {
       return $this;
     }
@@ -573,7 +573,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_parameters,
       $this->_type_constraint,
       $this->_equal,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -614,7 +614,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -628,7 +628,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_constraint,
       $this->_equal,
       $this->_type_specifier,
-      $value,
+      $value ?? Missing(),
     );
   }
 

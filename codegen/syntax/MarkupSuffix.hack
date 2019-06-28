@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a09c017d5d8cdbe96d06dbf2b494ad4>>
+ * @generated SignedSource<<5d8ad4343ee0631fdda332f57fb2d435>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,11 +87,11 @@ final class MarkupSuffix extends Node {
     return $this->_less_than_question;
   }
 
-  public function withLessThanQuestion(Node $value): this {
+  public function withLessThanQuestion(LessThanQuestionToken $value): this {
     if ($value === $this->_less_than_question) {
       return $this;
     }
-    return new static($value, $this->_name);
+    return new static($value ?? Missing(), $this->_name);
   }
 
   public function hasLessThanQuestion(): bool {
@@ -119,11 +119,11 @@ final class MarkupSuffix extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(?NameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_less_than_question, $value);
+    return new static($this->_less_than_question, $value ?? Missing());
   }
 
   public function hasName(): bool {

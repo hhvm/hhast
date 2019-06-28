@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a29b8db49672bff51776daf8a9be065b>>
+ * @generated SignedSource<<0998e94da6d2a79445c8f423d27cef1f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class PropertyDeclarator extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(VariableToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value, $this->_initializer);
+    return new static($value ?? Missing(), $this->_initializer);
   }
 
   public function hasName(): bool {
@@ -113,11 +113,11 @@ final class PropertyDeclarator extends Node {
     return $this->_initializer;
   }
 
-  public function withInitializer(Node $value): this {
+  public function withInitializer(?SimpleInitializer $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
-    return new static($this->_name, $value);
+    return new static($this->_name, $value ?? Missing());
   }
 
   public function hasInitializer(): bool {

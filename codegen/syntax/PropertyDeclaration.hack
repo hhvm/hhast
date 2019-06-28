@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95a488a5048a21e14632e000603b10bb>>
+ * @generated SignedSource<<33d234d984b25d46ef47f6894acd0fa3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -144,12 +144,12 @@ final class PropertyDeclaration
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(Node $value): this {
+  public function withAttributeSpec(?AttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_modifiers,
       $this->_type,
       $this->_declarators,
@@ -191,7 +191,7 @@ final class PropertyDeclaration
     }
     return new static(
       $this->_attribute_spec,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_declarators,
       $this->_semicolon,
@@ -224,14 +224,14 @@ final class PropertyDeclaration
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
       $this->_modifiers,
-      $value,
+      $value ?? Missing(),
       $this->_declarators,
       $this->_semicolon,
     );
@@ -270,7 +270,9 @@ final class PropertyDeclaration
     return $this->_declarators;
   }
 
-  public function withDeclarators(Node $value): this {
+  public function withDeclarators(
+    NodeList<ListItem<PropertyDeclarator>> $value,
+  ): this {
     if ($value === $this->_declarators) {
       return $this;
     }
@@ -278,7 +280,7 @@ final class PropertyDeclaration
       $this->_attribute_spec,
       $this->_modifiers,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -305,7 +307,7 @@ final class PropertyDeclaration
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -314,7 +316,7 @@ final class PropertyDeclaration
       $this->_modifiers,
       $this->_type,
       $this->_declarators,
-      $value,
+      $value ?? Missing(),
     );
   }
 

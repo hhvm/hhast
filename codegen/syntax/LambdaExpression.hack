@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0d8a2561c170dc146c72b7ccac92676>>
+ * @generated SignedSource<<861efa7063c37e5050745992e7b7d567>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,12 +160,12 @@ final class LambdaExpression
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(Node $value): this {
+  public function withAttributeSpec(?AttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_async,
       $this->_coroutine,
       $this->_signature,
@@ -202,13 +202,13 @@ final class LambdaExpression
     return $this->_async;
   }
 
-  public function withAsync(Node $value): this {
+  public function withAsync(?AsyncToken $value): this {
     if ($value === $this->_async) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
-      $value,
+      $value ?? Missing(),
       $this->_coroutine,
       $this->_signature,
       $this->_arrow,
@@ -241,14 +241,14 @@ final class LambdaExpression
     return $this->_coroutine;
   }
 
-  public function withCoroutine(Node $value): this {
+  public function withCoroutine(?Node $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
       $this->_async,
-      $value,
+      $value ?? Missing(),
       $this->_signature,
       $this->_arrow,
       $this->_body,
@@ -288,7 +288,7 @@ final class LambdaExpression
       $this->_attribute_spec,
       $this->_async,
       $this->_coroutine,
-      $value,
+      $value ?? Missing(),
       $this->_arrow,
       $this->_body,
     );
@@ -316,7 +316,7 @@ final class LambdaExpression
     return $this->_arrow;
   }
 
-  public function withArrow(Node $value): this {
+  public function withArrow(EqualEqualGreaterThanToken $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
@@ -325,7 +325,7 @@ final class LambdaExpression
       $this->_async,
       $this->_coroutine,
       $this->_signature,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -355,7 +355,7 @@ final class LambdaExpression
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(ILambdaBody $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -365,7 +365,7 @@ final class LambdaExpression
       $this->_coroutine,
       $this->_signature,
       $this->_arrow,
-      $value,
+      $value ?? Missing(),
     );
   }
 

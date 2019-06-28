@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a36a0b8386545b648851d69b3701ce9>>
+ * @generated SignedSource<<b7a2c34daaac3a1f013021d958964450>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,7 +163,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_enum,
       $this->_name,
       $this->_left_brace,
@@ -200,7 +200,7 @@ final class PocketEnumDeclaration extends Node {
     }
     return new static(
       $this->_modifiers,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_left_brace,
       $this->_fields,
@@ -237,7 +237,7 @@ final class PocketEnumDeclaration extends Node {
     return new static(
       $this->_modifiers,
       $this->_enum,
-      $value,
+      $value ?? Missing(),
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -274,7 +274,7 @@ final class PocketEnumDeclaration extends Node {
       $this->_modifiers,
       $this->_enum,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_fields,
       $this->_right_brace,
     );
@@ -311,7 +311,7 @@ final class PocketEnumDeclaration extends Node {
       $this->_enum,
       $this->_name,
       $this->_left_brace,
-      $value,
+      $value ?? Missing(),
       $this->_right_brace,
     );
   }
@@ -348,7 +348,7 @@ final class PocketEnumDeclaration extends Node {
       $this->_name,
       $this->_left_brace,
       $this->_fields,
-      $value,
+      $value ?? Missing(),
     );
   }
 

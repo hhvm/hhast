@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de30988b67e3efe63baed23dde08b16b>>
+ * @generated SignedSource<<66a46253f5421c0cec24d1d5d8edbd45>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,7 +88,7 @@ final class PocketMappingIdDeclaration extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value, $this->_initializer);
+    return new static($value ?? Missing(), $this->_initializer);
   }
 
   public function hasName(): bool {
@@ -117,7 +117,7 @@ final class PocketMappingIdDeclaration extends Node {
     if ($value === $this->_initializer) {
       return $this;
     }
-    return new static($this->_name, $value);
+    return new static($this->_name, $value ?? Missing());
   }
 
   public function hasInitializer(): bool {

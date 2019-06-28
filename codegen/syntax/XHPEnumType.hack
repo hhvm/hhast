@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e88b4bb12b8b17eee9c1b97854bf529>>
+ * @generated SignedSource<<ae92e37934c9f3b797ce649bf259fdf3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,12 +136,12 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return $this->_optional;
   }
 
-  public function withOptional(Node $value): this {
+  public function withOptional(?Node $value): this {
     if ($value === $this->_optional) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_left_brace,
       $this->_values,
@@ -174,13 +174,13 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(EnumToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
       $this->_optional,
-      $value,
+      $value ?? Missing(),
       $this->_left_brace,
       $this->_values,
       $this->_right_brace,
@@ -209,14 +209,14 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
     return new static(
       $this->_optional,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_values,
       $this->_right_brace,
     );
@@ -244,7 +244,9 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return $this->_values;
   }
 
-  public function withValues(Node $value): this {
+  public function withValues(
+    NodeList<ListItem<LiteralExpression>> $value,
+  ): this {
     if ($value === $this->_values) {
       return $this;
     }
@@ -252,7 +254,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $this->_optional,
       $this->_keyword,
       $this->_left_brace,
-      $value,
+      $value ?? Missing(),
       $this->_right_brace,
     );
   }
@@ -279,7 +281,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -288,7 +290,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_brace,
       $this->_values,
-      $value,
+      $value ?? Missing(),
     );
   }
 

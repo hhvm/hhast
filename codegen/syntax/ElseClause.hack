@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6656be91871cd5827eba2edc8631047>>
+ * @generated SignedSource<<c72387ec88b01c2a79166786aaf4f7a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class ElseClause extends Node implements IControlFlowStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ElseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_statement);
+    return new static($value ?? Missing(), $this->_statement);
   }
 
   public function hasKeyword(): bool {
@@ -113,11 +113,11 @@ final class ElseClause extends Node implements IControlFlowStatement {
     return $this->_statement;
   }
 
-  public function withStatement(Node $value): this {
+  public function withStatement(IStatement $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new static($this->_keyword, $value);
+    return new static($this->_keyword, $value ?? Missing());
   }
 
   public function hasStatement(): bool {

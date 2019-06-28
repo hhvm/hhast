@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edcd3d79c5b8752b17bd3fddc1bf00d1>>
+ * @generated SignedSource<<156a07be09c99e99c3a58ce268c33081>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ElseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_colon, $this->_statement);
+    return new static($value ?? Missing(), $this->_colon, $this->_statement);
   }
 
   public function hasKeyword(): bool {
@@ -130,11 +130,11 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_statement);
+    return new static($this->_keyword, $value ?? Missing(), $this->_statement);
   }
 
   public function hasColon(): bool {
@@ -159,11 +159,11 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     return $this->_statement;
   }
 
-  public function withStatement(Node $value): this {
+  public function withStatement(NodeList<IStatement> $value): this {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new static($this->_keyword, $this->_colon, $value);
+    return new static($this->_keyword, $this->_colon, $value ?? Missing());
   }
 
   public function hasStatement(): bool {

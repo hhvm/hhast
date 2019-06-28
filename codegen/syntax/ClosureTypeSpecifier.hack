@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d49f0e51a518ba316c3531f225d06e8>>
+ * @generated SignedSource<<0fa1c0e38b8f8a4795d25ed0f7692ea3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,12 +206,12 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_outer_left_paren;
   }
 
-  public function withOuterLeftParen(Node $value): this {
+  public function withOuterLeftParen(LeftParenToken $value): this {
     if ($value === $this->_outer_left_paren) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_coroutine,
       $this->_function_keyword,
       $this->_inner_left_paren,
@@ -248,13 +248,13 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_coroutine;
   }
 
-  public function withCoroutine(Node $value): this {
+  public function withCoroutine(?Node $value): this {
     if ($value === $this->_coroutine) {
       return $this;
     }
     return new static(
       $this->_outer_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,
@@ -290,14 +290,14 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_function_keyword;
   }
 
-  public function withFunctionKeyword(Node $value): this {
+  public function withFunctionKeyword(FunctionToken $value): this {
     if ($value === $this->_function_keyword) {
       return $this;
     }
     return new static(
       $this->_outer_left_paren,
       $this->_coroutine,
-      $value,
+      $value ?? Missing(),
       $this->_inner_left_paren,
       $this->_parameter_list,
       $this->_inner_right_paren,
@@ -332,7 +332,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_inner_left_paren;
   }
 
-  public function withInnerLeftParen(Node $value): this {
+  public function withInnerLeftParen(LeftParenToken $value): this {
     if ($value === $this->_inner_left_paren) {
       return $this;
     }
@@ -340,7 +340,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_outer_left_paren,
       $this->_coroutine,
       $this->_function_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_parameter_list,
       $this->_inner_right_paren,
       $this->_colon,
@@ -374,7 +374,9 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_parameter_list;
   }
 
-  public function withParameterList(Node $value): this {
+  public function withParameterList(
+    ?NodeList<ListItem<ITypeSpecifier>> $value,
+  ): this {
     if ($value === $this->_parameter_list) {
       return $this;
     }
@@ -383,7 +385,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_coroutine,
       $this->_function_keyword,
       $this->_inner_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_inner_right_paren,
       $this->_colon,
       $this->_return_type,
@@ -419,7 +421,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_inner_right_paren;
   }
 
-  public function withInnerRightParen(Node $value): this {
+  public function withInnerRightParen(RightParenToken $value): this {
     if ($value === $this->_inner_right_paren) {
       return $this;
     }
@@ -429,7 +431,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_return_type,
       $this->_outer_right_paren,
@@ -461,7 +463,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -472,7 +474,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_left_paren,
       $this->_parameter_list,
       $this->_inner_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_return_type,
       $this->_outer_right_paren,
     );
@@ -500,7 +502,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_return_type;
   }
 
-  public function withReturnType(Node $value): this {
+  public function withReturnType(ITypeSpecifier $value): this {
     if ($value === $this->_return_type) {
       return $this;
     }
@@ -512,7 +514,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_parameter_list,
       $this->_inner_right_paren,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
       $this->_outer_right_paren,
     );
   }
@@ -541,7 +543,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_outer_right_paren;
   }
 
-  public function withOuterRightParen(Node $value): this {
+  public function withOuterRightParen(RightParenToken $value): this {
     if ($value === $this->_outer_right_paren) {
       return $this;
     }
@@ -554,7 +556,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_right_paren,
       $this->_colon,
       $this->_return_type,
-      $value,
+      $value ?? Missing(),
     );
   }
 

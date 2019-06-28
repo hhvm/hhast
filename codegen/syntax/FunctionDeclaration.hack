@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18efd766b549697d1dadc96261ee7971>>
+ * @generated SignedSource<<bae6b513ad0627bb0471b8d96ffbbb2e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,11 +103,15 @@ final class FunctionDeclaration
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(Node $value): this {
+  public function withAttributeSpec(?AttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
-    return new static($value, $this->_declaration_header, $this->_body);
+    return new static(
+      $value ?? Missing(),
+      $this->_declaration_header,
+      $this->_body,
+    );
   }
 
   public function hasAttributeSpec(): bool {
@@ -138,11 +142,17 @@ final class FunctionDeclaration
     return $this->_declaration_header;
   }
 
-  public function withDeclarationHeader(Node $value): this {
+  public function withDeclarationHeader(
+    FunctionDeclarationHeader $value,
+  ): this {
     if ($value === $this->_declaration_header) {
       return $this;
     }
-    return new static($this->_attribute_spec, $value, $this->_body);
+    return new static(
+      $this->_attribute_spec,
+      $value ?? Missing(),
+      $this->_body,
+    );
   }
 
   public function hasDeclarationHeader(): bool {
@@ -177,7 +187,7 @@ final class FunctionDeclaration
     return new static(
       $this->_attribute_spec,
       $this->_declaration_header,
-      $value,
+      $value ?? Missing(),
     );
   }
 

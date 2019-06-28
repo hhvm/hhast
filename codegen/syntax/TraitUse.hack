@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9c3c3fdb0a2bbbcb2067c1c72a9ed22>>
+ * @generated SignedSource<<62b813e92c28c6cfaf29d4d2d3901061>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(UseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_names, $this->_semicolon);
+    return new static($value ?? Missing(), $this->_names, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -130,11 +130,13 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     return $this->_names;
   }
 
-  public function withNames(Node $value): this {
+  public function withNames(
+    NodeList<ListItem<ISimpleCreationSpecifier>> $value,
+  ): this {
     if ($value === $this->_names) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
   }
 
   public function hasNames(): bool {
@@ -163,11 +165,11 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_names, $value);
+    return new static($this->_keyword, $this->_names, $value ?? Missing());
   }
 
   public function hasSemicolon(): bool {

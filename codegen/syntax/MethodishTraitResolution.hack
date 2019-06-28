@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8b731ddef412e725f7f75a4f369afb13>>
+ * @generated SignedSource<<fe94c21990622f94fe3a53c81801d94d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -144,12 +144,12 @@ final class MethodishTraitResolution
     return $this->_attribute;
   }
 
-  public function withAttribute(Node $value): this {
+  public function withAttribute(?Node $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_function_decl_header,
       $this->_equal,
       $this->_name,
@@ -182,13 +182,15 @@ final class MethodishTraitResolution
     return $this->_function_decl_header;
   }
 
-  public function withFunctionDeclHeader(Node $value): this {
+  public function withFunctionDeclHeader(
+    FunctionDeclarationHeader $value,
+  ): this {
     if ($value === $this->_function_decl_header) {
       return $this;
     }
     return new static(
       $this->_attribute,
-      $value,
+      $value ?? Missing(),
       $this->_equal,
       $this->_name,
       $this->_semicolon,
@@ -220,14 +222,14 @@ final class MethodishTraitResolution
     return $this->_equal;
   }
 
-  public function withEqual(Node $value): this {
+  public function withEqual(EqualToken $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
     return new static(
       $this->_attribute,
       $this->_function_decl_header,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_semicolon,
     );
@@ -255,7 +257,7 @@ final class MethodishTraitResolution
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(ScopeResolutionExpression $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -263,7 +265,7 @@ final class MethodishTraitResolution
       $this->_attribute,
       $this->_function_decl_header,
       $this->_equal,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -293,7 +295,7 @@ final class MethodishTraitResolution
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -302,7 +304,7 @@ final class MethodishTraitResolution
       $this->_function_decl_header,
       $this->_equal,
       $this->_name,
-      $value,
+      $value ?? Missing(),
     );
   }
 

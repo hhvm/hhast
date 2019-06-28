@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<100b4900ef6544058cba789dfaa9fc95>>
+ * @generated SignedSource<<19288c824f1f4b0b47689f81e6f3afba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,7 +90,7 @@ final class PrefixedStringExpression
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value, $this->_str);
+    return new static($value ?? Missing(), $this->_str);
   }
 
   public function hasName(): bool {
@@ -119,7 +119,7 @@ final class PrefixedStringExpression
     if ($value === $this->_str) {
       return $this;
     }
-    return new static($this->_name, $value);
+    return new static($this->_name, $value ?? Missing());
   }
 
   public function hasStr(): bool {

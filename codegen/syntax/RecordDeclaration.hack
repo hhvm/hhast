@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1d1090749d73abe156e1ceaae85fe614>>
+ * @generated SignedSource<<573237f918ec00a04d905383ef026a16>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,7 +163,7 @@ final class RecordDeclaration extends Node {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_name,
       $this->_left_brace,
@@ -200,7 +200,7 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_left_brace,
       $this->_fields,
@@ -237,7 +237,7 @@ final class RecordDeclaration extends Node {
     return new static(
       $this->_attribute_spec,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -274,7 +274,7 @@ final class RecordDeclaration extends Node {
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_fields,
       $this->_right_brace,
     );
@@ -311,7 +311,7 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $this->_name,
       $this->_left_brace,
-      $value,
+      $value ?? Missing(),
       $this->_right_brace,
     );
   }
@@ -348,7 +348,7 @@ final class RecordDeclaration extends Node {
       $this->_name,
       $this->_left_brace,
       $this->_fields,
-      $value,
+      $value ?? Missing(),
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60b8d171a9a015620885587259b1bf97>>
+ * @generated SignedSource<<1873a8a4a74ade90d89bd79b30014762>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,11 +117,16 @@ final class NamespaceUseDeclaration
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(UseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_kind, $this->_clauses, $this->_semicolon);
+    return new static(
+      $value ?? Missing(),
+      $this->_kind,
+      $this->_clauses,
+      $this->_semicolon,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -146,13 +151,13 @@ final class NamespaceUseDeclaration
     return $this->_kind;
   }
 
-  public function withKind(Node $value): this {
+  public function withKind(?Token $value): this {
     if ($value === $this->_kind) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_clauses,
       $this->_semicolon,
     );
@@ -183,11 +188,18 @@ final class NamespaceUseDeclaration
     return $this->_clauses;
   }
 
-  public function withClauses(Node $value): this {
+  public function withClauses(
+    NodeList<ListItem<NamespaceUseClause>> $value,
+  ): this {
     if ($value === $this->_clauses) {
       return $this;
     }
-    return new static($this->_keyword, $this->_kind, $value, $this->_semicolon);
+    return new static(
+      $this->_keyword,
+      $this->_kind,
+      $value ?? Missing(),
+      $this->_semicolon,
+    );
   }
 
   public function hasClauses(): bool {
@@ -212,11 +224,16 @@ final class NamespaceUseDeclaration
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_kind, $this->_clauses, $value);
+    return new static(
+      $this->_keyword,
+      $this->_kind,
+      $this->_clauses,
+      $value ?? Missing(),
+    );
   }
 
   public function hasSemicolon(): bool {

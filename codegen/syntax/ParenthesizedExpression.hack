@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da3b641d34a5b5a4c796df37f71ac4dc>>
+ * @generated SignedSource<<849063d162533d84125168f71d9ddbe7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,11 +103,15 @@ final class ParenthesizedExpression
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($value, $this->_expression, $this->_right_paren);
+    return new static(
+      $value ?? Missing(),
+      $this->_expression,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -132,11 +136,15 @@ final class ParenthesizedExpression
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(IExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_left_paren,
+      $value ?? Missing(),
+      $this->_right_paren,
+    );
   }
 
   public function hasExpression(): bool {
@@ -177,11 +185,15 @@ final class ParenthesizedExpression
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_left_paren, $this->_expression, $value);
+    return new static(
+      $this->_left_paren,
+      $this->_expression,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightParen(): bool {

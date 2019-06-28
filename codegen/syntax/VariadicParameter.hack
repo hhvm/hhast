@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfb3960edcbfb6912f6dfe769d471359>>
+ * @generated SignedSource<<ff5c56c5e0a1a7427ce1d2f1d3b17a29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,11 +103,11 @@ final class VariadicParameter
     return $this->_call_convention;
   }
 
-  public function withCallConvention(Node $value): this {
+  public function withCallConvention(?Node $value): this {
     if ($value === $this->_call_convention) {
       return $this;
     }
-    return new static($value, $this->_type, $this->_ellipsis);
+    return new static($value ?? Missing(), $this->_type, $this->_ellipsis);
   }
 
   public function hasCallConvention(): bool {
@@ -135,11 +135,15 @@ final class VariadicParameter
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_call_convention, $value, $this->_ellipsis);
+    return new static(
+      $this->_call_convention,
+      $value ?? Missing(),
+      $this->_ellipsis,
+    );
   }
 
   public function hasType(): bool {
@@ -168,11 +172,15 @@ final class VariadicParameter
     return $this->_ellipsis;
   }
 
-  public function withEllipsis(Node $value): this {
+  public function withEllipsis(DotDotDotToken $value): this {
     if ($value === $this->_ellipsis) {
       return $this;
     }
-    return new static($this->_call_convention, $this->_type, $value);
+    return new static(
+      $this->_call_convention,
+      $this->_type,
+      $value ?? Missing(),
+    );
   }
 
   public function hasEllipsis(): bool {

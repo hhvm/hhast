@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<224a16da114f87a6cdeeee7fce81aca4>>
+ * @generated SignedSource<<9f75d376df35b0ba8eed0fe5e8fa736b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_at;
   }
 
-  public function withAt(Node $value): this {
+  public function withAt(AtToken $value): this {
     if ($value === $this->_at) {
       return $this;
     }
-    return new static($value, $this->_type);
+    return new static($value ?? Missing(), $this->_type);
   }
 
   public function hasAt(): bool {
@@ -113,11 +113,11 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_at, $value);
+    return new static($this->_at, $value ?? Missing());
   }
 
   public function hasType(): bool {

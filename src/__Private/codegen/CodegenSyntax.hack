@@ -189,6 +189,7 @@ final class CodegenSyntax extends CodegenBase {
     $spec = $this->getTypeSpecForField($syntax, $underscored);
     $upper_camel = StrP\upper_camel($underscored);
     $types = $spec['possibleTypes'];
+    $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
 
     $cg = $this->getCodegenFactory();
     yield $cg
@@ -199,7 +200,7 @@ final class CodegenSyntax extends CodegenBase {
     yield $cg
       ->codegenMethodf('with%s', $upper_camel)
       ->setReturnType('this')
-      ->addParameter('Node $value')
+      ->addParameterf('%s $value', $type)
       ->setBody(
         $cg
           ->codegenHackBuilder()
@@ -212,7 +213,7 @@ final class CodegenSyntax extends CodegenBase {
             Vec\map(
               $syntax['fields'],
               $inner ==> $inner['field_name'] === $underscored
-                ? '$value'
+                ? '$value ?? Missing()'
                 : '$this->_'.$inner['field_name'],
             ),
           )
@@ -223,8 +224,6 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenMethodf('has%s', $upper_camel)
       ->setReturnType('bool')
       ->setBodyf('return !$this->_%s->isMissing();', $underscored);
-
-    $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
 
     if (!$spec['nullable']) {
       $get = $cg

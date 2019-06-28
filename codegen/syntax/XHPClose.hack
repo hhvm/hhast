@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1068fa863827684a09f356e8449640ae>>
+ * @generated SignedSource<<143acc7fdba9495507875e7d77cce153>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class XHPClose extends Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(Node $value): this {
+  public function withLeftAngle(LessThanSlashToken $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static($value, $this->_name, $this->_right_angle);
+    return new static($value ?? Missing(), $this->_name, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -133,11 +133,15 @@ final class XHPClose extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(XHPElementNameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_left_angle, $value, $this->_right_angle);
+    return new static(
+      $this->_left_angle,
+      $value ?? Missing(),
+      $this->_right_angle,
+    );
   }
 
   public function hasName(): bool {
@@ -162,11 +166,11 @@ final class XHPClose extends Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(Node $value): this {
+  public function withRightAngle(GreaterThanToken $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static($this->_left_angle, $this->_name, $value);
+    return new static($this->_left_angle, $this->_name, $value ?? Missing());
   }
 
   public function hasRightAngle(): bool {

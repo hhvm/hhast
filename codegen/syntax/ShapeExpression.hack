@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<adc24154db926c69086fa452a5ebc67b>>
+ * @generated SignedSource<<fa08e75f9399ae0d4a629c6185607821>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,12 +121,12 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ShapeToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_fields,
       $this->_right_paren,
@@ -155,13 +155,13 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_fields,
       $this->_right_paren,
     );
@@ -189,14 +189,16 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     return $this->_fields;
   }
 
-  public function withFields(Node $value): this {
+  public function withFields(
+    ?NodeList<ListItem<FieldInitializer>> $value,
+  ): this {
     if ($value === $this->_fields) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -226,7 +228,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -234,7 +236,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
       $this->_keyword,
       $this->_left_paren,
       $this->_fields,
-      $value,
+      $value ?? Missing(),
     );
   }
 

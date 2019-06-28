@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eee693aec36182bf3ee2d151db7f56fd>>
+ * @generated SignedSource<<1e050e22b55c83efbcfef96b84bfb9e9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,12 +123,12 @@ final class RecordCreationExpression
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(NameToken $value): this {
     if ($value === $this->_type) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_bracket,
       $this->_members,
       $this->_right_bracket,
@@ -157,13 +157,13 @@ final class RecordCreationExpression
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(Node $value): this {
+  public function withLeftBracket(LeftBracketToken $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
     return new static(
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_members,
       $this->_right_bracket,
     );
@@ -194,14 +194,16 @@ final class RecordCreationExpression
     return $this->_members;
   }
 
-  public function withMembers(Node $value): this {
+  public function withMembers(
+    NodeList<ListItem<ElementInitializer>> $value,
+  ): this {
     if ($value === $this->_members) {
       return $this;
     }
     return new static(
       $this->_type,
       $this->_left_bracket,
-      $value,
+      $value ?? Missing(),
       $this->_right_bracket,
     );
   }
@@ -228,7 +230,7 @@ final class RecordCreationExpression
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(Node $value): this {
+  public function withRightBracket(RightBracketToken $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
@@ -236,7 +238,7 @@ final class RecordCreationExpression
       $this->_type,
       $this->_left_bracket,
       $this->_members,
-      $value,
+      $value ?? Missing(),
     );
   }
 

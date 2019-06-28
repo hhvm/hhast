@@ -80,10 +80,11 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     }
 
     $m = HHAST\Missing();
-    return $receiver->withObject(
+    return new HHAST\ScopeResolutionExpression(
       new HHAST\StaticToken($obj->getFirstTokenx()->getLeading(), $m),
+      new HHAST\ColonColonToken($m, $m),
+      $receiver->getName(),
     )
-      ->withOperator(new HHAST\ColonColonToken($m, $m))
       |> $in->withReceiver($$);
   }
 
@@ -192,7 +193,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           : $comment->withText($comment_text),
       );
       $attrs = $attrs->withAttributes(
-        HHAST\NodeList::createNonEmptyListOrMissing(
+        HHAST\NodeList::createMaybeEmptyList(
           Vec\concat(
             $attrs->getAttributesx()->getChildren(),
             vec[new HHAST\ListItem(
@@ -434,9 +435,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
         $new_name,
       ),
     )
-      ->withModifiers(
-        HHAST\NodeList::createNonEmptyListOrMissing($new_modifiers),
-      );
+      ->withModifiers(HHAST\NodeList::createNonEmptyListOrNull($new_modifiers));
   }
 
   final private function migrateExpectedExceptionAttribute(
@@ -469,7 +468,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
                 ),
               ),
               new HHAST\MinusGreaterThanToken($m, $m),
-              new HHAST\NameToken($m, $m, 'expectException'),
+              new HHAST\NameExpression(
+                new HHAST\NameToken($m, $m, 'expectException'),
+              ),
             ),
             HHAST\Missing(),
             new HHAST\LeftParenToken($m, $m),
@@ -492,7 +493,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $node = $node->withFunctionBody(
       $node->getFunctionBodyx()
-        ->withStatements(HHAST\NodeList::createNonEmptyListOrMissing($body)),
+        ->withStatements(HHAST\NodeList::createNonEmptyListOrNull($body)),
     );
 
     if ($comment_text !== null) {
@@ -536,15 +537,15 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $ret = $node->withFunctionBody(
       $node->getFunctionBodyx()
-        ->withStatements(HHAST\NodeList::createNonEmptyListOrMissing($new)),
+        ->withStatements(HHAST\NodeList::createNonEmptyListOrNull($new)),
     );
     return $ret;
   }
 
   final private function migrateExpectExceptionInStatements(
-    vec<HHAST\Node> $statements,
+    vec<HHAST\IStatement> $statements,
     string $indent,
-  ): vec<HHAST\Node> {
+  ): vec<HHAST\IStatement> {
     $idx = C\find_key(
       $statements,
       $n ==> {
@@ -568,8 +569,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           return false;
         }
 
-        $n = $r->getNamex() ?as HHAST\NameToken;
-        if ($n?->getText() !== 'expectException') {
+        $n = $r->getNamex() ?as HHAST\NameExpression;
+        if ($n?->getFirstToken()?->getText() !== 'expectException') {
           return false;
         }
 
@@ -610,7 +611,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
   }
 
   private function wrapStatementsInExpectException(
-    vec<HHAST\Node> $statements,
+    vec<HHAST\IStatement> $statements,
     HHAST\Node $exception,
     string $indent,
   ): HHAST\FunctionCallExpression {
@@ -642,7 +643,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $m = HHAST\Missing();
     $expect_call = new HHAST\FunctionCallExpression(
-      new HHAST\NameToken($new_line_leading, $m, 'expect'),
+      new HHAST\NameExpression(
+        new HHAST\NameToken($new_line_leading, $m, 'expect'),
+      ),
       HHAST\Missing(),
       new HHAST\LeftParenToken($m, $m),
       new HHAST\LambdaExpression(
@@ -670,7 +673,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       new HHAST\MemberSelectionExpression(
         $expect_call,
         new HHAST\MinusGreaterThanToken($m, $m),
-        new HHAST\NameToken($m, $m, 'toThrow'),
+        new HHAST\NameExpression(new HHAST\NameToken($m, $m, 'toThrow')),
       ),
       HHAST\Missing(),
       new HHAST\LeftParenToken($m, $m),

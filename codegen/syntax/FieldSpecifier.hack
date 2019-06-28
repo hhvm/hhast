@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<66fe0a6d24e32470ed7fc0e9f0059d3f>>
+ * @generated SignedSource<<62a394f757e4534b9b0540af45e9750d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,11 +115,16 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     return $this->_question;
   }
 
-  public function withQuestion(Node $value): this {
+  public function withQuestion(?QuestionToken $value): this {
     if ($value === $this->_question) {
       return $this;
     }
-    return new static($value, $this->_name, $this->_arrow, $this->_type);
+    return new static(
+      $value ?? Missing(),
+      $this->_name,
+      $this->_arrow,
+      $this->_type,
+    );
   }
 
   public function hasQuestion(): bool {
@@ -147,11 +152,16 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(IExpression $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_question, $value, $this->_arrow, $this->_type);
+    return new static(
+      $this->_question,
+      $value ?? Missing(),
+      $this->_arrow,
+      $this->_type,
+    );
   }
 
   public function hasName(): bool {
@@ -176,11 +186,16 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     return $this->_arrow;
   }
 
-  public function withArrow(Node $value): this {
+  public function withArrow(EqualGreaterThanToken $value): this {
     if ($value === $this->_arrow) {
       return $this;
     }
-    return new static($this->_question, $this->_name, $value, $this->_type);
+    return new static(
+      $this->_question,
+      $this->_name,
+      $value ?? Missing(),
+      $this->_type,
+    );
   }
 
   public function hasArrow(): bool {
@@ -205,11 +220,16 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_question, $this->_name, $this->_arrow, $value);
+    return new static(
+      $this->_question,
+      $this->_name,
+      $this->_arrow,
+      $value ?? Missing(),
+    );
   }
 
   public function hasType(): bool {

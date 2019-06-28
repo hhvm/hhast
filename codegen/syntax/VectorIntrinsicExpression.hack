@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dceeb47af83a8691fb726d370e0c253b>>
+ * @generated SignedSource<<944ca4d100f166c6fa5f3f411223c012>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -144,12 +144,12 @@ final class VectorIntrinsicExpression
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(VecToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_explicit_type,
       $this->_left_bracket,
       $this->_members,
@@ -179,13 +179,13 @@ final class VectorIntrinsicExpression
     return $this->_explicit_type;
   }
 
-  public function withExplicitType(Node $value): this {
+  public function withExplicitType(?TypeArguments $value): this {
     if ($value === $this->_explicit_type) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_left_bracket,
       $this->_members,
       $this->_right_bracket,
@@ -217,14 +217,14 @@ final class VectorIntrinsicExpression
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(Node $value): this {
+  public function withLeftBracket(LeftBracketToken $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_explicit_type,
-      $value,
+      $value ?? Missing(),
       $this->_members,
       $this->_right_bracket,
     );
@@ -255,7 +255,7 @@ final class VectorIntrinsicExpression
     return $this->_members;
   }
 
-  public function withMembers(Node $value): this {
+  public function withMembers(?NodeList<ListItem<IExpression>> $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -263,7 +263,7 @@ final class VectorIntrinsicExpression
       $this->_keyword,
       $this->_explicit_type,
       $this->_left_bracket,
-      $value,
+      $value ?? Missing(),
       $this->_right_bracket,
     );
   }
@@ -323,7 +323,7 @@ final class VectorIntrinsicExpression
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(Node $value): this {
+  public function withRightBracket(RightBracketToken $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
@@ -332,7 +332,7 @@ final class VectorIntrinsicExpression
       $this->_explicit_type,
       $this->_left_bracket,
       $this->_members,
-      $value,
+      $value ?? Missing(),
     );
   }
 

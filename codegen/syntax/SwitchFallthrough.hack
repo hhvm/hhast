@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d94aaef9e51fe5bb3c311534a2251a4>>
+ * @generated SignedSource<<8e049acf48908fc273e42c3a9b5e5201>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class SwitchFallthrough extends Node implements IStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(?Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_semicolon);
+    return new static($value ?? Missing(), $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -116,11 +116,11 @@ final class SwitchFallthrough extends Node implements IStatement {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(?Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $value);
+    return new static($this->_keyword, $value ?? Missing());
   }
 
   public function hasSemicolon(): bool {

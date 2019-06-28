@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3c90018a412cfce5b535373831850c1>>
+ * @generated SignedSource<<ca8da3ed6830be9d83dba04ff79a5cd0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -211,7 +211,7 @@ final class AnonymousClass extends Node {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -251,7 +251,7 @@ final class AnonymousClass extends Node {
     }
     return new static(
       $this->_class_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_argument_list,
       $this->_right_paren,
       $this->_extends_keyword,
@@ -291,7 +291,7 @@ final class AnonymousClass extends Node {
     return new static(
       $this->_class_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_extends_keyword,
       $this->_extends_list,
@@ -331,7 +331,7 @@ final class AnonymousClass extends Node {
       $this->_class_keyword,
       $this->_left_paren,
       $this->_argument_list,
-      $value,
+      $value ?? Missing(),
       $this->_extends_keyword,
       $this->_extends_list,
       $this->_implements_keyword,
@@ -371,7 +371,7 @@ final class AnonymousClass extends Node {
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
@@ -411,7 +411,7 @@ final class AnonymousClass extends Node {
       $this->_argument_list,
       $this->_right_paren,
       $this->_extends_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_implements_keyword,
       $this->_implements_list,
       $this->_body,
@@ -451,7 +451,7 @@ final class AnonymousClass extends Node {
       $this->_right_paren,
       $this->_extends_keyword,
       $this->_extends_list,
-      $value,
+      $value ?? Missing(),
       $this->_implements_list,
       $this->_body,
     );
@@ -491,7 +491,7 @@ final class AnonymousClass extends Node {
       $this->_extends_keyword,
       $this->_extends_list,
       $this->_implements_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -531,7 +531,7 @@ final class AnonymousClass extends Node {
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
-      $value,
+      $value ?? Missing(),
     );
   }
 

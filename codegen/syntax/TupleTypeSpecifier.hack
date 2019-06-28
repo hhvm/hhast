@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f16dc34bbc573c99c9e08772d2eef242>>
+ * @generated SignedSource<<333d1c15c9a2546154f0de3ec6c863c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($value, $this->_types, $this->_right_paren);
+    return new static($value ?? Missing(), $this->_types, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -130,11 +130,15 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_types;
   }
 
-  public function withTypes(Node $value): this {
+  public function withTypes(NodeList<ListItem<ITypeSpecifier>> $value): this {
     if ($value === $this->_types) {
       return $this;
     }
-    return new static($this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_left_paren,
+      $value ?? Missing(),
+      $this->_right_paren,
+    );
   }
 
   public function hasTypes(): bool {
@@ -171,11 +175,11 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_left_paren, $this->_types, $value);
+    return new static($this->_left_paren, $this->_types, $value ?? Missing());
   }
 
   public function hasRightParen(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6d5a8bacc08f747f7fe1436b29cd988>>
+ * @generated SignedSource<<40a9bc0dbbf4da9e9965666efbc18f5a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static($value, $this->_expression, $this->_right_brace);
+    return new static(
+      $value ?? Missing(),
+      $this->_expression,
+      $this->_right_brace,
+    );
   }
 
   public function hasLeftBrace(): bool {
@@ -130,11 +134,15 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(IExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_left_brace, $value, $this->_right_brace);
+    return new static(
+      $this->_left_brace,
+      $value ?? Missing(),
+      $this->_right_brace,
+    );
   }
 
   public function hasExpression(): bool {
@@ -165,11 +173,15 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static($this->_left_brace, $this->_expression, $value);
+    return new static(
+      $this->_left_brace,
+      $this->_expression,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightBrace(): bool {

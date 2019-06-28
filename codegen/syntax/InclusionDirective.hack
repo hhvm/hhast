@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b27ec9d2cc7b01211fdac942391021ac>>
+ * @generated SignedSource<<d7ff11fbf8a7d9ee76fe82b5cb706acc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,11 +86,11 @@ final class InclusionDirective extends Node implements IStatement {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(InclusionExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($value, $this->_semicolon);
+    return new static($value ?? Missing(), $this->_semicolon);
   }
 
   public function hasExpression(): bool {
@@ -118,11 +118,11 @@ final class InclusionDirective extends Node implements IStatement {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_expression, $value);
+    return new static($this->_expression, $value ?? Missing());
   }
 
   public function hasSemicolon(): bool {

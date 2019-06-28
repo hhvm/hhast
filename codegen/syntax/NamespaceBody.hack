@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a04291c78f6bd9f23074270f4e2a2625>>
+ * @generated SignedSource<<db121f20e09bf78c37346c3103adb2c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class NamespaceBody extends Node implements INamespaceBody {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static($value, $this->_declarations, $this->_right_brace);
+    return new static(
+      $value ?? Missing(),
+      $this->_declarations,
+      $this->_right_brace,
+    );
   }
 
   public function hasLeftBrace(): bool {
@@ -130,11 +134,15 @@ final class NamespaceBody extends Node implements INamespaceBody {
     return $this->_declarations;
   }
 
-  public function withDeclarations(Node $value): this {
+  public function withDeclarations(?NodeList<Node> $value): this {
     if ($value === $this->_declarations) {
       return $this;
     }
-    return new static($this->_left_brace, $value, $this->_right_brace);
+    return new static(
+      $this->_left_brace,
+      $value ?? Missing(),
+      $this->_right_brace,
+    );
   }
 
   public function hasDeclarations(): bool {
@@ -175,11 +183,15 @@ final class NamespaceBody extends Node implements INamespaceBody {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static($this->_left_brace, $this->_declarations, $value);
+    return new static(
+      $this->_left_brace,
+      $this->_declarations,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightBrace(): bool {

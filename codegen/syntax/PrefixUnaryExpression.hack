@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b050fa9e3ce7e698005085d001c7eceb>>
+ * @generated SignedSource<<0088c91e70feee3ce707101254c5f57b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,11 +86,11 @@ final class PrefixUnaryExpression
     return $this->_operator;
   }
 
-  public function withOperator(Node $value): this {
+  public function withOperator(Token $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($value, $this->_operand);
+    return new static($value ?? Missing(), $this->_operand);
   }
 
   public function hasOperator(): bool {
@@ -119,11 +119,11 @@ final class PrefixUnaryExpression
     return $this->_operand;
   }
 
-  public function withOperand(Node $value): this {
+  public function withOperand(IExpression $value): this {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static($this->_operator, $value);
+    return new static($this->_operator, $value ?? Missing());
   }
 
   public function hasOperand(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8e26266fb923d9b99eaa4895e028cf1>>
+ * @generated SignedSource<<ce3210a4b5043c48fc2e006611d8666b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,12 +123,12 @@ final class HaltCompilerExpression
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(HaltCompilerToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -157,13 +157,13 @@ final class HaltCompilerExpression
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_argument_list,
       $this->_right_paren,
     );
@@ -191,14 +191,14 @@ final class HaltCompilerExpression
     return $this->_argument_list;
   }
 
-  public function withArgumentList(Node $value): this {
+  public function withArgumentList(?Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -228,7 +228,7 @@ final class HaltCompilerExpression
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -236,7 +236,7 @@ final class HaltCompilerExpression
       $this->_keyword,
       $this->_left_paren,
       $this->_argument_list,
-      $value,
+      $value ?? Missing(),
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<826c6be9221e76c155a9811cbb3d1e3d>>
+ * @generated SignedSource<<1212d1d2ff8475ef7777ea6251944349>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,11 +106,15 @@ final class AttributeSpecification extends Node {
     return $this->_left_double_angle;
   }
 
-  public function withLeftDoubleAngle(Node $value): this {
+  public function withLeftDoubleAngle(LessThanLessThanToken $value): this {
     if ($value === $this->_left_double_angle) {
       return $this;
     }
-    return new static($value, $this->_attributes, $this->_right_double_angle);
+    return new static(
+      $value ?? Missing(),
+      $this->_attributes,
+      $this->_right_double_angle,
+    );
   }
 
   public function hasLeftDoubleAngle(): bool {
@@ -138,13 +142,15 @@ final class AttributeSpecification extends Node {
     return $this->_attributes;
   }
 
-  public function withAttributes(Node $value): this {
+  public function withAttributes(
+    NodeList<ListItem<ConstructorCall>> $value,
+  ): this {
     if ($value === $this->_attributes) {
       return $this;
     }
     return new static(
       $this->_left_double_angle,
-      $value,
+      $value ?? Missing(),
       $this->_right_double_angle,
     );
   }
@@ -171,11 +177,17 @@ final class AttributeSpecification extends Node {
     return $this->_right_double_angle;
   }
 
-  public function withRightDoubleAngle(Node $value): this {
+  public function withRightDoubleAngle(
+    GreaterThanGreaterThanToken $value,
+  ): this {
     if ($value === $this->_right_double_angle) {
       return $this;
     }
-    return new static($this->_left_double_angle, $this->_attributes, $value);
+    return new static(
+      $this->_left_double_angle,
+      $this->_attributes,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightDoubleAngle(): bool {

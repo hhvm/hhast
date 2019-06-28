@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5263f069a2a4f7f3730fab8e46dd96f>>
+ * @generated SignedSource<<4d8ecddc107a4ea82b9021640d227823>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,12 +123,12 @@ final class CollectionLiteralExpression
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(ISimpleCreationSpecifier $value): this {
     if ($value === $this->_name) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_brace,
       $this->_initializers,
       $this->_right_brace,
@@ -160,13 +160,13 @@ final class CollectionLiteralExpression
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
     return new static(
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_initializers,
       $this->_right_brace,
     );
@@ -194,14 +194,14 @@ final class CollectionLiteralExpression
     return $this->_initializers;
   }
 
-  public function withInitializers(Node $value): this {
+  public function withInitializers(?NodeList<ListItem<Node>> $value): this {
     if ($value === $this->_initializers) {
       return $this;
     }
     return new static(
       $this->_name,
       $this->_left_brace,
-      $value,
+      $value ?? Missing(),
       $this->_right_brace,
     );
   }
@@ -263,7 +263,7 @@ final class CollectionLiteralExpression
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -271,7 +271,7 @@ final class CollectionLiteralExpression
       $this->_name,
       $this->_left_brace,
       $this->_initializers,
-      $value,
+      $value ?? Missing(),
     );
   }
 

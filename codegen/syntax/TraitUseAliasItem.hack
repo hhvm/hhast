@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8ccc2bbf27ab8128da10c60a25368a92>>
+ * @generated SignedSource<<0696aef5e53fe7dcd8995b2c51319163>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,7 +126,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_modifiers,
       $this->_aliased_name,
@@ -155,13 +155,13 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(AsToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
       $this->_aliasing_name,
-      $value,
+      $value ?? Missing(),
       $this->_modifiers,
       $this->_aliased_name,
     );
@@ -189,14 +189,14 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     return $this->_modifiers;
   }
 
-  public function withModifiers(Node $value): this {
+  public function withModifiers(?NodeList<Token> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
     return new static(
       $this->_aliasing_name,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_aliased_name,
     );
   }
@@ -228,7 +228,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     return $this->_aliased_name;
   }
 
-  public function withAliasedName(Node $value): this {
+  public function withAliasedName(?SimpleTypeSpecifier $value): this {
     if ($value === $this->_aliased_name) {
       return $this;
     }
@@ -236,7 +236,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $this->_aliasing_name,
       $this->_keyword,
       $this->_modifiers,
-      $value,
+      $value ?? Missing(),
     );
   }
 

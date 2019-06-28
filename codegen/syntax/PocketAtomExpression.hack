@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80b3a228a22e337ec78b2c78a5274793>>
+ * @generated SignedSource<<0a1296976532f556d78b6027cdc5273c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,7 +90,7 @@ final class PocketAtomExpression
     if ($value === $this->_glyph) {
       return $this;
     }
-    return new static($value, $this->_expression);
+    return new static($value ?? Missing(), $this->_expression);
   }
 
   public function hasGlyph(): bool {
@@ -119,7 +119,7 @@ final class PocketAtomExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_glyph, $value);
+    return new static($this->_glyph, $value ?? Missing());
   }
 
   public function hasExpression(): bool {

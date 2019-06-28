@@ -12,17 +12,17 @@ namespace Facebook\HHAST;
 interface INamespaceUseDeclaration {
   require extends Node;
 
-  public function withKeyword(Node $value): this;
+  public function withKeyword(UseToken $value): this;
   public function hasKeyword(): bool;
   public function getKeyword(): UseToken;
   public function getKeywordx(): UseToken;
 
-  public function withKind(Node $value): this;
+  public function withKind(Token $value): this;
   public function hasKind(): bool;
   public function getKind(): ?Token;
   public function getKindx(): Token;
 
-  public function withClauses(Node $value): this;
+  public function withClauses(NodeList<ListItem<NamespaceUseClause>> $value): this;
   public function hasClauses(): bool;
   public function getClauses(): NodeList<ListItem<NamespaceUseClause>>;
   public function getClausesx(): NodeList<ListItem<NamespaceUseClause>>;

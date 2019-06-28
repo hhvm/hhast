@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<842f296696f380b68222e5eb42772e1e>>
+ * @generated SignedSource<<5358a9029d9a329f0606337a541bbd11>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static($value, $this->_statements, $this->_right_brace);
+    return new static(
+      $value ?? Missing(),
+      $this->_statements,
+      $this->_right_brace,
+    );
   }
 
   public function hasLeftBrace(): bool {
@@ -130,11 +134,15 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     return $this->_statements;
   }
 
-  public function withStatements(Node $value): this {
+  public function withStatements(?NodeList<IStatement> $value): this {
     if ($value === $this->_statements) {
       return $this;
     }
-    return new static($this->_left_brace, $value, $this->_right_brace);
+    return new static(
+      $this->_left_brace,
+      $value ?? Missing(),
+      $this->_right_brace,
+    );
   }
 
   public function hasStatements(): bool {
@@ -182,11 +190,15 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static($this->_left_brace, $this->_statements, $value);
+    return new static(
+      $this->_left_brace,
+      $this->_statements,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightBrace(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a89dd50ac7f3d502f0c104cf3cfc4776>>
+ * @generated SignedSource<<728a373cbabab0c06e21de12978c7f6b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,12 +121,12 @@ final class XHPOpen extends Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(Node $value): this {
+  public function withLeftAngle(LessThanToken $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_attributes,
       $this->_right_angle,
@@ -155,13 +155,13 @@ final class XHPOpen extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(XHPElementNameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
     return new static(
       $this->_left_angle,
-      $value,
+      $value ?? Missing(),
       $this->_attributes,
       $this->_right_angle,
     );
@@ -189,14 +189,14 @@ final class XHPOpen extends Node {
     return $this->_attributes;
   }
 
-  public function withAttributes(Node $value): this {
+  public function withAttributes(?NodeList<Node> $value): this {
     if ($value === $this->_attributes) {
       return $this;
     }
     return new static(
       $this->_left_angle,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_right_angle,
     );
   }
@@ -228,7 +228,7 @@ final class XHPOpen extends Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(Node $value): this {
+  public function withRightAngle(Token $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -236,7 +236,7 @@ final class XHPOpen extends Node {
       $this->_left_angle,
       $this->_name,
       $this->_attributes,
-      $value,
+      $value ?? Missing(),
     );
   }
 

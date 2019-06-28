@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13ad778082e980379254334629223844>>
+ * @generated SignedSource<<ce967f3be9e9d6ae6fac0f1b8440a050>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,7 +107,11 @@ final class XHPCategoryDeclaration
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_categories, $this->_semicolon);
+    return new static(
+      $value ?? Missing(),
+      $this->_categories,
+      $this->_semicolon,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -136,7 +140,7 @@ final class XHPCategoryDeclaration
     if ($value === $this->_categories) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
   }
 
   public function hasCategories(): bool {
@@ -165,7 +169,7 @@ final class XHPCategoryDeclaration
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_categories, $value);
+    return new static($this->_keyword, $this->_categories, $value ?? Missing());
   }
 
   public function hasSemicolon(): bool {

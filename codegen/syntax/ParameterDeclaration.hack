@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4801c2d0713b191d5768dfd5ee1fcbe>>
+ * @generated SignedSource<<84690cfa1ca19e80952ff2a96e858c41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,12 +160,12 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->_attribute;
   }
 
-  public function withAttribute(Node $value): this {
+  public function withAttribute(?AttributeSpecification $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_visibility,
       $this->_call_convention,
       $this->_type,
@@ -202,13 +202,13 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->_visibility;
   }
 
-  public function withVisibility(Node $value): this {
+  public function withVisibility(?Token $value): this {
     if ($value === $this->_visibility) {
       return $this;
     }
     return new static(
       $this->_attribute,
-      $value,
+      $value ?? Missing(),
       $this->_call_convention,
       $this->_type,
       $this->_name,
@@ -241,14 +241,14 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->_call_convention;
   }
 
-  public function withCallConvention(Node $value): this {
+  public function withCallConvention(?InoutToken $value): this {
     if ($value === $this->_call_convention) {
       return $this;
     }
     return new static(
       $this->_attribute,
       $this->_visibility,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_name,
       $this->_default_value,
@@ -280,7 +280,7 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -288,7 +288,7 @@ abstract class ParameterDeclarationGeneratedBase
       $this->_attribute,
       $this->_visibility,
       $this->_call_convention,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_default_value,
     );
@@ -329,7 +329,7 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(IExpression $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -338,7 +338,7 @@ abstract class ParameterDeclarationGeneratedBase
       $this->_visibility,
       $this->_call_convention,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_default_value,
     );
   }
@@ -365,7 +365,7 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->_default_value;
   }
 
-  public function withDefaultValue(Node $value): this {
+  public function withDefaultValue(?SimpleInitializer $value): this {
     if ($value === $this->_default_value) {
       return $this;
     }
@@ -375,7 +375,7 @@ abstract class ParameterDeclarationGeneratedBase
       $this->_call_convention,
       $this->_type,
       $this->_name,
-      $value,
+      $value ?? Missing(),
     );
   }
 

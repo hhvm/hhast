@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca799afa61c0ae3d9d46ef62dde14cbc>>
+ * @generated SignedSource<<bf5a5c02f004ea8a2526a521efc37553>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,11 +103,15 @@ final class InstanceofExpression
     return $this->_left_operand;
   }
 
-  public function withLeftOperand(Node $value): this {
+  public function withLeftOperand(IExpression $value): this {
     if ($value === $this->_left_operand) {
       return $this;
     }
-    return new static($value, $this->_operator, $this->_right_operand);
+    return new static(
+      $value ?? Missing(),
+      $this->_operator,
+      $this->_right_operand,
+    );
   }
 
   public function hasLeftOperand(): bool {
@@ -138,11 +142,15 @@ final class InstanceofExpression
     return $this->_operator;
   }
 
-  public function withOperator(Node $value): this {
+  public function withOperator(InstanceofToken $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_left_operand, $value, $this->_right_operand);
+    return new static(
+      $this->_left_operand,
+      $value ?? Missing(),
+      $this->_right_operand,
+    );
   }
 
   public function hasOperator(): bool {
@@ -171,7 +179,11 @@ final class InstanceofExpression
     if ($value === $this->_right_operand) {
       return $this;
     }
-    return new static($this->_left_operand, $this->_operator, $value);
+    return new static(
+      $this->_left_operand,
+      $this->_operator,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightOperand(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca0999a331f99a06138a78d6baf58413>>
+ * @generated SignedSource<<904e72f63f12a3bf38909f04b2687766>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,12 +128,12 @@ abstract class AlternateLoopStatementGeneratedBase
     return $this->_opening_colon;
   }
 
-  public function withOpeningColon(Node $value): this {
+  public function withOpeningColon(ColonToken $value): this {
     if ($value === $this->_opening_colon) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_statements,
       $this->_closing_keyword,
       $this->_closing_semicolon,
@@ -162,13 +162,13 @@ abstract class AlternateLoopStatementGeneratedBase
     return $this->_statements;
   }
 
-  public function withStatements(Node $value): this {
+  public function withStatements(NodeList<IStatement> $value): this {
     if ($value === $this->_statements) {
       return $this;
     }
     return new static(
       $this->_opening_colon,
-      $value,
+      $value ?? Missing(),
       $this->_closing_keyword,
       $this->_closing_semicolon,
     );
@@ -198,14 +198,14 @@ abstract class AlternateLoopStatementGeneratedBase
     return $this->_closing_keyword;
   }
 
-  public function withClosingKeyword(Node $value): this {
+  public function withClosingKeyword(Token $value): this {
     if ($value === $this->_closing_keyword) {
       return $this;
     }
     return new static(
       $this->_opening_colon,
       $this->_statements,
-      $value,
+      $value ?? Missing(),
       $this->_closing_semicolon,
     );
   }
@@ -232,7 +232,7 @@ abstract class AlternateLoopStatementGeneratedBase
     return $this->_closing_semicolon;
   }
 
-  public function withClosingSemicolon(Node $value): this {
+  public function withClosingSemicolon(SemicolonToken $value): this {
     if ($value === $this->_closing_semicolon) {
       return $this;
     }
@@ -240,7 +240,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $this->_opening_colon,
       $this->_statements,
       $this->_closing_keyword,
-      $value,
+      $value ?? Missing(),
     );
   }
 

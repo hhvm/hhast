@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d064c191ef6f878d81b8e64bb39c928>>
+ * @generated SignedSource<<24d7f148bac64ddd30f244d44e6a6772>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,12 +158,12 @@ final class CatchClause extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(CatchToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_type,
       $this->_variable,
@@ -194,13 +194,13 @@ final class CatchClause extends Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_variable,
       $this->_right_paren,
@@ -230,14 +230,14 @@ final class CatchClause extends Node {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(SimpleTypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_variable,
       $this->_right_paren,
       $this->_body,
@@ -266,7 +266,7 @@ final class CatchClause extends Node {
     return $this->_variable;
   }
 
-  public function withVariable(Node $value): this {
+  public function withVariable(VariableToken $value): this {
     if ($value === $this->_variable) {
       return $this;
     }
@@ -274,7 +274,7 @@ final class CatchClause extends Node {
       $this->_keyword,
       $this->_left_paren,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_body,
     );
@@ -302,7 +302,7 @@ final class CatchClause extends Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -311,7 +311,7 @@ final class CatchClause extends Node {
       $this->_left_paren,
       $this->_type,
       $this->_variable,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -338,7 +338,7 @@ final class CatchClause extends Node {
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(CompoundStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -348,7 +348,7 @@ final class CatchClause extends Node {
       $this->_type,
       $this->_variable,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

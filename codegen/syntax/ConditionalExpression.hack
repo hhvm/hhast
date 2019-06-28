@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51644b6632ff31ec16be2054b8b1e19e>>
+ * @generated SignedSource<<417e15f4a5dcf8571ede312610a5599b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,12 +138,12 @@ final class ConditionalExpression
     return $this->_test;
   }
 
-  public function withTest(Node $value): this {
+  public function withTest(IExpression $value): this {
     if ($value === $this->_test) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_question,
       $this->_consequence,
       $this->_colon,
@@ -183,13 +183,13 @@ final class ConditionalExpression
     return $this->_question;
   }
 
-  public function withQuestion(Node $value): this {
+  public function withQuestion(QuestionToken $value): this {
     if ($value === $this->_question) {
       return $this;
     }
     return new static(
       $this->_test,
-      $value,
+      $value ?? Missing(),
       $this->_consequence,
       $this->_colon,
       $this->_alternative,
@@ -218,14 +218,14 @@ final class ConditionalExpression
     return $this->_consequence;
   }
 
-  public function withConsequence(Node $value): this {
+  public function withConsequence(?IExpression $value): this {
     if ($value === $this->_consequence) {
       return $this;
     }
     return new static(
       $this->_test,
       $this->_question,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_alternative,
     );
@@ -268,7 +268,7 @@ final class ConditionalExpression
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -276,7 +276,7 @@ final class ConditionalExpression
       $this->_test,
       $this->_question,
       $this->_consequence,
-      $value,
+      $value ?? Missing(),
       $this->_alternative,
     );
   }
@@ -303,7 +303,7 @@ final class ConditionalExpression
     return $this->_alternative;
   }
 
-  public function withAlternative(Node $value): this {
+  public function withAlternative(IExpression $value): this {
     if ($value === $this->_alternative) {
       return $this;
     }
@@ -312,7 +312,7 @@ final class ConditionalExpression
       $this->_question,
       $this->_consequence,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
     );
   }
 

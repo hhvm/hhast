@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39eca4cc53038cda07c1c744d9d1175f>>
+ * @generated SignedSource<<12bb9060ed4d4eac0784a0db796546cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     return $this->_open;
   }
 
-  public function withOpen(Node $value): this {
+  public function withOpen(XHPOpen $value): this {
     if ($value === $this->_open) {
       return $this;
     }
-    return new static($value, $this->_body, $this->_close);
+    return new static($value ?? Missing(), $this->_body, $this->_close);
   }
 
   public function hasOpen(): bool {
@@ -130,11 +130,11 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(?NodeList<Node> $value): this {
     if ($value === $this->_body) {
       return $this;
     }
-    return new static($this->_open, $value, $this->_close);
+    return new static($this->_open, $value ?? Missing(), $this->_close);
   }
 
   public function hasBody(): bool {
@@ -166,11 +166,11 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     return $this->_close;
   }
 
-  public function withClose(Node $value): this {
+  public function withClose(?XHPClose $value): this {
     if ($value === $this->_close) {
       return $this;
     }
-    return new static($this->_open, $this->_body, $value);
+    return new static($this->_open, $this->_body, $value ?? Missing());
   }
 
   public function hasClose(): bool {

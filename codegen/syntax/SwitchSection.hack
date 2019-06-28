@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6acdfecd5ca5cbc1b73973ff210ae23c>>
+ * @generated SignedSource<<8e073ba4edae635b712cc8c156b4606c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,15 @@ final class SwitchSection extends Node {
     return $this->_labels;
   }
 
-  public function withLabels(Node $value): this {
+  public function withLabels(NodeList<ISwitchLabel> $value): this {
     if ($value === $this->_labels) {
       return $this;
     }
-    return new static($value, $this->_statements, $this->_fallthrough);
+    return new static(
+      $value ?? Missing(),
+      $this->_statements,
+      $this->_fallthrough,
+    );
   }
 
   public function hasLabels(): bool {
@@ -132,11 +136,11 @@ final class SwitchSection extends Node {
     return $this->_statements;
   }
 
-  public function withStatements(Node $value): this {
+  public function withStatements(?NodeList<IStatement> $value): this {
     if ($value === $this->_statements) {
       return $this;
     }
-    return new static($this->_labels, $value, $this->_fallthrough);
+    return new static($this->_labels, $value ?? Missing(), $this->_fallthrough);
   }
 
   public function hasStatements(): bool {
@@ -172,11 +176,11 @@ final class SwitchSection extends Node {
     return $this->_fallthrough;
   }
 
-  public function withFallthrough(Node $value): this {
+  public function withFallthrough(?SwitchFallthrough $value): this {
     if ($value === $this->_fallthrough) {
       return $this;
     }
-    return new static($this->_labels, $this->_statements, $value);
+    return new static($this->_labels, $this->_statements, $value ?? Missing());
   }
 
   public function hasFallthrough(): bool {

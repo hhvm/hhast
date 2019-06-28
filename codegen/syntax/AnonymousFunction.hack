@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f56da4ad3e8b298db24afc8587ff2a87>>
+ * @generated SignedSource<<dc4f4321e918b65d106e3a70adb47b64>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -256,12 +256,12 @@ final class AnonymousFunction
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(Node $value): this {
+  public function withAttributeSpec(?AttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -304,13 +304,13 @@ final class AnonymousFunction
     return $this->_static_keyword;
   }
 
-  public function withStaticKeyword(Node $value): this {
+  public function withStaticKeyword(?StaticToken $value): this {
     if ($value === $this->_static_keyword) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
-      $value,
+      $value ?? Missing(),
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
@@ -349,14 +349,14 @@ final class AnonymousFunction
     return $this->_async_keyword;
   }
 
-  public function withAsyncKeyword(Node $value): this {
+  public function withAsyncKeyword(?AsyncToken $value): this {
     if ($value === $this->_async_keyword) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
       $this->_static_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -394,7 +394,7 @@ final class AnonymousFunction
     return $this->_coroutine_keyword;
   }
 
-  public function withCoroutineKeyword(Node $value): this {
+  public function withCoroutineKeyword(?Node $value): this {
     if ($value === $this->_coroutine_keyword) {
       return $this;
     }
@@ -402,7 +402,7 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -439,7 +439,7 @@ final class AnonymousFunction
     return $this->_function_keyword;
   }
 
-  public function withFunctionKeyword(Node $value): this {
+  public function withFunctionKeyword(FunctionToken $value): this {
     if ($value === $this->_function_keyword) {
       return $this;
     }
@@ -448,7 +448,7 @@ final class AnonymousFunction
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -484,7 +484,7 @@ final class AnonymousFunction
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -494,7 +494,7 @@ final class AnonymousFunction
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_parameters,
       $this->_right_paren,
       $this->_colon,
@@ -526,7 +526,7 @@ final class AnonymousFunction
     return $this->_parameters;
   }
 
-  public function withParameters(Node $value): this {
+  public function withParameters(?NodeList<ListItem<IParameter>> $value): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -537,7 +537,7 @@ final class AnonymousFunction
       $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_colon,
       $this->_type,
@@ -573,7 +573,7 @@ final class AnonymousFunction
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -585,7 +585,7 @@ final class AnonymousFunction
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -615,7 +615,7 @@ final class AnonymousFunction
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(?ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -628,7 +628,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_use,
       $this->_body,
@@ -660,7 +660,7 @@ final class AnonymousFunction
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -674,7 +674,7 @@ final class AnonymousFunction
       $this->_parameters,
       $this->_right_paren,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
       $this->_use,
       $this->_body,
     );
@@ -709,7 +709,7 @@ final class AnonymousFunction
     return $this->_use;
   }
 
-  public function withUse(Node $value): this {
+  public function withUse(?AnonymousFunctionUseClause $value): this {
     if ($value === $this->_use) {
       return $this;
     }
@@ -724,7 +724,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_colon,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -757,7 +757,7 @@ final class AnonymousFunction
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(CompoundStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -773,7 +773,7 @@ final class AnonymousFunction
       $this->_colon,
       $this->_type,
       $this->_use,
-      $value,
+      $value ?? Missing(),
     );
   }
 

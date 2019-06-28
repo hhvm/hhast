@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de8038ac28b42d02bfb885e759754f04>>
+ * @generated SignedSource<<eb03f0cc773c16e09e7cde1a86d73bba>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,11 +101,11 @@ final class ContinueStatement extends Node implements IStatement {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ContinueToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_level, $this->_semicolon);
+    return new static($value ?? Missing(), $this->_level, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
@@ -130,11 +130,11 @@ final class ContinueStatement extends Node implements IStatement {
     return $this->_level;
   }
 
-  public function withLevel(Node $value): this {
+  public function withLevel(?LiteralExpression $value): this {
     if ($value === $this->_level) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_semicolon);
+    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
   }
 
   public function hasLevel(): bool {
@@ -162,11 +162,11 @@ final class ContinueStatement extends Node implements IStatement {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_level, $value);
+    return new static($this->_keyword, $this->_level, $value ?? Missing());
   }
 
   public function hasSemicolon(): bool {

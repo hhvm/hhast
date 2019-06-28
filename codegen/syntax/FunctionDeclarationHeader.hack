@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efab945ac104eacc0d7745e9fcf72569>>
+ * @generated SignedSource<<3e9bc415bcc65bb9a051765a692b3106>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -222,12 +222,12 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_modifiers;
   }
 
-  public function withModifiers(Node $value): this {
+  public function withModifiers(?NodeList<Token> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_keyword,
       $this->_name,
       $this->_type_parameter_list,
@@ -269,13 +269,13 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(FunctionToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
       $this->_modifiers,
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -309,14 +309,14 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(Token $value): this {
     if ($value === $this->_name) {
       return $this;
     }
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_type_parameter_list,
       $this->_left_paren,
       $this->_parameter_list,
@@ -349,7 +349,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_type_parameter_list;
   }
 
-  public function withTypeParameterList(Node $value): this {
+  public function withTypeParameterList(?TypeParameters $value): this {
     if ($value === $this->_type_parameter_list) {
       return $this;
     }
@@ -357,7 +357,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_modifiers,
       $this->_keyword,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
@@ -395,7 +395,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -404,7 +404,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_keyword,
       $this->_name,
       $this->_type_parameter_list,
-      $value,
+      $value ?? Missing(),
       $this->_parameter_list,
       $this->_right_paren,
       $this->_colon,
@@ -435,7 +435,9 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_parameter_list;
   }
 
-  public function withParameterList(Node $value): this {
+  public function withParameterList(
+    ?NodeList<ListItem<IParameter>> $value,
+  ): this {
     if ($value === $this->_parameter_list) {
       return $this;
     }
@@ -445,7 +447,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_colon,
       $this->_type,
@@ -481,7 +483,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -492,7 +494,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_type_parameter_list,
       $this->_left_paren,
       $this->_parameter_list,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_type,
       $this->_where_clause,
@@ -521,7 +523,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(?ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -533,7 +535,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_where_clause,
     );
@@ -564,7 +566,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_type;
   }
 
-  public function withType(Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -577,7 +579,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_parameter_list,
       $this->_right_paren,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
       $this->_where_clause,
     );
   }
@@ -617,7 +619,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_where_clause;
   }
 
-  public function withWhereClause(Node $value): this {
+  public function withWhereClause(?WhereClause $value): this {
     if ($value === $this->_where_clause) {
       return $this;
     }
@@ -631,7 +633,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_colon,
       $this->_type,
-      $value,
+      $value ?? Missing(),
     );
   }
 

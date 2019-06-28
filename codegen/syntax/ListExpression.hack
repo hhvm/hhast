@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70d6d883ca9ca0229197c4eaee7588b2>>
+ * @generated SignedSource<<a92a948ee24e90cc389971c5018d1da4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,12 +121,12 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(ListToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_members,
       $this->_right_paren,
@@ -155,13 +155,13 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_members,
       $this->_right_paren,
     );
@@ -189,14 +189,14 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     return $this->_members;
   }
 
-  public function withMembers(Node $value): this {
+  public function withMembers(?NodeList<ListItem<?IExpression>> $value): this {
     if ($value === $this->_members) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
     );
   }
@@ -238,7 +238,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -246,7 +246,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
       $this->_keyword,
       $this->_left_paren,
       $this->_members,
-      $value,
+      $value ?? Missing(),
     );
   }
 

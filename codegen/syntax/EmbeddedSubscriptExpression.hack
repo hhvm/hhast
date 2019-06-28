@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a59ad50a4fccce3ce7dfa0ae45409976>>
+ * @generated SignedSource<<0a13990585678a8ecfda7970fc227e9b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,7 +128,7 @@ final class EmbeddedSubscriptExpression
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_bracket,
       $this->_index,
       $this->_right_bracket,
@@ -163,7 +163,7 @@ final class EmbeddedSubscriptExpression
     }
     return new static(
       $this->_receiver,
-      $value,
+      $value ?? Missing(),
       $this->_index,
       $this->_right_bracket,
     );
@@ -198,7 +198,7 @@ final class EmbeddedSubscriptExpression
     return new static(
       $this->_receiver,
       $this->_left_bracket,
-      $value,
+      $value ?? Missing(),
       $this->_right_bracket,
     );
   }
@@ -233,7 +233,7 @@ final class EmbeddedSubscriptExpression
       $this->_receiver,
       $this->_left_bracket,
       $this->_index,
-      $value,
+      $value ?? Missing(),
     );
   }
 

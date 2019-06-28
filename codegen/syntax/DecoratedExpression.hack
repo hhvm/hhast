@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63013fc119ba4f23be89c5a896d84a1c>>
+ * @generated SignedSource<<60dca643ed63e7eacc207cff6eedb6bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,11 +88,11 @@ final class DecoratedExpression
     return $this->_decorator;
   }
 
-  public function withDecorator(Node $value): this {
+  public function withDecorator(Token $value): this {
     if ($value === $this->_decorator) {
       return $this;
     }
-    return new static($value, $this->_expression);
+    return new static($value ?? Missing(), $this->_expression);
   }
 
   public function hasDecorator(): bool {
@@ -117,11 +117,11 @@ final class DecoratedExpression
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(IExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_decorator, $value);
+    return new static($this->_decorator, $value ?? Missing());
   }
 
   public function hasExpression(): bool {

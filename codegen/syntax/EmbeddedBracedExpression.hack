@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2975b528fead91803c8451f619ccc8b7>>
+ * @generated SignedSource<<a424b1c0d285085901ce64cc3e596c65>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,7 +107,11 @@ final class EmbeddedBracedExpression
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static($value, $this->_expression, $this->_right_brace);
+    return new static(
+      $value ?? Missing(),
+      $this->_expression,
+      $this->_right_brace,
+    );
   }
 
   public function hasLeftBrace(): bool {
@@ -136,7 +140,11 @@ final class EmbeddedBracedExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_left_brace, $value, $this->_right_brace);
+    return new static(
+      $this->_left_brace,
+      $value ?? Missing(),
+      $this->_right_brace,
+    );
   }
 
   public function hasExpression(): bool {
@@ -165,7 +173,11 @@ final class EmbeddedBracedExpression
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static($this->_left_brace, $this->_expression, $value);
+    return new static(
+      $this->_left_brace,
+      $this->_expression,
+      $value ?? Missing(),
+    );
   }
 
   public function hasRightBrace(): bool {

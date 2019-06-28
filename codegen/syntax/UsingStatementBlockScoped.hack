@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68aa3bd7c3b4fe6cb3808d493b8f333e>>
+ * @generated SignedSource<<f80b894116c370d7419e01d56330d866>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,12 +158,12 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->_await_keyword;
   }
 
-  public function withAwaitKeyword(Node $value): this {
+  public function withAwaitKeyword(?AwaitToken $value): this {
     if ($value === $this->_await_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_using_keyword,
       $this->_left_paren,
       $this->_expressions,
@@ -197,13 +197,13 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->_using_keyword;
   }
 
-  public function withUsingKeyword(Node $value): this {
+  public function withUsingKeyword(UsingToken $value): this {
     if ($value === $this->_using_keyword) {
       return $this;
     }
     return new static(
       $this->_await_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_expressions,
       $this->_right_paren,
@@ -233,14 +233,14 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_await_keyword,
       $this->_using_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_expressions,
       $this->_right_paren,
       $this->_body,
@@ -269,7 +269,9 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->_expressions;
   }
 
-  public function withExpressions(Node $value): this {
+  public function withExpressions(
+    NodeList<ListItem<IExpression>> $value,
+  ): this {
     if ($value === $this->_expressions) {
       return $this;
     }
@@ -277,7 +279,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $this->_await_keyword,
       $this->_using_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_body,
     );
@@ -317,7 +319,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -326,7 +328,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $this->_using_keyword,
       $this->_left_paren,
       $this->_expressions,
-      $value,
+      $value ?? Missing(),
       $this->_body,
     );
   }
@@ -353,7 +355,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(CompoundStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -363,7 +365,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $this->_left_paren,
       $this->_expressions,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
     );
   }
 

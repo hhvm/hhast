@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0801335fb93e1d1ddbea52d97b9afbd>>
+ * @generated SignedSource<<7bff008b51b5b8cae934c422f29f03eb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,7 +134,7 @@ final class RecordField extends Node {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_type,
       $this->_init,
@@ -170,7 +170,7 @@ final class RecordField extends Node {
     }
     return new static(
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_init,
       $this->_comma,
@@ -206,7 +206,7 @@ final class RecordField extends Node {
     return new static(
       $this->_name,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
       $this->_init,
       $this->_comma,
     );
@@ -242,7 +242,7 @@ final class RecordField extends Node {
       $this->_name,
       $this->_colon,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_comma,
     );
   }
@@ -278,7 +278,7 @@ final class RecordField extends Node {
       $this->_colon,
       $this->_type,
       $this->_init,
-      $value,
+      $value ?? Missing(),
     );
   }
 

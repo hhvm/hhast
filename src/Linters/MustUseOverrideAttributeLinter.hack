@@ -135,9 +135,9 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
 
     return $node->withFunctionBody(
       $body
-        ->withStatements(HHAST\Missing())
-        ->withRightBrace(HHAST\Missing())
-        ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing())),
+        ->withStatements(null)
+        ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing()))
+        ->without($body->getRightBracex())
     )
       ->getCode();
   }

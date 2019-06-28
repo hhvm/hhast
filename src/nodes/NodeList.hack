@@ -60,12 +60,17 @@ final class NodeList<+Titem as Node> extends Node {
     return $out;
   }
 
-  public static function createNonEmptyListOrMissing(vec<Node> $items): Node {
+  public static function createNonEmptyListOrNull<T as Node>(
+    vec<T> $items,
+  ): ?NodeList<T> {
     if (C\count($items) === 0) {
-      return Missing();
-    } else {
-      return new self($items);
+      return null;
     }
+    return new self($items);
+  }
+
+  public static function createNonEmptyListOrMissing(vec<Node> $items): Node {
+    return self::createNonEmptyListOrNull($items) ?? Missing();
   }
 
   public static function createMaybeEmptyList<T as Node>(

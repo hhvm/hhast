@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e2f7f283b5fdd95e39c6d6a90fe219c>>
+ * @generated SignedSource<<88e9ffafbb0f31813e8ab8923180671e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,11 +84,11 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(DefaultToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_colon);
+    return new static($value ?? Missing(), $this->_colon);
   }
 
   public function hasKeyword(): bool {
@@ -113,11 +113,11 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     return $this->_colon;
   }
 
-  public function withColon(Node $value): this {
+  public function withColon(Token $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new static($this->_keyword, $value);
+    return new static($this->_keyword, $value ?? Missing());
   }
 
   public function hasColon(): bool {

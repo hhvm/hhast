@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27b6f6e8a0ed2917436f75c29b6b60db>>
+ * @generated SignedSource<<3d28261e8992d3296775cf06a5419239>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,12 +123,12 @@ final class SubscriptExpression
     return $this->_receiver;
   }
 
-  public function withReceiver(Node $value): this {
+  public function withReceiver(IExpression $value): this {
     if ($value === $this->_receiver) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_bracket,
       $this->_index,
       $this->_right_bracket,
@@ -165,13 +165,13 @@ final class SubscriptExpression
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(Node $value): this {
+  public function withLeftBracket(Token $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
     return new static(
       $this->_receiver,
-      $value,
+      $value ?? Missing(),
       $this->_index,
       $this->_right_bracket,
     );
@@ -199,14 +199,14 @@ final class SubscriptExpression
     return $this->_index;
   }
 
-  public function withIndex(Node $value): this {
+  public function withIndex(?IExpression $value): this {
     if ($value === $this->_index) {
       return $this;
     }
     return new static(
       $this->_receiver,
       $this->_left_bracket,
-      $value,
+      $value ?? Missing(),
       $this->_right_bracket,
     );
   }
@@ -246,7 +246,7 @@ final class SubscriptExpression
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(Node $value): this {
+  public function withRightBracket(Token $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
@@ -254,7 +254,7 @@ final class SubscriptExpression
       $this->_receiver,
       $this->_left_bracket,
       $this->_index,
-      $value,
+      $value ?? Missing(),
     );
   }
 

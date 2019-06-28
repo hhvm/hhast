@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4b899c30af1d90134c547de3c7dbf19>>
+ * @generated SignedSource<<734641630fd55162dee3083732d4a03f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -115,11 +115,16 @@ final class NamespaceUseClause extends Node {
     return $this->_clause_kind;
   }
 
-  public function withClauseKind(Node $value): this {
+  public function withClauseKind(?Token $value): this {
     if ($value === $this->_clause_kind) {
       return $this;
     }
-    return new static($value, $this->_name, $this->_as, $this->_alias);
+    return new static(
+      $value ?? Missing(),
+      $this->_name,
+      $this->_as,
+      $this->_alias,
+    );
   }
 
   public function hasClauseKind(): bool {
@@ -147,11 +152,16 @@ final class NamespaceUseClause extends Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(INameishNode $value): this {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_clause_kind, $value, $this->_as, $this->_alias);
+    return new static(
+      $this->_clause_kind,
+      $value ?? Missing(),
+      $this->_as,
+      $this->_alias,
+    );
   }
 
   public function hasName(): bool {
@@ -176,11 +186,16 @@ final class NamespaceUseClause extends Node {
     return $this->_as;
   }
 
-  public function withAs(Node $value): this {
+  public function withAs(?AsToken $value): this {
     if ($value === $this->_as) {
       return $this;
     }
-    return new static($this->_clause_kind, $this->_name, $value, $this->_alias);
+    return new static(
+      $this->_clause_kind,
+      $this->_name,
+      $value ?? Missing(),
+      $this->_alias,
+    );
   }
 
   public function hasAs(): bool {
@@ -208,11 +223,16 @@ final class NamespaceUseClause extends Node {
     return $this->_alias;
   }
 
-  public function withAlias(Node $value): this {
+  public function withAlias(?NameToken $value): this {
     if ($value === $this->_alias) {
       return $this;
     }
-    return new static($this->_clause_kind, $this->_name, $this->_as, $value);
+    return new static(
+      $this->_clause_kind,
+      $this->_name,
+      $this->_as,
+      $value ?? Missing(),
+    );
   }
 
   public function hasAlias(): bool {

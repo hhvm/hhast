@@ -10,6 +10,6 @@
 namespace Facebook\HHAST;
 
 interface ILoopStatement extends IControlFlowStatement {
-  public function getBody(): ?Node;
-  public function withBody(Node $body): this;
+  public function getBody(): IStatement;
+  public function withBody(IStatement $body): this;
 }

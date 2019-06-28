@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e00fdb285c59235a5cc549d62735d797>>
+ * @generated SignedSource<<e744b8c7eb4f10415225bfeb4c20a793>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -192,12 +192,12 @@ final class AlternateSwitchStatement
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(SwitchToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
@@ -230,13 +230,13 @@ final class AlternateSwitchStatement
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_expression,
       $this->_right_paren,
       $this->_opening_colon,
@@ -268,14 +268,14 @@ final class AlternateSwitchStatement
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(VariableExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_opening_colon,
       $this->_sections,
@@ -309,7 +309,7 @@ final class AlternateSwitchStatement
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -317,7 +317,7 @@ final class AlternateSwitchStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
-      $value,
+      $value ?? Missing(),
       $this->_opening_colon,
       $this->_sections,
       $this->_closing_endswitch,
@@ -347,7 +347,7 @@ final class AlternateSwitchStatement
     return $this->_opening_colon;
   }
 
-  public function withOpeningColon(Node $value): this {
+  public function withOpeningColon(ColonToken $value): this {
     if ($value === $this->_opening_colon) {
       return $this;
     }
@@ -356,7 +356,7 @@ final class AlternateSwitchStatement
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_sections,
       $this->_closing_endswitch,
       $this->_closing_semicolon,
@@ -385,7 +385,7 @@ final class AlternateSwitchStatement
     return $this->_sections;
   }
 
-  public function withSections(Node $value): this {
+  public function withSections(?NodeList<SwitchSection> $value): this {
     if ($value === $this->_sections) {
       return $this;
     }
@@ -395,7 +395,7 @@ final class AlternateSwitchStatement
       $this->_expression,
       $this->_right_paren,
       $this->_opening_colon,
-      $value,
+      $value ?? Missing(),
       $this->_closing_endswitch,
       $this->_closing_semicolon,
     );
@@ -426,7 +426,7 @@ final class AlternateSwitchStatement
     return $this->_closing_endswitch;
   }
 
-  public function withClosingEndswitch(Node $value): this {
+  public function withClosingEndswitch(EndswitchToken $value): this {
     if ($value === $this->_closing_endswitch) {
       return $this;
     }
@@ -437,7 +437,7 @@ final class AlternateSwitchStatement
       $this->_right_paren,
       $this->_opening_colon,
       $this->_sections,
-      $value,
+      $value ?? Missing(),
       $this->_closing_semicolon,
     );
   }
@@ -467,7 +467,7 @@ final class AlternateSwitchStatement
     return $this->_closing_semicolon;
   }
 
-  public function withClosingSemicolon(Node $value): this {
+  public function withClosingSemicolon(SemicolonToken $value): this {
     if ($value === $this->_closing_semicolon) {
       return $this;
     }
@@ -479,7 +479,7 @@ final class AlternateSwitchStatement
       $this->_opening_colon,
       $this->_sections,
       $this->_closing_endswitch,
-      $value,
+      $value ?? Missing(),
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<76e8f763ffd916444f65f08a47ed3c27>>
+ * @generated SignedSource<<dfa92e6d9c6666c569cae89ad2d7379d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,12 +138,12 @@ final class TraitUseConflictResolution
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(UseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_names,
       $this->_left_brace,
       $this->_clauses,
@@ -173,13 +173,15 @@ final class TraitUseConflictResolution
     return $this->_names;
   }
 
-  public function withNames(Node $value): this {
+  public function withNames(
+    NodeList<ListItem<SimpleTypeSpecifier>> $value,
+  ): this {
     if ($value === $this->_names) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_left_brace,
       $this->_clauses,
       $this->_right_brace,
@@ -208,14 +210,14 @@ final class TraitUseConflictResolution
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_names,
-      $value,
+      $value ?? Missing(),
       $this->_clauses,
       $this->_right_brace,
     );
@@ -243,7 +245,7 @@ final class TraitUseConflictResolution
     return $this->_clauses;
   }
 
-  public function withClauses(Node $value): this {
+  public function withClauses(?NodeList<ListItem<ITraitUseItem>> $value): this {
     if ($value === $this->_clauses) {
       return $this;
     }
@@ -251,7 +253,7 @@ final class TraitUseConflictResolution
       $this->_keyword,
       $this->_names,
       $this->_left_brace,
-      $value,
+      $value ?? Missing(),
       $this->_right_brace,
     );
   }
@@ -285,7 +287,7 @@ final class TraitUseConflictResolution
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -294,7 +296,7 @@ final class TraitUseConflictResolution
       $this->_names,
       $this->_left_brace,
       $this->_clauses,
-      $value,
+      $value ?? Missing(),
     );
   }
 

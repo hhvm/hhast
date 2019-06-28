@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6fa80650d0bbdb26b3258510177ffaf2>>
+ * @generated SignedSource<<c03456f623fb0d644537ee091d69d5bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -156,7 +156,7 @@ final class LetStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_name,
       $this->_colon,
       $this->_type,
@@ -193,7 +193,7 @@ final class LetStatement extends Node implements IStatement {
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_colon,
       $this->_type,
       $this->_initializer,
@@ -230,7 +230,7 @@ final class LetStatement extends Node implements IStatement {
     return new static(
       $this->_keyword,
       $this->_name,
-      $value,
+      $value ?? Missing(),
       $this->_type,
       $this->_initializer,
       $this->_semicolon,
@@ -267,7 +267,7 @@ final class LetStatement extends Node implements IStatement {
       $this->_keyword,
       $this->_name,
       $this->_colon,
-      $value,
+      $value ?? Missing(),
       $this->_initializer,
       $this->_semicolon,
     );
@@ -304,7 +304,7 @@ final class LetStatement extends Node implements IStatement {
       $this->_name,
       $this->_colon,
       $this->_type,
-      $value,
+      $value ?? Missing(),
       $this->_semicolon,
     );
   }
@@ -341,7 +341,7 @@ final class LetStatement extends Node implements IStatement {
       $this->_colon,
       $this->_type,
       $this->_initializer,
-      $value,
+      $value ?? Missing(),
     );
   }
 

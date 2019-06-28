@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d38758f23f7a5e4efc909101cffaa6f>>
+ * @generated SignedSource<<6a3c09416188100048169e330003742b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -176,12 +176,12 @@ final class SwitchStatement
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(SwitchToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
     return new static(
-      $value,
+      $value ?? Missing(),
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
@@ -213,13 +213,13 @@ final class SwitchStatement
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
     return new static(
       $this->_keyword,
-      $value,
+      $value ?? Missing(),
       $this->_expression,
       $this->_right_paren,
       $this->_left_brace,
@@ -250,14 +250,14 @@ final class SwitchStatement
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(IExpression $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value,
+      $value ?? Missing(),
       $this->_right_paren,
       $this->_left_brace,
       $this->_sections,
@@ -291,7 +291,7 @@ final class SwitchStatement
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -299,7 +299,7 @@ final class SwitchStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
-      $value,
+      $value ?? Missing(),
       $this->_left_brace,
       $this->_sections,
       $this->_right_brace,
@@ -328,7 +328,7 @@ final class SwitchStatement
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(LeftBraceToken $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -337,7 +337,7 @@ final class SwitchStatement
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
-      $value,
+      $value ?? Missing(),
       $this->_sections,
       $this->_right_brace,
     );
@@ -365,7 +365,7 @@ final class SwitchStatement
     return $this->_sections;
   }
 
-  public function withSections(Node $value): this {
+  public function withSections(?NodeList<SwitchSection> $value): this {
     if ($value === $this->_sections) {
       return $this;
     }
@@ -375,7 +375,7 @@ final class SwitchStatement
       $this->_expression,
       $this->_right_paren,
       $this->_left_brace,
-      $value,
+      $value ?? Missing(),
       $this->_right_brace,
     );
   }
@@ -405,7 +405,7 @@ final class SwitchStatement
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(RightBraceToken $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -416,7 +416,7 @@ final class SwitchStatement
       $this->_right_paren,
       $this->_left_brace,
       $this->_sections,
-      $value,
+      $value ?? Missing(),
     );
   }
 
