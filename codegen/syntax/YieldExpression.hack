@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<852380d4a7f3541f7583b4b0496cad0c>>
+ * @generated SignedSource<<2a1b4d08569982125f101ae92bee5420>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,13 +125,12 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * ElementInitializer | FunctionCallExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | null |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
-   * | SubscriptExpression | BreakToken | NameToken | TupleExpression |
-   * VariableExpression
+   * @return AnonymousFunction | BinaryExpression | ElementInitializer |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | null | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | BreakToken | NameToken |
+   * TupleExpression | VariableExpression
    */
   public function getOperand(): ?Node {
     if ($this->_operand->isMissing()) {
@@ -141,9 +140,9 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * ElementInitializer | FunctionCallExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AnonymousFunction | BinaryExpression | ElementInitializer |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | BreakToken | NameToken |
    * TupleExpression | VariableExpression

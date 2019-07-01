@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6afb3f7b3497231cd3fd6c2f48ffd221>>
+ * @generated SignedSource<<f25fa51763fb806636f2556dcc8c11e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,6 +149,7 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<DictionaryTypeSpecifier>> |
    * NodeList<ListItem<GenericTypeSpecifier>> |
    * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<KeysetTypeSpecifier>> |
    * NodeList<ListItem<LikeTypeSpecifier>> |
    * NodeList<ListItem<MapArrayTypeSpecifier>> |
    * NodeList<ListItem<NullableTypeSpecifier>> |
@@ -156,7 +157,8 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<SimpleTypeSpecifier>> |
    * NodeList<ListItem<SoftTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * | NodeList<ListItem<VarrayTypeSpecifier>> |
+   * NodeList<ListItem<VectorArrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
   public function getTypes(): NodeList<ListItem<ITypeSpecifier>> {
@@ -171,6 +173,7 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<DictionaryTypeSpecifier>> |
    * NodeList<ListItem<GenericTypeSpecifier>> |
    * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<KeysetTypeSpecifier>> |
    * NodeList<ListItem<LikeTypeSpecifier>> |
    * NodeList<ListItem<MapArrayTypeSpecifier>> |
    * NodeList<ListItem<NullableTypeSpecifier>> |
@@ -178,7 +181,8 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<SimpleTypeSpecifier>> |
    * NodeList<ListItem<SoftTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * | NodeList<ListItem<VarrayTypeSpecifier>> |
+   * NodeList<ListItem<VectorArrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
   public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eaa44c633341d0a77f93de8048fb69dd>>
+ * @generated SignedSource<<36311ab7cb1aa490937373618c655f81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -186,9 +186,9 @@ final class ElementInitializer extends Node {
    * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
@@ -202,9 +202,9 @@ final class ElementInitializer extends Node {
    * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */

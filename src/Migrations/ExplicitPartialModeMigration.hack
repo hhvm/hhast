@@ -16,7 +16,7 @@ final class ExplicitPartialModeMigration extends BaseMigration {
   protected static function addPartialModeIfNoneSpecified(
     HHAST\MarkupSuffix $node,
   ): HHAST\MarkupSuffix {
-    $name = $node->getName()?->getText();
+    $name = $node->getName()->getText();
     if ($name !== 'hh') {
       return $node;
     }

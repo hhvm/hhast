@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0aed06c1d62a792de472a50231a32bdb>>
+ * @generated SignedSource<<86bcbac29377c490cd2979775908830f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -461,7 +461,7 @@ final class ForeachStatement
 
   /**
    * @return ListExpression | MemberSelectionExpression | null |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * SubscriptExpression | VariableExpression
    */
   public function getKey(): ?IExpression {
     if ($this->_key->isMissing()) {
@@ -471,8 +471,8 @@ final class ForeachStatement
   }
 
   /**
-   * @return ListExpression | MemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * @return ListExpression | MemberSelectionExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getKeyx(): IExpression {
     return TypeAssert\not_null($this->getKey());
@@ -630,16 +630,16 @@ final class ForeachStatement
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
-   * ExpressionStatement | ForeachStatement
+   * @return CompoundStatement | EchoStatement | ExpressionStatement |
+   * ForeachStatement
    */
   public function getBody(): IStatement {
     return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
-   * ExpressionStatement | ForeachStatement
+   * @return CompoundStatement | EchoStatement | ExpressionStatement |
+   * ForeachStatement
    */
   public function getBodyx(): IStatement {
     return $this->getBody();

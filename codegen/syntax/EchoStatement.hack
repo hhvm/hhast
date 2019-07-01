@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77b27e354fc18a4cdfb388dc190c322f>>
+ * @generated SignedSource<<4673397c785ef5b62a7a8d1f0e6acb6e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -146,10 +146,8 @@ final class EchoStatement extends Node implements IStatement {
    * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
    * | NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<IssetExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
-   * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ParenthesizedExpression>> |
    * NodeList<ListItem<PostfixUnaryExpression>> |
    * NodeList<ListItem<PrefixUnaryExpression>> |
@@ -167,10 +165,8 @@ final class EchoStatement extends Node implements IStatement {
    * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
    * | NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<IssetExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
-   * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ParenthesizedExpression>> |
    * NodeList<ListItem<PostfixUnaryExpression>> |
    * NodeList<ListItem<PrefixUnaryExpression>> |

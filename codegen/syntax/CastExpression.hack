@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6cbfb29de23d00ebf73f300b6ec371b0>>
+ * @generated SignedSource<<90dc9fcd51c22ffcbb1a02f311b39919>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -238,26 +238,26 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression |
-   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
-   * | ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
-   * | SubscriptExpression | NameToken | VariableExpression | XHPExpression
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
+   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | XHPExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**
-   * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression |
-   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
-   * | ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
-   * | SubscriptExpression | NameToken | VariableExpression | XHPExpression
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
+   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | XHPExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

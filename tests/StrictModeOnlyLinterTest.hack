@@ -22,7 +22,6 @@ final class StrictModeOnlyLinterTest extends TestCase {
       ["<?hh // strict\n/* foo */\n\nfunction bar() {}"],
       ["<?hh // strict\n// foo;"],
       ["<?php // hello, world;"],
-      ["<? // hello, world"],
     ];
   }
 }

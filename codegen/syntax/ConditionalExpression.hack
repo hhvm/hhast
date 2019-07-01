@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<51644b6632ff31ec16be2054b8b1e19e>>
+ * @generated SignedSource<<4458678ada3a286c8f994364bae2ebe2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -156,24 +156,22 @@ final class ConditionalExpression
   }
 
   /**
-   * @return BinaryExpression | ConditionalExpression | FunctionCallExpression
-   * | InstanceofExpression | IsExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * @return BinaryExpression | FunctionCallExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PrefixUnaryExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getTest(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_test);
   }
 
   /**
-   * @return BinaryExpression | ConditionalExpression | FunctionCallExpression
-   * | InstanceofExpression | IsExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * @return BinaryExpression | FunctionCallExpression | InstanceofExpression |
+   * IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PrefixUnaryExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getTestx(): IExpression {
     return $this->getTest();
@@ -239,15 +237,12 @@ final class ConditionalExpression
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * FunctionCallExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | null | ObjectCreationExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression
    */
-  public function getConsequence(): ?IExpression {
-    if ($this->_consequence->isMissing()) {
-      return null;
-    }
+  public function getConsequence(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_consequence);
   }
 
@@ -261,7 +256,7 @@ final class ConditionalExpression
    * NameToken | VariableExpression
    */
   public function getConsequencex(): IExpression {
-    return TypeAssert\not_null($this->getConsequence());
+    return $this->getConsequence();
   }
 
   public function getColonUNTYPED(): Node {
@@ -323,10 +318,11 @@ final class ConditionalExpression
   /**
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
   public function getAlternative(): IExpression {
@@ -336,10 +332,11 @@ final class ConditionalExpression
   /**
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression | IssetExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
    */
   public function getAlternativex(): IExpression {

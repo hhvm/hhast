@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a09c017d5d8cdbe96d06dbf2b494ad4>>
+ * @generated SignedSource<<221434eb4d3d29c2ba10d08d95a4c669>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -131,12 +131,9 @@ final class MarkupSuffix extends Node {
   }
 
   /**
-   * @return null | NameToken
+   * @return NameToken
    */
-  public function getName(): ?NameToken {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
+  public function getName(): NameToken {
     return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
@@ -144,6 +141,6 @@ final class MarkupSuffix extends Node {
    * @return NameToken
    */
   public function getNamex(): NameToken {
-    return TypeAssert\not_null($this->getName());
+    return $this->getName();
   }
 }

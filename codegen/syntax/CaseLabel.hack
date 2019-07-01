@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<729f95cc40736b197663eb12e737393c>>
+ * @generated SignedSource<<11c9891c6d65f01c9a18e38f5f0cd0e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -57,7 +57,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
-      'Token',
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $source_ref = shape(
@@ -142,20 +142,16 @@ final class CaseLabel extends Node implements ISwitchLabel {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression |
-   * FunctionCallExpression | InstanceofExpression | LiteralExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | NameToken |
-   * VariableExpression
+   * @return FunctionCallExpression | LiteralExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | NameToken | VariableExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression |
-   * FunctionCallExpression | InstanceofExpression | LiteralExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | NameToken |
-   * VariableExpression
+   * @return FunctionCallExpression | LiteralExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | NameToken | VariableExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();
@@ -177,16 +173,16 @@ final class CaseLabel extends Node implements ISwitchLabel {
   }
 
   /**
-   * @return ColonToken | SemicolonToken
+   * @return ColonToken
    */
-  public function getColon(): Token {
-    return TypeAssert\instance_of(Token::class, $this->_colon);
+  public function getColon(): ColonToken {
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @return ColonToken | SemicolonToken
+   * @return ColonToken
    */
-  public function getColonx(): Token {
+  public function getColonx(): ColonToken {
     return $this->getColon();
   }
 }

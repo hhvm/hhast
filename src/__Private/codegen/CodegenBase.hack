@@ -120,10 +120,6 @@ abstract class CodegenBase {
     $ifs = dict[
       HHAST\IControlFlowStatement::class => keyset[
         HHAST\ILoopStatement::class,
-        HHAST\AlternateElseClause::class,
-        HHAST\AlternateElseifClause::class,
-        HHAST\AlternateIfStatement::class,
-        HHAST\AlternateSwitchStatement::class,
         HHAST\ElseClause::class,
         HHAST\ElseifClause::class,
         HHAST\IfStatement::class,
@@ -158,7 +154,6 @@ abstract class CodegenBase {
         HHAST\IFunctionishDeclaration::class,
         HHAST\AnonymousFunction::class,
         HHAST\AwaitableCreationExpression::class,
-        HHAST\Php7AnonymousFunction::class,
         HHAST\LambdaExpression::class,
       ],
       HHAST\IHasTypeHint::class => keyset[
@@ -193,7 +188,6 @@ abstract class CodegenBase {
         HHAST\LambdaSignature::class,
       ],
       HHAST\ILoopStatement::class => keyset[
-        HHAST\AlternateLoopStatement::class,
         HHAST\DoStatement::class,
         HHAST\ForStatement::class,
         HHAST\ForeachStatement::class,
@@ -232,7 +226,6 @@ abstract class CodegenBase {
       HHAST\IExpression::class => Keyset\union(
         keyset[
           HHAST\AnonymousFunction::class,
-          HHAST\Php7AnonymousFunction::class,
           HHAST\VariableToken::class,
         ],
         Vec\filter(

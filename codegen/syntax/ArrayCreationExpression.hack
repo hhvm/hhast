@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<135f8f8dcc91620ad67053164d805cff>>
+ * @generated SignedSource<<fb02177992fb4904b9559596b93c260a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -147,8 +147,7 @@ final class ArrayCreationExpression
   }
 
   /**
-   * @return NodeList<ListItem<AnonymousFunction>> |
-   * NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<ArrayCreationExpression>> |
    * NodeList<ListItem<IPHPArray>> | NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<Node>> | NodeList<ListItem<BinaryExpression>> |
@@ -175,8 +174,7 @@ final class ArrayCreationExpression
   }
 
   /**
-   * @return NodeList<ListItem<AnonymousFunction>> |
-   * NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<ArrayCreationExpression>> |
    * NodeList<ListItem<IPHPArray>> | NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<Node>> | NodeList<ListItem<BinaryExpression>> |

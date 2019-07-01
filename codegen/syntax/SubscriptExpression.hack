@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27b6f6e8a0ed2917436f75c29b6b60db>>
+ * @generated SignedSource<<6ff3c3cef8c163740c3dbee0094893bc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -54,7 +54,7 @@ final class SubscriptExpression
       $file,
       $offset,
       $source,
-      'Token',
+      'LeftBracketToken',
     );
     $offset += $left_bracket->getWidth();
     $index = Node::fromJSON(
@@ -70,7 +70,7 @@ final class SubscriptExpression
       $file,
       $offset,
       $source,
-      'Token',
+      'RightBracketToken',
     );
     $offset += $right_bracket->getWidth();
     $source_ref = shape(
@@ -182,16 +182,19 @@ final class SubscriptExpression
   }
 
   /**
-   * @return LeftBracketToken | LeftBraceToken
+   * @return LeftBracketToken
    */
-  public function getLeftBracket(): Token {
-    return TypeAssert\instance_of(Token::class, $this->_left_bracket);
+  public function getLeftBracket(): LeftBracketToken {
+    return TypeAssert\instance_of(
+      LeftBracketToken::class,
+      $this->_left_bracket,
+    );
   }
 
   /**
-   * @return LeftBracketToken | LeftBraceToken
+   * @return LeftBracketToken
    */
-  public function getLeftBracketx(): Token {
+  public function getLeftBracketx(): LeftBracketToken {
     return $this->getLeftBracket();
   }
 
@@ -216,9 +219,8 @@ final class SubscriptExpression
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | null | ObjectCreationExpression |
+   * @return BinaryExpression | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | null |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
@@ -231,12 +233,10 @@ final class SubscriptExpression
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * @return BinaryExpression | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
+   * | SubscriptExpression | NameToken | VariableExpression
    */
   public function getIndexx(): IExpression {
     return TypeAssert\not_null($this->getIndex());
@@ -263,16 +263,19 @@ final class SubscriptExpression
   }
 
   /**
-   * @return RightBracketToken | RightBraceToken
+   * @return RightBracketToken
    */
-  public function getRightBracket(): Token {
-    return TypeAssert\instance_of(Token::class, $this->_right_bracket);
+  public function getRightBracket(): RightBracketToken {
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 
   /**
-   * @return RightBracketToken | RightBraceToken
+   * @return RightBracketToken
    */
-  public function getRightBracketx(): Token {
+  public function getRightBracketx(): RightBracketToken {
     return $this->getRightBracket();
   }
 }

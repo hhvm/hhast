@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e2f7f283b5fdd95e39c6d6a90fe219c>>
+ * @generated SignedSource<<7a5bb9d0b304f786f83ec0938fe83ae3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
-      'Token',
+      'ColonToken',
     );
     $offset += $colon->getWidth();
     $source_ref = shape(
@@ -125,16 +125,16 @@ final class DefaultLabel extends Node implements ISwitchLabel {
   }
 
   /**
-   * @return ColonToken | SemicolonToken
+   * @return ColonToken
    */
-  public function getColon(): Token {
-    return TypeAssert\instance_of(Token::class, $this->_colon);
+  public function getColon(): ColonToken {
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @return ColonToken | SemicolonToken
+   * @return ColonToken
    */
-  public function getColonx(): Token {
+  public function getColonx(): ColonToken {
     return $this->getColon();
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a5dee24e4e48095ee1d26dee024df22>>
+ * @generated SignedSource<<8cef9968be0efa0ab74d6e95beb81bea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -146,13 +146,13 @@ final class ReturnStatement extends Node implements IStatement {
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * InstanceofExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | null | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | null |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    * | XHPExpression | YieldFromExpression
    */
@@ -168,10 +168,9 @@ final class ReturnStatement extends Node implements IStatement {
    * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * InstanceofExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
    * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |

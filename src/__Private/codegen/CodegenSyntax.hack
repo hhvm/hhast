@@ -646,7 +646,6 @@ final class CodegenSyntax extends CodegenBase {
 
   private static function getKindsWithManualSubclasses(): keyset<string> {
     return keyset[
-      HHAST\AlternateLoopStatement::class,
       HHAST\AwaitableCreationExpression::class,
       HHAST\ClassishDeclaration::class,
       HHAST\MethodishDeclaration::class,

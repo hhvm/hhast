@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c6ffcc311022b149d0fb1337c916ebb>>
+ * @generated SignedSource<<11bd36d0614a8a1099737aa739e5e568>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -35,15 +35,8 @@ function node_from_json_unwrapped(
     'fix_me' => HHAST\FixMe::class,
     'ignore_error' => HHAST\IgnoreError::class,
     'single_line_comment' => HHAST\SingleLineComment::class,
-    'unsafe' => HHAST\Unsafe::class,
-    'unsafe_expression' => HHAST\UnsafeExpression::class,
     'whitespace' => HHAST\WhiteSpace::class,
     'alias_declaration' => HHAST\AliasDeclaration::class,
-    'alternate_else_clause' => HHAST\AlternateElseClause::class,
-    'alternate_elseif_clause' => HHAST\AlternateElseifClause::class,
-    'alternate_if_statement' => HHAST\AlternateIfStatement::class,
-    'alternate_loop_statement' => HHAST\AlternateLoopStatement::class,
-    'alternate_switch_statement' => HHAST\AlternateSwitchStatement::class,
     'anonymous_class' => HHAST\AnonymousClass::class,
     'anonymous_function' => HHAST\AnonymousFunction::class,
     'anonymous_function_use_clause' => HHAST\AnonymousFunctionUseClause::class,
@@ -140,7 +133,6 @@ function node_from_json_unwrapped(
     'object_creation_expression' => HHAST\ObjectCreationExpression::class,
     'parameter_declaration' => HHAST\ParameterDeclaration::class,
     'parenthesized_expression' => HHAST\ParenthesizedExpression::class,
-    'php7_anonymous_function' => HHAST\Php7AnonymousFunction::class,
     'pipe_variable' => HHAST\PipeVariableExpression::class,
     'pocket_atom' => HHAST\PocketAtomExpression::class,
     'pocket_atom_mapping' => HHAST\PocketAtomMappingDeclaration::class,
