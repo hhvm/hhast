@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88e9ffafbb0f31813e8ab8923180671e>>
+ * @generated SignedSource<<04fd84a884ad9e6271e8f8f3190fe766>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class DefaultLabel extends Node implements ISwitchLabel {
 
   const string SYNTAX_KIND = 'default_label';
 
-  private Node $_keyword;
-  private Node $_colon;
+  private DefaultToken $_keyword;
+  private Token $_colon;
 
   public function __construct(
-    Node $keyword,
-    Node $colon,
+    DefaultToken $keyword,
+    Token $colon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,6 +41,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
       $source,
       'DefaultToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['default_colon'],
@@ -48,6 +50,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
       $source,
       'Token',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class DefaultLabel extends Node implements ISwitchLabel {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $colon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     return dict[
       'keyword' => $this->_keyword,
       'colon' => $this->_colon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     if ($keyword === $this->_keyword && $colon === $this->_colon) {
       return $this;
     }
-    return new static($keyword, $colon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $colon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -88,11 +99,11 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_colon);
+    return new static($value, $this->_colon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     return $this->getKeyword();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -117,11 +128,11 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing());
+    return new static($this->_keyword, $value);
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**

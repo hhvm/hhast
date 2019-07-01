@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<11c93e9d4b3096507efca3606549f865>>
+ * @generated SignedSource<<9c3840896a6f8639523a8bde46bf46a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ForeachStatement
@@ -13,28 +14,28 @@ final class ForeachStatement
 
   const string SYNTAX_KIND = 'foreach_statement';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_collection;
-  private Node $_await_keyword;
-  private Node $_as;
-  private Node $_key;
-  private Node $_arrow;
-  private Node $_value;
-  private Node $_right_paren;
-  private Node $_body;
+  private ForeachToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private IExpression $_collection;
+  private ?AwaitToken $_await_keyword;
+  private AsToken $_as;
+  private ?IExpression $_key;
+  private ?EqualGreaterThanToken $_arrow;
+  private IExpression $_value;
+  private RightParenToken $_right_paren;
+  private IStatement $_body;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $collection,
-    Node $await_keyword,
-    Node $as,
-    Node $key,
-    Node $arrow,
-    Node $value,
-    Node $right_paren,
-    Node $body,
+    ForeachToken $keyword,
+    LeftParenToken $left_paren,
+    IExpression $collection,
+    ?AwaitToken $await_keyword,
+    AsToken $as,
+    ?IExpression $key,
+    ?EqualGreaterThanToken $arrow,
+    IExpression $value,
+    RightParenToken $right_paren,
+    IStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -66,6 +67,7 @@ final class ForeachStatement
       $source,
       'ForeachToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_left_paren'],
@@ -74,6 +76,7 @@ final class ForeachStatement
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $collection = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_collection'],
@@ -82,6 +85,7 @@ final class ForeachStatement
       $source,
       'IExpression',
     );
+    $collection = $collection as nonnull;
     $offset += $collection->getWidth();
     $await_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_await_keyword'],
@@ -90,7 +94,7 @@ final class ForeachStatement
       $source,
       'AwaitToken',
     );
-    $offset += $await_keyword->getWidth();
+    $offset += $await_keyword?->getWidth() ?? 0;
     $as = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_as'],
       $file,
@@ -98,6 +102,7 @@ final class ForeachStatement
       $source,
       'AsToken',
     );
+    $as = $as as nonnull;
     $offset += $as->getWidth();
     $key = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_key'],
@@ -106,7 +111,7 @@ final class ForeachStatement
       $source,
       'IExpression',
     );
-    $offset += $key->getWidth();
+    $offset += $key?->getWidth() ?? 0;
     $arrow = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_arrow'],
       $file,
@@ -114,7 +119,7 @@ final class ForeachStatement
       $source,
       'EqualGreaterThanToken',
     );
-    $offset += $arrow->getWidth();
+    $offset += $arrow?->getWidth() ?? 0;
     $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_value'],
       $file,
@@ -122,6 +127,7 @@ final class ForeachStatement
       $source,
       'IExpression',
     );
+    $value = $value as nonnull;
     $offset += $value->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_right_paren'],
@@ -130,6 +136,7 @@ final class ForeachStatement
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['foreach_body'],
@@ -138,6 +145,7 @@ final class ForeachStatement
       $source,
       'IStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -146,16 +154,16 @@ final class ForeachStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $collection,
-      $await_keyword,
-      $as,
-      $key,
-      $arrow,
-      $value,
-      $right_paren,
-      $body,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $collection,
+      /* HH_IGNORE_ERROR[4110] */ $await_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $as,
+      /* HH_IGNORE_ERROR[4110] */ $key,
+      /* HH_IGNORE_ERROR[4110] */ $arrow,
+      /* HH_IGNORE_ERROR[4110] */ $value,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
   }
@@ -173,7 +181,8 @@ final class ForeachStatement
       'value' => $this->_value,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -185,10 +194,12 @@ final class ForeachStatement
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
     $collection = $rewriter($this->_collection, $parents);
-    $await_keyword = $rewriter($this->_await_keyword, $parents);
+    $await_keyword = $this->_await_keyword === null
+      ? null
+      : $rewriter($this->_await_keyword, $parents);
     $as = $rewriter($this->_as, $parents);
-    $key = $rewriter($this->_key, $parents);
-    $arrow = $rewriter($this->_arrow, $parents);
+    $key = $this->_key === null ? null : $rewriter($this->_key, $parents);
+    $arrow = $this->_arrow === null ? null : $rewriter($this->_arrow, $parents);
     $value = $rewriter($this->_value, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $body = $rewriter($this->_body, $parents);
@@ -207,20 +218,20 @@ final class ForeachStatement
       return $this;
     }
     return new static(
-      $keyword,
-      $left_paren,
-      $collection,
-      $await_keyword,
-      $as,
-      $key,
-      $arrow,
-      $value,
-      $right_paren,
-      $body,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $collection,
+      /* HH_FIXME[4110] use `as` */ $await_keyword,
+      /* HH_FIXME[4110] use `as` */ $as,
+      /* HH_FIXME[4110] use `as` */ $key,
+      /* HH_FIXME[4110] use `as` */ $arrow,
+      /* HH_FIXME[4110] use `as` */ $value,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $body,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -229,7 +240,7 @@ final class ForeachStatement
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_collection,
       $this->_await_keyword,
@@ -243,7 +254,7 @@ final class ForeachStatement
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -260,7 +271,7 @@ final class ForeachStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -270,7 +281,7 @@ final class ForeachStatement
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_collection,
       $this->_await_keyword,
       $this->_as,
@@ -283,7 +294,7 @@ final class ForeachStatement
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -300,7 +311,7 @@ final class ForeachStatement
     return $this->getLeftParen();
   }
 
-  public function getCollectionUNTYPED(): Node {
+  public function getCollectionUNTYPED(): ?Node {
     return $this->_collection;
   }
 
@@ -311,7 +322,7 @@ final class ForeachStatement
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_await_keyword,
       $this->_as,
       $this->_key,
@@ -323,7 +334,7 @@ final class ForeachStatement
   }
 
   public function hasCollection(): bool {
-    return !$this->_collection->isMissing();
+    return $this->_collection !== null;
   }
 
   /**
@@ -350,7 +361,7 @@ final class ForeachStatement
     return $this->getCollection();
   }
 
-  public function getAwaitKeywordUNTYPED(): Node {
+  public function getAwaitKeywordUNTYPED(): ?Node {
     return $this->_await_keyword;
   }
 
@@ -362,7 +373,7 @@ final class ForeachStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_collection,
-      $value ?? Missing(),
+      $value,
       $this->_as,
       $this->_key,
       $this->_arrow,
@@ -373,17 +384,14 @@ final class ForeachStatement
   }
 
   public function hasAwaitKeyword(): bool {
-    return !$this->_await_keyword->isMissing();
+    return $this->_await_keyword !== null;
   }
 
   /**
    * @return null | AwaitToken
    */
   public function getAwaitKeyword(): ?AwaitToken {
-    if ($this->_await_keyword->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
+    return $this->_await_keyword;
   }
 
   /**
@@ -393,7 +401,7 @@ final class ForeachStatement
     return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
-  public function getAsUNTYPED(): Node {
+  public function getAsUNTYPED(): ?Node {
     return $this->_as;
   }
 
@@ -406,7 +414,7 @@ final class ForeachStatement
       $this->_left_paren,
       $this->_collection,
       $this->_await_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_key,
       $this->_arrow,
       $this->_value,
@@ -416,7 +424,7 @@ final class ForeachStatement
   }
 
   public function hasAs(): bool {
-    return !$this->_as->isMissing();
+    return $this->_as !== null;
   }
 
   /**
@@ -433,7 +441,7 @@ final class ForeachStatement
     return $this->getAs();
   }
 
-  public function getKeyUNTYPED(): Node {
+  public function getKeyUNTYPED(): ?Node {
     return $this->_key;
   }
 
@@ -447,7 +455,7 @@ final class ForeachStatement
       $this->_collection,
       $this->_await_keyword,
       $this->_as,
-      $value ?? Missing(),
+      $value,
       $this->_arrow,
       $this->_value,
       $this->_right_paren,
@@ -456,7 +464,7 @@ final class ForeachStatement
   }
 
   public function hasKey(): bool {
-    return !$this->_key->isMissing();
+    return $this->_key !== null;
   }
 
   /**
@@ -464,10 +472,7 @@ final class ForeachStatement
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getKey(): ?IExpression {
-    if ($this->_key->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(IExpression::class, $this->_key);
+    return $this->_key;
   }
 
   /**
@@ -478,7 +483,7 @@ final class ForeachStatement
     return TypeAssert\not_null($this->getKey());
   }
 
-  public function getArrowUNTYPED(): Node {
+  public function getArrowUNTYPED(): ?Node {
     return $this->_arrow;
   }
 
@@ -493,7 +498,7 @@ final class ForeachStatement
       $this->_await_keyword,
       $this->_as,
       $this->_key,
-      $value ?? Missing(),
+      $value,
       $this->_value,
       $this->_right_paren,
       $this->_body,
@@ -501,17 +506,14 @@ final class ForeachStatement
   }
 
   public function hasArrow(): bool {
-    return !$this->_arrow->isMissing();
+    return $this->_arrow !== null;
   }
 
   /**
    * @return null | EqualGreaterThanToken
    */
   public function getArrow(): ?EqualGreaterThanToken {
-    if ($this->_arrow->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(EqualGreaterThanToken::class, $this->_arrow);
+    return $this->_arrow;
   }
 
   /**
@@ -521,7 +523,7 @@ final class ForeachStatement
     return TypeAssert\not_null($this->getArrow());
   }
 
-  public function getValueUNTYPED(): Node {
+  public function getValueUNTYPED(): ?Node {
     return $this->_value;
   }
 
@@ -537,14 +539,14 @@ final class ForeachStatement
       $this->_as,
       $this->_key,
       $this->_arrow,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_body,
     );
   }
 
   public function hasValue(): bool {
-    return !$this->_value->isMissing();
+    return $this->_value !== null;
   }
 
   /**
@@ -563,7 +565,7 @@ final class ForeachStatement
     return $this->getValue();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -580,13 +582,13 @@ final class ForeachStatement
       $this->_key,
       $this->_arrow,
       $this->_value,
-      $value ?? Missing(),
+      $value,
       $this->_body,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -603,7 +605,7 @@ final class ForeachStatement
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -621,12 +623,12 @@ final class ForeachStatement
       $this->_arrow,
       $this->_value,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

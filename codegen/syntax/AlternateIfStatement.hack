@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ada279540738db85f58dd1fb16318826>>
+ * @generated SignedSource<<0b3d76403958b4e99f460f0f30699438>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class AlternateIfStatement
@@ -13,28 +14,28 @@ final class AlternateIfStatement
 
   const string SYNTAX_KIND = 'alternate_if_statement';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_condition;
-  private Node $_right_paren;
-  private Node $_colon;
-  private Node $_statement;
-  private Node $_elseif_clauses;
-  private Node $_else_clause;
-  private Node $_endif_keyword;
-  private Node $_semicolon;
+  private IfToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private IExpression $_condition;
+  private RightParenToken $_right_paren;
+  private ColonToken $_colon;
+  private NodeList<IStatement> $_statement;
+  private ?NodeList<AlternateElseifClause> $_elseif_clauses;
+  private ?AlternateElseClause $_else_clause;
+  private EndifToken $_endif_keyword;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $condition,
-    Node $right_paren,
-    Node $colon,
-    Node $statement,
-    Node $elseif_clauses,
-    Node $else_clause,
-    Node $endif_keyword,
-    Node $semicolon,
+    IfToken $keyword,
+    LeftParenToken $left_paren,
+    IExpression $condition,
+    RightParenToken $right_paren,
+    ColonToken $colon,
+    NodeList<IStatement> $statement,
+    ?NodeList<AlternateElseifClause> $elseif_clauses,
+    ?AlternateElseClause $else_clause,
+    EndifToken $endif_keyword,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -66,6 +67,7 @@ final class AlternateIfStatement
       $source,
       'IfToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_left_paren'],
@@ -74,6 +76,7 @@ final class AlternateIfStatement
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_condition'],
@@ -82,6 +85,7 @@ final class AlternateIfStatement
       $source,
       'IExpression',
     );
+    $condition = $condition as nonnull;
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_right_paren'],
@@ -90,6 +94,7 @@ final class AlternateIfStatement
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_colon'],
@@ -98,6 +103,7 @@ final class AlternateIfStatement
       $source,
       'ColonToken',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_statement'],
@@ -106,6 +112,7 @@ final class AlternateIfStatement
       $source,
       'NodeList<IStatement>',
     );
+    $statement = $statement as nonnull;
     $offset += $statement->getWidth();
     $elseif_clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_elseif_clauses'],
@@ -114,7 +121,7 @@ final class AlternateIfStatement
       $source,
       'NodeList<AlternateElseifClause>',
     );
-    $offset += $elseif_clauses->getWidth();
+    $offset += $elseif_clauses?->getWidth() ?? 0;
     $else_clause = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_else_clause'],
       $file,
@@ -122,7 +129,7 @@ final class AlternateIfStatement
       $source,
       'AlternateElseClause',
     );
-    $offset += $else_clause->getWidth();
+    $offset += $else_clause?->getWidth() ?? 0;
     $endif_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_endif_keyword'],
       $file,
@@ -130,6 +137,7 @@ final class AlternateIfStatement
       $source,
       'EndifToken',
     );
+    $endif_keyword = $endif_keyword as nonnull;
     $offset += $endif_keyword->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_if_semicolon'],
@@ -138,6 +146,7 @@ final class AlternateIfStatement
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -146,16 +155,16 @@ final class AlternateIfStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $colon,
-      $statement,
-      $elseif_clauses,
-      $else_clause,
-      $endif_keyword,
-      $semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $condition,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $statement,
+      /* HH_IGNORE_ERROR[4110] */ $elseif_clauses,
+      /* HH_IGNORE_ERROR[4110] */ $else_clause,
+      /* HH_IGNORE_ERROR[4110] */ $endif_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
   }
@@ -173,7 +182,8 @@ final class AlternateIfStatement
       'else_clause' => $this->_else_clause,
       'endif_keyword' => $this->_endif_keyword,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -188,8 +198,12 @@ final class AlternateIfStatement
     $right_paren = $rewriter($this->_right_paren, $parents);
     $colon = $rewriter($this->_colon, $parents);
     $statement = $rewriter($this->_statement, $parents);
-    $elseif_clauses = $rewriter($this->_elseif_clauses, $parents);
-    $else_clause = $rewriter($this->_else_clause, $parents);
+    $elseif_clauses = $this->_elseif_clauses === null
+      ? null
+      : $rewriter($this->_elseif_clauses, $parents);
+    $else_clause = $this->_else_clause === null
+      ? null
+      : $rewriter($this->_else_clause, $parents);
     $endif_keyword = $rewriter($this->_endif_keyword, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
@@ -207,20 +221,20 @@ final class AlternateIfStatement
       return $this;
     }
     return new static(
-      $keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $colon,
-      $statement,
-      $elseif_clauses,
-      $else_clause,
-      $endif_keyword,
-      $semicolon,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $condition,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $statement,
+      /* HH_FIXME[4110] use `as` */ $elseif_clauses,
+      /* HH_FIXME[4110] use `as` */ $else_clause,
+      /* HH_FIXME[4110] use `as` */ $endif_keyword,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -229,7 +243,7 @@ final class AlternateIfStatement
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -243,7 +257,7 @@ final class AlternateIfStatement
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -260,7 +274,7 @@ final class AlternateIfStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -270,7 +284,7 @@ final class AlternateIfStatement
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_condition,
       $this->_right_paren,
       $this->_colon,
@@ -283,7 +297,7 @@ final class AlternateIfStatement
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -300,7 +314,7 @@ final class AlternateIfStatement
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): Node {
+  public function getConditionUNTYPED(): ?Node {
     return $this->_condition;
   }
 
@@ -311,7 +325,7 @@ final class AlternateIfStatement
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_colon,
       $this->_statement,
@@ -323,7 +337,7 @@ final class AlternateIfStatement
   }
 
   public function hasCondition(): bool {
-    return !$this->_condition->isMissing();
+    return $this->_condition !== null;
   }
 
   /**
@@ -340,7 +354,7 @@ final class AlternateIfStatement
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -352,7 +366,7 @@ final class AlternateIfStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_statement,
       $this->_elseif_clauses,
@@ -363,7 +377,7 @@ final class AlternateIfStatement
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -380,7 +394,7 @@ final class AlternateIfStatement
     return $this->getRightParen();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -393,7 +407,7 @@ final class AlternateIfStatement
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
       $this->_statement,
       $this->_elseif_clauses,
       $this->_else_clause,
@@ -403,7 +417,7 @@ final class AlternateIfStatement
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
@@ -420,7 +434,7 @@ final class AlternateIfStatement
     return $this->getColon();
   }
 
-  public function getStatementUNTYPED(): Node {
+  public function getStatementUNTYPED(): ?Node {
     return $this->_statement;
   }
 
@@ -434,7 +448,7 @@ final class AlternateIfStatement
       $this->_condition,
       $this->_right_paren,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
       $this->_elseif_clauses,
       $this->_else_clause,
       $this->_endif_keyword,
@@ -443,7 +457,7 @@ final class AlternateIfStatement
   }
 
   public function hasStatement(): bool {
-    return !$this->_statement->isMissing();
+    return $this->_statement !== null;
   }
 
   /**
@@ -460,7 +474,7 @@ final class AlternateIfStatement
     return $this->getStatement();
   }
 
-  public function getElseifClausesUNTYPED(): Node {
+  public function getElseifClausesUNTYPED(): ?Node {
     return $this->_elseif_clauses;
   }
 
@@ -477,7 +491,7 @@ final class AlternateIfStatement
       $this->_right_paren,
       $this->_colon,
       $this->_statement,
-      $value ?? Missing(),
+      $value,
       $this->_else_clause,
       $this->_endif_keyword,
       $this->_semicolon,
@@ -485,17 +499,14 @@ final class AlternateIfStatement
   }
 
   public function hasElseifClauses(): bool {
-    return !$this->_elseif_clauses->isMissing();
+    return $this->_elseif_clauses !== null;
   }
 
   /**
    * @return NodeList<AlternateElseifClause> | null
    */
   public function getElseifClauses(): ?NodeList<AlternateElseifClause> {
-    if ($this->_elseif_clauses->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_elseif_clauses);
+    return $this->_elseif_clauses;
   }
 
   /**
@@ -505,7 +516,7 @@ final class AlternateIfStatement
     return TypeAssert\not_null($this->getElseifClauses());
   }
 
-  public function getElseClauseUNTYPED(): Node {
+  public function getElseClauseUNTYPED(): ?Node {
     return $this->_else_clause;
   }
 
@@ -521,27 +532,21 @@ final class AlternateIfStatement
       $this->_colon,
       $this->_statement,
       $this->_elseif_clauses,
-      $value ?? Missing(),
+      $value,
       $this->_endif_keyword,
       $this->_semicolon,
     );
   }
 
   public function hasElseClause(): bool {
-    return !$this->_else_clause->isMissing();
+    return $this->_else_clause !== null;
   }
 
   /**
    * @return AlternateElseClause | null
    */
   public function getElseClause(): ?AlternateElseClause {
-    if ($this->_else_clause->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AlternateElseClause::class,
-      $this->_else_clause,
-    );
+    return $this->_else_clause;
   }
 
   /**
@@ -551,7 +556,7 @@ final class AlternateIfStatement
     return TypeAssert\not_null($this->getElseClause());
   }
 
-  public function getEndifKeywordUNTYPED(): Node {
+  public function getEndifKeywordUNTYPED(): ?Node {
     return $this->_endif_keyword;
   }
 
@@ -568,13 +573,13 @@ final class AlternateIfStatement
       $this->_statement,
       $this->_elseif_clauses,
       $this->_else_clause,
-      $value ?? Missing(),
+      $value,
       $this->_semicolon,
     );
   }
 
   public function hasEndifKeyword(): bool {
-    return !$this->_endif_keyword->isMissing();
+    return $this->_endif_keyword !== null;
   }
 
   /**
@@ -591,7 +596,7 @@ final class AlternateIfStatement
     return $this->getEndifKeyword();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -609,12 +614,12 @@ final class AlternateIfStatement
       $this->_elseif_clauses,
       $this->_else_clause,
       $this->_endif_keyword,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

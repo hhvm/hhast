@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40a9bc0dbbf4da9e9965666efbc18f5a>>
+ * @generated SignedSource<<5739b34a9a16544c03e3ae7bab4655aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class BracedExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'braced_expression';
 
-  private Node $_left_brace;
-  private Node $_expression;
-  private Node $_right_brace;
+  private LeftBraceToken $_left_brace;
+  private IExpression $_expression;
+  private RightBraceToken $_right_brace;
 
   public function __construct(
-    Node $left_brace,
-    Node $expression,
-    Node $right_brace,
+    LeftBraceToken $left_brace,
+    IExpression $expression,
+    RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_brace = $left_brace;
@@ -43,6 +44,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['braced_expression_expression'],
@@ -51,6 +53,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'IExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['braced_expression_right_brace'],
@@ -59,6 +62,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_brace, $expression, $right_brace, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       'left_brace' => $this->_left_brace,
       'expression' => $this->_expression,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     ) {
       return $this;
     }
-    return new static($left_brace, $expression, $right_brace);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
+    );
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -105,15 +119,11 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_expression,
-      $this->_right_brace,
-    );
+    return new static($value, $this->_expression, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -130,7 +140,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     return $this->getLeftBrace();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -138,15 +148,11 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static(
-      $this->_left_brace,
-      $value ?? Missing(),
-      $this->_right_brace,
-    );
+    return new static($this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -169,7 +175,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     return $this->getExpression();
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -177,15 +183,11 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static(
-      $this->_left_brace,
-      $this->_expression,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_brace, $this->_expression, $value);
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

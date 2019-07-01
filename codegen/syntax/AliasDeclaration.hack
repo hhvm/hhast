@@ -1,34 +1,35 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<875e4e80b3741054e4706afb652cfadf>>
+ * @generated SignedSource<<c0721aa51cecc01786c32663d265d567>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class AliasDeclaration extends Node implements IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'alias_declaration';
 
-  private Node $_attribute_spec;
-  private Node $_keyword;
-  private Node $_name;
-  private Node $_generic_parameter;
-  private Node $_constraint;
-  private Node $_equal;
-  private Node $_type;
-  private Node $_semicolon;
+  private ?AttributeSpecification $_attribute_spec;
+  private Token $_keyword;
+  private NameToken $_name;
+  private ?TypeParameters $_generic_parameter;
+  private ?TypeConstraint $_constraint;
+  private EqualToken $_equal;
+  private ITypeSpecifier $_type;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $attribute_spec,
-    Node $keyword,
-    Node $name,
-    Node $generic_parameter,
-    Node $constraint,
-    Node $equal,
-    Node $type,
-    Node $semicolon,
+    ?AttributeSpecification $attribute_spec,
+    Token $keyword,
+    NameToken $name,
+    ?TypeParameters $generic_parameter,
+    ?TypeConstraint $constraint,
+    EqualToken $equal,
+    ITypeSpecifier $type,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -58,7 +59,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'AttributeSpecification',
     );
-    $offset += $attribute_spec->getWidth();
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alias_keyword'],
       $file,
@@ -66,6 +67,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'Token',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alias_name'],
@@ -74,6 +76,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'NameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $generic_parameter = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alias_generic_parameter'],
@@ -82,7 +85,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'TypeParameters',
     );
-    $offset += $generic_parameter->getWidth();
+    $offset += $generic_parameter?->getWidth() ?? 0;
     $constraint = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alias_constraint'],
       $file,
@@ -90,7 +93,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'TypeConstraint',
     );
-    $offset += $constraint->getWidth();
+    $offset += $constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alias_equal'],
       $file,
@@ -98,6 +101,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'EqualToken',
     );
+    $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alias_type'],
@@ -106,6 +110,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'ITypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alias_semicolon'],
@@ -114,6 +119,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -122,14 +128,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute_spec,
-      $keyword,
-      $name,
-      $generic_parameter,
-      $constraint,
-      $equal,
-      $type,
-      $semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $generic_parameter,
+      /* HH_IGNORE_ERROR[4110] */ $constraint,
+      /* HH_IGNORE_ERROR[4110] */ $equal,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
   }
@@ -145,7 +151,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       'equal' => $this->_equal,
       'type' => $this->_type,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -154,11 +161,17 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $generic_parameter = $rewriter($this->_generic_parameter, $parents);
-    $constraint = $rewriter($this->_constraint, $parents);
+    $generic_parameter = $this->_generic_parameter === null
+      ? null
+      : $rewriter($this->_generic_parameter, $parents);
+    $constraint = $this->_constraint === null
+      ? null
+      : $rewriter($this->_constraint, $parents);
     $equal = $rewriter($this->_equal, $parents);
     $type = $rewriter($this->_type, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
@@ -175,18 +188,18 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       return $this;
     }
     return new static(
-      $attribute_spec,
-      $keyword,
-      $name,
-      $generic_parameter,
-      $constraint,
-      $equal,
-      $type,
-      $semicolon,
+      /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $generic_parameter,
+      /* HH_FIXME[4110] use `as` */ $constraint,
+      /* HH_FIXME[4110] use `as` */ $equal,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
     );
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->_attribute_spec;
   }
 
@@ -195,7 +208,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,
@@ -207,20 +220,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->isMissing();
+    return $this->_attribute_spec !== null;
   }
 
   /**
    * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return $this->_attribute_spec;
   }
 
   /**
@@ -230,7 +237,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -240,7 +247,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_generic_parameter,
       $this->_constraint,
@@ -251,7 +258,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -268,7 +275,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -279,7 +286,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return new static(
       $this->_attribute_spec,
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_generic_parameter,
       $this->_constraint,
       $this->_equal,
@@ -289,7 +296,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -306,7 +313,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->getName();
   }
 
-  public function getGenericParameterUNTYPED(): Node {
+  public function getGenericParameterUNTYPED(): ?Node {
     return $this->_generic_parameter;
   }
 
@@ -318,7 +325,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_constraint,
       $this->_equal,
       $this->_type,
@@ -327,20 +334,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasGenericParameter(): bool {
-    return !$this->_generic_parameter->isMissing();
+    return $this->_generic_parameter !== null;
   }
 
   /**
    * @return null | TypeParameters
    */
   public function getGenericParameter(): ?TypeParameters {
-    if ($this->_generic_parameter->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      TypeParameters::class,
-      $this->_generic_parameter,
-    );
+    return $this->_generic_parameter;
   }
 
   /**
@@ -350,7 +351,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getGenericParameter());
   }
 
-  public function getConstraintUNTYPED(): Node {
+  public function getConstraintUNTYPED(): ?Node {
     return $this->_constraint;
   }
 
@@ -363,7 +364,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,
-      $value ?? Missing(),
+      $value,
       $this->_equal,
       $this->_type,
       $this->_semicolon,
@@ -371,17 +372,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasConstraint(): bool {
-    return !$this->_constraint->isMissing();
+    return $this->_constraint !== null;
   }
 
   /**
    * @return null | TypeConstraint
    */
   public function getConstraint(): ?TypeConstraint {
-    if ($this->_constraint->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(TypeConstraint::class, $this->_constraint);
+    return $this->_constraint;
   }
 
   /**
@@ -391,7 +389,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getConstraint());
   }
 
-  public function getEqualUNTYPED(): Node {
+  public function getEqualUNTYPED(): ?Node {
     return $this->_equal;
   }
 
@@ -405,14 +403,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_name,
       $this->_generic_parameter,
       $this->_constraint,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_semicolon,
     );
   }
 
   public function hasEqual(): bool {
-    return !$this->_equal->isMissing();
+    return $this->_equal !== null;
   }
 
   /**
@@ -429,7 +427,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->getEqual();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -444,13 +442,13 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_generic_parameter,
       $this->_constraint,
       $this->_equal,
-      $value ?? Missing(),
+      $value,
       $this->_semicolon,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -473,7 +471,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->getType();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -489,12 +487,12 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $this->_constraint,
       $this->_equal,
       $this->_type,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

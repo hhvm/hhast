@@ -1,28 +1,29 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f34dd54c0507f29861a8be227c2a5fd5>>
+ * @generated SignedSource<<066b93f1aab0ea3ec6d9d75f7398721c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TypeParameter extends Node {
 
   const string SYNTAX_KIND = 'type_parameter';
 
-  private Node $_attribute_spec;
-  private Node $_reified;
-  private Node $_variance;
-  private Node $_name;
-  private Node $_constraints;
+  private ?AttributeSpecification $_attribute_spec;
+  private ?ReifyToken $_reified;
+  private ?Token $_variance;
+  private NameToken $_name;
+  private ?NodeList<TypeConstraint> $_constraints;
 
   public function __construct(
-    Node $attribute_spec,
-    Node $reified,
-    Node $variance,
-    Node $name,
-    Node $constraints,
+    ?AttributeSpecification $attribute_spec,
+    ?ReifyToken $reified,
+    ?Token $variance,
+    NameToken $name,
+    ?NodeList<TypeConstraint> $constraints,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -49,7 +50,7 @@ final class TypeParameter extends Node {
       $source,
       'AttributeSpecification',
     );
-    $offset += $attribute_spec->getWidth();
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $reified = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_reified'],
       $file,
@@ -57,7 +58,7 @@ final class TypeParameter extends Node {
       $source,
       'ReifyToken',
     );
-    $offset += $reified->getWidth();
+    $offset += $reified?->getWidth() ?? 0;
     $variance = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_variance'],
       $file,
@@ -65,7 +66,7 @@ final class TypeParameter extends Node {
       $source,
       'Token',
     );
-    $offset += $variance->getWidth();
+    $offset += $variance?->getWidth() ?? 0;
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_name'],
       $file,
@@ -73,6 +74,7 @@ final class TypeParameter extends Node {
       $source,
       'NameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $constraints = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_constraints'],
@@ -81,7 +83,7 @@ final class TypeParameter extends Node {
       $source,
       'NodeList<TypeConstraint>',
     );
-    $offset += $constraints->getWidth();
+    $offset += $constraints?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -89,11 +91,11 @@ final class TypeParameter extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute_spec,
-      $reified,
-      $variance,
-      $name,
-      $constraints,
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $reified,
+      /* HH_IGNORE_ERROR[4110] */ $variance,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $constraints,
       $source_ref,
     );
   }
@@ -106,7 +108,8 @@ final class TypeParameter extends Node {
       'variance' => $this->_variance,
       'name' => $this->_name,
       'constraints' => $this->_constraints,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -115,11 +118,19 @@ final class TypeParameter extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
-    $reified = $rewriter($this->_reified, $parents);
-    $variance = $rewriter($this->_variance, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
+    $reified = $this->_reified === null
+      ? null
+      : $rewriter($this->_reified, $parents);
+    $variance = $this->_variance === null
+      ? null
+      : $rewriter($this->_variance, $parents);
     $name = $rewriter($this->_name, $parents);
-    $constraints = $rewriter($this->_constraints, $parents);
+    $constraints = $this->_constraints === null
+      ? null
+      : $rewriter($this->_constraints, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $reified === $this->_reified &&
@@ -130,15 +141,15 @@ final class TypeParameter extends Node {
       return $this;
     }
     return new static(
-      $attribute_spec,
-      $reified,
-      $variance,
-      $name,
-      $constraints,
+      /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $reified,
+      /* HH_FIXME[4110] use `as` */ $variance,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $constraints,
     );
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->_attribute_spec;
   }
 
@@ -147,7 +158,7 @@ final class TypeParameter extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_reified,
       $this->_variance,
       $this->_name,
@@ -156,20 +167,14 @@ final class TypeParameter extends Node {
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->isMissing();
+    return $this->_attribute_spec !== null;
   }
 
   /**
    * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return $this->_attribute_spec;
   }
 
   /**
@@ -179,7 +184,7 @@ final class TypeParameter extends Node {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getReifiedUNTYPED(): Node {
+  public function getReifiedUNTYPED(): ?Node {
     return $this->_reified;
   }
 
@@ -189,7 +194,7 @@ final class TypeParameter extends Node {
     }
     return new static(
       $this->_attribute_spec,
-      $value ?? Missing(),
+      $value,
       $this->_variance,
       $this->_name,
       $this->_constraints,
@@ -197,17 +202,14 @@ final class TypeParameter extends Node {
   }
 
   public function hasReified(): bool {
-    return !$this->_reified->isMissing();
+    return $this->_reified !== null;
   }
 
   /**
    * @return null | ReifyToken
    */
   public function getReified(): ?ReifyToken {
-    if ($this->_reified->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ReifyToken::class, $this->_reified);
+    return $this->_reified;
   }
 
   /**
@@ -217,7 +219,7 @@ final class TypeParameter extends Node {
     return TypeAssert\not_null($this->getReified());
   }
 
-  public function getVarianceUNTYPED(): Node {
+  public function getVarianceUNTYPED(): ?Node {
     return $this->_variance;
   }
 
@@ -228,24 +230,21 @@ final class TypeParameter extends Node {
     return new static(
       $this->_attribute_spec,
       $this->_reified,
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_constraints,
     );
   }
 
   public function hasVariance(): bool {
-    return !$this->_variance->isMissing();
+    return $this->_variance !== null;
   }
 
   /**
    * @return null | PlusToken | MinusToken
    */
   public function getVariance(): ?Token {
-    if ($this->_variance->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(Token::class, $this->_variance);
+    return $this->_variance;
   }
 
   /**
@@ -255,7 +254,7 @@ final class TypeParameter extends Node {
     return TypeAssert\not_null($this->getVariance());
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -267,13 +266,13 @@ final class TypeParameter extends Node {
       $this->_attribute_spec,
       $this->_reified,
       $this->_variance,
-      $value ?? Missing(),
+      $value,
       $this->_constraints,
     );
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -290,7 +289,7 @@ final class TypeParameter extends Node {
     return $this->getName();
   }
 
-  public function getConstraintsUNTYPED(): Node {
+  public function getConstraintsUNTYPED(): ?Node {
     return $this->_constraints;
   }
 
@@ -303,22 +302,19 @@ final class TypeParameter extends Node {
       $this->_reified,
       $this->_variance,
       $this->_name,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasConstraints(): bool {
-    return !$this->_constraints->isMissing();
+    return $this->_constraints !== null;
   }
 
   /**
    * @return NodeList<TypeConstraint> | null
    */
   public function getConstraints(): ?NodeList<TypeConstraint> {
-    if ($this->_constraints->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_constraints);
+    return $this->_constraints;
   }
 
   /**

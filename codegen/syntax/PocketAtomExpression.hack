@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0a1296976532f556d78b6027cdc5273c>>
+ * @generated SignedSource<<c252d34e358624cfe11bbedb6a63b909>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PocketAtomExpression
@@ -42,6 +43,7 @@ final class PocketAtomExpression
       $source,
       'Node',
     );
+    $glyph = $glyph as nonnull;
     $offset += $glyph->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_expression'],
@@ -50,6 +52,7 @@ final class PocketAtomExpression
       $source,
       'Node',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -57,7 +60,11 @@ final class PocketAtomExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($glyph, $expression, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $glyph,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -65,7 +72,8 @@ final class PocketAtomExpression
     return dict[
       'glyph' => $this->_glyph,
       'expression' => $this->_expression,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,10 +87,13 @@ final class PocketAtomExpression
     if ($glyph === $this->_glyph && $expression === $this->_expression) {
       return $this;
     }
-    return new static($glyph, $expression);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $glyph,
+      /* HH_FIXME[4110] use `as` */ $expression,
+    );
   }
 
-  public function getGlyphUNTYPED(): Node {
+  public function getGlyphUNTYPED(): ?Node {
     return $this->_glyph;
   }
 
@@ -90,11 +101,11 @@ final class PocketAtomExpression
     if ($value === $this->_glyph) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_expression);
+    return new static($value, $this->_expression);
   }
 
   public function hasGlyph(): bool {
-    return !$this->_glyph->isMissing();
+    return $this->_glyph !== null;
   }
 
   /**
@@ -111,7 +122,7 @@ final class PocketAtomExpression
     return $this->getGlyph();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -119,11 +130,11 @@ final class PocketAtomExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_glyph, $value ?? Missing());
+    return new static($this->_glyph, $value);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**

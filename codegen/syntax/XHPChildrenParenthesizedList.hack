@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<766cd1cc8447ea30d95aa5d5bd8f7a59>>
+ * @generated SignedSource<<a8877839f2ca8932beb0fb37f256bb1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPChildrenParenthesizedList extends Node {
@@ -43,6 +44,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $source,
       'Node',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $xhp_children = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_list_xhp_children'],
@@ -51,6 +53,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $source,
       'Node',
     );
+    $xhp_children = $xhp_children as nonnull;
     $offset += $xhp_children->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_list_right_paren'],
@@ -59,6 +62,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $source,
       'Node',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class XHPChildrenParenthesizedList extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_paren, $xhp_children, $right_paren, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $xhp_children,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class XHPChildrenParenthesizedList extends Node {
       'left_paren' => $this->_left_paren,
       'xhp_children' => $this->_xhp_children,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class XHPChildrenParenthesizedList extends Node {
     ) {
       return $this;
     }
-    return new static($left_paren, $xhp_children, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $xhp_children,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -105,15 +119,11 @@ final class XHPChildrenParenthesizedList extends Node {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_xhp_children,
-      $this->_right_paren,
-    );
+    return new static($value, $this->_xhp_children, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -130,7 +140,7 @@ final class XHPChildrenParenthesizedList extends Node {
     return $this->getLeftParen();
   }
 
-  public function getXhpChildrenUNTYPED(): Node {
+  public function getXhpChildrenUNTYPED(): ?Node {
     return $this->_xhp_children;
   }
 
@@ -138,15 +148,11 @@ final class XHPChildrenParenthesizedList extends Node {
     if ($value === $this->_xhp_children) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $value ?? Missing(),
-      $this->_right_paren,
-    );
+    return new static($this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasXhpChildren(): bool {
-    return !$this->_xhp_children->isMissing();
+    return $this->_xhp_children !== null;
   }
 
   /**
@@ -163,7 +169,7 @@ final class XHPChildrenParenthesizedList extends Node {
     return $this->getXhpChildren();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -171,15 +177,11 @@ final class XHPChildrenParenthesizedList extends Node {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $this->_xhp_children,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_paren, $this->_xhp_children, $value);
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

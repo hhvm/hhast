@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c6ffcc311022b149d0fb1337c916ebb>>
+ * @generated SignedSource<<39b8f4391ebe570a5a22bb79ead86513>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -12,8 +12,11 @@ function node_from_json_unwrapped(
   int $offset,
   string $source,
   string $type_hint,
-): HHAST\Node {
+): ?HHAST\Node {
   $kind = $json["kind"] as string;
+  if ($kind === "missing") {
+    return null;
+  }
   if ($kind === "token") {
     return HHAST\Token::fromJSON(
       /* HH_FIXME[4110] */ $json['token'],
@@ -26,7 +29,6 @@ function node_from_json_unwrapped(
   $kind_to_class = dict[
     'list' => HHAST\NodeList::class,
     'list_item' => HHAST\ListItem::class,
-    'missing' => HHAST\Missing::class,
     'after_halt_compiler' => HHAST\AfterHaltCompiler::class,
     'delimited_comment' => HHAST\DelimitedComment::class,
     'end_of_line' => HHAST\EndOfLine::class,

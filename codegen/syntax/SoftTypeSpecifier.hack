@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f75d376df35b0ba8eed0fe5e8fa736b>>
+ * @generated SignedSource<<d02ccff379cb68e6ef60049d4b175f97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'soft_type_specifier';
 
-  private Node $_at;
-  private Node $_type;
+  private AtToken $_at;
+  private ITypeSpecifier $_type;
 
   public function __construct(
-    Node $at,
-    Node $type,
+    AtToken $at,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_at = $at;
@@ -40,6 +41,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'AtToken',
     );
+    $at = $at as nonnull;
     $offset += $at->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['soft_type'],
@@ -48,6 +50,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'ITypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($at, $type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $at,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     return dict[
       'at' => $this->_at,
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     if ($at === $this->_at && $type === $this->_type) {
       return $this;
     }
-    return new static($at, $type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $at,
+      /* HH_FIXME[4110] use `as` */ $type,
+    );
   }
 
-  public function getAtUNTYPED(): Node {
+  public function getAtUNTYPED(): ?Node {
     return $this->_at;
   }
 
@@ -88,11 +99,11 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_at) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasAt(): bool {
-    return !$this->_at->isMissing();
+    return $this->_at !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getAt();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -117,11 +128,11 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_at, $value ?? Missing());
+    return new static($this->_at, $value);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**

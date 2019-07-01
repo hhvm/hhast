@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ade8c1b341ec74bb03677bc168ac3b6>>
+ * @generated SignedSource<<722830bbcd11a32bd40684898170d469>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TryStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'try_statement';
 
-  private Node $_keyword;
-  private Node $_compound_statement;
-  private Node $_catch_clauses;
-  private Node $_finally_clause;
+  private TryToken $_keyword;
+  private CompoundStatement $_compound_statement;
+  private ?NodeList<CatchClause> $_catch_clauses;
+  private ?FinallyClause $_finally_clause;
 
   public function __construct(
-    Node $keyword,
-    Node $compound_statement,
-    Node $catch_clauses,
-    Node $finally_clause,
+    TryToken $keyword,
+    CompoundStatement $compound_statement,
+    ?NodeList<CatchClause> $catch_clauses,
+    ?FinallyClause $finally_clause,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,6 +47,7 @@ final class TryStatement extends Node implements IStatement {
       $source,
       'TryToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $compound_statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['try_compound_statement'],
@@ -54,6 +56,7 @@ final class TryStatement extends Node implements IStatement {
       $source,
       'CompoundStatement',
     );
+    $compound_statement = $compound_statement as nonnull;
     $offset += $compound_statement->getWidth();
     $catch_clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['try_catch_clauses'],
@@ -62,7 +65,7 @@ final class TryStatement extends Node implements IStatement {
       $source,
       'NodeList<CatchClause>',
     );
-    $offset += $catch_clauses->getWidth();
+    $offset += $catch_clauses?->getWidth() ?? 0;
     $finally_clause = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['try_finally_clause'],
       $file,
@@ -70,7 +73,7 @@ final class TryStatement extends Node implements IStatement {
       $source,
       'FinallyClause',
     );
-    $offset += $finally_clause->getWidth();
+    $offset += $finally_clause?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -78,10 +81,10 @@ final class TryStatement extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $compound_statement,
-      $catch_clauses,
-      $finally_clause,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $compound_statement,
+      /* HH_IGNORE_ERROR[4110] */ $catch_clauses,
+      /* HH_IGNORE_ERROR[4110] */ $finally_clause,
       $source_ref,
     );
   }
@@ -93,7 +96,8 @@ final class TryStatement extends Node implements IStatement {
       'compound_statement' => $this->_compound_statement,
       'catch_clauses' => $this->_catch_clauses,
       'finally_clause' => $this->_finally_clause,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -104,8 +108,12 @@ final class TryStatement extends Node implements IStatement {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $compound_statement = $rewriter($this->_compound_statement, $parents);
-    $catch_clauses = $rewriter($this->_catch_clauses, $parents);
-    $finally_clause = $rewriter($this->_finally_clause, $parents);
+    $catch_clauses = $this->_catch_clauses === null
+      ? null
+      : $rewriter($this->_catch_clauses, $parents);
+    $finally_clause = $this->_finally_clause === null
+      ? null
+      : $rewriter($this->_finally_clause, $parents);
     if (
       $keyword === $this->_keyword &&
       $compound_statement === $this->_compound_statement &&
@@ -115,14 +123,14 @@ final class TryStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      $keyword,
-      $compound_statement,
-      $catch_clauses,
-      $finally_clause,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $compound_statement,
+      /* HH_FIXME[4110] use `as` */ $catch_clauses,
+      /* HH_FIXME[4110] use `as` */ $finally_clause,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -131,7 +139,7 @@ final class TryStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_compound_statement,
       $this->_catch_clauses,
       $this->_finally_clause,
@@ -139,7 +147,7 @@ final class TryStatement extends Node implements IStatement {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -156,7 +164,7 @@ final class TryStatement extends Node implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getCompoundStatementUNTYPED(): Node {
+  public function getCompoundStatementUNTYPED(): ?Node {
     return $this->_compound_statement;
   }
 
@@ -166,14 +174,14 @@ final class TryStatement extends Node implements IStatement {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_catch_clauses,
       $this->_finally_clause,
     );
   }
 
   public function hasCompoundStatement(): bool {
-    return !$this->_compound_statement->isMissing();
+    return $this->_compound_statement !== null;
   }
 
   /**
@@ -193,7 +201,7 @@ final class TryStatement extends Node implements IStatement {
     return $this->getCompoundStatement();
   }
 
-  public function getCatchClausesUNTYPED(): Node {
+  public function getCatchClausesUNTYPED(): ?Node {
     return $this->_catch_clauses;
   }
 
@@ -204,23 +212,20 @@ final class TryStatement extends Node implements IStatement {
     return new static(
       $this->_keyword,
       $this->_compound_statement,
-      $value ?? Missing(),
+      $value,
       $this->_finally_clause,
     );
   }
 
   public function hasCatchClauses(): bool {
-    return !$this->_catch_clauses->isMissing();
+    return $this->_catch_clauses !== null;
   }
 
   /**
    * @return NodeList<CatchClause> | null
    */
   public function getCatchClauses(): ?NodeList<CatchClause> {
-    if ($this->_catch_clauses->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_catch_clauses);
+    return $this->_catch_clauses;
   }
 
   /**
@@ -230,7 +235,7 @@ final class TryStatement extends Node implements IStatement {
     return TypeAssert\not_null($this->getCatchClauses());
   }
 
-  public function getFinallyClauseUNTYPED(): Node {
+  public function getFinallyClauseUNTYPED(): ?Node {
     return $this->_finally_clause;
   }
 
@@ -242,22 +247,19 @@ final class TryStatement extends Node implements IStatement {
       $this->_keyword,
       $this->_compound_statement,
       $this->_catch_clauses,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasFinallyClause(): bool {
-    return !$this->_finally_clause->isMissing();
+    return $this->_finally_clause !== null;
   }
 
   /**
    * @return FinallyClause | null
    */
   public function getFinallyClause(): ?FinallyClause {
-    if ($this->_finally_clause->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(FinallyClause::class, $this->_finally_clause);
+    return $this->_finally_clause;
   }
 
   /**

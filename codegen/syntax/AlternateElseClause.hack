@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<156a07be09c99e99c3a58ce268c33081>>
+ * @generated SignedSource<<fd44c5b013f4a1db2153068b36b64c6f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class AlternateElseClause extends Node implements IControlFlowStatement {
 
   const string SYNTAX_KIND = 'alternate_else_clause';
 
-  private Node $_keyword;
-  private Node $_colon;
-  private Node $_statement;
+  private ElseToken $_keyword;
+  private ColonToken $_colon;
+  private NodeList<IStatement> $_statement;
 
   public function __construct(
-    Node $keyword,
-    Node $colon,
-    Node $statement,
+    ElseToken $keyword,
+    ColonToken $colon,
+    NodeList<IStatement> $statement,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,6 +44,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
       $source,
       'ElseToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_else_colon'],
@@ -51,6 +53,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
       $source,
       'ColonToken',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_else_statement'],
@@ -59,6 +62,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
       $source,
       'NodeList<IStatement>',
     );
+    $statement = $statement as nonnull;
     $offset += $statement->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $colon, $statement, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $statement,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
       'keyword' => $this->_keyword,
       'colon' => $this->_colon,
       'statement' => $this->_statement,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     ) {
       return $this;
     }
-    return new static($keyword, $colon, $statement);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $statement,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -105,11 +119,11 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_colon, $this->_statement);
+    return new static($value, $this->_colon, $this->_statement);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -126,7 +140,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     return $this->getKeyword();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -134,11 +148,11 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_statement);
+    return new static($this->_keyword, $value, $this->_statement);
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
@@ -155,7 +169,7 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     return $this->getColon();
   }
 
-  public function getStatementUNTYPED(): Node {
+  public function getStatementUNTYPED(): ?Node {
     return $this->_statement;
   }
 
@@ -163,11 +177,11 @@ final class AlternateElseClause extends Node implements IControlFlowStatement {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new static($this->_keyword, $this->_colon, $value ?? Missing());
+    return new static($this->_keyword, $this->_colon, $value);
   }
 
   public function hasStatement(): bool {
-    return !$this->_statement->isMissing();
+    return $this->_statement !== null;
   }
 
   /**

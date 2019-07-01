@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0088c91e70feee3ce707101254c5f57b>>
+ * @generated SignedSource<<78c4dd229f997b5a3d22f069d8dfb177>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PrefixUnaryExpression
@@ -13,12 +14,12 @@ final class PrefixUnaryExpression
 
   const string SYNTAX_KIND = 'prefix_unary_expression';
 
-  private Node $_operator;
-  private Node $_operand;
+  private Token $_operator;
+  private IExpression $_operand;
 
   public function __construct(
-    Node $operator,
-    Node $operand,
+    Token $operator,
+    IExpression $operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_operator = $operator;
@@ -42,6 +43,7 @@ final class PrefixUnaryExpression
       $source,
       'Token',
     );
+    $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['prefix_unary_operand'],
@@ -50,6 +52,7 @@ final class PrefixUnaryExpression
       $source,
       'IExpression',
     );
+    $operand = $operand as nonnull;
     $offset += $operand->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -57,7 +60,11 @@ final class PrefixUnaryExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($operator, $operand, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $operator,
+      /* HH_IGNORE_ERROR[4110] */ $operand,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -65,7 +72,8 @@ final class PrefixUnaryExpression
     return dict[
       'operator' => $this->_operator,
       'operand' => $this->_operand,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,10 +87,13 @@ final class PrefixUnaryExpression
     if ($operator === $this->_operator && $operand === $this->_operand) {
       return $this;
     }
-    return new static($operator, $operand);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $operator,
+      /* HH_FIXME[4110] use `as` */ $operand,
+    );
   }
 
-  public function getOperatorUNTYPED(): Node {
+  public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
@@ -90,11 +101,11 @@ final class PrefixUnaryExpression
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_operand);
+    return new static($value, $this->_operand);
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->isMissing();
+    return $this->_operator !== null;
   }
 
   /**
@@ -115,7 +126,7 @@ final class PrefixUnaryExpression
     return $this->getOperator();
   }
 
-  public function getOperandUNTYPED(): Node {
+  public function getOperandUNTYPED(): ?Node {
     return $this->_operand;
   }
 
@@ -123,11 +134,11 @@ final class PrefixUnaryExpression
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static($this->_operator, $value ?? Missing());
+    return new static($this->_operator, $value);
   }
 
   public function hasOperand(): bool {
-    return !$this->_operand->isMissing();
+    return $this->_operand !== null;
   }
 
   /**

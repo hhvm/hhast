@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12bb9060ed4d4eac0784a0db796546cc>>
+ * @generated SignedSource<<fc524205fabebb3316272356bc15db8f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'xhp_expression';
 
-  private Node $_open;
-  private Node $_body;
-  private Node $_close;
+  private XHPOpen $_open;
+  private ?NodeList<Node> $_body;
+  private ?XHPClose $_close;
 
   public function __construct(
-    Node $open,
-    Node $body,
-    Node $close,
+    XHPOpen $open,
+    ?NodeList<Node> $body,
+    ?XHPClose $close,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_open = $open;
@@ -43,6 +44,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'XHPOpen',
     );
+    $open = $open as nonnull;
     $offset += $open->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_body'],
@@ -51,7 +53,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'NodeList<Node>',
     );
-    $offset += $body->getWidth();
+    $offset += $body?->getWidth() ?? 0;
     $close = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_close'],
       $file,
@@ -59,14 +61,19 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'XHPClose',
     );
-    $offset += $close->getWidth();
+    $offset += $close?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($open, $body, $close, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $open,
+      /* HH_IGNORE_ERROR[4110] */ $body,
+      /* HH_IGNORE_ERROR[4110] */ $close,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +82,8 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       'open' => $this->_open,
       'body' => $this->_body,
       'close' => $this->_close,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,8 +93,8 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $parents[] = $this;
     $open = $rewriter($this->_open, $parents);
-    $body = $rewriter($this->_body, $parents);
-    $close = $rewriter($this->_close, $parents);
+    $body = $this->_body === null ? null : $rewriter($this->_body, $parents);
+    $close = $this->_close === null ? null : $rewriter($this->_close, $parents);
     if (
       $open === $this->_open &&
       $body === $this->_body &&
@@ -94,10 +102,14 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     ) {
       return $this;
     }
-    return new static($open, $body, $close);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $open,
+      /* HH_FIXME[4110] use `as` */ $body,
+      /* HH_FIXME[4110] use `as` */ $close,
+    );
   }
 
-  public function getOpenUNTYPED(): Node {
+  public function getOpenUNTYPED(): ?Node {
     return $this->_open;
   }
 
@@ -105,11 +117,11 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_open) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_body, $this->_close);
+    return new static($value, $this->_body, $this->_close);
   }
 
   public function hasOpen(): bool {
-    return !$this->_open->isMissing();
+    return $this->_open !== null;
   }
 
   /**
@@ -126,7 +138,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     return $this->getOpen();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -134,11 +146,11 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_body) {
       return $this;
     }
-    return new static($this->_open, $value ?? Missing(), $this->_close);
+    return new static($this->_open, $value, $this->_close);
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**
@@ -147,10 +159,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
    * NodeList<XHPExpression> | null
    */
   public function getBody(): ?NodeList<Node> {
-    if ($this->_body->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_body);
+    return $this->_body;
   }
 
   /**
@@ -162,7 +171,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     return TypeAssert\not_null($this->getBody());
   }
 
-  public function getCloseUNTYPED(): Node {
+  public function getCloseUNTYPED(): ?Node {
     return $this->_close;
   }
 
@@ -170,21 +179,18 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_close) {
       return $this;
     }
-    return new static($this->_open, $this->_body, $value ?? Missing());
+    return new static($this->_open, $this->_body, $value);
   }
 
   public function hasClose(): bool {
-    return !$this->_close->isMissing();
+    return $this->_close !== null;
   }
 
   /**
    * @return null | XHPClose
    */
   public function getClose(): ?XHPClose {
-    if ($this->_close->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(XHPClose::class, $this->_close);
+    return $this->_close;
   }
 
   /**

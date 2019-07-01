@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5b247548f14e58fae7523233ecd56c5>>
+ * @generated SignedSource<<2c7574a5984b3152897e54b58181d96b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TypeParameters extends Node {
 
   const string SYNTAX_KIND = 'type_parameters';
 
-  private Node $_left_angle;
-  private Node $_parameters;
-  private Node $_right_angle;
+  private LessThanToken $_left_angle;
+  private NodeList<ListItem<TypeParameter>> $_parameters;
+  private GreaterThanToken $_right_angle;
 
   public function __construct(
-    Node $left_angle,
-    Node $parameters,
-    Node $right_angle,
+    LessThanToken $left_angle,
+    NodeList<ListItem<TypeParameter>> $parameters,
+    GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_angle = $left_angle;
@@ -43,6 +44,7 @@ final class TypeParameters extends Node {
       $source,
       'LessThanToken',
     );
+    $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_parameters_parameters'],
@@ -51,6 +53,7 @@ final class TypeParameters extends Node {
       $source,
       'NodeList<ListItem<TypeParameter>>',
     );
+    $parameters = $parameters as nonnull;
     $offset += $parameters->getWidth();
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_parameters_right_angle'],
@@ -59,6 +62,7 @@ final class TypeParameters extends Node {
       $source,
       'GreaterThanToken',
     );
+    $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class TypeParameters extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_angle, $parameters, $right_angle, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_angle,
+      /* HH_IGNORE_ERROR[4110] */ $parameters,
+      /* HH_IGNORE_ERROR[4110] */ $right_angle,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class TypeParameters extends Node {
       'left_angle' => $this->_left_angle,
       'parameters' => $this->_parameters,
       'right_angle' => $this->_right_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class TypeParameters extends Node {
     ) {
       return $this;
     }
-    return new static($left_angle, $parameters, $right_angle);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_angle,
+      /* HH_FIXME[4110] use `as` */ $parameters,
+      /* HH_FIXME[4110] use `as` */ $right_angle,
+    );
   }
 
-  public function getLeftAngleUNTYPED(): Node {
+  public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
@@ -105,15 +119,11 @@ final class TypeParameters extends Node {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_parameters,
-      $this->_right_angle,
-    );
+    return new static($value, $this->_parameters, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->isMissing();
+    return $this->_left_angle !== null;
   }
 
   /**
@@ -130,7 +140,7 @@ final class TypeParameters extends Node {
     return $this->getLeftAngle();
   }
 
-  public function getParametersUNTYPED(): Node {
+  public function getParametersUNTYPED(): ?Node {
     return $this->_parameters;
   }
 
@@ -140,15 +150,11 @@ final class TypeParameters extends Node {
     if ($value === $this->_parameters) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $value ?? Missing(),
-      $this->_right_angle,
-    );
+    return new static($this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasParameters(): bool {
-    return !$this->_parameters->isMissing();
+    return $this->_parameters !== null;
   }
 
   /**
@@ -165,7 +171,7 @@ final class TypeParameters extends Node {
     return $this->getParameters();
   }
 
-  public function getRightAngleUNTYPED(): Node {
+  public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
@@ -173,15 +179,11 @@ final class TypeParameters extends Node {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $this->_parameters,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_angle, $this->_parameters, $value);
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->isMissing();
+    return $this->_right_angle !== null;
   }
 
   /**

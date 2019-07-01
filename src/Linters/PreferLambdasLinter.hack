@@ -75,19 +75,19 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
 
     $signature = new LambdaSignature(
       $left_paren,
-      $parameters ?? Missing(),
-      $right_paren ?? Missing(),
-      $colon ?? Missing(),
-      $type ?? Missing(),
+      $parameters,
+      $right_paren,
+      $colon,
+      $type,
     );
 
     $arrow = new EqualEqualGreaterThanToken(Missing(), new WhiteSpace(' '));
     $body = $node->getBody();
 
     return new LambdaExpression(
-      $attribute_spec ?? Missing(),
-      $async ?? Missing(),
-      $coroutine ?? Missing(),
+      $attribute_spec,
+      $async,
+      $coroutine,
       $signature,
       $arrow,
       $body,

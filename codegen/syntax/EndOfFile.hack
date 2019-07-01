@@ -1,20 +1,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<138d8e09a4bd74de13d798361b924d98>>
+ * @generated SignedSource<<8e06afb789f06b372d58d632a849b72d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class EndOfFile extends Node {
 
   const string SYNTAX_KIND = 'end_of_file';
 
-  private Node $_token;
+  private EndOfFileToken $_token;
 
   public function __construct(
-    Node $token,
+    EndOfFileToken $token,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_token = $token;
@@ -37,6 +38,7 @@ final class EndOfFile extends Node {
       $source,
       'EndOfFileToken',
     );
+    $token = $token as nonnull;
     $offset += $token->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -44,14 +46,15 @@ final class EndOfFile extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($token, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $token, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'token' => $this->_token,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -64,10 +67,10 @@ final class EndOfFile extends Node {
     if ($token === $this->_token) {
       return $this;
     }
-    return new static($token);
+    return new static(/* HH_FIXME[4110] use `as` */ $token);
   }
 
-  public function getTokenUNTYPED(): Node {
+  public function getTokenUNTYPED(): ?Node {
     return $this->_token;
   }
 
@@ -75,11 +78,11 @@ final class EndOfFile extends Node {
     if ($value === $this->_token) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasToken(): bool {
-    return !$this->_token->isMissing();
+    return $this->_token !== null;
   }
 
   /**

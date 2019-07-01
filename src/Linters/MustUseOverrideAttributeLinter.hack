@@ -78,7 +78,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
   ): string {
     $super = C\onlyx($class->getExtendsListx()->getChildren());
     if ($super instanceof ListItem) {
-      $super = $super->getItemUNTYPED();
+      $super = $super->getItemx();
     }
     if ($super instanceof GenericTypeSpecifier) {
       $super = $super->getClassType();
@@ -137,7 +137,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
       $body
         ->withStatements(null)
         ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing()))
-        ->without($body->getRightBracex())
+        ->without($body->getRightBracex()),
     )
       ->getCode();
   }
@@ -156,10 +156,11 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
           ),
           new HHAST\ConstructorCall(
             new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), '__Override'),
-            HHAST\Missing(),
-            HHAST\Missing(),
-            HHAST\Missing(),
-          ),
+            null,
+            null,
+            null,
+          )
+            |> new HHAST\NodeList(vec[new HHAST\ListItem($$, null)]),
           new HHAST\GreaterThanGreaterThanToken(
             HHAST\Missing(),
             Str\contains(
@@ -187,11 +188,13 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
         new HHAST\CommaToken(HHAST\Missing(), new HHAST\WhiteSpace(' ')),
       );
     }
-    $list[] = new HHAST\NameToken(
-      HHAST\Missing(),
-      HHAST\Missing(),
-      '__Override',
-    );
+    $list[] = new HHAST\ConstructorCall(
+      new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), '__Override'),
+      null,
+      null,
+      null,
+    )
+      |> new HHAST\ListItem($$, null);
 
     return $node->withAttribute(
       $attrs->withAttributes(new HHAST\NodeList($list)),

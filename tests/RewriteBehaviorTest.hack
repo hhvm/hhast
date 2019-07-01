@@ -30,12 +30,7 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testSyntaxIdentity(): void {
-    $node = new HHAST\TypeConstant(
-      HHAST\Missing(),
-      HHAST\Missing(),
-      HHAST\Missing(),
-    );
-
+    $node = new HHAST\Script(new HHAST\NodeList(vec[], null));
     expect($node->rewrite(($x, $_) ==> $x))
       ->toBeSame($node);
   }

@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0a13990585678a8ecfda7970fc227e9b>>
+ * @generated SignedSource<<c2af4c800cf307bb3e2ec739be9308db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class EmbeddedSubscriptExpression
@@ -48,6 +49,7 @@ final class EmbeddedSubscriptExpression
       $source,
       'Node',
     );
+    $receiver = $receiver as nonnull;
     $offset += $receiver->getWidth();
     $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_left_bracket'],
@@ -56,6 +58,7 @@ final class EmbeddedSubscriptExpression
       $source,
       'Node',
     );
+    $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $index = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_index'],
@@ -64,6 +67,7 @@ final class EmbeddedSubscriptExpression
       $source,
       'Node',
     );
+    $index = $index as nonnull;
     $offset += $index->getWidth();
     $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_right_bracket'],
@@ -72,6 +76,7 @@ final class EmbeddedSubscriptExpression
       $source,
       'Node',
     );
+    $right_bracket = $right_bracket as nonnull;
     $offset += $right_bracket->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -80,10 +85,10 @@ final class EmbeddedSubscriptExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $receiver,
-      $left_bracket,
-      $index,
-      $right_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $receiver,
+      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $index,
+      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
       $source_ref,
     );
   }
@@ -95,7 +100,8 @@ final class EmbeddedSubscriptExpression
       'left_bracket' => $this->_left_bracket,
       'index' => $this->_index,
       'right_bracket' => $this->_right_bracket,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -116,10 +122,15 @@ final class EmbeddedSubscriptExpression
     ) {
       return $this;
     }
-    return new static($receiver, $left_bracket, $index, $right_bracket);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $receiver,
+      /* HH_FIXME[4110] use `as` */ $left_bracket,
+      /* HH_FIXME[4110] use `as` */ $index,
+      /* HH_FIXME[4110] use `as` */ $right_bracket,
+    );
   }
 
-  public function getReceiverUNTYPED(): Node {
+  public function getReceiverUNTYPED(): ?Node {
     return $this->_receiver;
   }
 
@@ -128,7 +139,7 @@ final class EmbeddedSubscriptExpression
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_bracket,
       $this->_index,
       $this->_right_bracket,
@@ -136,7 +147,7 @@ final class EmbeddedSubscriptExpression
   }
 
   public function hasReceiver(): bool {
-    return !$this->_receiver->isMissing();
+    return $this->_receiver !== null;
   }
 
   /**
@@ -153,7 +164,7 @@ final class EmbeddedSubscriptExpression
     return $this->getReceiver();
   }
 
-  public function getLeftBracketUNTYPED(): Node {
+  public function getLeftBracketUNTYPED(): ?Node {
     return $this->_left_bracket;
   }
 
@@ -163,14 +174,14 @@ final class EmbeddedSubscriptExpression
     }
     return new static(
       $this->_receiver,
-      $value ?? Missing(),
+      $value,
       $this->_index,
       $this->_right_bracket,
     );
   }
 
   public function hasLeftBracket(): bool {
-    return !$this->_left_bracket->isMissing();
+    return $this->_left_bracket !== null;
   }
 
   /**
@@ -187,7 +198,7 @@ final class EmbeddedSubscriptExpression
     return $this->getLeftBracket();
   }
 
-  public function getIndexUNTYPED(): Node {
+  public function getIndexUNTYPED(): ?Node {
     return $this->_index;
   }
 
@@ -198,13 +209,13 @@ final class EmbeddedSubscriptExpression
     return new static(
       $this->_receiver,
       $this->_left_bracket,
-      $value ?? Missing(),
+      $value,
       $this->_right_bracket,
     );
   }
 
   public function hasIndex(): bool {
-    return !$this->_index->isMissing();
+    return $this->_index !== null;
   }
 
   /**
@@ -221,7 +232,7 @@ final class EmbeddedSubscriptExpression
     return $this->getIndex();
   }
 
-  public function getRightBracketUNTYPED(): Node {
+  public function getRightBracketUNTYPED(): ?Node {
     return $this->_right_bracket;
   }
 
@@ -233,12 +244,12 @@ final class EmbeddedSubscriptExpression
       $this->_receiver,
       $this->_left_bracket,
       $this->_index,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBracket(): bool {
-    return !$this->_right_bracket->isMissing();
+    return $this->_right_bracket !== null;
   }
 
   /**

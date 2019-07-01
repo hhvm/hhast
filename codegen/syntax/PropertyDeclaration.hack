@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<33d234d984b25d46ef47f6894acd0fa3>>
+ * @generated SignedSource<<cd7e4dbc609918184ee3836cb8fb652a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PropertyDeclaration
@@ -13,18 +14,18 @@ final class PropertyDeclaration
 
   const string SYNTAX_KIND = 'property_declaration';
 
-  private Node $_attribute_spec;
+  private ?AttributeSpecification $_attribute_spec;
   private Node $_modifiers;
-  private Node $_type;
-  private Node $_declarators;
-  private Node $_semicolon;
+  private ?ITypeSpecifier $_type;
+  private NodeList<ListItem<PropertyDeclarator>> $_declarators;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $attribute_spec,
+    ?AttributeSpecification $attribute_spec,
     Node $modifiers,
-    Node $type,
-    Node $declarators,
-    Node $semicolon,
+    ?ITypeSpecifier $type,
+    NodeList<ListItem<PropertyDeclarator>> $declarators,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -51,7 +52,7 @@ final class PropertyDeclaration
       $source,
       'AttributeSpecification',
     );
-    $offset += $attribute_spec->getWidth();
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_modifiers'],
       $file,
@@ -59,6 +60,7 @@ final class PropertyDeclaration
       $source,
       'Node',
     );
+    $modifiers = $modifiers as nonnull;
     $offset += $modifiers->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_type'],
@@ -67,7 +69,7 @@ final class PropertyDeclaration
       $source,
       'ITypeSpecifier',
     );
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $declarators = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_declarators'],
       $file,
@@ -75,6 +77,7 @@ final class PropertyDeclaration
       $source,
       'NodeList<ListItem<PropertyDeclarator>>',
     );
+    $declarators = $declarators as nonnull;
     $offset += $declarators->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_semicolon'],
@@ -83,6 +86,7 @@ final class PropertyDeclaration
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -91,11 +95,11 @@ final class PropertyDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute_spec,
-      $modifiers,
-      $type,
-      $declarators,
-      $semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $declarators,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
   }
@@ -108,7 +112,8 @@ final class PropertyDeclaration
       'type' => $this->_type,
       'declarators' => $this->_declarators,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -117,9 +122,11 @@ final class PropertyDeclaration
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $modifiers = $rewriter($this->_modifiers, $parents);
-    $type = $rewriter($this->_type, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $declarators = $rewriter($this->_declarators, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
@@ -132,15 +139,15 @@ final class PropertyDeclaration
       return $this;
     }
     return new static(
-      $attribute_spec,
-      $modifiers,
-      $type,
-      $declarators,
-      $semicolon,
+      /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $modifiers,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $declarators,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
     );
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->_attribute_spec;
   }
 
@@ -149,7 +156,7 @@ final class PropertyDeclaration
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_modifiers,
       $this->_type,
       $this->_declarators,
@@ -158,20 +165,14 @@ final class PropertyDeclaration
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->isMissing();
+    return $this->_attribute_spec !== null;
   }
 
   /**
    * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return $this->_attribute_spec;
   }
 
   /**
@@ -181,7 +182,7 @@ final class PropertyDeclaration
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getModifiersUNTYPED(): Node {
+  public function getModifiersUNTYPED(): ?Node {
     return $this->_modifiers;
   }
 
@@ -191,7 +192,7 @@ final class PropertyDeclaration
     }
     return new static(
       $this->_attribute_spec,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_declarators,
       $this->_semicolon,
@@ -199,7 +200,7 @@ final class PropertyDeclaration
   }
 
   public function hasModifiers(): bool {
-    return !$this->_modifiers->isMissing();
+    return $this->_modifiers !== null;
   }
 
   /**
@@ -220,7 +221,7 @@ final class PropertyDeclaration
     return $this->getModifiers();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -231,14 +232,14 @@ final class PropertyDeclaration
     return new static(
       $this->_attribute_spec,
       $this->_modifiers,
-      $value ?? Missing(),
+      $value,
       $this->_declarators,
       $this->_semicolon,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -249,10 +250,7 @@ final class PropertyDeclaration
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
-    if ($this->_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -266,7 +264,7 @@ final class PropertyDeclaration
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getDeclaratorsUNTYPED(): Node {
+  public function getDeclaratorsUNTYPED(): ?Node {
     return $this->_declarators;
   }
 
@@ -280,13 +278,13 @@ final class PropertyDeclaration
       $this->_attribute_spec,
       $this->_modifiers,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_semicolon,
     );
   }
 
   public function hasDeclarators(): bool {
-    return !$this->_declarators->isMissing();
+    return $this->_declarators !== null;
   }
 
   /**
@@ -303,7 +301,7 @@ final class PropertyDeclaration
     return $this->getDeclarators();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -316,12 +314,12 @@ final class PropertyDeclaration
       $this->_modifiers,
       $this->_type,
       $this->_declarators,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

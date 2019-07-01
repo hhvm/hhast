@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad8754a54cb97a5b743c92d9af1c83d2>>
+ * @generated SignedSource<<e7ffb46263edf44517155cb88ad09064>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PostfixUnaryExpression
@@ -13,12 +14,12 @@ final class PostfixUnaryExpression
 
   const string SYNTAX_KIND = 'postfix_unary_expression';
 
-  private Node $_operand;
-  private Node $_operator;
+  private IExpression $_operand;
+  private Token $_operator;
 
   public function __construct(
-    Node $operand,
-    Node $operator,
+    IExpression $operand,
+    Token $operator,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_operand = $operand;
@@ -42,6 +43,7 @@ final class PostfixUnaryExpression
       $source,
       'IExpression',
     );
+    $operand = $operand as nonnull;
     $offset += $operand->getWidth();
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['postfix_unary_operator'],
@@ -50,6 +52,7 @@ final class PostfixUnaryExpression
       $source,
       'Token',
     );
+    $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -57,7 +60,11 @@ final class PostfixUnaryExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($operand, $operator, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $operand,
+      /* HH_IGNORE_ERROR[4110] */ $operator,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -65,7 +72,8 @@ final class PostfixUnaryExpression
     return dict[
       'operand' => $this->_operand,
       'operator' => $this->_operator,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,10 +87,13 @@ final class PostfixUnaryExpression
     if ($operand === $this->_operand && $operator === $this->_operator) {
       return $this;
     }
-    return new static($operand, $operator);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $operand,
+      /* HH_FIXME[4110] use `as` */ $operator,
+    );
   }
 
-  public function getOperandUNTYPED(): Node {
+  public function getOperandUNTYPED(): ?Node {
     return $this->_operand;
   }
 
@@ -90,11 +101,11 @@ final class PostfixUnaryExpression
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_operator);
+    return new static($value, $this->_operator);
   }
 
   public function hasOperand(): bool {
-    return !$this->_operand->isMissing();
+    return $this->_operand !== null;
   }
 
   /**
@@ -113,7 +124,7 @@ final class PostfixUnaryExpression
     return $this->getOperand();
   }
 
-  public function getOperatorUNTYPED(): Node {
+  public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
@@ -121,11 +132,11 @@ final class PostfixUnaryExpression
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_operand, $value ?? Missing());
+    return new static($this->_operand, $value);
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->isMissing();
+    return $this->_operator !== null;
   }
 
   /**

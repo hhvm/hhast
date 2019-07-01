@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<849063d162533d84125168f71d9ddbe7>>
+ * @generated SignedSource<<4b337927519b65ab02a77f98468b0c2b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ParenthesizedExpression
@@ -13,14 +14,14 @@ final class ParenthesizedExpression
 
   const string SYNTAX_KIND = 'parenthesized_expression';
 
-  private Node $_left_paren;
-  private Node $_expression;
-  private Node $_right_paren;
+  private LeftParenToken $_left_paren;
+  private IExpression $_expression;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $left_paren,
-    Node $expression,
-    Node $right_paren,
+    LeftParenToken $left_paren,
+    IExpression $expression,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -45,6 +46,7 @@ final class ParenthesizedExpression
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parenthesized_expression_expression'],
@@ -53,6 +55,7 @@ final class ParenthesizedExpression
       $source,
       'IExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parenthesized_expression_right_paren'],
@@ -61,6 +64,7 @@ final class ParenthesizedExpression
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class ParenthesizedExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_paren, $expression, $right_paren, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class ParenthesizedExpression
       'left_paren' => $this->_left_paren,
       'expression' => $this->_expression,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class ParenthesizedExpression
     ) {
       return $this;
     }
-    return new static($left_paren, $expression, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -107,15 +121,11 @@ final class ParenthesizedExpression
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_expression,
-      $this->_right_paren,
-    );
+    return new static($value, $this->_expression, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -132,7 +142,7 @@ final class ParenthesizedExpression
     return $this->getLeftParen();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -140,15 +150,11 @@ final class ParenthesizedExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $value ?? Missing(),
-      $this->_right_paren,
-    );
+    return new static($this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -181,7 +187,7 @@ final class ParenthesizedExpression
     return $this->getExpression();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -189,15 +195,11 @@ final class ParenthesizedExpression
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $this->_expression,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_paren, $this->_expression, $value);
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

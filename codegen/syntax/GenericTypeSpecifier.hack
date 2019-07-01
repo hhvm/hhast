@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e68678d56698c046f309c928ca615b8>>
+ * @generated SignedSource<<d36a03d76f9a2b25440311d3056bc72c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class GenericTypeSpecifier
@@ -14,11 +15,11 @@ final class GenericTypeSpecifier
   const string SYNTAX_KIND = 'generic_type_specifier';
 
   private Node $_class_type;
-  private Node $_argument_list;
+  private TypeArguments $_argument_list;
 
   public function __construct(
     Node $class_type,
-    Node $argument_list,
+    TypeArguments $argument_list,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_class_type = $class_type;
@@ -42,6 +43,7 @@ final class GenericTypeSpecifier
       $source,
       'Node',
     );
+    $class_type = $class_type as nonnull;
     $offset += $class_type->getWidth();
     $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['generic_argument_list'],
@@ -50,6 +52,7 @@ final class GenericTypeSpecifier
       $source,
       'TypeArguments',
     );
+    $argument_list = $argument_list as nonnull;
     $offset += $argument_list->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -57,7 +60,11 @@ final class GenericTypeSpecifier
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($class_type, $argument_list, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $class_type,
+      /* HH_IGNORE_ERROR[4110] */ $argument_list,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -65,7 +72,8 @@ final class GenericTypeSpecifier
     return dict[
       'class_type' => $this->_class_type,
       'argument_list' => $this->_argument_list,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,10 +90,13 @@ final class GenericTypeSpecifier
     ) {
       return $this;
     }
-    return new static($class_type, $argument_list);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $class_type,
+      /* HH_FIXME[4110] use `as` */ $argument_list,
+    );
   }
 
-  public function getClassTypeUNTYPED(): Node {
+  public function getClassTypeUNTYPED(): ?Node {
     return $this->_class_type;
   }
 
@@ -93,11 +104,11 @@ final class GenericTypeSpecifier
     if ($value === $this->_class_type) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_argument_list);
+    return new static($value, $this->_argument_list);
   }
 
   public function hasClassType(): bool {
-    return !$this->_class_type->isMissing();
+    return $this->_class_type !== null;
   }
 
   /**
@@ -114,7 +125,7 @@ final class GenericTypeSpecifier
     return $this->getClassType();
   }
 
-  public function getArgumentListUNTYPED(): Node {
+  public function getArgumentListUNTYPED(): ?Node {
     return $this->_argument_list;
   }
 
@@ -122,11 +133,11 @@ final class GenericTypeSpecifier
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new static($this->_class_type, $value ?? Missing());
+    return new static($this->_class_type, $value);
   }
 
   public function hasArgumentList(): bool {
-    return !$this->_argument_list->isMissing();
+    return $this->_argument_list !== null;
   }
 
   /**

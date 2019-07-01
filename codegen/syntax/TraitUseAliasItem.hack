@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0696aef5e53fe7dcd8995b2c51319163>>
+ * @generated SignedSource<<8b5cc37d7db60ec988b0d47c6e1864e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TraitUseAliasItem extends Node implements ITraitUseItem {
@@ -12,15 +13,15 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
   const string SYNTAX_KIND = 'trait_use_alias_item';
 
   private Node $_aliasing_name;
-  private Node $_keyword;
-  private Node $_modifiers;
-  private Node $_aliased_name;
+  private AsToken $_keyword;
+  private ?NodeList<Token> $_modifiers;
+  private ?SimpleTypeSpecifier $_aliased_name;
 
   public function __construct(
     Node $aliasing_name,
-    Node $keyword,
-    Node $modifiers,
-    Node $aliased_name,
+    AsToken $keyword,
+    ?NodeList<Token> $modifiers,
+    ?SimpleTypeSpecifier $aliased_name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_aliasing_name = $aliasing_name;
@@ -46,6 +47,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $source,
       'Node',
     );
+    $aliasing_name = $aliasing_name as nonnull;
     $offset += $aliasing_name->getWidth();
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_alias_item_keyword'],
@@ -54,6 +56,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $source,
       'AsToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $modifiers = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_alias_item_modifiers'],
@@ -62,7 +65,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $source,
       'NodeList<Token>',
     );
-    $offset += $modifiers->getWidth();
+    $offset += $modifiers?->getWidth() ?? 0;
     $aliased_name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliased_name'],
       $file,
@@ -70,7 +73,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $source,
       'SimpleTypeSpecifier',
     );
-    $offset += $aliased_name->getWidth();
+    $offset += $aliased_name?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -78,10 +81,10 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $aliasing_name,
-      $keyword,
-      $modifiers,
-      $aliased_name,
+      /* HH_IGNORE_ERROR[4110] */ $aliasing_name,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
+      /* HH_IGNORE_ERROR[4110] */ $aliased_name,
       $source_ref,
     );
   }
@@ -93,7 +96,8 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       'keyword' => $this->_keyword,
       'modifiers' => $this->_modifiers,
       'aliased_name' => $this->_aliased_name,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -104,8 +108,12 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     $parents[] = $this;
     $aliasing_name = $rewriter($this->_aliasing_name, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
-    $modifiers = $rewriter($this->_modifiers, $parents);
-    $aliased_name = $rewriter($this->_aliased_name, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
+    $aliased_name = $this->_aliased_name === null
+      ? null
+      : $rewriter($this->_aliased_name, $parents);
     if (
       $aliasing_name === $this->_aliasing_name &&
       $keyword === $this->_keyword &&
@@ -114,10 +122,15 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     ) {
       return $this;
     }
-    return new static($aliasing_name, $keyword, $modifiers, $aliased_name);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $aliasing_name,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $modifiers,
+      /* HH_FIXME[4110] use `as` */ $aliased_name,
+    );
   }
 
-  public function getAliasingNameUNTYPED(): Node {
+  public function getAliasingNameUNTYPED(): ?Node {
     return $this->_aliasing_name;
   }
 
@@ -126,7 +139,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_keyword,
       $this->_modifiers,
       $this->_aliased_name,
@@ -134,7 +147,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
   }
 
   public function hasAliasingName(): bool {
-    return !$this->_aliasing_name->isMissing();
+    return $this->_aliasing_name !== null;
   }
 
   /**
@@ -151,7 +164,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     return $this->getAliasingName();
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -161,14 +174,14 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     }
     return new static(
       $this->_aliasing_name,
-      $value ?? Missing(),
+      $value,
       $this->_modifiers,
       $this->_aliased_name,
     );
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -185,7 +198,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     return $this->getKeyword();
   }
 
-  public function getModifiersUNTYPED(): Node {
+  public function getModifiersUNTYPED(): ?Node {
     return $this->_modifiers;
   }
 
@@ -196,13 +209,13 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     return new static(
       $this->_aliasing_name,
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_aliased_name,
     );
   }
 
   public function hasModifiers(): bool {
-    return !$this->_modifiers->isMissing();
+    return $this->_modifiers !== null;
   }
 
   /**
@@ -210,10 +223,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
    * NodeList<ProtectedToken> | NodeList<PublicToken> | null
    */
   public function getModifiers(): ?NodeList<Token> {
-    if ($this->_modifiers->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_modifiers);
+    return $this->_modifiers;
   }
 
   /**
@@ -224,7 +234,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     return TypeAssert\not_null($this->getModifiers());
   }
 
-  public function getAliasedNameUNTYPED(): Node {
+  public function getAliasedNameUNTYPED(): ?Node {
     return $this->_aliased_name;
   }
 
@@ -236,25 +246,19 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       $this->_aliasing_name,
       $this->_keyword,
       $this->_modifiers,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasAliasedName(): bool {
-    return !$this->_aliased_name->isMissing();
+    return $this->_aliased_name !== null;
   }
 
   /**
    * @return null | SimpleTypeSpecifier
    */
   public function getAliasedName(): ?SimpleTypeSpecifier {
-    if ($this->_aliased_name->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      SimpleTypeSpecifier::class,
-      $this->_aliased_name,
-    );
+    return $this->_aliased_name;
   }
 
   /**

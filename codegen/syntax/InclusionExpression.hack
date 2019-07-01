@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20e69e96395aab28c44dd5ea426e029a>>
+ * @generated SignedSource<<cd3730196f217f807662540c229ecabd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class InclusionExpression
@@ -13,12 +14,12 @@ final class InclusionExpression
 
   const string SYNTAX_KIND = 'inclusion_expression';
 
-  private Node $_require;
-  private Node $_filename;
+  private Token $_require;
+  private IExpression $_filename;
 
   public function __construct(
-    Node $require,
-    Node $filename,
+    Token $require,
+    IExpression $filename,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_require = $require;
@@ -42,6 +43,7 @@ final class InclusionExpression
       $source,
       'Token',
     );
+    $require = $require as nonnull;
     $offset += $require->getWidth();
     $filename = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['inclusion_filename'],
@@ -50,6 +52,7 @@ final class InclusionExpression
       $source,
       'IExpression',
     );
+    $filename = $filename as nonnull;
     $offset += $filename->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -57,7 +60,11 @@ final class InclusionExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($require, $filename, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $require,
+      /* HH_IGNORE_ERROR[4110] */ $filename,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -65,7 +72,8 @@ final class InclusionExpression
     return dict[
       'require' => $this->_require,
       'filename' => $this->_filename,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,10 +87,13 @@ final class InclusionExpression
     if ($require === $this->_require && $filename === $this->_filename) {
       return $this;
     }
-    return new static($require, $filename);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $require,
+      /* HH_FIXME[4110] use `as` */ $filename,
+    );
   }
 
-  public function getRequireUNTYPED(): Node {
+  public function getRequireUNTYPED(): ?Node {
     return $this->_require;
   }
 
@@ -90,11 +101,11 @@ final class InclusionExpression
     if ($value === $this->_require) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_filename);
+    return new static($value, $this->_filename);
   }
 
   public function hasRequire(): bool {
-    return !$this->_require->isMissing();
+    return $this->_require !== null;
   }
 
   /**
@@ -111,7 +122,7 @@ final class InclusionExpression
     return $this->getRequire();
   }
 
-  public function getFilenameUNTYPED(): Node {
+  public function getFilenameUNTYPED(): ?Node {
     return $this->_filename;
   }
 
@@ -119,11 +130,11 @@ final class InclusionExpression
     if ($value === $this->_filename) {
       return $this;
     }
-    return new static($this->_require, $value ?? Missing());
+    return new static($this->_require, $value);
   }
 
   public function hasFilename(): bool {
-    return !$this->_filename->isMissing();
+    return $this->_filename !== null;
   }
 
   /**

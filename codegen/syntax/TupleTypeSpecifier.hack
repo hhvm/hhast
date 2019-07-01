@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<333d1c15c9a2546154f0de3ec6c863c4>>
+ * @generated SignedSource<<b1f3a7a7c75914e3db87a23a58989a52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'tuple_type_specifier';
 
-  private Node $_left_paren;
-  private Node $_types;
-  private Node $_right_paren;
+  private LeftParenToken $_left_paren;
+  private NodeList<ListItem<ITypeSpecifier>> $_types;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $left_paren,
-    Node $types,
-    Node $right_paren,
+    LeftParenToken $left_paren,
+    NodeList<ListItem<ITypeSpecifier>> $types,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -43,6 +44,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $types = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_types'],
@@ -51,6 +53,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'NodeList<ListItem<ITypeSpecifier>>',
     );
+    $types = $types as nonnull;
     $offset += $types->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_right_paren'],
@@ -59,6 +62,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_paren, $types, $right_paren, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $types,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       'left_paren' => $this->_left_paren,
       'types' => $this->_types,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     ) {
       return $this;
     }
-    return new static($left_paren, $types, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $types,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -105,11 +119,11 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_types, $this->_right_paren);
+    return new static($value, $this->_types, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -126,7 +140,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getLeftParen();
   }
 
-  public function getTypesUNTYPED(): Node {
+  public function getTypesUNTYPED(): ?Node {
     return $this->_types;
   }
 
@@ -134,15 +148,11 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_types) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $value ?? Missing(),
-      $this->_right_paren,
-    );
+    return new static($this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasTypes(): bool {
-    return !$this->_types->isMissing();
+    return $this->_types !== null;
   }
 
   /**
@@ -171,7 +181,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getTypes();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -179,11 +189,11 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_left_paren, $this->_types, $value ?? Missing());
+    return new static($this->_left_paren, $this->_types, $value);
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf5a5c02f004ea8a2526a521efc37553>>
+ * @generated SignedSource<<cab82213df2fa282f6103f3ea01f9abd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class InstanceofExpression
@@ -13,13 +14,13 @@ final class InstanceofExpression
 
   const string SYNTAX_KIND = 'instanceof_expression';
 
-  private Node $_left_operand;
-  private Node $_operator;
+  private IExpression $_left_operand;
+  private InstanceofToken $_operator;
   private Node $_right_operand;
 
   public function __construct(
-    Node $left_operand,
-    Node $operator,
+    IExpression $left_operand,
+    InstanceofToken $operator,
     Node $right_operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -45,6 +46,7 @@ final class InstanceofExpression
       $source,
       'IExpression',
     );
+    $left_operand = $left_operand as nonnull;
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['instanceof_operator'],
@@ -53,6 +55,7 @@ final class InstanceofExpression
       $source,
       'InstanceofToken',
     );
+    $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['instanceof_right_operand'],
@@ -61,6 +64,7 @@ final class InstanceofExpression
       $source,
       'Node',
     );
+    $right_operand = $right_operand as nonnull;
     $offset += $right_operand->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class InstanceofExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_operand, $operator, $right_operand, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_operand,
+      /* HH_IGNORE_ERROR[4110] */ $operator,
+      /* HH_IGNORE_ERROR[4110] */ $right_operand,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class InstanceofExpression
       'left_operand' => $this->_left_operand,
       'operator' => $this->_operator,
       'right_operand' => $this->_right_operand,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class InstanceofExpression
     ) {
       return $this;
     }
-    return new static($left_operand, $operator, $right_operand);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_operand,
+      /* HH_FIXME[4110] use `as` */ $operator,
+      /* HH_FIXME[4110] use `as` */ $right_operand,
+    );
   }
 
-  public function getLeftOperandUNTYPED(): Node {
+  public function getLeftOperandUNTYPED(): ?Node {
     return $this->_left_operand;
   }
 
@@ -107,15 +121,11 @@ final class InstanceofExpression
     if ($value === $this->_left_operand) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_operator,
-      $this->_right_operand,
-    );
+    return new static($value, $this->_operator, $this->_right_operand);
   }
 
   public function hasLeftOperand(): bool {
-    return !$this->_left_operand->isMissing();
+    return $this->_left_operand !== null;
   }
 
   /**
@@ -138,7 +148,7 @@ final class InstanceofExpression
     return $this->getLeftOperand();
   }
 
-  public function getOperatorUNTYPED(): Node {
+  public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
@@ -146,15 +156,11 @@ final class InstanceofExpression
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static(
-      $this->_left_operand,
-      $value ?? Missing(),
-      $this->_right_operand,
-    );
+    return new static($this->_left_operand, $value, $this->_right_operand);
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->isMissing();
+    return $this->_operator !== null;
   }
 
   /**
@@ -171,7 +177,7 @@ final class InstanceofExpression
     return $this->getOperator();
   }
 
-  public function getRightOperandUNTYPED(): Node {
+  public function getRightOperandUNTYPED(): ?Node {
     return $this->_right_operand;
   }
 
@@ -179,15 +185,11 @@ final class InstanceofExpression
     if ($value === $this->_right_operand) {
       return $this;
     }
-    return new static(
-      $this->_left_operand,
-      $this->_operator,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_operand, $this->_operator, $value);
   }
 
   public function hasRightOperand(): bool {
-    return !$this->_right_operand->isMissing();
+    return $this->_right_operand !== null;
   }
 
   /**

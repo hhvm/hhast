@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<835f358bf5a17019cb9a360f1581257c>>
+ * @generated SignedSource<<3fc04d6826e873cd19c8490ec6264b5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPLateinit extends Node {
 
   const string SYNTAX_KIND = 'xhp_lateinit';
 
-  private Node $_at;
-  private Node $_keyword;
+  private AtToken $_at;
+  private LateinitToken $_keyword;
 
   public function __construct(
-    Node $at,
-    Node $keyword,
+    AtToken $at,
+    LateinitToken $keyword,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_at = $at;
@@ -40,6 +41,7 @@ final class XHPLateinit extends Node {
       $source,
       'AtToken',
     );
+    $at = $at as nonnull;
     $offset += $at->getWidth();
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_lateinit_keyword'],
@@ -48,6 +50,7 @@ final class XHPLateinit extends Node {
       $source,
       'LateinitToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class XHPLateinit extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($at, $keyword, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $at,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class XHPLateinit extends Node {
     return dict[
       'at' => $this->_at,
       'keyword' => $this->_keyword,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class XHPLateinit extends Node {
     if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }
-    return new static($at, $keyword);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $at,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+    );
   }
 
-  public function getAtUNTYPED(): Node {
+  public function getAtUNTYPED(): ?Node {
     return $this->_at;
   }
 
@@ -88,11 +99,11 @@ final class XHPLateinit extends Node {
     if ($value === $this->_at) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_keyword);
+    return new static($value, $this->_keyword);
   }
 
   public function hasAt(): bool {
-    return !$this->_at->isMissing();
+    return $this->_at !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class XHPLateinit extends Node {
     return $this->getAt();
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -117,11 +128,11 @@ final class XHPLateinit extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($this->_at, $value ?? Missing());
+    return new static($this->_at, $value);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**

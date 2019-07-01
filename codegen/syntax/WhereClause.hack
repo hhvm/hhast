@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b48a96690ba121134197998012fe1615>>
+ * @generated SignedSource<<d26e7f196c43a4e5b1524ad7534534c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class WhereClause extends Node {
 
   const string SYNTAX_KIND = 'where_clause';
 
-  private Node $_keyword;
-  private Node $_constraints;
+  private WhereToken $_keyword;
+  private NodeList<ListItem<WhereConstraint>> $_constraints;
 
   public function __construct(
-    Node $keyword,
-    Node $constraints,
+    WhereToken $keyword,
+    NodeList<ListItem<WhereConstraint>> $constraints,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,6 +41,7 @@ final class WhereClause extends Node {
       $source,
       'WhereToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $constraints = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['where_clause_constraints'],
@@ -48,6 +50,7 @@ final class WhereClause extends Node {
       $source,
       'NodeList<ListItem<WhereConstraint>>',
     );
+    $constraints = $constraints as nonnull;
     $offset += $constraints->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class WhereClause extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $constraints, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $constraints,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class WhereClause extends Node {
     return dict[
       'keyword' => $this->_keyword,
       'constraints' => $this->_constraints,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class WhereClause extends Node {
     if ($keyword === $this->_keyword && $constraints === $this->_constraints) {
       return $this;
     }
-    return new static($keyword, $constraints);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $constraints,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -88,11 +99,11 @@ final class WhereClause extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_constraints);
+    return new static($value, $this->_constraints);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class WhereClause extends Node {
     return $this->getKeyword();
   }
 
-  public function getConstraintsUNTYPED(): Node {
+  public function getConstraintsUNTYPED(): ?Node {
     return $this->_constraints;
   }
 
@@ -119,11 +130,11 @@ final class WhereClause extends Node {
     if ($value === $this->_constraints) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing());
+    return new static($this->_keyword, $value);
   }
 
   public function hasConstraints(): bool {
-    return !$this->_constraints->isMissing();
+    return $this->_constraints !== null;
   }
 
   /**

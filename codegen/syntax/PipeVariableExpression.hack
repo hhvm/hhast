@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81d3b95dd3cbf029f76f195b2e58f90c>>
+ * @generated SignedSource<<ce7d7c6809b6de7a24c1e895c5f100dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PipeVariableExpression
@@ -39,6 +40,7 @@ final class PipeVariableExpression
       $source,
       'Node',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -46,14 +48,15 @@ final class PipeVariableExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($expression, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $expression, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -66,10 +69,10 @@ final class PipeVariableExpression
     if ($expression === $this->_expression) {
       return $this;
     }
-    return new static($expression);
+    return new static(/* HH_FIXME[4110] use `as` */ $expression);
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -77,11 +80,11 @@ final class PipeVariableExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**

@@ -1,38 +1,39 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3e9bc415bcc65bb9a051765a692b3106>>
+ * @generated SignedSource<<11b31f695ff5774ac16dde6caa0b7963>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class FunctionDeclarationHeader extends Node {
 
   const string SYNTAX_KIND = 'function_declaration_header';
 
-  private Node $_modifiers;
-  private Node $_keyword;
-  private Node $_name;
-  private Node $_type_parameter_list;
-  private Node $_left_paren;
-  private Node $_parameter_list;
-  private Node $_right_paren;
-  private Node $_colon;
-  private Node $_type;
-  private Node $_where_clause;
+  private ?NodeList<Token> $_modifiers;
+  private FunctionToken $_keyword;
+  private Token $_name;
+  private ?TypeParameters $_type_parameter_list;
+  private LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<IParameter>> $_parameter_list;
+  private RightParenToken $_right_paren;
+  private ?ColonToken $_colon;
+  private ?ITypeSpecifier $_type;
+  private ?WhereClause $_where_clause;
 
   public function __construct(
-    Node $modifiers,
-    Node $keyword,
-    Node $name,
-    Node $type_parameter_list,
-    Node $left_paren,
-    Node $parameter_list,
-    Node $right_paren,
-    Node $colon,
-    Node $type,
-    Node $where_clause,
+    ?NodeList<Token> $modifiers,
+    FunctionToken $keyword,
+    Token $name,
+    ?TypeParameters $type_parameter_list,
+    LeftParenToken $left_paren,
+    ?NodeList<ListItem<IParameter>> $parameter_list,
+    RightParenToken $right_paren,
+    ?ColonToken $colon,
+    ?ITypeSpecifier $type,
+    ?WhereClause $where_clause,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_modifiers = $modifiers;
@@ -64,7 +65,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'NodeList<Token>',
     );
-    $offset += $modifiers->getWidth();
+    $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_keyword'],
       $file,
@@ -72,6 +73,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'FunctionToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_name'],
@@ -80,6 +82,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'Token',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameter_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_type_parameter_list'],
@@ -88,7 +91,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'TypeParameters',
     );
-    $offset += $type_parameter_list->getWidth();
+    $offset += $type_parameter_list?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_left_paren'],
       $file,
@@ -96,6 +99,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameter_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_parameter_list'],
@@ -104,7 +108,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'NodeList<ListItem<IParameter>>',
     );
-    $offset += $parameter_list->getWidth();
+    $offset += $parameter_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_right_paren'],
       $file,
@@ -112,6 +116,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_colon'],
@@ -120,7 +125,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'ColonToken',
     );
-    $offset += $colon->getWidth();
+    $offset += $colon?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_type'],
       $file,
@@ -128,7 +133,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'ITypeSpecifier',
     );
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $where_clause = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_where_clause'],
       $file,
@@ -136,7 +141,7 @@ final class FunctionDeclarationHeader extends Node {
       $source,
       'WhereClause',
     );
-    $offset += $where_clause->getWidth();
+    $offset += $where_clause?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -144,16 +149,16 @@ final class FunctionDeclarationHeader extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $modifiers,
-      $keyword,
-      $name,
-      $type_parameter_list,
-      $left_paren,
-      $parameter_list,
-      $right_paren,
-      $colon,
-      $type,
-      $where_clause,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $type_parameter_list,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $parameter_list,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $where_clause,
       $source_ref,
     );
   }
@@ -171,7 +176,8 @@ final class FunctionDeclarationHeader extends Node {
       'colon' => $this->_colon,
       'type' => $this->_type,
       'where_clause' => $this->_where_clause,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -180,16 +186,24 @@ final class FunctionDeclarationHeader extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $rewriter($this->_modifiers, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $type_parameter_list = $rewriter($this->_type_parameter_list, $parents);
+    $type_parameter_list = $this->_type_parameter_list === null
+      ? null
+      : $rewriter($this->_type_parameter_list, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $parameter_list = $rewriter($this->_parameter_list, $parents);
+    $parameter_list = $this->_parameter_list === null
+      ? null
+      : $rewriter($this->_parameter_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
-    $colon = $rewriter($this->_colon, $parents);
-    $type = $rewriter($this->_type, $parents);
-    $where_clause = $rewriter($this->_where_clause, $parents);
+    $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
+    $where_clause = $this->_where_clause === null
+      ? null
+      : $rewriter($this->_where_clause, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
@@ -205,20 +219,20 @@ final class FunctionDeclarationHeader extends Node {
       return $this;
     }
     return new static(
-      $modifiers,
-      $keyword,
-      $name,
-      $type_parameter_list,
-      $left_paren,
-      $parameter_list,
-      $right_paren,
-      $colon,
-      $type,
-      $where_clause,
+      /* HH_FIXME[4110] use `as` */ $modifiers,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $type_parameter_list,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $parameter_list,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $where_clause,
     );
   }
 
-  public function getModifiersUNTYPED(): Node {
+  public function getModifiersUNTYPED(): ?Node {
     return $this->_modifiers;
   }
 
@@ -227,7 +241,7 @@ final class FunctionDeclarationHeader extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_keyword,
       $this->_name,
       $this->_type_parameter_list,
@@ -241,7 +255,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasModifiers(): bool {
-    return !$this->_modifiers->isMissing();
+    return $this->_modifiers !== null;
   }
 
   /**
@@ -250,10 +264,7 @@ final class FunctionDeclarationHeader extends Node {
    * NodeList<PublicToken> | NodeList<StaticToken> | null
    */
   public function getModifiers(): ?NodeList<Token> {
-    if ($this->_modifiers->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_modifiers);
+    return $this->_modifiers;
   }
 
   /**
@@ -265,7 +276,7 @@ final class FunctionDeclarationHeader extends Node {
     return TypeAssert\not_null($this->getModifiers());
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -275,7 +286,7 @@ final class FunctionDeclarationHeader extends Node {
     }
     return new static(
       $this->_modifiers,
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
@@ -288,7 +299,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -305,7 +316,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -316,7 +327,7 @@ final class FunctionDeclarationHeader extends Node {
     return new static(
       $this->_modifiers,
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_type_parameter_list,
       $this->_left_paren,
       $this->_parameter_list,
@@ -328,7 +339,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -345,7 +356,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->getName();
   }
 
-  public function getTypeParameterListUNTYPED(): Node {
+  public function getTypeParameterListUNTYPED(): ?Node {
     return $this->_type_parameter_list;
   }
 
@@ -357,7 +368,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_modifiers,
       $this->_keyword,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
@@ -368,20 +379,14 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasTypeParameterList(): bool {
-    return !$this->_type_parameter_list->isMissing();
+    return $this->_type_parameter_list !== null;
   }
 
   /**
    * @return null | TypeParameters
    */
   public function getTypeParameterList(): ?TypeParameters {
-    if ($this->_type_parameter_list->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      TypeParameters::class,
-      $this->_type_parameter_list,
-    );
+    return $this->_type_parameter_list;
   }
 
   /**
@@ -391,7 +396,7 @@ final class FunctionDeclarationHeader extends Node {
     return TypeAssert\not_null($this->getTypeParameterList());
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -404,7 +409,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_keyword,
       $this->_name,
       $this->_type_parameter_list,
-      $value ?? Missing(),
+      $value,
       $this->_parameter_list,
       $this->_right_paren,
       $this->_colon,
@@ -414,7 +419,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -431,7 +436,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->getLeftParen();
   }
 
-  public function getParameterListUNTYPED(): Node {
+  public function getParameterListUNTYPED(): ?Node {
     return $this->_parameter_list;
   }
 
@@ -447,7 +452,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_name,
       $this->_type_parameter_list,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_colon,
       $this->_type,
@@ -456,7 +461,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasParameterList(): bool {
-    return !$this->_parameter_list->isMissing();
+    return $this->_parameter_list !== null;
   }
 
   /**
@@ -465,10 +470,7 @@ final class FunctionDeclarationHeader extends Node {
    * null
    */
   public function getParameterList(): ?NodeList<ListItem<IParameter>> {
-    if ($this->_parameter_list->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_parameter_list);
+    return $this->_parameter_list;
   }
 
   /**
@@ -479,7 +481,7 @@ final class FunctionDeclarationHeader extends Node {
     return TypeAssert\not_null($this->getParameterList());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -494,7 +496,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_type_parameter_list,
       $this->_left_paren,
       $this->_parameter_list,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_type,
       $this->_where_clause,
@@ -502,7 +504,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -519,7 +521,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->getRightParen();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -535,24 +537,21 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_where_clause,
     );
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
    * @return null | ColonToken
    */
   public function getColon(): ?ColonToken {
-    if ($this->_colon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
+    return $this->_colon;
   }
 
   /**
@@ -562,7 +561,7 @@ final class FunctionDeclarationHeader extends Node {
     return TypeAssert\not_null($this->getColon());
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -579,13 +578,13 @@ final class FunctionDeclarationHeader extends Node {
       $this->_parameter_list,
       $this->_right_paren,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
       $this->_where_clause,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -597,10 +596,7 @@ final class FunctionDeclarationHeader extends Node {
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
-    if ($this->_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -615,7 +611,7 @@ final class FunctionDeclarationHeader extends Node {
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getWhereClauseUNTYPED(): Node {
+  public function getWhereClauseUNTYPED(): ?Node {
     return $this->_where_clause;
   }
 
@@ -633,22 +629,19 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_colon,
       $this->_type,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasWhereClause(): bool {
-    return !$this->_where_clause->isMissing();
+    return $this->_where_clause !== null;
   }
 
   /**
    * @return null | WhereClause
    */
   public function getWhereClause(): ?WhereClause {
-    if ($this->_where_clause->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(WhereClause::class, $this->_where_clause);
+    return $this->_where_clause;
   }
 
   /**

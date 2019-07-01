@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<62b813e92c28c6cfaf29d4d2d3901061>>
+ * @generated SignedSource<<c60ae16844e74e2c4eb6e6572dcffbf6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TraitUse extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'trait_use';
 
-  private Node $_keyword;
-  private Node $_names;
-  private Node $_semicolon;
+  private UseToken $_keyword;
+  private NodeList<ListItem<ISimpleCreationSpecifier>> $_names;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $names,
-    Node $semicolon,
+    UseToken $keyword,
+    NodeList<ListItem<ISimpleCreationSpecifier>> $names,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,6 +44,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       $source,
       'UseToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $names = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_names'],
@@ -51,6 +53,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       $source,
       'NodeList<ListItem<ISimpleCreationSpecifier>>',
     );
+    $names = $names as nonnull;
     $offset += $names->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_semicolon'],
@@ -59,6 +62,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $names, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $names,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       'keyword' => $this->_keyword,
       'names' => $this->_names,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     ) {
       return $this;
     }
-    return new static($keyword, $names, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $names,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -105,11 +119,11 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_names, $this->_semicolon);
+    return new static($value, $this->_names, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -126,7 +140,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     return $this->getKeyword();
   }
 
-  public function getNamesUNTYPED(): Node {
+  public function getNamesUNTYPED(): ?Node {
     return $this->_names;
   }
 
@@ -136,11 +150,11 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     if ($value === $this->_names) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasNames(): bool {
-    return !$this->_names->isMissing();
+    return $this->_names !== null;
   }
 
   /**
@@ -161,7 +175,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     return $this->getNames();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -169,11 +183,11 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_names, $value ?? Missing());
+    return new static($this->_keyword, $this->_names, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

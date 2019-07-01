@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<526e219e144691e0755e02a44075ad2d>>
+ * @generated SignedSource<<d45cbe1c8007a1e574e5d5a74c7cdc27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PocketMappingTypeDeclaration extends Node {
@@ -46,6 +47,7 @@ final class PocketMappingTypeDeclaration extends Node {
       $source,
       'Node',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_type_name'],
@@ -54,6 +56,7 @@ final class PocketMappingTypeDeclaration extends Node {
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_type_equal'],
@@ -62,6 +65,7 @@ final class PocketMappingTypeDeclaration extends Node {
       $source,
       'Node',
     );
+    $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_type_type'],
@@ -70,6 +74,7 @@ final class PocketMappingTypeDeclaration extends Node {
       $source,
       'Node',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -77,7 +82,13 @@ final class PocketMappingTypeDeclaration extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $name, $equal, $type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $equal,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -87,7 +98,8 @@ final class PocketMappingTypeDeclaration extends Node {
       'name' => $this->_name,
       'equal' => $this->_equal,
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,10 +120,15 @@ final class PocketMappingTypeDeclaration extends Node {
     ) {
       return $this;
     }
-    return new static($keyword, $name, $equal, $type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $equal,
+      /* HH_FIXME[4110] use `as` */ $type,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -119,16 +136,11 @@ final class PocketMappingTypeDeclaration extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_name,
-      $this->_equal,
-      $this->_type,
-    );
+    return new static($value, $this->_name, $this->_equal, $this->_type);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -145,7 +157,7 @@ final class PocketMappingTypeDeclaration extends Node {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -153,16 +165,11 @@ final class PocketMappingTypeDeclaration extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value ?? Missing(),
-      $this->_equal,
-      $this->_type,
-    );
+    return new static($this->_keyword, $value, $this->_equal, $this->_type);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -179,7 +186,7 @@ final class PocketMappingTypeDeclaration extends Node {
     return $this->getName();
   }
 
-  public function getEqualUNTYPED(): Node {
+  public function getEqualUNTYPED(): ?Node {
     return $this->_equal;
   }
 
@@ -187,16 +194,11 @@ final class PocketMappingTypeDeclaration extends Node {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_name,
-      $value ?? Missing(),
-      $this->_type,
-    );
+    return new static($this->_keyword, $this->_name, $value, $this->_type);
   }
 
   public function hasEqual(): bool {
-    return !$this->_equal->isMissing();
+    return $this->_equal !== null;
   }
 
   /**
@@ -213,7 +215,7 @@ final class PocketMappingTypeDeclaration extends Node {
     return $this->getEqual();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -221,16 +223,11 @@ final class PocketMappingTypeDeclaration extends Node {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_name,
-      $this->_equal,
-      $value ?? Missing(),
-    );
+    return new static($this->_keyword, $this->_name, $this->_equal, $value);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**

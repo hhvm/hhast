@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5010a865dd1696c78d0171bd56a842ba>>
+ * @generated SignedSource<<e1fa2dc7f4eb169bd1c805b67668380e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class EvalExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'eval_expression';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_argument;
-  private Node $_right_paren;
+  private EvalToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private IExpression $_argument;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $argument,
-    Node $right_paren,
+    EvalToken $keyword,
+    LeftParenToken $left_paren,
+    IExpression $argument,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,6 +47,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'EvalToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['eval_left_paren'],
@@ -54,6 +56,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['eval_argument'],
@@ -62,6 +65,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'IExpression',
     );
+    $argument = $argument as nonnull;
     $offset += $argument->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['eval_right_paren'],
@@ -70,6 +74,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -78,10 +83,10 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $argument,
-      $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $argument,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
       $source_ref,
     );
   }
@@ -93,7 +98,8 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       'left_paren' => $this->_left_paren,
       'argument' => $this->_argument,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -114,10 +120,15 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     ) {
       return $this;
     }
-    return new static($keyword, $left_paren, $argument, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $argument,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -126,7 +137,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_argument,
       $this->_right_paren,
@@ -134,7 +145,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -151,7 +162,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -161,14 +172,14 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_argument,
       $this->_right_paren,
     );
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -185,7 +196,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     return $this->getLeftParen();
   }
 
-  public function getArgumentUNTYPED(): Node {
+  public function getArgumentUNTYPED(): ?Node {
     return $this->_argument;
   }
 
@@ -196,13 +207,13 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
     );
   }
 
   public function hasArgument(): bool {
-    return !$this->_argument->isMissing();
+    return $this->_argument !== null;
   }
 
   /**
@@ -221,7 +232,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     return $this->getArgument();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -233,12 +244,12 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       $this->_keyword,
       $this->_left_paren,
       $this->_argument,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

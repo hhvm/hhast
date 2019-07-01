@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2340fc64fecd4beb9f84c544627d7b78>>
+ * @generated SignedSource<<7a21018e4baafe3ea955dc018676e12d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'like_type_specifier';
 
-  private Node $_tilde;
-  private Node $_type;
+  private TildeToken $_tilde;
+  private ITypeSpecifier $_type;
 
   public function __construct(
-    Node $tilde,
-    Node $type,
+    TildeToken $tilde,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_tilde = $tilde;
@@ -40,6 +41,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'TildeToken',
     );
+    $tilde = $tilde as nonnull;
     $offset += $tilde->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['like_type'],
@@ -48,6 +50,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'ITypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($tilde, $type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $tilde,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     return dict[
       'tilde' => $this->_tilde,
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     if ($tilde === $this->_tilde && $type === $this->_type) {
       return $this;
     }
-    return new static($tilde, $type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $tilde,
+      /* HH_FIXME[4110] use `as` */ $type,
+    );
   }
 
-  public function getTildeUNTYPED(): Node {
+  public function getTildeUNTYPED(): ?Node {
     return $this->_tilde;
   }
 
@@ -88,11 +99,11 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_tilde) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasTilde(): bool {
-    return !$this->_tilde->isMissing();
+    return $this->_tilde !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getTilde();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -117,11 +128,11 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_tilde, $value ?? Missing());
+    return new static($this->_tilde, $value);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**

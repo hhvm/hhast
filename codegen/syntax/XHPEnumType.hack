@@ -1,28 +1,29 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae92e37934c9f3b797ce649bf259fdf3>>
+ * @generated SignedSource<<b826e76f7d289e0c3eff6951a316ab51>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPEnumType extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'xhp_enum_type';
 
-  private Node $_optional;
-  private Node $_keyword;
-  private Node $_left_brace;
-  private Node $_values;
-  private Node $_right_brace;
+  private ?Node $_optional;
+  private EnumToken $_keyword;
+  private LeftBraceToken $_left_brace;
+  private NodeList<ListItem<LiteralExpression>> $_values;
+  private RightBraceToken $_right_brace;
 
   public function __construct(
-    Node $optional,
-    Node $keyword,
-    Node $left_brace,
-    Node $values,
-    Node $right_brace,
+    ?Node $optional,
+    EnumToken $keyword,
+    LeftBraceToken $left_brace,
+    NodeList<ListItem<LiteralExpression>> $values,
+    RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_optional = $optional;
@@ -49,7 +50,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
-    $offset += $optional->getWidth();
+    $offset += $optional?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_keyword'],
       $file,
@@ -57,6 +58,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $source,
       'EnumToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_left_brace'],
@@ -65,6 +67,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $values = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_values'],
@@ -73,6 +76,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $source,
       'NodeList<ListItem<LiteralExpression>>',
     );
+    $values = $values as nonnull;
     $offset += $values->getWidth();
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_right_brace'],
@@ -81,6 +85,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -89,11 +94,11 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $optional,
-      $keyword,
-      $left_brace,
-      $values,
-      $right_brace,
+      /* HH_IGNORE_ERROR[4110] */ $optional,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $values,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
       $source_ref,
     );
   }
@@ -106,7 +111,8 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       'left_brace' => $this->_left_brace,
       'values' => $this->_values,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -115,7 +121,9 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $optional = $rewriter($this->_optional, $parents);
+    $optional = $this->_optional === null
+      ? null
+      : $rewriter($this->_optional, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
     $values = $rewriter($this->_values, $parents);
@@ -129,10 +137,16 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     ) {
       return $this;
     }
-    return new static($optional, $keyword, $left_brace, $values, $right_brace);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $optional,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $values,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
+    );
   }
 
-  public function getOptionalUNTYPED(): Node {
+  public function getOptionalUNTYPED(): ?Node {
     return $this->_optional;
   }
 
@@ -141,7 +155,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_keyword,
       $this->_left_brace,
       $this->_values,
@@ -150,16 +164,13 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   }
 
   public function hasOptional(): bool {
-    return !$this->_optional->isMissing();
+    return $this->_optional !== null;
   }
 
   /**
    * @return null
    */
   public function getOptional(): ?Node {
-    if ($this->_optional->isMissing()) {
-      return null;
-    }
     return $this->_optional;
   }
 
@@ -170,7 +181,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return TypeAssert\not_null($this->getOptional());
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -180,7 +191,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_optional,
-      $value ?? Missing(),
+      $value,
       $this->_left_brace,
       $this->_values,
       $this->_right_brace,
@@ -188,7 +199,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -205,7 +216,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -216,14 +227,14 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return new static(
       $this->_optional,
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_values,
       $this->_right_brace,
     );
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -240,7 +251,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return $this->getLeftBrace();
   }
 
-  public function getValuesUNTYPED(): Node {
+  public function getValuesUNTYPED(): ?Node {
     return $this->_values;
   }
 
@@ -254,13 +265,13 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $this->_optional,
       $this->_keyword,
       $this->_left_brace,
-      $value ?? Missing(),
+      $value,
       $this->_right_brace,
     );
   }
 
   public function hasValues(): bool {
-    return !$this->_values->isMissing();
+    return $this->_values !== null;
   }
 
   /**
@@ -277,7 +288,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     return $this->getValues();
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -290,12 +301,12 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_brace,
       $this->_values,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

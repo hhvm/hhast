@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df1b6c90174faab815c6d8df9ca1106d>>
+ * @generated SignedSource<<2c5dcc21636cf4399a16fe395bb0f83b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class SimpleInitializer extends Node {
 
   const string SYNTAX_KIND = 'simple_initializer';
 
-  private Node $_equal;
-  private Node $_value;
+  private EqualToken $_equal;
+  private IExpression $_value;
 
   public function __construct(
-    Node $equal,
-    Node $value,
+    EqualToken $equal,
+    IExpression $value,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_equal = $equal;
@@ -40,6 +41,7 @@ final class SimpleInitializer extends Node {
       $source,
       'EqualToken',
     );
+    $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['simple_initializer_value'],
@@ -48,6 +50,7 @@ final class SimpleInitializer extends Node {
       $source,
       'IExpression',
     );
+    $value = $value as nonnull;
     $offset += $value->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class SimpleInitializer extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($equal, $value, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $equal,
+      /* HH_IGNORE_ERROR[4110] */ $value,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class SimpleInitializer extends Node {
     return dict[
       'equal' => $this->_equal,
       'value' => $this->_value,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class SimpleInitializer extends Node {
     if ($equal === $this->_equal && $value === $this->_value) {
       return $this;
     }
-    return new static($equal, $value);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $equal,
+      /* HH_FIXME[4110] use `as` */ $value,
+    );
   }
 
-  public function getEqualUNTYPED(): Node {
+  public function getEqualUNTYPED(): ?Node {
     return $this->_equal;
   }
 
@@ -88,11 +99,11 @@ final class SimpleInitializer extends Node {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_value);
+    return new static($value, $this->_value);
   }
 
   public function hasEqual(): bool {
-    return !$this->_equal->isMissing();
+    return $this->_equal !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class SimpleInitializer extends Node {
     return $this->getEqual();
   }
 
-  public function getValueUNTYPED(): Node {
+  public function getValueUNTYPED(): ?Node {
     return $this->_value;
   }
 
@@ -117,11 +128,11 @@ final class SimpleInitializer extends Node {
     if ($value === $this->_value) {
       return $this;
     }
-    return new static($this->_equal, $value ?? Missing());
+    return new static($this->_equal, $value);
   }
 
   public function hasValue(): bool {
-    return !$this->_value->isMissing();
+    return $this->_value !== null;
   }
 
   /**

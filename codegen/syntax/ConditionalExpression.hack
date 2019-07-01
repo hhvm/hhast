@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<417e15f4a5dcf8571ede312610a5599b>>
+ * @generated SignedSource<<be03820c05005ade7303ba4e0b66c51e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ConditionalExpression
@@ -13,18 +14,18 @@ final class ConditionalExpression
 
   const string SYNTAX_KIND = 'conditional_expression';
 
-  private Node $_test;
-  private Node $_question;
-  private Node $_consequence;
-  private Node $_colon;
-  private Node $_alternative;
+  private IExpression $_test;
+  private QuestionToken $_question;
+  private ?IExpression $_consequence;
+  private ColonToken $_colon;
+  private IExpression $_alternative;
 
   public function __construct(
-    Node $test,
-    Node $question,
-    Node $consequence,
-    Node $colon,
-    Node $alternative,
+    IExpression $test,
+    QuestionToken $question,
+    ?IExpression $consequence,
+    ColonToken $colon,
+    IExpression $alternative,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_test = $test;
@@ -51,6 +52,7 @@ final class ConditionalExpression
       $source,
       'IExpression',
     );
+    $test = $test as nonnull;
     $offset += $test->getWidth();
     $question = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_question'],
@@ -59,6 +61,7 @@ final class ConditionalExpression
       $source,
       'QuestionToken',
     );
+    $question = $question as nonnull;
     $offset += $question->getWidth();
     $consequence = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_consequence'],
@@ -67,7 +70,7 @@ final class ConditionalExpression
       $source,
       'IExpression',
     );
-    $offset += $consequence->getWidth();
+    $offset += $consequence?->getWidth() ?? 0;
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_colon'],
       $file,
@@ -75,6 +78,7 @@ final class ConditionalExpression
       $source,
       'ColonToken',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $alternative = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['conditional_alternative'],
@@ -83,6 +87,7 @@ final class ConditionalExpression
       $source,
       'IExpression',
     );
+    $alternative = $alternative as nonnull;
     $offset += $alternative->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -91,11 +96,11 @@ final class ConditionalExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $test,
-      $question,
-      $consequence,
-      $colon,
-      $alternative,
+      /* HH_IGNORE_ERROR[4110] */ $test,
+      /* HH_IGNORE_ERROR[4110] */ $question,
+      /* HH_IGNORE_ERROR[4110] */ $consequence,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $alternative,
       $source_ref,
     );
   }
@@ -108,7 +113,8 @@ final class ConditionalExpression
       'consequence' => $this->_consequence,
       'colon' => $this->_colon,
       'alternative' => $this->_alternative,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -119,7 +125,9 @@ final class ConditionalExpression
     $parents[] = $this;
     $test = $rewriter($this->_test, $parents);
     $question = $rewriter($this->_question, $parents);
-    $consequence = $rewriter($this->_consequence, $parents);
+    $consequence = $this->_consequence === null
+      ? null
+      : $rewriter($this->_consequence, $parents);
     $colon = $rewriter($this->_colon, $parents);
     $alternative = $rewriter($this->_alternative, $parents);
     if (
@@ -131,10 +139,16 @@ final class ConditionalExpression
     ) {
       return $this;
     }
-    return new static($test, $question, $consequence, $colon, $alternative);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $test,
+      /* HH_FIXME[4110] use `as` */ $question,
+      /* HH_FIXME[4110] use `as` */ $consequence,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $alternative,
+    );
   }
 
-  public function getTestUNTYPED(): Node {
+  public function getTestUNTYPED(): ?Node {
     return $this->_test;
   }
 
@@ -143,7 +157,7 @@ final class ConditionalExpression
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_question,
       $this->_consequence,
       $this->_colon,
@@ -152,7 +166,7 @@ final class ConditionalExpression
   }
 
   public function hasTest(): bool {
-    return !$this->_test->isMissing();
+    return $this->_test !== null;
   }
 
   /**
@@ -179,7 +193,7 @@ final class ConditionalExpression
     return $this->getTest();
   }
 
-  public function getQuestionUNTYPED(): Node {
+  public function getQuestionUNTYPED(): ?Node {
     return $this->_question;
   }
 
@@ -189,7 +203,7 @@ final class ConditionalExpression
     }
     return new static(
       $this->_test,
-      $value ?? Missing(),
+      $value,
       $this->_consequence,
       $this->_colon,
       $this->_alternative,
@@ -197,7 +211,7 @@ final class ConditionalExpression
   }
 
   public function hasQuestion(): bool {
-    return !$this->_question->isMissing();
+    return $this->_question !== null;
   }
 
   /**
@@ -214,7 +228,7 @@ final class ConditionalExpression
     return $this->getQuestion();
   }
 
-  public function getConsequenceUNTYPED(): Node {
+  public function getConsequenceUNTYPED(): ?Node {
     return $this->_consequence;
   }
 
@@ -225,14 +239,14 @@ final class ConditionalExpression
     return new static(
       $this->_test,
       $this->_question,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_alternative,
     );
   }
 
   public function hasConsequence(): bool {
-    return !$this->_consequence->isMissing();
+    return $this->_consequence !== null;
   }
 
   /**
@@ -245,10 +259,7 @@ final class ConditionalExpression
    * NameToken | VariableExpression
    */
   public function getConsequence(): ?IExpression {
-    if ($this->_consequence->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(IExpression::class, $this->_consequence);
+    return $this->_consequence;
   }
 
   /**
@@ -264,7 +275,7 @@ final class ConditionalExpression
     return TypeAssert\not_null($this->getConsequence());
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -276,13 +287,13 @@ final class ConditionalExpression
       $this->_test,
       $this->_question,
       $this->_consequence,
-      $value ?? Missing(),
+      $value,
       $this->_alternative,
     );
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
@@ -299,7 +310,7 @@ final class ConditionalExpression
     return $this->getColon();
   }
 
-  public function getAlternativeUNTYPED(): Node {
+  public function getAlternativeUNTYPED(): ?Node {
     return $this->_alternative;
   }
 
@@ -312,12 +323,12 @@ final class ConditionalExpression
       $this->_question,
       $this->_consequence,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasAlternative(): bool {
-    return !$this->_alternative->isMissing();
+    return $this->_alternative !== null;
   }
 
   /**

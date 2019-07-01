@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<66a46253f5421c0cec24d1d5d8edbd45>>
+ * @generated SignedSource<<9b4c9d35c951a402088f2de4bb46e9e1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PocketMappingIdDeclaration extends Node {
@@ -40,6 +41,7 @@ final class PocketMappingIdDeclaration extends Node {
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_mapping_id_initializer'],
@@ -48,6 +50,7 @@ final class PocketMappingIdDeclaration extends Node {
       $source,
       'Node',
     );
+    $initializer = $initializer as nonnull;
     $offset += $initializer->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class PocketMappingIdDeclaration extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($name, $initializer, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $initializer,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class PocketMappingIdDeclaration extends Node {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class PocketMappingIdDeclaration extends Node {
     if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
-    return new static($name, $initializer);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $initializer,
+    );
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -88,11 +99,11 @@ final class PocketMappingIdDeclaration extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_initializer);
+    return new static($value, $this->_initializer);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class PocketMappingIdDeclaration extends Node {
     return $this->getName();
   }
 
-  public function getInitializerUNTYPED(): Node {
+  public function getInitializerUNTYPED(): ?Node {
     return $this->_initializer;
   }
 
@@ -117,11 +128,11 @@ final class PocketMappingIdDeclaration extends Node {
     if ($value === $this->_initializer) {
       return $this;
     }
-    return new static($this->_name, $value ?? Missing());
+    return new static($this->_name, $value);
   }
 
   public function hasInitializer(): bool {
-    return !$this->_initializer->isMissing();
+    return $this->_initializer !== null;
   }
 
   /**

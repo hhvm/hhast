@@ -1,30 +1,31 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24d7f148bac64ddd30f244d44e6a6772>>
+ * @generated SignedSource<<97974e23e63df756c2ac7f88d2e4a3a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class CatchClause extends Node {
 
   const string SYNTAX_KIND = 'catch_clause';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_type;
-  private Node $_variable;
-  private Node $_right_paren;
-  private Node $_body;
+  private CatchToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private SimpleTypeSpecifier $_type;
+  private VariableToken $_variable;
+  private RightParenToken $_right_paren;
+  private CompoundStatement $_body;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $type,
-    Node $variable,
-    Node $right_paren,
-    Node $body,
+    CatchToken $keyword,
+    LeftParenToken $left_paren,
+    SimpleTypeSpecifier $type,
+    VariableToken $variable,
+    RightParenToken $right_paren,
+    CompoundStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -52,6 +53,7 @@ final class CatchClause extends Node {
       $source,
       'CatchToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_left_paren'],
@@ -60,6 +62,7 @@ final class CatchClause extends Node {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_type'],
@@ -68,6 +71,7 @@ final class CatchClause extends Node {
       $source,
       'SimpleTypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $variable = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_variable'],
@@ -76,6 +80,7 @@ final class CatchClause extends Node {
       $source,
       'VariableToken',
     );
+    $variable = $variable as nonnull;
     $offset += $variable->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_right_paren'],
@@ -84,6 +89,7 @@ final class CatchClause extends Node {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['catch_body'],
@@ -92,6 +98,7 @@ final class CatchClause extends Node {
       $source,
       'CompoundStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -100,12 +107,12 @@ final class CatchClause extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $type,
-      $variable,
-      $right_paren,
-      $body,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $variable,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
   }
@@ -119,7 +126,8 @@ final class CatchClause extends Node {
       'variable' => $this->_variable,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -145,16 +153,16 @@ final class CatchClause extends Node {
       return $this;
     }
     return new static(
-      $keyword,
-      $left_paren,
-      $type,
-      $variable,
-      $right_paren,
-      $body,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $variable,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $body,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -163,7 +171,7 @@ final class CatchClause extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_type,
       $this->_variable,
@@ -173,7 +181,7 @@ final class CatchClause extends Node {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -190,7 +198,7 @@ final class CatchClause extends Node {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -200,7 +208,7 @@ final class CatchClause extends Node {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_variable,
       $this->_right_paren,
@@ -209,7 +217,7 @@ final class CatchClause extends Node {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -226,7 +234,7 @@ final class CatchClause extends Node {
     return $this->getLeftParen();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -237,7 +245,7 @@ final class CatchClause extends Node {
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_variable,
       $this->_right_paren,
       $this->_body,
@@ -245,7 +253,7 @@ final class CatchClause extends Node {
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -262,7 +270,7 @@ final class CatchClause extends Node {
     return $this->getType();
   }
 
-  public function getVariableUNTYPED(): Node {
+  public function getVariableUNTYPED(): ?Node {
     return $this->_variable;
   }
 
@@ -274,14 +282,14 @@ final class CatchClause extends Node {
       $this->_keyword,
       $this->_left_paren,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_body,
     );
   }
 
   public function hasVariable(): bool {
-    return !$this->_variable->isMissing();
+    return $this->_variable !== null;
   }
 
   /**
@@ -298,7 +306,7 @@ final class CatchClause extends Node {
     return $this->getVariable();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -311,13 +319,13 @@ final class CatchClause extends Node {
       $this->_left_paren,
       $this->_type,
       $this->_variable,
-      $value ?? Missing(),
+      $value,
       $this->_body,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -334,7 +342,7 @@ final class CatchClause extends Node {
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -348,12 +356,12 @@ final class CatchClause extends Node {
       $this->_type,
       $this->_variable,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a424b1c0d285085901ce64cc3e596c65>>
+ * @generated SignedSource<<c77f102089fd7aeb1baeeec9245da652>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class EmbeddedBracedExpression
@@ -45,6 +46,7 @@ final class EmbeddedBracedExpression
       $source,
       'Node',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_braced_expression_expression'],
@@ -53,6 +55,7 @@ final class EmbeddedBracedExpression
       $source,
       'Node',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_braced_expression_right_brace'],
@@ -61,6 +64,7 @@ final class EmbeddedBracedExpression
       $source,
       'Node',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class EmbeddedBracedExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_brace, $expression, $right_brace, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class EmbeddedBracedExpression
       'left_brace' => $this->_left_brace,
       'expression' => $this->_expression,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class EmbeddedBracedExpression
     ) {
       return $this;
     }
-    return new static($left_brace, $expression, $right_brace);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
+    );
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -107,15 +121,11 @@ final class EmbeddedBracedExpression
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_expression,
-      $this->_right_brace,
-    );
+    return new static($value, $this->_expression, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -132,7 +142,7 @@ final class EmbeddedBracedExpression
     return $this->getLeftBrace();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -140,15 +150,11 @@ final class EmbeddedBracedExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static(
-      $this->_left_brace,
-      $value ?? Missing(),
-      $this->_right_brace,
-    );
+    return new static($this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -165,7 +171,7 @@ final class EmbeddedBracedExpression
     return $this->getExpression();
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -173,15 +179,11 @@ final class EmbeddedBracedExpression
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static(
-      $this->_left_brace,
-      $this->_expression,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_brace, $this->_expression, $value);
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

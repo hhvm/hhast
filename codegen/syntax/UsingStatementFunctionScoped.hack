@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<348e2a073efdfc51f2a116242e67ba7d>>
+ * @generated SignedSource<<5ed9a7ffde5e1b269ba2714dfafb512a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class UsingStatementFunctionScoped extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'using_statement_function_scoped';
 
-  private Node $_await_keyword;
-  private Node $_using_keyword;
-  private Node $_expression;
-  private Node $_semicolon;
+  private ?AwaitToken $_await_keyword;
+  private UsingToken $_using_keyword;
+  private IExpression $_expression;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $await_keyword,
-    Node $using_keyword,
-    Node $expression,
-    Node $semicolon,
+    ?AwaitToken $await_keyword,
+    UsingToken $using_keyword,
+    IExpression $expression,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_await_keyword = $await_keyword;
@@ -46,7 +47,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $source,
       'AwaitToken',
     );
-    $offset += $await_keyword->getWidth();
+    $offset += $await_keyword?->getWidth() ?? 0;
     $using_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_function_using_keyword'],
       $file,
@@ -54,6 +55,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $source,
       'UsingToken',
     );
+    $using_keyword = $using_keyword as nonnull;
     $offset += $using_keyword->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_function_expression'],
@@ -62,6 +64,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $source,
       'IExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_function_semicolon'],
@@ -70,6 +73,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -78,10 +82,10 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $await_keyword,
-      $using_keyword,
-      $expression,
-      $semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $await_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $using_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
   }
@@ -93,7 +97,8 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       'using_keyword' => $this->_using_keyword,
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -102,7 +107,9 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $await_keyword = $rewriter($this->_await_keyword, $parents);
+    $await_keyword = $this->_await_keyword === null
+      ? null
+      : $rewriter($this->_await_keyword, $parents);
     $using_keyword = $rewriter($this->_using_keyword, $parents);
     $expression = $rewriter($this->_expression, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
@@ -114,10 +121,15 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     ) {
       return $this;
     }
-    return new static($await_keyword, $using_keyword, $expression, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $await_keyword,
+      /* HH_FIXME[4110] use `as` */ $using_keyword,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getAwaitKeywordUNTYPED(): Node {
+  public function getAwaitKeywordUNTYPED(): ?Node {
     return $this->_await_keyword;
   }
 
@@ -126,7 +138,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_using_keyword,
       $this->_expression,
       $this->_semicolon,
@@ -134,17 +146,14 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
   }
 
   public function hasAwaitKeyword(): bool {
-    return !$this->_await_keyword->isMissing();
+    return $this->_await_keyword !== null;
   }
 
   /**
    * @return null | AwaitToken
    */
   public function getAwaitKeyword(): ?AwaitToken {
-    if ($this->_await_keyword->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
+    return $this->_await_keyword;
   }
 
   /**
@@ -154,7 +163,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
-  public function getUsingKeywordUNTYPED(): Node {
+  public function getUsingKeywordUNTYPED(): ?Node {
     return $this->_using_keyword;
   }
 
@@ -164,14 +173,14 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     }
     return new static(
       $this->_await_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_expression,
       $this->_semicolon,
     );
   }
 
   public function hasUsingKeyword(): bool {
-    return !$this->_using_keyword->isMissing();
+    return $this->_using_keyword !== null;
   }
 
   /**
@@ -188,7 +197,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     return $this->getUsingKeyword();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -199,13 +208,13 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     return new static(
       $this->_await_keyword,
       $this->_using_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_semicolon,
     );
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -224,7 +233,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     return $this->getExpression();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -236,12 +245,12 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       $this->_await_keyword,
       $this->_using_keyword,
       $this->_expression,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

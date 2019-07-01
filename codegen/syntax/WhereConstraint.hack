@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d2ff3a06d25e5154776458a5c43995e>>
+ * @generated SignedSource<<a909f426bac07373e2ba950cecac3ab1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class WhereConstraint extends Node {
 
   const string SYNTAX_KIND = 'where_constraint';
 
-  private Node $_left_type;
-  private Node $_operator;
-  private Node $_right_type;
+  private ITypeSpecifier $_left_type;
+  private Token $_operator;
+  private ITypeSpecifier $_right_type;
 
   public function __construct(
-    Node $left_type,
-    Node $operator,
-    Node $right_type,
+    ITypeSpecifier $left_type,
+    Token $operator,
+    ITypeSpecifier $right_type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_type = $left_type;
@@ -43,6 +44,7 @@ final class WhereConstraint extends Node {
       $source,
       'ITypeSpecifier',
     );
+    $left_type = $left_type as nonnull;
     $offset += $left_type->getWidth();
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['where_constraint_operator'],
@@ -51,6 +53,7 @@ final class WhereConstraint extends Node {
       $source,
       'Token',
     );
+    $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $right_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['where_constraint_right_type'],
@@ -59,6 +62,7 @@ final class WhereConstraint extends Node {
       $source,
       'ITypeSpecifier',
     );
+    $right_type = $right_type as nonnull;
     $offset += $right_type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class WhereConstraint extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_type, $operator, $right_type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_type,
+      /* HH_IGNORE_ERROR[4110] */ $operator,
+      /* HH_IGNORE_ERROR[4110] */ $right_type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class WhereConstraint extends Node {
       'left_type' => $this->_left_type,
       'operator' => $this->_operator,
       'right_type' => $this->_right_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class WhereConstraint extends Node {
     ) {
       return $this;
     }
-    return new static($left_type, $operator, $right_type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_type,
+      /* HH_FIXME[4110] use `as` */ $operator,
+      /* HH_FIXME[4110] use `as` */ $right_type,
+    );
   }
 
-  public function getLeftTypeUNTYPED(): Node {
+  public function getLeftTypeUNTYPED(): ?Node {
     return $this->_left_type;
   }
 
@@ -105,15 +119,11 @@ final class WhereConstraint extends Node {
     if ($value === $this->_left_type) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_operator,
-      $this->_right_type,
-    );
+    return new static($value, $this->_operator, $this->_right_type);
   }
 
   public function hasLeftType(): bool {
-    return !$this->_left_type->isMissing();
+    return $this->_left_type !== null;
   }
 
   /**
@@ -132,7 +142,7 @@ final class WhereConstraint extends Node {
     return $this->getLeftType();
   }
 
-  public function getOperatorUNTYPED(): Node {
+  public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
@@ -140,15 +150,11 @@ final class WhereConstraint extends Node {
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static(
-      $this->_left_type,
-      $value ?? Missing(),
-      $this->_right_type,
-    );
+    return new static($this->_left_type, $value, $this->_right_type);
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->isMissing();
+    return $this->_operator !== null;
   }
 
   /**
@@ -165,7 +171,7 @@ final class WhereConstraint extends Node {
     return $this->getOperator();
   }
 
-  public function getRightTypeUNTYPED(): Node {
+  public function getRightTypeUNTYPED(): ?Node {
     return $this->_right_type;
   }
 
@@ -173,11 +179,11 @@ final class WhereConstraint extends Node {
     if ($value === $this->_right_type) {
       return $this;
     }
-    return new static($this->_left_type, $this->_operator, $value ?? Missing());
+    return new static($this->_left_type, $this->_operator, $value);
   }
 
   public function hasRightType(): bool {
-    return !$this->_right_type->isMissing();
+    return $this->_right_type !== null;
   }
 
   /**

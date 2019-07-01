@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a3c09416188100048169e330003742b>>
+ * @generated SignedSource<<758310a94d7b85f9ddc97b4ba886a086>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class SwitchStatement
@@ -13,22 +14,22 @@ final class SwitchStatement
 
   const string SYNTAX_KIND = 'switch_statement';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_expression;
-  private Node $_right_paren;
-  private Node $_left_brace;
-  private Node $_sections;
-  private Node $_right_brace;
+  private SwitchToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private IExpression $_expression;
+  private RightParenToken $_right_paren;
+  private LeftBraceToken $_left_brace;
+  private ?NodeList<SwitchSection> $_sections;
+  private RightBraceToken $_right_brace;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $expression,
-    Node $right_paren,
-    Node $left_brace,
-    Node $sections,
-    Node $right_brace,
+    SwitchToken $keyword,
+    LeftParenToken $left_paren,
+    IExpression $expression,
+    RightParenToken $right_paren,
+    LeftBraceToken $left_brace,
+    ?NodeList<SwitchSection> $sections,
+    RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -57,6 +58,7 @@ final class SwitchStatement
       $source,
       'SwitchToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_left_paren'],
@@ -65,6 +67,7 @@ final class SwitchStatement
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_expression'],
@@ -73,6 +76,7 @@ final class SwitchStatement
       $source,
       'IExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_right_paren'],
@@ -81,6 +85,7 @@ final class SwitchStatement
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_left_brace'],
@@ -89,6 +94,7 @@ final class SwitchStatement
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $sections = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_sections'],
@@ -97,7 +103,7 @@ final class SwitchStatement
       $source,
       'NodeList<SwitchSection>',
     );
-    $offset += $sections->getWidth();
+    $offset += $sections?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_right_brace'],
       $file,
@@ -105,6 +111,7 @@ final class SwitchStatement
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -113,13 +120,13 @@ final class SwitchStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $expression,
-      $right_paren,
-      $left_brace,
-      $sections,
-      $right_brace,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $sections,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
       $source_ref,
     );
   }
@@ -134,7 +141,8 @@ final class SwitchStatement
       'left_brace' => $this->_left_brace,
       'sections' => $this->_sections,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -148,7 +156,9 @@ final class SwitchStatement
     $expression = $rewriter($this->_expression, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $sections = $rewriter($this->_sections, $parents);
+    $sections = $this->_sections === null
+      ? null
+      : $rewriter($this->_sections, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -162,17 +172,17 @@ final class SwitchStatement
       return $this;
     }
     return new static(
-      $keyword,
-      $left_paren,
-      $expression,
-      $right_paren,
-      $left_brace,
-      $sections,
-      $right_brace,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $sections,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -181,7 +191,7 @@ final class SwitchStatement
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
@@ -192,7 +202,7 @@ final class SwitchStatement
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -209,7 +219,7 @@ final class SwitchStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -219,7 +229,7 @@ final class SwitchStatement
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_expression,
       $this->_right_paren,
       $this->_left_brace,
@@ -229,7 +239,7 @@ final class SwitchStatement
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -246,7 +256,7 @@ final class SwitchStatement
     return $this->getLeftParen();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -257,7 +267,7 @@ final class SwitchStatement
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_left_brace,
       $this->_sections,
@@ -266,7 +276,7 @@ final class SwitchStatement
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -287,7 +297,7 @@ final class SwitchStatement
     return $this->getExpression();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -299,7 +309,7 @@ final class SwitchStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
-      $value ?? Missing(),
+      $value,
       $this->_left_brace,
       $this->_sections,
       $this->_right_brace,
@@ -307,7 +317,7 @@ final class SwitchStatement
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -324,7 +334,7 @@ final class SwitchStatement
     return $this->getRightParen();
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -337,14 +347,14 @@ final class SwitchStatement
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
       $this->_sections,
       $this->_right_brace,
     );
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -361,7 +371,7 @@ final class SwitchStatement
     return $this->getLeftBrace();
   }
 
-  public function getSectionsUNTYPED(): Node {
+  public function getSectionsUNTYPED(): ?Node {
     return $this->_sections;
   }
 
@@ -375,23 +385,20 @@ final class SwitchStatement
       $this->_expression,
       $this->_right_paren,
       $this->_left_brace,
-      $value ?? Missing(),
+      $value,
       $this->_right_brace,
     );
   }
 
   public function hasSections(): bool {
-    return !$this->_sections->isMissing();
+    return $this->_sections !== null;
   }
 
   /**
    * @return NodeList<SwitchSection> | null
    */
   public function getSections(): ?NodeList<SwitchSection> {
-    if ($this->_sections->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_sections);
+    return $this->_sections;
   }
 
   /**
@@ -401,7 +408,7 @@ final class SwitchStatement
     return TypeAssert\not_null($this->getSections());
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -416,12 +423,12 @@ final class SwitchStatement
       $this->_right_paren,
       $this->_left_brace,
       $this->_sections,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

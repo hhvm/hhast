@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6f5b60885fb1ca9aa2c74d56f98d7d5>>
+ * @generated SignedSource<<89f225b5f93d8a114bff3f0657f7b33b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ArrayIntrinsicExpression
@@ -13,16 +14,16 @@ final class ArrayIntrinsicExpression
 
   const string SYNTAX_KIND = 'array_intrinsic_expression';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_members;
-  private Node $_right_paren;
+  private ArrayToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<Node>> $_members;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $members,
-    Node $right_paren,
+    ArrayToken $keyword,
+    LeftParenToken $left_paren,
+    ?NodeList<ListItem<Node>> $members,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -48,6 +49,7 @@ final class ArrayIntrinsicExpression
       $source,
       'ArrayToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_intrinsic_left_paren'],
@@ -56,6 +58,7 @@ final class ArrayIntrinsicExpression
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_intrinsic_members'],
@@ -64,7 +67,7 @@ final class ArrayIntrinsicExpression
       $source,
       'NodeList<ListItem<Node>>',
     );
-    $offset += $members->getWidth();
+    $offset += $members?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_intrinsic_right_paren'],
       $file,
@@ -72,6 +75,7 @@ final class ArrayIntrinsicExpression
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -80,10 +84,10 @@ final class ArrayIntrinsicExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $members,
-      $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $members,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
       $source_ref,
     );
   }
@@ -95,7 +99,8 @@ final class ArrayIntrinsicExpression
       'left_paren' => $this->_left_paren,
       'members' => $this->_members,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -106,7 +111,9 @@ final class ArrayIntrinsicExpression
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $members = $rewriter($this->_members, $parents);
+    $members = $this->_members === null
+      ? null
+      : $rewriter($this->_members, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -116,10 +123,15 @@ final class ArrayIntrinsicExpression
     ) {
       return $this;
     }
-    return new static($keyword, $left_paren, $members, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $members,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -128,7 +140,7 @@ final class ArrayIntrinsicExpression
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_members,
       $this->_right_paren,
@@ -136,7 +148,7 @@ final class ArrayIntrinsicExpression
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -153,7 +165,7 @@ final class ArrayIntrinsicExpression
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -163,14 +175,14 @@ final class ArrayIntrinsicExpression
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_members,
       $this->_right_paren,
     );
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -187,7 +199,7 @@ final class ArrayIntrinsicExpression
     return $this->getLeftParen();
   }
 
-  public function getMembersUNTYPED(): Node {
+  public function getMembersUNTYPED(): ?Node {
     return $this->_members;
   }
 
@@ -198,13 +210,13 @@ final class ArrayIntrinsicExpression
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
     );
   }
 
   public function hasMembers(): bool {
-    return !$this->_members->isMissing();
+    return $this->_members !== null;
   }
 
   /**
@@ -231,10 +243,7 @@ final class ArrayIntrinsicExpression
    * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
   public function getMembers(): ?NodeList<ListItem<Node>> {
-    if ($this->_members->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_members);
+    return $this->_members;
   }
 
   /**
@@ -264,7 +273,7 @@ final class ArrayIntrinsicExpression
     return TypeAssert\not_null($this->getMembers());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -276,12 +285,12 @@ final class ArrayIntrinsicExpression
       $this->_keyword,
       $this->_left_paren,
       $this->_members,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

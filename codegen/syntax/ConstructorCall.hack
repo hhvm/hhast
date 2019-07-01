@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a412ff6ec5981ad188e641ab2429e069>>
+ * @generated SignedSource<<1f8006f385d1248fd90f1f53590a7c80>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ConstructorCall extends Node {
@@ -12,15 +13,15 @@ final class ConstructorCall extends Node {
   const string SYNTAX_KIND = 'constructor_call';
 
   private Node $_type;
-  private Node $_left_paren;
-  private Node $_argument_list;
-  private Node $_right_paren;
+  private ?LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<IExpression>> $_argument_list;
+  private ?RightParenToken $_right_paren;
 
   public function __construct(
     Node $type,
-    Node $left_paren,
-    Node $argument_list,
-    Node $right_paren,
+    ?LeftParenToken $left_paren,
+    ?NodeList<ListItem<IExpression>> $argument_list,
+    ?RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -46,6 +47,7 @@ final class ConstructorCall extends Node {
       $source,
       'Node',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constructor_call_left_paren'],
@@ -54,7 +56,7 @@ final class ConstructorCall extends Node {
       $source,
       'LeftParenToken',
     );
-    $offset += $left_paren->getWidth();
+    $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constructor_call_argument_list'],
       $file,
@@ -62,7 +64,7 @@ final class ConstructorCall extends Node {
       $source,
       'NodeList<ListItem<IExpression>>',
     );
-    $offset += $argument_list->getWidth();
+    $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constructor_call_right_paren'],
       $file,
@@ -70,7 +72,7 @@ final class ConstructorCall extends Node {
       $source,
       'RightParenToken',
     );
-    $offset += $right_paren->getWidth();
+    $offset += $right_paren?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -78,10 +80,10 @@ final class ConstructorCall extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $type,
-      $left_paren,
-      $argument_list,
-      $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $argument_list,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
       $source_ref,
     );
   }
@@ -93,7 +95,8 @@ final class ConstructorCall extends Node {
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -103,9 +106,15 @@ final class ConstructorCall extends Node {
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
-    $left_paren = $rewriter($this->_left_paren, $parents);
-    $argument_list = $rewriter($this->_argument_list, $parents);
-    $right_paren = $rewriter($this->_right_paren, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $argument_list = $this->_argument_list === null
+      ? null
+      : $rewriter($this->_argument_list, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
     if (
       $type === $this->_type &&
       $left_paren === $this->_left_paren &&
@@ -114,10 +123,15 @@ final class ConstructorCall extends Node {
     ) {
       return $this;
     }
-    return new static($type, $left_paren, $argument_list, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $argument_list,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -126,7 +140,7 @@ final class ConstructorCall extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -134,7 +148,7 @@ final class ConstructorCall extends Node {
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -157,7 +171,7 @@ final class ConstructorCall extends Node {
     return $this->getType();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -167,24 +181,21 @@ final class ConstructorCall extends Node {
     }
     return new static(
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_argument_list,
       $this->_right_paren,
     );
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
    * @return null | LeftParenToken
    */
   public function getLeftParen(): ?LeftParenToken {
-    if ($this->_left_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+    return $this->_left_paren;
   }
 
   /**
@@ -194,7 +205,7 @@ final class ConstructorCall extends Node {
     return TypeAssert\not_null($this->getLeftParen());
   }
 
-  public function getArgumentListUNTYPED(): Node {
+  public function getArgumentListUNTYPED(): ?Node {
     return $this->_argument_list;
   }
 
@@ -207,13 +218,13 @@ final class ConstructorCall extends Node {
     return new static(
       $this->_type,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
     );
   }
 
   public function hasArgumentList(): bool {
-    return !$this->_argument_list->isMissing();
+    return $this->_argument_list !== null;
   }
 
   /**
@@ -244,10 +255,7 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
   public function getArgumentList(): ?NodeList<ListItem<IExpression>> {
-    if ($this->_argument_list->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_argument_list);
+    return $this->_argument_list;
   }
 
   /**
@@ -281,7 +289,7 @@ final class ConstructorCall extends Node {
     return TypeAssert\not_null($this->getArgumentList());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -293,22 +301,19 @@ final class ConstructorCall extends Node {
       $this->_type,
       $this->_left_paren,
       $this->_argument_list,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
    * @return null | RightParenToken
    */
   public function getRightParen(): ?RightParenToken {
-    if ($this->_right_paren->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+    return $this->_right_paren;
   }
 
   /**

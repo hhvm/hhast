@@ -1,20 +1,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23bd84955084460cc61f650268c701f1>>
+ * @generated SignedSource<<32438ef779f0c8a75654e9411b496150>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class NamespaceEmptyBody extends Node implements INamespaceBody {
 
   const string SYNTAX_KIND = 'namespace_empty_body';
 
-  private Node $_semicolon;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $semicolon,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_semicolon = $semicolon;
@@ -37,6 +38,7 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -44,14 +46,15 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($semicolon, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $semicolon, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -64,10 +67,10 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
     if ($semicolon === $this->_semicolon) {
       return $this;
     }
-    return new static($semicolon);
+    return new static(/* HH_FIXME[4110] use `as` */ $semicolon);
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -75,11 +78,11 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77e82a9c1f48edc028c47adc3da6d769>>
+ * @generated SignedSource<<323aa22f46a55513ed9c19a67d239a93>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PocketIdentifierExpression
@@ -51,6 +52,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
+    $qualifier = $qualifier as nonnull;
     $offset += $qualifier->getWidth();
     $pu_operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_pu_operator'],
@@ -59,6 +61,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
+    $pu_operator = $pu_operator as nonnull;
     $offset += $pu_operator->getWidth();
     $field = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_field'],
@@ -67,6 +70,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
+    $field = $field as nonnull;
     $offset += $field->getWidth();
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_operator'],
@@ -75,6 +79,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
+    $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_name'],
@@ -83,6 +88,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -91,11 +97,11 @@ final class PocketIdentifierExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $qualifier,
-      $pu_operator,
-      $field,
-      $operator,
-      $name,
+      /* HH_IGNORE_ERROR[4110] */ $qualifier,
+      /* HH_IGNORE_ERROR[4110] */ $pu_operator,
+      /* HH_IGNORE_ERROR[4110] */ $field,
+      /* HH_IGNORE_ERROR[4110] */ $operator,
+      /* HH_IGNORE_ERROR[4110] */ $name,
       $source_ref,
     );
   }
@@ -108,7 +114,8 @@ final class PocketIdentifierExpression
       'field' => $this->_field,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -131,10 +138,16 @@ final class PocketIdentifierExpression
     ) {
       return $this;
     }
-    return new static($qualifier, $pu_operator, $field, $operator, $name);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $qualifier,
+      /* HH_FIXME[4110] use `as` */ $pu_operator,
+      /* HH_FIXME[4110] use `as` */ $field,
+      /* HH_FIXME[4110] use `as` */ $operator,
+      /* HH_FIXME[4110] use `as` */ $name,
+    );
   }
 
-  public function getQualifierUNTYPED(): Node {
+  public function getQualifierUNTYPED(): ?Node {
     return $this->_qualifier;
   }
 
@@ -143,7 +156,7 @@ final class PocketIdentifierExpression
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_pu_operator,
       $this->_field,
       $this->_operator,
@@ -152,7 +165,7 @@ final class PocketIdentifierExpression
   }
 
   public function hasQualifier(): bool {
-    return !$this->_qualifier->isMissing();
+    return $this->_qualifier !== null;
   }
 
   /**
@@ -169,7 +182,7 @@ final class PocketIdentifierExpression
     return $this->getQualifier();
   }
 
-  public function getPuOperatorUNTYPED(): Node {
+  public function getPuOperatorUNTYPED(): ?Node {
     return $this->_pu_operator;
   }
 
@@ -179,7 +192,7 @@ final class PocketIdentifierExpression
     }
     return new static(
       $this->_qualifier,
-      $value ?? Missing(),
+      $value,
       $this->_field,
       $this->_operator,
       $this->_name,
@@ -187,7 +200,7 @@ final class PocketIdentifierExpression
   }
 
   public function hasPuOperator(): bool {
-    return !$this->_pu_operator->isMissing();
+    return $this->_pu_operator !== null;
   }
 
   /**
@@ -204,7 +217,7 @@ final class PocketIdentifierExpression
     return $this->getPuOperator();
   }
 
-  public function getFieldUNTYPED(): Node {
+  public function getFieldUNTYPED(): ?Node {
     return $this->_field;
   }
 
@@ -215,14 +228,14 @@ final class PocketIdentifierExpression
     return new static(
       $this->_qualifier,
       $this->_pu_operator,
-      $value ?? Missing(),
+      $value,
       $this->_operator,
       $this->_name,
     );
   }
 
   public function hasField(): bool {
-    return !$this->_field->isMissing();
+    return $this->_field !== null;
   }
 
   /**
@@ -239,7 +252,7 @@ final class PocketIdentifierExpression
     return $this->getField();
   }
 
-  public function getOperatorUNTYPED(): Node {
+  public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
@@ -251,13 +264,13 @@ final class PocketIdentifierExpression
       $this->_qualifier,
       $this->_pu_operator,
       $this->_field,
-      $value ?? Missing(),
+      $value,
       $this->_name,
     );
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->isMissing();
+    return $this->_operator !== null;
   }
 
   /**
@@ -274,7 +287,7 @@ final class PocketIdentifierExpression
     return $this->getOperator();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -287,12 +300,12 @@ final class PocketIdentifierExpression
       $this->_pu_operator,
       $this->_field,
       $this->_operator,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**

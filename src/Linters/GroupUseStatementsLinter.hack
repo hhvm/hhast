@@ -29,6 +29,7 @@ use type Facebook\HHAST\{
   RightBraceToken,
   Script,
   SemicolonToken,
+  Token,
   TypeToken,
   UseToken,
   WhiteSpace,
@@ -429,7 +430,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                 new WhiteSpace(' '),
               ),
               (
-                (string $kind): Node ==> {
+                (string $kind): ?Token ==> {
                   switch ($kind) {
                     case 'function':
                       return new FunctionToken(Missing(), new WhiteSpace(' '));
@@ -438,7 +439,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                     case 'type':
                       return new TypeToken(Missing(), new WhiteSpace(' '));
                   }
-                  return Missing();
+                  return null;
                 }
               )($kind),
               new QualifiedName(
@@ -467,7 +468,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                 ) = $name;
                 return new ListItem(
                   new NamespaceUseClause(
-                    /*$clause_kind*/Missing(),
+                    /*$clause_kind*/ null,
                     new QualifiedName(
                       new NodeList(vec[
                         new ListItem(
@@ -487,13 +488,13 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                               : Missing(),
                             $name,
                           ),
-                          /*$separator*/Missing(),
+                          /*$separator*/ null,
                         ),
                       ]),
                     ),
                     $alias is nonnull
                       ? new AsToken(new WhiteSpace(' '), new WhiteSpace(' '))
-                      : Missing(),
+                      : null,
                     $alias is nonnull
                       ? new NameToken(
                           Missing(),
@@ -502,10 +503,10 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                             : Missing(),
                           $alias,
                         )
-                      : Missing(),
+                      : null,
                   ),
                   (!$multiple && $index === $names_count - 1)
-                    ? Missing()
+                    ? null
                     : new CommaToken(
                         Missing(),
                         C\count($comma_trailing) > 0

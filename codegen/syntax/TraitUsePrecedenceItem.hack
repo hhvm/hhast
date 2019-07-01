@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7418dd8fdc4c3e400b82e64e010c4fc2>>
+ * @generated SignedSource<<2ec6256e792436f1af4de7293a882c7a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
 
   const string SYNTAX_KIND = 'trait_use_precedence_item';
 
-  private Node $_name;
-  private Node $_keyword;
-  private Node $_removed_names;
+  private ScopeResolutionExpression $_name;
+  private InsteadofToken $_keyword;
+  private NodeList<ListItem<SimpleTypeSpecifier>> $_removed_names;
 
   public function __construct(
-    Node $name,
-    Node $keyword,
-    Node $removed_names,
+    ScopeResolutionExpression $name,
+    InsteadofToken $keyword,
+    NodeList<ListItem<SimpleTypeSpecifier>> $removed_names,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -43,6 +44,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       $source,
       'ScopeResolutionExpression',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_precedence_item_keyword'],
@@ -51,6 +53,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       $source,
       'InsteadofToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $removed_names = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_precedence_item_removed_names'],
@@ -59,6 +62,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       $source,
       'NodeList<ListItem<SimpleTypeSpecifier>>',
     );
+    $removed_names = $removed_names as nonnull;
     $offset += $removed_names->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($name, $keyword, $removed_names, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $removed_names,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       'name' => $this->_name,
       'keyword' => $this->_keyword,
       'removed_names' => $this->_removed_names,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     ) {
       return $this;
     }
-    return new static($name, $keyword, $removed_names);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $removed_names,
+    );
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -105,15 +119,11 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_keyword,
-      $this->_removed_names,
-    );
+    return new static($value, $this->_keyword, $this->_removed_names);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -133,7 +143,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     return $this->getName();
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -141,11 +151,11 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($this->_name, $value ?? Missing(), $this->_removed_names);
+    return new static($this->_name, $value, $this->_removed_names);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -162,7 +172,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     return $this->getKeyword();
   }
 
-  public function getRemovedNamesUNTYPED(): Node {
+  public function getRemovedNamesUNTYPED(): ?Node {
     return $this->_removed_names;
   }
 
@@ -172,11 +182,11 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     if ($value === $this->_removed_names) {
       return $this;
     }
-    return new static($this->_name, $this->_keyword, $value ?? Missing());
+    return new static($this->_name, $this->_keyword, $value);
   }
 
   public function hasRemovedNames(): bool {
-    return !$this->_removed_names->isMissing();
+    return $this->_removed_names !== null;
   }
 
   /**

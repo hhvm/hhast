@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eee25dd94dd5f53331cae0dac76ecf1f>>
+ * @generated SignedSource<<2e51c6c7b78efae871c7ab52c7bda3f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class SafeMemberSelectionExpression
@@ -13,14 +14,14 @@ final class SafeMemberSelectionExpression
 
   const string SYNTAX_KIND = 'safe_member_selection_expression';
 
-  private Node $_object;
-  private Node $_operator;
-  private Node $_name;
+  private IExpression $_object;
+  private QuestionMinusGreaterThanToken $_operator;
+  private NameToken $_name;
 
   public function __construct(
-    Node $object,
-    Node $operator,
-    Node $name,
+    IExpression $object,
+    QuestionMinusGreaterThanToken $operator,
+    NameToken $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_object = $object;
@@ -45,6 +46,7 @@ final class SafeMemberSelectionExpression
       $source,
       'IExpression',
     );
+    $object = $object as nonnull;
     $offset += $object->getWidth();
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['safe_member_operator'],
@@ -53,6 +55,7 @@ final class SafeMemberSelectionExpression
       $source,
       'QuestionMinusGreaterThanToken',
     );
+    $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['safe_member_name'],
@@ -61,6 +64,7 @@ final class SafeMemberSelectionExpression
       $source,
       'NameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class SafeMemberSelectionExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($object, $operator, $name, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $object,
+      /* HH_IGNORE_ERROR[4110] */ $operator,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class SafeMemberSelectionExpression
       'object' => $this->_object,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class SafeMemberSelectionExpression
     ) {
       return $this;
     }
-    return new static($object, $operator, $name);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $object,
+      /* HH_FIXME[4110] use `as` */ $operator,
+      /* HH_FIXME[4110] use `as` */ $name,
+    );
   }
 
-  public function getObjectUNTYPED(): Node {
+  public function getObjectUNTYPED(): ?Node {
     return $this->_object;
   }
 
@@ -107,11 +121,11 @@ final class SafeMemberSelectionExpression
     if ($value === $this->_object) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_operator, $this->_name);
+    return new static($value, $this->_operator, $this->_name);
   }
 
   public function hasObject(): bool {
-    return !$this->_object->isMissing();
+    return $this->_object !== null;
   }
 
   /**
@@ -132,7 +146,7 @@ final class SafeMemberSelectionExpression
     return $this->getObject();
   }
 
-  public function getOperatorUNTYPED(): Node {
+  public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
@@ -140,11 +154,11 @@ final class SafeMemberSelectionExpression
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_object, $value ?? Missing(), $this->_name);
+    return new static($this->_object, $value, $this->_name);
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->isMissing();
+    return $this->_operator !== null;
   }
 
   /**
@@ -164,7 +178,7 @@ final class SafeMemberSelectionExpression
     return $this->getOperator();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -172,11 +186,11 @@ final class SafeMemberSelectionExpression
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_object, $this->_operator, $value ?? Missing());
+    return new static($this->_object, $this->_operator, $value);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**

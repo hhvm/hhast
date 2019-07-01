@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<573237f918ec00a04d905383ef026a16>>
+ * @generated SignedSource<<d47aaa74343706cda858c3877cd39f83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class RecordDeclaration extends Node {
@@ -52,6 +53,7 @@ final class RecordDeclaration extends Node {
       $source,
       'Node',
     );
+    $attribute_spec = $attribute_spec as nonnull;
     $offset += $attribute_spec->getWidth();
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_keyword'],
@@ -60,6 +62,7 @@ final class RecordDeclaration extends Node {
       $source,
       'Node',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_name'],
@@ -68,6 +71,7 @@ final class RecordDeclaration extends Node {
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_left_brace'],
@@ -76,6 +80,7 @@ final class RecordDeclaration extends Node {
       $source,
       'Node',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $fields = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_fields'],
@@ -84,6 +89,7 @@ final class RecordDeclaration extends Node {
       $source,
       'Node',
     );
+    $fields = $fields as nonnull;
     $offset += $fields->getWidth();
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_right_brace'],
@@ -92,6 +98,7 @@ final class RecordDeclaration extends Node {
       $source,
       'Node',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -100,12 +107,12 @@ final class RecordDeclaration extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute_spec,
-      $keyword,
-      $name,
-      $left_brace,
-      $fields,
-      $right_brace,
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $fields,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
       $source_ref,
     );
   }
@@ -119,7 +126,8 @@ final class RecordDeclaration extends Node {
       'left_brace' => $this->_left_brace,
       'fields' => $this->_fields,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -145,16 +153,16 @@ final class RecordDeclaration extends Node {
       return $this;
     }
     return new static(
-      $attribute_spec,
-      $keyword,
-      $name,
-      $left_brace,
-      $fields,
-      $right_brace,
+      /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $fields,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
     );
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->_attribute_spec;
   }
 
@@ -163,7 +171,7 @@ final class RecordDeclaration extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_keyword,
       $this->_name,
       $this->_left_brace,
@@ -173,7 +181,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->isMissing();
+    return $this->_attribute_spec !== null;
   }
 
   /**
@@ -190,7 +198,7 @@ final class RecordDeclaration extends Node {
     return $this->getAttributeSpec();
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -200,7 +208,7 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_left_brace,
       $this->_fields,
@@ -209,7 +217,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -226,7 +234,7 @@ final class RecordDeclaration extends Node {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -237,7 +245,7 @@ final class RecordDeclaration extends Node {
     return new static(
       $this->_attribute_spec,
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -245,7 +253,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -262,7 +270,7 @@ final class RecordDeclaration extends Node {
     return $this->getName();
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -274,14 +282,14 @@ final class RecordDeclaration extends Node {
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_fields,
       $this->_right_brace,
     );
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -298,7 +306,7 @@ final class RecordDeclaration extends Node {
     return $this->getLeftBrace();
   }
 
-  public function getFieldsUNTYPED(): Node {
+  public function getFieldsUNTYPED(): ?Node {
     return $this->_fields;
   }
 
@@ -311,13 +319,13 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $this->_name,
       $this->_left_brace,
-      $value ?? Missing(),
+      $value,
       $this->_right_brace,
     );
   }
 
   public function hasFields(): bool {
-    return !$this->_fields->isMissing();
+    return $this->_fields !== null;
   }
 
   /**
@@ -334,7 +342,7 @@ final class RecordDeclaration extends Node {
     return $this->getFields();
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -348,12 +356,12 @@ final class RecordDeclaration extends Node {
       $this->_name,
       $this->_left_brace,
       $this->_fields,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

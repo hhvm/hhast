@@ -19,7 +19,7 @@ final class AwaitableCreationExpression
   }
 
   <<__Override>>
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->getCompoundStatementUNTYPED();
   }
 

@@ -133,7 +133,7 @@ abstract class Node {
     int $offset,
     string $source,
     string $type_hint,
-  ): Node {
+  ): ?Node {
     return __Private\node_from_json($json, $file, $offset, $source, $type_hint);
   }
 

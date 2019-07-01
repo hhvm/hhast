@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<944ca4d100f166c6fa5f3f411223c012>>
+ * @generated SignedSource<<1405553329a48874d7fe2ecbfe78db50>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class VectorIntrinsicExpression
@@ -13,18 +14,18 @@ final class VectorIntrinsicExpression
 
   const string SYNTAX_KIND = 'vector_intrinsic_expression';
 
-  private Node $_keyword;
-  private Node $_explicit_type;
-  private Node $_left_bracket;
-  private Node $_members;
-  private Node $_right_bracket;
+  private VecToken $_keyword;
+  private ?TypeArguments $_explicit_type;
+  private LeftBracketToken $_left_bracket;
+  private ?NodeList<ListItem<IExpression>> $_members;
+  private RightBracketToken $_right_bracket;
 
   public function __construct(
-    Node $keyword,
-    Node $explicit_type,
-    Node $left_bracket,
-    Node $members,
-    Node $right_bracket,
+    VecToken $keyword,
+    ?TypeArguments $explicit_type,
+    LeftBracketToken $left_bracket,
+    ?NodeList<ListItem<IExpression>> $members,
+    RightBracketToken $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -51,6 +52,7 @@ final class VectorIntrinsicExpression
       $source,
       'VecToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['vector_intrinsic_explicit_type'],
@@ -59,7 +61,7 @@ final class VectorIntrinsicExpression
       $source,
       'TypeArguments',
     );
-    $offset += $explicit_type->getWidth();
+    $offset += $explicit_type?->getWidth() ?? 0;
     $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['vector_intrinsic_left_bracket'],
       $file,
@@ -67,6 +69,7 @@ final class VectorIntrinsicExpression
       $source,
       'LeftBracketToken',
     );
+    $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['vector_intrinsic_members'],
@@ -75,7 +78,7 @@ final class VectorIntrinsicExpression
       $source,
       'NodeList<ListItem<IExpression>>',
     );
-    $offset += $members->getWidth();
+    $offset += $members?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['vector_intrinsic_right_bracket'],
       $file,
@@ -83,6 +86,7 @@ final class VectorIntrinsicExpression
       $source,
       'RightBracketToken',
     );
+    $right_bracket = $right_bracket as nonnull;
     $offset += $right_bracket->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -91,11 +95,11 @@ final class VectorIntrinsicExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $explicit_type,
-      $left_bracket,
-      $members,
-      $right_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $explicit_type,
+      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $members,
+      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
       $source_ref,
     );
   }
@@ -108,7 +112,8 @@ final class VectorIntrinsicExpression
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -118,9 +123,13 @@ final class VectorIntrinsicExpression
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $explicit_type = $rewriter($this->_explicit_type, $parents);
+    $explicit_type = $this->_explicit_type === null
+      ? null
+      : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $rewriter($this->_members, $parents);
+    $members = $this->_members === null
+      ? null
+      : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -132,15 +141,15 @@ final class VectorIntrinsicExpression
       return $this;
     }
     return new static(
-      $keyword,
-      $explicit_type,
-      $left_bracket,
-      $members,
-      $right_bracket,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $explicit_type,
+      /* HH_FIXME[4110] use `as` */ $left_bracket,
+      /* HH_FIXME[4110] use `as` */ $members,
+      /* HH_FIXME[4110] use `as` */ $right_bracket,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -149,7 +158,7 @@ final class VectorIntrinsicExpression
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_explicit_type,
       $this->_left_bracket,
       $this->_members,
@@ -158,7 +167,7 @@ final class VectorIntrinsicExpression
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -175,7 +184,7 @@ final class VectorIntrinsicExpression
     return $this->getKeyword();
   }
 
-  public function getExplicitTypeUNTYPED(): Node {
+  public function getExplicitTypeUNTYPED(): ?Node {
     return $this->_explicit_type;
   }
 
@@ -185,7 +194,7 @@ final class VectorIntrinsicExpression
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_left_bracket,
       $this->_members,
       $this->_right_bracket,
@@ -193,17 +202,14 @@ final class VectorIntrinsicExpression
   }
 
   public function hasExplicitType(): bool {
-    return !$this->_explicit_type->isMissing();
+    return $this->_explicit_type !== null;
   }
 
   /**
    * @return null | TypeArguments
    */
   public function getExplicitType(): ?TypeArguments {
-    if ($this->_explicit_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(TypeArguments::class, $this->_explicit_type);
+    return $this->_explicit_type;
   }
 
   /**
@@ -213,7 +219,7 @@ final class VectorIntrinsicExpression
     return TypeAssert\not_null($this->getExplicitType());
   }
 
-  public function getLeftBracketUNTYPED(): Node {
+  public function getLeftBracketUNTYPED(): ?Node {
     return $this->_left_bracket;
   }
 
@@ -224,14 +230,14 @@ final class VectorIntrinsicExpression
     return new static(
       $this->_keyword,
       $this->_explicit_type,
-      $value ?? Missing(),
+      $value,
       $this->_members,
       $this->_right_bracket,
     );
   }
 
   public function hasLeftBracket(): bool {
-    return !$this->_left_bracket->isMissing();
+    return $this->_left_bracket !== null;
   }
 
   /**
@@ -251,7 +257,7 @@ final class VectorIntrinsicExpression
     return $this->getLeftBracket();
   }
 
-  public function getMembersUNTYPED(): Node {
+  public function getMembersUNTYPED(): ?Node {
     return $this->_members;
   }
 
@@ -263,13 +269,13 @@ final class VectorIntrinsicExpression
       $this->_keyword,
       $this->_explicit_type,
       $this->_left_bracket,
-      $value ?? Missing(),
+      $value,
       $this->_right_bracket,
     );
   }
 
   public function hasMembers(): bool {
-    return !$this->_members->isMissing();
+    return $this->_members !== null;
   }
 
   /**
@@ -291,10 +297,7 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<XHPExpression>> | null
    */
   public function getMembers(): ?NodeList<ListItem<IExpression>> {
-    if ($this->_members->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_members);
+    return $this->_members;
   }
 
   /**
@@ -319,7 +322,7 @@ final class VectorIntrinsicExpression
     return TypeAssert\not_null($this->getMembers());
   }
 
-  public function getRightBracketUNTYPED(): Node {
+  public function getRightBracketUNTYPED(): ?Node {
     return $this->_right_bracket;
   }
 
@@ -332,12 +335,12 @@ final class VectorIntrinsicExpression
       $this->_explicit_type,
       $this->_left_bracket,
       $this->_members,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBracket(): bool {
-    return !$this->_right_bracket->isMissing();
+    return $this->_right_bracket !== null;
   }
 
   /**

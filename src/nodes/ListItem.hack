@@ -10,18 +10,18 @@
 namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{Dict, Str};
 
 final class ListItem<+T as ?Node> extends Node {
 
   const string SYNTAX_KIND = 'list_item';
 
-  private Node $_item;
-  private Node $_separator;
+  private T $_item;
+  private ?Token $_separator;
 
   public function __construct(
-    Node $item,
-    Node $separator,
+    T $item,
+    ?Token $separator,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_item = $item;
@@ -51,7 +51,7 @@ final class ListItem<+T as ?Node> extends Node {
       $offset,
       $source,
       $type_hint,
-    );
+    ) as nonnull;
     $offset += $item->getWidth();
     $separator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_separator'],
@@ -60,22 +60,26 @@ final class ListItem<+T as ?Node> extends Node {
       $source,
       'Token',
     );
-    $offset += $separator->getWidth();
+    $offset += $separator?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($item, $separator, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $item,
+      $separator as ?Token,
+      $source_ref,
+    );
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
-    return dict[
+    return Dict\filter_nulls(dict[
       'item' => $this->_item,
       'separator' => $this->_separator,
-    ];
+    ]);
   }
 
   <<__Override>>
@@ -84,45 +88,47 @@ final class ListItem<+T as ?Node> extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $item = $rewriter($this->_item, $parents);
-    $separator = $rewriter($this->_separator, $parents);
+    $item = $this->_item === null ? null : $rewriter($this->_item, $parents);
+    $separator = $this->_separator === null
+      ? null
+      : $rewriter($this->_separator, $parents);
     if ($item === $this->_item && $separator === $this->_separator) {
       return $this;
     }
-    return new static($item, $separator);
+    return new static(/* HH_FIXME[4110] need reified */ $item, $separator);
   }
 
   public function withItem(Node $value): this {
     if ($value === $this->_item) {
       return $this;
     }
-    return new static($value, $this->_separator);
+    return new static(/* HH_FIXME[4110] */ $value, $this->_separator);
   }
 
   public function hasItem(): bool {
-    return !$this->_item->isMissing();
+    return $this->_item !== null;
   }
 
-  public function getItemUNTYPED(): Node {
+  public function getItemUNTYPED(): ?Node {
     return $this->_item;
   }
 
   public function getItem(): T {
-    if ($this->_item->isMissing()) {
+    if ($this->_item === null) {
       return /* HH_FIXME[4110] trust that T is nullable */ null;
     }
-    return /* HH_FIXME[4110] */ $this->_item;
+    return $this->_item;
   }
 
   public function getItemx(): T where T as nonnull {
     return $this->getItem() as nonnull;
   }
 
-  public function getSeparatorUNTYPED(): Node {
+  public function getSeparatorUNTYPED(): ?Token{
     return $this->_separator;
   }
 
-  public function withSeparator(Node $value): this {
+  public function withSeparator(?Token $value): this {
     if ($value === $this->_separator) {
       return $this;
     }
@@ -130,16 +136,14 @@ final class ListItem<+T as ?Node> extends Node {
   }
 
   public function hasSeparator(): bool {
-    return !$this->_separator->isMissing();
+    return $this->_separator !== null;
   }
 
   /**
    * @return null | CommaToken | SemicolonToken | BackslashToken
    */
   public function getSeparator(): ?Token {
-    if ($this->_separator->isMissing()) {
-      return null;
-    }
+    return $this->_separator;
     return TypeAssert\instance_of(Token::class, $this->_separator);
   }
 

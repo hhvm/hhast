@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b349930bcfcf65f51d6fd4ea3b888d6>>
+ * @generated SignedSource<<dbc71356b24ac619ec5dffe2bd1c5929>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class IssetExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'isset_expression';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_argument_list;
-  private Node $_right_paren;
+  private IssetToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private NodeList<ListItem<IExpression>> $_argument_list;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $argument_list,
-    Node $right_paren,
+    IssetToken $keyword,
+    LeftParenToken $left_paren,
+    NodeList<ListItem<IExpression>> $argument_list,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,6 +47,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'IssetToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['isset_left_paren'],
@@ -54,6 +56,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['isset_argument_list'],
@@ -62,6 +65,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'NodeList<ListItem<IExpression>>',
     );
+    $argument_list = $argument_list as nonnull;
     $offset += $argument_list->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['isset_right_paren'],
@@ -70,6 +74,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -78,10 +83,10 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $argument_list,
-      $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $argument_list,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
       $source_ref,
     );
   }
@@ -93,7 +98,8 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -114,10 +120,15 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     ) {
       return $this;
     }
-    return new static($keyword, $left_paren, $argument_list, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $argument_list,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -126,7 +137,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -134,7 +145,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -151,7 +162,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -161,14 +172,14 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_argument_list,
       $this->_right_paren,
     );
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -185,7 +196,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     return $this->getLeftParen();
   }
 
-  public function getArgumentListUNTYPED(): Node {
+  public function getArgumentListUNTYPED(): ?Node {
     return $this->_argument_list;
   }
 
@@ -198,13 +209,13 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
     );
   }
 
   public function hasArgumentList(): bool {
-    return !$this->_argument_list->isMissing();
+    return $this->_argument_list !== null;
   }
 
   /**
@@ -231,7 +242,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     return $this->getArgumentList();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -243,12 +254,12 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
       $this->_keyword,
       $this->_left_paren,
       $this->_argument_list,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

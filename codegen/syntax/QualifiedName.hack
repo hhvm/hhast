@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec5ffb15a3aa10c217736e8a1c98a737>>
+ * @generated SignedSource<<ba57eb1cc2fff791ec4a73633773847c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class QualifiedName
@@ -13,10 +14,10 @@ final class QualifiedName
 
   const string SYNTAX_KIND = 'qualified_name';
 
-  private Node $_parts;
+  private NodeList<ListItem<?NameToken>> $_parts;
 
   public function __construct(
-    Node $parts,
+    NodeList<ListItem<?NameToken>> $parts,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_parts = $parts;
@@ -39,6 +40,7 @@ final class QualifiedName
       $source,
       'NodeList<ListItem<?NameToken>>',
     );
+    $parts = $parts as nonnull;
     $offset += $parts->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -46,14 +48,15 @@ final class QualifiedName
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($parts, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $parts, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'parts' => $this->_parts,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -66,10 +69,10 @@ final class QualifiedName
     if ($parts === $this->_parts) {
       return $this;
     }
-    return new static($parts);
+    return new static(/* HH_FIXME[4110] use `as` */ $parts);
   }
 
-  public function getPartsUNTYPED(): Node {
+  public function getPartsUNTYPED(): ?Node {
     return $this->_parts;
   }
 
@@ -77,11 +80,11 @@ final class QualifiedName
     if ($value === $this->_parts) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasParts(): bool {
-    return !$this->_parts->isMissing();
+    return $this->_parts !== null;
   }
 
   /**

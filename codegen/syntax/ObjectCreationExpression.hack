@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5e47b2bf5dbf9217c4bc7e97f7435c6>>
+ * @generated SignedSource<<59d7902815480b58d46af6b43e63cfe9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ObjectCreationExpression
@@ -13,12 +14,12 @@ final class ObjectCreationExpression
 
   const string SYNTAX_KIND = 'object_creation_expression';
 
-  private Node $_new_keyword;
-  private Node $_object;
+  private NewToken $_new_keyword;
+  private ConstructorCall $_object;
 
   public function __construct(
-    Node $new_keyword,
-    Node $object,
+    NewToken $new_keyword,
+    ConstructorCall $object,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_new_keyword = $new_keyword;
@@ -42,6 +43,7 @@ final class ObjectCreationExpression
       $source,
       'NewToken',
     );
+    $new_keyword = $new_keyword as nonnull;
     $offset += $new_keyword->getWidth();
     $object = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['object_creation_object'],
@@ -50,6 +52,7 @@ final class ObjectCreationExpression
       $source,
       'ConstructorCall',
     );
+    $object = $object as nonnull;
     $offset += $object->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -57,7 +60,11 @@ final class ObjectCreationExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($new_keyword, $object, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $new_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $object,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -65,7 +72,8 @@ final class ObjectCreationExpression
     return dict[
       'new_keyword' => $this->_new_keyword,
       'object' => $this->_object,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,10 +87,13 @@ final class ObjectCreationExpression
     if ($new_keyword === $this->_new_keyword && $object === $this->_object) {
       return $this;
     }
-    return new static($new_keyword, $object);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $new_keyword,
+      /* HH_FIXME[4110] use `as` */ $object,
+    );
   }
 
-  public function getNewKeywordUNTYPED(): Node {
+  public function getNewKeywordUNTYPED(): ?Node {
     return $this->_new_keyword;
   }
 
@@ -90,11 +101,11 @@ final class ObjectCreationExpression
     if ($value === $this->_new_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_object);
+    return new static($value, $this->_object);
   }
 
   public function hasNewKeyword(): bool {
-    return !$this->_new_keyword->isMissing();
+    return $this->_new_keyword !== null;
   }
 
   /**
@@ -111,7 +122,7 @@ final class ObjectCreationExpression
     return $this->getNewKeyword();
   }
 
-  public function getObjectUNTYPED(): Node {
+  public function getObjectUNTYPED(): ?Node {
     return $this->_object;
   }
 
@@ -119,11 +130,11 @@ final class ObjectCreationExpression
     if ($value === $this->_object) {
       return $this;
     }
-    return new static($this->_new_keyword, $value ?? Missing());
+    return new static($this->_new_keyword, $value);
   }
 
   public function hasObject(): bool {
-    return !$this->_object->isMissing();
+    return $this->_object !== null;
   }
 
   /**

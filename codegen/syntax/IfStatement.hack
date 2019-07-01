@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<177b5afed104814ed82e8536bdfbb12b>>
+ * @generated SignedSource<<5383343b7a697f34723c93725bb47015>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class IfStatement
@@ -13,22 +14,22 @@ final class IfStatement
 
   const string SYNTAX_KIND = 'if_statement';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_condition;
-  private Node $_right_paren;
-  private Node $_statement;
-  private Node $_elseif_clauses;
-  private Node $_else_clause;
+  private IfToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private IExpression $_condition;
+  private RightParenToken $_right_paren;
+  private IStatement $_statement;
+  private ?NodeList<ElseifClause> $_elseif_clauses;
+  private ?ElseClause $_else_clause;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $condition,
-    Node $right_paren,
-    Node $statement,
-    Node $elseif_clauses,
-    Node $else_clause,
+    IfToken $keyword,
+    LeftParenToken $left_paren,
+    IExpression $condition,
+    RightParenToken $right_paren,
+    IStatement $statement,
+    ?NodeList<ElseifClause> $elseif_clauses,
+    ?ElseClause $else_clause,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -57,6 +58,7 @@ final class IfStatement
       $source,
       'IfToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_left_paren'],
@@ -65,6 +67,7 @@ final class IfStatement
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_condition'],
@@ -73,6 +76,7 @@ final class IfStatement
       $source,
       'IExpression',
     );
+    $condition = $condition as nonnull;
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_right_paren'],
@@ -81,6 +85,7 @@ final class IfStatement
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_statement'],
@@ -89,6 +94,7 @@ final class IfStatement
       $source,
       'IStatement',
     );
+    $statement = $statement as nonnull;
     $offset += $statement->getWidth();
     $elseif_clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_elseif_clauses'],
@@ -97,7 +103,7 @@ final class IfStatement
       $source,
       'NodeList<ElseifClause>',
     );
-    $offset += $elseif_clauses->getWidth();
+    $offset += $elseif_clauses?->getWidth() ?? 0;
     $else_clause = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['if_else_clause'],
       $file,
@@ -105,7 +111,7 @@ final class IfStatement
       $source,
       'ElseClause',
     );
-    $offset += $else_clause->getWidth();
+    $offset += $else_clause?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -113,13 +119,13 @@ final class IfStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $statement,
-      $elseif_clauses,
-      $else_clause,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $condition,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $statement,
+      /* HH_IGNORE_ERROR[4110] */ $elseif_clauses,
+      /* HH_IGNORE_ERROR[4110] */ $else_clause,
       $source_ref,
     );
   }
@@ -134,7 +140,8 @@ final class IfStatement
       'statement' => $this->_statement,
       'elseif_clauses' => $this->_elseif_clauses,
       'else_clause' => $this->_else_clause,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -148,8 +155,12 @@ final class IfStatement
     $condition = $rewriter($this->_condition, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $statement = $rewriter($this->_statement, $parents);
-    $elseif_clauses = $rewriter($this->_elseif_clauses, $parents);
-    $else_clause = $rewriter($this->_else_clause, $parents);
+    $elseif_clauses = $this->_elseif_clauses === null
+      ? null
+      : $rewriter($this->_elseif_clauses, $parents);
+    $else_clause = $this->_else_clause === null
+      ? null
+      : $rewriter($this->_else_clause, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -162,17 +173,17 @@ final class IfStatement
       return $this;
     }
     return new static(
-      $keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $statement,
-      $elseif_clauses,
-      $else_clause,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $condition,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $statement,
+      /* HH_FIXME[4110] use `as` */ $elseif_clauses,
+      /* HH_FIXME[4110] use `as` */ $else_clause,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -181,7 +192,7 @@ final class IfStatement
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -192,7 +203,7 @@ final class IfStatement
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -209,7 +220,7 @@ final class IfStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -219,7 +230,7 @@ final class IfStatement
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_condition,
       $this->_right_paren,
       $this->_statement,
@@ -229,7 +240,7 @@ final class IfStatement
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -246,7 +257,7 @@ final class IfStatement
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): Node {
+  public function getConditionUNTYPED(): ?Node {
     return $this->_condition;
   }
 
@@ -257,7 +268,7 @@ final class IfStatement
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_statement,
       $this->_elseif_clauses,
@@ -266,7 +277,7 @@ final class IfStatement
   }
 
   public function hasCondition(): bool {
-    return !$this->_condition->isMissing();
+    return $this->_condition !== null;
   }
 
   /**
@@ -293,7 +304,7 @@ final class IfStatement
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -305,7 +316,7 @@ final class IfStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value ?? Missing(),
+      $value,
       $this->_statement,
       $this->_elseif_clauses,
       $this->_else_clause,
@@ -313,7 +324,7 @@ final class IfStatement
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -330,7 +341,7 @@ final class IfStatement
     return $this->getRightParen();
   }
 
-  public function getStatementUNTYPED(): Node {
+  public function getStatementUNTYPED(): ?Node {
     return $this->_statement;
   }
 
@@ -343,14 +354,14 @@ final class IfStatement
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
       $this->_elseif_clauses,
       $this->_else_clause,
     );
   }
 
   public function hasStatement(): bool {
-    return !$this->_statement->isMissing();
+    return $this->_statement !== null;
   }
 
   /**
@@ -371,7 +382,7 @@ final class IfStatement
     return $this->getStatement();
   }
 
-  public function getElseifClausesUNTYPED(): Node {
+  public function getElseifClausesUNTYPED(): ?Node {
     return $this->_elseif_clauses;
   }
 
@@ -385,23 +396,20 @@ final class IfStatement
       $this->_condition,
       $this->_right_paren,
       $this->_statement,
-      $value ?? Missing(),
+      $value,
       $this->_else_clause,
     );
   }
 
   public function hasElseifClauses(): bool {
-    return !$this->_elseif_clauses->isMissing();
+    return $this->_elseif_clauses !== null;
   }
 
   /**
    * @return NodeList<ElseifClause> | null
    */
   public function getElseifClauses(): ?NodeList<ElseifClause> {
-    if ($this->_elseif_clauses->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_elseif_clauses);
+    return $this->_elseif_clauses;
   }
 
   /**
@@ -411,7 +419,7 @@ final class IfStatement
     return TypeAssert\not_null($this->getElseifClauses());
   }
 
-  public function getElseClauseUNTYPED(): Node {
+  public function getElseClauseUNTYPED(): ?Node {
     return $this->_else_clause;
   }
 
@@ -426,22 +434,19 @@ final class IfStatement
       $this->_right_paren,
       $this->_statement,
       $this->_elseif_clauses,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasElseClause(): bool {
-    return !$this->_else_clause->isMissing();
+    return $this->_else_clause !== null;
   }
 
   /**
    * @return ElseClause | null
    */
   public function getElseClause(): ?ElseClause {
-    if ($this->_else_clause->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ElseClause::class, $this->_else_clause);
+    return $this->_else_clause;
   }
 
   /**

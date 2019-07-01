@@ -1,30 +1,31 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f80b894116c370d7419e01d56330d866>>
+ * @generated SignedSource<<999433eb64e175ad3b8a531a45d2f123>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class UsingStatementBlockScoped extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'using_statement_block_scoped';
 
-  private Node $_await_keyword;
-  private Node $_using_keyword;
-  private Node $_left_paren;
-  private Node $_expressions;
-  private Node $_right_paren;
-  private Node $_body;
+  private ?AwaitToken $_await_keyword;
+  private UsingToken $_using_keyword;
+  private LeftParenToken $_left_paren;
+  private NodeList<ListItem<IExpression>> $_expressions;
+  private RightParenToken $_right_paren;
+  private CompoundStatement $_body;
 
   public function __construct(
-    Node $await_keyword,
-    Node $using_keyword,
-    Node $left_paren,
-    Node $expressions,
-    Node $right_paren,
-    Node $body,
+    ?AwaitToken $await_keyword,
+    UsingToken $using_keyword,
+    LeftParenToken $left_paren,
+    NodeList<ListItem<IExpression>> $expressions,
+    RightParenToken $right_paren,
+    CompoundStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_await_keyword = $await_keyword;
@@ -52,7 +53,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $source,
       'AwaitToken',
     );
-    $offset += $await_keyword->getWidth();
+    $offset += $await_keyword?->getWidth() ?? 0;
     $using_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_using_keyword'],
       $file,
@@ -60,6 +61,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $source,
       'UsingToken',
     );
+    $using_keyword = $using_keyword as nonnull;
     $offset += $using_keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_left_paren'],
@@ -68,6 +70,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $expressions = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_expressions'],
@@ -76,6 +79,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $source,
       'NodeList<ListItem<IExpression>>',
     );
+    $expressions = $expressions as nonnull;
     $offset += $expressions->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_right_paren'],
@@ -84,6 +88,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['using_block_body'],
@@ -92,6 +97,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $source,
       'CompoundStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -100,12 +106,12 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $await_keyword,
-      $using_keyword,
-      $left_paren,
-      $expressions,
-      $right_paren,
-      $body,
+      /* HH_IGNORE_ERROR[4110] */ $await_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $using_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $expressions,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
   }
@@ -119,7 +125,8 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       'expressions' => $this->_expressions,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -128,7 +135,9 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $await_keyword = $rewriter($this->_await_keyword, $parents);
+    $await_keyword = $this->_await_keyword === null
+      ? null
+      : $rewriter($this->_await_keyword, $parents);
     $using_keyword = $rewriter($this->_using_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
     $expressions = $rewriter($this->_expressions, $parents);
@@ -145,16 +154,16 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       return $this;
     }
     return new static(
-      $await_keyword,
-      $using_keyword,
-      $left_paren,
-      $expressions,
-      $right_paren,
-      $body,
+      /* HH_FIXME[4110] use `as` */ $await_keyword,
+      /* HH_FIXME[4110] use `as` */ $using_keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $expressions,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $body,
     );
   }
 
-  public function getAwaitKeywordUNTYPED(): Node {
+  public function getAwaitKeywordUNTYPED(): ?Node {
     return $this->_await_keyword;
   }
 
@@ -163,7 +172,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_using_keyword,
       $this->_left_paren,
       $this->_expressions,
@@ -173,17 +182,14 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   public function hasAwaitKeyword(): bool {
-    return !$this->_await_keyword->isMissing();
+    return $this->_await_keyword !== null;
   }
 
   /**
    * @return null | AwaitToken
    */
   public function getAwaitKeyword(): ?AwaitToken {
-    if ($this->_await_keyword->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(AwaitToken::class, $this->_await_keyword);
+    return $this->_await_keyword;
   }
 
   /**
@@ -193,7 +199,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return TypeAssert\not_null($this->getAwaitKeyword());
   }
 
-  public function getUsingKeywordUNTYPED(): Node {
+  public function getUsingKeywordUNTYPED(): ?Node {
     return $this->_using_keyword;
   }
 
@@ -203,7 +209,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     }
     return new static(
       $this->_await_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_expressions,
       $this->_right_paren,
@@ -212,7 +218,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   public function hasUsingKeyword(): bool {
-    return !$this->_using_keyword->isMissing();
+    return $this->_using_keyword !== null;
   }
 
   /**
@@ -229,7 +235,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->getUsingKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -240,7 +246,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return new static(
       $this->_await_keyword,
       $this->_using_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_expressions,
       $this->_right_paren,
       $this->_body,
@@ -248,7 +254,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -265,7 +271,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->getLeftParen();
   }
 
-  public function getExpressionsUNTYPED(): Node {
+  public function getExpressionsUNTYPED(): ?Node {
     return $this->_expressions;
   }
 
@@ -279,14 +285,14 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $this->_await_keyword,
       $this->_using_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_body,
     );
   }
 
   public function hasExpressions(): bool {
-    return !$this->_expressions->isMissing();
+    return $this->_expressions !== null;
   }
 
   /**
@@ -315,7 +321,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->getExpressions();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -328,13 +334,13 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $this->_using_keyword,
       $this->_left_paren,
       $this->_expressions,
-      $value ?? Missing(),
+      $value,
       $this->_body,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -351,7 +357,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -365,12 +371,12 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $this->_left_paren,
       $this->_expressions,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

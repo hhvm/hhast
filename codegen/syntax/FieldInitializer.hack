@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9079b1953f6e647fb54358fa319a145>>
+ * @generated SignedSource<<fb9222d85a88002c5f493c13678f2dd1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class FieldInitializer extends Node {
 
   const string SYNTAX_KIND = 'field_initializer';
 
-  private Node $_name;
-  private Node $_arrow;
-  private Node $_value;
+  private IExpression $_name;
+  private EqualGreaterThanToken $_arrow;
+  private IExpression $_value;
 
   public function __construct(
-    Node $name,
-    Node $arrow,
-    Node $value,
+    IExpression $name,
+    EqualGreaterThanToken $arrow,
+    IExpression $value,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -43,6 +44,7 @@ final class FieldInitializer extends Node {
       $source,
       'IExpression',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $arrow = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_initializer_arrow'],
@@ -51,6 +53,7 @@ final class FieldInitializer extends Node {
       $source,
       'EqualGreaterThanToken',
     );
+    $arrow = $arrow as nonnull;
     $offset += $arrow->getWidth();
     $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['field_initializer_value'],
@@ -59,6 +62,7 @@ final class FieldInitializer extends Node {
       $source,
       'IExpression',
     );
+    $value = $value as nonnull;
     $offset += $value->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class FieldInitializer extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($name, $arrow, $value, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $arrow,
+      /* HH_IGNORE_ERROR[4110] */ $value,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class FieldInitializer extends Node {
       'name' => $this->_name,
       'arrow' => $this->_arrow,
       'value' => $this->_value,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class FieldInitializer extends Node {
     ) {
       return $this;
     }
-    return new static($name, $arrow, $value);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $arrow,
+      /* HH_FIXME[4110] use `as` */ $value,
+    );
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -105,11 +119,11 @@ final class FieldInitializer extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_arrow, $this->_value);
+    return new static($value, $this->_arrow, $this->_value);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -126,7 +140,7 @@ final class FieldInitializer extends Node {
     return $this->getName();
   }
 
-  public function getArrowUNTYPED(): Node {
+  public function getArrowUNTYPED(): ?Node {
     return $this->_arrow;
   }
 
@@ -134,11 +148,11 @@ final class FieldInitializer extends Node {
     if ($value === $this->_arrow) {
       return $this;
     }
-    return new static($this->_name, $value ?? Missing(), $this->_value);
+    return new static($this->_name, $value, $this->_value);
   }
 
   public function hasArrow(): bool {
-    return !$this->_arrow->isMissing();
+    return $this->_arrow !== null;
   }
 
   /**
@@ -155,7 +169,7 @@ final class FieldInitializer extends Node {
     return $this->getArrow();
   }
 
-  public function getValueUNTYPED(): Node {
+  public function getValueUNTYPED(): ?Node {
     return $this->_value;
   }
 
@@ -163,11 +177,11 @@ final class FieldInitializer extends Node {
     if ($value === $this->_value) {
       return $this;
     }
-    return new static($this->_name, $this->_arrow, $value ?? Missing());
+    return new static($this->_name, $this->_arrow, $value);
   }
 
   public function hasValue(): bool {
-    return !$this->_value->isMissing();
+    return $this->_value !== null;
   }
 
   /**

@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1d784c45ba607ec8ddd04015c961e68>>
+ * @generated SignedSource<<92b391851495ce570cad528560dc6fef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ScopeResolutionExpression
@@ -14,12 +15,12 @@ final class ScopeResolutionExpression
   const string SYNTAX_KIND = 'scope_resolution_expression';
 
   private Node $_qualifier;
-  private Node $_operator;
+  private ColonColonToken $_operator;
   private Node $_name;
 
   public function __construct(
     Node $qualifier,
-    Node $operator,
+    ColonColonToken $operator,
     Node $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -45,6 +46,7 @@ final class ScopeResolutionExpression
       $source,
       'Node',
     );
+    $qualifier = $qualifier as nonnull;
     $offset += $qualifier->getWidth();
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['scope_resolution_operator'],
@@ -53,6 +55,7 @@ final class ScopeResolutionExpression
       $source,
       'ColonColonToken',
     );
+    $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['scope_resolution_name'],
@@ -61,6 +64,7 @@ final class ScopeResolutionExpression
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class ScopeResolutionExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($qualifier, $operator, $name, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $qualifier,
+      /* HH_IGNORE_ERROR[4110] */ $operator,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class ScopeResolutionExpression
       'qualifier' => $this->_qualifier,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class ScopeResolutionExpression
     ) {
       return $this;
     }
-    return new static($qualifier, $operator, $name);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $qualifier,
+      /* HH_FIXME[4110] use `as` */ $operator,
+      /* HH_FIXME[4110] use `as` */ $name,
+    );
   }
 
-  public function getQualifierUNTYPED(): Node {
+  public function getQualifierUNTYPED(): ?Node {
     return $this->_qualifier;
   }
 
@@ -107,11 +121,11 @@ final class ScopeResolutionExpression
     if ($value === $this->_qualifier) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_operator, $this->_name);
+    return new static($value, $this->_operator, $this->_name);
   }
 
   public function hasQualifier(): bool {
-    return !$this->_qualifier->isMissing();
+    return $this->_qualifier !== null;
   }
 
   /**
@@ -134,7 +148,7 @@ final class ScopeResolutionExpression
     return $this->getQualifier();
   }
 
-  public function getOperatorUNTYPED(): Node {
+  public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
@@ -142,11 +156,11 @@ final class ScopeResolutionExpression
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_qualifier, $value ?? Missing(), $this->_name);
+    return new static($this->_qualifier, $value, $this->_name);
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->isMissing();
+    return $this->_operator !== null;
   }
 
   /**
@@ -163,7 +177,7 @@ final class ScopeResolutionExpression
     return $this->getOperator();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -171,11 +185,11 @@ final class ScopeResolutionExpression
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_qualifier, $this->_operator, $value ?? Missing());
+    return new static($this->_qualifier, $this->_operator, $value);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**

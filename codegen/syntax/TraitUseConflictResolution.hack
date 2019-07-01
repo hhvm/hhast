@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfa92e6d9c6666c569cae89ad2d7379d>>
+ * @generated SignedSource<<e9f157cd414c19058b0c4a259a961ea5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TraitUseConflictResolution
@@ -13,18 +14,18 @@ final class TraitUseConflictResolution
 
   const string SYNTAX_KIND = 'trait_use_conflict_resolution';
 
-  private Node $_keyword;
-  private Node $_names;
-  private Node $_left_brace;
-  private Node $_clauses;
-  private Node $_right_brace;
+  private UseToken $_keyword;
+  private NodeList<ListItem<SimpleTypeSpecifier>> $_names;
+  private LeftBraceToken $_left_brace;
+  private ?NodeList<ListItem<ITraitUseItem>> $_clauses;
+  private RightBraceToken $_right_brace;
 
   public function __construct(
-    Node $keyword,
-    Node $names,
-    Node $left_brace,
-    Node $clauses,
-    Node $right_brace,
+    UseToken $keyword,
+    NodeList<ListItem<SimpleTypeSpecifier>> $names,
+    LeftBraceToken $left_brace,
+    ?NodeList<ListItem<ITraitUseItem>> $clauses,
+    RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -51,6 +52,7 @@ final class TraitUseConflictResolution
       $source,
       'UseToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $names = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_names'],
@@ -59,6 +61,7 @@ final class TraitUseConflictResolution
       $source,
       'NodeList<ListItem<SimpleTypeSpecifier>>',
     );
+    $names = $names as nonnull;
     $offset += $names->getWidth();
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_left_brace'],
@@ -67,6 +70,7 @@ final class TraitUseConflictResolution
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_clauses'],
@@ -75,7 +79,7 @@ final class TraitUseConflictResolution
       $source,
       'NodeList<ListItem<ITraitUseItem>>',
     );
-    $offset += $clauses->getWidth();
+    $offset += $clauses?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_right_brace'],
       $file,
@@ -83,6 +87,7 @@ final class TraitUseConflictResolution
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -91,11 +96,11 @@ final class TraitUseConflictResolution
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $names,
-      $left_brace,
-      $clauses,
-      $right_brace,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $names,
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $clauses,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
       $source_ref,
     );
   }
@@ -108,7 +113,8 @@ final class TraitUseConflictResolution
       'left_brace' => $this->_left_brace,
       'clauses' => $this->_clauses,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -120,7 +126,9 @@ final class TraitUseConflictResolution
     $keyword = $rewriter($this->_keyword, $parents);
     $names = $rewriter($this->_names, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $clauses = $rewriter($this->_clauses, $parents);
+    $clauses = $this->_clauses === null
+      ? null
+      : $rewriter($this->_clauses, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -131,10 +139,16 @@ final class TraitUseConflictResolution
     ) {
       return $this;
     }
-    return new static($keyword, $names, $left_brace, $clauses, $right_brace);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $names,
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $clauses,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -143,7 +157,7 @@ final class TraitUseConflictResolution
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_names,
       $this->_left_brace,
       $this->_clauses,
@@ -152,7 +166,7 @@ final class TraitUseConflictResolution
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -169,7 +183,7 @@ final class TraitUseConflictResolution
     return $this->getKeyword();
   }
 
-  public function getNamesUNTYPED(): Node {
+  public function getNamesUNTYPED(): ?Node {
     return $this->_names;
   }
 
@@ -181,7 +195,7 @@ final class TraitUseConflictResolution
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_left_brace,
       $this->_clauses,
       $this->_right_brace,
@@ -189,7 +203,7 @@ final class TraitUseConflictResolution
   }
 
   public function hasNames(): bool {
-    return !$this->_names->isMissing();
+    return $this->_names !== null;
   }
 
   /**
@@ -206,7 +220,7 @@ final class TraitUseConflictResolution
     return $this->getNames();
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -217,14 +231,14 @@ final class TraitUseConflictResolution
     return new static(
       $this->_keyword,
       $this->_names,
-      $value ?? Missing(),
+      $value,
       $this->_clauses,
       $this->_right_brace,
     );
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -241,7 +255,7 @@ final class TraitUseConflictResolution
     return $this->getLeftBrace();
   }
 
-  public function getClausesUNTYPED(): Node {
+  public function getClausesUNTYPED(): ?Node {
     return $this->_clauses;
   }
 
@@ -253,13 +267,13 @@ final class TraitUseConflictResolution
       $this->_keyword,
       $this->_names,
       $this->_left_brace,
-      $value ?? Missing(),
+      $value,
       $this->_right_brace,
     );
   }
 
   public function hasClauses(): bool {
-    return !$this->_clauses->isMissing();
+    return $this->_clauses !== null;
   }
 
   /**
@@ -268,10 +282,7 @@ final class TraitUseConflictResolution
    * NodeList<ListItem<TraitUsePrecedenceItem>> | null
    */
   public function getClauses(): ?NodeList<ListItem<ITraitUseItem>> {
-    if ($this->_clauses->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_clauses);
+    return $this->_clauses;
   }
 
   /**
@@ -283,7 +294,7 @@ final class TraitUseConflictResolution
     return TypeAssert\not_null($this->getClauses());
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -296,12 +307,12 @@ final class TraitUseConflictResolution
       $this->_names,
       $this->_left_brace,
       $this->_clauses,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

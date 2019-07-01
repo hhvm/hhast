@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cad053a3effdb15ea945c07b4859cce7>>
+ * @generated SignedSource<<9443d7cdb99ecb0599e368d8683d1219>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class SimpleTypeSpecifier
@@ -39,6 +40,7 @@ final class SimpleTypeSpecifier
       $source,
       'Node',
     );
+    $specifier = $specifier as nonnull;
     $offset += $specifier->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -46,14 +48,15 @@ final class SimpleTypeSpecifier
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($specifier, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $specifier, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'specifier' => $this->_specifier,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -66,10 +69,10 @@ final class SimpleTypeSpecifier
     if ($specifier === $this->_specifier) {
       return $this;
     }
-    return new static($specifier);
+    return new static(/* HH_FIXME[4110] use `as` */ $specifier);
   }
 
-  public function getSpecifierUNTYPED(): Node {
+  public function getSpecifierUNTYPED(): ?Node {
     return $this->_specifier;
   }
 
@@ -77,11 +80,11 @@ final class SimpleTypeSpecifier
     if ($value === $this->_specifier) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasSpecifier(): bool {
-    return !$this->_specifier->isMissing();
+    return $this->_specifier !== null;
   }
 
   /**

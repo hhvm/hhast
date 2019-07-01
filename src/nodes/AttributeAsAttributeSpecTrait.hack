@@ -16,7 +16,7 @@ trait AttributeAsAttributeSpecTrait {
   abstract public function hasAttribute(): bool;
   abstract public function getAttribute(): ?AttributeSpecification;
   abstract public function getAttributex(): AttributeSpecification;
-  abstract public function getAttributeUNTYPED(): Node;
+  abstract public function getAttributeUNTYPED(): ?Node;
 
   final public function hasAttributeSpec(): bool {
     return $this->hasAttribute();
@@ -30,7 +30,7 @@ trait AttributeAsAttributeSpecTrait {
     return $this->getAttributex();
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->getAttributeUNTYPED();
   }
 }

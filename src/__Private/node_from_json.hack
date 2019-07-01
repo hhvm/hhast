@@ -17,9 +17,9 @@ function node_from_json(
   int $offset,
   string $source,
   string $type_hint,
-): Node {
+): ?Node {
   $node = node_from_json_unwrapped($json, $file, $offset, $source, $type_hint);
-  if ($node->isMissing()) {
+  if ($node === null) {
     return $node;
   }
   if ($type_hint === 'IExpression') {

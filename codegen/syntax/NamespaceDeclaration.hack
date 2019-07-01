@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67e894d98918ce8c77d25c61b73dc588>>
+ * @generated SignedSource<<683d026fd7db2c0b10113003373bd4ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 abstract class NamespaceDeclarationGeneratedBase extends Node {
 
   const string SYNTAX_KIND = 'namespace_declaration';
 
-  private Node $_keyword;
-  private Node $_name;
-  private Node $_body;
+  private NamespaceToken $_keyword;
+  private ?INameishNode $_name;
+  private INamespaceBody $_body;
 
   public function __construct(
-    Node $keyword,
-    Node $name,
-    Node $body,
+    NamespaceToken $keyword,
+    ?INameishNode $name,
+    INamespaceBody $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,6 +44,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       $source,
       'NamespaceToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_name'],
@@ -51,7 +53,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       $source,
       'INameishNode',
     );
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_body'],
       $file,
@@ -59,6 +61,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       $source,
       'INamespaceBody',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +69,12 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $name, $body, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $body,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +83,8 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       'keyword' => $this->_keyword,
       'name' => $this->_name,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,7 +94,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $name = $rewriter($this->_name, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -94,10 +103,14 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     ) {
       return $this;
     }
-    return new static($keyword, $name, $body);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $body,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -105,11 +118,11 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_name, $this->_body);
+    return new static($value, $this->_name, $this->_body);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -126,7 +139,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -134,21 +147,18 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_body);
+    return new static($this->_keyword, $value, $this->_body);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
    * @return null | QualifiedName | NameToken
    */
   public function getName(): ?INameishNode {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(INameishNode::class, $this->_name);
+    return $this->_name;
   }
 
   /**
@@ -158,7 +168,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     return TypeAssert\not_null($this->getName());
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -166,11 +176,11 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     if ($value === $this->_body) {
       return $this;
     }
-    return new static($this->_keyword, $this->_name, $value ?? Missing());
+    return new static($this->_keyword, $this->_name, $value);
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<530bb19e9de45b6fb5e1561cc969a2e2>>
+ * @generated SignedSource<<830596b7ca8c4cc286efa5d731e8d12a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPRequired extends Node {
 
   const string SYNTAX_KIND = 'xhp_required';
 
-  private Node $_at;
-  private Node $_keyword;
+  private AtToken $_at;
+  private RequiredToken $_keyword;
 
   public function __construct(
-    Node $at,
-    Node $keyword,
+    AtToken $at,
+    RequiredToken $keyword,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_at = $at;
@@ -40,6 +41,7 @@ final class XHPRequired extends Node {
       $source,
       'AtToken',
     );
+    $at = $at as nonnull;
     $offset += $at->getWidth();
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_required_keyword'],
@@ -48,6 +50,7 @@ final class XHPRequired extends Node {
       $source,
       'RequiredToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class XHPRequired extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($at, $keyword, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $at,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class XHPRequired extends Node {
     return dict[
       'at' => $this->_at,
       'keyword' => $this->_keyword,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class XHPRequired extends Node {
     if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }
-    return new static($at, $keyword);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $at,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+    );
   }
 
-  public function getAtUNTYPED(): Node {
+  public function getAtUNTYPED(): ?Node {
     return $this->_at;
   }
 
@@ -88,11 +99,11 @@ final class XHPRequired extends Node {
     if ($value === $this->_at) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_keyword);
+    return new static($value, $this->_keyword);
   }
 
   public function hasAt(): bool {
-    return !$this->_at->isMissing();
+    return $this->_at !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class XHPRequired extends Node {
     return $this->getAt();
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -117,11 +128,11 @@ final class XHPRequired extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($this->_at, $value ?? Missing());
+    return new static($this->_at, $value);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**

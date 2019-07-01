@@ -17,7 +17,7 @@ abstract class WrapperNode extends Node {
   abstract public function getWrappedNode(): this::TWrapped;
 
   <<__Override>>
-  final public function __construct(protected Node $wrapped) {
+  final public function __construct(protected this::TWrapped $wrapped) {
     parent::__construct($wrapped->sourceRef);
   }
 
@@ -43,6 +43,6 @@ abstract class WrapperNode extends Node {
       return $this;
     }
 
-    return new static($new);
+    return new static(/* HH_FIXME[4110] need <<__Enforceable>> */ $new);
   }
 }

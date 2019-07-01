@@ -37,7 +37,7 @@ function get_uses_directly_in_scope(
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
-        Str\trim($clause->getNameUNTYPED()->getCode()),
+        Str\trim($clause->getNameUNTYPED()?->getCode() ?? ''),
         $clause->getAlias(),
       );
     }
@@ -55,7 +55,7 @@ function get_uses_directly_in_scope(
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
-        $prefix.Str\trim($clause->getNameUNTYPED()->getCode()),
+        $prefix.Str\trim($clause->getNameUNTYPED()?->getCode() ?? ''),
         $clause->getAlias(),
       );
     }

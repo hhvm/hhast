@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5358a9029d9a329f0606337a541bbd11>>
+ * @generated SignedSource<<3546ae8165ebce4e1ff0367cbb81c5c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class CompoundStatement extends Node implements ILambdaBody, IStatement {
 
   const string SYNTAX_KIND = 'compound_statement';
 
-  private Node $_left_brace;
-  private Node $_statements;
-  private Node $_right_brace;
+  private LeftBraceToken $_left_brace;
+  private ?NodeList<IStatement> $_statements;
+  private RightBraceToken $_right_brace;
 
   public function __construct(
-    Node $left_brace,
-    Node $statements,
-    Node $right_brace,
+    LeftBraceToken $left_brace,
+    ?NodeList<IStatement> $statements,
+    RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_brace = $left_brace;
@@ -43,6 +44,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $statements = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['compound_statements'],
@@ -51,7 +53,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       $source,
       'NodeList<IStatement>',
     );
-    $offset += $statements->getWidth();
+    $offset += $statements?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['compound_right_brace'],
       $file,
@@ -59,6 +61,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +69,12 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_brace, $statements, $right_brace, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $statements,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +83,8 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       'left_brace' => $this->_left_brace,
       'statements' => $this->_statements,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,7 +94,9 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $statements = $rewriter($this->_statements, $parents);
+    $statements = $this->_statements === null
+      ? null
+      : $rewriter($this->_statements, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&
@@ -94,10 +105,14 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     ) {
       return $this;
     }
-    return new static($left_brace, $statements, $right_brace);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $statements,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
+    );
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -105,15 +120,11 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_statements,
-      $this->_right_brace,
-    );
+    return new static($value, $this->_statements, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -130,7 +141,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     return $this->getLeftBrace();
   }
 
-  public function getStatementsUNTYPED(): Node {
+  public function getStatementsUNTYPED(): ?Node {
     return $this->_statements;
   }
 
@@ -138,15 +149,11 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     if ($value === $this->_statements) {
       return $this;
     }
-    return new static(
-      $this->_left_brace,
-      $value ?? Missing(),
-      $this->_right_brace,
-    );
+    return new static($this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasStatements(): bool {
-    return !$this->_statements->isMissing();
+    return $this->_statements !== null;
   }
 
   /**
@@ -163,10 +170,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
    * NodeList<UsingStatementFunctionScoped> | NodeList<WhileStatement> | null
    */
   public function getStatements(): ?NodeList<IStatement> {
-    if ($this->_statements->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_statements);
+    return $this->_statements;
   }
 
   /**
@@ -186,7 +190,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     return TypeAssert\not_null($this->getStatements());
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -194,15 +198,11 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static(
-      $this->_left_brace,
-      $this->_statements,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_brace, $this->_statements, $value);
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

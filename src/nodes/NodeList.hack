@@ -113,7 +113,7 @@ final class NodeList<+Titem as Node> extends Node {
         $current_position,
         $source,
         $type_hint,
-      );
+      ) as nonnull;
       $children[] = $child;
       $current_position += $child->getWidth();
     }

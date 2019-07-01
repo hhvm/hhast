@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<696383a3a591816a13f84f28bb1452f8>>
+ * @generated SignedSource<<16c926c6d52644f702f79124449934c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class EmbeddedMemberSelectionExpression
@@ -45,6 +46,7 @@ final class EmbeddedMemberSelectionExpression
       $source,
       'Node',
     );
+    $object = $object as nonnull;
     $offset += $object->getWidth();
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_member_operator'],
@@ -53,6 +55,7 @@ final class EmbeddedMemberSelectionExpression
       $source,
       'Node',
     );
+    $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_member_name'],
@@ -61,6 +64,7 @@ final class EmbeddedMemberSelectionExpression
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class EmbeddedMemberSelectionExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($object, $operator, $name, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $object,
+      /* HH_IGNORE_ERROR[4110] */ $operator,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class EmbeddedMemberSelectionExpression
       'object' => $this->_object,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class EmbeddedMemberSelectionExpression
     ) {
       return $this;
     }
-    return new static($object, $operator, $name);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $object,
+      /* HH_FIXME[4110] use `as` */ $operator,
+      /* HH_FIXME[4110] use `as` */ $name,
+    );
   }
 
-  public function getObjectUNTYPED(): Node {
+  public function getObjectUNTYPED(): ?Node {
     return $this->_object;
   }
 
@@ -107,11 +121,11 @@ final class EmbeddedMemberSelectionExpression
     if ($value === $this->_object) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_operator, $this->_name);
+    return new static($value, $this->_operator, $this->_name);
   }
 
   public function hasObject(): bool {
-    return !$this->_object->isMissing();
+    return $this->_object !== null;
   }
 
   /**
@@ -128,7 +142,7 @@ final class EmbeddedMemberSelectionExpression
     return $this->getObject();
   }
 
-  public function getOperatorUNTYPED(): Node {
+  public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
@@ -136,11 +150,11 @@ final class EmbeddedMemberSelectionExpression
     if ($value === $this->_operator) {
       return $this;
     }
-    return new static($this->_object, $value ?? Missing(), $this->_name);
+    return new static($this->_object, $value, $this->_name);
   }
 
   public function hasOperator(): bool {
-    return !$this->_operator->isMissing();
+    return $this->_operator !== null;
   }
 
   /**
@@ -157,7 +171,7 @@ final class EmbeddedMemberSelectionExpression
     return $this->getOperator();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -165,11 +179,11 @@ final class EmbeddedMemberSelectionExpression
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_object, $this->_operator, $value ?? Missing());
+    return new static($this->_object, $this->_operator, $value);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**

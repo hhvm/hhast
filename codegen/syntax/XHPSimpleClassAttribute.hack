@@ -1,20 +1,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9579ac4ca733b4f254b9aed7c684dd17>>
+ * @generated SignedSource<<be9e567e20ab81dbdc6cbd3a2f90ffcc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPSimpleClassAttribute extends Node {
 
   const string SYNTAX_KIND = 'xhp_simple_class_attribute';
 
-  private Node $_type;
+  private SimpleTypeSpecifier $_type;
 
   public function __construct(
-    Node $type,
+    SimpleTypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -37,6 +38,7 @@ final class XHPSimpleClassAttribute extends Node {
       $source,
       'SimpleTypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -44,14 +46,15 @@ final class XHPSimpleClassAttribute extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($type, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $type, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -64,10 +67,10 @@ final class XHPSimpleClassAttribute extends Node {
     if ($type === $this->_type) {
       return $this;
     }
-    return new static($type);
+    return new static(/* HH_FIXME[4110] use `as` */ $type);
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -75,11 +78,11 @@ final class XHPSimpleClassAttribute extends Node {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**

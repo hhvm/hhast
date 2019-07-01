@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f950e4e94f428daeb59c0445ae805c0>>
+ * @generated SignedSource<<3c8112f4cf33f3ec82c5532e2a237238>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class CaseLabel extends Node implements ISwitchLabel {
 
   const string SYNTAX_KIND = 'case_label';
 
-  private Node $_keyword;
-  private Node $_expression;
-  private Node $_colon;
+  private CaseToken $_keyword;
+  private IExpression $_expression;
+  private Token $_colon;
 
   public function __construct(
-    Node $keyword,
-    Node $expression,
-    Node $colon,
+    CaseToken $keyword,
+    IExpression $expression,
+    Token $colon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,6 +44,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
       $source,
       'CaseToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['case_expression'],
@@ -51,6 +53,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
       $source,
       'IExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['case_colon'],
@@ -59,6 +62,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
       $source,
       'Token',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class CaseLabel extends Node implements ISwitchLabel {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $expression, $colon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class CaseLabel extends Node implements ISwitchLabel {
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
       'colon' => $this->_colon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class CaseLabel extends Node implements ISwitchLabel {
     ) {
       return $this;
     }
-    return new static($keyword, $expression, $colon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $colon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -105,11 +119,11 @@ final class CaseLabel extends Node implements ISwitchLabel {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_expression, $this->_colon);
+    return new static($value, $this->_expression, $this->_colon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -126,7 +140,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
     return $this->getKeyword();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -134,11 +148,11 @@ final class CaseLabel extends Node implements ISwitchLabel {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_colon);
+    return new static($this->_keyword, $value, $this->_colon);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -161,7 +175,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
     return $this->getExpression();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -169,11 +183,11 @@ final class CaseLabel extends Node implements ISwitchLabel {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_expression, $value ?? Missing());
+    return new static($this->_keyword, $this->_expression, $value);
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**

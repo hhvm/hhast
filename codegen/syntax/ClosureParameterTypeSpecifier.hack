@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<003c3374efeb40e84d0e0cc6760e9786>>
+ * @generated SignedSource<<3c78aa01cecc90390760c54dd22ef91d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ClosureParameterTypeSpecifier
@@ -13,12 +14,12 @@ final class ClosureParameterTypeSpecifier
 
   const string SYNTAX_KIND = 'closure_parameter_type_specifier';
 
-  private Node $_call_convention;
-  private Node $_type;
+  private ?InoutToken $_call_convention;
+  private ITypeSpecifier $_type;
 
   public function __construct(
-    Node $call_convention,
-    Node $type,
+    ?InoutToken $call_convention,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_call_convention = $call_convention;
@@ -42,7 +43,7 @@ final class ClosureParameterTypeSpecifier
       $source,
       'InoutToken',
     );
-    $offset += $call_convention->getWidth();
+    $offset += $call_convention?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_parameter_type'],
       $file,
@@ -50,6 +51,7 @@ final class ClosureParameterTypeSpecifier
       $source,
       'ITypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -57,7 +59,11 @@ final class ClosureParameterTypeSpecifier
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($call_convention, $type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $call_convention,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -65,7 +71,8 @@ final class ClosureParameterTypeSpecifier
     return dict[
       'call_convention' => $this->_call_convention,
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -74,17 +81,22 @@ final class ClosureParameterTypeSpecifier
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $call_convention = $rewriter($this->_call_convention, $parents);
+    $call_convention = $this->_call_convention === null
+      ? null
+      : $rewriter($this->_call_convention, $parents);
     $type = $rewriter($this->_type, $parents);
     if (
       $call_convention === $this->_call_convention && $type === $this->_type
     ) {
       return $this;
     }
-    return new static($call_convention, $type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $call_convention,
+      /* HH_FIXME[4110] use `as` */ $type,
+    );
   }
 
-  public function getCallConventionUNTYPED(): Node {
+  public function getCallConventionUNTYPED(): ?Node {
     return $this->_call_convention;
   }
 
@@ -92,21 +104,18 @@ final class ClosureParameterTypeSpecifier
     if ($value === $this->_call_convention) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasCallConvention(): bool {
-    return !$this->_call_convention->isMissing();
+    return $this->_call_convention !== null;
   }
 
   /**
    * @return null | InoutToken
    */
   public function getCallConvention(): ?InoutToken {
-    if ($this->_call_convention->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
+    return $this->_call_convention;
   }
 
   /**
@@ -116,7 +125,7 @@ final class ClosureParameterTypeSpecifier
     return TypeAssert\not_null($this->getCallConvention());
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -124,11 +133,11 @@ final class ClosureParameterTypeSpecifier
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_call_convention, $value ?? Missing());
+    return new static($this->_call_convention, $value);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**

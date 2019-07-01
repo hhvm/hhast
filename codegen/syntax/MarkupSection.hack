@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b1d702029d946f39ab2da9a628b4783>>
+ * @generated SignedSource<<a4d6ca97d2eab096f743820cc54409d4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class MarkupSection extends Node {
 
   const string SYNTAX_KIND = 'markup_section';
 
-  private Node $_prefix;
-  private Node $_text;
-  private Node $_suffix;
-  private Node $_expression;
+  private ?Node $_prefix;
+  private MarkupToken $_text;
+  private MarkupSuffix $_suffix;
+  private ?Node $_expression;
 
   public function __construct(
-    Node $prefix,
-    Node $text,
-    Node $suffix,
-    Node $expression,
+    ?Node $prefix,
+    MarkupToken $text,
+    MarkupSuffix $suffix,
+    ?Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_prefix = $prefix;
@@ -46,7 +47,7 @@ final class MarkupSection extends Node {
       $source,
       'Node',
     );
-    $offset += $prefix->getWidth();
+    $offset += $prefix?->getWidth() ?? 0;
     $text = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_text'],
       $file,
@@ -54,6 +55,7 @@ final class MarkupSection extends Node {
       $source,
       'MarkupToken',
     );
+    $text = $text as nonnull;
     $offset += $text->getWidth();
     $suffix = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_suffix'],
@@ -62,6 +64,7 @@ final class MarkupSection extends Node {
       $source,
       'MarkupSuffix',
     );
+    $suffix = $suffix as nonnull;
     $offset += $suffix->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_expression'],
@@ -70,14 +73,20 @@ final class MarkupSection extends Node {
       $source,
       'Node',
     );
-    $offset += $expression->getWidth();
+    $offset += $expression?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($prefix, $text, $suffix, $expression, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $prefix,
+      /* HH_IGNORE_ERROR[4110] */ $text,
+      /* HH_IGNORE_ERROR[4110] */ $suffix,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -87,7 +96,8 @@ final class MarkupSection extends Node {
       'text' => $this->_text,
       'suffix' => $this->_suffix,
       'expression' => $this->_expression,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class MarkupSection extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $prefix = $rewriter($this->_prefix, $parents);
+    $prefix = $this->_prefix === null
+      ? null
+      : $rewriter($this->_prefix, $parents);
     $text = $rewriter($this->_text, $parents);
     $suffix = $rewriter($this->_suffix, $parents);
-    $expression = $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
     if (
       $prefix === $this->_prefix &&
       $text === $this->_text &&
@@ -108,10 +122,15 @@ final class MarkupSection extends Node {
     ) {
       return $this;
     }
-    return new static($prefix, $text, $suffix, $expression);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $prefix,
+      /* HH_FIXME[4110] use `as` */ $text,
+      /* HH_FIXME[4110] use `as` */ $suffix,
+      /* HH_FIXME[4110] use `as` */ $expression,
+    );
   }
 
-  public function getPrefixUNTYPED(): Node {
+  public function getPrefixUNTYPED(): ?Node {
     return $this->_prefix;
   }
 
@@ -119,25 +138,17 @@ final class MarkupSection extends Node {
     if ($value === $this->_prefix) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_text,
-      $this->_suffix,
-      $this->_expression,
-    );
+    return new static($value, $this->_text, $this->_suffix, $this->_expression);
   }
 
   public function hasPrefix(): bool {
-    return !$this->_prefix->isMissing();
+    return $this->_prefix !== null;
   }
 
   /**
    * @return null
    */
   public function getPrefix(): ?Node {
-    if ($this->_prefix->isMissing()) {
-      return null;
-    }
     return $this->_prefix;
   }
 
@@ -148,7 +159,7 @@ final class MarkupSection extends Node {
     return TypeAssert\not_null($this->getPrefix());
   }
 
-  public function getTextUNTYPED(): Node {
+  public function getTextUNTYPED(): ?Node {
     return $this->_text;
   }
 
@@ -158,14 +169,14 @@ final class MarkupSection extends Node {
     }
     return new static(
       $this->_prefix,
-      $value ?? Missing(),
+      $value,
       $this->_suffix,
       $this->_expression,
     );
   }
 
   public function hasText(): bool {
-    return !$this->_text->isMissing();
+    return $this->_text !== null;
   }
 
   /**
@@ -182,7 +193,7 @@ final class MarkupSection extends Node {
     return $this->getText();
   }
 
-  public function getSuffixUNTYPED(): Node {
+  public function getSuffixUNTYPED(): ?Node {
     return $this->_suffix;
   }
 
@@ -190,16 +201,11 @@ final class MarkupSection extends Node {
     if ($value === $this->_suffix) {
       return $this;
     }
-    return new static(
-      $this->_prefix,
-      $this->_text,
-      $value ?? Missing(),
-      $this->_expression,
-    );
+    return new static($this->_prefix, $this->_text, $value, $this->_expression);
   }
 
   public function hasSuffix(): bool {
-    return !$this->_suffix->isMissing();
+    return $this->_suffix !== null;
   }
 
   /**
@@ -216,7 +222,7 @@ final class MarkupSection extends Node {
     return $this->getSuffix();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -224,25 +230,17 @@ final class MarkupSection extends Node {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static(
-      $this->_prefix,
-      $this->_text,
-      $this->_suffix,
-      $value ?? Missing(),
-    );
+    return new static($this->_prefix, $this->_text, $this->_suffix, $value);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
    * @return null
    */
   public function getExpression(): ?Node {
-    if ($this->_expression->isMissing()) {
-      return null;
-    }
     return $this->_expression;
   }
 

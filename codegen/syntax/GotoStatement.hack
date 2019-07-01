@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<75c049f0e5d9947c8b82cd95c9de5435>>
+ * @generated SignedSource<<fa5416ec432e9a1839e6f3f28ba1c2ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class GotoStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'goto_statement';
 
-  private Node $_keyword;
-  private Node $_label_name;
-  private Node $_semicolon;
+  private GotoToken $_keyword;
+  private NameToken $_label_name;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $label_name,
-    Node $semicolon,
+    GotoToken $keyword,
+    NameToken $label_name,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,6 +44,7 @@ final class GotoStatement extends Node implements IStatement {
       $source,
       'GotoToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $label_name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['goto_statement_label_name'],
@@ -51,6 +53,7 @@ final class GotoStatement extends Node implements IStatement {
       $source,
       'NameToken',
     );
+    $label_name = $label_name as nonnull;
     $offset += $label_name->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['goto_statement_semicolon'],
@@ -59,6 +62,7 @@ final class GotoStatement extends Node implements IStatement {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class GotoStatement extends Node implements IStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $label_name, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $label_name,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class GotoStatement extends Node implements IStatement {
       'keyword' => $this->_keyword,
       'label_name' => $this->_label_name,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class GotoStatement extends Node implements IStatement {
     ) {
       return $this;
     }
-    return new static($keyword, $label_name, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $label_name,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -105,15 +119,11 @@ final class GotoStatement extends Node implements IStatement {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_label_name,
-      $this->_semicolon,
-    );
+    return new static($value, $this->_label_name, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -130,7 +140,7 @@ final class GotoStatement extends Node implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getLabelNameUNTYPED(): Node {
+  public function getLabelNameUNTYPED(): ?Node {
     return $this->_label_name;
   }
 
@@ -138,11 +148,11 @@ final class GotoStatement extends Node implements IStatement {
     if ($value === $this->_label_name) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasLabelName(): bool {
-    return !$this->_label_name->isMissing();
+    return $this->_label_name !== null;
   }
 
   /**
@@ -159,7 +169,7 @@ final class GotoStatement extends Node implements IStatement {
     return $this->getLabelName();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -167,11 +177,11 @@ final class GotoStatement extends Node implements IStatement {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_label_name, $value ?? Missing());
+    return new static($this->_keyword, $this->_label_name, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

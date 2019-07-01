@@ -1,30 +1,31 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d12941aeedb1ff7af37328f59bccf82f>>
+ * @generated SignedSource<<657dae16625fe88deb6bdcce172c3876>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'map_array_type_specifier';
 
-  private Node $_keyword;
-  private Node $_left_angle;
-  private Node $_key;
-  private Node $_comma;
-  private Node $_value;
-  private Node $_right_angle;
+  private ArrayToken $_keyword;
+  private LessThanToken $_left_angle;
+  private SimpleTypeSpecifier $_key;
+  private CommaToken $_comma;
+  private ?ITypeSpecifier $_value;
+  private GreaterThanToken $_right_angle;
 
   public function __construct(
-    Node $keyword,
-    Node $left_angle,
-    Node $key,
-    Node $comma,
-    Node $value,
-    Node $right_angle,
+    ArrayToken $keyword,
+    LessThanToken $left_angle,
+    SimpleTypeSpecifier $key,
+    CommaToken $comma,
+    ?ITypeSpecifier $value,
+    GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -52,6 +53,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'ArrayToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_left_angle'],
@@ -60,6 +62,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'LessThanToken',
     );
+    $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $key = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_key'],
@@ -68,6 +71,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'SimpleTypeSpecifier',
     );
+    $key = $key as nonnull;
     $offset += $key->getWidth();
     $comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_comma'],
@@ -76,6 +80,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'CommaToken',
     );
+    $comma = $comma as nonnull;
     $offset += $comma->getWidth();
     $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_value'],
@@ -84,7 +89,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'ITypeSpecifier',
     );
-    $offset += $value->getWidth();
+    $offset += $value?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['map_array_right_angle'],
       $file,
@@ -92,6 +97,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'GreaterThanToken',
     );
+    $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -100,12 +106,12 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_angle,
-      $key,
-      $comma,
-      $value,
-      $right_angle,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_angle,
+      /* HH_IGNORE_ERROR[4110] */ $key,
+      /* HH_IGNORE_ERROR[4110] */ $comma,
+      /* HH_IGNORE_ERROR[4110] */ $value,
+      /* HH_IGNORE_ERROR[4110] */ $right_angle,
       $source_ref,
     );
   }
@@ -119,7 +125,8 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       'comma' => $this->_comma,
       'value' => $this->_value,
       'right_angle' => $this->_right_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -132,7 +139,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     $left_angle = $rewriter($this->_left_angle, $parents);
     $key = $rewriter($this->_key, $parents);
     $comma = $rewriter($this->_comma, $parents);
-    $value = $rewriter($this->_value, $parents);
+    $value = $this->_value === null ? null : $rewriter($this->_value, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -145,16 +152,16 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $keyword,
-      $left_angle,
-      $key,
-      $comma,
-      $value,
-      $right_angle,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_angle,
+      /* HH_FIXME[4110] use `as` */ $key,
+      /* HH_FIXME[4110] use `as` */ $comma,
+      /* HH_FIXME[4110] use `as` */ $value,
+      /* HH_FIXME[4110] use `as` */ $right_angle,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -163,7 +170,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_angle,
       $this->_key,
       $this->_comma,
@@ -173,7 +180,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -190,7 +197,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): Node {
+  public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
@@ -200,7 +207,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_key,
       $this->_comma,
       $this->_value,
@@ -209,7 +216,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->isMissing();
+    return $this->_left_angle !== null;
   }
 
   /**
@@ -226,7 +233,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getLeftAngle();
   }
 
-  public function getKeyUNTYPED(): Node {
+  public function getKeyUNTYPED(): ?Node {
     return $this->_key;
   }
 
@@ -237,7 +244,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $this->_keyword,
       $this->_left_angle,
-      $value ?? Missing(),
+      $value,
       $this->_comma,
       $this->_value,
       $this->_right_angle,
@@ -245,7 +252,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKey(): bool {
-    return !$this->_key->isMissing();
+    return $this->_key !== null;
   }
 
   /**
@@ -262,7 +269,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getKey();
   }
 
-  public function getCommaUNTYPED(): Node {
+  public function getCommaUNTYPED(): ?Node {
     return $this->_comma;
   }
 
@@ -274,14 +281,14 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_angle,
       $this->_key,
-      $value ?? Missing(),
+      $value,
       $this->_value,
       $this->_right_angle,
     );
   }
 
   public function hasComma(): bool {
-    return !$this->_comma->isMissing();
+    return $this->_comma !== null;
   }
 
   /**
@@ -298,7 +305,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getComma();
   }
 
-  public function getValueUNTYPED(): Node {
+  public function getValueUNTYPED(): ?Node {
     return $this->_value;
   }
 
@@ -311,13 +318,13 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_left_angle,
       $this->_key,
       $this->_comma,
-      $value ?? Missing(),
+      $value,
       $this->_right_angle,
     );
   }
 
   public function hasValue(): bool {
-    return !$this->_value->isMissing();
+    return $this->_value !== null;
   }
 
   /**
@@ -325,10 +332,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
    * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier
    */
   public function getValue(): ?ITypeSpecifier {
-    if ($this->_value->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_value);
+    return $this->_value;
   }
 
   /**
@@ -339,7 +343,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return TypeAssert\not_null($this->getValue());
   }
 
-  public function getRightAngleUNTYPED(): Node {
+  public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
@@ -353,12 +357,12 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_key,
       $this->_comma,
       $this->_value,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->isMissing();
+    return $this->_right_angle !== null;
   }
 
   /**

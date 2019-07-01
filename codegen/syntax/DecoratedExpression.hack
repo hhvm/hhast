@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60dca643ed63e7eacc207cff6eedb6bf>>
+ * @generated SignedSource<<55abac0b34664cee680a1068cea54d10>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class DecoratedExpression
@@ -13,12 +14,12 @@ final class DecoratedExpression
 
   const string SYNTAX_KIND = 'decorated_expression';
 
-  private Node $_decorator;
-  private Node $_expression;
+  private Token $_decorator;
+  private IExpression $_expression;
 
   public function __construct(
-    Node $decorator,
-    Node $expression,
+    Token $decorator,
+    IExpression $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_decorator = $decorator;
@@ -42,6 +43,7 @@ final class DecoratedExpression
       $source,
       'Token',
     );
+    $decorator = $decorator as nonnull;
     $offset += $decorator->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['decorated_expression_expression'],
@@ -50,6 +52,7 @@ final class DecoratedExpression
       $source,
       'IExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -57,7 +60,11 @@ final class DecoratedExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($decorator, $expression, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $decorator,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -65,7 +72,8 @@ final class DecoratedExpression
     return dict[
       'decorator' => $this->_decorator,
       'expression' => $this->_expression,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +89,13 @@ final class DecoratedExpression
     ) {
       return $this;
     }
-    return new static($decorator, $expression);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $decorator,
+      /* HH_FIXME[4110] use `as` */ $expression,
+    );
   }
 
-  public function getDecoratorUNTYPED(): Node {
+  public function getDecoratorUNTYPED(): ?Node {
     return $this->_decorator;
   }
 
@@ -92,11 +103,11 @@ final class DecoratedExpression
     if ($value === $this->_decorator) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_expression);
+    return new static($value, $this->_expression);
   }
 
   public function hasDecorator(): bool {
-    return !$this->_decorator->isMissing();
+    return $this->_decorator !== null;
   }
 
   /**
@@ -113,7 +124,7 @@ final class DecoratedExpression
     return $this->getDecorator();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -121,11 +132,11 @@ final class DecoratedExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_decorator, $value ?? Missing());
+    return new static($this->_decorator, $value);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**

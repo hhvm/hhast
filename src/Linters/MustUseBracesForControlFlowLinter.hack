@@ -16,8 +16,10 @@ use type Facebook\HHAST\{
   EndOfLine,
   ForeachStatement,
   IControlFlowStatement,
+  IStatement,
   IfStatement,
   LeftBraceToken,
+  ListItem,
   Node,
   NodeList,
   RightBraceToken,
@@ -62,7 +64,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
     );
   }
 
-  private function getBody(Node $node): ?Node {
+  private function getBody(Node $node): ?IStatement{
     if ($node instanceof IfStatement) {
       return $node->getStatement();
     }
@@ -146,7 +148,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
           $body->replace(
             $body->getLastTokenx(),
             $body->getLastTokenx()->withTrailing($body_trailing),
-          ),
+          ) |> new NodeList(vec[$$]),
           new RightBraceToken(
             $right_brace_leading,
             $body->getLastTokenx()->getTrailingWhitespace(),

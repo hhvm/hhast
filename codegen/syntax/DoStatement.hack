@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b27c7d94f78684cc93c804c295333c1>>
+ * @generated SignedSource<<eb439f32414f97d966085489dc547fd9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class DoStatement
@@ -13,22 +14,22 @@ final class DoStatement
 
   const string SYNTAX_KIND = 'do_statement';
 
-  private Node $_keyword;
-  private Node $_body;
-  private Node $_while_keyword;
-  private Node $_left_paren;
-  private Node $_condition;
-  private Node $_right_paren;
-  private Node $_semicolon;
+  private DoToken $_keyword;
+  private IStatement $_body;
+  private WhileToken $_while_keyword;
+  private LeftParenToken $_left_paren;
+  private IExpression $_condition;
+  private RightParenToken $_right_paren;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $body,
-    Node $while_keyword,
-    Node $left_paren,
-    Node $condition,
-    Node $right_paren,
-    Node $semicolon,
+    DoToken $keyword,
+    IStatement $body,
+    WhileToken $while_keyword,
+    LeftParenToken $left_paren,
+    IExpression $condition,
+    RightParenToken $right_paren,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -57,6 +58,7 @@ final class DoStatement
       $source,
       'DoToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_body'],
@@ -65,6 +67,7 @@ final class DoStatement
       $source,
       'IStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $while_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_while_keyword'],
@@ -73,6 +76,7 @@ final class DoStatement
       $source,
       'WhileToken',
     );
+    $while_keyword = $while_keyword as nonnull;
     $offset += $while_keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_left_paren'],
@@ -81,6 +85,7 @@ final class DoStatement
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_condition'],
@@ -89,6 +94,7 @@ final class DoStatement
       $source,
       'IExpression',
     );
+    $condition = $condition as nonnull;
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_right_paren'],
@@ -97,6 +103,7 @@ final class DoStatement
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['do_semicolon'],
@@ -105,6 +112,7 @@ final class DoStatement
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -113,13 +121,13 @@ final class DoStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $body,
-      $while_keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $body,
+      /* HH_IGNORE_ERROR[4110] */ $while_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $condition,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
   }
@@ -134,7 +142,8 @@ final class DoStatement
       'condition' => $this->_condition,
       'right_paren' => $this->_right_paren,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -162,17 +171,17 @@ final class DoStatement
       return $this;
     }
     return new static(
-      $keyword,
-      $body,
-      $while_keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $semicolon,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $body,
+      /* HH_FIXME[4110] use `as` */ $while_keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $condition,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -181,7 +190,7 @@ final class DoStatement
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_body,
       $this->_while_keyword,
       $this->_left_paren,
@@ -192,7 +201,7 @@ final class DoStatement
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -209,7 +218,7 @@ final class DoStatement
     return $this->getKeyword();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -219,7 +228,7 @@ final class DoStatement
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_while_keyword,
       $this->_left_paren,
       $this->_condition,
@@ -229,7 +238,7 @@ final class DoStatement
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**
@@ -246,7 +255,7 @@ final class DoStatement
     return $this->getBody();
   }
 
-  public function getWhileKeywordUNTYPED(): Node {
+  public function getWhileKeywordUNTYPED(): ?Node {
     return $this->_while_keyword;
   }
 
@@ -257,7 +266,7 @@ final class DoStatement
     return new static(
       $this->_keyword,
       $this->_body,
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -266,7 +275,7 @@ final class DoStatement
   }
 
   public function hasWhileKeyword(): bool {
-    return !$this->_while_keyword->isMissing();
+    return $this->_while_keyword !== null;
   }
 
   /**
@@ -283,7 +292,7 @@ final class DoStatement
     return $this->getWhileKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -295,7 +304,7 @@ final class DoStatement
       $this->_keyword,
       $this->_body,
       $this->_while_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_condition,
       $this->_right_paren,
       $this->_semicolon,
@@ -303,7 +312,7 @@ final class DoStatement
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -320,7 +329,7 @@ final class DoStatement
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): Node {
+  public function getConditionUNTYPED(): ?Node {
     return $this->_condition;
   }
 
@@ -333,14 +342,14 @@ final class DoStatement
       $this->_body,
       $this->_while_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_semicolon,
     );
   }
 
   public function hasCondition(): bool {
-    return !$this->_condition->isMissing();
+    return $this->_condition !== null;
   }
 
   /**
@@ -359,7 +368,7 @@ final class DoStatement
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -373,13 +382,13 @@ final class DoStatement
       $this->_while_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value ?? Missing(),
+      $value,
       $this->_semicolon,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -396,7 +405,7 @@ final class DoStatement
     return $this->getRightParen();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -411,12 +420,12 @@ final class DoStatement
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

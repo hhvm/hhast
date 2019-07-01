@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ab7329fcda141572c0a25ca7fabcc49>>
+ * @generated SignedSource<<dcdd5cb0147bc64123fcad22a61d2669>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 abstract class ClassishDeclarationGeneratedBase
@@ -13,28 +14,28 @@ abstract class ClassishDeclarationGeneratedBase
 
   const string SYNTAX_KIND = 'classish_declaration';
 
-  private Node $_attribute;
-  private Node $_modifiers;
-  private Node $_keyword;
-  private Node $_name;
-  private Node $_type_parameters;
-  private Node $_extends_keyword;
-  private Node $_extends_list;
-  private Node $_implements_keyword;
-  private Node $_implements_list;
-  private Node $_body;
+  private ?AttributeSpecification $_attribute;
+  private ?NodeList<Token> $_modifiers;
+  private Token $_keyword;
+  private Token $_name;
+  private ?TypeParameters $_type_parameters;
+  private ?ExtendsToken $_extends_keyword;
+  private ?NodeList<ListItem<ISimpleCreationSpecifier>> $_extends_list;
+  private ?ImplementsToken $_implements_keyword;
+  private ?NodeList<ListItem<ISimpleCreationSpecifier>> $_implements_list;
+  private ClassishBody $_body;
 
   public function __construct(
-    Node $attribute,
-    Node $modifiers,
-    Node $keyword,
-    Node $name,
-    Node $type_parameters,
-    Node $extends_keyword,
-    Node $extends_list,
-    Node $implements_keyword,
-    Node $implements_list,
-    Node $body,
+    ?AttributeSpecification $attribute,
+    ?NodeList<Token> $modifiers,
+    Token $keyword,
+    Token $name,
+    ?TypeParameters $type_parameters,
+    ?ExtendsToken $extends_keyword,
+    ?NodeList<ListItem<ISimpleCreationSpecifier>> $extends_list,
+    ?ImplementsToken $implements_keyword,
+    ?NodeList<ListItem<ISimpleCreationSpecifier>> $implements_list,
+    ClassishBody $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute = $attribute;
@@ -66,7 +67,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'AttributeSpecification',
     );
-    $offset += $attribute->getWidth();
+    $offset += $attribute?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_modifiers'],
       $file,
@@ -74,7 +75,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'NodeList<Token>',
     );
-    $offset += $modifiers->getWidth();
+    $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_keyword'],
       $file,
@@ -82,6 +83,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'Token',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_name'],
@@ -90,6 +92,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'Token',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_type_parameters'],
@@ -98,7 +101,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'TypeParameters',
     );
-    $offset += $type_parameters->getWidth();
+    $offset += $type_parameters?->getWidth() ?? 0;
     $extends_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_extends_keyword'],
       $file,
@@ -106,7 +109,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'ExtendsToken',
     );
-    $offset += $extends_keyword->getWidth();
+    $offset += $extends_keyword?->getWidth() ?? 0;
     $extends_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_extends_list'],
       $file,
@@ -114,7 +117,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'NodeList<ListItem<ISimpleCreationSpecifier>>',
     );
-    $offset += $extends_list->getWidth();
+    $offset += $extends_list?->getWidth() ?? 0;
     $implements_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_implements_keyword'],
       $file,
@@ -122,7 +125,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'ImplementsToken',
     );
-    $offset += $implements_keyword->getWidth();
+    $offset += $implements_keyword?->getWidth() ?? 0;
     $implements_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_implements_list'],
       $file,
@@ -130,7 +133,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'NodeList<ListItem<ISimpleCreationSpecifier>>',
     );
-    $offset += $implements_list->getWidth();
+    $offset += $implements_list?->getWidth() ?? 0;
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_body'],
       $file,
@@ -138,6 +141,7 @@ abstract class ClassishDeclarationGeneratedBase
       $source,
       'ClassishBody',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -146,16 +150,16 @@ abstract class ClassishDeclarationGeneratedBase
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute,
-      $modifiers,
-      $keyword,
-      $name,
-      $type_parameters,
-      $extends_keyword,
-      $extends_list,
-      $implements_keyword,
-      $implements_list,
-      $body,
+      /* HH_IGNORE_ERROR[4110] */ $attribute,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $type_parameters,
+      /* HH_IGNORE_ERROR[4110] */ $extends_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $extends_list,
+      /* HH_IGNORE_ERROR[4110] */ $implements_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $implements_list,
+      /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
   }
@@ -173,7 +177,8 @@ abstract class ClassishDeclarationGeneratedBase
       'implements_keyword' => $this->_implements_keyword,
       'implements_list' => $this->_implements_list,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -182,15 +187,29 @@ abstract class ClassishDeclarationGeneratedBase
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $rewriter($this->_attribute, $parents);
-    $modifiers = $rewriter($this->_modifiers, $parents);
+    $attribute = $this->_attribute === null
+      ? null
+      : $rewriter($this->_attribute, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $type_parameters = $rewriter($this->_type_parameters, $parents);
-    $extends_keyword = $rewriter($this->_extends_keyword, $parents);
-    $extends_list = $rewriter($this->_extends_list, $parents);
-    $implements_keyword = $rewriter($this->_implements_keyword, $parents);
-    $implements_list = $rewriter($this->_implements_list, $parents);
+    $type_parameters = $this->_type_parameters === null
+      ? null
+      : $rewriter($this->_type_parameters, $parents);
+    $extends_keyword = $this->_extends_keyword === null
+      ? null
+      : $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $this->_extends_list === null
+      ? null
+      : $rewriter($this->_extends_list, $parents);
+    $implements_keyword = $this->_implements_keyword === null
+      ? null
+      : $rewriter($this->_implements_keyword, $parents);
+    $implements_list = $this->_implements_list === null
+      ? null
+      : $rewriter($this->_implements_list, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
       $attribute === $this->_attribute &&
@@ -207,20 +226,20 @@ abstract class ClassishDeclarationGeneratedBase
       return $this;
     }
     return new static(
-      $attribute,
-      $modifiers,
-      $keyword,
-      $name,
-      $type_parameters,
-      $extends_keyword,
-      $extends_list,
-      $implements_keyword,
-      $implements_list,
-      $body,
+      /* HH_FIXME[4110] use `as` */ $attribute,
+      /* HH_FIXME[4110] use `as` */ $modifiers,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $type_parameters,
+      /* HH_FIXME[4110] use `as` */ $extends_keyword,
+      /* HH_FIXME[4110] use `as` */ $extends_list,
+      /* HH_FIXME[4110] use `as` */ $implements_keyword,
+      /* HH_FIXME[4110] use `as` */ $implements_list,
+      /* HH_FIXME[4110] use `as` */ $body,
     );
   }
 
-  public function getAttributeUNTYPED(): Node {
+  public function getAttributeUNTYPED(): ?Node {
     return $this->_attribute;
   }
 
@@ -229,7 +248,7 @@ abstract class ClassishDeclarationGeneratedBase
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_modifiers,
       $this->_keyword,
       $this->_name,
@@ -243,20 +262,14 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   public function hasAttribute(): bool {
-    return !$this->_attribute->isMissing();
+    return $this->_attribute !== null;
   }
 
   /**
    * @return AttributeSpecification | null
    */
   public function getAttribute(): ?AttributeSpecification {
-    if ($this->_attribute->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return $this->_attribute;
   }
 
   /**
@@ -266,7 +279,7 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getAttribute());
   }
 
-  public function getModifiersUNTYPED(): Node {
+  public function getModifiersUNTYPED(): ?Node {
     return $this->_modifiers;
   }
 
@@ -276,7 +289,7 @@ abstract class ClassishDeclarationGeneratedBase
     }
     return new static(
       $this->_attribute,
-      $value ?? Missing(),
+      $value,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -289,7 +302,7 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   public function hasModifiers(): bool {
-    return !$this->_modifiers->isMissing();
+    return $this->_modifiers !== null;
   }
 
   /**
@@ -297,10 +310,7 @@ abstract class ClassishDeclarationGeneratedBase
    * null
    */
   public function getModifiers(): ?NodeList<Token> {
-    if ($this->_modifiers->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_modifiers);
+    return $this->_modifiers;
   }
 
   /**
@@ -310,7 +320,7 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getModifiers());
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -321,7 +331,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_type_parameters,
       $this->_extends_keyword,
@@ -333,7 +343,7 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -350,7 +360,7 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -362,7 +372,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_attribute,
       $this->_modifiers,
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_type_parameters,
       $this->_extends_keyword,
       $this->_extends_list,
@@ -373,7 +383,7 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -390,7 +400,7 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->getName();
   }
 
-  public function getTypeParametersUNTYPED(): Node {
+  public function getTypeParametersUNTYPED(): ?Node {
     return $this->_type_parameters;
   }
 
@@ -403,7 +413,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_modifiers,
       $this->_keyword,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_extends_keyword,
       $this->_extends_list,
       $this->_implements_keyword,
@@ -413,20 +423,14 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   public function hasTypeParameters(): bool {
-    return !$this->_type_parameters->isMissing();
+    return $this->_type_parameters !== null;
   }
 
   /**
    * @return null | TypeParameters
    */
   public function getTypeParameters(): ?TypeParameters {
-    if ($this->_type_parameters->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      TypeParameters::class,
-      $this->_type_parameters,
-    );
+    return $this->_type_parameters;
   }
 
   /**
@@ -436,7 +440,7 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getTypeParameters());
   }
 
-  public function getExtendsKeywordUNTYPED(): Node {
+  public function getExtendsKeywordUNTYPED(): ?Node {
     return $this->_extends_keyword;
   }
 
@@ -450,7 +454,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
-      $value ?? Missing(),
+      $value,
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
@@ -459,17 +463,14 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   public function hasExtendsKeyword(): bool {
-    return !$this->_extends_keyword->isMissing();
+    return $this->_extends_keyword !== null;
   }
 
   /**
    * @return null | ExtendsToken
    */
   public function getExtendsKeyword(): ?ExtendsToken {
-    if ($this->_extends_keyword->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ExtendsToken::class, $this->_extends_keyword);
+    return $this->_extends_keyword;
   }
 
   /**
@@ -479,7 +480,7 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getExtendsKeyword());
   }
 
-  public function getExtendsListUNTYPED(): Node {
+  public function getExtendsListUNTYPED(): ?Node {
     return $this->_extends_list;
   }
 
@@ -496,7 +497,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_name,
       $this->_type_parameters,
       $this->_extends_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_implements_keyword,
       $this->_implements_list,
       $this->_body,
@@ -504,7 +505,7 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   public function hasExtendsList(): bool {
-    return !$this->_extends_list->isMissing();
+    return $this->_extends_list !== null;
   }
 
   /**
@@ -514,10 +515,7 @@ abstract class ClassishDeclarationGeneratedBase
    */
   public function getExtendsList(
   ): ?NodeList<ListItem<ISimpleCreationSpecifier>> {
-    if ($this->_extends_list->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_extends_list);
+    return $this->_extends_list;
   }
 
   /**
@@ -530,7 +528,7 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getExtendsList());
   }
 
-  public function getImplementsKeywordUNTYPED(): Node {
+  public function getImplementsKeywordUNTYPED(): ?Node {
     return $this->_implements_keyword;
   }
 
@@ -546,27 +544,21 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_type_parameters,
       $this->_extends_keyword,
       $this->_extends_list,
-      $value ?? Missing(),
+      $value,
       $this->_implements_list,
       $this->_body,
     );
   }
 
   public function hasImplementsKeyword(): bool {
-    return !$this->_implements_keyword->isMissing();
+    return $this->_implements_keyword !== null;
   }
 
   /**
    * @return null | ImplementsToken
    */
   public function getImplementsKeyword(): ?ImplementsToken {
-    if ($this->_implements_keyword->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      ImplementsToken::class,
-      $this->_implements_keyword,
-    );
+    return $this->_implements_keyword;
   }
 
   /**
@@ -576,7 +568,7 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getImplementsKeyword());
   }
 
-  public function getImplementsListUNTYPED(): Node {
+  public function getImplementsListUNTYPED(): ?Node {
     return $this->_implements_list;
   }
 
@@ -595,13 +587,13 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_keyword,
       $this->_extends_list,
       $this->_implements_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_body,
     );
   }
 
   public function hasImplementsList(): bool {
-    return !$this->_implements_list->isMissing();
+    return $this->_implements_list !== null;
   }
 
   /**
@@ -611,10 +603,7 @@ abstract class ClassishDeclarationGeneratedBase
    */
   public function getImplementsList(
   ): ?NodeList<ListItem<ISimpleCreationSpecifier>> {
-    if ($this->_implements_list->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_implements_list);
+    return $this->_implements_list;
   }
 
   /**
@@ -627,7 +616,7 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getImplementsList());
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -645,12 +634,12 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

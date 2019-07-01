@@ -15,5 +15,5 @@ interface IHasOperator {
   public function hasOperator(): bool;
   public function getOperator(): ?Token;
   public function getOperatorx(): Token;
-  public function getOperatorUNTYPED(): Node;
+  public function getOperatorUNTYPED(): ?Node;
 }

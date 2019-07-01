@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3090fa618544f8d16b9cff0de488aeba>>
+ * @generated SignedSource<<1dd93cbeb760c5d6fb4c4edc90f5ebe8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class Php7AnonymousFunction
@@ -13,32 +14,32 @@ final class Php7AnonymousFunction
 
   const string SYNTAX_KIND = 'php7_anonymous_function';
 
-  private Node $_attribute_spec;
-  private Node $_static_keyword;
-  private Node $_async_keyword;
-  private Node $_coroutine_keyword;
-  private Node $_function_keyword;
-  private Node $_left_paren;
-  private Node $_parameters;
-  private Node $_right_paren;
-  private Node $_use;
-  private Node $_colon;
-  private Node $_type;
-  private Node $_body;
+  private ?Node $_attribute_spec;
+  private ?Node $_static_keyword;
+  private ?Node $_async_keyword;
+  private ?Node $_coroutine_keyword;
+  private FunctionToken $_function_keyword;
+  private LeftParenToken $_left_paren;
+  private ?Node $_parameters;
+  private RightParenToken $_right_paren;
+  private AnonymousFunctionUseClause $_use;
+  private ColonToken $_colon;
+  private SimpleTypeSpecifier $_type;
+  private CompoundStatement $_body;
 
   public function __construct(
-    Node $attribute_spec,
-    Node $static_keyword,
-    Node $async_keyword,
-    Node $coroutine_keyword,
-    Node $function_keyword,
-    Node $left_paren,
-    Node $parameters,
-    Node $right_paren,
-    Node $use,
-    Node $colon,
-    Node $type,
-    Node $body,
+    ?Node $attribute_spec,
+    ?Node $static_keyword,
+    ?Node $async_keyword,
+    ?Node $coroutine_keyword,
+    FunctionToken $function_keyword,
+    LeftParenToken $left_paren,
+    ?Node $parameters,
+    RightParenToken $right_paren,
+    AnonymousFunctionUseClause $use,
+    ColonToken $colon,
+    SimpleTypeSpecifier $type,
+    CompoundStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -72,7 +73,7 @@ final class Php7AnonymousFunction
       $source,
       'Node',
     );
-    $offset += $attribute_spec->getWidth();
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $static_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_static_keyword'],
       $file,
@@ -80,7 +81,7 @@ final class Php7AnonymousFunction
       $source,
       'Node',
     );
-    $offset += $static_keyword->getWidth();
+    $offset += $static_keyword?->getWidth() ?? 0;
     $async_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_async_keyword'],
       $file,
@@ -88,7 +89,7 @@ final class Php7AnonymousFunction
       $source,
       'Node',
     );
-    $offset += $async_keyword->getWidth();
+    $offset += $async_keyword?->getWidth() ?? 0;
     $coroutine_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_coroutine_keyword'],
       $file,
@@ -96,7 +97,7 @@ final class Php7AnonymousFunction
       $source,
       'Node',
     );
-    $offset += $coroutine_keyword->getWidth();
+    $offset += $coroutine_keyword?->getWidth() ?? 0;
     $function_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_function_keyword'],
       $file,
@@ -104,6 +105,7 @@ final class Php7AnonymousFunction
       $source,
       'FunctionToken',
     );
+    $function_keyword = $function_keyword as nonnull;
     $offset += $function_keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_left_paren'],
@@ -112,6 +114,7 @@ final class Php7AnonymousFunction
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_parameters'],
@@ -120,7 +123,7 @@ final class Php7AnonymousFunction
       $source,
       'Node',
     );
-    $offset += $parameters->getWidth();
+    $offset += $parameters?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_right_paren'],
       $file,
@@ -128,6 +131,7 @@ final class Php7AnonymousFunction
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $use = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_use'],
@@ -136,6 +140,7 @@ final class Php7AnonymousFunction
       $source,
       'AnonymousFunctionUseClause',
     );
+    $use = $use as nonnull;
     $offset += $use->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_colon'],
@@ -144,6 +149,7 @@ final class Php7AnonymousFunction
       $source,
       'ColonToken',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_type'],
@@ -152,6 +158,7 @@ final class Php7AnonymousFunction
       $source,
       'SimpleTypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['php7_anonymous_body'],
@@ -160,6 +167,7 @@ final class Php7AnonymousFunction
       $source,
       'CompoundStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -168,18 +176,18 @@ final class Php7AnonymousFunction
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute_spec,
-      $static_keyword,
-      $async_keyword,
-      $coroutine_keyword,
-      $function_keyword,
-      $left_paren,
-      $parameters,
-      $right_paren,
-      $use,
-      $colon,
-      $type,
-      $body,
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $static_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $async_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $coroutine_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $function_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $parameters,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $use,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
   }
@@ -199,7 +207,8 @@ final class Php7AnonymousFunction
       'colon' => $this->_colon,
       'type' => $this->_type,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -208,13 +217,23 @@ final class Php7AnonymousFunction
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
-    $static_keyword = $rewriter($this->_static_keyword, $parents);
-    $async_keyword = $rewriter($this->_async_keyword, $parents);
-    $coroutine_keyword = $rewriter($this->_coroutine_keyword, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
+    $static_keyword = $this->_static_keyword === null
+      ? null
+      : $rewriter($this->_static_keyword, $parents);
+    $async_keyword = $this->_async_keyword === null
+      ? null
+      : $rewriter($this->_async_keyword, $parents);
+    $coroutine_keyword = $this->_coroutine_keyword === null
+      ? null
+      : $rewriter($this->_coroutine_keyword, $parents);
     $function_keyword = $rewriter($this->_function_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $parameters = $rewriter($this->_parameters, $parents);
+    $parameters = $this->_parameters === null
+      ? null
+      : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $use = $rewriter($this->_use, $parents);
     $colon = $rewriter($this->_colon, $parents);
@@ -237,22 +256,22 @@ final class Php7AnonymousFunction
       return $this;
     }
     return new static(
-      $attribute_spec,
-      $static_keyword,
-      $async_keyword,
-      $coroutine_keyword,
-      $function_keyword,
-      $left_paren,
-      $parameters,
-      $right_paren,
-      $use,
-      $colon,
-      $type,
-      $body,
+      /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $static_keyword,
+      /* HH_FIXME[4110] use `as` */ $async_keyword,
+      /* HH_FIXME[4110] use `as` */ $coroutine_keyword,
+      /* HH_FIXME[4110] use `as` */ $function_keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $parameters,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $use,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $body,
     );
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->_attribute_spec;
   }
 
@@ -261,7 +280,7 @@ final class Php7AnonymousFunction
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -277,16 +296,13 @@ final class Php7AnonymousFunction
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->isMissing();
+    return $this->_attribute_spec !== null;
   }
 
   /**
    * @return null
    */
   public function getAttributeSpec(): ?Node {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
     return $this->_attribute_spec;
   }
 
@@ -297,7 +313,7 @@ final class Php7AnonymousFunction
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getStaticKeywordUNTYPED(): Node {
+  public function getStaticKeywordUNTYPED(): ?Node {
     return $this->_static_keyword;
   }
 
@@ -307,7 +323,7 @@ final class Php7AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $value ?? Missing(),
+      $value,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
@@ -322,16 +338,13 @@ final class Php7AnonymousFunction
   }
 
   public function hasStaticKeyword(): bool {
-    return !$this->_static_keyword->isMissing();
+    return $this->_static_keyword !== null;
   }
 
   /**
    * @return null
    */
   public function getStaticKeyword(): ?Node {
-    if ($this->_static_keyword->isMissing()) {
-      return null;
-    }
     return $this->_static_keyword;
   }
 
@@ -342,7 +355,7 @@ final class Php7AnonymousFunction
     return TypeAssert\not_null($this->getStaticKeyword());
   }
 
-  public function getAsyncKeywordUNTYPED(): Node {
+  public function getAsyncKeywordUNTYPED(): ?Node {
     return $this->_async_keyword;
   }
 
@@ -353,7 +366,7 @@ final class Php7AnonymousFunction
     return new static(
       $this->_attribute_spec,
       $this->_static_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -367,16 +380,13 @@ final class Php7AnonymousFunction
   }
 
   public function hasAsyncKeyword(): bool {
-    return !$this->_async_keyword->isMissing();
+    return $this->_async_keyword !== null;
   }
 
   /**
    * @return null
    */
   public function getAsyncKeyword(): ?Node {
-    if ($this->_async_keyword->isMissing()) {
-      return null;
-    }
     return $this->_async_keyword;
   }
 
@@ -387,7 +397,7 @@ final class Php7AnonymousFunction
     return TypeAssert\not_null($this->getAsyncKeyword());
   }
 
-  public function getCoroutineKeywordUNTYPED(): Node {
+  public function getCoroutineKeywordUNTYPED(): ?Node {
     return $this->_coroutine_keyword;
   }
 
@@ -399,7 +409,7 @@ final class Php7AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -412,16 +422,13 @@ final class Php7AnonymousFunction
   }
 
   public function hasCoroutineKeyword(): bool {
-    return !$this->_coroutine_keyword->isMissing();
+    return $this->_coroutine_keyword !== null;
   }
 
   /**
    * @return null
    */
   public function getCoroutineKeyword(): ?Node {
-    if ($this->_coroutine_keyword->isMissing()) {
-      return null;
-    }
     return $this->_coroutine_keyword;
   }
 
@@ -432,7 +439,7 @@ final class Php7AnonymousFunction
     return TypeAssert\not_null($this->getCoroutineKeyword());
   }
 
-  public function getFunctionKeywordUNTYPED(): Node {
+  public function getFunctionKeywordUNTYPED(): ?Node {
     return $this->_function_keyword;
   }
 
@@ -445,7 +452,7 @@ final class Php7AnonymousFunction
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -457,7 +464,7 @@ final class Php7AnonymousFunction
   }
 
   public function hasFunctionKeyword(): bool {
-    return !$this->_function_keyword->isMissing();
+    return $this->_function_keyword !== null;
   }
 
   /**
@@ -477,7 +484,7 @@ final class Php7AnonymousFunction
     return $this->getFunctionKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -491,7 +498,7 @@ final class Php7AnonymousFunction
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_parameters,
       $this->_right_paren,
       $this->_use,
@@ -502,7 +509,7 @@ final class Php7AnonymousFunction
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -519,7 +526,7 @@ final class Php7AnonymousFunction
     return $this->getLeftParen();
   }
 
-  public function getParametersUNTYPED(): Node {
+  public function getParametersUNTYPED(): ?Node {
     return $this->_parameters;
   }
 
@@ -534,7 +541,7 @@ final class Php7AnonymousFunction
       $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_use,
       $this->_colon,
@@ -544,16 +551,13 @@ final class Php7AnonymousFunction
   }
 
   public function hasParameters(): bool {
-    return !$this->_parameters->isMissing();
+    return $this->_parameters !== null;
   }
 
   /**
    * @return null
    */
   public function getParameters(): ?Node {
-    if ($this->_parameters->isMissing()) {
-      return null;
-    }
     return $this->_parameters;
   }
 
@@ -564,7 +568,7 @@ final class Php7AnonymousFunction
     return TypeAssert\not_null($this->getParameters());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -580,7 +584,7 @@ final class Php7AnonymousFunction
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
-      $value ?? Missing(),
+      $value,
       $this->_use,
       $this->_colon,
       $this->_type,
@@ -589,7 +593,7 @@ final class Php7AnonymousFunction
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -606,7 +610,7 @@ final class Php7AnonymousFunction
     return $this->getRightParen();
   }
 
-  public function getUseUNTYPED(): Node {
+  public function getUseUNTYPED(): ?Node {
     return $this->_use;
   }
 
@@ -623,7 +627,7 @@ final class Php7AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_type,
       $this->_body,
@@ -631,7 +635,7 @@ final class Php7AnonymousFunction
   }
 
   public function hasUse(): bool {
-    return !$this->_use->isMissing();
+    return $this->_use !== null;
   }
 
   /**
@@ -651,7 +655,7 @@ final class Php7AnonymousFunction
     return $this->getUse();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -669,14 +673,14 @@ final class Php7AnonymousFunction
       $this->_parameters,
       $this->_right_paren,
       $this->_use,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_body,
     );
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
@@ -693,7 +697,7 @@ final class Php7AnonymousFunction
     return $this->getColon();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -712,13 +716,13 @@ final class Php7AnonymousFunction
       $this->_right_paren,
       $this->_use,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
       $this->_body,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -735,7 +739,7 @@ final class Php7AnonymousFunction
     return $this->getType();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -755,12 +759,12 @@ final class Php7AnonymousFunction
       $this->_use,
       $this->_colon,
       $this->_type,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

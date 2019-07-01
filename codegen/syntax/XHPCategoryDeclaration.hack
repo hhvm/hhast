@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce967f3be9e9d6ae6fac0f1b8440a050>>
+ * @generated SignedSource<<43547191020185062dca7e2ad8451af5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPCategoryDeclaration
@@ -45,6 +46,7 @@ final class XHPCategoryDeclaration
       $source,
       'Node',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $categories = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_category_categories'],
@@ -53,6 +55,7 @@ final class XHPCategoryDeclaration
       $source,
       'Node',
     );
+    $categories = $categories as nonnull;
     $offset += $categories->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_category_semicolon'],
@@ -61,6 +64,7 @@ final class XHPCategoryDeclaration
       $source,
       'Node',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class XHPCategoryDeclaration
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $categories, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $categories,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class XHPCategoryDeclaration
       'keyword' => $this->_keyword,
       'categories' => $this->_categories,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class XHPCategoryDeclaration
     ) {
       return $this;
     }
-    return new static($keyword, $categories, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $categories,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -107,15 +121,11 @@ final class XHPCategoryDeclaration
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_categories,
-      $this->_semicolon,
-    );
+    return new static($value, $this->_categories, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -132,7 +142,7 @@ final class XHPCategoryDeclaration
     return $this->getKeyword();
   }
 
-  public function getCategoriesUNTYPED(): Node {
+  public function getCategoriesUNTYPED(): ?Node {
     return $this->_categories;
   }
 
@@ -140,11 +150,11 @@ final class XHPCategoryDeclaration
     if ($value === $this->_categories) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasCategories(): bool {
-    return !$this->_categories->isMissing();
+    return $this->_categories !== null;
   }
 
   /**
@@ -161,7 +171,7 @@ final class XHPCategoryDeclaration
     return $this->getCategories();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -169,11 +179,11 @@ final class XHPCategoryDeclaration
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_categories, $value ?? Missing());
+    return new static($this->_keyword, $this->_categories, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

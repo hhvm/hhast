@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5bebc35a63e20f519cf39f64c943f77>>
+ * @generated SignedSource<<38ef59da3ca5fc6a746a1f6dd74715e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ClassishBody extends Node {
 
   const string SYNTAX_KIND = 'classish_body';
 
-  private Node $_left_brace;
-  private Node $_elements;
-  private Node $_right_brace;
+  private LeftBraceToken $_left_brace;
+  private ?NodeList<IClassBodyDeclaration> $_elements;
+  private RightBraceToken $_right_brace;
 
   public function __construct(
-    Node $left_brace,
-    Node $elements,
-    Node $right_brace,
+    LeftBraceToken $left_brace,
+    ?NodeList<IClassBodyDeclaration> $elements,
+    RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_brace = $left_brace;
@@ -43,6 +44,7 @@ final class ClassishBody extends Node {
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $elements = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_body_elements'],
@@ -51,7 +53,7 @@ final class ClassishBody extends Node {
       $source,
       'NodeList<IClassBodyDeclaration>',
     );
-    $offset += $elements->getWidth();
+    $offset += $elements?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_body_right_brace'],
       $file,
@@ -59,6 +61,7 @@ final class ClassishBody extends Node {
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +69,12 @@ final class ClassishBody extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_brace, $elements, $right_brace, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $elements,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +83,8 @@ final class ClassishBody extends Node {
       'left_brace' => $this->_left_brace,
       'elements' => $this->_elements,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,7 +94,9 @@ final class ClassishBody extends Node {
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $elements = $rewriter($this->_elements, $parents);
+    $elements = $this->_elements === null
+      ? null
+      : $rewriter($this->_elements, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&
@@ -94,10 +105,14 @@ final class ClassishBody extends Node {
     ) {
       return $this;
     }
-    return new static($left_brace, $elements, $right_brace);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $elements,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
+    );
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -105,15 +120,11 @@ final class ClassishBody extends Node {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_elements,
-      $this->_right_brace,
-    );
+    return new static($value, $this->_elements, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -130,7 +141,7 @@ final class ClassishBody extends Node {
     return $this->getLeftBrace();
   }
 
-  public function getElementsUNTYPED(): Node {
+  public function getElementsUNTYPED(): ?Node {
     return $this->_elements;
   }
 
@@ -138,15 +149,11 @@ final class ClassishBody extends Node {
     if ($value === $this->_elements) {
       return $this;
     }
-    return new static(
-      $this->_left_brace,
-      $value ?? Missing(),
-      $this->_right_brace,
-    );
+    return new static($this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasElements(): bool {
-    return !$this->_elements->isMissing();
+    return $this->_elements !== null;
   }
 
   /**
@@ -158,10 +165,7 @@ final class ClassishBody extends Node {
    * null
    */
   public function getElements(): ?NodeList<IClassBodyDeclaration> {
-    if ($this->_elements->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_elements);
+    return $this->_elements;
   }
 
   /**
@@ -175,7 +179,7 @@ final class ClassishBody extends Node {
     return TypeAssert\not_null($this->getElements());
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -183,15 +187,11 @@ final class ClassishBody extends Node {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static(
-      $this->_left_brace,
-      $this->_elements,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_brace, $this->_elements, $value);
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

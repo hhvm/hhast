@@ -1,28 +1,29 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f33bc26b7c04af40d0e27199787f454b>>
+ * @generated SignedSource<<10e978f3b255cf1671a99a33bb01db95>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'shape_type_specifier';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_fields;
-  private Node $_ellipsis;
-  private Node $_right_paren;
+  private ShapeToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<FieldSpecifier>> $_fields;
+  private ?DotDotDotToken $_ellipsis;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $fields,
-    Node $ellipsis,
-    Node $right_paren,
+    ShapeToken $keyword,
+    LeftParenToken $left_paren,
+    ?NodeList<ListItem<FieldSpecifier>> $fields,
+    ?DotDotDotToken $ellipsis,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -49,6 +50,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'ShapeToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_left_paren'],
@@ -57,6 +59,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_fields'],
@@ -65,7 +68,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'NodeList<ListItem<FieldSpecifier>>',
     );
-    $offset += $fields->getWidth();
+    $offset += $fields?->getWidth() ?? 0;
     $ellipsis = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_ellipsis'],
       $file,
@@ -73,7 +76,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'DotDotDotToken',
     );
-    $offset += $ellipsis->getWidth();
+    $offset += $ellipsis?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['shape_type_right_paren'],
       $file,
@@ -81,6 +84,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -89,11 +93,11 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $fields,
-      $ellipsis,
-      $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $fields,
+      /* HH_IGNORE_ERROR[4110] */ $ellipsis,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
       $source_ref,
     );
   }
@@ -106,7 +110,8 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       'fields' => $this->_fields,
       'ellipsis' => $this->_ellipsis,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -117,8 +122,12 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $fields = $rewriter($this->_fields, $parents);
-    $ellipsis = $rewriter($this->_ellipsis, $parents);
+    $fields = $this->_fields === null
+      ? null
+      : $rewriter($this->_fields, $parents);
+    $ellipsis = $this->_ellipsis === null
+      ? null
+      : $rewriter($this->_ellipsis, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -129,10 +138,16 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     ) {
       return $this;
     }
-    return new static($keyword, $left_paren, $fields, $ellipsis, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $fields,
+      /* HH_FIXME[4110] use `as` */ $ellipsis,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -141,7 +156,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_fields,
       $this->_ellipsis,
@@ -150,7 +165,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -167,7 +182,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -177,7 +192,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_fields,
       $this->_ellipsis,
       $this->_right_paren,
@@ -185,7 +200,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -202,7 +217,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getLeftParen();
   }
 
-  public function getFieldsUNTYPED(): Node {
+  public function getFieldsUNTYPED(): ?Node {
     return $this->_fields;
   }
 
@@ -213,24 +228,21 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_ellipsis,
       $this->_right_paren,
     );
   }
 
   public function hasFields(): bool {
-    return !$this->_fields->isMissing();
+    return $this->_fields !== null;
   }
 
   /**
    * @return NodeList<ListItem<FieldSpecifier>> | null
    */
   public function getFields(): ?NodeList<ListItem<FieldSpecifier>> {
-    if ($this->_fields->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_fields);
+    return $this->_fields;
   }
 
   /**
@@ -240,7 +252,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     return TypeAssert\not_null($this->getFields());
   }
 
-  public function getEllipsisUNTYPED(): Node {
+  public function getEllipsisUNTYPED(): ?Node {
     return $this->_ellipsis;
   }
 
@@ -252,23 +264,20 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_paren,
       $this->_fields,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
     );
   }
 
   public function hasEllipsis(): bool {
-    return !$this->_ellipsis->isMissing();
+    return $this->_ellipsis !== null;
   }
 
   /**
    * @return null | DotDotDotToken
    */
   public function getEllipsis(): ?DotDotDotToken {
-    if ($this->_ellipsis->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(DotDotDotToken::class, $this->_ellipsis);
+    return $this->_ellipsis;
   }
 
   /**
@@ -278,7 +287,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     return TypeAssert\not_null($this->getEllipsis());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -291,12 +300,12 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_left_paren,
       $this->_fields,
       $this->_ellipsis,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

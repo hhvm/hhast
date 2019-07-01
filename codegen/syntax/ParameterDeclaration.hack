@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84690cfa1ca19e80952ff2a96e858c41>>
+ * @generated SignedSource<<64a32f40f9a35731460be4f4989d6142>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 abstract class ParameterDeclarationGeneratedBase
@@ -13,20 +14,20 @@ abstract class ParameterDeclarationGeneratedBase
 
   const string SYNTAX_KIND = 'parameter_declaration';
 
-  private Node $_attribute;
-  private Node $_visibility;
-  private Node $_call_convention;
-  private Node $_type;
-  private Node $_name;
-  private Node $_default_value;
+  private ?AttributeSpecification $_attribute;
+  private ?Token $_visibility;
+  private ?InoutToken $_call_convention;
+  private ?ITypeSpecifier $_type;
+  private IExpression $_name;
+  private ?SimpleInitializer $_default_value;
 
   public function __construct(
-    Node $attribute,
-    Node $visibility,
-    Node $call_convention,
-    Node $type,
-    Node $name,
-    Node $default_value,
+    ?AttributeSpecification $attribute,
+    ?Token $visibility,
+    ?InoutToken $call_convention,
+    ?ITypeSpecifier $type,
+    IExpression $name,
+    ?SimpleInitializer $default_value,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute = $attribute;
@@ -54,7 +55,7 @@ abstract class ParameterDeclarationGeneratedBase
       $source,
       'AttributeSpecification',
     );
-    $offset += $attribute->getWidth();
+    $offset += $attribute?->getWidth() ?? 0;
     $visibility = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_visibility'],
       $file,
@@ -62,7 +63,7 @@ abstract class ParameterDeclarationGeneratedBase
       $source,
       'Token',
     );
-    $offset += $visibility->getWidth();
+    $offset += $visibility?->getWidth() ?? 0;
     $call_convention = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_call_convention'],
       $file,
@@ -70,7 +71,7 @@ abstract class ParameterDeclarationGeneratedBase
       $source,
       'InoutToken',
     );
-    $offset += $call_convention->getWidth();
+    $offset += $call_convention?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_type'],
       $file,
@@ -78,7 +79,7 @@ abstract class ParameterDeclarationGeneratedBase
       $source,
       'ITypeSpecifier',
     );
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_name'],
       $file,
@@ -86,6 +87,7 @@ abstract class ParameterDeclarationGeneratedBase
       $source,
       'IExpression',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $default_value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_default_value'],
@@ -94,7 +96,7 @@ abstract class ParameterDeclarationGeneratedBase
       $source,
       'SimpleInitializer',
     );
-    $offset += $default_value->getWidth();
+    $offset += $default_value?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -102,12 +104,12 @@ abstract class ParameterDeclarationGeneratedBase
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute,
-      $visibility,
-      $call_convention,
-      $type,
-      $name,
-      $default_value,
+      /* HH_IGNORE_ERROR[4110] */ $attribute,
+      /* HH_IGNORE_ERROR[4110] */ $visibility,
+      /* HH_IGNORE_ERROR[4110] */ $call_convention,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $default_value,
       $source_ref,
     );
   }
@@ -121,7 +123,8 @@ abstract class ParameterDeclarationGeneratedBase
       'type' => $this->_type,
       'name' => $this->_name,
       'default_value' => $this->_default_value,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -130,12 +133,20 @@ abstract class ParameterDeclarationGeneratedBase
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $rewriter($this->_attribute, $parents);
-    $visibility = $rewriter($this->_visibility, $parents);
-    $call_convention = $rewriter($this->_call_convention, $parents);
-    $type = $rewriter($this->_type, $parents);
+    $attribute = $this->_attribute === null
+      ? null
+      : $rewriter($this->_attribute, $parents);
+    $visibility = $this->_visibility === null
+      ? null
+      : $rewriter($this->_visibility, $parents);
+    $call_convention = $this->_call_convention === null
+      ? null
+      : $rewriter($this->_call_convention, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $name = $rewriter($this->_name, $parents);
-    $default_value = $rewriter($this->_default_value, $parents);
+    $default_value = $this->_default_value === null
+      ? null
+      : $rewriter($this->_default_value, $parents);
     if (
       $attribute === $this->_attribute &&
       $visibility === $this->_visibility &&
@@ -147,16 +158,16 @@ abstract class ParameterDeclarationGeneratedBase
       return $this;
     }
     return new static(
-      $attribute,
-      $visibility,
-      $call_convention,
-      $type,
-      $name,
-      $default_value,
+      /* HH_FIXME[4110] use `as` */ $attribute,
+      /* HH_FIXME[4110] use `as` */ $visibility,
+      /* HH_FIXME[4110] use `as` */ $call_convention,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $default_value,
     );
   }
 
-  public function getAttributeUNTYPED(): Node {
+  public function getAttributeUNTYPED(): ?Node {
     return $this->_attribute;
   }
 
@@ -165,7 +176,7 @@ abstract class ParameterDeclarationGeneratedBase
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_visibility,
       $this->_call_convention,
       $this->_type,
@@ -175,20 +186,14 @@ abstract class ParameterDeclarationGeneratedBase
   }
 
   public function hasAttribute(): bool {
-    return !$this->_attribute->isMissing();
+    return $this->_attribute !== null;
   }
 
   /**
    * @return AttributeSpecification | null
    */
   public function getAttribute(): ?AttributeSpecification {
-    if ($this->_attribute->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute,
-    );
+    return $this->_attribute;
   }
 
   /**
@@ -198,7 +203,7 @@ abstract class ParameterDeclarationGeneratedBase
     return TypeAssert\not_null($this->getAttribute());
   }
 
-  public function getVisibilityUNTYPED(): Node {
+  public function getVisibilityUNTYPED(): ?Node {
     return $this->_visibility;
   }
 
@@ -208,7 +213,7 @@ abstract class ParameterDeclarationGeneratedBase
     }
     return new static(
       $this->_attribute,
-      $value ?? Missing(),
+      $value,
       $this->_call_convention,
       $this->_type,
       $this->_name,
@@ -217,17 +222,14 @@ abstract class ParameterDeclarationGeneratedBase
   }
 
   public function hasVisibility(): bool {
-    return !$this->_visibility->isMissing();
+    return $this->_visibility !== null;
   }
 
   /**
    * @return null | PrivateToken | ProtectedToken | PublicToken
    */
   public function getVisibility(): ?Token {
-    if ($this->_visibility->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(Token::class, $this->_visibility);
+    return $this->_visibility;
   }
 
   /**
@@ -237,7 +239,7 @@ abstract class ParameterDeclarationGeneratedBase
     return TypeAssert\not_null($this->getVisibility());
   }
 
-  public function getCallConventionUNTYPED(): Node {
+  public function getCallConventionUNTYPED(): ?Node {
     return $this->_call_convention;
   }
 
@@ -248,7 +250,7 @@ abstract class ParameterDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_visibility,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_name,
       $this->_default_value,
@@ -256,17 +258,14 @@ abstract class ParameterDeclarationGeneratedBase
   }
 
   public function hasCallConvention(): bool {
-    return !$this->_call_convention->isMissing();
+    return $this->_call_convention !== null;
   }
 
   /**
    * @return null | InoutToken
    */
   public function getCallConvention(): ?InoutToken {
-    if ($this->_call_convention->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(InoutToken::class, $this->_call_convention);
+    return $this->_call_convention;
   }
 
   /**
@@ -276,7 +275,7 @@ abstract class ParameterDeclarationGeneratedBase
     return TypeAssert\not_null($this->getCallConvention());
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -288,14 +287,14 @@ abstract class ParameterDeclarationGeneratedBase
       $this->_attribute,
       $this->_visibility,
       $this->_call_convention,
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_default_value,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -307,10 +306,7 @@ abstract class ParameterDeclarationGeneratedBase
    * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
-    if ($this->_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -325,7 +321,7 @@ abstract class ParameterDeclarationGeneratedBase
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -338,13 +334,13 @@ abstract class ParameterDeclarationGeneratedBase
       $this->_visibility,
       $this->_call_convention,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_default_value,
     );
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -361,7 +357,7 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->getName();
   }
 
-  public function getDefaultValueUNTYPED(): Node {
+  public function getDefaultValueUNTYPED(): ?Node {
     return $this->_default_value;
   }
 
@@ -375,25 +371,19 @@ abstract class ParameterDeclarationGeneratedBase
       $this->_call_convention,
       $this->_type,
       $this->_name,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasDefaultValue(): bool {
-    return !$this->_default_value->isMissing();
+    return $this->_default_value !== null;
   }
 
   /**
    * @return null | SimpleInitializer
    */
   public function getDefaultValue(): ?SimpleInitializer {
-    if ($this->_default_value->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      SimpleInitializer::class,
-      $this->_default_value,
-    );
+    return $this->_default_value;
   }
 
   /**

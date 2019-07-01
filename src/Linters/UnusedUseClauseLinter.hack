@@ -147,10 +147,10 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
       $name = $clause->getName();
       if ($name instanceof NameToken) {
         $name = new QualifiedName(
-          NodeList::createNonEmptyListOrMissing(
+          NodeList::createMaybeEmptyList(
             Vec\concat(
               $node->getPrefix()->getParts()->getChildren(),
-              vec[$name],
+              vec[new HHAST\ListItem($name, null)],
             ),
           ),
         );
@@ -160,7 +160,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
           'name is not a name or qualified name',
         );
         $name = new QualifiedName(
-          NodeList::createNonEmptyListOrMissing(
+          NodeList::createMaybeEmptyList(
             Vec\concat(
               $node->getPrefix()->getParts()->getChildren(),
               $name->getParts()->getChildren(),
@@ -174,11 +174,11 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
 
       $fixed = new NamespaceUseDeclaration(
         $node->getKeyword(),
-        $node->getKind() ?? HHAST\Missing(),
-        NodeList::createNonEmptyListOrMissing(
-          vec[new HHAST\ListItem($clause, HHAST\Missing())],
+        $node->getKind(),
+        NodeList::createMaybeEmptyList(
+          vec[new HHAST\ListItem($clause, null)],
         ),
-        $node->getSemicolon() ?? HHAST\Missing(),
+        $node->getSemicolon(),
       );
     } else {
       $fixed = $node;

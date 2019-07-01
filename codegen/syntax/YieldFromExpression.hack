@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c41a0ed2923f8be72468eab84e3a555a>>
+ * @generated SignedSource<<6d69d4be7cda8d7c52ce18a785c86843>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class YieldFromExpression
@@ -13,14 +14,14 @@ final class YieldFromExpression
 
   const string SYNTAX_KIND = 'yield_from_expression';
 
-  private Node $_yield_keyword;
-  private Node $_from_keyword;
-  private Node $_operand;
+  private YieldToken $_yield_keyword;
+  private FromToken $_from_keyword;
+  private IExpression $_operand;
 
   public function __construct(
-    Node $yield_keyword,
-    Node $from_keyword,
-    Node $operand,
+    YieldToken $yield_keyword,
+    FromToken $from_keyword,
+    IExpression $operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_yield_keyword = $yield_keyword;
@@ -45,6 +46,7 @@ final class YieldFromExpression
       $source,
       'YieldToken',
     );
+    $yield_keyword = $yield_keyword as nonnull;
     $offset += $yield_keyword->getWidth();
     $from_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['yield_from_from_keyword'],
@@ -53,6 +55,7 @@ final class YieldFromExpression
       $source,
       'FromToken',
     );
+    $from_keyword = $from_keyword as nonnull;
     $offset += $from_keyword->getWidth();
     $operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['yield_from_operand'],
@@ -61,6 +64,7 @@ final class YieldFromExpression
       $source,
       'IExpression',
     );
+    $operand = $operand as nonnull;
     $offset += $operand->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class YieldFromExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($yield_keyword, $from_keyword, $operand, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $yield_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $from_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $operand,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class YieldFromExpression
       'yield_keyword' => $this->_yield_keyword,
       'from_keyword' => $this->_from_keyword,
       'operand' => $this->_operand,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class YieldFromExpression
     ) {
       return $this;
     }
-    return new static($yield_keyword, $from_keyword, $operand);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $yield_keyword,
+      /* HH_FIXME[4110] use `as` */ $from_keyword,
+      /* HH_FIXME[4110] use `as` */ $operand,
+    );
   }
 
-  public function getYieldKeywordUNTYPED(): Node {
+  public function getYieldKeywordUNTYPED(): ?Node {
     return $this->_yield_keyword;
   }
 
@@ -107,15 +121,11 @@ final class YieldFromExpression
     if ($value === $this->_yield_keyword) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_from_keyword,
-      $this->_operand,
-    );
+    return new static($value, $this->_from_keyword, $this->_operand);
   }
 
   public function hasYieldKeyword(): bool {
-    return !$this->_yield_keyword->isMissing();
+    return $this->_yield_keyword !== null;
   }
 
   /**
@@ -132,7 +142,7 @@ final class YieldFromExpression
     return $this->getYieldKeyword();
   }
 
-  public function getFromKeywordUNTYPED(): Node {
+  public function getFromKeywordUNTYPED(): ?Node {
     return $this->_from_keyword;
   }
 
@@ -140,15 +150,11 @@ final class YieldFromExpression
     if ($value === $this->_from_keyword) {
       return $this;
     }
-    return new static(
-      $this->_yield_keyword,
-      $value ?? Missing(),
-      $this->_operand,
-    );
+    return new static($this->_yield_keyword, $value, $this->_operand);
   }
 
   public function hasFromKeyword(): bool {
-    return !$this->_from_keyword->isMissing();
+    return $this->_from_keyword !== null;
   }
 
   /**
@@ -165,7 +171,7 @@ final class YieldFromExpression
     return $this->getFromKeyword();
   }
 
-  public function getOperandUNTYPED(): Node {
+  public function getOperandUNTYPED(): ?Node {
     return $this->_operand;
   }
 
@@ -173,15 +179,11 @@ final class YieldFromExpression
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static(
-      $this->_yield_keyword,
-      $this->_from_keyword,
-      $value ?? Missing(),
-    );
+    return new static($this->_yield_keyword, $this->_from_keyword, $value);
   }
 
   public function hasOperand(): bool {
-    return !$this->_operand->isMissing();
+    return $this->_operand !== null;
   }
 
   /**

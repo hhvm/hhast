@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0979c66965da34ac22298dfb934f3084>>
+ * @generated SignedSource<<454755edf226194a0697f9b591a9c341>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class BreakStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'break_statement';
 
-  private Node $_keyword;
-  private Node $_level;
-  private Node $_semicolon;
+  private BreakToken $_keyword;
+  private ?LiteralExpression $_level;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $level,
-    Node $semicolon,
+    BreakToken $keyword,
+    ?LiteralExpression $level,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,6 +44,7 @@ final class BreakStatement extends Node implements IStatement {
       $source,
       'BreakToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $level = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['break_level'],
@@ -51,7 +53,7 @@ final class BreakStatement extends Node implements IStatement {
       $source,
       'LiteralExpression',
     );
-    $offset += $level->getWidth();
+    $offset += $level?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['break_semicolon'],
       $file,
@@ -59,6 +61,7 @@ final class BreakStatement extends Node implements IStatement {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +69,12 @@ final class BreakStatement extends Node implements IStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $level, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $level,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +83,8 @@ final class BreakStatement extends Node implements IStatement {
       'keyword' => $this->_keyword,
       'level' => $this->_level,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,7 +94,7 @@ final class BreakStatement extends Node implements IStatement {
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $level = $rewriter($this->_level, $parents);
+    $level = $this->_level === null ? null : $rewriter($this->_level, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -94,10 +103,14 @@ final class BreakStatement extends Node implements IStatement {
     ) {
       return $this;
     }
-    return new static($keyword, $level, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $level,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -105,11 +118,11 @@ final class BreakStatement extends Node implements IStatement {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_level, $this->_semicolon);
+    return new static($value, $this->_level, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -126,7 +139,7 @@ final class BreakStatement extends Node implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getLevelUNTYPED(): Node {
+  public function getLevelUNTYPED(): ?Node {
     return $this->_level;
   }
 
@@ -134,21 +147,18 @@ final class BreakStatement extends Node implements IStatement {
     if ($value === $this->_level) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasLevel(): bool {
-    return !$this->_level->isMissing();
+    return $this->_level !== null;
   }
 
   /**
    * @return LiteralExpression | null
    */
   public function getLevel(): ?LiteralExpression {
-    if ($this->_level->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(LiteralExpression::class, $this->_level);
+    return $this->_level;
   }
 
   /**
@@ -158,7 +168,7 @@ final class BreakStatement extends Node implements IStatement {
     return TypeAssert\not_null($this->getLevel());
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -166,11 +176,11 @@ final class BreakStatement extends Node implements IStatement {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_level, $value ?? Missing());
+    return new static($this->_keyword, $this->_level, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

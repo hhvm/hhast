@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d8ad4343ee0631fdda332f57fb2d435>>
+ * @generated SignedSource<<c45068b15763fa48f6cc35213dbda1ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class MarkupSuffix extends Node {
 
   const string SYNTAX_KIND = 'markup_suffix';
 
-  private Node $_less_than_question;
-  private Node $_name;
+  private LessThanQuestionToken $_less_than_question;
+  private ?NameToken $_name;
 
   public function __construct(
-    Node $less_than_question,
-    Node $name,
+    LessThanQuestionToken $less_than_question,
+    ?NameToken $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_less_than_question = $less_than_question;
@@ -40,6 +41,7 @@ final class MarkupSuffix extends Node {
       $source,
       'LessThanQuestionToken',
     );
+    $less_than_question = $less_than_question as nonnull;
     $offset += $less_than_question->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_suffix_name'],
@@ -48,14 +50,18 @@ final class MarkupSuffix extends Node {
       $source,
       'NameToken',
     );
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($less_than_question, $name, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $less_than_question,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +69,8 @@ final class MarkupSuffix extends Node {
     return dict[
       'less_than_question' => $this->_less_than_question,
       'name' => $this->_name,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -73,17 +80,20 @@ final class MarkupSuffix extends Node {
   ): this {
     $parents[] = $this;
     $less_than_question = $rewriter($this->_less_than_question, $parents);
-    $name = $rewriter($this->_name, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     if (
       $less_than_question === $this->_less_than_question &&
       $name === $this->_name
     ) {
       return $this;
     }
-    return new static($less_than_question, $name);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $less_than_question,
+      /* HH_FIXME[4110] use `as` */ $name,
+    );
   }
 
-  public function getLessThanQuestionUNTYPED(): Node {
+  public function getLessThanQuestionUNTYPED(): ?Node {
     return $this->_less_than_question;
   }
 
@@ -91,11 +101,11 @@ final class MarkupSuffix extends Node {
     if ($value === $this->_less_than_question) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_name);
+    return new static($value, $this->_name);
   }
 
   public function hasLessThanQuestion(): bool {
-    return !$this->_less_than_question->isMissing();
+    return $this->_less_than_question !== null;
   }
 
   /**
@@ -115,7 +125,7 @@ final class MarkupSuffix extends Node {
     return $this->getLessThanQuestion();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -123,21 +133,18 @@ final class MarkupSuffix extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_less_than_question, $value ?? Missing());
+    return new static($this->_less_than_question, $value);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
    * @return null | NameToken
    */
   public function getName(): ?NameToken {
-    if ($this->_name->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+    return $this->_name;
   }
 
   /**

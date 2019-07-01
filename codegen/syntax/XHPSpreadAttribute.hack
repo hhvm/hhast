@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3a9ea5d47b0b86f477988f48ffd2345>>
+ * @generated SignedSource<<6f9844aad085ef4b3e1201531047c8db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPSpreadAttribute extends Node {
 
   const string SYNTAX_KIND = 'xhp_spread_attribute';
 
-  private Node $_left_brace;
-  private Node $_spread_operator;
-  private Node $_expression;
-  private Node $_right_brace;
+  private LeftBraceToken $_left_brace;
+  private DotDotDotToken $_spread_operator;
+  private IExpression $_expression;
+  private RightBraceToken $_right_brace;
 
   public function __construct(
-    Node $left_brace,
-    Node $spread_operator,
-    Node $expression,
-    Node $right_brace,
+    LeftBraceToken $left_brace,
+    DotDotDotToken $spread_operator,
+    IExpression $expression,
+    RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_brace = $left_brace;
@@ -46,6 +47,7 @@ final class XHPSpreadAttribute extends Node {
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $spread_operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_spread_attribute_spread_operator'],
@@ -54,6 +56,7 @@ final class XHPSpreadAttribute extends Node {
       $source,
       'DotDotDotToken',
     );
+    $spread_operator = $spread_operator as nonnull;
     $offset += $spread_operator->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_spread_attribute_expression'],
@@ -62,6 +65,7 @@ final class XHPSpreadAttribute extends Node {
       $source,
       'IExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_spread_attribute_right_brace'],
@@ -70,6 +74,7 @@ final class XHPSpreadAttribute extends Node {
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -78,10 +83,10 @@ final class XHPSpreadAttribute extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $left_brace,
-      $spread_operator,
-      $expression,
-      $right_brace,
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $spread_operator,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
       $source_ref,
     );
   }
@@ -93,7 +98,8 @@ final class XHPSpreadAttribute extends Node {
       'spread_operator' => $this->_spread_operator,
       'expression' => $this->_expression,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -114,10 +120,15 @@ final class XHPSpreadAttribute extends Node {
     ) {
       return $this;
     }
-    return new static($left_brace, $spread_operator, $expression, $right_brace);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $spread_operator,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
+    );
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -126,7 +137,7 @@ final class XHPSpreadAttribute extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_spread_operator,
       $this->_expression,
       $this->_right_brace,
@@ -134,7 +145,7 @@ final class XHPSpreadAttribute extends Node {
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -151,7 +162,7 @@ final class XHPSpreadAttribute extends Node {
     return $this->getLeftBrace();
   }
 
-  public function getSpreadOperatorUNTYPED(): Node {
+  public function getSpreadOperatorUNTYPED(): ?Node {
     return $this->_spread_operator;
   }
 
@@ -161,14 +172,14 @@ final class XHPSpreadAttribute extends Node {
     }
     return new static(
       $this->_left_brace,
-      $value ?? Missing(),
+      $value,
       $this->_expression,
       $this->_right_brace,
     );
   }
 
   public function hasSpreadOperator(): bool {
-    return !$this->_spread_operator->isMissing();
+    return $this->_spread_operator !== null;
   }
 
   /**
@@ -188,7 +199,7 @@ final class XHPSpreadAttribute extends Node {
     return $this->getSpreadOperator();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -199,13 +210,13 @@ final class XHPSpreadAttribute extends Node {
     return new static(
       $this->_left_brace,
       $this->_spread_operator,
-      $value ?? Missing(),
+      $value,
       $this->_right_brace,
     );
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -222,7 +233,7 @@ final class XHPSpreadAttribute extends Node {
     return $this->getExpression();
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -234,12 +245,12 @@ final class XHPSpreadAttribute extends Node {
       $this->_left_brace,
       $this->_spread_operator,
       $this->_expression,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

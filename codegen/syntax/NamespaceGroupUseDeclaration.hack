@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9397a003057a6fb6ac399b4dd5011e27>>
+ * @generated SignedSource<<411076b14ee90f36111c60c2355fe3ea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class NamespaceGroupUseDeclaration
@@ -13,22 +14,22 @@ final class NamespaceGroupUseDeclaration
 
   const string SYNTAX_KIND = 'namespace_group_use_declaration';
 
-  private Node $_keyword;
-  private Node $_kind;
-  private Node $_prefix;
-  private Node $_left_brace;
-  private Node $_clauses;
-  private Node $_right_brace;
-  private Node $_semicolon;
+  private UseToken $_keyword;
+  private ?Token $_kind;
+  private QualifiedName $_prefix;
+  private LeftBraceToken $_left_brace;
+  private NodeList<ListItem<NamespaceUseClause>> $_clauses;
+  private RightBraceToken $_right_brace;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $kind,
-    Node $prefix,
-    Node $left_brace,
-    Node $clauses,
-    Node $right_brace,
-    Node $semicolon,
+    UseToken $keyword,
+    ?Token $kind,
+    QualifiedName $prefix,
+    LeftBraceToken $left_brace,
+    NodeList<ListItem<NamespaceUseClause>> $clauses,
+    RightBraceToken $right_brace,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -57,6 +58,7 @@ final class NamespaceGroupUseDeclaration
       $source,
       'UseToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_kind'],
@@ -65,7 +67,7 @@ final class NamespaceGroupUseDeclaration
       $source,
       'Token',
     );
-    $offset += $kind->getWidth();
+    $offset += $kind?->getWidth() ?? 0;
     $prefix = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_prefix'],
       $file,
@@ -73,6 +75,7 @@ final class NamespaceGroupUseDeclaration
       $source,
       'QualifiedName',
     );
+    $prefix = $prefix as nonnull;
     $offset += $prefix->getWidth();
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_left_brace'],
@@ -81,6 +84,7 @@ final class NamespaceGroupUseDeclaration
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $clauses = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_clauses'],
@@ -89,6 +93,7 @@ final class NamespaceGroupUseDeclaration
       $source,
       'NodeList<ListItem<NamespaceUseClause>>',
     );
+    $clauses = $clauses as nonnull;
     $offset += $clauses->getWidth();
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_right_brace'],
@@ -97,6 +102,7 @@ final class NamespaceGroupUseDeclaration
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_group_use_semicolon'],
@@ -105,6 +111,7 @@ final class NamespaceGroupUseDeclaration
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -113,13 +120,13 @@ final class NamespaceGroupUseDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $kind,
-      $prefix,
-      $left_brace,
-      $clauses,
-      $right_brace,
-      $semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $kind,
+      /* HH_IGNORE_ERROR[4110] */ $prefix,
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $clauses,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
   }
@@ -134,7 +141,8 @@ final class NamespaceGroupUseDeclaration
       'clauses' => $this->_clauses,
       'right_brace' => $this->_right_brace,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -144,7 +152,7 @@ final class NamespaceGroupUseDeclaration
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $kind = $rewriter($this->_kind, $parents);
+    $kind = $this->_kind === null ? null : $rewriter($this->_kind, $parents);
     $prefix = $rewriter($this->_prefix, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
     $clauses = $rewriter($this->_clauses, $parents);
@@ -162,17 +170,17 @@ final class NamespaceGroupUseDeclaration
       return $this;
     }
     return new static(
-      $keyword,
-      $kind,
-      $prefix,
-      $left_brace,
-      $clauses,
-      $right_brace,
-      $semicolon,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $kind,
+      /* HH_FIXME[4110] use `as` */ $prefix,
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $clauses,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -181,7 +189,7 @@ final class NamespaceGroupUseDeclaration
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_kind,
       $this->_prefix,
       $this->_left_brace,
@@ -192,7 +200,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -209,7 +217,7 @@ final class NamespaceGroupUseDeclaration
     return $this->getKeyword();
   }
 
-  public function getKindUNTYPED(): Node {
+  public function getKindUNTYPED(): ?Node {
     return $this->_kind;
   }
 
@@ -219,7 +227,7 @@ final class NamespaceGroupUseDeclaration
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_prefix,
       $this->_left_brace,
       $this->_clauses,
@@ -229,17 +237,14 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasKind(): bool {
-    return !$this->_kind->isMissing();
+    return $this->_kind !== null;
   }
 
   /**
    * @return null | ConstToken | FunctionToken | NamespaceToken | TypeToken
    */
   public function getKind(): ?Token {
-    if ($this->_kind->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(Token::class, $this->_kind);
+    return $this->_kind;
   }
 
   /**
@@ -249,7 +254,7 @@ final class NamespaceGroupUseDeclaration
     return TypeAssert\not_null($this->getKind());
   }
 
-  public function getPrefixUNTYPED(): Node {
+  public function getPrefixUNTYPED(): ?Node {
     return $this->_prefix;
   }
 
@@ -260,7 +265,7 @@ final class NamespaceGroupUseDeclaration
     return new static(
       $this->_keyword,
       $this->_kind,
-      $value ?? Missing(),
+      $value,
       $this->_left_brace,
       $this->_clauses,
       $this->_right_brace,
@@ -269,7 +274,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasPrefix(): bool {
-    return !$this->_prefix->isMissing();
+    return $this->_prefix !== null;
   }
 
   /**
@@ -286,7 +291,7 @@ final class NamespaceGroupUseDeclaration
     return $this->getPrefix();
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -298,7 +303,7 @@ final class NamespaceGroupUseDeclaration
       $this->_keyword,
       $this->_kind,
       $this->_prefix,
-      $value ?? Missing(),
+      $value,
       $this->_clauses,
       $this->_right_brace,
       $this->_semicolon,
@@ -306,7 +311,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -323,7 +328,7 @@ final class NamespaceGroupUseDeclaration
     return $this->getLeftBrace();
   }
 
-  public function getClausesUNTYPED(): Node {
+  public function getClausesUNTYPED(): ?Node {
     return $this->_clauses;
   }
 
@@ -338,14 +343,14 @@ final class NamespaceGroupUseDeclaration
       $this->_kind,
       $this->_prefix,
       $this->_left_brace,
-      $value ?? Missing(),
+      $value,
       $this->_right_brace,
       $this->_semicolon,
     );
   }
 
   public function hasClauses(): bool {
-    return !$this->_clauses->isMissing();
+    return $this->_clauses !== null;
   }
 
   /**
@@ -362,7 +367,7 @@ final class NamespaceGroupUseDeclaration
     return $this->getClauses();
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -376,13 +381,13 @@ final class NamespaceGroupUseDeclaration
       $this->_prefix,
       $this->_left_brace,
       $this->_clauses,
-      $value ?? Missing(),
+      $value,
       $this->_semicolon,
     );
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**
@@ -399,7 +404,7 @@ final class NamespaceGroupUseDeclaration
     return $this->getRightBrace();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -414,12 +419,12 @@ final class NamespaceGroupUseDeclaration
       $this->_left_brace,
       $this->_clauses,
       $this->_right_brace,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

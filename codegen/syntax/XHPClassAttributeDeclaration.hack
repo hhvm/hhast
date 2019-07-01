@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad0c04291b10fe8c7764f3290bb41db6>>
+ * @generated SignedSource<<aa78a2c7fbce1b07b0671790725ef7c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPClassAttributeDeclaration
@@ -13,14 +14,14 @@ final class XHPClassAttributeDeclaration
 
   const string SYNTAX_KIND = 'xhp_class_attribute_declaration';
 
-  private Node $_keyword;
-  private Node $_attributes;
-  private Node $_semicolon;
+  private AttributeToken $_keyword;
+  private NodeList<ListItem<Node>> $_attributes;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $attributes,
-    Node $semicolon,
+    AttributeToken $keyword,
+    NodeList<ListItem<Node>> $attributes,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -45,6 +46,7 @@ final class XHPClassAttributeDeclaration
       $source,
       'AttributeToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $attributes = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_attributes'],
@@ -53,6 +55,7 @@ final class XHPClassAttributeDeclaration
       $source,
       'NodeList<ListItem<Node>>',
     );
+    $attributes = $attributes as nonnull;
     $offset += $attributes->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_attribute_semicolon'],
@@ -61,6 +64,7 @@ final class XHPClassAttributeDeclaration
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class XHPClassAttributeDeclaration
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $attributes, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $attributes,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class XHPClassAttributeDeclaration
       'keyword' => $this->_keyword,
       'attributes' => $this->_attributes,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class XHPClassAttributeDeclaration
     ) {
       return $this;
     }
-    return new static($keyword, $attributes, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $attributes,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -107,15 +121,11 @@ final class XHPClassAttributeDeclaration
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_attributes,
-      $this->_semicolon,
-    );
+    return new static($value, $this->_attributes, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -132,7 +142,7 @@ final class XHPClassAttributeDeclaration
     return $this->getKeyword();
   }
 
-  public function getAttributesUNTYPED(): Node {
+  public function getAttributesUNTYPED(): ?Node {
     return $this->_attributes;
   }
 
@@ -140,11 +150,11 @@ final class XHPClassAttributeDeclaration
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasAttributes(): bool {
-    return !$this->_attributes->isMissing();
+    return $this->_attributes !== null;
   }
 
   /**
@@ -163,7 +173,7 @@ final class XHPClassAttributeDeclaration
     return $this->getAttributes();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -171,11 +181,11 @@ final class XHPClassAttributeDeclaration
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_attributes, $value ?? Missing());
+    return new static($this->_keyword, $this->_attributes, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

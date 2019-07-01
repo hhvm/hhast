@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d87c1a7c5bcf24bcf214947a5ec0971>>
+ * @generated SignedSource<<8337c07cff0545498773fccadae6c7ab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class Enumerator extends Node {
 
   const string SYNTAX_KIND = 'enumerator';
 
-  private Node $_name;
-  private Node $_equal;
-  private Node $_value;
-  private Node $_semicolon;
+  private NameToken $_name;
+  private EqualToken $_equal;
+  private IExpression $_value;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $name,
-    Node $equal,
-    Node $value,
-    Node $semicolon,
+    NameToken $name,
+    EqualToken $equal,
+    IExpression $value,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -46,6 +47,7 @@ final class Enumerator extends Node {
       $source,
       'NameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enumerator_equal'],
@@ -54,6 +56,7 @@ final class Enumerator extends Node {
       $source,
       'EqualToken',
     );
+    $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enumerator_value'],
@@ -62,6 +65,7 @@ final class Enumerator extends Node {
       $source,
       'IExpression',
     );
+    $value = $value as nonnull;
     $offset += $value->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enumerator_semicolon'],
@@ -70,6 +74,7 @@ final class Enumerator extends Node {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -77,7 +82,13 @@ final class Enumerator extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($name, $equal, $value, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $equal,
+      /* HH_IGNORE_ERROR[4110] */ $value,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -87,7 +98,8 @@ final class Enumerator extends Node {
       'equal' => $this->_equal,
       'value' => $this->_value,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,10 +120,15 @@ final class Enumerator extends Node {
     ) {
       return $this;
     }
-    return new static($name, $equal, $value, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $equal,
+      /* HH_FIXME[4110] use `as` */ $value,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -119,16 +136,11 @@ final class Enumerator extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_equal,
-      $this->_value,
-      $this->_semicolon,
-    );
+    return new static($value, $this->_equal, $this->_value, $this->_semicolon);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -145,7 +157,7 @@ final class Enumerator extends Node {
     return $this->getName();
   }
 
-  public function getEqualUNTYPED(): Node {
+  public function getEqualUNTYPED(): ?Node {
     return $this->_equal;
   }
 
@@ -153,16 +165,11 @@ final class Enumerator extends Node {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new static(
-      $this->_name,
-      $value ?? Missing(),
-      $this->_value,
-      $this->_semicolon,
-    );
+    return new static($this->_name, $value, $this->_value, $this->_semicolon);
   }
 
   public function hasEqual(): bool {
-    return !$this->_equal->isMissing();
+    return $this->_equal !== null;
   }
 
   /**
@@ -179,7 +186,7 @@ final class Enumerator extends Node {
     return $this->getEqual();
   }
 
-  public function getValueUNTYPED(): Node {
+  public function getValueUNTYPED(): ?Node {
     return $this->_value;
   }
 
@@ -187,16 +194,11 @@ final class Enumerator extends Node {
     if ($value === $this->_value) {
       return $this;
     }
-    return new static(
-      $this->_name,
-      $this->_equal,
-      $value ?? Missing(),
-      $this->_semicolon,
-    );
+    return new static($this->_name, $this->_equal, $value, $this->_semicolon);
   }
 
   public function hasValue(): bool {
-    return !$this->_value->isMissing();
+    return $this->_value !== null;
   }
 
   /**
@@ -215,7 +217,7 @@ final class Enumerator extends Node {
     return $this->getValue();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -223,16 +225,11 @@ final class Enumerator extends Node {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      $this->_name,
-      $this->_equal,
-      $this->_value,
-      $value ?? Missing(),
-    );
+    return new static($this->_name, $this->_equal, $this->_value, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

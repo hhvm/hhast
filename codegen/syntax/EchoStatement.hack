@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f75390330c11cf4d3a4f16eaed17c29>>
+ * @generated SignedSource<<681063a65586ba7ef1d3d8f387f0c372>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class EchoStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'echo_statement';
 
-  private Node $_keyword;
-  private Node $_expressions;
-  private Node $_semicolon;
+  private EchoToken $_keyword;
+  private NodeList<ListItem<IExpression>> $_expressions;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $expressions,
-    Node $semicolon,
+    EchoToken $keyword,
+    NodeList<ListItem<IExpression>> $expressions,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -43,6 +44,7 @@ final class EchoStatement extends Node implements IStatement {
       $source,
       'EchoToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $expressions = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['echo_expressions'],
@@ -51,6 +53,7 @@ final class EchoStatement extends Node implements IStatement {
       $source,
       'NodeList<ListItem<IExpression>>',
     );
+    $expressions = $expressions as nonnull;
     $offset += $expressions->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['echo_semicolon'],
@@ -59,6 +62,7 @@ final class EchoStatement extends Node implements IStatement {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class EchoStatement extends Node implements IStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $expressions, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $expressions,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class EchoStatement extends Node implements IStatement {
       'keyword' => $this->_keyword,
       'expressions' => $this->_expressions,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class EchoStatement extends Node implements IStatement {
     ) {
       return $this;
     }
-    return new static($keyword, $expressions, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $expressions,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -105,15 +119,11 @@ final class EchoStatement extends Node implements IStatement {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_expressions,
-      $this->_semicolon,
-    );
+    return new static($value, $this->_expressions, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -130,7 +140,7 @@ final class EchoStatement extends Node implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getExpressionsUNTYPED(): Node {
+  public function getExpressionsUNTYPED(): ?Node {
     return $this->_expressions;
   }
 
@@ -140,11 +150,11 @@ final class EchoStatement extends Node implements IStatement {
     if ($value === $this->_expressions) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasExpressions(): bool {
-    return !$this->_expressions->isMissing();
+    return $this->_expressions !== null;
   }
 
   /**
@@ -189,7 +199,7 @@ final class EchoStatement extends Node implements IStatement {
     return $this->getExpressions();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -197,15 +207,11 @@ final class EchoStatement extends Node implements IStatement {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_expressions,
-      $value ?? Missing(),
-    );
+    return new static($this->_keyword, $this->_expressions, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

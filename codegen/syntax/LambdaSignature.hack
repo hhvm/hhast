@@ -1,28 +1,29 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2430bcd686531beeb41aa6fdf5ae76b1>>
+ * @generated SignedSource<<22a1e22e5a21fd05c5ed0e0d17179c46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class LambdaSignature extends Node implements ILambdaSignature {
 
   const string SYNTAX_KIND = 'lambda_signature';
 
-  private Node $_left_paren;
-  private Node $_parameters;
-  private Node $_right_paren;
-  private Node $_colon;
-  private Node $_type;
+  private LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<IParameter>> $_parameters;
+  private RightParenToken $_right_paren;
+  private ?ColonToken $_colon;
+  private ?ITypeSpecifier $_type;
 
   public function __construct(
-    Node $left_paren,
-    Node $parameters,
-    Node $right_paren,
-    Node $colon,
-    Node $type,
+    LeftParenToken $left_paren,
+    ?NodeList<ListItem<IParameter>> $parameters,
+    RightParenToken $right_paren,
+    ?ColonToken $colon,
+    ?ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -49,6 +50,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_parameters'],
@@ -57,7 +59,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $source,
       'NodeList<ListItem<IParameter>>',
     );
-    $offset += $parameters->getWidth();
+    $offset += $parameters?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_right_paren'],
       $file,
@@ -65,6 +67,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_colon'],
@@ -73,7 +76,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $source,
       'ColonToken',
     );
-    $offset += $colon->getWidth();
+    $offset += $colon?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_type'],
       $file,
@@ -81,7 +84,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $source,
       'ITypeSpecifier',
     );
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -89,11 +92,11 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $left_paren,
-      $parameters,
-      $right_paren,
-      $colon,
-      $type,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $parameters,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $type,
       $source_ref,
     );
   }
@@ -106,7 +109,8 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       'right_paren' => $this->_right_paren,
       'colon' => $this->_colon,
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -116,10 +120,12 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   ): this {
     $parents[] = $this;
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $parameters = $rewriter($this->_parameters, $parents);
+    $parameters = $this->_parameters === null
+      ? null
+      : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
-    $colon = $rewriter($this->_colon, $parents);
-    $type = $rewriter($this->_type, $parents);
+    $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $parameters === $this->_parameters &&
@@ -129,10 +135,16 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     ) {
       return $this;
     }
-    return new static($left_paren, $parameters, $right_paren, $colon, $type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $parameters,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $type,
+    );
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -141,7 +153,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_parameters,
       $this->_right_paren,
       $this->_colon,
@@ -150,7 +162,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -167,7 +179,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->getLeftParen();
   }
 
-  public function getParametersUNTYPED(): Node {
+  public function getParametersUNTYPED(): ?Node {
     return $this->_parameters;
   }
 
@@ -177,7 +189,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     }
     return new static(
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_colon,
       $this->_type,
@@ -185,7 +197,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   }
 
   public function hasParameters(): bool {
-    return !$this->_parameters->isMissing();
+    return $this->_parameters !== null;
   }
 
   /**
@@ -193,10 +205,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
    * NodeList<ListItem<VariadicParameter>> | null
    */
   public function getParameters(): ?NodeList<ListItem<IParameter>> {
-    if ($this->_parameters->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_parameters);
+    return $this->_parameters;
   }
 
   /**
@@ -207,7 +216,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return TypeAssert\not_null($this->getParameters());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -218,14 +227,14 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return new static(
       $this->_left_paren,
       $this->_parameters,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_type,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -242,7 +251,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->getRightParen();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -254,23 +263,20 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
       $this->_type,
     );
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
    * @return null | ColonToken
    */
   public function getColon(): ?ColonToken {
-    if ($this->_colon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
+    return $this->_colon;
   }
 
   /**
@@ -280,7 +286,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return TypeAssert\not_null($this->getColon());
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -293,12 +299,12 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_parameters,
       $this->_right_paren,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -306,10 +312,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
    * | null | SimpleTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
-    if ($this->_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+    return $this->_type;
   }
 
   /**

@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1212d1d2ff8475ef7777ea6251944349>>
+ * @generated SignedSource<<27e22efb0d6360daf2e007c53d3646a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class AttributeSpecification extends Node {
 
   const string SYNTAX_KIND = 'attribute_specification';
 
-  private Node $_left_double_angle;
-  private Node $_attributes;
-  private Node $_right_double_angle;
+  private LessThanLessThanToken $_left_double_angle;
+  private NodeList<ListItem<ConstructorCall>> $_attributes;
+  private GreaterThanGreaterThanToken $_right_double_angle;
 
   public function __construct(
-    Node $left_double_angle,
-    Node $attributes,
-    Node $right_double_angle,
+    LessThanLessThanToken $left_double_angle,
+    NodeList<ListItem<ConstructorCall>> $attributes,
+    GreaterThanGreaterThanToken $right_double_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_double_angle = $left_double_angle;
@@ -43,6 +44,7 @@ final class AttributeSpecification extends Node {
       $source,
       'LessThanLessThanToken',
     );
+    $left_double_angle = $left_double_angle as nonnull;
     $offset += $left_double_angle->getWidth();
     $attributes = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['attribute_specification_attributes'],
@@ -51,6 +53,7 @@ final class AttributeSpecification extends Node {
       $source,
       'NodeList<ListItem<ConstructorCall>>',
     );
+    $attributes = $attributes as nonnull;
     $offset += $attributes->getWidth();
     $right_double_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['attribute_specification_right_double_angle'],
@@ -59,6 +62,7 @@ final class AttributeSpecification extends Node {
       $source,
       'GreaterThanGreaterThanToken',
     );
+    $right_double_angle = $right_double_angle as nonnull;
     $offset += $right_double_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -67,9 +71,9 @@ final class AttributeSpecification extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $left_double_angle,
-      $attributes,
-      $right_double_angle,
+      /* HH_IGNORE_ERROR[4110] */ $left_double_angle,
+      /* HH_IGNORE_ERROR[4110] */ $attributes,
+      /* HH_IGNORE_ERROR[4110] */ $right_double_angle,
       $source_ref,
     );
   }
@@ -80,7 +84,8 @@ final class AttributeSpecification extends Node {
       'left_double_angle' => $this->_left_double_angle,
       'attributes' => $this->_attributes,
       'right_double_angle' => $this->_right_double_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -99,10 +104,14 @@ final class AttributeSpecification extends Node {
     ) {
       return $this;
     }
-    return new static($left_double_angle, $attributes, $right_double_angle);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_double_angle,
+      /* HH_FIXME[4110] use `as` */ $attributes,
+      /* HH_FIXME[4110] use `as` */ $right_double_angle,
+    );
   }
 
-  public function getLeftDoubleAngleUNTYPED(): Node {
+  public function getLeftDoubleAngleUNTYPED(): ?Node {
     return $this->_left_double_angle;
   }
 
@@ -110,15 +119,11 @@ final class AttributeSpecification extends Node {
     if ($value === $this->_left_double_angle) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_attributes,
-      $this->_right_double_angle,
-    );
+    return new static($value, $this->_attributes, $this->_right_double_angle);
   }
 
   public function hasLeftDoubleAngle(): bool {
-    return !$this->_left_double_angle->isMissing();
+    return $this->_left_double_angle !== null;
   }
 
   /**
@@ -138,7 +143,7 @@ final class AttributeSpecification extends Node {
     return $this->getLeftDoubleAngle();
   }
 
-  public function getAttributesUNTYPED(): Node {
+  public function getAttributesUNTYPED(): ?Node {
     return $this->_attributes;
   }
 
@@ -150,13 +155,13 @@ final class AttributeSpecification extends Node {
     }
     return new static(
       $this->_left_double_angle,
-      $value ?? Missing(),
+      $value,
       $this->_right_double_angle,
     );
   }
 
   public function hasAttributes(): bool {
-    return !$this->_attributes->isMissing();
+    return $this->_attributes !== null;
   }
 
   /**
@@ -173,7 +178,7 @@ final class AttributeSpecification extends Node {
     return $this->getAttributes();
   }
 
-  public function getRightDoubleAngleUNTYPED(): Node {
+  public function getRightDoubleAngleUNTYPED(): ?Node {
     return $this->_right_double_angle;
   }
 
@@ -183,15 +188,11 @@ final class AttributeSpecification extends Node {
     if ($value === $this->_right_double_angle) {
       return $this;
     }
-    return new static(
-      $this->_left_double_angle,
-      $this->_attributes,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_double_angle, $this->_attributes, $value);
   }
 
   public function hasRightDoubleAngle(): bool {
-    return !$this->_right_double_angle->isMissing();
+    return $this->_right_double_angle !== null;
   }
 
   /**

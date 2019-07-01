@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70b024be97e2e3aa21ecc811ced719d5>>
+ * @generated SignedSource<<f7c71ccbab67c3b05f214cbe61049a92>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ExpressionStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'expression_statement';
 
-  private Node $_expression;
-  private Node $_semicolon;
+  private ?IExpression $_expression;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $expression,
-    Node $semicolon,
+    ?IExpression $expression,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -40,7 +41,7 @@ final class ExpressionStatement extends Node implements IStatement {
       $source,
       'IExpression',
     );
-    $offset += $expression->getWidth();
+    $offset += $expression?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['expression_statement_semicolon'],
       $file,
@@ -48,6 +49,7 @@ final class ExpressionStatement extends Node implements IStatement {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +57,11 @@ final class ExpressionStatement extends Node implements IStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($expression, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +69,8 @@ final class ExpressionStatement extends Node implements IStatement {
     return dict[
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -72,17 +79,22 @@ final class ExpressionStatement extends Node implements IStatement {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $expression === $this->_expression && $semicolon === $this->_semicolon
     ) {
       return $this;
     }
-    return new static($expression, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -90,11 +102,11 @@ final class ExpressionStatement extends Node implements IStatement {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_semicolon);
+    return new static($value, $this->_semicolon);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -111,10 +123,7 @@ final class ExpressionStatement extends Node implements IStatement {
    * YieldFromExpression
    */
   public function getExpression(): ?IExpression {
-    if ($this->_expression->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(IExpression::class, $this->_expression);
+    return $this->_expression;
   }
 
   /**
@@ -134,7 +143,7 @@ final class ExpressionStatement extends Node implements IStatement {
     return TypeAssert\not_null($this->getExpression());
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -142,11 +151,11 @@ final class ExpressionStatement extends Node implements IStatement {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_expression, $value ?? Missing());
+    return new static($this->_expression, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

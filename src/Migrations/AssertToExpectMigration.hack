@@ -25,6 +25,7 @@ use type Facebook\HHAST\{
   NameToken,
   NamespaceDeclaration,
   NamespaceEmptyBody,
+  NamespaceUseClause,
   NamespaceUseDeclaration,
   Node,
   NodeList,
@@ -59,11 +60,11 @@ final class AssertToExpectMigration extends StepBasedMigration {
             new ListItem(new NameToken(Missing(), Missing(), 'FBExpect'), $sep),
             new ListItem(
               new NameToken(Missing(), Missing(), 'expect'),
-              Missing(),
+              null,
             ),
           ],
         ),
-      ),
+      ) |> new NamespaceUseClause(null, $$, null, null) |> new ListItem($$, null) |> new NodeList(vec[$$]),
       new SemicolonToken(Missing(), new WhiteSpace("\n")),
     );
     return self::$expectFunction;
@@ -175,7 +176,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     $this->useExpectFunctionNeeded = true;
     $params = vec($node->getArgumentListx()->getChildren());
     $actual = C\firstx($params);
-    $msg = Missing();
+    $msg = null;
     if (C\count($params) === 2) {
       $msg = C\lastx($params);
       $actual = $actual->replace($actual->getLastTokenx(), Missing());
@@ -184,7 +185,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     return self::getNewNode(
       $node,
       $actual,
-      new NodeList(vec[$msg]),
+      new NodeList(Vec\filter_nulls(vec[$msg])),
       $func_name,
     );
   }
@@ -315,7 +316,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
 
   private static function getNewNode(
     FunctionCallExpression $node,
-    Node $actual,
+    ListItem<IExpression> $actual,
     NodeList<ListItem<IExpression>> $args,
     string $funcName,
   ): FunctionCallExpression {
@@ -326,22 +327,18 @@ final class AssertToExpectMigration extends StepBasedMigration {
     } else if ($rec instanceof NameToken) {
       $leading = $rec->getLeading();
     }
-    $exp = new MemberSelectionExpression(
-      Missing(),
-      new MinusGreaterThanToken(Missing(), Missing()),
-      Missing(),
-    );
+
     if (!$rec instanceof MemberSelectionExpression) {
-      $rec = $exp;
-    } else {
-      $leading = $rec->getObject()->getFirstTokenx()->getLeading();
+      return $node;
     }
+
+    $leading = $rec->getObject()->getFirstTokenx()->getLeading();
     $new_node = $node
       ->withReceiver(
         $rec->withObject(
           new FunctionCallExpression(
             new NameToken($leading, Missing(), 'expect'),
-            Missing(),
+            null,
             new LeftParenToken(Missing(), Missing()),
             new NodeList(vec[$actual]),
             new RightParenToken(Missing(), Missing()),

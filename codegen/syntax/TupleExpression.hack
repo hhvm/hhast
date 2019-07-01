@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f76b84b65345890c476387601ac214a3>>
+ * @generated SignedSource<<a9898676f4980bc7fcc286e63834aee8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TupleExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'tuple_expression';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_items;
-  private Node $_right_paren;
+  private TupleToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<IExpression>> $_items;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $items,
-    Node $right_paren,
+    TupleToken $keyword,
+    LeftParenToken $left_paren,
+    ?NodeList<ListItem<IExpression>> $items,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,6 +47,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'TupleToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_expression_left_paren'],
@@ -54,6 +56,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $items = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_expression_items'],
@@ -62,7 +65,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'NodeList<ListItem<IExpression>>',
     );
-    $offset += $items->getWidth();
+    $offset += $items?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_expression_right_paren'],
       $file,
@@ -70,6 +73,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -77,7 +81,13 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $left_paren, $items, $right_paren, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $items,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -87,7 +97,8 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       'left_paren' => $this->_left_paren,
       'items' => $this->_items,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -98,7 +109,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $items = $rewriter($this->_items, $parents);
+    $items = $this->_items === null ? null : $rewriter($this->_items, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -108,10 +119,15 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     ) {
       return $this;
     }
-    return new static($keyword, $left_paren, $items, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $items,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -120,7 +136,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_items,
       $this->_right_paren,
@@ -128,7 +144,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -145,7 +161,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -155,14 +171,14 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_items,
       $this->_right_paren,
     );
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -179,7 +195,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     return $this->getLeftParen();
   }
 
-  public function getItemsUNTYPED(): Node {
+  public function getItemsUNTYPED(): ?Node {
     return $this->_items;
   }
 
@@ -190,13 +206,13 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
     );
   }
 
   public function hasItems(): bool {
-    return !$this->_items->isMissing();
+    return $this->_items !== null;
   }
 
   /**
@@ -213,10 +229,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
    * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
   public function getItems(): ?NodeList<ListItem<IExpression>> {
-    if ($this->_items->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_items);
+    return $this->_items;
   }
 
   /**
@@ -236,7 +249,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     return TypeAssert\not_null($this->getItems());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -248,12 +261,12 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       $this->_keyword,
       $this->_left_paren,
       $this->_items,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

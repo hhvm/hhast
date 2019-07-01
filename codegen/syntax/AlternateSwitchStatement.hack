@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e744b8c7eb4f10415225bfeb4c20a793>>
+ * @generated SignedSource<<8cb54540c0bcdc6408409b6c53bf6c24>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class AlternateSwitchStatement
@@ -13,24 +14,24 @@ final class AlternateSwitchStatement
 
   const string SYNTAX_KIND = 'alternate_switch_statement';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_expression;
-  private Node $_right_paren;
-  private Node $_opening_colon;
-  private Node $_sections;
-  private Node $_closing_endswitch;
-  private Node $_closing_semicolon;
+  private SwitchToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private VariableExpression $_expression;
+  private RightParenToken $_right_paren;
+  private ColonToken $_opening_colon;
+  private ?NodeList<SwitchSection> $_sections;
+  private EndswitchToken $_closing_endswitch;
+  private SemicolonToken $_closing_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $expression,
-    Node $right_paren,
-    Node $opening_colon,
-    Node $sections,
-    Node $closing_endswitch,
-    Node $closing_semicolon,
+    SwitchToken $keyword,
+    LeftParenToken $left_paren,
+    VariableExpression $expression,
+    RightParenToken $right_paren,
+    ColonToken $opening_colon,
+    ?NodeList<SwitchSection> $sections,
+    EndswitchToken $closing_endswitch,
+    SemicolonToken $closing_semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -60,6 +61,7 @@ final class AlternateSwitchStatement
       $source,
       'SwitchToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_left_paren'],
@@ -68,6 +70,7 @@ final class AlternateSwitchStatement
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_expression'],
@@ -76,6 +79,7 @@ final class AlternateSwitchStatement
       $source,
       'VariableExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_right_paren'],
@@ -84,6 +88,7 @@ final class AlternateSwitchStatement
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $opening_colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_opening_colon'],
@@ -92,6 +97,7 @@ final class AlternateSwitchStatement
       $source,
       'ColonToken',
     );
+    $opening_colon = $opening_colon as nonnull;
     $offset += $opening_colon->getWidth();
     $sections = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_sections'],
@@ -100,7 +106,7 @@ final class AlternateSwitchStatement
       $source,
       'NodeList<SwitchSection>',
     );
-    $offset += $sections->getWidth();
+    $offset += $sections?->getWidth() ?? 0;
     $closing_endswitch = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_closing_endswitch'],
       $file,
@@ -108,6 +114,7 @@ final class AlternateSwitchStatement
       $source,
       'EndswitchToken',
     );
+    $closing_endswitch = $closing_endswitch as nonnull;
     $offset += $closing_endswitch->getWidth();
     $closing_semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_switch_closing_semicolon'],
@@ -116,6 +123,7 @@ final class AlternateSwitchStatement
       $source,
       'SemicolonToken',
     );
+    $closing_semicolon = $closing_semicolon as nonnull;
     $offset += $closing_semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -124,14 +132,14 @@ final class AlternateSwitchStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $expression,
-      $right_paren,
-      $opening_colon,
-      $sections,
-      $closing_endswitch,
-      $closing_semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $opening_colon,
+      /* HH_IGNORE_ERROR[4110] */ $sections,
+      /* HH_IGNORE_ERROR[4110] */ $closing_endswitch,
+      /* HH_IGNORE_ERROR[4110] */ $closing_semicolon,
       $source_ref,
     );
   }
@@ -147,7 +155,8 @@ final class AlternateSwitchStatement
       'sections' => $this->_sections,
       'closing_endswitch' => $this->_closing_endswitch,
       'closing_semicolon' => $this->_closing_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -161,7 +170,9 @@ final class AlternateSwitchStatement
     $expression = $rewriter($this->_expression, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $opening_colon = $rewriter($this->_opening_colon, $parents);
-    $sections = $rewriter($this->_sections, $parents);
+    $sections = $this->_sections === null
+      ? null
+      : $rewriter($this->_sections, $parents);
     $closing_endswitch = $rewriter($this->_closing_endswitch, $parents);
     $closing_semicolon = $rewriter($this->_closing_semicolon, $parents);
     if (
@@ -177,18 +188,18 @@ final class AlternateSwitchStatement
       return $this;
     }
     return new static(
-      $keyword,
-      $left_paren,
-      $expression,
-      $right_paren,
-      $opening_colon,
-      $sections,
-      $closing_endswitch,
-      $closing_semicolon,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $opening_colon,
+      /* HH_FIXME[4110] use `as` */ $sections,
+      /* HH_FIXME[4110] use `as` */ $closing_endswitch,
+      /* HH_FIXME[4110] use `as` */ $closing_semicolon,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -197,7 +208,7 @@ final class AlternateSwitchStatement
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
@@ -209,7 +220,7 @@ final class AlternateSwitchStatement
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -226,7 +237,7 @@ final class AlternateSwitchStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -236,7 +247,7 @@ final class AlternateSwitchStatement
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_expression,
       $this->_right_paren,
       $this->_opening_colon,
@@ -247,7 +258,7 @@ final class AlternateSwitchStatement
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -264,7 +275,7 @@ final class AlternateSwitchStatement
     return $this->getLeftParen();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -275,7 +286,7 @@ final class AlternateSwitchStatement
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_opening_colon,
       $this->_sections,
@@ -285,7 +296,7 @@ final class AlternateSwitchStatement
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -305,7 +316,7 @@ final class AlternateSwitchStatement
     return $this->getExpression();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -317,7 +328,7 @@ final class AlternateSwitchStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_expression,
-      $value ?? Missing(),
+      $value,
       $this->_opening_colon,
       $this->_sections,
       $this->_closing_endswitch,
@@ -326,7 +337,7 @@ final class AlternateSwitchStatement
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -343,7 +354,7 @@ final class AlternateSwitchStatement
     return $this->getRightParen();
   }
 
-  public function getOpeningColonUNTYPED(): Node {
+  public function getOpeningColonUNTYPED(): ?Node {
     return $this->_opening_colon;
   }
 
@@ -356,7 +367,7 @@ final class AlternateSwitchStatement
       $this->_left_paren,
       $this->_expression,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
       $this->_sections,
       $this->_closing_endswitch,
       $this->_closing_semicolon,
@@ -364,7 +375,7 @@ final class AlternateSwitchStatement
   }
 
   public function hasOpeningColon(): bool {
-    return !$this->_opening_colon->isMissing();
+    return $this->_opening_colon !== null;
   }
 
   /**
@@ -381,7 +392,7 @@ final class AlternateSwitchStatement
     return $this->getOpeningColon();
   }
 
-  public function getSectionsUNTYPED(): Node {
+  public function getSectionsUNTYPED(): ?Node {
     return $this->_sections;
   }
 
@@ -395,24 +406,21 @@ final class AlternateSwitchStatement
       $this->_expression,
       $this->_right_paren,
       $this->_opening_colon,
-      $value ?? Missing(),
+      $value,
       $this->_closing_endswitch,
       $this->_closing_semicolon,
     );
   }
 
   public function hasSections(): bool {
-    return !$this->_sections->isMissing();
+    return $this->_sections !== null;
   }
 
   /**
    * @return NodeList<SwitchSection> | null
    */
   public function getSections(): ?NodeList<SwitchSection> {
-    if ($this->_sections->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_sections);
+    return $this->_sections;
   }
 
   /**
@@ -422,7 +430,7 @@ final class AlternateSwitchStatement
     return TypeAssert\not_null($this->getSections());
   }
 
-  public function getClosingEndswitchUNTYPED(): Node {
+  public function getClosingEndswitchUNTYPED(): ?Node {
     return $this->_closing_endswitch;
   }
 
@@ -437,13 +445,13 @@ final class AlternateSwitchStatement
       $this->_right_paren,
       $this->_opening_colon,
       $this->_sections,
-      $value ?? Missing(),
+      $value,
       $this->_closing_semicolon,
     );
   }
 
   public function hasClosingEndswitch(): bool {
-    return !$this->_closing_endswitch->isMissing();
+    return $this->_closing_endswitch !== null;
   }
 
   /**
@@ -463,7 +471,7 @@ final class AlternateSwitchStatement
     return $this->getClosingEndswitch();
   }
 
-  public function getClosingSemicolonUNTYPED(): Node {
+  public function getClosingSemicolonUNTYPED(): ?Node {
     return $this->_closing_semicolon;
   }
 
@@ -479,12 +487,12 @@ final class AlternateSwitchStatement
       $this->_opening_colon,
       $this->_sections,
       $this->_closing_endswitch,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasClosingSemicolon(): bool {
-    return !$this->_closing_semicolon->isMissing();
+    return $this->_closing_semicolon !== null;
   }
 
   /**

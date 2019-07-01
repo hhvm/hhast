@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc4f4321e918b65d106e3a70adb47b64>>
+ * @generated SignedSource<<62e932c65855c7f4b922cc9dcf8cb12b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class AnonymousFunction
@@ -13,32 +14,32 @@ final class AnonymousFunction
 
   const string SYNTAX_KIND = 'anonymous_function';
 
-  private Node $_attribute_spec;
-  private Node $_static_keyword;
-  private Node $_async_keyword;
-  private Node $_coroutine_keyword;
-  private Node $_function_keyword;
-  private Node $_left_paren;
-  private Node $_parameters;
-  private Node $_right_paren;
-  private Node $_colon;
-  private Node $_type;
-  private Node $_use;
-  private Node $_body;
+  private ?AttributeSpecification $_attribute_spec;
+  private ?StaticToken $_static_keyword;
+  private ?AsyncToken $_async_keyword;
+  private ?Node $_coroutine_keyword;
+  private FunctionToken $_function_keyword;
+  private LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<IParameter>> $_parameters;
+  private RightParenToken $_right_paren;
+  private ?ColonToken $_colon;
+  private ?ITypeSpecifier $_type;
+  private ?AnonymousFunctionUseClause $_use;
+  private CompoundStatement $_body;
 
   public function __construct(
-    Node $attribute_spec,
-    Node $static_keyword,
-    Node $async_keyword,
-    Node $coroutine_keyword,
-    Node $function_keyword,
-    Node $left_paren,
-    Node $parameters,
-    Node $right_paren,
-    Node $colon,
-    Node $type,
-    Node $use,
-    Node $body,
+    ?AttributeSpecification $attribute_spec,
+    ?StaticToken $static_keyword,
+    ?AsyncToken $async_keyword,
+    ?Node $coroutine_keyword,
+    FunctionToken $function_keyword,
+    LeftParenToken $left_paren,
+    ?NodeList<ListItem<IParameter>> $parameters,
+    RightParenToken $right_paren,
+    ?ColonToken $colon,
+    ?ITypeSpecifier $type,
+    ?AnonymousFunctionUseClause $use,
+    CompoundStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -72,7 +73,7 @@ final class AnonymousFunction
       $source,
       'AttributeSpecification',
     );
-    $offset += $attribute_spec->getWidth();
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $static_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_static_keyword'],
       $file,
@@ -80,7 +81,7 @@ final class AnonymousFunction
       $source,
       'StaticToken',
     );
-    $offset += $static_keyword->getWidth();
+    $offset += $static_keyword?->getWidth() ?? 0;
     $async_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_async_keyword'],
       $file,
@@ -88,7 +89,7 @@ final class AnonymousFunction
       $source,
       'AsyncToken',
     );
-    $offset += $async_keyword->getWidth();
+    $offset += $async_keyword?->getWidth() ?? 0;
     $coroutine_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_coroutine_keyword'],
       $file,
@@ -96,7 +97,7 @@ final class AnonymousFunction
       $source,
       'Node',
     );
-    $offset += $coroutine_keyword->getWidth();
+    $offset += $coroutine_keyword?->getWidth() ?? 0;
     $function_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_function_keyword'],
       $file,
@@ -104,6 +105,7 @@ final class AnonymousFunction
       $source,
       'FunctionToken',
     );
+    $function_keyword = $function_keyword as nonnull;
     $offset += $function_keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_left_paren'],
@@ -112,6 +114,7 @@ final class AnonymousFunction
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_parameters'],
@@ -120,7 +123,7 @@ final class AnonymousFunction
       $source,
       'NodeList<ListItem<IParameter>>',
     );
-    $offset += $parameters->getWidth();
+    $offset += $parameters?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_right_paren'],
       $file,
@@ -128,6 +131,7 @@ final class AnonymousFunction
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_colon'],
@@ -136,7 +140,7 @@ final class AnonymousFunction
       $source,
       'ColonToken',
     );
-    $offset += $colon->getWidth();
+    $offset += $colon?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_type'],
       $file,
@@ -144,7 +148,7 @@ final class AnonymousFunction
       $source,
       'ITypeSpecifier',
     );
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $use = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use'],
       $file,
@@ -152,7 +156,7 @@ final class AnonymousFunction
       $source,
       'AnonymousFunctionUseClause',
     );
-    $offset += $use->getWidth();
+    $offset += $use?->getWidth() ?? 0;
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_body'],
       $file,
@@ -160,6 +164,7 @@ final class AnonymousFunction
       $source,
       'CompoundStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -168,18 +173,18 @@ final class AnonymousFunction
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute_spec,
-      $static_keyword,
-      $async_keyword,
-      $coroutine_keyword,
-      $function_keyword,
-      $left_paren,
-      $parameters,
-      $right_paren,
-      $colon,
-      $type,
-      $use,
-      $body,
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $static_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $async_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $coroutine_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $function_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $parameters,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $use,
+      /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
   }
@@ -199,7 +204,8 @@ final class AnonymousFunction
       'type' => $this->_type,
       'use' => $this->_use,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -208,17 +214,27 @@ final class AnonymousFunction
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
-    $static_keyword = $rewriter($this->_static_keyword, $parents);
-    $async_keyword = $rewriter($this->_async_keyword, $parents);
-    $coroutine_keyword = $rewriter($this->_coroutine_keyword, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
+    $static_keyword = $this->_static_keyword === null
+      ? null
+      : $rewriter($this->_static_keyword, $parents);
+    $async_keyword = $this->_async_keyword === null
+      ? null
+      : $rewriter($this->_async_keyword, $parents);
+    $coroutine_keyword = $this->_coroutine_keyword === null
+      ? null
+      : $rewriter($this->_coroutine_keyword, $parents);
     $function_keyword = $rewriter($this->_function_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $parameters = $rewriter($this->_parameters, $parents);
+    $parameters = $this->_parameters === null
+      ? null
+      : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
-    $colon = $rewriter($this->_colon, $parents);
-    $type = $rewriter($this->_type, $parents);
-    $use = $rewriter($this->_use, $parents);
+    $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
+    $use = $this->_use === null ? null : $rewriter($this->_use, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -237,22 +253,22 @@ final class AnonymousFunction
       return $this;
     }
     return new static(
-      $attribute_spec,
-      $static_keyword,
-      $async_keyword,
-      $coroutine_keyword,
-      $function_keyword,
-      $left_paren,
-      $parameters,
-      $right_paren,
-      $colon,
-      $type,
-      $use,
-      $body,
+      /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $static_keyword,
+      /* HH_FIXME[4110] use `as` */ $async_keyword,
+      /* HH_FIXME[4110] use `as` */ $coroutine_keyword,
+      /* HH_FIXME[4110] use `as` */ $function_keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $parameters,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $use,
+      /* HH_FIXME[4110] use `as` */ $body,
     );
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->_attribute_spec;
   }
 
@@ -261,7 +277,7 @@ final class AnonymousFunction
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
@@ -277,20 +293,14 @@ final class AnonymousFunction
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->isMissing();
+    return $this->_attribute_spec !== null;
   }
 
   /**
    * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return $this->_attribute_spec;
   }
 
   /**
@@ -300,7 +310,7 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getStaticKeywordUNTYPED(): Node {
+  public function getStaticKeywordUNTYPED(): ?Node {
     return $this->_static_keyword;
   }
 
@@ -310,7 +320,7 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $value ?? Missing(),
+      $value,
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
@@ -325,17 +335,14 @@ final class AnonymousFunction
   }
 
   public function hasStaticKeyword(): bool {
-    return !$this->_static_keyword->isMissing();
+    return $this->_static_keyword !== null;
   }
 
   /**
    * @return null | StaticToken
    */
   public function getStaticKeyword(): ?StaticToken {
-    if ($this->_static_keyword->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(StaticToken::class, $this->_static_keyword);
+    return $this->_static_keyword;
   }
 
   /**
@@ -345,7 +352,7 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getStaticKeyword());
   }
 
-  public function getAsyncKeywordUNTYPED(): Node {
+  public function getAsyncKeywordUNTYPED(): ?Node {
     return $this->_async_keyword;
   }
 
@@ -356,7 +363,7 @@ final class AnonymousFunction
     return new static(
       $this->_attribute_spec,
       $this->_static_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -370,17 +377,14 @@ final class AnonymousFunction
   }
 
   public function hasAsyncKeyword(): bool {
-    return !$this->_async_keyword->isMissing();
+    return $this->_async_keyword !== null;
   }
 
   /**
    * @return null | AsyncToken
    */
   public function getAsyncKeyword(): ?AsyncToken {
-    if ($this->_async_keyword->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(AsyncToken::class, $this->_async_keyword);
+    return $this->_async_keyword;
   }
 
   /**
@@ -390,7 +394,7 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getAsyncKeyword());
   }
 
-  public function getCoroutineKeywordUNTYPED(): Node {
+  public function getCoroutineKeywordUNTYPED(): ?Node {
     return $this->_coroutine_keyword;
   }
 
@@ -402,7 +406,7 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -415,16 +419,13 @@ final class AnonymousFunction
   }
 
   public function hasCoroutineKeyword(): bool {
-    return !$this->_coroutine_keyword->isMissing();
+    return $this->_coroutine_keyword !== null;
   }
 
   /**
    * @return null
    */
   public function getCoroutineKeyword(): ?Node {
-    if ($this->_coroutine_keyword->isMissing()) {
-      return null;
-    }
     return $this->_coroutine_keyword;
   }
 
@@ -435,7 +436,7 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getCoroutineKeyword());
   }
 
-  public function getFunctionKeywordUNTYPED(): Node {
+  public function getFunctionKeywordUNTYPED(): ?Node {
     return $this->_function_keyword;
   }
 
@@ -448,7 +449,7 @@ final class AnonymousFunction
       $this->_static_keyword,
       $this->_async_keyword,
       $this->_coroutine_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
@@ -460,7 +461,7 @@ final class AnonymousFunction
   }
 
   public function hasFunctionKeyword(): bool {
-    return !$this->_function_keyword->isMissing();
+    return $this->_function_keyword !== null;
   }
 
   /**
@@ -480,7 +481,7 @@ final class AnonymousFunction
     return $this->getFunctionKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -494,7 +495,7 @@ final class AnonymousFunction
       $this->_async_keyword,
       $this->_coroutine_keyword,
       $this->_function_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_parameters,
       $this->_right_paren,
       $this->_colon,
@@ -505,7 +506,7 @@ final class AnonymousFunction
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -522,7 +523,7 @@ final class AnonymousFunction
     return $this->getLeftParen();
   }
 
-  public function getParametersUNTYPED(): Node {
+  public function getParametersUNTYPED(): ?Node {
     return $this->_parameters;
   }
 
@@ -537,7 +538,7 @@ final class AnonymousFunction
       $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_colon,
       $this->_type,
@@ -547,7 +548,7 @@ final class AnonymousFunction
   }
 
   public function hasParameters(): bool {
-    return !$this->_parameters->isMissing();
+    return $this->_parameters !== null;
   }
 
   /**
@@ -555,10 +556,7 @@ final class AnonymousFunction
    * NodeList<ListItem<VariadicParameter>> | null
    */
   public function getParameters(): ?NodeList<ListItem<IParameter>> {
-    if ($this->_parameters->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_parameters);
+    return $this->_parameters;
   }
 
   /**
@@ -569,7 +567,7 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getParameters());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -585,7 +583,7 @@ final class AnonymousFunction
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -594,7 +592,7 @@ final class AnonymousFunction
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -611,7 +609,7 @@ final class AnonymousFunction
     return $this->getRightParen();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -628,7 +626,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -636,17 +634,14 @@ final class AnonymousFunction
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
    * @return null | ColonToken
    */
   public function getColon(): ?ColonToken {
-    if ($this->_colon->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
+    return $this->_colon;
   }
 
   /**
@@ -656,7 +651,7 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getColon());
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -674,14 +669,14 @@ final class AnonymousFunction
       $this->_parameters,
       $this->_right_paren,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
       $this->_use,
       $this->_body,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -690,10 +685,7 @@ final class AnonymousFunction
    * | SoftTypeSpecifier | TupleTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
-    if ($this->_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -705,7 +697,7 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getUseUNTYPED(): Node {
+  public function getUseUNTYPED(): ?Node {
     return $this->_use;
   }
 
@@ -724,26 +716,20 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_colon,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_body,
     );
   }
 
   public function hasUse(): bool {
-    return !$this->_use->isMissing();
+    return $this->_use !== null;
   }
 
   /**
    * @return AnonymousFunctionUseClause | null
    */
   public function getUse(): ?AnonymousFunctionUseClause {
-    if ($this->_use->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AnonymousFunctionUseClause::class,
-      $this->_use,
-    );
+    return $this->_use;
   }
 
   /**
@@ -753,7 +739,7 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getUse());
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -773,12 +759,12 @@ final class AnonymousFunction
       $this->_colon,
       $this->_type,
       $this->_use,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

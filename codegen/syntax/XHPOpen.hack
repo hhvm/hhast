@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<728a373cbabab0c06e21de12978c7f6b>>
+ * @generated SignedSource<<a796f28b831120b98616a893a250292c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPOpen extends Node {
 
   const string SYNTAX_KIND = 'xhp_open';
 
-  private Node $_left_angle;
-  private Node $_name;
-  private Node $_attributes;
-  private Node $_right_angle;
+  private LessThanToken $_left_angle;
+  private XHPElementNameToken $_name;
+  private ?NodeList<Node> $_attributes;
+  private Token $_right_angle;
 
   public function __construct(
-    Node $left_angle,
-    Node $name,
-    Node $attributes,
-    Node $right_angle,
+    LessThanToken $left_angle,
+    XHPElementNameToken $name,
+    ?NodeList<Node> $attributes,
+    Token $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_angle = $left_angle;
@@ -46,6 +47,7 @@ final class XHPOpen extends Node {
       $source,
       'LessThanToken',
     );
+    $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_open_name'],
@@ -54,6 +56,7 @@ final class XHPOpen extends Node {
       $source,
       'XHPElementNameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $attributes = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_open_attributes'],
@@ -62,7 +65,7 @@ final class XHPOpen extends Node {
       $source,
       'NodeList<Node>',
     );
-    $offset += $attributes->getWidth();
+    $offset += $attributes?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_open_right_angle'],
       $file,
@@ -70,6 +73,7 @@ final class XHPOpen extends Node {
       $source,
       'Token',
     );
+    $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -78,10 +82,10 @@ final class XHPOpen extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $left_angle,
-      $name,
-      $attributes,
-      $right_angle,
+      /* HH_IGNORE_ERROR[4110] */ $left_angle,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $attributes,
+      /* HH_IGNORE_ERROR[4110] */ $right_angle,
       $source_ref,
     );
   }
@@ -93,7 +97,8 @@ final class XHPOpen extends Node {
       'name' => $this->_name,
       'attributes' => $this->_attributes,
       'right_angle' => $this->_right_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -104,7 +109,9 @@ final class XHPOpen extends Node {
     $parents[] = $this;
     $left_angle = $rewriter($this->_left_angle, $parents);
     $name = $rewriter($this->_name, $parents);
-    $attributes = $rewriter($this->_attributes, $parents);
+    $attributes = $this->_attributes === null
+      ? null
+      : $rewriter($this->_attributes, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $left_angle === $this->_left_angle &&
@@ -114,10 +121,15 @@ final class XHPOpen extends Node {
     ) {
       return $this;
     }
-    return new static($left_angle, $name, $attributes, $right_angle);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_angle,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $attributes,
+      /* HH_FIXME[4110] use `as` */ $right_angle,
+    );
   }
 
-  public function getLeftAngleUNTYPED(): Node {
+  public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
@@ -126,7 +138,7 @@ final class XHPOpen extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_attributes,
       $this->_right_angle,
@@ -134,7 +146,7 @@ final class XHPOpen extends Node {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->isMissing();
+    return $this->_left_angle !== null;
   }
 
   /**
@@ -151,7 +163,7 @@ final class XHPOpen extends Node {
     return $this->getLeftAngle();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -161,14 +173,14 @@ final class XHPOpen extends Node {
     }
     return new static(
       $this->_left_angle,
-      $value ?? Missing(),
+      $value,
       $this->_attributes,
       $this->_right_angle,
     );
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -185,7 +197,7 @@ final class XHPOpen extends Node {
     return $this->getName();
   }
 
-  public function getAttributesUNTYPED(): Node {
+  public function getAttributesUNTYPED(): ?Node {
     return $this->_attributes;
   }
 
@@ -196,13 +208,13 @@ final class XHPOpen extends Node {
     return new static(
       $this->_left_angle,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_right_angle,
     );
   }
 
   public function hasAttributes(): bool {
-    return !$this->_attributes->isMissing();
+    return $this->_attributes !== null;
   }
 
   /**
@@ -210,10 +222,7 @@ final class XHPOpen extends Node {
    * NodeList<XHPSpreadAttribute> | null
    */
   public function getAttributes(): ?NodeList<Node> {
-    if ($this->_attributes->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_attributes);
+    return $this->_attributes;
   }
 
   /**
@@ -224,7 +233,7 @@ final class XHPOpen extends Node {
     return TypeAssert\not_null($this->getAttributes());
   }
 
-  public function getRightAngleUNTYPED(): Node {
+  public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
@@ -236,12 +245,12 @@ final class XHPOpen extends Node {
       $this->_left_angle,
       $this->_name,
       $this->_attributes,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->isMissing();
+    return $this->_right_angle !== null;
   }
 
   /**

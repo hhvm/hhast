@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c0d02fb5feda791bbda99c421fa88385>>
+ * @generated SignedSource<<d1520a5d971aba13f2f18b368d23629a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class GotoLabel extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'goto_label';
 
-  private Node $_name;
-  private Node $_colon;
+  private NameToken $_name;
+  private ColonToken $_colon;
 
   public function __construct(
-    Node $name,
-    Node $colon,
+    NameToken $name,
+    ColonToken $colon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -40,6 +41,7 @@ final class GotoLabel extends Node implements IStatement {
       $source,
       'NameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['goto_label_colon'],
@@ -48,6 +50,7 @@ final class GotoLabel extends Node implements IStatement {
       $source,
       'ColonToken',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class GotoLabel extends Node implements IStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($name, $colon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class GotoLabel extends Node implements IStatement {
     return dict[
       'name' => $this->_name,
       'colon' => $this->_colon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class GotoLabel extends Node implements IStatement {
     if ($name === $this->_name && $colon === $this->_colon) {
       return $this;
     }
-    return new static($name, $colon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $colon,
+    );
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -88,11 +99,11 @@ final class GotoLabel extends Node implements IStatement {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_colon);
+    return new static($value, $this->_colon);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class GotoLabel extends Node implements IStatement {
     return $this->getName();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -117,11 +128,11 @@ final class GotoLabel extends Node implements IStatement {
     if ($value === $this->_colon) {
       return $this;
     }
-    return new static($this->_name, $value ?? Missing());
+    return new static($this->_name, $value);
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**

@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0998e94da6d2a79445c8f423d27cef1f>>
+ * @generated SignedSource<<ddb874142e4004cc2fcca98120b0a91e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PropertyDeclarator extends Node {
 
   const string SYNTAX_KIND = 'property_declarator';
 
-  private Node $_name;
-  private Node $_initializer;
+  private VariableToken $_name;
+  private ?SimpleInitializer $_initializer;
 
   public function __construct(
-    Node $name,
-    Node $initializer,
+    VariableToken $name,
+    ?SimpleInitializer $initializer,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -40,6 +41,7 @@ final class PropertyDeclarator extends Node {
       $source,
       'VariableToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['property_initializer'],
@@ -48,14 +50,18 @@ final class PropertyDeclarator extends Node {
       $source,
       'SimpleInitializer',
     );
-    $offset += $initializer->getWidth();
+    $offset += $initializer?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($name, $initializer, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $initializer,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +69,8 @@ final class PropertyDeclarator extends Node {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -73,14 +80,19 @@ final class PropertyDeclarator extends Node {
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
-    $initializer = $rewriter($this->_initializer, $parents);
+    $initializer = $this->_initializer === null
+      ? null
+      : $rewriter($this->_initializer, $parents);
     if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
-    return new static($name, $initializer);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $initializer,
+    );
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -88,11 +100,11 @@ final class PropertyDeclarator extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_initializer);
+    return new static($value, $this->_initializer);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -109,7 +121,7 @@ final class PropertyDeclarator extends Node {
     return $this->getName();
   }
 
-  public function getInitializerUNTYPED(): Node {
+  public function getInitializerUNTYPED(): ?Node {
     return $this->_initializer;
   }
 
@@ -117,24 +129,18 @@ final class PropertyDeclarator extends Node {
     if ($value === $this->_initializer) {
       return $this;
     }
-    return new static($this->_name, $value ?? Missing());
+    return new static($this->_name, $value);
   }
 
   public function hasInitializer(): bool {
-    return !$this->_initializer->isMissing();
+    return $this->_initializer !== null;
   }
 
   /**
    * @return null | SimpleInitializer
    */
   public function getInitializer(): ?SimpleInitializer {
-    if ($this->_initializer->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      SimpleInitializer::class,
-      $this->_initializer,
-    );
+    return $this->_initializer;
   }
 
   /**

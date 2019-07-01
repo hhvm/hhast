@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4277b0e5b9ecc0ff1d4ad97be3d9ce07>>
+ * @generated SignedSource<<6129176781fe3ec02ff43d4044ac9d4f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
@@ -40,6 +41,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
+    $reified = $reified as nonnull;
     $offset += $reified->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['reified_type_argument_type'],
@@ -48,6 +50,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($reified, $type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $reified,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
     return dict[
       'reified' => $this->_reified,
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
     if ($reified === $this->_reified && $type === $this->_type) {
       return $this;
     }
-    return new static($reified, $type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $reified,
+      /* HH_FIXME[4110] use `as` */ $type,
+    );
   }
 
-  public function getReifiedUNTYPED(): Node {
+  public function getReifiedUNTYPED(): ?Node {
     return $this->_reified;
   }
 
@@ -88,11 +99,11 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
     if ($value === $this->_reified) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasReified(): bool {
-    return !$this->_reified->isMissing();
+    return $this->_reified !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
     return $this->getReified();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -117,11 +128,11 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_reified, $value ?? Missing());
+    return new static($this->_reified, $value);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**

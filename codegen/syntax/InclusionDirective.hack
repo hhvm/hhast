@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7ff11fbf8a7d9ee76fe82b5cb706acc>>
+ * @generated SignedSource<<7603620e59bbbbfbd2f82dc15c652e45>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class InclusionDirective extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'inclusion_directive';
 
-  private Node $_expression;
-  private Node $_semicolon;
+  private InclusionExpression $_expression;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $expression,
-    Node $semicolon,
+    InclusionExpression $expression,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -40,6 +41,7 @@ final class InclusionDirective extends Node implements IStatement {
       $source,
       'InclusionExpression',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['inclusion_semicolon'],
@@ -48,6 +50,7 @@ final class InclusionDirective extends Node implements IStatement {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class InclusionDirective extends Node implements IStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($expression, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class InclusionDirective extends Node implements IStatement {
     return dict[
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,10 +87,13 @@ final class InclusionDirective extends Node implements IStatement {
     ) {
       return $this;
     }
-    return new static($expression, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -90,11 +101,11 @@ final class InclusionDirective extends Node implements IStatement {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_semicolon);
+    return new static($value, $this->_semicolon);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -114,7 +125,7 @@ final class InclusionDirective extends Node implements IStatement {
     return $this->getExpression();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -122,11 +133,11 @@ final class InclusionDirective extends Node implements IStatement {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_expression, $value ?? Missing());
+    return new static($this->_expression, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

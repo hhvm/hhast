@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b67c33d2f668e556ab4b7d82f5c11e2>>
+ * @generated SignedSource<<5d191fb3811edf59147e643557de2789>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class YieldExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'yield_expression';
 
-  private Node $_keyword;
-  private Node $_operand;
+  private YieldToken $_keyword;
+  private ?Node $_operand;
 
   public function __construct(
-    Node $keyword,
-    Node $operand,
+    YieldToken $keyword,
+    ?Node $operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,6 +41,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'YieldToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['yield_operand'],
@@ -48,14 +50,18 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'Node',
     );
-    $offset += $operand->getWidth();
+    $offset += $operand?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $operand, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $operand,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +69,8 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     return dict[
       'keyword' => $this->_keyword,
       'operand' => $this->_operand,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -73,14 +80,19 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $operand = $rewriter($this->_operand, $parents);
+    $operand = $this->_operand === null
+      ? null
+      : $rewriter($this->_operand, $parents);
     if ($keyword === $this->_keyword && $operand === $this->_operand) {
       return $this;
     }
-    return new static($keyword, $operand);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $operand,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -88,11 +100,11 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_operand);
+    return new static($value, $this->_operand);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -109,7 +121,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     return $this->getKeyword();
   }
 
-  public function getOperandUNTYPED(): Node {
+  public function getOperandUNTYPED(): ?Node {
     return $this->_operand;
   }
 
@@ -117,11 +129,11 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing());
+    return new static($this->_keyword, $value);
   }
 
   public function hasOperand(): bool {
-    return !$this->_operand->isMissing();
+    return $this->_operand !== null;
   }
 
   /**
@@ -134,9 +146,6 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
    * VariableExpression
    */
   public function getOperand(): ?Node {
-    if ($this->_operand->isMissing()) {
-      return null;
-    }
     return $this->_operand;
   }
 

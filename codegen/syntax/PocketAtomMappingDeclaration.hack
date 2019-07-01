@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5e3d6ec6f9e568cc2e2e73b50613cb3>>
+ * @generated SignedSource<<12798cee5ff9c6f86037bad1737d046c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PocketAtomMappingDeclaration extends Node {
@@ -52,6 +53,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
+    $glyph = $glyph as nonnull;
     $offset += $glyph->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_name'],
@@ -60,6 +62,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_left_paren'],
@@ -68,6 +71,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $mappings = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_mappings'],
@@ -76,6 +80,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
+    $mappings = $mappings as nonnull;
     $offset += $mappings->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_right_paren'],
@@ -84,6 +89,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_semicolon'],
@@ -92,6 +98,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -100,12 +107,12 @@ final class PocketAtomMappingDeclaration extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $glyph,
-      $name,
-      $left_paren,
-      $mappings,
-      $right_paren,
-      $semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $glyph,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $mappings,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
   }
@@ -119,7 +126,8 @@ final class PocketAtomMappingDeclaration extends Node {
       'mappings' => $this->_mappings,
       'right_paren' => $this->_right_paren,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -145,16 +153,16 @@ final class PocketAtomMappingDeclaration extends Node {
       return $this;
     }
     return new static(
-      $glyph,
-      $name,
-      $left_paren,
-      $mappings,
-      $right_paren,
-      $semicolon,
+      /* HH_FIXME[4110] use `as` */ $glyph,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $mappings,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
     );
   }
 
-  public function getGlyphUNTYPED(): Node {
+  public function getGlyphUNTYPED(): ?Node {
     return $this->_glyph;
   }
 
@@ -163,7 +171,7 @@ final class PocketAtomMappingDeclaration extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_left_paren,
       $this->_mappings,
@@ -173,7 +181,7 @@ final class PocketAtomMappingDeclaration extends Node {
   }
 
   public function hasGlyph(): bool {
-    return !$this->_glyph->isMissing();
+    return $this->_glyph !== null;
   }
 
   /**
@@ -190,7 +198,7 @@ final class PocketAtomMappingDeclaration extends Node {
     return $this->getGlyph();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -200,7 +208,7 @@ final class PocketAtomMappingDeclaration extends Node {
     }
     return new static(
       $this->_glyph,
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_mappings,
       $this->_right_paren,
@@ -209,7 +217,7 @@ final class PocketAtomMappingDeclaration extends Node {
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -226,7 +234,7 @@ final class PocketAtomMappingDeclaration extends Node {
     return $this->getName();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -237,7 +245,7 @@ final class PocketAtomMappingDeclaration extends Node {
     return new static(
       $this->_glyph,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_mappings,
       $this->_right_paren,
       $this->_semicolon,
@@ -245,7 +253,7 @@ final class PocketAtomMappingDeclaration extends Node {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -262,7 +270,7 @@ final class PocketAtomMappingDeclaration extends Node {
     return $this->getLeftParen();
   }
 
-  public function getMappingsUNTYPED(): Node {
+  public function getMappingsUNTYPED(): ?Node {
     return $this->_mappings;
   }
 
@@ -274,14 +282,14 @@ final class PocketAtomMappingDeclaration extends Node {
       $this->_glyph,
       $this->_name,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_semicolon,
     );
   }
 
   public function hasMappings(): bool {
-    return !$this->_mappings->isMissing();
+    return $this->_mappings !== null;
   }
 
   /**
@@ -298,7 +306,7 @@ final class PocketAtomMappingDeclaration extends Node {
     return $this->getMappings();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -311,13 +319,13 @@ final class PocketAtomMappingDeclaration extends Node {
       $this->_name,
       $this->_left_paren,
       $this->_mappings,
-      $value ?? Missing(),
+      $value,
       $this->_semicolon,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -334,7 +342,7 @@ final class PocketAtomMappingDeclaration extends Node {
     return $this->getRightParen();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -348,12 +356,12 @@ final class PocketAtomMappingDeclaration extends Node {
       $this->_left_paren,
       $this->_mappings,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

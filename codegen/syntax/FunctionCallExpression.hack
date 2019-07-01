@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c67448498114a4838256910f6bd7fb31>>
+ * @generated SignedSource<<fe61f0e62c36c1d65d42a1ef3e57cfd5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class FunctionCallExpression
@@ -14,17 +15,17 @@ final class FunctionCallExpression
   const string SYNTAX_KIND = 'function_call_expression';
 
   private Node $_receiver;
-  private Node $_type_args;
-  private Node $_left_paren;
-  private Node $_argument_list;
-  private Node $_right_paren;
+  private ?TypeArguments $_type_args;
+  private LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<IExpression>> $_argument_list;
+  private RightParenToken $_right_paren;
 
   public function __construct(
     Node $receiver,
-    Node $type_args,
-    Node $left_paren,
-    Node $argument_list,
-    Node $right_paren,
+    ?TypeArguments $type_args,
+    LeftParenToken $left_paren,
+    ?NodeList<ListItem<IExpression>> $argument_list,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_receiver = $receiver;
@@ -51,6 +52,7 @@ final class FunctionCallExpression
       $source,
       'Node',
     );
+    $receiver = $receiver as nonnull;
     $offset += $receiver->getWidth();
     $type_args = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_type_args'],
@@ -59,7 +61,7 @@ final class FunctionCallExpression
       $source,
       'TypeArguments',
     );
-    $offset += $type_args->getWidth();
+    $offset += $type_args?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_left_paren'],
       $file,
@@ -67,6 +69,7 @@ final class FunctionCallExpression
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_argument_list'],
@@ -75,7 +78,7 @@ final class FunctionCallExpression
       $source,
       'NodeList<ListItem<IExpression>>',
     );
-    $offset += $argument_list->getWidth();
+    $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_right_paren'],
       $file,
@@ -83,6 +86,7 @@ final class FunctionCallExpression
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -91,11 +95,11 @@ final class FunctionCallExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $receiver,
-      $type_args,
-      $left_paren,
-      $argument_list,
-      $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $receiver,
+      /* HH_IGNORE_ERROR[4110] */ $type_args,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $argument_list,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
       $source_ref,
     );
   }
@@ -108,7 +112,8 @@ final class FunctionCallExpression
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -118,9 +123,13 @@ final class FunctionCallExpression
   ): this {
     $parents[] = $this;
     $receiver = $rewriter($this->_receiver, $parents);
-    $type_args = $rewriter($this->_type_args, $parents);
+    $type_args = $this->_type_args === null
+      ? null
+      : $rewriter($this->_type_args, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $argument_list = $rewriter($this->_argument_list, $parents);
+    $argument_list = $this->_argument_list === null
+      ? null
+      : $rewriter($this->_argument_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $receiver === $this->_receiver &&
@@ -132,15 +141,15 @@ final class FunctionCallExpression
       return $this;
     }
     return new static(
-      $receiver,
-      $type_args,
-      $left_paren,
-      $argument_list,
-      $right_paren,
+      /* HH_FIXME[4110] use `as` */ $receiver,
+      /* HH_FIXME[4110] use `as` */ $type_args,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $argument_list,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
     );
   }
 
-  public function getReceiverUNTYPED(): Node {
+  public function getReceiverUNTYPED(): ?Node {
     return $this->_receiver;
   }
 
@@ -149,7 +158,7 @@ final class FunctionCallExpression
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_type_args,
       $this->_left_paren,
       $this->_argument_list,
@@ -158,7 +167,7 @@ final class FunctionCallExpression
   }
 
   public function hasReceiver(): bool {
-    return !$this->_receiver->isMissing();
+    return $this->_receiver !== null;
   }
 
   /**
@@ -181,7 +190,7 @@ final class FunctionCallExpression
     return $this->getReceiver();
   }
 
-  public function getTypeArgsUNTYPED(): Node {
+  public function getTypeArgsUNTYPED(): ?Node {
     return $this->_type_args;
   }
 
@@ -191,7 +200,7 @@ final class FunctionCallExpression
     }
     return new static(
       $this->_receiver,
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -199,17 +208,14 @@ final class FunctionCallExpression
   }
 
   public function hasTypeArgs(): bool {
-    return !$this->_type_args->isMissing();
+    return $this->_type_args !== null;
   }
 
   /**
    * @return null | TypeArguments
    */
   public function getTypeArgs(): ?TypeArguments {
-    if ($this->_type_args->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(TypeArguments::class, $this->_type_args);
+    return $this->_type_args;
   }
 
   /**
@@ -219,7 +225,7 @@ final class FunctionCallExpression
     return TypeAssert\not_null($this->getTypeArgs());
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -230,14 +236,14 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $this->_type_args,
-      $value ?? Missing(),
+      $value,
       $this->_argument_list,
       $this->_right_paren,
     );
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -254,7 +260,7 @@ final class FunctionCallExpression
     return $this->getLeftParen();
   }
 
-  public function getArgumentListUNTYPED(): Node {
+  public function getArgumentListUNTYPED(): ?Node {
     return $this->_argument_list;
   }
 
@@ -268,13 +274,13 @@ final class FunctionCallExpression
       $this->_receiver,
       $this->_type_args,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
     );
   }
 
   public function hasArgumentList(): bool {
-    return !$this->_argument_list->isMissing();
+    return $this->_argument_list !== null;
   }
 
   /**
@@ -318,10 +324,7 @@ final class FunctionCallExpression
    * NodeList<ListItem<XHPExpression>> | null
    */
   public function getArgumentList(): ?NodeList<ListItem<IExpression>> {
-    if ($this->_argument_list->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_argument_list);
+    return $this->_argument_list;
   }
 
   /**
@@ -368,7 +371,7 @@ final class FunctionCallExpression
     return TypeAssert\not_null($this->getArgumentList());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -381,12 +384,12 @@ final class FunctionCallExpression
       $this->_type_args,
       $this->_left_paren,
       $this->_argument_list,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

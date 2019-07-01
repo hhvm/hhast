@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f688faa6d39e8ddc9f1e8e923eb37b5>>
+ * @generated SignedSource<<6dc25ef8e62a366374babcf35bdbd4e6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PocketFieldTypeDeclaration extends Node {
@@ -46,6 +47,7 @@ final class PocketFieldTypeDeclaration extends Node {
       $source,
       'Node',
     );
+    $case = $case as nonnull;
     $offset += $case->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_field_type_type'],
@@ -54,6 +56,7 @@ final class PocketFieldTypeDeclaration extends Node {
       $source,
       'Node',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_field_type_name'],
@@ -62,6 +65,7 @@ final class PocketFieldTypeDeclaration extends Node {
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_field_type_semicolon'],
@@ -70,6 +74,7 @@ final class PocketFieldTypeDeclaration extends Node {
       $source,
       'Node',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -77,7 +82,13 @@ final class PocketFieldTypeDeclaration extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($case, $type, $name, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $case,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -87,7 +98,8 @@ final class PocketFieldTypeDeclaration extends Node {
       'type' => $this->_type,
       'name' => $this->_name,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,10 +120,15 @@ final class PocketFieldTypeDeclaration extends Node {
     ) {
       return $this;
     }
-    return new static($case, $type, $name, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $case,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getCaseUNTYPED(): Node {
+  public function getCaseUNTYPED(): ?Node {
     return $this->_case;
   }
 
@@ -119,16 +136,11 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_case) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_type,
-      $this->_name,
-      $this->_semicolon,
-    );
+    return new static($value, $this->_type, $this->_name, $this->_semicolon);
   }
 
   public function hasCase(): bool {
-    return !$this->_case->isMissing();
+    return $this->_case !== null;
   }
 
   /**
@@ -145,7 +157,7 @@ final class PocketFieldTypeDeclaration extends Node {
     return $this->getCase();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -153,16 +165,11 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static(
-      $this->_case,
-      $value ?? Missing(),
-      $this->_name,
-      $this->_semicolon,
-    );
+    return new static($this->_case, $value, $this->_name, $this->_semicolon);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -179,7 +186,7 @@ final class PocketFieldTypeDeclaration extends Node {
     return $this->getType();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -187,16 +194,11 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $this->_case,
-      $this->_type,
-      $value ?? Missing(),
-      $this->_semicolon,
-    );
+    return new static($this->_case, $this->_type, $value, $this->_semicolon);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -213,7 +215,7 @@ final class PocketFieldTypeDeclaration extends Node {
     return $this->getName();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -221,16 +223,11 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      $this->_case,
-      $this->_type,
-      $this->_name,
-      $value ?? Missing(),
-    );
+    return new static($this->_case, $this->_type, $this->_name, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

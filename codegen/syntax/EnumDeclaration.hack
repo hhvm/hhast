@@ -1,36 +1,37 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d9577e9f7b20abe5fa51e3cee675091>>
+ * @generated SignedSource<<9f04a3d5fee1f22b3901f18cca7edbdf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class EnumDeclaration extends Node implements IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'enum_declaration';
 
-  private Node $_attribute_spec;
-  private Node $_keyword;
-  private Node $_name;
-  private Node $_colon;
-  private Node $_base;
-  private Node $_type;
-  private Node $_left_brace;
-  private Node $_enumerators;
-  private Node $_right_brace;
+  private ?AttributeSpecification $_attribute_spec;
+  private EnumToken $_keyword;
+  private NameToken $_name;
+  private ColonToken $_colon;
+  private ITypeSpecifier $_base;
+  private ?TypeConstraint $_type;
+  private LeftBraceToken $_left_brace;
+  private ?NodeList<Enumerator> $_enumerators;
+  private RightBraceToken $_right_brace;
 
   public function __construct(
-    Node $attribute_spec,
-    Node $keyword,
-    Node $name,
-    Node $colon,
-    Node $base,
-    Node $type,
-    Node $left_brace,
-    Node $enumerators,
-    Node $right_brace,
+    ?AttributeSpecification $attribute_spec,
+    EnumToken $keyword,
+    NameToken $name,
+    ColonToken $colon,
+    ITypeSpecifier $base,
+    ?TypeConstraint $type,
+    LeftBraceToken $left_brace,
+    ?NodeList<Enumerator> $enumerators,
+    RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -61,7 +62,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'AttributeSpecification',
     );
-    $offset += $attribute_spec->getWidth();
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_keyword'],
       $file,
@@ -69,6 +70,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'EnumToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_name'],
@@ -77,6 +79,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'NameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_colon'],
@@ -85,6 +88,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'ColonToken',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $base = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_base'],
@@ -93,6 +97,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'ITypeSpecifier',
     );
+    $base = $base as nonnull;
     $offset += $base->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_type'],
@@ -101,7 +106,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'TypeConstraint',
     );
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_left_brace'],
       $file,
@@ -109,6 +114,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'LeftBraceToken',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $enumerators = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_enumerators'],
@@ -117,7 +123,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'NodeList<Enumerator>',
     );
-    $offset += $enumerators->getWidth();
+    $offset += $enumerators?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_right_brace'],
       $file,
@@ -125,6 +131,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $source,
       'RightBraceToken',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -133,15 +140,15 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $attribute_spec,
-      $keyword,
-      $name,
-      $colon,
-      $base,
-      $type,
-      $left_brace,
-      $enumerators,
-      $right_brace,
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $base,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $enumerators,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
       $source_ref,
     );
   }
@@ -158,7 +165,8 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       'left_brace' => $this->_left_brace,
       'enumerators' => $this->_enumerators,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -167,14 +175,18 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
     $colon = $rewriter($this->_colon, $parents);
     $base = $rewriter($this->_base, $parents);
-    $type = $rewriter($this->_type, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $enumerators = $rewriter($this->_enumerators, $parents);
+    $enumerators = $this->_enumerators === null
+      ? null
+      : $rewriter($this->_enumerators, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -190,19 +202,19 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       return $this;
     }
     return new static(
-      $attribute_spec,
-      $keyword,
-      $name,
-      $colon,
-      $base,
-      $type,
-      $left_brace,
-      $enumerators,
-      $right_brace,
+      /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $base,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $enumerators,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
     );
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->_attribute_spec;
   }
 
@@ -211,7 +223,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_keyword,
       $this->_name,
       $this->_colon,
@@ -224,20 +236,14 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->isMissing();
+    return $this->_attribute_spec !== null;
   }
 
   /**
    * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return $this->_attribute_spec;
   }
 
   /**
@@ -247,7 +253,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -257,7 +263,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_colon,
       $this->_base,
@@ -269,7 +275,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -286,7 +292,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -297,7 +303,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return new static(
       $this->_attribute_spec,
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_base,
       $this->_type,
@@ -308,7 +314,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -325,7 +331,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return $this->getName();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -337,7 +343,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $this->_attribute_spec,
       $this->_keyword,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_base,
       $this->_type,
       $this->_left_brace,
@@ -347,7 +353,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
@@ -364,7 +370,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return $this->getColon();
   }
 
-  public function getBaseUNTYPED(): Node {
+  public function getBaseUNTYPED(): ?Node {
     return $this->_base;
   }
 
@@ -377,7 +383,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $this->_keyword,
       $this->_name,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_left_brace,
       $this->_enumerators,
@@ -386,7 +392,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasBase(): bool {
-    return !$this->_base->isMissing();
+    return $this->_base !== null;
   }
 
   /**
@@ -403,7 +409,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return $this->getBase();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -417,7 +423,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $this->_name,
       $this->_colon,
       $this->_base,
-      $value ?? Missing(),
+      $value,
       $this->_left_brace,
       $this->_enumerators,
       $this->_right_brace,
@@ -425,17 +431,14 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
    * @return null | TypeConstraint
    */
   public function getType(): ?TypeConstraint {
-    if ($this->_type->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(TypeConstraint::class, $this->_type);
+    return $this->_type;
   }
 
   /**
@@ -445,7 +448,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getType());
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -460,14 +463,14 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $this->_colon,
       $this->_base,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_enumerators,
       $this->_right_brace,
     );
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -484,7 +487,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return $this->getLeftBrace();
   }
 
-  public function getEnumeratorsUNTYPED(): Node {
+  public function getEnumeratorsUNTYPED(): ?Node {
     return $this->_enumerators;
   }
 
@@ -500,23 +503,20 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $this->_base,
       $this->_type,
       $this->_left_brace,
-      $value ?? Missing(),
+      $value,
       $this->_right_brace,
     );
   }
 
   public function hasEnumerators(): bool {
-    return !$this->_enumerators->isMissing();
+    return $this->_enumerators !== null;
   }
 
   /**
    * @return NodeList<Enumerator> | null
    */
   public function getEnumerators(): ?NodeList<Enumerator> {
-    if ($this->_enumerators->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_enumerators);
+    return $this->_enumerators;
   }
 
   /**
@@ -526,7 +526,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getEnumerators());
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -543,12 +543,12 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $this->_type,
       $this->_left_brace,
       $this->_enumerators,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

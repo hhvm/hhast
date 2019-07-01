@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7edd19f4feaf82d976298e07a66a741>>
+ * @generated SignedSource<<cd748eb08b57cfbf8e9436c0b3b4d5b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class CastExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'cast_expression';
 
-  private Node $_left_paren;
-  private Node $_type;
-  private Node $_right_paren;
-  private Node $_operand;
+  private LeftParenToken $_left_paren;
+  private Token $_type;
+  private RightParenToken $_right_paren;
+  private IExpression $_operand;
 
   public function __construct(
-    Node $left_paren,
-    Node $type,
-    Node $right_paren,
-    Node $operand,
+    LeftParenToken $left_paren,
+    Token $type,
+    RightParenToken $right_paren,
+    IExpression $operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -46,6 +47,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['cast_type'],
@@ -54,6 +56,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'Token',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['cast_right_paren'],
@@ -62,6 +65,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $operand = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['cast_operand'],
@@ -70,6 +74,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'IExpression',
     );
+    $operand = $operand as nonnull;
     $offset += $operand->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -77,7 +82,13 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_paren, $type, $right_paren, $operand, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $operand,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -87,7 +98,8 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       'type' => $this->_type,
       'right_paren' => $this->_right_paren,
       'operand' => $this->_operand,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,10 +120,15 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     ) {
       return $this;
     }
-    return new static($left_paren, $type, $right_paren, $operand);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $operand,
+    );
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -120,7 +137,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_right_paren,
       $this->_operand,
@@ -128,7 +145,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -145,7 +162,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     return $this->getLeftParen();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -155,14 +172,14 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     }
     return new static(
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_operand,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -183,7 +200,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     return $this->getType();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -194,13 +211,13 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     return new static(
       $this->_left_paren,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_operand,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -217,7 +234,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     return $this->getRightParen();
   }
 
-  public function getOperandUNTYPED(): Node {
+  public function getOperandUNTYPED(): ?Node {
     return $this->_operand;
   }
 
@@ -229,12 +246,12 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       $this->_left_paren,
       $this->_type,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasOperand(): bool {
-    return !$this->_operand->isMissing();
+    return $this->_operand !== null;
   }
 
   /**

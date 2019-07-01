@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<131f04b3378f4df3d2982c0c39ca1d7f>>
+ * @generated SignedSource<<902e623df3566dd121a81bde5934436a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class FinallyClause extends Node {
 
   const string SYNTAX_KIND = 'finally_clause';
 
-  private Node $_keyword;
-  private Node $_body;
+  private FinallyToken $_keyword;
+  private CompoundStatement $_body;
 
   public function __construct(
-    Node $keyword,
-    Node $body,
+    FinallyToken $keyword,
+    CompoundStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,6 +41,7 @@ final class FinallyClause extends Node {
       $source,
       'FinallyToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['finally_body'],
@@ -48,6 +50,7 @@ final class FinallyClause extends Node {
       $source,
       'CompoundStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class FinallyClause extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $body, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $body,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class FinallyClause extends Node {
     return dict[
       'keyword' => $this->_keyword,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class FinallyClause extends Node {
     if ($keyword === $this->_keyword && $body === $this->_body) {
       return $this;
     }
-    return new static($keyword, $body);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $body,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -88,11 +99,11 @@ final class FinallyClause extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_body);
+    return new static($value, $this->_body);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class FinallyClause extends Node {
     return $this->getKeyword();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -117,11 +128,11 @@ final class FinallyClause extends Node {
     if ($value === $this->_body) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing());
+    return new static($this->_keyword, $value);
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<734641630fd55162dee3083732d4a03f>>
+ * @generated SignedSource<<78f757e1dfdde3d76b7a729faee966c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class NamespaceUseClause extends Node {
 
   const string SYNTAX_KIND = 'namespace_use_clause';
 
-  private Node $_clause_kind;
-  private Node $_name;
-  private Node $_as;
-  private Node $_alias;
+  private ?Token $_clause_kind;
+  private INameishNode $_name;
+  private ?AsToken $_as;
+  private ?NameToken $_alias;
 
   public function __construct(
-    Node $clause_kind,
-    Node $name,
-    Node $as,
-    Node $alias,
+    ?Token $clause_kind,
+    INameishNode $name,
+    ?AsToken $as,
+    ?NameToken $alias,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_clause_kind = $clause_kind;
@@ -46,7 +47,7 @@ final class NamespaceUseClause extends Node {
       $source,
       'Token',
     );
-    $offset += $clause_kind->getWidth();
+    $offset += $clause_kind?->getWidth() ?? 0;
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_name'],
       $file,
@@ -54,6 +55,7 @@ final class NamespaceUseClause extends Node {
       $source,
       'INameishNode',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $as = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_as'],
@@ -62,7 +64,7 @@ final class NamespaceUseClause extends Node {
       $source,
       'AsToken',
     );
-    $offset += $as->getWidth();
+    $offset += $as?->getWidth() ?? 0;
     $alias = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_use_alias'],
       $file,
@@ -70,14 +72,20 @@ final class NamespaceUseClause extends Node {
       $source,
       'NameToken',
     );
-    $offset += $alias->getWidth();
+    $offset += $alias?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($clause_kind, $name, $as, $alias, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $clause_kind,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $as,
+      /* HH_IGNORE_ERROR[4110] */ $alias,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -87,7 +95,8 @@ final class NamespaceUseClause extends Node {
       'name' => $this->_name,
       'as' => $this->_as,
       'alias' => $this->_alias,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +105,12 @@ final class NamespaceUseClause extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $clause_kind = $rewriter($this->_clause_kind, $parents);
+    $clause_kind = $this->_clause_kind === null
+      ? null
+      : $rewriter($this->_clause_kind, $parents);
     $name = $rewriter($this->_name, $parents);
-    $as = $rewriter($this->_as, $parents);
-    $alias = $rewriter($this->_alias, $parents);
+    $as = $this->_as === null ? null : $rewriter($this->_as, $parents);
+    $alias = $this->_alias === null ? null : $rewriter($this->_alias, $parents);
     if (
       $clause_kind === $this->_clause_kind &&
       $name === $this->_name &&
@@ -108,10 +119,15 @@ final class NamespaceUseClause extends Node {
     ) {
       return $this;
     }
-    return new static($clause_kind, $name, $as, $alias);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $clause_kind,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $as,
+      /* HH_FIXME[4110] use `as` */ $alias,
+    );
   }
 
-  public function getClauseKindUNTYPED(): Node {
+  public function getClauseKindUNTYPED(): ?Node {
     return $this->_clause_kind;
   }
 
@@ -119,26 +135,18 @@ final class NamespaceUseClause extends Node {
     if ($value === $this->_clause_kind) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_name,
-      $this->_as,
-      $this->_alias,
-    );
+    return new static($value, $this->_name, $this->_as, $this->_alias);
   }
 
   public function hasClauseKind(): bool {
-    return !$this->_clause_kind->isMissing();
+    return $this->_clause_kind !== null;
   }
 
   /**
    * @return null | ConstToken | FunctionToken
    */
   public function getClauseKind(): ?Token {
-    if ($this->_clause_kind->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(Token::class, $this->_clause_kind);
+    return $this->_clause_kind;
   }
 
   /**
@@ -148,7 +156,7 @@ final class NamespaceUseClause extends Node {
     return TypeAssert\not_null($this->getClauseKind());
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -156,16 +164,11 @@ final class NamespaceUseClause extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $this->_clause_kind,
-      $value ?? Missing(),
-      $this->_as,
-      $this->_alias,
-    );
+    return new static($this->_clause_kind, $value, $this->_as, $this->_alias);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -182,7 +185,7 @@ final class NamespaceUseClause extends Node {
     return $this->getName();
   }
 
-  public function getAsUNTYPED(): Node {
+  public function getAsUNTYPED(): ?Node {
     return $this->_as;
   }
 
@@ -190,26 +193,18 @@ final class NamespaceUseClause extends Node {
     if ($value === $this->_as) {
       return $this;
     }
-    return new static(
-      $this->_clause_kind,
-      $this->_name,
-      $value ?? Missing(),
-      $this->_alias,
-    );
+    return new static($this->_clause_kind, $this->_name, $value, $this->_alias);
   }
 
   public function hasAs(): bool {
-    return !$this->_as->isMissing();
+    return $this->_as !== null;
   }
 
   /**
    * @return null | AsToken
    */
   public function getAs(): ?AsToken {
-    if ($this->_as->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(AsToken::class, $this->_as);
+    return $this->_as;
   }
 
   /**
@@ -219,7 +214,7 @@ final class NamespaceUseClause extends Node {
     return TypeAssert\not_null($this->getAs());
   }
 
-  public function getAliasUNTYPED(): Node {
+  public function getAliasUNTYPED(): ?Node {
     return $this->_alias;
   }
 
@@ -227,26 +222,18 @@ final class NamespaceUseClause extends Node {
     if ($value === $this->_alias) {
       return $this;
     }
-    return new static(
-      $this->_clause_kind,
-      $this->_name,
-      $this->_as,
-      $value ?? Missing(),
-    );
+    return new static($this->_clause_kind, $this->_name, $this->_as, $value);
   }
 
   public function hasAlias(): bool {
-    return !$this->_alias->isMissing();
+    return $this->_alias !== null;
   }
 
   /**
    * @return null | NameToken
    */
   public function getAlias(): ?NameToken {
-    if ($this->_alias->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NameToken::class, $this->_alias);
+    return $this->_alias;
   }
 
   /**

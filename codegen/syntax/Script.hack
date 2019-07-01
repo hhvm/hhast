@@ -1,20 +1,21 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce95dd85c848e74a3b746ff9178bfd98>>
+ * @generated SignedSource<<acc78304274db9b43b0e2ce598882825>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 abstract class ScriptGeneratedBase extends Node {
 
   const string SYNTAX_KIND = 'script';
 
-  private Node $_declarations;
+  private NodeList<Node> $_declarations;
 
   public function __construct(
-    Node $declarations,
+    NodeList<Node> $declarations,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_declarations = $declarations;
@@ -37,6 +38,7 @@ abstract class ScriptGeneratedBase extends Node {
       $source,
       'NodeList<Node>',
     );
+    $declarations = $declarations as nonnull;
     $offset += $declarations->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -44,14 +46,15 @@ abstract class ScriptGeneratedBase extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($declarations, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $declarations, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'declarations' => $this->_declarations,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -64,10 +67,10 @@ abstract class ScriptGeneratedBase extends Node {
     if ($declarations === $this->_declarations) {
       return $this;
     }
-    return new static($declarations);
+    return new static(/* HH_FIXME[4110] use `as` */ $declarations);
   }
 
-  public function getDeclarationsUNTYPED(): Node {
+  public function getDeclarationsUNTYPED(): ?Node {
     return $this->_declarations;
   }
 
@@ -75,11 +78,11 @@ abstract class ScriptGeneratedBase extends Node {
     if ($value === $this->_declarations) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasDeclarations(): bool {
-    return !$this->_declarations->isMissing();
+    return $this->_declarations !== null;
   }
 
   /**

@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b0985ea024b2813b712e19e6111abc9>>
+ * @generated SignedSource<<c97f3a374122c0426b51c8c5e9f86dff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TypeConstant extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'type_constant';
 
-  private Node $_left_type;
-  private Node $_separator;
-  private Node $_right_type;
+  private ITypeSpecifier $_left_type;
+  private ColonColonToken $_separator;
+  private NameToken $_right_type;
 
   public function __construct(
-    Node $left_type,
-    Node $separator,
-    Node $right_type,
+    ITypeSpecifier $left_type,
+    ColonColonToken $separator,
+    NameToken $right_type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_type = $left_type;
@@ -43,6 +44,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       $source,
       'ITypeSpecifier',
     );
+    $left_type = $left_type as nonnull;
     $offset += $left_type->getWidth();
     $separator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_constant_separator'],
@@ -51,6 +53,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       $source,
       'ColonColonToken',
     );
+    $separator = $separator as nonnull;
     $offset += $separator->getWidth();
     $right_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_constant_right_type'],
@@ -59,6 +62,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       $source,
       'NameToken',
     );
+    $right_type = $right_type as nonnull;
     $offset += $right_type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_type, $separator, $right_type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_type,
+      /* HH_IGNORE_ERROR[4110] */ $separator,
+      /* HH_IGNORE_ERROR[4110] */ $right_type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       'left_type' => $this->_left_type,
       'separator' => $this->_separator,
       'right_type' => $this->_right_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     ) {
       return $this;
     }
-    return new static($left_type, $separator, $right_type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_type,
+      /* HH_FIXME[4110] use `as` */ $separator,
+      /* HH_FIXME[4110] use `as` */ $right_type,
+    );
   }
 
-  public function getLeftTypeUNTYPED(): Node {
+  public function getLeftTypeUNTYPED(): ?Node {
     return $this->_left_type;
   }
 
@@ -105,15 +119,11 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     if ($value === $this->_left_type) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_separator,
-      $this->_right_type,
-    );
+    return new static($value, $this->_separator, $this->_right_type);
   }
 
   public function hasLeftType(): bool {
-    return !$this->_left_type->isMissing();
+    return $this->_left_type !== null;
   }
 
   /**
@@ -130,7 +140,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     return $this->getLeftType();
   }
 
-  public function getSeparatorUNTYPED(): Node {
+  public function getSeparatorUNTYPED(): ?Node {
     return $this->_separator;
   }
 
@@ -138,15 +148,11 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     if ($value === $this->_separator) {
       return $this;
     }
-    return new static(
-      $this->_left_type,
-      $value ?? Missing(),
-      $this->_right_type,
-    );
+    return new static($this->_left_type, $value, $this->_right_type);
   }
 
   public function hasSeparator(): bool {
-    return !$this->_separator->isMissing();
+    return $this->_separator !== null;
   }
 
   /**
@@ -163,7 +169,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     return $this->getSeparator();
   }
 
-  public function getRightTypeUNTYPED(): Node {
+  public function getRightTypeUNTYPED(): ?Node {
     return $this->_right_type;
   }
 
@@ -171,15 +177,11 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     if ($value === $this->_right_type) {
       return $this;
     }
-    return new static(
-      $this->_left_type,
-      $this->_separator,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_type, $this->_separator, $value);
   }
 
   public function hasRightType(): bool {
-    return !$this->_right_type->isMissing();
+    return $this->_right_type !== null;
   }
 
   /**

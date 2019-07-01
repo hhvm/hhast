@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<002a43b7f90f37e07befd6f3e1e730de>>
+ * @generated SignedSource<<a2db5017896b90b102284066eef94f1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ArrayCreationExpression
@@ -13,14 +14,14 @@ final class ArrayCreationExpression
 
   const string SYNTAX_KIND = 'array_creation_expression';
 
-  private Node $_left_bracket;
-  private Node $_members;
-  private Node $_right_bracket;
+  private LeftBracketToken $_left_bracket;
+  private ?NodeList<ListItem<Node>> $_members;
+  private RightBracketToken $_right_bracket;
 
   public function __construct(
-    Node $left_bracket,
-    Node $members,
-    Node $right_bracket,
+    LeftBracketToken $left_bracket,
+    ?NodeList<ListItem<Node>> $members,
+    RightBracketToken $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_bracket = $left_bracket;
@@ -45,6 +46,7 @@ final class ArrayCreationExpression
       $source,
       'LeftBracketToken',
     );
+    $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_creation_members'],
@@ -53,7 +55,7 @@ final class ArrayCreationExpression
       $source,
       'NodeList<ListItem<Node>>',
     );
-    $offset += $members->getWidth();
+    $offset += $members?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['array_creation_right_bracket'],
       $file,
@@ -61,6 +63,7 @@ final class ArrayCreationExpression
       $source,
       'RightBracketToken',
     );
+    $right_bracket = $right_bracket as nonnull;
     $offset += $right_bracket->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +71,12 @@ final class ArrayCreationExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_bracket, $members, $right_bracket, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $members,
+      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +85,8 @@ final class ArrayCreationExpression
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -87,7 +96,9 @@ final class ArrayCreationExpression
   ): this {
     $parents[] = $this;
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $rewriter($this->_members, $parents);
+    $members = $this->_members === null
+      ? null
+      : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $left_bracket === $this->_left_bracket &&
@@ -96,10 +107,14 @@ final class ArrayCreationExpression
     ) {
       return $this;
     }
-    return new static($left_bracket, $members, $right_bracket);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_bracket,
+      /* HH_FIXME[4110] use `as` */ $members,
+      /* HH_FIXME[4110] use `as` */ $right_bracket,
+    );
   }
 
-  public function getLeftBracketUNTYPED(): Node {
+  public function getLeftBracketUNTYPED(): ?Node {
     return $this->_left_bracket;
   }
 
@@ -107,15 +122,11 @@ final class ArrayCreationExpression
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_members,
-      $this->_right_bracket,
-    );
+    return new static($value, $this->_members, $this->_right_bracket);
   }
 
   public function hasLeftBracket(): bool {
-    return !$this->_left_bracket->isMissing();
+    return $this->_left_bracket !== null;
   }
 
   /**
@@ -135,7 +146,7 @@ final class ArrayCreationExpression
     return $this->getLeftBracket();
   }
 
-  public function getMembersUNTYPED(): Node {
+  public function getMembersUNTYPED(): ?Node {
     return $this->_members;
   }
 
@@ -143,15 +154,11 @@ final class ArrayCreationExpression
     if ($value === $this->_members) {
       return $this;
     }
-    return new static(
-      $this->_left_bracket,
-      $value ?? Missing(),
-      $this->_right_bracket,
-    );
+    return new static($this->_left_bracket, $value, $this->_right_bracket);
   }
 
   public function hasMembers(): bool {
-    return !$this->_members->isMissing();
+    return $this->_members !== null;
   }
 
   /**
@@ -176,10 +183,7 @@ final class ArrayCreationExpression
    * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
   public function getMembers(): ?NodeList<ListItem<Node>> {
-    if ($this->_members->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_members);
+    return $this->_members;
   }
 
   /**
@@ -207,7 +211,7 @@ final class ArrayCreationExpression
     return TypeAssert\not_null($this->getMembers());
   }
 
-  public function getRightBracketUNTYPED(): Node {
+  public function getRightBracketUNTYPED(): ?Node {
     return $this->_right_bracket;
   }
 
@@ -215,15 +219,11 @@ final class ArrayCreationExpression
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new static(
-      $this->_left_bracket,
-      $this->_members,
-      $value ?? Missing(),
-    );
+    return new static($this->_left_bracket, $this->_members, $value);
   }
 
   public function hasRightBracket(): bool {
-    return !$this->_right_bracket->isMissing();
+    return $this->_right_bracket !== null;
   }
 
   /**

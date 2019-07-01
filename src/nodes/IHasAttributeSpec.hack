@@ -15,5 +15,5 @@ interface IHasAttributeSpec {
   public function hasAttributeSpec(): bool;
   public function getAttributeSpec(): ?AttributeSpecification;
   public function getAttributeSpecx(): AttributeSpecification;
-  public function getAttributeSpecUNTYPED(): Node;
+  public function getAttributeSpecUNTYPED(): ?Node;
 }

@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<143acc7fdba9495507875e7d77cce153>>
+ * @generated SignedSource<<7ef1e61cc0e812d65aa0dba73dd3244f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPClose extends Node {
 
   const string SYNTAX_KIND = 'xhp_close';
 
-  private Node $_left_angle;
-  private Node $_name;
-  private Node $_right_angle;
+  private LessThanSlashToken $_left_angle;
+  private XHPElementNameToken $_name;
+  private GreaterThanToken $_right_angle;
 
   public function __construct(
-    Node $left_angle,
-    Node $name,
-    Node $right_angle,
+    LessThanSlashToken $left_angle,
+    XHPElementNameToken $name,
+    GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_angle = $left_angle;
@@ -43,6 +44,7 @@ final class XHPClose extends Node {
       $source,
       'LessThanSlashToken',
     );
+    $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_close_name'],
@@ -51,6 +53,7 @@ final class XHPClose extends Node {
       $source,
       'XHPElementNameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_close_right_angle'],
@@ -59,6 +62,7 @@ final class XHPClose extends Node {
       $source,
       'GreaterThanToken',
     );
+    $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class XHPClose extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_angle, $name, $right_angle, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_angle,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $right_angle,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class XHPClose extends Node {
       'left_angle' => $this->_left_angle,
       'name' => $this->_name,
       'right_angle' => $this->_right_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class XHPClose extends Node {
     ) {
       return $this;
     }
-    return new static($left_angle, $name, $right_angle);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_angle,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $right_angle,
+    );
   }
 
-  public function getLeftAngleUNTYPED(): Node {
+  public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
@@ -105,11 +119,11 @@ final class XHPClose extends Node {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_name, $this->_right_angle);
+    return new static($value, $this->_name, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->isMissing();
+    return $this->_left_angle !== null;
   }
 
   /**
@@ -129,7 +143,7 @@ final class XHPClose extends Node {
     return $this->getLeftAngle();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -137,15 +151,11 @@ final class XHPClose extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $value ?? Missing(),
-      $this->_right_angle,
-    );
+    return new static($this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -162,7 +172,7 @@ final class XHPClose extends Node {
     return $this->getName();
   }
 
-  public function getRightAngleUNTYPED(): Node {
+  public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
@@ -170,11 +180,11 @@ final class XHPClose extends Node {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static($this->_left_angle, $this->_name, $value ?? Missing());
+    return new static($this->_left_angle, $this->_name, $value);
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->isMissing();
+    return $this->_right_angle !== null;
   }
 
   /**

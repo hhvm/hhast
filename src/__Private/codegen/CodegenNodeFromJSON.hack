@@ -26,7 +26,6 @@ final class CodegenNodeFromJSON extends CodegenBase {
       dict[
         'list' => 'NodeList',
         'list_item' => 'ListItem',
-        'missing' => 'Missing',
       ],
       Dict\pull(
         $this->getSchema()['trivia'],
@@ -54,7 +53,7 @@ final class CodegenNodeFromJSON extends CodegenBase {
       ->addFunction(
         $cg
           ->codegenFunction('node_from_json_unwrapped')
-          ->setReturnType('HHAST\\Node')
+          ->setReturnType('?HHAST\\Node')
           ->addParameter('dict<string, mixed> $json')
           ->addParameter('string $file')
           ->addParameter('int $offset')
@@ -68,6 +67,9 @@ final class CodegenNodeFromJSON extends CodegenBase {
                 '$json["kind"] as string',
                 HackBuilderValues::literal(),
               )
+              ->startIfBlock('$kind === "missing"')
+              ->addReturn('null', HackBuilderValues::literal())
+              ->endIfBlock()
               ->startIfBlock('$kind === "token"')
               ->add('return ')
               ->addMultilineCall(

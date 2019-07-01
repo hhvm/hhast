@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7a2c34daaac3a1f013021d958964450>>
+ * @generated SignedSource<<2e7bad38a91e2711a19aaa73074680a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class PocketEnumDeclaration extends Node {
@@ -52,6 +53,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
+    $modifiers = $modifiers as nonnull;
     $offset += $modifiers->getWidth();
     $enum = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_enum'],
@@ -60,6 +62,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
+    $enum = $enum as nonnull;
     $offset += $enum->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_name'],
@@ -68,6 +71,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_left_brace'],
@@ -76,6 +80,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
+    $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $fields = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_fields'],
@@ -84,6 +89,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
+    $fields = $fields as nonnull;
     $offset += $fields->getWidth();
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_right_brace'],
@@ -92,6 +98,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
+    $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -100,12 +107,12 @@ final class PocketEnumDeclaration extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $modifiers,
-      $enum,
-      $name,
-      $left_brace,
-      $fields,
-      $right_brace,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
+      /* HH_IGNORE_ERROR[4110] */ $enum,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $fields,
+      /* HH_IGNORE_ERROR[4110] */ $right_brace,
       $source_ref,
     );
   }
@@ -119,7 +126,8 @@ final class PocketEnumDeclaration extends Node {
       'left_brace' => $this->_left_brace,
       'fields' => $this->_fields,
       'right_brace' => $this->_right_brace,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -145,16 +153,16 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
-      $modifiers,
-      $enum,
-      $name,
-      $left_brace,
-      $fields,
-      $right_brace,
+      /* HH_FIXME[4110] use `as` */ $modifiers,
+      /* HH_FIXME[4110] use `as` */ $enum,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $left_brace,
+      /* HH_FIXME[4110] use `as` */ $fields,
+      /* HH_FIXME[4110] use `as` */ $right_brace,
     );
   }
 
-  public function getModifiersUNTYPED(): Node {
+  public function getModifiersUNTYPED(): ?Node {
     return $this->_modifiers;
   }
 
@@ -163,7 +171,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_enum,
       $this->_name,
       $this->_left_brace,
@@ -173,7 +181,7 @@ final class PocketEnumDeclaration extends Node {
   }
 
   public function hasModifiers(): bool {
-    return !$this->_modifiers->isMissing();
+    return $this->_modifiers !== null;
   }
 
   /**
@@ -190,7 +198,7 @@ final class PocketEnumDeclaration extends Node {
     return $this->getModifiers();
   }
 
-  public function getEnumUNTYPED(): Node {
+  public function getEnumUNTYPED(): ?Node {
     return $this->_enum;
   }
 
@@ -200,7 +208,7 @@ final class PocketEnumDeclaration extends Node {
     }
     return new static(
       $this->_modifiers,
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_left_brace,
       $this->_fields,
@@ -209,7 +217,7 @@ final class PocketEnumDeclaration extends Node {
   }
 
   public function hasEnum(): bool {
-    return !$this->_enum->isMissing();
+    return $this->_enum !== null;
   }
 
   /**
@@ -226,7 +234,7 @@ final class PocketEnumDeclaration extends Node {
     return $this->getEnum();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -237,7 +245,7 @@ final class PocketEnumDeclaration extends Node {
     return new static(
       $this->_modifiers,
       $this->_enum,
-      $value ?? Missing(),
+      $value,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -245,7 +253,7 @@ final class PocketEnumDeclaration extends Node {
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -262,7 +270,7 @@ final class PocketEnumDeclaration extends Node {
     return $this->getName();
   }
 
-  public function getLeftBraceUNTYPED(): Node {
+  public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
@@ -274,14 +282,14 @@ final class PocketEnumDeclaration extends Node {
       $this->_modifiers,
       $this->_enum,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_fields,
       $this->_right_brace,
     );
   }
 
   public function hasLeftBrace(): bool {
-    return !$this->_left_brace->isMissing();
+    return $this->_left_brace !== null;
   }
 
   /**
@@ -298,7 +306,7 @@ final class PocketEnumDeclaration extends Node {
     return $this->getLeftBrace();
   }
 
-  public function getFieldsUNTYPED(): Node {
+  public function getFieldsUNTYPED(): ?Node {
     return $this->_fields;
   }
 
@@ -311,13 +319,13 @@ final class PocketEnumDeclaration extends Node {
       $this->_enum,
       $this->_name,
       $this->_left_brace,
-      $value ?? Missing(),
+      $value,
       $this->_right_brace,
     );
   }
 
   public function hasFields(): bool {
-    return !$this->_fields->isMissing();
+    return $this->_fields !== null;
   }
 
   /**
@@ -334,7 +342,7 @@ final class PocketEnumDeclaration extends Node {
     return $this->getFields();
   }
 
-  public function getRightBraceUNTYPED(): Node {
+  public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
@@ -348,12 +356,12 @@ final class PocketEnumDeclaration extends Node {
       $this->_name,
       $this->_left_brace,
       $this->_fields,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBrace(): bool {
-    return !$this->_right_brace->isMissing();
+    return $this->_right_brace !== null;
   }
 
   /**

@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e073ba4edae635b712cc8c156b4606c>>
+ * @generated SignedSource<<88bc276eb6dd238e1bf18f1d957aa223>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class SwitchSection extends Node {
 
   const string SYNTAX_KIND = 'switch_section';
 
-  private Node $_labels;
-  private Node $_statements;
-  private Node $_fallthrough;
+  private NodeList<ISwitchLabel> $_labels;
+  private ?NodeList<IStatement> $_statements;
+  private ?SwitchFallthrough $_fallthrough;
 
   public function __construct(
-    Node $labels,
-    Node $statements,
-    Node $fallthrough,
+    NodeList<ISwitchLabel> $labels,
+    ?NodeList<IStatement> $statements,
+    ?SwitchFallthrough $fallthrough,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_labels = $labels;
@@ -43,6 +44,7 @@ final class SwitchSection extends Node {
       $source,
       'NodeList<ISwitchLabel>',
     );
+    $labels = $labels as nonnull;
     $offset += $labels->getWidth();
     $statements = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_section_statements'],
@@ -51,7 +53,7 @@ final class SwitchSection extends Node {
       $source,
       'NodeList<IStatement>',
     );
-    $offset += $statements->getWidth();
+    $offset += $statements?->getWidth() ?? 0;
     $fallthrough = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_section_fallthrough'],
       $file,
@@ -59,14 +61,19 @@ final class SwitchSection extends Node {
       $source,
       'SwitchFallthrough',
     );
-    $offset += $fallthrough->getWidth();
+    $offset += $fallthrough?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($labels, $statements, $fallthrough, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $labels,
+      /* HH_IGNORE_ERROR[4110] */ $statements,
+      /* HH_IGNORE_ERROR[4110] */ $fallthrough,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +82,8 @@ final class SwitchSection extends Node {
       'labels' => $this->_labels,
       'statements' => $this->_statements,
       'fallthrough' => $this->_fallthrough,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,8 +93,12 @@ final class SwitchSection extends Node {
   ): this {
     $parents[] = $this;
     $labels = $rewriter($this->_labels, $parents);
-    $statements = $rewriter($this->_statements, $parents);
-    $fallthrough = $rewriter($this->_fallthrough, $parents);
+    $statements = $this->_statements === null
+      ? null
+      : $rewriter($this->_statements, $parents);
+    $fallthrough = $this->_fallthrough === null
+      ? null
+      : $rewriter($this->_fallthrough, $parents);
     if (
       $labels === $this->_labels &&
       $statements === $this->_statements &&
@@ -94,10 +106,14 @@ final class SwitchSection extends Node {
     ) {
       return $this;
     }
-    return new static($labels, $statements, $fallthrough);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $labels,
+      /* HH_FIXME[4110] use `as` */ $statements,
+      /* HH_FIXME[4110] use `as` */ $fallthrough,
+    );
   }
 
-  public function getLabelsUNTYPED(): Node {
+  public function getLabelsUNTYPED(): ?Node {
     return $this->_labels;
   }
 
@@ -105,15 +121,11 @@ final class SwitchSection extends Node {
     if ($value === $this->_labels) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_statements,
-      $this->_fallthrough,
-    );
+    return new static($value, $this->_statements, $this->_fallthrough);
   }
 
   public function hasLabels(): bool {
-    return !$this->_labels->isMissing();
+    return $this->_labels !== null;
   }
 
   /**
@@ -132,7 +144,7 @@ final class SwitchSection extends Node {
     return $this->getLabels();
   }
 
-  public function getStatementsUNTYPED(): Node {
+  public function getStatementsUNTYPED(): ?Node {
     return $this->_statements;
   }
 
@@ -140,11 +152,11 @@ final class SwitchSection extends Node {
     if ($value === $this->_statements) {
       return $this;
     }
-    return new static($this->_labels, $value ?? Missing(), $this->_fallthrough);
+    return new static($this->_labels, $value, $this->_fallthrough);
   }
 
   public function hasStatements(): bool {
-    return !$this->_statements->isMissing();
+    return $this->_statements !== null;
   }
 
   /**
@@ -155,10 +167,7 @@ final class SwitchSection extends Node {
    * NodeList<ReturnStatement> | NodeList<ThrowStatement> | null
    */
   public function getStatements(): ?NodeList<IStatement> {
-    if ($this->_statements->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_statements);
+    return $this->_statements;
   }
 
   /**
@@ -172,7 +181,7 @@ final class SwitchSection extends Node {
     return TypeAssert\not_null($this->getStatements());
   }
 
-  public function getFallthroughUNTYPED(): Node {
+  public function getFallthroughUNTYPED(): ?Node {
     return $this->_fallthrough;
   }
 
@@ -180,24 +189,18 @@ final class SwitchSection extends Node {
     if ($value === $this->_fallthrough) {
       return $this;
     }
-    return new static($this->_labels, $this->_statements, $value ?? Missing());
+    return new static($this->_labels, $this->_statements, $value);
   }
 
   public function hasFallthrough(): bool {
-    return !$this->_fallthrough->isMissing();
+    return $this->_fallthrough !== null;
   }
 
   /**
    * @return null | SwitchFallthrough
    */
   public function getFallthrough(): ?SwitchFallthrough {
-    if ($this->_fallthrough->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      SwitchFallthrough::class,
-      $this->_fallthrough,
-    );
+    return $this->_fallthrough;
   }
 
   /**

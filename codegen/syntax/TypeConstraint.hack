@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2cf1b3708b255fd6bd9b6c2b5aee5472>>
+ * @generated SignedSource<<e373e578c42ba35bd5165c43458d60e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TypeConstraint extends Node {
 
   const string SYNTAX_KIND = 'type_constraint';
 
-  private Node $_keyword;
-  private Node $_type;
+  private Token $_keyword;
+  private ITypeSpecifier $_type;
 
   public function __construct(
-    Node $keyword,
-    Node $type,
+    Token $keyword,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,6 +41,7 @@ final class TypeConstraint extends Node {
       $source,
       'Token',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['constraint_type'],
@@ -48,6 +50,7 @@ final class TypeConstraint extends Node {
       $source,
       'ITypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class TypeConstraint extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class TypeConstraint extends Node {
     return dict[
       'keyword' => $this->_keyword,
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class TypeConstraint extends Node {
     if ($keyword === $this->_keyword && $type === $this->_type) {
       return $this;
     }
-    return new static($keyword, $type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $type,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -88,11 +99,11 @@ final class TypeConstraint extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class TypeConstraint extends Node {
     return $this->getKeyword();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -117,11 +128,11 @@ final class TypeConstraint extends Node {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing());
+    return new static($this->_keyword, $value);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**

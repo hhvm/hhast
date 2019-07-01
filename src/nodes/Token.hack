@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\{C, Str, Vec};
 
 abstract class Token extends Node {
   private string $_token_kind;
@@ -133,7 +133,7 @@ abstract class Token extends Node {
       ($j, $p) ==> Node::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] + $p,
       $offset,
-    );
+    ) |> Vec\filter_nulls($$);
 
     $leading = C\is_empty($leading_list)
       ? Missing()
@@ -155,7 +155,7 @@ abstract class Token extends Node {
       ($j, $p) ==> Node::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
-    );
+    ) |> Vec\filter_nulls($$);
     $trailing = C\is_empty($trailing_list)
       ? Missing()
       : new NodeList(

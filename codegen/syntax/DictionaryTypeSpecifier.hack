@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60cde0bf7986615705451feddc4cbc5b>>
+ * @generated SignedSource<<bacb0a74242e455d5d52cdfe011b6ba7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'dictionary_type_specifier';
 
-  private Node $_keyword;
-  private Node $_left_angle;
-  private Node $_members;
-  private Node $_right_angle;
+  private DictToken $_keyword;
+  private LessThanToken $_left_angle;
+  private NodeList<ListItem<ITypeSpecifier>> $_members;
+  private GreaterThanToken $_right_angle;
 
   public function __construct(
-    Node $keyword,
-    Node $left_angle,
-    Node $members,
-    Node $right_angle,
+    DictToken $keyword,
+    LessThanToken $left_angle,
+    NodeList<ListItem<ITypeSpecifier>> $members,
+    GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,6 +47,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'DictToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['dictionary_type_left_angle'],
@@ -54,6 +56,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'LessThanToken',
     );
+    $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['dictionary_type_members'],
@@ -62,6 +65,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'NodeList<ListItem<ITypeSpecifier>>',
     );
+    $members = $members as nonnull;
     $offset += $members->getWidth();
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['dictionary_type_right_angle'],
@@ -70,6 +74,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'GreaterThanToken',
     );
+    $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -78,10 +83,10 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_angle,
-      $members,
-      $right_angle,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_angle,
+      /* HH_IGNORE_ERROR[4110] */ $members,
+      /* HH_IGNORE_ERROR[4110] */ $right_angle,
       $source_ref,
     );
   }
@@ -93,7 +98,8 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       'left_angle' => $this->_left_angle,
       'members' => $this->_members,
       'right_angle' => $this->_right_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -114,10 +120,15 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     ) {
       return $this;
     }
-    return new static($keyword, $left_angle, $members, $right_angle);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_angle,
+      /* HH_FIXME[4110] use `as` */ $members,
+      /* HH_FIXME[4110] use `as` */ $right_angle,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -126,7 +137,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_angle,
       $this->_members,
       $this->_right_angle,
@@ -134,7 +145,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -151,7 +162,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): Node {
+  public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
@@ -161,14 +172,14 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_members,
       $this->_right_angle,
     );
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->isMissing();
+    return $this->_left_angle !== null;
   }
 
   /**
@@ -185,7 +196,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getLeftAngle();
   }
 
-  public function getMembersUNTYPED(): Node {
+  public function getMembersUNTYPED(): ?Node {
     return $this->_members;
   }
 
@@ -196,13 +207,13 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $this->_keyword,
       $this->_left_angle,
-      $value ?? Missing(),
+      $value,
       $this->_right_angle,
     );
   }
 
   public function hasMembers(): bool {
-    return !$this->_members->isMissing();
+    return $this->_members !== null;
   }
 
   /**
@@ -221,7 +232,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getMembers();
   }
 
-  public function getRightAngleUNTYPED(): Node {
+  public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
@@ -233,12 +244,12 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_angle,
       $this->_members,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->isMissing();
+    return $this->_right_angle !== null;
   }
 
   /**

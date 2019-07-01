@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<904e72f63f12a3bf38909f04b2687766>>
+ * @generated SignedSource<<562cf781bf7e49b9fe1603b193a78efe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 abstract class AlternateLoopStatementGeneratedBase
@@ -13,16 +14,16 @@ abstract class AlternateLoopStatementGeneratedBase
 
   const string SYNTAX_KIND = 'alternate_loop_statement';
 
-  private Node $_opening_colon;
-  private Node $_statements;
-  private Node $_closing_keyword;
-  private Node $_closing_semicolon;
+  private ColonToken $_opening_colon;
+  private NodeList<IStatement> $_statements;
+  private Token $_closing_keyword;
+  private SemicolonToken $_closing_semicolon;
 
   public function __construct(
-    Node $opening_colon,
-    Node $statements,
-    Node $closing_keyword,
-    Node $closing_semicolon,
+    ColonToken $opening_colon,
+    NodeList<IStatement> $statements,
+    Token $closing_keyword,
+    SemicolonToken $closing_semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_opening_colon = $opening_colon;
@@ -48,6 +49,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $source,
       'ColonToken',
     );
+    $opening_colon = $opening_colon as nonnull;
     $offset += $opening_colon->getWidth();
     $statements = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_loop_statements'],
@@ -56,6 +58,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $source,
       'NodeList<IStatement>',
     );
+    $statements = $statements as nonnull;
     $offset += $statements->getWidth();
     $closing_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_loop_closing_keyword'],
@@ -64,6 +67,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $source,
       'Token',
     );
+    $closing_keyword = $closing_keyword as nonnull;
     $offset += $closing_keyword->getWidth();
     $closing_semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['alternate_loop_closing_semicolon'],
@@ -72,6 +76,7 @@ abstract class AlternateLoopStatementGeneratedBase
       $source,
       'SemicolonToken',
     );
+    $closing_semicolon = $closing_semicolon as nonnull;
     $offset += $closing_semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -80,10 +85,10 @@ abstract class AlternateLoopStatementGeneratedBase
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $opening_colon,
-      $statements,
-      $closing_keyword,
-      $closing_semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $opening_colon,
+      /* HH_IGNORE_ERROR[4110] */ $statements,
+      /* HH_IGNORE_ERROR[4110] */ $closing_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $closing_semicolon,
       $source_ref,
     );
   }
@@ -95,7 +100,8 @@ abstract class AlternateLoopStatementGeneratedBase
       'statements' => $this->_statements,
       'closing_keyword' => $this->_closing_keyword,
       'closing_semicolon' => $this->_closing_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -117,14 +123,14 @@ abstract class AlternateLoopStatementGeneratedBase
       return $this;
     }
     return new static(
-      $opening_colon,
-      $statements,
-      $closing_keyword,
-      $closing_semicolon,
+      /* HH_FIXME[4110] use `as` */ $opening_colon,
+      /* HH_FIXME[4110] use `as` */ $statements,
+      /* HH_FIXME[4110] use `as` */ $closing_keyword,
+      /* HH_FIXME[4110] use `as` */ $closing_semicolon,
     );
   }
 
-  public function getOpeningColonUNTYPED(): Node {
+  public function getOpeningColonUNTYPED(): ?Node {
     return $this->_opening_colon;
   }
 
@@ -133,7 +139,7 @@ abstract class AlternateLoopStatementGeneratedBase
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_statements,
       $this->_closing_keyword,
       $this->_closing_semicolon,
@@ -141,7 +147,7 @@ abstract class AlternateLoopStatementGeneratedBase
   }
 
   public function hasOpeningColon(): bool {
-    return !$this->_opening_colon->isMissing();
+    return $this->_opening_colon !== null;
   }
 
   /**
@@ -158,7 +164,7 @@ abstract class AlternateLoopStatementGeneratedBase
     return $this->getOpeningColon();
   }
 
-  public function getStatementsUNTYPED(): Node {
+  public function getStatementsUNTYPED(): ?Node {
     return $this->_statements;
   }
 
@@ -168,14 +174,14 @@ abstract class AlternateLoopStatementGeneratedBase
     }
     return new static(
       $this->_opening_colon,
-      $value ?? Missing(),
+      $value,
       $this->_closing_keyword,
       $this->_closing_semicolon,
     );
   }
 
   public function hasStatements(): bool {
-    return !$this->_statements->isMissing();
+    return $this->_statements !== null;
   }
 
   /**
@@ -194,7 +200,7 @@ abstract class AlternateLoopStatementGeneratedBase
     return $this->getStatements();
   }
 
-  public function getClosingKeywordUNTYPED(): Node {
+  public function getClosingKeywordUNTYPED(): ?Node {
     return $this->_closing_keyword;
   }
 
@@ -205,13 +211,13 @@ abstract class AlternateLoopStatementGeneratedBase
     return new static(
       $this->_opening_colon,
       $this->_statements,
-      $value ?? Missing(),
+      $value,
       $this->_closing_semicolon,
     );
   }
 
   public function hasClosingKeyword(): bool {
-    return !$this->_closing_keyword->isMissing();
+    return $this->_closing_keyword !== null;
   }
 
   /**
@@ -228,7 +234,7 @@ abstract class AlternateLoopStatementGeneratedBase
     return $this->getClosingKeyword();
   }
 
-  public function getClosingSemicolonUNTYPED(): Node {
+  public function getClosingSemicolonUNTYPED(): ?Node {
     return $this->_closing_semicolon;
   }
 
@@ -240,12 +246,12 @@ abstract class AlternateLoopStatementGeneratedBase
       $this->_opening_colon,
       $this->_statements,
       $this->_closing_keyword,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasClosingSemicolon(): bool {
-    return !$this->_closing_semicolon->isMissing();
+    return $this->_closing_semicolon !== null;
   }
 
   /**

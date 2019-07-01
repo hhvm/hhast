@@ -408,7 +408,7 @@ final class HSLMigration extends BaseMigration {
               NodeList::createNonEmptyListOrMissing(vec[new WhiteSpace(' ')]),
             ),
           ),
-          new ListItem($replacement_patterns, HHAST\Missing()),
+          new ListItem($replacement_patterns, null),
         ]);
         return tuple(
           $node->replace($argument_list, $new_argument_list),
@@ -438,7 +438,7 @@ final class HSLMigration extends BaseMigration {
               HHAST\Missing(),
               (string)$rewrite_length_value,
             )),
-            HHAST\Missing(),
+            null,
           );
         } else {
           // with a positive offset this is harder

@@ -240,7 +240,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
               new HHAST\VariableToken($missing, $missing, '$_context'),
             )
               ->withType(new HHAST\TypeConstant(
-                new HHAST\ThisToken($missing, $missing),
+                new HHAST\SimpleTypeSpecifier(new HHAST\ThisToken($missing, $missing)),
                 new HHAST\ColonColonToken($missing, $missing),
                 new HHAST\NameToken($missing, $missing, 'TContext'),
               )),
@@ -324,8 +324,8 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
       )
     ) {
       $new_elements[] = new HHAST\TypeConstDeclaration(
-        /* attrs = */ $missing,
-        /* abstract = */ $missing,
+        /* attrs = */ null,
+        /* abstract = */ null,
         /* keyword = */ new HHAST\ConstToken(
           $first->getFirstToken()?->getLeading() ?? $missing,
           new HHAST\WhiteSpace(' '),
@@ -339,8 +339,8 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
           new HHAST\WhiteSpace(' '),
           'TContext',
         ),
-        /* type parameters = */ $missing,
-        /* type_constraint = */ $missing,
+        /* type parameters = */ null,
+        /* type_constraint = */ null,
         /* equal = */ new HHAST\EqualToken($missing, new HHAST\WhiteSpace(' ')),
         /* type = */ new HHAST\SimpleTypeSpecifier(
           new HHAST\NameToken($missing, $missing, 'Script'),
@@ -352,8 +352,8 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
       );
     }
     $new_elements[] = new HHAST\TypeConstDeclaration(
-      /* attrs = */ $missing,
-      /* abstract = */ $missing,
+      /* attrs = */ null,
+      /* abstract = */ null,
       /* keyword = */ new HHAST\ConstToken(
         $first->getFirstToken()?->getLeading() ?? $missing,
         new HHAST\WhiteSpace(' '),
@@ -367,8 +367,8 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
         new HHAST\WhiteSpace(' '),
         'TNode',
       ),
-      /* type parameters = */ $missing,
-      /* type_constraint = */ $missing,
+      /* type parameters = */ null,
+      /* type_constraint = */ null,
       /* equal = */ new HHAST\EqualToken($missing, new HHAST\WhiteSpace(' ')),
       /* type = */ $t_node,
       /* semicolon = */ new HHAST\SemicolonToken(

@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e81172457be45b004047a5cfb195978a>>
+ * @generated SignedSource<<b72a538348f3c0514e660ed77e45fdc4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class LiteralExpression extends Node implements ILambdaBody, IExpression {
@@ -37,6 +38,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'Node',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -44,14 +46,15 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($expression, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $expression, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -64,10 +67,10 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
     if ($expression === $this->_expression) {
       return $this;
     }
-    return new static($expression);
+    return new static(/* HH_FIXME[4110] use `as` */ $expression);
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -75,11 +78,11 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**

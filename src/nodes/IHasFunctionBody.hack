@@ -18,5 +18,5 @@ interface IHasFunctionBody {
   public function hasBody(): bool;
   public function getBody(): ?Node;
   public function getBodyx(): Node;
-  public function getBodyUNTYPED(): Node;
+  public function getBodyUNTYPED(): ?Node;
 }

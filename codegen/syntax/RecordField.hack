@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bff008b51b5b8cae934c422f29f03eb>>
+ * @generated SignedSource<<16c572a8f9a0b4e066601afa6d8fe3b8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class RecordField extends Node {
@@ -49,6 +50,7 @@ final class RecordField extends Node {
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_colon'],
@@ -57,6 +59,7 @@ final class RecordField extends Node {
       $source,
       'Node',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_type'],
@@ -65,6 +68,7 @@ final class RecordField extends Node {
       $source,
       'Node',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $init = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_init'],
@@ -73,6 +77,7 @@ final class RecordField extends Node {
       $source,
       'Node',
     );
+    $init = $init as nonnull;
     $offset += $init->getWidth();
     $comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_field_comma'],
@@ -81,6 +86,7 @@ final class RecordField extends Node {
       $source,
       'Node',
     );
+    $comma = $comma as nonnull;
     $offset += $comma->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -88,7 +94,14 @@ final class RecordField extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($name, $colon, $type, $init, $comma, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $init,
+      /* HH_IGNORE_ERROR[4110] */ $comma,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -99,7 +112,8 @@ final class RecordField extends Node {
       'type' => $this->_type,
       'init' => $this->_init,
       'comma' => $this->_comma,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -122,10 +136,16 @@ final class RecordField extends Node {
     ) {
       return $this;
     }
-    return new static($name, $colon, $type, $init, $comma);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $init,
+      /* HH_FIXME[4110] use `as` */ $comma,
+    );
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -134,7 +154,7 @@ final class RecordField extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_type,
       $this->_init,
@@ -143,7 +163,7 @@ final class RecordField extends Node {
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -160,7 +180,7 @@ final class RecordField extends Node {
     return $this->getName();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -170,7 +190,7 @@ final class RecordField extends Node {
     }
     return new static(
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_init,
       $this->_comma,
@@ -178,7 +198,7 @@ final class RecordField extends Node {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
@@ -195,7 +215,7 @@ final class RecordField extends Node {
     return $this->getColon();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -206,14 +226,14 @@ final class RecordField extends Node {
     return new static(
       $this->_name,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
       $this->_init,
       $this->_comma,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -230,7 +250,7 @@ final class RecordField extends Node {
     return $this->getType();
   }
 
-  public function getInitUNTYPED(): Node {
+  public function getInitUNTYPED(): ?Node {
     return $this->_init;
   }
 
@@ -242,13 +262,13 @@ final class RecordField extends Node {
       $this->_name,
       $this->_colon,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_comma,
     );
   }
 
   public function hasInit(): bool {
-    return !$this->_init->isMissing();
+    return $this->_init !== null;
   }
 
   /**
@@ -265,7 +285,7 @@ final class RecordField extends Node {
     return $this->getInit();
   }
 
-  public function getCommaUNTYPED(): Node {
+  public function getCommaUNTYPED(): ?Node {
     return $this->_comma;
   }
 
@@ -278,12 +298,12 @@ final class RecordField extends Node {
       $this->_colon,
       $this->_type,
       $this->_init,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasComma(): bool {
-    return !$this->_comma->isMissing();
+    return $this->_comma !== null;
   }
 
   /**

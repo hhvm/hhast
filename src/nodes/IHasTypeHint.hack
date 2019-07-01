@@ -15,5 +15,5 @@ interface IHasTypeHint {
   public function hasType(): bool;
   public function getType(): ?ITypeSpecifier;
   public function getTypex(): ITypeSpecifier;
-  public function getTypeUNTYPED(): Node;
+  public function getTypeUNTYPED(): ?Node;
 }

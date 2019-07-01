@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c1a40d5b1601da9aae5ccffa2a54ebf6>>
+ * @generated SignedSource<<f4f4ac159ce2c1beb07147aa855f534f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ErrorSyntax extends Node {
@@ -37,6 +38,7 @@ final class ErrorSyntax extends Node {
       $source,
       'Node',
     );
+    $error = $error as nonnull;
     $offset += $error->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -44,14 +46,15 @@ final class ErrorSyntax extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($error, $source_ref);
+    return new static(/* HH_IGNORE_ERROR[4110] */ $error, $source_ref);
   }
 
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
       'error' => $this->_error,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -64,10 +67,10 @@ final class ErrorSyntax extends Node {
     if ($error === $this->_error) {
       return $this;
     }
-    return new static($error);
+    return new static(/* HH_FIXME[4110] use `as` */ $error);
   }
 
-  public function getErrorUNTYPED(): Node {
+  public function getErrorUNTYPED(): ?Node {
     return $this->_error;
   }
 
@@ -75,11 +78,11 @@ final class ErrorSyntax extends Node {
     if ($value === $this->_error) {
       return $this;
     }
-    return new static($value ?? Missing());
+    return new static($value);
   }
 
   public function hasError(): bool {
-    return !$this->_error->isMissing();
+    return $this->_error !== null;
   }
 
   /**

@@ -1,28 +1,29 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1562022a5c46f0dab6c6501e2728caf5>>
+ * @generated SignedSource<<4428f42c4f4bfa616164e4f51e342fd5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class FileAttributeSpecification extends Node {
 
   const string SYNTAX_KIND = 'file_attribute_specification';
 
-  private Node $_left_double_angle;
-  private Node $_keyword;
-  private Node $_colon;
-  private Node $_attributes;
-  private Node $_right_double_angle;
+  private LessThanLessThanToken $_left_double_angle;
+  private FileToken $_keyword;
+  private ColonToken $_colon;
+  private NodeList<ListItem<ConstructorCall>> $_attributes;
+  private GreaterThanGreaterThanToken $_right_double_angle;
 
   public function __construct(
-    Node $left_double_angle,
-    Node $keyword,
-    Node $colon,
-    Node $attributes,
-    Node $right_double_angle,
+    LessThanLessThanToken $left_double_angle,
+    FileToken $keyword,
+    ColonToken $colon,
+    NodeList<ListItem<ConstructorCall>> $attributes,
+    GreaterThanGreaterThanToken $right_double_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_double_angle = $left_double_angle;
@@ -49,6 +50,7 @@ final class FileAttributeSpecification extends Node {
       $source,
       'LessThanLessThanToken',
     );
+    $left_double_angle = $left_double_angle as nonnull;
     $offset += $left_double_angle->getWidth();
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_keyword'],
@@ -57,6 +59,7 @@ final class FileAttributeSpecification extends Node {
       $source,
       'FileToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_colon'],
@@ -65,6 +68,7 @@ final class FileAttributeSpecification extends Node {
       $source,
       'ColonToken',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $attributes = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_attributes'],
@@ -73,6 +77,7 @@ final class FileAttributeSpecification extends Node {
       $source,
       'NodeList<ListItem<ConstructorCall>>',
     );
+    $attributes = $attributes as nonnull;
     $offset += $attributes->getWidth();
     $right_double_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['file_attribute_specification_right_double_angle'],
@@ -81,6 +86,7 @@ final class FileAttributeSpecification extends Node {
       $source,
       'GreaterThanGreaterThanToken',
     );
+    $right_double_angle = $right_double_angle as nonnull;
     $offset += $right_double_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -89,11 +95,11 @@ final class FileAttributeSpecification extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $left_double_angle,
-      $keyword,
-      $colon,
-      $attributes,
-      $right_double_angle,
+      /* HH_IGNORE_ERROR[4110] */ $left_double_angle,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $attributes,
+      /* HH_IGNORE_ERROR[4110] */ $right_double_angle,
       $source_ref,
     );
   }
@@ -106,7 +112,8 @@ final class FileAttributeSpecification extends Node {
       'colon' => $this->_colon,
       'attributes' => $this->_attributes,
       'right_double_angle' => $this->_right_double_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -130,15 +137,15 @@ final class FileAttributeSpecification extends Node {
       return $this;
     }
     return new static(
-      $left_double_angle,
-      $keyword,
-      $colon,
-      $attributes,
-      $right_double_angle,
+      /* HH_FIXME[4110] use `as` */ $left_double_angle,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $attributes,
+      /* HH_FIXME[4110] use `as` */ $right_double_angle,
     );
   }
 
-  public function getLeftDoubleAngleUNTYPED(): Node {
+  public function getLeftDoubleAngleUNTYPED(): ?Node {
     return $this->_left_double_angle;
   }
 
@@ -147,7 +154,7 @@ final class FileAttributeSpecification extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_keyword,
       $this->_colon,
       $this->_attributes,
@@ -156,7 +163,7 @@ final class FileAttributeSpecification extends Node {
   }
 
   public function hasLeftDoubleAngle(): bool {
-    return !$this->_left_double_angle->isMissing();
+    return $this->_left_double_angle !== null;
   }
 
   /**
@@ -176,7 +183,7 @@ final class FileAttributeSpecification extends Node {
     return $this->getLeftDoubleAngle();
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -186,7 +193,7 @@ final class FileAttributeSpecification extends Node {
     }
     return new static(
       $this->_left_double_angle,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_attributes,
       $this->_right_double_angle,
@@ -194,7 +201,7 @@ final class FileAttributeSpecification extends Node {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -211,7 +218,7 @@ final class FileAttributeSpecification extends Node {
     return $this->getKeyword();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -222,14 +229,14 @@ final class FileAttributeSpecification extends Node {
     return new static(
       $this->_left_double_angle,
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_attributes,
       $this->_right_double_angle,
     );
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
@@ -246,7 +253,7 @@ final class FileAttributeSpecification extends Node {
     return $this->getColon();
   }
 
-  public function getAttributesUNTYPED(): Node {
+  public function getAttributesUNTYPED(): ?Node {
     return $this->_attributes;
   }
 
@@ -260,13 +267,13 @@ final class FileAttributeSpecification extends Node {
       $this->_left_double_angle,
       $this->_keyword,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
       $this->_right_double_angle,
     );
   }
 
   public function hasAttributes(): bool {
-    return !$this->_attributes->isMissing();
+    return $this->_attributes !== null;
   }
 
   /**
@@ -283,7 +290,7 @@ final class FileAttributeSpecification extends Node {
     return $this->getAttributes();
   }
 
-  public function getRightDoubleAngleUNTYPED(): Node {
+  public function getRightDoubleAngleUNTYPED(): ?Node {
     return $this->_right_double_angle;
   }
 
@@ -298,12 +305,12 @@ final class FileAttributeSpecification extends Node {
       $this->_keyword,
       $this->_colon,
       $this->_attributes,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightDoubleAngle(): bool {
-    return !$this->_right_double_angle->isMissing();
+    return $this->_right_double_angle !== null;
   }
 
   /**

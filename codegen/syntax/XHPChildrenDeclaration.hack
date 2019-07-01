@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb38362094da311100b0c5213dec643e>>
+ * @generated SignedSource<<cd2292e04096bae30aa5ddf4fdac6fd7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPChildrenDeclaration
@@ -13,14 +14,14 @@ final class XHPChildrenDeclaration
 
   const string SYNTAX_KIND = 'xhp_children_declaration';
 
-  private Node $_keyword;
-  private Node $_expression;
-  private Node $_semicolon;
+  private ChildrenToken $_keyword;
+  private EmptyToken $_expression;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $expression,
-    Node $semicolon,
+    ChildrenToken $keyword,
+    EmptyToken $expression,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -45,6 +46,7 @@ final class XHPChildrenDeclaration
       $source,
       'ChildrenToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_expression'],
@@ -53,6 +55,7 @@ final class XHPChildrenDeclaration
       $source,
       'EmptyToken',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_children_semicolon'],
@@ -61,6 +64,7 @@ final class XHPChildrenDeclaration
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +72,12 @@ final class XHPChildrenDeclaration
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $expression, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +86,8 @@ final class XHPChildrenDeclaration
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,10 +106,14 @@ final class XHPChildrenDeclaration
     ) {
       return $this;
     }
-    return new static($keyword, $expression, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $expression,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -107,15 +121,11 @@ final class XHPChildrenDeclaration
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_expression,
-      $this->_semicolon,
-    );
+    return new static($value, $this->_expression, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -132,7 +142,7 @@ final class XHPChildrenDeclaration
     return $this->getKeyword();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -140,11 +150,11 @@ final class XHPChildrenDeclaration
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing(), $this->_semicolon);
+    return new static($this->_keyword, $value, $this->_semicolon);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**
@@ -161,7 +171,7 @@ final class XHPChildrenDeclaration
     return $this->getExpression();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -169,11 +179,11 @@ final class XHPChildrenDeclaration
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_keyword, $this->_expression, $value ?? Missing());
+    return new static($this->_keyword, $this->_expression, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

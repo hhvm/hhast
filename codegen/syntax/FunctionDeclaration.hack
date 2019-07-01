@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bae6b513ad0627bb0471b8d96ffbbb2e>>
+ * @generated SignedSource<<5959154f2925aaf09c7b380ec4de0ac5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class FunctionDeclaration
@@ -13,13 +14,13 @@ final class FunctionDeclaration
 
   const string SYNTAX_KIND = 'function_declaration';
 
-  private Node $_attribute_spec;
-  private Node $_declaration_header;
+  private ?AttributeSpecification $_attribute_spec;
+  private FunctionDeclarationHeader $_declaration_header;
   private Node $_body;
 
   public function __construct(
-    Node $attribute_spec,
-    Node $declaration_header,
+    ?AttributeSpecification $attribute_spec,
+    FunctionDeclarationHeader $declaration_header,
     Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -45,7 +46,7 @@ final class FunctionDeclaration
       $source,
       'AttributeSpecification',
     );
-    $offset += $attribute_spec->getWidth();
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $declaration_header = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_declaration_header'],
       $file,
@@ -53,6 +54,7 @@ final class FunctionDeclaration
       $source,
       'FunctionDeclarationHeader',
     );
+    $declaration_header = $declaration_header as nonnull;
     $offset += $declaration_header->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_body'],
@@ -61,6 +63,7 @@ final class FunctionDeclaration
       $source,
       'Node',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -68,7 +71,12 @@ final class FunctionDeclaration
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($attribute_spec, $declaration_header, $body, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $declaration_header,
+      /* HH_IGNORE_ERROR[4110] */ $body,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -77,7 +85,8 @@ final class FunctionDeclaration
       'attribute_spec' => $this->_attribute_spec,
       'declaration_header' => $this->_declaration_header,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -86,7 +95,9 @@ final class FunctionDeclaration
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $declaration_header = $rewriter($this->_declaration_header, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
@@ -96,10 +107,14 @@ final class FunctionDeclaration
     ) {
       return $this;
     }
-    return new static($attribute_spec, $declaration_header, $body);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $declaration_header,
+      /* HH_FIXME[4110] use `as` */ $body,
+    );
   }
 
-  public function getAttributeSpecUNTYPED(): Node {
+  public function getAttributeSpecUNTYPED(): ?Node {
     return $this->_attribute_spec;
   }
 
@@ -107,28 +122,18 @@ final class FunctionDeclaration
     if ($value === $this->_attribute_spec) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_declaration_header,
-      $this->_body,
-    );
+    return new static($value, $this->_declaration_header, $this->_body);
   }
 
   public function hasAttributeSpec(): bool {
-    return !$this->_attribute_spec->isMissing();
+    return $this->_attribute_spec !== null;
   }
 
   /**
    * @return AttributeSpecification | null
    */
   public function getAttributeSpec(): ?AttributeSpecification {
-    if ($this->_attribute_spec->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(
-      AttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return $this->_attribute_spec;
   }
 
   /**
@@ -138,7 +143,7 @@ final class FunctionDeclaration
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getDeclarationHeaderUNTYPED(): Node {
+  public function getDeclarationHeaderUNTYPED(): ?Node {
     return $this->_declaration_header;
   }
 
@@ -148,15 +153,11 @@ final class FunctionDeclaration
     if ($value === $this->_declaration_header) {
       return $this;
     }
-    return new static(
-      $this->_attribute_spec,
-      $value ?? Missing(),
-      $this->_body,
-    );
+    return new static($this->_attribute_spec, $value, $this->_body);
   }
 
   public function hasDeclarationHeader(): bool {
-    return !$this->_declaration_header->isMissing();
+    return $this->_declaration_header !== null;
   }
 
   /**
@@ -176,7 +177,7 @@ final class FunctionDeclaration
     return $this->getDeclarationHeader();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -187,12 +188,12 @@ final class FunctionDeclaration
     return new static(
       $this->_attribute_spec,
       $this->_declaration_header,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

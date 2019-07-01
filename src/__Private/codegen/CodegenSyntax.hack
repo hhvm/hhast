@@ -39,6 +39,7 @@ final class CodegenSyntax extends CodegenBase {
         ->setFileType(CodegenFileType::DOT_HACK)
         ->setNamespace('Facebook\\HHAST')
         ->useNamespace('Facebook\\TypeAssert')
+        ->useNamespace('HH\\Lib\\Dict')
         ->addClass($this->generateClass($syntax))
         ->save();
     }
@@ -93,9 +94,12 @@ final class CodegenSyntax extends CodegenBase {
       ->addProperties(
         Vec\map(
           $syntax['fields'],
-          $field ==> $cg
-            ->codegenProperty('_'.$field['field_name'])
-            ->setType('Node'),
+          $field ==> {
+            $spec = $this->getTypeSpecForField($syntax, $field['field_name']);
+            return $cg
+              ->codegenProperty('_'.$field['field_name'])
+              ->setType(($spec['nullable'] ? '?' : '').$spec['class']);
+          },
         ),
       );
   }
@@ -194,7 +198,7 @@ final class CodegenSyntax extends CodegenBase {
     $cg = $this->getCodegenFactory();
     yield $cg
       ->codegenMethodf('get%sUNTYPED', $upper_camel)
-      ->setReturnType('Node')
+      ->setReturnType('?Node')
       ->setBodyf('return $this->_%s;', $underscored);
 
     yield $cg
@@ -213,7 +217,7 @@ final class CodegenSyntax extends CodegenBase {
             Vec\map(
               $syntax['fields'],
               $inner ==> $inner['field_name'] === $underscored
-                ? '$value ?? Missing()'
+                ? '$value'
                 : '$this->_'.$inner['field_name'],
             ),
           )
@@ -223,7 +227,7 @@ final class CodegenSyntax extends CodegenBase {
     yield $cg
       ->codegenMethodf('has%s', $upper_camel)
       ->setReturnType('bool')
-      ->setBodyf('return !$this->_%s->isMissing();', $underscored);
+      ->setBodyf('return $this->_%s !== null;', $underscored);
 
     if (!$spec['nullable']) {
       $get = $cg
@@ -249,21 +253,6 @@ final class CodegenSyntax extends CodegenBase {
       return;
     }
 
-    // nullable
-    $get_body = $cg
-      ->codegenHackBuilder()
-      ->startIfBlockf('$this->_%s->isMissing()', $underscored)
-      ->addReturnf('null')
-      ->endIfBlock();
-    if ($spec['class'] === 'Node') {
-      $get_body->addReturnf('$this->_%s', $underscored);
-    } else {
-      $get_body->addReturnf(
-        'TypeAssert\instance_of(%s::class, $this->_%s)',
-        $spec['class'] |> Str\split($$, '<') |> C\firstx($$),
-        $underscored,
-      );
-    }
     yield $cg
       ->codegenMethodf('get%s', $upper_camel)
       ->setDocBlock(
@@ -272,7 +261,7 @@ final class CodegenSyntax extends CodegenBase {
           |> '@return '.$$,
       )
       ->setReturnType($type)
-      ->setBody($get_body->getCode());
+      ->setBodyf('return $this->_%s;', $underscored);
 
     yield $cg
       ->codegenMethodf('get%sx', $upper_camel)
@@ -292,7 +281,18 @@ final class CodegenSyntax extends CodegenBase {
 
     return $cg->codegenConstructor()
       ->addParameters(
-        Vec\map($syntax['fields'], $field ==> 'Node $'.$field['field_name']),
+        Vec\map(
+          $syntax['fields'],
+          $field ==> {
+            $spec = $this->getTypeSpecForField($syntax, $field['field_name']);
+            return Str\format(
+              '%s%s $%s',
+              $spec['nullable'] ? '?' : '',
+              $spec['class'],
+              $field['field_name'],
+            );
+          },
+        ),
       )
       ->addParameter('?__Private\\SourceRef $source_ref = null')
       ->setBody(
@@ -339,6 +339,19 @@ final class CodegenSyntax extends CodegenBase {
             '$source',
             \var_export($spec['class'], true),
           ],
+        );
+      if ($spec['nullable']) {
+        $body->addLinef(
+          '$offset += $%s?->getWidth() ?? 0;',
+          $field['field_name'],
+        );
+        continue;
+      }
+      $body
+        ->addLinef(
+          '$%s = $%s as nonnull;',
+          $field['field_name'],
+          $field['field_name'],
         )
         ->addLinef('$offset += $%s->getWidth();', $field['field_name']);
     }
@@ -370,7 +383,10 @@ final class CodegenSyntax extends CodegenBase {
           ->addMultilineCall(
             'return new static',
             Vec\concat(
-              Vec\map($syntax['fields'], $field ==> '$'.$field['field_name']),
+              Vec\map(
+                $syntax['fields'],
+                $field ==> '/* HH_IGNORE_ERROR[4110] */ $'.$field['field_name'],
+              ),
               vec['$source_ref'],
             ),
           )
@@ -398,7 +414,7 @@ final class CodegenSyntax extends CodegenBase {
               HackBuilderValues::literal(),
             ),
           )
-          ->add(';')
+          ->add(' |> Dict\filter_nulls($$);')
           ->getCode(),
       );
   }
@@ -423,11 +439,14 @@ final class CodegenSyntax extends CodegenBase {
           ->addLines(
             Vec\map(
               $fields,
-              $field ==> Str\format(
-                '$%s = $this->_%s->rewrite($rewriter, $parents);',
-                $field,
-                $field,
-              ),
+              $field ==> {
+                $spec = $this->getTypeSpecForField($syntax, $field);
+                return Str\format(
+                  '$%s = $this->_%s->rewrite($rewriter, $parents);',
+                  $field,
+                  $field,
+                );
+              },
             ),
           )
           ->addLine('if (')
@@ -454,7 +473,10 @@ final class CodegenSyntax extends CodegenBase {
           ->add('return ')
           ->addMultilineCall(
             'new static',
-            Vec\map($fields, $field ==> '$'.$field),
+            Vec\map(
+              $fields,
+              $field ==> '/* HH_FIXME[4110] use `as` */ $'.$field,
+            ),
           )
           ->getCode(),
       );
@@ -480,11 +502,23 @@ final class CodegenSyntax extends CodegenBase {
           ->addLines(
             Vec\map(
               $fields,
-              $field ==> Str\format(
-                '$%s = $rewriter($this->_%s, $parents);',
-                $field,
-                $field,
-              ),
+              $field ==> {
+                $spec = $this->getTypeSpecForField($syntax, $field);
+                if (!$spec['nullable']) {
+                  return Str\format(
+                    '$%s = $rewriter($this->_%s, $parents);',
+                    $field,
+                    $field,
+                  );
+                }
+                return Str\format(
+                  '$%s = $this->_%s === null '.
+                  '? null : $rewriter($this->_%s, $parents);',
+                  $field,
+                  $field,
+                  $field,
+                );
+              },
             ),
           )
           ->addLine('if (')
@@ -511,7 +545,10 @@ final class CodegenSyntax extends CodegenBase {
           ->add('return ')
           ->addMultilineCall(
             'new static',
-            Vec\map($fields, $field ==> '$'.$field),
+            Vec\map(
+              $fields,
+              $field ==> '/* HH_FIXME[4110] use `as` */ $'.$field,
+            ),
           )
           ->getCode(),
       );

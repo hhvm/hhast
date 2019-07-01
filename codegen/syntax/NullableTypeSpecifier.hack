@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2330eebfc237bbd6a5d1d92e196dd98>>
+ * @generated SignedSource<<09148d8baddc641ecf31aea93cfbacc0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'nullable_type_specifier';
 
-  private Node $_question;
-  private Node $_type;
+  private QuestionToken $_question;
+  private ITypeSpecifier $_type;
 
   public function __construct(
-    Node $question,
-    Node $type,
+    QuestionToken $question,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_question = $question;
@@ -40,6 +41,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'QuestionToken',
     );
+    $question = $question as nonnull;
     $offset += $question->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['nullable_type'],
@@ -48,6 +50,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'ITypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($question, $type, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $question,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     return dict[
       'question' => $this->_question,
       'type' => $this->_type,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     if ($question === $this->_question && $type === $this->_type) {
       return $this;
     }
-    return new static($question, $type);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $question,
+      /* HH_FIXME[4110] use `as` */ $type,
+    );
   }
 
-  public function getQuestionUNTYPED(): Node {
+  public function getQuestionUNTYPED(): ?Node {
     return $this->_question;
   }
 
@@ -88,11 +99,11 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_question) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_type);
+    return new static($value, $this->_type);
   }
 
   public function hasQuestion(): bool {
-    return !$this->_question->isMissing();
+    return $this->_question !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getQuestion();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -117,11 +128,11 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_question, $value ?? Missing());
+    return new static($this->_question, $value);
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**

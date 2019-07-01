@@ -1,24 +1,25 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3212988be231887793663f08d94c02f2>>
+ * @generated SignedSource<<cd2535d12e7b3614d2ee32030c809a81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class TypeArguments extends Node {
 
   const string SYNTAX_KIND = 'type_arguments';
 
-  private Node $_left_angle;
-  private Node $_types;
-  private Node $_right_angle;
+  private LessThanToken $_left_angle;
+  private NodeList<ListItem<ITypeSpecifier>> $_types;
+  private GreaterThanToken $_right_angle;
 
   public function __construct(
-    Node $left_angle,
-    Node $types,
-    Node $right_angle,
+    LessThanToken $left_angle,
+    NodeList<ListItem<ITypeSpecifier>> $types,
+    GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_angle = $left_angle;
@@ -43,6 +44,7 @@ final class TypeArguments extends Node {
       $source,
       'LessThanToken',
     );
+    $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $types = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_arguments_types'],
@@ -51,6 +53,7 @@ final class TypeArguments extends Node {
       $source,
       'NodeList<ListItem<ITypeSpecifier>>',
     );
+    $types = $types as nonnull;
     $offset += $types->getWidth();
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_arguments_right_angle'],
@@ -59,6 +62,7 @@ final class TypeArguments extends Node {
       $source,
       'GreaterThanToken',
     );
+    $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class TypeArguments extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($left_angle, $types, $right_angle, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $left_angle,
+      /* HH_IGNORE_ERROR[4110] */ $types,
+      /* HH_IGNORE_ERROR[4110] */ $right_angle,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class TypeArguments extends Node {
       'left_angle' => $this->_left_angle,
       'types' => $this->_types,
       'right_angle' => $this->_right_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class TypeArguments extends Node {
     ) {
       return $this;
     }
-    return new static($left_angle, $types, $right_angle);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $left_angle,
+      /* HH_FIXME[4110] use `as` */ $types,
+      /* HH_FIXME[4110] use `as` */ $right_angle,
+    );
   }
 
-  public function getLeftAngleUNTYPED(): Node {
+  public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
@@ -105,11 +119,11 @@ final class TypeArguments extends Node {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_types, $this->_right_angle);
+    return new static($value, $this->_types, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->isMissing();
+    return $this->_left_angle !== null;
   }
 
   /**
@@ -126,7 +140,7 @@ final class TypeArguments extends Node {
     return $this->getLeftAngle();
   }
 
-  public function getTypesUNTYPED(): Node {
+  public function getTypesUNTYPED(): ?Node {
     return $this->_types;
   }
 
@@ -134,15 +148,11 @@ final class TypeArguments extends Node {
     if ($value === $this->_types) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $value ?? Missing(),
-      $this->_right_angle,
-    );
+    return new static($this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasTypes(): bool {
-    return !$this->_types->isMissing();
+    return $this->_types !== null;
   }
 
   /**
@@ -189,7 +199,7 @@ final class TypeArguments extends Node {
     return $this->getTypes();
   }
 
-  public function getRightAngleUNTYPED(): Node {
+  public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
@@ -197,11 +207,11 @@ final class TypeArguments extends Node {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static($this->_left_angle, $this->_types, $value ?? Missing());
+    return new static($this->_left_angle, $this->_types, $value);
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->isMissing();
+    return $this->_right_angle !== null;
   }
 
   /**

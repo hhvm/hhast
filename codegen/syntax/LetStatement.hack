@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c03456f623fb0d644537ee091d69d5bf>>
+ * @generated SignedSource<<4fc2097aacddef21f3a62839c0399c41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class LetStatement extends Node implements IStatement {
@@ -52,6 +53,7 @@ final class LetStatement extends Node implements IStatement {
       $source,
       'Node',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_name'],
@@ -60,6 +62,7 @@ final class LetStatement extends Node implements IStatement {
       $source,
       'Node',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_colon'],
@@ -68,6 +71,7 @@ final class LetStatement extends Node implements IStatement {
       $source,
       'Node',
     );
+    $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_type'],
@@ -76,6 +80,7 @@ final class LetStatement extends Node implements IStatement {
       $source,
       'Node',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_initializer'],
@@ -84,6 +89,7 @@ final class LetStatement extends Node implements IStatement {
       $source,
       'Node',
     );
+    $initializer = $initializer as nonnull;
     $offset += $initializer->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['let_statement_semicolon'],
@@ -92,6 +98,7 @@ final class LetStatement extends Node implements IStatement {
       $source,
       'Node',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -100,12 +107,12 @@ final class LetStatement extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $name,
-      $colon,
-      $type,
-      $initializer,
-      $semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $initializer,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
   }
@@ -119,7 +126,8 @@ final class LetStatement extends Node implements IStatement {
       'type' => $this->_type,
       'initializer' => $this->_initializer,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -144,10 +152,17 @@ final class LetStatement extends Node implements IStatement {
     ) {
       return $this;
     }
-    return new static($keyword, $name, $colon, $type, $initializer, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $initializer,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -156,7 +171,7 @@ final class LetStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_name,
       $this->_colon,
       $this->_type,
@@ -166,7 +181,7 @@ final class LetStatement extends Node implements IStatement {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -183,7 +198,7 @@ final class LetStatement extends Node implements IStatement {
     return $this->getKeyword();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -193,7 +208,7 @@ final class LetStatement extends Node implements IStatement {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_colon,
       $this->_type,
       $this->_initializer,
@@ -202,7 +217,7 @@ final class LetStatement extends Node implements IStatement {
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -219,7 +234,7 @@ final class LetStatement extends Node implements IStatement {
     return $this->getName();
   }
 
-  public function getColonUNTYPED(): Node {
+  public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
@@ -230,7 +245,7 @@ final class LetStatement extends Node implements IStatement {
     return new static(
       $this->_keyword,
       $this->_name,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_initializer,
       $this->_semicolon,
@@ -238,7 +253,7 @@ final class LetStatement extends Node implements IStatement {
   }
 
   public function hasColon(): bool {
-    return !$this->_colon->isMissing();
+    return $this->_colon !== null;
   }
 
   /**
@@ -255,7 +270,7 @@ final class LetStatement extends Node implements IStatement {
     return $this->getColon();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -267,14 +282,14 @@ final class LetStatement extends Node implements IStatement {
       $this->_keyword,
       $this->_name,
       $this->_colon,
-      $value ?? Missing(),
+      $value,
       $this->_initializer,
       $this->_semicolon,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -291,7 +306,7 @@ final class LetStatement extends Node implements IStatement {
     return $this->getType();
   }
 
-  public function getInitializerUNTYPED(): Node {
+  public function getInitializerUNTYPED(): ?Node {
     return $this->_initializer;
   }
 
@@ -304,13 +319,13 @@ final class LetStatement extends Node implements IStatement {
       $this->_name,
       $this->_colon,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_semicolon,
     );
   }
 
   public function hasInitializer(): bool {
-    return !$this->_initializer->isMissing();
+    return $this->_initializer !== null;
   }
 
   /**
@@ -327,7 +342,7 @@ final class LetStatement extends Node implements IStatement {
     return $this->getInitializer();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -341,12 +356,12 @@ final class LetStatement extends Node implements IStatement {
       $this->_colon,
       $this->_type,
       $this->_initializer,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

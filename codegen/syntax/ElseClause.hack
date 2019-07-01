@@ -1,22 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c72387ec88b01c2a79166786aaf4f7a1>>
+ * @generated SignedSource<<a44add59db17017f844130c0e0e5af5d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ElseClause extends Node implements IControlFlowStatement {
 
   const string SYNTAX_KIND = 'else_clause';
 
-  private Node $_keyword;
-  private Node $_statement;
+  private ElseToken $_keyword;
+  private IStatement $_statement;
 
   public function __construct(
-    Node $keyword,
-    Node $statement,
+    ElseToken $keyword,
+    IStatement $statement,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -40,6 +41,7 @@ final class ElseClause extends Node implements IControlFlowStatement {
       $source,
       'ElseToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['else_statement'],
@@ -48,6 +50,7 @@ final class ElseClause extends Node implements IControlFlowStatement {
       $source,
       'IStatement',
     );
+    $statement = $statement as nonnull;
     $offset += $statement->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -55,7 +58,11 @@ final class ElseClause extends Node implements IControlFlowStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $statement, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $statement,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -63,7 +70,8 @@ final class ElseClause extends Node implements IControlFlowStatement {
     return dict[
       'keyword' => $this->_keyword,
       'statement' => $this->_statement,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -77,10 +85,13 @@ final class ElseClause extends Node implements IControlFlowStatement {
     if ($keyword === $this->_keyword && $statement === $this->_statement) {
       return $this;
     }
-    return new static($keyword, $statement);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $statement,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -88,11 +99,11 @@ final class ElseClause extends Node implements IControlFlowStatement {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_statement);
+    return new static($value, $this->_statement);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -109,7 +120,7 @@ final class ElseClause extends Node implements IControlFlowStatement {
     return $this->getKeyword();
   }
 
-  public function getStatementUNTYPED(): Node {
+  public function getStatementUNTYPED(): ?Node {
     return $this->_statement;
   }
 
@@ -117,11 +128,11 @@ final class ElseClause extends Node implements IControlFlowStatement {
     if ($value === $this->_statement) {
       return $this;
     }
-    return new static($this->_keyword, $value ?? Missing());
+    return new static($this->_keyword, $value);
   }
 
   public function hasStatement(): bool {
-    return !$this->_statement->isMissing();
+    return $this->_statement !== null;
   }
 
   /**

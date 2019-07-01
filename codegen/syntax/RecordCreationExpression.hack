@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1e050e22b55c83efbcfef96b84bfb9e9>>
+ * @generated SignedSource<<eb37a62e5ebecda00ad492e0e16cbc43>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class RecordCreationExpression
@@ -13,16 +14,16 @@ final class RecordCreationExpression
 
   const string SYNTAX_KIND = 'record_creation_expression';
 
-  private Node $_type;
-  private Node $_left_bracket;
-  private Node $_members;
-  private Node $_right_bracket;
+  private NameToken $_type;
+  private LeftBracketToken $_left_bracket;
+  private NodeList<ListItem<ElementInitializer>> $_members;
+  private RightBracketToken $_right_bracket;
 
   public function __construct(
-    Node $type,
-    Node $left_bracket,
-    Node $members,
-    Node $right_bracket,
+    NameToken $type,
+    LeftBracketToken $left_bracket,
+    NodeList<ListItem<ElementInitializer>> $members,
+    RightBracketToken $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -48,6 +49,7 @@ final class RecordCreationExpression
       $source,
       'NameToken',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_creation_left_bracket'],
@@ -56,6 +58,7 @@ final class RecordCreationExpression
       $source,
       'LeftBracketToken',
     );
+    $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_creation_members'],
@@ -64,6 +67,7 @@ final class RecordCreationExpression
       $source,
       'NodeList<ListItem<ElementInitializer>>',
     );
+    $members = $members as nonnull;
     $offset += $members->getWidth();
     $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_creation_right_bracket'],
@@ -72,6 +76,7 @@ final class RecordCreationExpression
       $source,
       'RightBracketToken',
     );
+    $right_bracket = $right_bracket as nonnull;
     $offset += $right_bracket->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -80,10 +85,10 @@ final class RecordCreationExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $type,
-      $left_bracket,
-      $members,
-      $right_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $members,
+      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
       $source_ref,
     );
   }
@@ -95,7 +100,8 @@ final class RecordCreationExpression
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -116,10 +122,15 @@ final class RecordCreationExpression
     ) {
       return $this;
     }
-    return new static($type, $left_bracket, $members, $right_bracket);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $left_bracket,
+      /* HH_FIXME[4110] use `as` */ $members,
+      /* HH_FIXME[4110] use `as` */ $right_bracket,
+    );
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -128,7 +139,7 @@ final class RecordCreationExpression
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_bracket,
       $this->_members,
       $this->_right_bracket,
@@ -136,7 +147,7 @@ final class RecordCreationExpression
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -153,7 +164,7 @@ final class RecordCreationExpression
     return $this->getType();
   }
 
-  public function getLeftBracketUNTYPED(): Node {
+  public function getLeftBracketUNTYPED(): ?Node {
     return $this->_left_bracket;
   }
 
@@ -163,14 +174,14 @@ final class RecordCreationExpression
     }
     return new static(
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_members,
       $this->_right_bracket,
     );
   }
 
   public function hasLeftBracket(): bool {
-    return !$this->_left_bracket->isMissing();
+    return $this->_left_bracket !== null;
   }
 
   /**
@@ -190,7 +201,7 @@ final class RecordCreationExpression
     return $this->getLeftBracket();
   }
 
-  public function getMembersUNTYPED(): Node {
+  public function getMembersUNTYPED(): ?Node {
     return $this->_members;
   }
 
@@ -203,13 +214,13 @@ final class RecordCreationExpression
     return new static(
       $this->_type,
       $this->_left_bracket,
-      $value ?? Missing(),
+      $value,
       $this->_right_bracket,
     );
   }
 
   public function hasMembers(): bool {
-    return !$this->_members->isMissing();
+    return $this->_members !== null;
   }
 
   /**
@@ -226,7 +237,7 @@ final class RecordCreationExpression
     return $this->getMembers();
   }
 
-  public function getRightBracketUNTYPED(): Node {
+  public function getRightBracketUNTYPED(): ?Node {
     return $this->_right_bracket;
   }
 
@@ -238,12 +249,12 @@ final class RecordCreationExpression
       $this->_type,
       $this->_left_bracket,
       $this->_members,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBracket(): bool {
-    return !$this->_right_bracket->isMissing();
+    return $this->_right_bracket !== null;
   }
 
   /**

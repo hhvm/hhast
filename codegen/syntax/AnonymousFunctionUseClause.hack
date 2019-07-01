@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<913c87663d0bbaf1fa4844c0024133cc>>
+ * @generated SignedSource<<0c3e42a205e5d0ad93582216bd7869f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class AnonymousFunctionUseClause extends Node {
 
   const string SYNTAX_KIND = 'anonymous_function_use_clause';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_variables;
-  private Node $_right_paren;
+  private UseToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private NodeList<ListItem<VariableToken>> $_variables;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $variables,
-    Node $right_paren,
+    UseToken $keyword,
+    LeftParenToken $left_paren,
+    NodeList<ListItem<VariableToken>> $variables,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,6 +47,7 @@ final class AnonymousFunctionUseClause extends Node {
       $source,
       'UseToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use_left_paren'],
@@ -54,6 +56,7 @@ final class AnonymousFunctionUseClause extends Node {
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $variables = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use_variables'],
@@ -62,6 +65,7 @@ final class AnonymousFunctionUseClause extends Node {
       $source,
       'NodeList<ListItem<VariableToken>>',
     );
+    $variables = $variables as nonnull;
     $offset += $variables->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use_right_paren'],
@@ -70,6 +74,7 @@ final class AnonymousFunctionUseClause extends Node {
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -78,10 +83,10 @@ final class AnonymousFunctionUseClause extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $variables,
-      $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $variables,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
       $source_ref,
     );
   }
@@ -93,7 +98,8 @@ final class AnonymousFunctionUseClause extends Node {
       'left_paren' => $this->_left_paren,
       'variables' => $this->_variables,
       'right_paren' => $this->_right_paren,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -114,10 +120,15 @@ final class AnonymousFunctionUseClause extends Node {
     ) {
       return $this;
     }
-    return new static($keyword, $left_paren, $variables, $right_paren);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $variables,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -126,7 +137,7 @@ final class AnonymousFunctionUseClause extends Node {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_variables,
       $this->_right_paren,
@@ -134,7 +145,7 @@ final class AnonymousFunctionUseClause extends Node {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -151,7 +162,7 @@ final class AnonymousFunctionUseClause extends Node {
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -161,14 +172,14 @@ final class AnonymousFunctionUseClause extends Node {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_variables,
       $this->_right_paren,
     );
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -185,7 +196,7 @@ final class AnonymousFunctionUseClause extends Node {
     return $this->getLeftParen();
   }
 
-  public function getVariablesUNTYPED(): Node {
+  public function getVariablesUNTYPED(): ?Node {
     return $this->_variables;
   }
 
@@ -198,13 +209,13 @@ final class AnonymousFunctionUseClause extends Node {
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
     );
   }
 
   public function hasVariables(): bool {
-    return !$this->_variables->isMissing();
+    return $this->_variables !== null;
   }
 
   /**
@@ -221,7 +232,7 @@ final class AnonymousFunctionUseClause extends Node {
     return $this->getVariables();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -233,12 +244,12 @@ final class AnonymousFunctionUseClause extends Node {
       $this->_keyword,
       $this->_left_paren,
       $this->_variables,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**

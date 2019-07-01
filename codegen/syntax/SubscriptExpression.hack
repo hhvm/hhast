@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d28261e8992d3296775cf06a5419239>>
+ * @generated SignedSource<<3e5ac6798851d57a7198df38923c2302>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class SubscriptExpression
@@ -13,16 +14,16 @@ final class SubscriptExpression
 
   const string SYNTAX_KIND = 'subscript_expression';
 
-  private Node $_receiver;
-  private Node $_left_bracket;
-  private Node $_index;
-  private Node $_right_bracket;
+  private IExpression $_receiver;
+  private Token $_left_bracket;
+  private ?IExpression $_index;
+  private Token $_right_bracket;
 
   public function __construct(
-    Node $receiver,
-    Node $left_bracket,
-    Node $index,
-    Node $right_bracket,
+    IExpression $receiver,
+    Token $left_bracket,
+    ?IExpression $index,
+    Token $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_receiver = $receiver;
@@ -48,6 +49,7 @@ final class SubscriptExpression
       $source,
       'IExpression',
     );
+    $receiver = $receiver as nonnull;
     $offset += $receiver->getWidth();
     $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['subscript_left_bracket'],
@@ -56,6 +58,7 @@ final class SubscriptExpression
       $source,
       'Token',
     );
+    $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $index = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['subscript_index'],
@@ -64,7 +67,7 @@ final class SubscriptExpression
       $source,
       'IExpression',
     );
-    $offset += $index->getWidth();
+    $offset += $index?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['subscript_right_bracket'],
       $file,
@@ -72,6 +75,7 @@ final class SubscriptExpression
       $source,
       'Token',
     );
+    $right_bracket = $right_bracket as nonnull;
     $offset += $right_bracket->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -80,10 +84,10 @@ final class SubscriptExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $receiver,
-      $left_bracket,
-      $index,
-      $right_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $receiver,
+      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
+      /* HH_IGNORE_ERROR[4110] */ $index,
+      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
       $source_ref,
     );
   }
@@ -95,7 +99,8 @@ final class SubscriptExpression
       'left_bracket' => $this->_left_bracket,
       'index' => $this->_index,
       'right_bracket' => $this->_right_bracket,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -106,7 +111,7 @@ final class SubscriptExpression
     $parents[] = $this;
     $receiver = $rewriter($this->_receiver, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $index = $rewriter($this->_index, $parents);
+    $index = $this->_index === null ? null : $rewriter($this->_index, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $receiver === $this->_receiver &&
@@ -116,10 +121,15 @@ final class SubscriptExpression
     ) {
       return $this;
     }
-    return new static($receiver, $left_bracket, $index, $right_bracket);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $receiver,
+      /* HH_FIXME[4110] use `as` */ $left_bracket,
+      /* HH_FIXME[4110] use `as` */ $index,
+      /* HH_FIXME[4110] use `as` */ $right_bracket,
+    );
   }
 
-  public function getReceiverUNTYPED(): Node {
+  public function getReceiverUNTYPED(): ?Node {
     return $this->_receiver;
   }
 
@@ -128,7 +138,7 @@ final class SubscriptExpression
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_bracket,
       $this->_index,
       $this->_right_bracket,
@@ -136,7 +146,7 @@ final class SubscriptExpression
   }
 
   public function hasReceiver(): bool {
-    return !$this->_receiver->isMissing();
+    return $this->_receiver !== null;
   }
 
   /**
@@ -161,7 +171,7 @@ final class SubscriptExpression
     return $this->getReceiver();
   }
 
-  public function getLeftBracketUNTYPED(): Node {
+  public function getLeftBracketUNTYPED(): ?Node {
     return $this->_left_bracket;
   }
 
@@ -171,14 +181,14 @@ final class SubscriptExpression
     }
     return new static(
       $this->_receiver,
-      $value ?? Missing(),
+      $value,
       $this->_index,
       $this->_right_bracket,
     );
   }
 
   public function hasLeftBracket(): bool {
-    return !$this->_left_bracket->isMissing();
+    return $this->_left_bracket !== null;
   }
 
   /**
@@ -195,7 +205,7 @@ final class SubscriptExpression
     return $this->getLeftBracket();
   }
 
-  public function getIndexUNTYPED(): Node {
+  public function getIndexUNTYPED(): ?Node {
     return $this->_index;
   }
 
@@ -206,13 +216,13 @@ final class SubscriptExpression
     return new static(
       $this->_receiver,
       $this->_left_bracket,
-      $value ?? Missing(),
+      $value,
       $this->_right_bracket,
     );
   }
 
   public function hasIndex(): bool {
-    return !$this->_index->isMissing();
+    return $this->_index !== null;
   }
 
   /**
@@ -224,10 +234,7 @@ final class SubscriptExpression
    * VariableExpression
    */
   public function getIndex(): ?IExpression {
-    if ($this->_index->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(IExpression::class, $this->_index);
+    return $this->_index;
   }
 
   /**
@@ -242,7 +249,7 @@ final class SubscriptExpression
     return TypeAssert\not_null($this->getIndex());
   }
 
-  public function getRightBracketUNTYPED(): Node {
+  public function getRightBracketUNTYPED(): ?Node {
     return $this->_right_bracket;
   }
 
@@ -254,12 +261,12 @@ final class SubscriptExpression
       $this->_receiver,
       $this->_left_bracket,
       $this->_index,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightBracket(): bool {
-    return !$this->_right_bracket->isMissing();
+    return $this->_right_bracket !== null;
   }
 
   /**

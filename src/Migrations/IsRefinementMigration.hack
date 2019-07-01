@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\Migrations;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class IsRefinementMigration extends BaseMigration {
   <<__Override>>
@@ -25,14 +25,14 @@ final class IsRefinementMigration extends BaseMigration {
       'is_vec' => () ==> new HHAST\VectorTypeSpecifier(
         new HHAST\VecToken($m, $m),
         new HHAST\LessThanToken($m, $m),
-        new HHAST\NameToken($m, $m, '_'),
+        new HHAST\SimpleTypeSpecifier(new HHAST\NameToken($m, $m, '_')),
         /* trailing comma */ $m,
         new HHAST\GreaterThanToken($m, $m),
       ),
       'is_keyset' => () ==> new HHAST\KeysetTypeSpecifier(
         new HHAST\KeysetToken($m, $m),
         new HHAST\LessThanToken($m, $m),
-        new HHAST\NameToken($m, $m, '_'),
+        new HHAST\SimpleTypeSpecifier(new HHAST\NameToken($m, $m, '_')),
         /* trailing comma */ $m,
         new HHAST\GreaterThanToken($m, $m),
       ),
@@ -41,10 +41,10 @@ final class IsRefinementMigration extends BaseMigration {
         new HHAST\LessThanToken($m, $m),
         HHAST\NodeList::createMaybeEmptyList(vec[
           new HHAST\ListItem(
-            new HHAST\NameToken($m, $m, '_'),
+            new HHAST\SimpleTypeSpecifier(new HHAST\NameToken($m, $m, '_')),
             new HHAST\CommaToken($m, new HHAST\WhiteSpace(' ')),
           ),
-          new HHAST\ListItem(new HHAST\NameToken($m, $m, '_'), $m),
+          new HHAST\ListItem(new HHAST\SimpleTypeSpecifier(new HHAST\NameToken($m, $m, '_')), null),
         ]),
         new HHAST\GreaterThanToken($m, $m),
       ),
@@ -70,10 +70,14 @@ final class IsRefinementMigration extends BaseMigration {
       if ($make_replacement === null) {
         return $node;
       }
+      $replacement = $make_replacement();
+      if (!$replacement instanceof HHAST\ITypeSpecifier) {
+        $replacement = new HHAST\SimpleTypeSpecifier($replacement);
+      }
       $replacement = new HHAST\IsExpression(
         $node->getArgumentListx()->getChildrenOfItems()[0] as nonnull,
         new HHAST\IsToken(new HHAST\WhiteSpace(' '), new HHAST\WhiteSpace(' ')),
-        $make_replacement(),
+        $replacement,
       );
 
       $parent = C\lastx($parents as nonnull);

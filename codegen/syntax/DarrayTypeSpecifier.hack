@@ -1,32 +1,33 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80b34d0e52214f96f593baaa4a83410f>>
+ * @generated SignedSource<<7c86eeaad6f67e330eb1b4fde13cb270>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'darray_type_specifier';
 
-  private Node $_keyword;
-  private Node $_left_angle;
-  private Node $_key;
-  private Node $_comma;
-  private Node $_value;
-  private Node $_trailing_comma;
-  private Node $_right_angle;
+  private DarrayToken $_keyword;
+  private LessThanToken $_left_angle;
+  private SimpleTypeSpecifier $_key;
+  private CommaToken $_comma;
+  private ITypeSpecifier $_value;
+  private ?Node $_trailing_comma;
+  private GreaterThanToken $_right_angle;
 
   public function __construct(
-    Node $keyword,
-    Node $left_angle,
-    Node $key,
-    Node $comma,
-    Node $value,
-    Node $trailing_comma,
-    Node $right_angle,
+    DarrayToken $keyword,
+    LessThanToken $left_angle,
+    SimpleTypeSpecifier $key,
+    CommaToken $comma,
+    ITypeSpecifier $value,
+    ?Node $trailing_comma,
+    GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -55,6 +56,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'DarrayToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_left_angle'],
@@ -63,6 +65,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'LessThanToken',
     );
+    $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $key = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_key'],
@@ -71,6 +74,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'SimpleTypeSpecifier',
     );
+    $key = $key as nonnull;
     $offset += $key->getWidth();
     $comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_comma'],
@@ -79,6 +83,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'CommaToken',
     );
+    $comma = $comma as nonnull;
     $offset += $comma->getWidth();
     $value = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_value'],
@@ -87,6 +92,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'ITypeSpecifier',
     );
+    $value = $value as nonnull;
     $offset += $value->getWidth();
     $trailing_comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_trailing_comma'],
@@ -95,7 +101,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
-    $offset += $trailing_comma->getWidth();
+    $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['darray_right_angle'],
       $file,
@@ -103,6 +109,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'GreaterThanToken',
     );
+    $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -111,13 +118,13 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_angle,
-      $key,
-      $comma,
-      $value,
-      $trailing_comma,
-      $right_angle,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_angle,
+      /* HH_IGNORE_ERROR[4110] */ $key,
+      /* HH_IGNORE_ERROR[4110] */ $comma,
+      /* HH_IGNORE_ERROR[4110] */ $value,
+      /* HH_IGNORE_ERROR[4110] */ $trailing_comma,
+      /* HH_IGNORE_ERROR[4110] */ $right_angle,
       $source_ref,
     );
   }
@@ -132,7 +139,8 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       'value' => $this->_value,
       'trailing_comma' => $this->_trailing_comma,
       'right_angle' => $this->_right_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -146,7 +154,9 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $key = $rewriter($this->_key, $parents);
     $comma = $rewriter($this->_comma, $parents);
     $value = $rewriter($this->_value, $parents);
-    $trailing_comma = $rewriter($this->_trailing_comma, $parents);
+    $trailing_comma = $this->_trailing_comma === null
+      ? null
+      : $rewriter($this->_trailing_comma, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -160,17 +170,17 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $keyword,
-      $left_angle,
-      $key,
-      $comma,
-      $value,
-      $trailing_comma,
-      $right_angle,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_angle,
+      /* HH_FIXME[4110] use `as` */ $key,
+      /* HH_FIXME[4110] use `as` */ $comma,
+      /* HH_FIXME[4110] use `as` */ $value,
+      /* HH_FIXME[4110] use `as` */ $trailing_comma,
+      /* HH_FIXME[4110] use `as` */ $right_angle,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -179,7 +189,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_angle,
       $this->_key,
       $this->_comma,
@@ -190,7 +200,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -207,7 +217,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): Node {
+  public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
@@ -217,7 +227,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_key,
       $this->_comma,
       $this->_value,
@@ -227,7 +237,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->isMissing();
+    return $this->_left_angle !== null;
   }
 
   /**
@@ -244,7 +254,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getLeftAngle();
   }
 
-  public function getKeyUNTYPED(): Node {
+  public function getKeyUNTYPED(): ?Node {
     return $this->_key;
   }
 
@@ -255,7 +265,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $this->_keyword,
       $this->_left_angle,
-      $value ?? Missing(),
+      $value,
       $this->_comma,
       $this->_value,
       $this->_trailing_comma,
@@ -264,7 +274,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKey(): bool {
-    return !$this->_key->isMissing();
+    return $this->_key !== null;
   }
 
   /**
@@ -281,7 +291,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getKey();
   }
 
-  public function getCommaUNTYPED(): Node {
+  public function getCommaUNTYPED(): ?Node {
     return $this->_comma;
   }
 
@@ -293,7 +303,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_angle,
       $this->_key,
-      $value ?? Missing(),
+      $value,
       $this->_value,
       $this->_trailing_comma,
       $this->_right_angle,
@@ -301,7 +311,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasComma(): bool {
-    return !$this->_comma->isMissing();
+    return $this->_comma !== null;
   }
 
   /**
@@ -318,7 +328,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getComma();
   }
 
-  public function getValueUNTYPED(): Node {
+  public function getValueUNTYPED(): ?Node {
     return $this->_value;
   }
 
@@ -331,14 +341,14 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_left_angle,
       $this->_key,
       $this->_comma,
-      $value ?? Missing(),
+      $value,
       $this->_trailing_comma,
       $this->_right_angle,
     );
   }
 
   public function hasValue(): bool {
-    return !$this->_value->isMissing();
+    return $this->_value !== null;
   }
 
   /**
@@ -357,7 +367,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getValue();
   }
 
-  public function getTrailingCommaUNTYPED(): Node {
+  public function getTrailingCommaUNTYPED(): ?Node {
     return $this->_trailing_comma;
   }
 
@@ -371,22 +381,19 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_key,
       $this->_comma,
       $this->_value,
-      $value ?? Missing(),
+      $value,
       $this->_right_angle,
     );
   }
 
   public function hasTrailingComma(): bool {
-    return !$this->_trailing_comma->isMissing();
+    return $this->_trailing_comma !== null;
   }
 
   /**
    * @return null
    */
   public function getTrailingComma(): ?Node {
-    if ($this->_trailing_comma->isMissing()) {
-      return null;
-    }
     return $this->_trailing_comma;
   }
 
@@ -397,7 +404,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return TypeAssert\not_null($this->getTrailingComma());
   }
 
-  public function getRightAngleUNTYPED(): Node {
+  public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
@@ -412,12 +419,12 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_comma,
       $this->_value,
       $this->_trailing_comma,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->isMissing();
+    return $this->_right_angle !== null;
   }
 
   /**

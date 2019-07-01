@@ -1,26 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90cb3018b126905e9b883e96798c3977>>
+ * @generated SignedSource<<e61468ccb258be71ade60275c3462e38>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class RequireClause extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'require_clause';
 
-  private Node $_keyword;
-  private Node $_kind;
-  private Node $_name;
-  private Node $_semicolon;
+  private RequireToken $_keyword;
+  private Token $_kind;
+  private ISimpleCreationSpecifier $_name;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $kind,
-    Node $name,
-    Node $semicolon,
+    RequireToken $keyword,
+    Token $kind,
+    ISimpleCreationSpecifier $name,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,6 +47,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       $source,
       'RequireToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['require_kind'],
@@ -54,6 +56,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       $source,
       'Token',
     );
+    $kind = $kind as nonnull;
     $offset += $kind->getWidth();
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['require_name'],
@@ -62,6 +65,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       $source,
       'ISimpleCreationSpecifier',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['require_semicolon'],
@@ -70,6 +74,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       $source,
       'SemicolonToken',
     );
+    $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -77,7 +82,13 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($keyword, $kind, $name, $semicolon, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $kind,
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -87,7 +98,8 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       'kind' => $this->_kind,
       'name' => $this->_name,
       'semicolon' => $this->_semicolon,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,10 +120,15 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     ) {
       return $this;
     }
-    return new static($keyword, $kind, $name, $semicolon);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $kind,
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $semicolon,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -119,16 +136,11 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value ?? Missing(),
-      $this->_kind,
-      $this->_name,
-      $this->_semicolon,
-    );
+    return new static($value, $this->_kind, $this->_name, $this->_semicolon);
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -145,7 +157,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     return $this->getKeyword();
   }
 
-  public function getKindUNTYPED(): Node {
+  public function getKindUNTYPED(): ?Node {
     return $this->_kind;
   }
 
@@ -153,16 +165,11 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     if ($value === $this->_kind) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value ?? Missing(),
-      $this->_name,
-      $this->_semicolon,
-    );
+    return new static($this->_keyword, $value, $this->_name, $this->_semicolon);
   }
 
   public function hasKind(): bool {
-    return !$this->_kind->isMissing();
+    return $this->_kind !== null;
   }
 
   /**
@@ -179,7 +186,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     return $this->getKind();
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -187,16 +194,11 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_kind,
-      $value ?? Missing(),
-      $this->_semicolon,
-    );
+    return new static($this->_keyword, $this->_kind, $value, $this->_semicolon);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -216,7 +218,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     return $this->getName();
   }
 
-  public function getSemicolonUNTYPED(): Node {
+  public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
@@ -224,16 +226,11 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_kind,
-      $this->_name,
-      $value ?? Missing(),
-    );
+    return new static($this->_keyword, $this->_kind, $this->_name, $value);
   }
 
   public function hasSemicolon(): bool {
-    return !$this->_semicolon->isMissing();
+    return $this->_semicolon !== null;
   }
 
   /**

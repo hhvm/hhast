@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08a5f425add6b6d275d4459953b2f2b3>>
+ * @generated SignedSource<<5eb1ab37bd42d454d95813b2aea6f949>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class WhileStatement
@@ -13,18 +14,18 @@ final class WhileStatement
 
   const string SYNTAX_KIND = 'while_statement';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_condition;
-  private Node $_right_paren;
-  private Node $_body;
+  private WhileToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private IExpression $_condition;
+  private RightParenToken $_right_paren;
+  private IStatement $_body;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $condition,
-    Node $right_paren,
-    Node $body,
+    WhileToken $keyword,
+    LeftParenToken $left_paren,
+    IExpression $condition,
+    RightParenToken $right_paren,
+    IStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -51,6 +52,7 @@ final class WhileStatement
       $source,
       'WhileToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_left_paren'],
@@ -59,6 +61,7 @@ final class WhileStatement
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_condition'],
@@ -67,6 +70,7 @@ final class WhileStatement
       $source,
       'IExpression',
     );
+    $condition = $condition as nonnull;
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_right_paren'],
@@ -75,6 +79,7 @@ final class WhileStatement
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['while_body'],
@@ -83,6 +88,7 @@ final class WhileStatement
       $source,
       'IStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -91,11 +97,11 @@ final class WhileStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $condition,
-      $right_paren,
-      $body,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $condition,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
   }
@@ -108,7 +114,8 @@ final class WhileStatement
       'condition' => $this->_condition,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -131,10 +138,16 @@ final class WhileStatement
     ) {
       return $this;
     }
-    return new static($keyword, $left_paren, $condition, $right_paren, $body);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $condition,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $body,
+    );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -143,7 +156,7 @@ final class WhileStatement
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
@@ -152,7 +165,7 @@ final class WhileStatement
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -169,7 +182,7 @@ final class WhileStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -179,7 +192,7 @@ final class WhileStatement
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_condition,
       $this->_right_paren,
       $this->_body,
@@ -187,7 +200,7 @@ final class WhileStatement
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -204,7 +217,7 @@ final class WhileStatement
     return $this->getLeftParen();
   }
 
-  public function getConditionUNTYPED(): Node {
+  public function getConditionUNTYPED(): ?Node {
     return $this->_condition;
   }
 
@@ -215,14 +228,14 @@ final class WhileStatement
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_body,
     );
   }
 
   public function hasCondition(): bool {
-    return !$this->_condition->isMissing();
+    return $this->_condition !== null;
   }
 
   /**
@@ -245,7 +258,7 @@ final class WhileStatement
     return $this->getCondition();
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -257,13 +270,13 @@ final class WhileStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_condition,
-      $value ?? Missing(),
+      $value,
       $this->_body,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -280,7 +293,7 @@ final class WhileStatement
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -293,12 +306,12 @@ final class WhileStatement
       $this->_left_paren,
       $this->_condition,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**

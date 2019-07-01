@@ -1,28 +1,29 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0bce49a74d98d5e6c0248686f89efea9>>
+ * @generated SignedSource<<d6b7ca2ae868f105a4ba310ef59254a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'keyset_type_specifier';
 
-  private Node $_keyword;
-  private Node $_left_angle;
-  private Node $_type;
-  private Node $_trailing_comma;
-  private Node $_right_angle;
+  private KeysetToken $_keyword;
+  private LessThanToken $_left_angle;
+  private ITypeSpecifier $_type;
+  private ?Node $_trailing_comma;
+  private GreaterThanToken $_right_angle;
 
   public function __construct(
-    Node $keyword,
-    Node $left_angle,
-    Node $type,
-    Node $trailing_comma,
-    Node $right_angle,
+    KeysetToken $keyword,
+    LessThanToken $left_angle,
+    ITypeSpecifier $type,
+    ?Node $trailing_comma,
+    GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -49,6 +50,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'KeysetToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['keyset_type_left_angle'],
@@ -57,6 +59,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'LessThanToken',
     );
+    $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['keyset_type_type'],
@@ -65,6 +68,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'ITypeSpecifier',
     );
+    $type = $type as nonnull;
     $offset += $type->getWidth();
     $trailing_comma = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['keyset_type_trailing_comma'],
@@ -73,7 +77,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
-    $offset += $trailing_comma->getWidth();
+    $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['keyset_type_right_angle'],
       $file,
@@ -81,6 +85,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $source,
       'GreaterThanToken',
     );
+    $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -89,11 +94,11 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_angle,
-      $type,
-      $trailing_comma,
-      $right_angle,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_angle,
+      /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $trailing_comma,
+      /* HH_IGNORE_ERROR[4110] */ $right_angle,
       $source_ref,
     );
   }
@@ -106,7 +111,8 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       'type' => $this->_type,
       'trailing_comma' => $this->_trailing_comma,
       'right_angle' => $this->_right_angle,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -118,7 +124,9 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $rewriter($this->_keyword, $parents);
     $left_angle = $rewriter($this->_left_angle, $parents);
     $type = $rewriter($this->_type, $parents);
-    $trailing_comma = $rewriter($this->_trailing_comma, $parents);
+    $trailing_comma = $this->_trailing_comma === null
+      ? null
+      : $rewriter($this->_trailing_comma, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -130,15 +138,15 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $keyword,
-      $left_angle,
-      $type,
-      $trailing_comma,
-      $right_angle,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_angle,
+      /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $trailing_comma,
+      /* HH_FIXME[4110] use `as` */ $right_angle,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -147,7 +155,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_angle,
       $this->_type,
       $this->_trailing_comma,
@@ -156,7 +164,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -173,7 +181,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getKeyword();
   }
 
-  public function getLeftAngleUNTYPED(): Node {
+  public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
@@ -183,7 +191,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_type,
       $this->_trailing_comma,
       $this->_right_angle,
@@ -191,7 +199,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftAngle(): bool {
-    return !$this->_left_angle->isMissing();
+    return $this->_left_angle !== null;
   }
 
   /**
@@ -208,7 +216,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getLeftAngle();
   }
 
-  public function getTypeUNTYPED(): Node {
+  public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
@@ -219,14 +227,14 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $this->_keyword,
       $this->_left_angle,
-      $value ?? Missing(),
+      $value,
       $this->_trailing_comma,
       $this->_right_angle,
     );
   }
 
   public function hasType(): bool {
-    return !$this->_type->isMissing();
+    return $this->_type !== null;
   }
 
   /**
@@ -243,7 +251,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getType();
   }
 
-  public function getTrailingCommaUNTYPED(): Node {
+  public function getTrailingCommaUNTYPED(): ?Node {
     return $this->_trailing_comma;
   }
 
@@ -255,22 +263,19 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_keyword,
       $this->_left_angle,
       $this->_type,
-      $value ?? Missing(),
+      $value,
       $this->_right_angle,
     );
   }
 
   public function hasTrailingComma(): bool {
-    return !$this->_trailing_comma->isMissing();
+    return $this->_trailing_comma !== null;
   }
 
   /**
    * @return null
    */
   public function getTrailingComma(): ?Node {
-    if ($this->_trailing_comma->isMissing()) {
-      return null;
-    }
     return $this->_trailing_comma;
   }
 
@@ -281,7 +286,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     return TypeAssert\not_null($this->getTrailingComma());
   }
 
-  public function getRightAngleUNTYPED(): Node {
+  public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
@@ -294,12 +299,12 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_left_angle,
       $this->_type,
       $this->_trailing_comma,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasRightAngle(): bool {
-    return !$this->_right_angle->isMissing();
+    return $this->_right_angle !== null;
   }
 
   /**

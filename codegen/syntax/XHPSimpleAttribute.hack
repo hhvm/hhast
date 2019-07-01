@@ -1,23 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3bdca08abd2309070d4e0d060373a3f0>>
+ * @generated SignedSource<<ceb03e40b2e54cf1c70f9729e36f4c46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class XHPSimpleAttribute extends Node implements IXHPAttribute {
 
   const string SYNTAX_KIND = 'xhp_simple_attribute';
 
-  private Node $_name;
-  private Node $_equal;
+  private XHPElementNameToken $_name;
+  private EqualToken $_equal;
   private Node $_expression;
 
   public function __construct(
-    Node $name,
-    Node $equal,
+    XHPElementNameToken $name,
+    EqualToken $equal,
     Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -43,6 +44,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       $source,
       'XHPElementNameToken',
     );
+    $name = $name as nonnull;
     $offset += $name->getWidth();
     $equal = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_simple_attribute_equal'],
@@ -51,6 +53,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       $source,
       'EqualToken',
     );
+    $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_simple_attribute_expression'],
@@ -59,6 +62,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       $source,
       'Node',
     );
+    $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -66,7 +70,12 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static($name, $equal, $expression, $source_ref);
+    return new static(
+      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $equal,
+      /* HH_IGNORE_ERROR[4110] */ $expression,
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +84,8 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       'name' => $this->_name,
       'equal' => $this->_equal,
       'expression' => $this->_expression,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -94,10 +104,14 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     ) {
       return $this;
     }
-    return new static($name, $equal, $expression);
+    return new static(
+      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $equal,
+      /* HH_FIXME[4110] use `as` */ $expression,
+    );
   }
 
-  public function getNameUNTYPED(): Node {
+  public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
@@ -105,11 +119,11 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($value ?? Missing(), $this->_equal, $this->_expression);
+    return new static($value, $this->_equal, $this->_expression);
   }
 
   public function hasName(): bool {
-    return !$this->_name->isMissing();
+    return $this->_name !== null;
   }
 
   /**
@@ -126,7 +140,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     return $this->getName();
   }
 
-  public function getEqualUNTYPED(): Node {
+  public function getEqualUNTYPED(): ?Node {
     return $this->_equal;
   }
 
@@ -134,11 +148,11 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     if ($value === $this->_equal) {
       return $this;
     }
-    return new static($this->_name, $value ?? Missing(), $this->_expression);
+    return new static($this->_name, $value, $this->_expression);
   }
 
   public function hasEqual(): bool {
-    return !$this->_equal->isMissing();
+    return $this->_equal !== null;
   }
 
   /**
@@ -155,7 +169,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     return $this->getEqual();
   }
 
-  public function getExpressionUNTYPED(): Node {
+  public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
@@ -163,11 +177,11 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_name, $this->_equal, $value ?? Missing());
+    return new static($this->_name, $this->_equal, $value);
   }
 
   public function hasExpression(): bool {
-    return !$this->_expression->isMissing();
+    return $this->_expression !== null;
   }
 
   /**

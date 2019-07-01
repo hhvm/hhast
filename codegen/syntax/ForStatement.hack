@@ -1,10 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6238f997816c7acb22cd6821f28ef32e>>
+ * @generated SignedSource<<c331daac08ceab261bdfcb229d56ea0c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
+use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
 final class ForStatement
@@ -13,26 +14,26 @@ final class ForStatement
 
   const string SYNTAX_KIND = 'for_statement';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_initializer;
-  private Node $_first_semicolon;
-  private Node $_control;
-  private Node $_second_semicolon;
-  private Node $_end_of_loop;
-  private Node $_right_paren;
-  private Node $_body;
+  private ForToken $_keyword;
+  private LeftParenToken $_left_paren;
+  private ?NodeList<ListItem<IExpression>> $_initializer;
+  private SemicolonToken $_first_semicolon;
+  private ?NodeList<ListItem<IExpression>> $_control;
+  private SemicolonToken $_second_semicolon;
+  private ?NodeList<ListItem<IExpression>> $_end_of_loop;
+  private RightParenToken $_right_paren;
+  private IStatement $_body;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $initializer,
-    Node $first_semicolon,
-    Node $control,
-    Node $second_semicolon,
-    Node $end_of_loop,
-    Node $right_paren,
-    Node $body,
+    ForToken $keyword,
+    LeftParenToken $left_paren,
+    ?NodeList<ListItem<IExpression>> $initializer,
+    SemicolonToken $first_semicolon,
+    ?NodeList<ListItem<IExpression>> $control,
+    SemicolonToken $second_semicolon,
+    ?NodeList<ListItem<IExpression>> $end_of_loop,
+    RightParenToken $right_paren,
+    IStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -63,6 +64,7 @@ final class ForStatement
       $source,
       'ForToken',
     );
+    $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_left_paren'],
@@ -71,6 +73,7 @@ final class ForStatement
       $source,
       'LeftParenToken',
     );
+    $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $initializer = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_initializer'],
@@ -79,7 +82,7 @@ final class ForStatement
       $source,
       'NodeList<ListItem<IExpression>>',
     );
-    $offset += $initializer->getWidth();
+    $offset += $initializer?->getWidth() ?? 0;
     $first_semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_first_semicolon'],
       $file,
@@ -87,6 +90,7 @@ final class ForStatement
       $source,
       'SemicolonToken',
     );
+    $first_semicolon = $first_semicolon as nonnull;
     $offset += $first_semicolon->getWidth();
     $control = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_control'],
@@ -95,7 +99,7 @@ final class ForStatement
       $source,
       'NodeList<ListItem<IExpression>>',
     );
-    $offset += $control->getWidth();
+    $offset += $control?->getWidth() ?? 0;
     $second_semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_second_semicolon'],
       $file,
@@ -103,6 +107,7 @@ final class ForStatement
       $source,
       'SemicolonToken',
     );
+    $second_semicolon = $second_semicolon as nonnull;
     $offset += $second_semicolon->getWidth();
     $end_of_loop = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_end_of_loop'],
@@ -111,7 +116,7 @@ final class ForStatement
       $source,
       'NodeList<ListItem<IExpression>>',
     );
-    $offset += $end_of_loop->getWidth();
+    $offset += $end_of_loop?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_right_paren'],
       $file,
@@ -119,6 +124,7 @@ final class ForStatement
       $source,
       'RightParenToken',
     );
+    $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['for_body'],
@@ -127,6 +133,7 @@ final class ForStatement
       $source,
       'IStatement',
     );
+    $body = $body as nonnull;
     $offset += $body->getWidth();
     $source_ref = shape(
       'file' => $file,
@@ -135,15 +142,15 @@ final class ForStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      $keyword,
-      $left_paren,
-      $initializer,
-      $first_semicolon,
-      $control,
-      $second_semicolon,
-      $end_of_loop,
-      $right_paren,
-      $body,
+      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $initializer,
+      /* HH_IGNORE_ERROR[4110] */ $first_semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $control,
+      /* HH_IGNORE_ERROR[4110] */ $second_semicolon,
+      /* HH_IGNORE_ERROR[4110] */ $end_of_loop,
+      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
   }
@@ -160,7 +167,8 @@ final class ForStatement
       'end_of_loop' => $this->_end_of_loop,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ];
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -171,11 +179,17 @@ final class ForStatement
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $initializer = $rewriter($this->_initializer, $parents);
+    $initializer = $this->_initializer === null
+      ? null
+      : $rewriter($this->_initializer, $parents);
     $first_semicolon = $rewriter($this->_first_semicolon, $parents);
-    $control = $rewriter($this->_control, $parents);
+    $control = $this->_control === null
+      ? null
+      : $rewriter($this->_control, $parents);
     $second_semicolon = $rewriter($this->_second_semicolon, $parents);
-    $end_of_loop = $rewriter($this->_end_of_loop, $parents);
+    $end_of_loop = $this->_end_of_loop === null
+      ? null
+      : $rewriter($this->_end_of_loop, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
@@ -192,19 +206,19 @@ final class ForStatement
       return $this;
     }
     return new static(
-      $keyword,
-      $left_paren,
-      $initializer,
-      $first_semicolon,
-      $control,
-      $second_semicolon,
-      $end_of_loop,
-      $right_paren,
-      $body,
+      /* HH_FIXME[4110] use `as` */ $keyword,
+      /* HH_FIXME[4110] use `as` */ $left_paren,
+      /* HH_FIXME[4110] use `as` */ $initializer,
+      /* HH_FIXME[4110] use `as` */ $first_semicolon,
+      /* HH_FIXME[4110] use `as` */ $control,
+      /* HH_FIXME[4110] use `as` */ $second_semicolon,
+      /* HH_FIXME[4110] use `as` */ $end_of_loop,
+      /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $body,
     );
   }
 
-  public function getKeywordUNTYPED(): Node {
+  public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
@@ -213,7 +227,7 @@ final class ForStatement
       return $this;
     }
     return new static(
-      $value ?? Missing(),
+      $value,
       $this->_left_paren,
       $this->_initializer,
       $this->_first_semicolon,
@@ -226,7 +240,7 @@ final class ForStatement
   }
 
   public function hasKeyword(): bool {
-    return !$this->_keyword->isMissing();
+    return $this->_keyword !== null;
   }
 
   /**
@@ -243,7 +257,7 @@ final class ForStatement
     return $this->getKeyword();
   }
 
-  public function getLeftParenUNTYPED(): Node {
+  public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
@@ -253,7 +267,7 @@ final class ForStatement
     }
     return new static(
       $this->_keyword,
-      $value ?? Missing(),
+      $value,
       $this->_initializer,
       $this->_first_semicolon,
       $this->_control,
@@ -265,7 +279,7 @@ final class ForStatement
   }
 
   public function hasLeftParen(): bool {
-    return !$this->_left_paren->isMissing();
+    return $this->_left_paren !== null;
   }
 
   /**
@@ -282,7 +296,7 @@ final class ForStatement
     return $this->getLeftParen();
   }
 
-  public function getInitializerUNTYPED(): Node {
+  public function getInitializerUNTYPED(): ?Node {
     return $this->_initializer;
   }
 
@@ -295,7 +309,7 @@ final class ForStatement
     return new static(
       $this->_keyword,
       $this->_left_paren,
-      $value ?? Missing(),
+      $value,
       $this->_first_semicolon,
       $this->_control,
       $this->_second_semicolon,
@@ -306,7 +320,7 @@ final class ForStatement
   }
 
   public function hasInitializer(): bool {
-    return !$this->_initializer->isMissing();
+    return $this->_initializer !== null;
   }
 
   /**
@@ -316,10 +330,7 @@ final class ForStatement
    * NodeList<ListItem<LiteralExpression>> | null
    */
   public function getInitializer(): ?NodeList<ListItem<IExpression>> {
-    if ($this->_initializer->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_initializer);
+    return $this->_initializer;
   }
 
   /**
@@ -332,7 +343,7 @@ final class ForStatement
     return TypeAssert\not_null($this->getInitializer());
   }
 
-  public function getFirstSemicolonUNTYPED(): Node {
+  public function getFirstSemicolonUNTYPED(): ?Node {
     return $this->_first_semicolon;
   }
 
@@ -344,7 +355,7 @@ final class ForStatement
       $this->_keyword,
       $this->_left_paren,
       $this->_initializer,
-      $value ?? Missing(),
+      $value,
       $this->_control,
       $this->_second_semicolon,
       $this->_end_of_loop,
@@ -354,7 +365,7 @@ final class ForStatement
   }
 
   public function hasFirstSemicolon(): bool {
-    return !$this->_first_semicolon->isMissing();
+    return $this->_first_semicolon !== null;
   }
 
   /**
@@ -374,7 +385,7 @@ final class ForStatement
     return $this->getFirstSemicolon();
   }
 
-  public function getControlUNTYPED(): Node {
+  public function getControlUNTYPED(): ?Node {
     return $this->_control;
   }
 
@@ -387,7 +398,7 @@ final class ForStatement
       $this->_left_paren,
       $this->_initializer,
       $this->_first_semicolon,
-      $value ?? Missing(),
+      $value,
       $this->_second_semicolon,
       $this->_end_of_loop,
       $this->_right_paren,
@@ -396,7 +407,7 @@ final class ForStatement
   }
 
   public function hasControl(): bool {
-    return !$this->_control->isMissing();
+    return $this->_control !== null;
   }
 
   /**
@@ -408,10 +419,7 @@ final class ForStatement
    * NodeList<ListItem<VariableExpression>> | null
    */
   public function getControl(): ?NodeList<ListItem<IExpression>> {
-    if ($this->_control->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_control);
+    return $this->_control;
   }
 
   /**
@@ -426,7 +434,7 @@ final class ForStatement
     return TypeAssert\not_null($this->getControl());
   }
 
-  public function getSecondSemicolonUNTYPED(): Node {
+  public function getSecondSemicolonUNTYPED(): ?Node {
     return $this->_second_semicolon;
   }
 
@@ -440,7 +448,7 @@ final class ForStatement
       $this->_initializer,
       $this->_first_semicolon,
       $this->_control,
-      $value ?? Missing(),
+      $value,
       $this->_end_of_loop,
       $this->_right_paren,
       $this->_body,
@@ -448,7 +456,7 @@ final class ForStatement
   }
 
   public function hasSecondSemicolon(): bool {
-    return !$this->_second_semicolon->isMissing();
+    return $this->_second_semicolon !== null;
   }
 
   /**
@@ -468,7 +476,7 @@ final class ForStatement
     return $this->getSecondSemicolon();
   }
 
-  public function getEndOfLoopUNTYPED(): Node {
+  public function getEndOfLoopUNTYPED(): ?Node {
     return $this->_end_of_loop;
   }
 
@@ -483,14 +491,14 @@ final class ForStatement
       $this->_first_semicolon,
       $this->_control,
       $this->_second_semicolon,
-      $value ?? Missing(),
+      $value,
       $this->_right_paren,
       $this->_body,
     );
   }
 
   public function hasEndOfLoop(): bool {
-    return !$this->_end_of_loop->isMissing();
+    return $this->_end_of_loop !== null;
   }
 
   /**
@@ -501,10 +509,7 @@ final class ForStatement
    * NodeList<ListItem<PrefixUnaryExpression>> | null
    */
   public function getEndOfLoop(): ?NodeList<ListItem<IExpression>> {
-    if ($this->_end_of_loop->isMissing()) {
-      return null;
-    }
-    return TypeAssert\instance_of(NodeList::class, $this->_end_of_loop);
+    return $this->_end_of_loop;
   }
 
   /**
@@ -518,7 +523,7 @@ final class ForStatement
     return TypeAssert\not_null($this->getEndOfLoop());
   }
 
-  public function getRightParenUNTYPED(): Node {
+  public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
@@ -534,13 +539,13 @@ final class ForStatement
       $this->_control,
       $this->_second_semicolon,
       $this->_end_of_loop,
-      $value ?? Missing(),
+      $value,
       $this->_body,
     );
   }
 
   public function hasRightParen(): bool {
-    return !$this->_right_paren->isMissing();
+    return $this->_right_paren !== null;
   }
 
   /**
@@ -557,7 +562,7 @@ final class ForStatement
     return $this->getRightParen();
   }
 
-  public function getBodyUNTYPED(): Node {
+  public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
@@ -574,12 +579,12 @@ final class ForStatement
       $this->_second_semicolon,
       $this->_end_of_loop,
       $this->_right_paren,
-      $value ?? Missing(),
+      $value,
     );
   }
 
   public function hasBody(): bool {
-    return !$this->_body->isMissing();
+    return $this->_body !== null;
   }
 
   /**
