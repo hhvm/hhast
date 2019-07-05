@@ -14,3 +14,20 @@ function with_mutation(): void {
 
   return;
 }
+
+class C {
+  public function simple(int $bar): int {
+    $_baz = $bar;
+    return $bar;
+  }
+
+  public function with_mutation(): void {
+    $_b = 0;
+    $_b += 1;
+
+    $_c = 'hello';
+    $_c .= ' world';
+
+    return;
+  }
+}

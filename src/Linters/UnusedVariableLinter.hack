@@ -12,6 +12,9 @@ namespace Facebook\HHAST\Linters;
 use type Facebook\HHAST\{
   CompoundStatement,
   FunctionDeclaration,
+  FunctionDeclarationHeader,
+  IFunctionishDeclaration,
+  MethodishDeclaration,
   ParameterDeclaration,
   VariableToken,
   VariableExpression,
@@ -23,11 +26,11 @@ use namespace HH\Lib\{C, Str, Vec};
 
 final class UnusedVariableLinter extends AutoFixingASTLinter {
   const type TNode = VariableExpression;
-  const type TContext = FunctionDeclaration;
+  const type TContext = IFunctionishDeclaration;
 
   <<__Override>>
   public function getLintErrorForNode(
-    FunctionDeclaration $functionish,
+    IFunctionishDeclaration $functionish,
     VariableExpression $node,
   ): ?ASTLintError {
 
@@ -43,10 +46,8 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    // TODO: Support methods
-    $body = $functionish->getBody() as CompoundStatement;
-    $header = $functionish->getDeclarationHeader();
 
+    list($header, $body) = $this->getFunctionishParts($functionish);
     if (C\contains($this->getAlwaysUsedVariables($header), $name)) {
       return null;
     }
@@ -99,6 +100,28 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       : (
           ($name as HHAST\DecoratedExpression)->getExpression() as VariableToken
         )->getText();
+  }
+
+  private function getFunctionishParts(
+    IFunctionishDeclaration $functionish,
+  ): (FunctionDeclarationHeader, CompoundStatement) {
+    if ($functionish is FunctionDeclaration) {
+      $body = $functionish->getBody();
+      $header = $functionish->getDeclarationHeader();
+    } else if ($functionish is MethodishDeclaration) {
+      $body = $functionish->getFunctionBody();
+      $header = $functionish->getFunctionDeclHeader();
+    } else {
+      invariant_violation("Couldn't find functionish for variable expression");
+    }
+
+    if ($body === null) {
+      invariant_violation(
+        "Abstract methods cannot contain variable expressions",
+      );
+    }
+
+    return tuple($header, $body as CompoundStatement);
   }
 
   /**

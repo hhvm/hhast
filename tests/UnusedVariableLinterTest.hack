@@ -27,6 +27,15 @@ final class UnusedVariableLinterTest extends TestCase {
       ['<?hh function foo($d) { $k = 1; $d[$k] = 5; return $d; }'],
       ['<?hh function foo(&$d) { $d = 5; }'],
       ['<?hh function foo(inout $d) { $d = 5; }'],
+      ['<?hh class C { public function foo() { $bar = 1; return $bar; } }'],
+      ['<?hh class C { public function foo() { $_bar = 1; return 2; } }'],
+      ['<?hh class C { public function foo() { $GLOBALS["foo"] = "bar"; } }'],
+      ['<?hh class C { public function foo($xs) { foreach($xs as $x) { echo $x; } } }'],
+      ['<?hh class C { public function foo($xs) { foreach($xs as $i => $x) { echo $i; echo $x; } } }'],
+      ['<?hh class C { public function foo() { $k = 1; return dict[1 => 2][$k]; } }'],
+      ['<?hh class C { public function foo($d) { $k = 1; $d[$k] = 5; return $d; } }'],
+      ['<?hh class C { public function foo(&$d) { $d = 5; } }'],
+      ['<?hh class C { public function foo(inout $d) { $d = 5; } }'],
     ];
   }
 }

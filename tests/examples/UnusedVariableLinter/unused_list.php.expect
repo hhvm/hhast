@@ -8,5 +8,15 @@
         "blame": "$L2",
         "blame_pretty": "$L2",
         "description": "Variable is unused"
+    },
+    {
+        "blame": "$L1",
+        "blame_pretty": "$L1",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$L2",
+        "blame_pretty": "$L2",
+        "description": "Variable is unused"
     }
 ]

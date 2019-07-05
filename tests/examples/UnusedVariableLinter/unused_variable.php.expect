@@ -23,5 +23,30 @@
         "blame": "  $c ",
         "blame_pretty": "  $c ",
         "description": "Variable is unused"
+    },
+    {
+        "blame": "    $baz ",
+        "blame_pretty": "    $baz ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "    $b ",
+        "blame_pretty": "    $b ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "    $b ",
+        "blame_pretty": "    $b ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "\n    $c ",
+        "blame_pretty": "\n    $c ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "    $c ",
+        "blame_pretty": "    $c ",
+        "description": "Variable is unused"
     }
 ]

@@ -16,3 +16,22 @@ function foreach_shadow($items) {
   foreach ($items as $_i => $_item) {
   }
 }
+
+class C {
+  public function foreach_value($items) {
+    foreach ($items as $_item) {
+    }
+  }
+
+  public function foreach_key_value($items) {
+    foreach ($items as $_i => $_item) {
+    }
+  }
+
+  public function foreach_shadow($items) {
+    $_i = 0;
+    $_item = 'a';
+    foreach ($items as $_i => $_item) {
+    }
+  }
+}
