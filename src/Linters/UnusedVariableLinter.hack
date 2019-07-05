@@ -15,10 +15,10 @@ use type Facebook\HHAST\{
   FunctionDeclarationHeader,
   IFunctionishDeclaration,
   MethodishDeclaration,
-  ParameterDeclaration,
-  VariableToken,
-  VariableExpression,
   Node,
+  ParameterDeclaration,
+  VariableExpression,
+  VariableToken,
 };
 
 use namespace Facebook\HHAST;
@@ -52,7 +52,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    $vars = $this->classifyVariables($body);
+    $vars = $this->classifyVariables(new MemoizableNode($body));
     if (C\contains($vars['used'], $name)) {
       return null;
     }
@@ -151,9 +151,12 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
    * list($a, $b) = $parts;
    * ```
    */
+  <<__Memoize>>
   private function classifyVariables(
-    CompoundStatement $body,
+    MemoizableNode<CompoundStatement> $node,
   ): shape('assigned' => vec<string>, 'used' => vec<string>) {
+    $body = $node->getNode();
+
     $ret = shape('assigned' => vec[], 'used' => vec[]);
     foreach ($body->getDescendantsOfType(VariableExpression::class) as $var) {
       if (
@@ -272,5 +275,17 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
 
     $new_name = '$_'.Str\strip_prefix($token->getText(), '$');
     return Str\format('Rename to `%s`', $new_name);
+  }
+}
+
+final class MemoizableNode<T as Node> implements IMemoizeParam {
+  public function __construct(private T $node) {}
+
+  public function getInstanceKey(): string {
+    return (string)$this->node->getUniqueID();
+  }
+
+  public function getNode(): T {
+    return $this->node;
   }
 }
