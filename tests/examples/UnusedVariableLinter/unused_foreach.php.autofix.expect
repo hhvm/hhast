@@ -1,0 +1,18 @@
+<?hh
+
+function foreach_value($items) {
+  foreach ($items as $_item) {
+  }
+}
+
+function foreach_key_value($items) {
+  foreach ($items as $_i => $_item) {
+  }
+}
+
+function foreach_shadow($items) {
+  $_i = 0;
+  $_item = 'a';
+  foreach ($items as $_i => $_item) {
+  }
+}

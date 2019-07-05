@@ -1,0 +1,13 @@
+<?hh
+
+function subscript_expressions(): void {
+  $_a = dict[];
+  $b = 'b';
+  $c = 'c';
+  $d = 'd';
+  $_a['a'] = 1;
+  $_a[$b] = 5;
+  $_a[$c.$d] = 10;
+
+  return;
+}
