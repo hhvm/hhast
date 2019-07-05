@@ -22,7 +22,7 @@ use type Facebook\HHAST\{
 };
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class UnusedVariableLinter extends AutoFixingASTLinter {
   const type TNode = VariableExpression;
@@ -73,14 +73,14 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
    */
   private function getAlwaysUsedVariables(
     HHAST\FunctionDeclarationHeader $header,
-  ): vec<string> {
+  ): keyset<string> {
     $params = $header->getDescendantsOfType(ParameterDeclaration::class);
 
     return Vec\filter(
       $params,
       $p ==> self::isByRefParam($p) || self::isInoutParam($p),
     )
-      |> Vec\map($$, $p ==> self::getParamName($p));
+      |> Keyset\map($$, $p ==> self::getParamName($p));
   }
 
   private static function isInoutParam(ParameterDeclaration $param): bool {
@@ -154,7 +154,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
   <<__Memoize>>
   private function classifyVariables(
     MemoizableNode<CompoundStatement> $node,
-  ): shape('assigned' => vec<string>, 'used' => vec<string>) {
+  ): shape('assigned' => keyset<string>, 'used' => keyset<string>) {
     $body = $node->getNode();
 
     $ret = shape('assigned' => vec[], 'used' => vec[]);
@@ -168,11 +168,11 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       }
     }
 
-    $ret['assigned'] = Vec\map(
+    $ret['assigned'] = Keyset\map(
       $ret['assigned'],
       $v ==> ($v->getExpression() as VariableToken)->getText(),
     );
-    $ret['used'] = Vec\map(
+    $ret['used'] = Keyset\map(
       $ret['used'],
       $v ==> ($v->getExpression() as VariableToken)->getText(),
     );
