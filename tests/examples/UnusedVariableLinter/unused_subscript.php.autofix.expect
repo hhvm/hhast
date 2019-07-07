@@ -8,6 +8,8 @@ function subscript_expressions(): void {
   $_a['a'] = 1;
   $_a[$b] = 5;
   $_a[$c.$d] = 10;
+  $_a[1]['a']['b'] = 10;
+  $_a[1]['c'][] = 10;
 
   return;
 }
@@ -21,6 +23,8 @@ class C {
     $_a['a'] = 1;
     $_a[$b] = 5;
     $_a[$c.$d] = 10;
+    $_a[1]['a']['b'] = 10;
+    $_a[1]['c'][] = 10;
 
     return;
   }

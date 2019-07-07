@@ -20,8 +20,28 @@
         "description": "Variable is unused"
     },
     {
+        "blame": "  $a",
+        "blame_pretty": "  $a",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "  $a",
+        "blame_pretty": "  $a",
+        "description": "Variable is unused"
+    },
+    {
         "blame": "    $a ",
         "blame_pretty": "    $a ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "    $a",
+        "blame_pretty": "    $a",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "    $a",
+        "blame_pretty": "    $a",
         "description": "Variable is unused"
     },
     {
