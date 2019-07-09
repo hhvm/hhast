@@ -20,7 +20,6 @@ use type Facebook\HHAST\{
   LeftParenToken,
   ListItem,
   MemberSelectionExpression,
-  MinusGreaterThanToken,
   NameExpression,
   NameToken,
   NamespaceDeclaration,

@@ -21,7 +21,6 @@ use type Facebook\HHAST\Migrations\{
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
-  LinterGenericsToTypeConstantsMigration,
   NamespaceFallbackMigration,
   OptionalShapeFieldsMigration,
   PHPUnitToHackTestMigration,

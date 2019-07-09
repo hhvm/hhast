@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\Migrations;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Dict, Str, Vec};
+use namespace HH\Lib\{C, Str, Vec};
 
 final class IsRefinementMigration extends BaseMigration {
   <<__Override>>

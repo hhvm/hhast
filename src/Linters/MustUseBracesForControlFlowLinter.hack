@@ -19,7 +19,6 @@ use type Facebook\HHAST\{
   IStatement,
   IfStatement,
   LeftBraceToken,
-  ListItem,
   Node,
   NodeList,
   RightBraceToken,

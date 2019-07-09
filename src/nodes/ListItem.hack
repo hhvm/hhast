@@ -51,8 +51,8 @@ final class ListItem<+T as ?Node> extends Node {
       $offset,
       $source,
       $type_hint,
-    ) as nonnull;
-    $offset += $item->getWidth();
+    );
+    $offset += $item?->getWidth() ?? 0;
     $separator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['list_separator'],
       $file,
