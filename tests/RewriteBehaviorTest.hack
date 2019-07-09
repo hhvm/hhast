@@ -168,21 +168,15 @@ final class RewriteBehaviorTest extends TestCase {
           new HHAST\NodeList(
             Vec\map(
               $shape->getFieldsx()->getChildren(),
-              $field ==> {
-                if ($field instanceof HHAST\ListItem) {
-                  $field = $field->getItemx();
-                }
-                if (!$field instanceof HHAST\FieldSpecifier) {
-                  return $field;
-                }
-
+              $item ==> {
+                $field = $item->getItem();
                 $name = $field->getName();
                 $name_t = $name->getDescendantsOfType(
                   HHAST\SingleQuotedStringLiteralToken::class,
                 )
                   |> C\first($$);
                 if ($name_t === null) {
-                  return $field;
+                  return $item;
                 }
 
                 return $field->withName(
@@ -192,9 +186,9 @@ final class RewriteBehaviorTest extends TestCase {
                       1,
                       Str\length($name_t->getText()) - 2,
                     )
-                      |> \sprintf("'%s_new'", $$),
+                      |> Str\format("'%s_new'", $$),
                   ),
-                ));
+                )) |> $item->replace($field, $$);
               },
             ),
           ),

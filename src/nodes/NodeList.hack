@@ -20,7 +20,7 @@ final class NodeList<+Titem as Node> extends Node {
    */
   <<__Override>>
   public function __construct(
-    private vec<Node> $_children,
+    private vec<Titem> $_children,
     ?__Private\SourceRef $ref = null,
   ) {
     parent::__construct($ref);
@@ -117,7 +117,7 @@ final class NodeList<+Titem as Node> extends Node {
       $children[] = $child;
       $current_position += $child->getWidth();
     }
-    return new NodeList($children, shape(
+    return new NodeList(/* HH_FIXME[4110] */ $children, shape(
       'file' => $file,
       'source' => $source,
       'offset' => $offset,
@@ -153,7 +153,7 @@ final class NodeList<+Titem as Node> extends Node {
       return $this;
     }
 
-    return new NodeList($new_children);
+    return new NodeList(/* HH_FIXME[4110] */ $new_children);
   }
 
   <<__Override>>
@@ -170,7 +170,10 @@ final class NodeList<+Titem as Node> extends Node {
       $children[$idx] = $child->replaceImpl($old_id, $new);
       break;
     }
-    return new self(Vec\filter($children, $child ==> !$child->isMissing()));
+    return new self(Vec\filter(
+      /* HH_FIXME[4110] */ $children,
+      $child ==> !$child->isMissing(),
+    ));
   }
 
   <<__Override>>

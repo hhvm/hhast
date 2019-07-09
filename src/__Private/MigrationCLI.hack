@@ -190,9 +190,9 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = LinterGenericsToTypeConstantsMigration::class;
+          throw new ExitException(1, 'Use HHAST 4.11 for this migration');
         },
-        'Migrate HHAST 4.5 linter to 4.6',
+        'no longer supported',
         '--hhast-4.5-linter-to-4.6',
       ),
       CLIOptions\flag(

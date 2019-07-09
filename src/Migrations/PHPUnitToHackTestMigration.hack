@@ -33,25 +33,33 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
 
     $m = HHAST\Missing();
     $parts = Vec\concat(
-      $name[0] === "\\" ? vec[new HHAST\ListItem(null, new HHAST\BackslashToken($m, $m))] : vec[],
+      $name[0] === "\\"
+        ? vec[new HHAST\ListItem(null, new HHAST\BackslashToken($m, $m))]
+        : vec[],
       vec[
-        new HHAST\ListItem(new HHAST\NameToken($m, $m, "Facebook"),
-        new HHAST\BackslashToken($m, $m)),
-        new HHAST\ListItem(new HHAST\NameToken($m, $m, "HackTest"),
-        new HHAST\BackslashToken($m, $m)),
+        new HHAST\ListItem(
+          new HHAST\NameToken($m, $m, "Facebook"),
+          new HHAST\BackslashToken($m, $m),
+        ),
+        new HHAST\ListItem(
+          new HHAST\NameToken($m, $m, "HackTest"),
+          new HHAST\BackslashToken($m, $m),
+        ),
         new HHAST\ListItem(new HHAST\NameToken($m, $m, "HackTest"), null),
       ],
     );
 
-    $parts[0] = $parts[0]->replace($parts[0]->getFirstTokenx()->getLeading(), $in->getFirstTokenx()->getLeading());
+    $parts[0] = $parts[0]->replace(
+      $parts[0]->getFirstTokenx()->getLeading(),
+      $in->getFirstTokenx()->getLeading(),
+    );
     $last_idx = C\count($parts) - 1;
-    $parts[$last_idx] = $parts[$last_idx]->replace($parts[$last_idx]->getLastTokenx()->getTrailing(),
+    $parts[$last_idx] = $parts[$last_idx]->replace(
+      $parts[$last_idx]->getLastTokenx()->getTrailing(),
       $in->getLastTokenx()->getTrailing(),
     );
     return $in->withSpecifier(
-      new HHAST\QualifiedName(
-        HHAST\NodeList::createMaybeEmptyList($parts),
-      ),
+      new HHAST\QualifiedName(HHAST\NodeList::createMaybeEmptyList($parts)),
     );
   }
 
@@ -154,7 +162,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           HHAST\Missing(),
           HHAST\Missing(),
           "'".$provider."'",
-        ) |> new HHAST\ListItem(new HHAST\LiteralExpression($$), null)
+        )
+          |> new HHAST\ListItem(new HHAST\LiteralExpression($$), null),
       ]),
       new HHAST\RightParenToken(HHAST\Missing(), HHAST\Missing()),
     );
@@ -182,7 +191,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       $decl = $decl->replace($comment, HHAST\Missing());
       $attrs = new HHAST\AttributeSpecification(
         new HHAST\LessThanLessThanToken($leading, HHAST\Missing()),
-        new HHAST\NodeList(vec[$attr]),
+        new HHAST\NodeList(vec[new HHAST\ListItem($attr, null)]),
         new HHAST\GreaterThanGreaterThanToken(HHAST\Missing(), HHAST\Missing()),
       );
     } else {
@@ -298,11 +307,15 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     return new HHAST\QualifiedName(
       new HHAST\NodeList(
         vec[
-          new HHAST\NameToken($m, $m, "Facebook"),
-          new HHAST\BackslashToken($m, $m),
-          new HHAST\NameToken($m, $m, "HackTest"),
-          new HHAST\BackslashToken($m, $m),
-          new HHAST\NameToken($m, $m, "HackTest"),
+          new HHAST\ListItem(
+            new HHAST\NameToken($m, $m, "Facebook"),
+            new HHAST\BackslashToken($m, $m),
+          ),
+          new HHAST\ListItem(
+            new HHAST\NameToken($m, $m, "HackTest"),
+            new HHAST\BackslashToken($m, $m),
+          ),
+          new HHAST\ListItem(new HHAST\NameToken($m, $m, "HackTest"), null),
         ],
       ),
     );
@@ -389,7 +402,12 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
             new HHAST\TypeArguments(
               new HHAST\LessThanToken(HHAST\Missing(), HHAST\Missing()),
               new HHAST\NodeList(vec[
-                new HHAST\VoidToken(HHAST\Missing(), HHAST\Missing()),
+                new HHAST\ListItem(
+                  new HHAST\SimpleTypeSpecifier(
+                    new HHAST\VoidToken(HHAST\Missing(), HHAST\Missing()),
+                  ),
+                  null,
+                ),
               ]),
               new HHAST\GreaterThanToken(
                 HHAST\Missing(),
@@ -409,15 +427,18 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           new HHAST\TypeArguments(
             new HHAST\LessThanToken(HHAST\Missing(), HHAST\Missing()),
             new HHAST\NodeList(vec[
-              $type
-                ->replace(
-                  $type->getFirstTokenx(),
-                  $type->getFirstTokenx()->withLeading(HHAST\Missing()),
-                )
-                ->replace(
-                  $type->getLastTokenx(),
-                  $type->getLastTokenx()->withTrailing(HHAST\Missing()),
-                ),
+              new HHAST\ListItem(
+                $type
+                  ->replace(
+                    $type->getFirstTokenx(),
+                    $type->getFirstTokenx()->withLeading(HHAST\Missing()),
+                  )
+                  ->replace(
+                    $type->getLastTokenx(),
+                    $type->getLastTokenx()->withTrailing(HHAST\Missing()),
+                  ),
+                null,
+              ),
             ]),
             new HHAST\GreaterThanToken(
               HHAST\Missing(),
@@ -475,12 +496,15 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
             null,
             new HHAST\LeftParenToken($m, $m),
             new HHAST\NodeList(vec[
-              new HHAST\NameToken(
-                $m,
-                $m,
-                Str\ends_with($exception, '::class')
-                  ? $exception
-                  : ($exception.'::class'),
+              new HHAST\ListItem(
+                new HHAST\NameExpression(new HHAST\NameToken(
+                  $m,
+                  $m,
+                  Str\ends_with($exception, '::class')
+                    ? $exception
+                    : ($exception.'::class'),
+                )),
+                null,
               ),
             ]),
             new HHAST\RightParenToken($m, $m),
@@ -665,7 +689,8 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           HHAST\NodeList::createMaybeEmptyList($inner),
           new HHAST\RightBraceToken($new_line_leading, $m),
         ),
-      ) |> new HHAST\NodeList(vec[new HHAST\ListItem($$, null)]),
+      )
+        |> new HHAST\NodeList(vec[new HHAST\ListItem($$, null)]),
       new HHAST\RightParenToken($m, $m),
     );
 
