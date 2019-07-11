@@ -20,7 +20,7 @@ final class PreferLambdasLinterTest extends TestCase {
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple('<?hh $fn = () ==> 5; '),
-      tuple('<?hh $fn = ($a, $b) ==> { return $a === $b; }'),
+      tuple('<?hh $fn = ($a, $b) ==> { return $a === $b; };'),
     ];
   }
 }
