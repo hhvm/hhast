@@ -18,8 +18,8 @@ use type Facebook\HHAST\{
   BooleanLiteralToken,
   CommaToken,
   DecimalLiteralToken,
-  ExpressionStatement,
   FunctionCallExpression,
+  IExpression,
   INamespaceUseDeclaration,
   ListItem,
   LiteralExpression,
@@ -407,10 +407,7 @@ final class HSLMigration extends BaseMigration {
         $replace_arg = $items[1]->getCode();
         // replacement dictionary uses keys from first arg, values from second arg
         $expr = 'Dict\\associate('.$search_arg.', '.$replace_arg.')';
-        $replacement_patterns = $this->nodeFromCode(
-          $expr,
-          ExpressionStatement::class,
-        );
+        $replacement_patterns = $this->expressionFromCode($expr);
 
         $new_argument_list = new NodeList(vec[
           new ListItem(
@@ -454,9 +451,8 @@ final class HSLMigration extends BaseMigration {
           // we need to replace this arg with a more complex expression
           // based on the length of the string
           $haystack = $items[0]->getCode();
-          $new_length = $this->nodeFromCode(
+          $new_length = $this->expressionFromCode(
             'Str\\length('.$haystack.') - '.($offset + Math\abs($length)),
-            ExpressionStatement::class,
           );
         }
 
@@ -715,15 +711,21 @@ final class HSLMigration extends BaseMigration {
     string $code,
     classname<T> $expected,
   ): T {
-    $node = \HH\Asio\join(HHAST\from_file_async(
+    $script = \HH\Asio\join(HHAST\from_file_async(
       HHAST\File::fromPathAndContents('/dev/null', $code),
     ));
-    invariant($node instanceof Script, 'always gets back a script tag');
-    $children = vec(
-      $node->getDeclarations()
-        ->getChildrenOfType($expected),
+    $node = $script->getDeclarations()->getFirstDescendantOfType($expected);
+    invariant(
+      $node !== null,
+      "Failed to find node of type '%s' in code '%s'",
+      $expected,
+      $code,
     );
-    $node = C\onlyx($children);
     return $node;
+  }
+
+  protected function expressionFromCode(string $code): IExpression {
+    return $this->nodeFromCode('$_ = '.$code.';', BinaryExpression::class)
+      ->getRightOperand();
   }
 }

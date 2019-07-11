@@ -148,6 +148,19 @@ abstract class Node {
     return $out;
   }
 
+  final public function getFirstDescendantOfType<T as Node>(
+    classname<T> $what,
+  ): ?T {
+    $out = vec[];
+    foreach ($this->_descendants as $node) {
+      if ($node instanceof $what) {
+        return $node;
+      }
+    }
+    return null;
+  }
+
+
   final public function replace(Node $old, Node $new): this {
     if ($old === $new) {
       return $this;
