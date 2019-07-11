@@ -21,13 +21,25 @@ final class ExplicitPartialModeMigration extends BaseMigration {
       return $node;
     }
 
-
     $trailing = $node->getLastTokenx()->getTrailing();
 
     if (Str\starts_with($trailing->getCode(), ' // ')) {
       return $node;
     }
-    $children = vec($node->getChildren());
+    if ($trailing->isEmpty()) {
+      // just `<?hh` then EOF, no trailing newline
+      $t = $node->getLastTokenx();
+      return $node->replace(
+        $t,
+        $t->withTrailing(
+          new HHAST\NodeList(vec[
+            new HHAST\WhiteSpace(' '),
+            new HHAST\SingleLineComment('// partial'),
+          ]),
+        ),
+      );
+    }
+    $children = $trailing->toVec();
     $idx = C\find_key($children, $c ==> $c is HHAST\EndOfLine);
 
     if ($idx === null) {
@@ -43,7 +55,7 @@ final class ExplicitPartialModeMigration extends BaseMigration {
         new HHAST\WhiteSpace(' '),
         new HHAST\SingleLineComment('// partial'),
       ],
-      Vec\slice($children, $idx),
+      Vec\drop($children, $idx),
     )));
   }
 
