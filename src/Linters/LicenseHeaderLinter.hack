@@ -45,10 +45,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
     if ($first instanceof EndOfFile) {
       return null;
     }
-    $leading = $first->getFirstToken()?->getLeading();
-    if ($leading instanceof NodeList) {
-      $leading = $leading->getChildren()[0];
-    }
+    $leading = C\first($first->getFirstToken()?->getLeading()?->toVec() ?? vec[]);
 
     if ($leading instanceof DelimitedComment) {
       if (
