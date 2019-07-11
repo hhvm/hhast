@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ceb03e40b2e54cf1c70f9729e36f4c46>>
+ * @generated SignedSource<<44f88d87e78cc9ec66a1dc2aa3053e3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,8 +89,8 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

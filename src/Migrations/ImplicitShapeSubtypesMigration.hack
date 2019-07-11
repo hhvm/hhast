@@ -36,7 +36,7 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
         }
         return $last_field->withSeparator(
           new HHAST\CommaToken(
-            HHAST\Missing(),
+            null,
             $last_field->getLastTokenx()->getTrailing(),
           ),
         )
@@ -48,7 +48,7 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
                 }
                 return $last_field
                   ->getLastTokenx()
-                  ->withTrailing(HHAST\Missing());
+                  ->withTrailing(null);
               },
             ),
           );
@@ -65,16 +65,14 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
     $fields = $shape->getDescendantsOfType(HHAST\FieldSpecifier::class);
     $first_field = C\first($fields);
     if ($first_field === null) {
-      return $shape->withEllipsis(
-        new HHAST\DotDotDotToken(HHAST\Missing(), HHAST\Missing()),
-      );
+      return $shape->withEllipsis(new HHAST\DotDotDotToken(null, null));
     }
 
     return $shape->withEllipsis(
       new HHAST\DotDotDotToken(
         Str\contains($shape->getCode(), "\n")
           ? $first_field->getFirstTokenx()->getLeading()
-          : new HHAST\WhiteSpace(' '),
+          : new HHAST\NodeList(vec[new HHAST\WhiteSpace(' ')]),
         C\lastx($shape->getFieldsx()->getChildren())
           ->getLastTokenx()
           ->getTrailing(),

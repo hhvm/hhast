@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e7ffb46263edf44517155cb88ad09064>>
+ * @generated SignedSource<<937b00a97de1e8c5d144b9962209982c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -77,8 +77,8 @@ final class PostfixUnaryExpression
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

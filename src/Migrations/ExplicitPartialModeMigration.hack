@@ -23,18 +23,6 @@ final class ExplicitPartialModeMigration extends BaseMigration {
 
 
     $trailing = $node->getLastTokenx()->getTrailing();
-    if ($trailing->isMissing()) {
-      // just `<?hh` then EOF, no trailign newline
-      return $node->replace(
-        $node->getLastTokenx(),
-        $node->getLastTokenx()->withTrailing(
-          new HHAST\NodeList(vec[
-            new HHAST\WhiteSpace(' '),
-            new HHAST\SingleLineComment('// partial'),
-          ]),
-        ),
-      );
-    }
 
     if (Str\starts_with($trailing->getCode(), ' // ')) {
       return $node;

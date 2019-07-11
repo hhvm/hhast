@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f84d7d2c8fb7af1f3d0c303746bc224e>>
+ * @generated SignedSource<<ac60645c84ec608f9f7347cc9ede2ed1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,8 +73,8 @@ final class SwitchFallthrough extends Node implements IStatement {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

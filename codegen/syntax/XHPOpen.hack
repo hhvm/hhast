@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a796f28b831120b98616a893a250292c>>
+ * @generated SignedSource<<3b5c5c31ae1aa8d7bd77dd869fe1a1d4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,8 +102,8 @@ final class XHPOpen extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

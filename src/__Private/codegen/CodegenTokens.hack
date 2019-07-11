@@ -9,12 +9,11 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{Str, Vec};
 use type Facebook\HackCodegen\{
   CodegenClass,
   CodegenConstructor,
   CodegenFileType,
-  CodegenMethod,
   HackBuilderValues,
 };
 
@@ -36,12 +35,12 @@ final class CodegenTokens extends CodegenBase {
     $leading_trailing = vec[
       shape(
         'name' => 'leading',
-        'type' => 'Node',
+        'type' => '?NodeList<Trivia>',
         'override' => true,
       ),
       shape(
         'name' => 'trailing',
-        'type' => 'Node',
+        'type' => '?NodeList<Trivia>',
         'override' => true,
       ),
     ];
@@ -114,9 +113,7 @@ final class CodegenTokens extends CodegenBase {
           ->setType('string')
           ->setValue($token['description'], HackBuilderValues::export()),
       )
-      ->setConstructor($this->generateConstructor($token))
-      ->addMethods($this->generateFieldMethods($token))
-      ->addMethod($this->generateRewriteChildrenMethod($token));
+      ->setConstructor($this->generateConstructor($token));
 
     $cc->addInterfaces(
       Vec\map(
@@ -190,107 +187,5 @@ final class CodegenTokens extends CodegenBase {
     );
 
     return $it;
-  }
-
-  private function generateFieldMethods(
-    self::TTokenSpec $token,
-  ): Traversable<CodegenMethod> {
-    $cg = $this->getCodegenFactory();
-    foreach ($token['fields'] as $field) {
-      $underscored = $field['name'];
-      $upper_camel = StrP\upper_camel($underscored);
-
-      if ($field['type'] !== 'string') {
-        yield $cg
-          ->codegenMethodf('has%s', $upper_camel)
-          ->setReturnType('bool')
-          ->setBodyf('return !$this->get%s()->isMissing();', $upper_camel);
-      }
-
-      yield $cg
-        ->codegenMethodf('with%s', $upper_camel)
-        ->setIsOverride($field['override'])
-        ->addParameterf('%s $value', $field['type'])
-        ->setReturnType('this')
-        ->setBody(
-          $cg->codegenHackBuilder()
-            ->startIfBlockf('$value === $this->get%s()', $upper_camel)
-            ->addReturnf('$this')
-            ->endIfBlock()
-            ->add('return ')
-            ->addMultilineCall(
-              'new self',
-              Vec\map(
-                $token['fields'],
-                $inner ==> $inner === $field
-                  ? '$value'
-                  : '$this->get'.StrP\upper_camel($inner['name']).'()',
-              ),
-            )
-            ->getCode(),
-        );
-    }
-  }
-
-  private function generateRewriteChildrenMethod(
-    self::TTokenSpec $token,
-  ): CodegenMethod {
-    $cg = $this->getCodegenFactory();
-    return $cg->codegenMethod('rewriteChildren')
-      ->setIsOverride()
-      ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('vec<Node> $parents = vec[]')
-      ->setReturnType('this')
-      ->setBody(
-        $cg->codegenHackBuilder()
-          ->addLine('$parents[] = $this;')
-          ->addLines(
-            Vec\map(
-              $token['fields'],
-              $field ==> $field['type'] === 'string'
-                ? Str\format(
-                    '$%s = $this->get%s();',
-                    $field['name'],
-                    StrP\upper_camel($field['name']),
-                  )
-                : Str\format(
-                    '$%s = $rewriter($this->get%s(), $parents);',
-                    $field['name'],
-                    StrP\upper_camel($field['name']),
-                  ),
-            ),
-          )
-          ->addLine('if (')
-          ->indent()
-          ->addLines(
-            Vec\map(
-              $token['fields'],
-              $field ==> Str\format(
-                '$%s === $this->get%s() &&',
-                $field['name'],
-                StrP\upper_camel($field['name']),
-              ),
-            )
-              |> (
-                (vec<string> $lines) ==> {
-                  $idx = C\last_keyx($lines);
-                  $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
-                  return $lines;
-                }
-              )($$),
-          )
-          ->unindent()
-          ->addLine(') {')
-          ->indent()
-          ->addLine('return $this;')
-          ->unindent()
-          ->addLine('}')
-          ->add('return ')
-          ->addMultilineCall(
-            'new self',
-            Vec\map($token['fields'], $field ==> '$'.$field['name']),
-          )
-          ->getCode(),
-      );
   }
 }

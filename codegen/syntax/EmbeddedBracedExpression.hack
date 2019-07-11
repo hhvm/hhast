@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c77f102089fd7aeb1baeeec9245da652>>
+ * @generated SignedSource<<24ce63d134866c05f283218dff54d486>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -91,8 +91,8 @@ final class EmbeddedBracedExpression
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

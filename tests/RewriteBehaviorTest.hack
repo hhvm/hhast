@@ -16,7 +16,7 @@ use namespace Facebook\HHAST;
 
 final class RewriteBehaviorTest extends TestCase {
   public function testTokenIdentity(): void {
-    $node = new HHAST\VariableToken(HHAST\Missing(), HHAST\Missing(), '$var');
+    $node = new HHAST\VariableToken(null, null, '$var');
 
     expect($node->rewrite(($x, $_) ==> $x))
       ->toBeSame($node);
@@ -95,7 +95,7 @@ final class RewriteBehaviorTest extends TestCase {
           new HHAST\WhiteSpace(' '),
         ],
       ),
-      HHAST\Missing(),
+      null,
       '$var',
     );
 
@@ -120,7 +120,7 @@ final class RewriteBehaviorTest extends TestCase {
           new HHAST\WhiteSpace(' '),
         ],
       ),
-      HHAST\Missing(),
+      null,
       '$var',
     );
 
@@ -129,14 +129,15 @@ final class RewriteBehaviorTest extends TestCase {
         if (!$node instanceof HHAST\Trivia) {
           return $node;
         }
-        return HHAST\Missing();
+        return null;
       },
     )
       |> expect($$)->toBeInstanceOf(HHAST\VariableToken::class);
 
 
-    expect($new->getLeading())
-      ->toBeInstanceOf(HHAST\Missing::class);
+    expect($new->getLeading()->isEmpty())->toBeTrue(
+      'Should have empty leading',
+    );
   }
 
   public async function testRewritePreservesCaseOfFixedTextTokens(

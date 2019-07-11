@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be9a0e3f5395303d3af5491bbaf71334>>
+ * @generated SignedSource<<b240b409fa41a746d4011bb7ea33cef3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,8 +103,8 @@ final class PocketFieldTypeExprDeclaration extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

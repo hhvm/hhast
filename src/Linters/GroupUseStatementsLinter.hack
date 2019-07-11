@@ -23,19 +23,18 @@ use type Facebook\HHAST\{
   NamespaceToken,
   NamespaceUseClause,
   NamespaceUseDeclaration,
-  Node,
   NodeList,
   QualifiedName,
   RightBraceToken,
   Script,
   SemicolonToken,
   Token,
+  Trivia,
   TypeToken,
   UseToken,
   WhiteSpace,
 };
 use namespace HH\Lib\{C, Dict, Str, Vec};
-use function Facebook\HHAST\Missing;
 
 final class GroupUseStatementsLinter extends AutoFixingASTLinter {
   const type TNode = Script;
@@ -312,7 +311,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
           }
           $name_leading = Vec\drop($name_leading, $drop);
 
-          $take_trailing = (vec<Node> $trailings) ==> {
+          $take_trailing = (vec<Trivia> $trailings) ==> {
             $take = C\count($trailings);
             foreach (Vec\reverse($trailings) as $trailing) {
               if (
@@ -367,7 +366,14 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
         string,
         (
           vec<INamespaceUseDeclaration>,
-          vec<(string, ?string, vec<Node>, vec<Node>, vec<Node>, vec<Node>)>,
+          vec<(
+            string,
+            ?string,
+            vec<Trivia>,
+            vec<Trivia>,
+            vec<Trivia>,
+            vec<Trivia>,
+          )>,
         ),
       >,
     > $result,
@@ -426,18 +432,27 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
 
             $script = $script->replace($node, new NamespaceGroupUseDeclaration(
               new UseToken(
-                $use_token is nonnull ? $use_token->getLeading() : Missing(),
-                new WhiteSpace(' '),
+                $use_token is nonnull ? $use_token->getLeading() : null,
+                new NodeList(vec[new WhiteSpace(' ')]),
               ),
               (
                 (string $kind): ?Token ==> {
                   switch ($kind) {
                     case 'function':
-                      return new FunctionToken(Missing(), new WhiteSpace(' '));
+                      return new FunctionToken(
+                        null,
+                        new NodeList(vec[new WhiteSpace(' ')]),
+                      );
                     case 'namespace':
-                      return new NamespaceToken(Missing(), new WhiteSpace(' '));
+                      return new NamespaceToken(
+                        null,
+                        new NodeList(vec[new WhiteSpace(' ')]),
+                      );
                     case 'type':
-                      return new TypeToken(Missing(), new WhiteSpace(' '));
+                      return new TypeToken(
+                        null,
+                        new NodeList(vec[new WhiteSpace(' ')]),
+                      );
                   }
                   return null;
                 }
@@ -447,15 +462,15 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                   Str\split($namespace, '\\')
                     |> Vec\map($$, ($name) ==> {
                       return new ListItem(
-                        new NameToken(Missing(), Missing(), $name),
-                        new BackslashToken(Missing(), Missing()),
+                        new NameToken(null, null, $name),
+                        new BackslashToken(null, null),
                       );
                     }),
                 ),
               ),
               new LeftBraceToken(
-                Missing(),
-                $multiple ? new WhiteSpace("\n") : Missing(),
+                null,
+                $multiple ? new NodeList(vec[new WhiteSpace("\n")]) : null,
               ),
               new NodeList(Vec\map_with_key($names, ($index, $name) ==> {
                 list(
@@ -473,19 +488,11 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                       new NodeList(vec[
                         new ListItem(
                           new NameToken(
-                            C\count($name_leading) > 0
-                              ? (
-                                  $multiple
-                                    ? new NodeList(Vec\concat(
-                                      vec[new WhiteSpace('  ')],
-                                      $name_leading,
-                                    ))
-                                    : new NodeList($name_leading)
-                                )
-                              : ($multiple ? new WhiteSpace('  ') : Missing()),
-                            C\count($name_trailing) > 0
-                              ? new NodeList($name_trailing)
-                              : Missing(),
+                            new NodeList(Vec\concat(
+                              vec[new WhiteSpace('  ')],
+                              $name_leading,
+                            )),
+                            new NodeList($name_trailing),
                             $name,
                           ),
                           /*$separator*/ null,
@@ -493,14 +500,15 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                       ]),
                     ),
                     $alias is nonnull
-                      ? new AsToken(new WhiteSpace(' '), new WhiteSpace(' '))
+                      ? new AsToken(
+                          new NodeList(vec[new WhiteSpace(' ')]),
+                          new NodeList(vec[new WhiteSpace(' ')]),
+                        )
                       : null,
                     $alias is nonnull
                       ? new NameToken(
-                          Missing(),
-                          C\count($alias_trailing) > 0
-                            ? new NodeList($alias_trailing)
-                            : Missing(),
+                          null,
+                          new NodeList($alias_trailing),
                           $alias,
                         )
                       : null,
@@ -508,31 +516,23 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                   (!$multiple && $index === $names_count - 1)
                     ? null
                     : new CommaToken(
-                        Missing(),
-                        C\count($comma_trailing) > 0
-                          ? new NodeList(Vec\concat($comma_trailing, vec[
-                            $multiple
+                        null,
+                        new NodeList(Vec\concat($comma_trailing, vec[
+                          $multiple
                               ? new WhiteSpace("\n")
                               : new WhiteSpace(' '),
-                          ]))
-                          : (
-                              $multiple
-                                ? new WhiteSpace("\n")
-                                : new WhiteSpace(' ')
-                            ),
+                        ])),
                       ),
                 );
               })),
-              new RightBraceToken(Missing(), Missing()),
-              new SemicolonToken(
-                Missing(),
-                $semicolumn_token is nonnull
-                  ? $semicolumn_token->getTrailing()
-                  : Missing(),
-              ),
+              new RightBraceToken(null, null),
+              new SemicolonToken(null, $semicolumn_token?->getTrailing()),
             ));
           } else {
-            $script = $script->replace($node, Missing());
+            $descendants = $script->getAncestorsOfDescendant($node);
+            invariant(C\lastx($descendants) === $node, 'failed to find node');
+            $parent = $descendants[C\count($descendants) - 2] as NodeList<_>;
+            $script = $script->replace($parent, $parent->withoutChild($node));
           }
           $i++;
         }

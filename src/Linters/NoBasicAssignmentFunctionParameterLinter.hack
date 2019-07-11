@@ -84,8 +84,8 @@ class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
         $fixed_exps[] = $item->getRightOperandx();
         if ($exp !== C\lastx($args)) {
           $fixed_exps[] = new CommaToken(
-            new WhiteSpace(''),
-            new WhiteSpace(' '),
+            new NodeList(vec[new WhiteSpace('')]),
+            new NodeList(vec[new WhiteSpace(' ')]),
           );
         }
       } else {

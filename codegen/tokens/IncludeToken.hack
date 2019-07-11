@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29bc7a54dd5c7ea76ecbb00a76c60a91>>
+ * @generated SignedSource<<063ac54adb359901cdbbcfc7cd7b3cf6>>
  */
 namespace Facebook\HHAST;
 
@@ -10,51 +10,11 @@ final class IncludeToken extends TokenWithVariableText {
   const string KIND = 'include';
 
   public function __construct(
-    Node $leading,
-    Node $trailing,
+    ?NodeList<Trivia> $leading,
+    ?NodeList<Trivia> $trailing,
     string $token_text = 'include',
     ?__Private\SourceRef $source_ref = null,
   ) {
     parent::__construct($leading, $trailing, $token_text, $source_ref);
-  }
-
-  public function hasLeading(): bool {
-    return !$this->getLeading()->isMissing();
-  }
-
-  <<__Override>>
-  public function withLeading(Node $value): this {
-    if ($value === $this->getLeading()) {
-      return $this;
-    }
-    return new self($value, $this->getTrailing());
-  }
-
-  public function hasTrailing(): bool {
-    return !$this->getTrailing()->isMissing();
-  }
-
-  <<__Override>>
-  public function withTrailing(Node $value): this {
-    if ($value === $this->getTrailing()) {
-      return $this;
-    }
-    return new self($this->getLeading(), $value);
-  }
-
-  <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
-    vec<Node> $parents = vec[],
-  ): this {
-    $parents[] = $this;
-    $leading = $rewriter($this->getLeading(), $parents);
-    $trailing = $rewriter($this->getTrailing(), $parents);
-    if (
-      $leading === $this->getLeading() && $trailing === $this->getTrailing()
-    ) {
-      return $this;
-    }
-    return new self($leading, $trailing);
   }
 }

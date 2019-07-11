@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fee6f2153d5135a48bb43ec9ec00835f>>
+ * @generated SignedSource<<29431cb3c2f2d499c377d2c048d01b2e>>
  */
 namespace Facebook\HHAST;
 
@@ -10,51 +10,11 @@ final class GlobalToken extends TokenWithVariableText {
   const string KIND = 'global';
 
   public function __construct(
-    Node $leading,
-    Node $trailing,
+    ?NodeList<Trivia> $leading,
+    ?NodeList<Trivia> $trailing,
     string $token_text = 'global',
     ?__Private\SourceRef $source_ref = null,
   ) {
     parent::__construct($leading, $trailing, $token_text, $source_ref);
-  }
-
-  public function hasLeading(): bool {
-    return !$this->getLeading()->isMissing();
-  }
-
-  <<__Override>>
-  public function withLeading(Node $value): this {
-    if ($value === $this->getLeading()) {
-      return $this;
-    }
-    return new self($value, $this->getTrailing());
-  }
-
-  public function hasTrailing(): bool {
-    return !$this->getTrailing()->isMissing();
-  }
-
-  <<__Override>>
-  public function withTrailing(Node $value): this {
-    if ($value === $this->getTrailing()) {
-      return $this;
-    }
-    return new self($this->getLeading(), $value);
-  }
-
-  <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
-    vec<Node> $parents = vec[],
-  ): this {
-    $parents[] = $this;
-    $leading = $rewriter($this->getLeading(), $parents);
-    $trailing = $rewriter($this->getTrailing(), $parents);
-    if (
-      $leading === $this->getLeading() && $trailing === $this->getTrailing()
-    ) {
-      return $this;
-    }
-    return new self($leading, $trailing);
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5bc89f4d0ba69a2eeff3e0a5a35109d>>
+ * @generated SignedSource<<282af90195f5550cbdaee1baabedbe31>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,8 +74,8 @@ final class ConstantDeclarator extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

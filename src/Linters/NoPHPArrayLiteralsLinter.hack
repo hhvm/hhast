@@ -83,17 +83,17 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
       ) {
         if ($is_assoc) {
           return new DictionaryIntrinsicExpression(
-            new DictToken($left->getLeading(), Missing()),
+            new DictToken($left->getLeading(), null),
             null,
-            $left->without($left->getLeading()),
+            $left->withLeading(null),
             /* HH_FIXME[4110] */ $list,
             $right,
           );
         } else {
           return new VectorIntrinsicExpression(
-            new VecToken($left->getLeading(), Missing()),
+            new VecToken($left->getLeading(), null),
             null,
-            $left->without($left->getLeading()),
+            $left->withLeading(null),
             /* HH_FIXME[4110] */ $list,
             $right,
           );

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b826e76f7d289e0c3eff6951a316ab51>>
+ * @generated SignedSource<<d3232d58973572138bdebaf0eb5aa1b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -116,8 +116,8 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

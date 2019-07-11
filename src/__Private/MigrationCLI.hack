@@ -13,7 +13,6 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 use type Facebook\HHAST\Migrations\{
   AddFixmesMigration,
-  AssertToExpectMigration,
   BaseMigration,
   DollarBraceEmbeddedVariableMigration,
   ExplicitPartialModeMigration,
@@ -21,9 +20,7 @@ use type Facebook\HHAST\Migrations\{
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
-  NamespaceFallbackMigration,
   OptionalShapeFieldsMigration,
-  PHPUnitToHackTestMigration,
 };
 
 use type Facebook\CLILib\{CLIWithRequiredArguments, ExitException};
@@ -59,9 +56,12 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = AssertToExpectMigration::class;
+          throw new ExitException(
+            1,
+            "Use HHAST 4.11.* or below for this migration",
+          );
         },
-        'Change assert calls to expect ',
+        'no longer supported',
         '--assert-to-expect',
       ),
       CLIOptions\flag(
@@ -159,17 +159,22 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = NamespaceFallbackMigration::class;
+          throw new ExitException(
+            1,
+            "Use HHAST 4.11.* or below for this migration",
+          );
         },
-        'Add leading \\ to calls to unqualified references to global '.
-        'functions or constants',
+        'no longer supported',
         '--no-namespace-fallback',
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = PHPUnitToHackTestMigration::class;
+          throw new ExitException(
+            1,
+            "Use HHAST 4.11.* or below for this migration",
+          );
         },
-        'Migrate from PHPUnit to HackTest',
+        'no longer supported',
         '--phpunit-to-hacktest',
       ),
       CLIOptions\flag(
@@ -181,10 +186,12 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = ExplicitPartialModeMigration::class;
-          $this->migrations[] = NamespaceFallbackMigration::class;
+          throw new ExitException(
+            1,
+            'use HHAST 4.11.* or below for this migration',
+          );
         },
-        'Apply all migrations for moving from 4.0 to 4.1',
+        'no longer supported',
         '--hhvm-4.0-to-4.1',
       ),
       CLIOptions\flag(

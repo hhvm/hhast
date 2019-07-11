@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f71d59929c5829114b9ff56a65b0a965>>
+ * @generated SignedSource<<4f259392133d913fbe63b7a60b83352b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,8 +171,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

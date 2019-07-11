@@ -100,30 +100,22 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   }
 
   private function getHTMLForNode(HHAST\Node $node): string {
-    if ($node instanceof HHAST\Missing) {
-      return '';
-    }
-
     if ($node->isTrivia()) {
       $inner = \htmlspecialchars($node->getCode());
     } else if ($node instanceof HHAST\Token) {
       $inner = '';
 
       $leading = $node->getLeading();
-      if (!$leading instanceof HHAST\Missing) {
-        $inner .= '<span data-field="leading">'.
-          $this->getHTMLForNode($leading).
-          '</span>';
-      }
+      $inner .= '<span data-field="leading">'.
+        $this->getHTMLForNode($leading).
+        '</span>';
 
       $inner .= \htmlspecialchars($node->getText());
 
       $trailing = $node->getTrailing();
-      if (!$trailing instanceof HHAST\Missing) {
-        $inner .= '<span data-field="trailing">'.
-          $this->getHTMLForNode($trailing).
-          '</span>';
-      }
+      $inner .= '<span data-field="trailing">'.
+        $this->getHTMLForNode($trailing).
+        '</span>';
     } else {
       $inner = $node->getChildren()
         |> Dict\map_with_key(

@@ -136,10 +136,10 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     return $node->withFunctionBody(
       $body
         ->withStatements(null)
-        ->withLeftBrace($body->getLeftBracex()->withTrailing(HHAST\Missing()))
-        ->without($body->getRightBracex()),
+        ->withLeftBrace($body->getLeftBracex()->withTrailing(null)),
     )
-      ->getCode();
+      ->getCode()
+      |> Str\trim_right($$, "} \n");
   }
 
   public function getFixedNode(
@@ -150,32 +150,31 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
       $first_token = $node->getFirstTokenx();
       return $node->withAttribute(
         new AttributeSpecification(
-          new HHAST\LessThanLessThanToken(
-            $first_token->getLeading(),
-            HHAST\Missing(),
-          ),
+          new HHAST\LessThanLessThanToken($first_token->getLeading(), null),
           new HHAST\ConstructorCall(
-            new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), '__Override'),
+            new HHAST\NameToken(null, null, '__Override'),
             null,
             null,
             null,
           )
             |> new HHAST\NodeList(vec[new HHAST\ListItem($$, null)]),
           new HHAST\GreaterThanGreaterThanToken(
-            HHAST\Missing(),
+            null,
             Str\contains(
               C\lastx($first_token->getLeading()->getChildren())->getCode(),
               "\n",
             )
-              ? HHAST\Missing()
-              : new HHAST\WhiteSpace("\n"),
+              ? null
+              : new HHAST\NodeList(vec[new HHAST\WhiteSpace("\n")]),
           ),
         ),
       )
         ->replace(
           $first_token,
           $first_token->withLeading(
-            C\lastx($first_token->getLeading()->getChildren()),
+            new HHAST\NodeList(
+              vec[C\lastx($first_token->getLeading()->getChildren())],
+            ),
           ),
         );
     }
@@ -185,11 +184,14 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     $last = $list[$last_idx];
     if (!$last->hasSeparator()) {
       $list[$last_idx] = $last->withSeparator(
-        new HHAST\CommaToken(HHAST\Missing(), new HHAST\WhiteSpace(' ')),
+        new HHAST\CommaToken(
+          null,
+          new HHAST\NodeList(vec[new HHAST\WhiteSpace(' ')]),
+        ),
       );
     }
     $list[] = new HHAST\ConstructorCall(
-      new HHAST\NameToken(HHAST\Missing(), HHAST\Missing(), '__Override'),
+      new HHAST\NameToken(null, null, '__Override'),
       null,
       null,
       null,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbc71356b24ac619ec5dffe2bd1c5929>>
+ * @generated SignedSource<<1ba699d566a8031021c1b4917141a89b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,8 +103,8 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

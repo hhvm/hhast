@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d191fb3811edf59147e643557de2789>>
+ * @generated SignedSource<<48fd3ad409c0babb9cf2e9347d3ab883>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,8 +74,8 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

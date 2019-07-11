@@ -14,26 +14,26 @@ use namespace HH\Lib\{C, Str, Vec};
 
 abstract class Token extends Node {
   private string $_token_kind;
-  private Node $_leading;
-  private Node $_trailing;
+  private NodeList<Trivia> $_leading;
+  private NodeList<Trivia> $_trailing;
   private string $_text;
 
   const string SYNTAX_KIND = 'token';
 
   public function __construct(
     string $token_kind,
-    Node $leading,
-    Node $trailing,
+    ?NodeList<Trivia> $leading,
+    ?NodeList<Trivia> $trailing,
     string $text,
     ?__Private\SourceRef $ref,
   ) {
     $this->_token_kind = $token_kind;
-    $this->_leading = $leading;
-    $this->_trailing = $trailing;
+    $this->_leading = $leading ?? new NodeList(vec[]);
+    $this->_trailing = $trailing ?? new NodeList(vec[]);
     $this->_text = $text;
     $this->_width = Str\length($text) +
-      $leading->getWidth() +
-      $trailing->getWidth();
+      $this->_leading->getWidth() +
+      $this->_trailing->getWidth();
     parent::__construct($ref);
   }
 
@@ -41,26 +41,25 @@ abstract class Token extends Node {
     return $this->_token_kind;
   }
 
-  public function getText(): string {
+  final public function getText(): string {
     return $this->_text;
   }
 
-  public function getLeading(): Node {
+  final public function hasLeading(): bool {
+    return $this->_leading->isEmpty();
+  }
+
+  final public function hasTrailing(): bool {
+    return $this->_trailing->isEmpty();
+  }
+
+  public function getLeading(): NodeList<Trivia> {
     return $this->_leading;
   }
 
-  final public function getLeadingWhitespace(): Node {
+  final public function getLeadingWhitespace(): ?Trivia {
     $leading = $this->getLeading();
-    if ($leading->isMissing()) {
-      return $leading;
-    }
-    if ($leading instanceof WhiteSpace || $leading instanceof EndOfLine) {
-      return $leading;
-    }
-    if (!$leading instanceof NodeList) {
-      return Missing();
-    }
-    $last = Missing();
+    $last = null;
     foreach ($leading->getChildren() as $child) {
       if ($child instanceof WhiteSpace || $child instanceof EndOfLine) {
         $last = $child;
@@ -69,17 +68,8 @@ abstract class Token extends Node {
     return $last;
   }
 
-  final public function getTrailingWhitespace(): Node {
+  final public function getTrailingWhitespace(): NodeList<Trivia> {
     $trailing = $this->getTrailing();
-    if ($trailing->isMissing()) {
-      return $trailing;
-    }
-    if ($trailing instanceof WhiteSpace || $trailing instanceof EndOfLine) {
-      return $trailing;
-    }
-    if (!$trailing instanceof NodeList) {
-      return Missing();
-    }
     $result = vec[];
     foreach ($trailing->getChildren() as $child) {
       if ($child instanceof WhiteSpace) {
@@ -89,15 +79,15 @@ abstract class Token extends Node {
         break;
       }
     }
-    return NodeList::createNonEmptyListOrMissing($result);
+    return NodeList::createMaybeEmptyList($result);
   }
 
-  public function getTrailing(): Node {
+  public function getTrailing(): NodeList<Trivia> {
     return $this->_trailing;
   }
 
   <<__Override>>
-  public function getChildren(): dict<string, Node> {
+  public function getChildren(): dict<string, NodeList<Trivia>> {
     return dict[
       'leading' => $this->getLeading(),
       'trailing' => $this->getTrailing(),
@@ -116,9 +106,9 @@ abstract class Token extends Node {
       $this->getTrailing()->getCode();
   }
 
-  public abstract function withLeading(Node $leading): Token;
+  public abstract function withLeading(?NodeList<Trivia> $leading): Token;
 
-  public abstract function withTrailing(Node $trailing): Token;
+  public abstract function withTrailing(?NodeList<Trivia> $trailing): Token;
 
   <<__Override>>
   final public static function fromJSON(
@@ -130,13 +120,13 @@ abstract class Token extends Node {
   ): Token {
     $leading_list = __Private\fold_map(
       /* HH_FIXME[4110] use like-types when available*/ $json['leading'],
-      ($j, $p) ==> Node::fromJSON($j, $file, $p, $source, 'Node'),
+      ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] + $p,
       $offset,
     ) |> Vec\filter_nulls($$);
 
     $leading = C\is_empty($leading_list)
-      ? Missing()
+      ? new NodeList(vec[])
       : new NodeList(
           $leading_list,
           shape(
@@ -152,12 +142,12 @@ abstract class Token extends Node {
     $trailing_position = $token_position + $token_width;
     $trailing_list = __Private\fold_map(
       /* HH_IGNORE_ERROR[4110] */ $json['trailing'],
-      ($j, $p) ==> Node::fromJSON($j, $file, $p, $source, 'Node'),
+      ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
     ) |> Vec\filter_nulls($$);
     $trailing = C\is_empty($trailing_list)
-      ? Missing()
+      ? new NodeList(vec[])
       : new NodeList(
           $trailing_list,
           shape(

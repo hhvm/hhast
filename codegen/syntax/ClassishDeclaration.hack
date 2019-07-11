@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dcdd5cb0147bc64123fcad22a61d2669>>
+ * @generated SignedSource<<d243e1fd785bc844e8d78dc99cc18648>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -182,8 +182,8 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

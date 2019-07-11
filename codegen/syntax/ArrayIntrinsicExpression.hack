@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89f225b5f93d8a114bff3f0657f7b33b>>
+ * @generated SignedSource<<2daaf91c72f8d445cbd880e8f58233b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,8 +104,8 @@ final class ArrayIntrinsicExpression
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d26e7f196c43a4e5b1524ad7534534c9>>
+ * @generated SignedSource<<6a80d5adb0456d8f2ca7856311e8e804>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,8 +75,8 @@ final class WhereClause extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

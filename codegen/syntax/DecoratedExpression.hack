@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55abac0b34664cee680a1068cea54d10>>
+ * @generated SignedSource<<3d8684837ae4c217835a9767eda2de91>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -77,8 +77,8 @@ final class DecoratedExpression
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22a1e22e5a21fd05c5ed0e0d17179c46>>
+ * @generated SignedSource<<ae3ec45cb8a1ecef07d32c47aec8b222>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,8 +114,8 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

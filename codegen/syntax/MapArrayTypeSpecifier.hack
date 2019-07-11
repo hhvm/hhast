@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<657dae16625fe88deb6bdcce172c3876>>
+ * @generated SignedSource<<cf6b7f9ba85379334c291c90f1bfdb6e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,8 +130,8 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

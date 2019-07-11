@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb9222d85a88002c5f493c13678f2dd1>>
+ * @generated SignedSource<<564e8da5fd051884f976d56d8930e46e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,8 +89,8 @@ final class FieldInitializer extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

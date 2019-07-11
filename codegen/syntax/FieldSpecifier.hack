@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3255e0accca61cbdfafcae576c98c679>>
+ * @generated SignedSource<<b8bf390826e5e47eb26e7ce511955922>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,8 +102,8 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b3d76403958b4e99f460f0f30699438>>
+ * @generated SignedSource<<cc255582aff6ace9698eca0a94fcefde>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -187,8 +187,8 @@ final class AlternateIfStatement
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

@@ -87,7 +87,6 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
       $expr instanceof HHAST\KeysetIntrinsicExpression ||
       $expr instanceof HHAST\LambdaExpression ||
       $expr instanceof HHAST\LiteralExpression ||
-      $expr instanceof HHAST\Missing ||
       $expr instanceof HHAST\NameExpression ||
       (
         $expr instanceof HHAST\ParenthesizedExpression &&

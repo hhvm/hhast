@@ -14,8 +14,11 @@ use type Facebook\HHAST\{
   INamespaceUseDeclaration,
   NamespaceGroupUseDeclaration,
   NamespaceUseDeclaration,
+  QualifiedName,
   Script,
 };
+
+use namespace HH\Lib\C;
 
 final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
   const type TNode = INamespaceUseDeclaration;
@@ -64,11 +67,19 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
     if ($node instanceof NamespaceUseDeclaration) {
       $clauses = $node->getClauses();
       foreach ($clauses->getChildrenOfItems() as $clause) {
-        $t = $clause->getName()->getFirstTokenx();
-        if (!$t instanceof BackslashToken) {
+        $name = $clause->getName();
+        if (!$name is QualifiedName) {
           continue;
         }
-        $clauses = $clauses->without($t);
+        $first = C\firstx($name->getParts()->toVec());
+        if ($first->getItem() !== null) {
+          // null item means we just have a separator - a leading backslash
+          continue;
+        }
+        $clauses = $name->getParts()->withoutChild($first)
+          |> $name->withParts($$)
+          |> $clause->withName($$)
+          |> $clauses->replace($clause, $$);
       }
       return $node->withClauses($clauses);
     }
@@ -78,16 +89,12 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
       "Got an unexpected INamespaceUseDeclaration subclass",
     );
 
-    $first = $node->getPrefix()->getFirstToken();
-    if ($first === null || !$first instanceof BackslashToken) {
+    $first = C\firstx($node->getPrefix()->getParts()->toVec());
+    if ($first->getItem() !== null) {
       return $node;
     }
-
-    $new = $node->without($first);
-    invariant(
-      $new instanceof NamespaceGroupUseDeclaration,
-      'unexpected type change',
-    );
-    return $new;
+    return $node->getPrefix()->getParts()->withoutChild($first)
+      |> $node->getPrefix()->withParts($$)
+      |> $node->withPrefix($$);
   }
 }

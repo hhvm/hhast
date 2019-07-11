@@ -33,8 +33,8 @@ abstract class WrapperNode extends Node {
   }
 
   <<__Override>>
-  final public function rewriteChildren(
-    self::TRewriter $rewriter,
+  final public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

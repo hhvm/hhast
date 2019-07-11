@@ -83,26 +83,30 @@ final class ListItem<+T as ?Node> extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
-  ): this {
+  ): ListItem<T> {
     $parents[] = $this;
-    $item = $this->_item === null ? null : $rewriter($this->_item, $parents);
+    $item = $this->_item === null
+      ? $this->_item
+      : $rewriter($this->_item, $parents);
     $separator = $this->_separator === null
       ? null
-      : $rewriter($this->_separator, $parents);
+      : $rewriter($this->_separator, $parents) as ?Token;
     if ($item === $this->_item && $separator === $this->_separator) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] need reified */ $item, $separator);
+    return new static(/* HH_FIXME[4110] */ $item, $separator);
   }
 
-  public function withItem(Node $value): this {
+  public function withItem<Tnode super T as Node>(
+    Tnode $value,
+  ): ListItem<Tnode> {
     if ($value === $this->_item) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] */ $value, $this->_separator);
+    return new static($value, $this->_separator);
   }
 
   public function hasItem(): bool {
@@ -124,7 +128,7 @@ final class ListItem<+T as ?Node> extends Node {
     return $this->getItem() as nonnull;
   }
 
-  public function getSeparatorUNTYPED(): ?Token{
+  public function getSeparatorUNTYPED(): ?Token {
     return $this->_separator;
   }
 

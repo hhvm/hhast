@@ -25,7 +25,6 @@ use type Facebook\HHAST\{
   StringLiteralBodyToken,
   VariableToken,
 };
-use function Facebook\HHAST\Missing;
 use namespace HH\Lib\{C, Vec};
 
 final class NoStringInterpolationLinter extends AutoFixingASTLinter {
@@ -103,8 +102,8 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
 
       if ($child instanceof StringLiteralBodyToken) {
         $new_children[] = new DoubleQuotedStringLiteralToken(
-          Missing(),
-          Missing(),
+          null,
+          null,
           '"'.$child->getText().'"',
         );
         continue;
@@ -136,10 +135,7 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
           $inner instanceof NameToken,
           '"${}" should contain a variable name',
         );
-        $new_children[] = new VariableToken(
-          Missing(),
-          Missing(),
-          '$'.$inner->getText(),
+        $new_children[] = new VariableToken(null, null, '$'.$inner->getText(),
         );
         continue;
       }
@@ -156,12 +152,12 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
     for ($i = 0; $i < C\count($children) - 1; ++$i) {
       $children = Vec\concat(
         Vec\slice($children, 0, $i + 1),
-        vec[new DotToken(Missing(), Missing())],
+        vec[new DotToken(null, null)],
         Vec\slice($children, $i + 1),
       );
       ++$i;
     }
 
-    return NodeList::createNonEmptyListOrMissing($children);
+    return NodeList::createNonEmptyListOrNull($children);
   }
 }

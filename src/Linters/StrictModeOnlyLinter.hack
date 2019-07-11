@@ -57,7 +57,7 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter {
   public function getFixedNode(MarkupSuffix $node): MarkupSuffix {
     $name = $node->getName();
     invariant($name !== null, "Shouldn't be asked to fix a `<?hh`'");
-    return $name->withTrailing(NodeList::createNonEmptyListOrMissing(vec[
+    return $name->withTrailing(new NodeList(vec[
       new WhiteSpace(' '),
       new SingleLineComment('// strict'),
       new EndOfLine("\n"),

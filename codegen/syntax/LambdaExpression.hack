@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f037d6d02614ed38bb10eac0babbb14e>>
+ * @generated SignedSource<<a79c9246bc7e974e62e57b85ac53b442>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,8 +130,8 @@ final class LambdaExpression
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

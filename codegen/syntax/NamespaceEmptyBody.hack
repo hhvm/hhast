@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32438ef779f0c8a75654e9411b496150>>
+ * @generated SignedSource<<2372d482aa5df13aef09653f4b5acfc2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -58,8 +58,8 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

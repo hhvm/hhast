@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19dbcdd9b32d41ac8cc2484c4d9f28bb>>
+ * @generated SignedSource<<e9279adee898a768a3daa6f31ca0b7c0>>
  */
 namespace Facebook\HHAST;
 
@@ -10,51 +10,11 @@ final class MixedToken extends TokenWithVariableText {
   const string KIND = 'mixed';
 
   public function __construct(
-    Node $leading,
-    Node $trailing,
+    ?NodeList<Trivia> $leading,
+    ?NodeList<Trivia> $trailing,
     string $token_text = 'mixed',
     ?__Private\SourceRef $source_ref = null,
   ) {
     parent::__construct($leading, $trailing, $token_text, $source_ref);
-  }
-
-  public function hasLeading(): bool {
-    return !$this->getLeading()->isMissing();
-  }
-
-  <<__Override>>
-  public function withLeading(Node $value): this {
-    if ($value === $this->getLeading()) {
-      return $this;
-    }
-    return new self($value, $this->getTrailing());
-  }
-
-  public function hasTrailing(): bool {
-    return !$this->getTrailing()->isMissing();
-  }
-
-  <<__Override>>
-  public function withTrailing(Node $value): this {
-    if ($value === $this->getTrailing()) {
-      return $this;
-    }
-    return new self($this->getLeading(), $value);
-  }
-
-  <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
-    vec<Node> $parents = vec[],
-  ): this {
-    $parents[] = $this;
-    $leading = $rewriter($this->getLeading(), $parents);
-    $trailing = $rewriter($this->getTrailing(), $parents);
-    if (
-      $leading === $this->getLeading() && $trailing === $this->getTrailing()
-    ) {
-      return $this;
-    }
-    return new self($leading, $trailing);
   }
 }

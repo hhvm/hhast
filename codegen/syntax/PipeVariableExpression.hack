@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce7d7c6809b6de7a24c1e895c5f100dd>>
+ * @generated SignedSource<<fc84ad384da673c529cb2b6608313b7e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,8 +60,8 @@ final class PipeVariableExpression
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

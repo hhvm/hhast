@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c45068b15763fa48f6cc35213dbda1ec>>
+ * @generated SignedSource<<9ffbbaf34cc561e79e394dd61a6f11e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,8 +74,8 @@ final class MarkupSuffix extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

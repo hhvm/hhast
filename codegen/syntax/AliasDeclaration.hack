@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c0721aa51cecc01786c32663d265d567>>
+ * @generated SignedSource<<aaa6ff4aa68b209998b750a006cf43bc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -156,8 +156,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

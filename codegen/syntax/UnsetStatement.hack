@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea8bf663bb95d5bfeeb35f8cf765259e>>
+ * @generated SignedSource<<5d85c88816b491db5586df22ae952b67>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,8 +117,8 @@ final class UnsetStatement extends Node implements IStatement {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

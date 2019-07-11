@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be03820c05005ade7303ba4e0b66c51e>>
+ * @generated SignedSource<<98248f7666200bd3e7e52688cdfd4efb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -118,8 +118,8 @@ final class ConditionalExpression
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

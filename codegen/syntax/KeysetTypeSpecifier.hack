@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6b7ca2ae868f105a4ba310ef59254a4>>
+ * @generated SignedSource<<f07681e5cd81c2d40a98633191557afb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -116,8 +116,8 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

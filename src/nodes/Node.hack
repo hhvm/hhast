@@ -14,7 +14,6 @@ use namespace Facebook\TypeAssert;
 
 abstract class Node {
   abstract const string SYNTAX_KIND;
-  const type TRewriter = (function(Node, ?vec<Node>): Node);
 
   protected dict<int, Node> $_descendants = dict[];
   protected ?int $_width;
@@ -92,10 +91,6 @@ abstract class Node {
     return false;
   }
 
-  public function isMissing(): bool {
-    return false;
-  }
-
   public function getWidth(): int {
     if ($this->_width === null) {
       $width = 0;
@@ -153,19 +148,6 @@ abstract class Node {
     return $out;
   }
 
-  public function removeWhere(
-    (function(Node, ?vec<Node>): bool) $predicate,
-  ): this {
-    return $this->rewriteDescendants(
-      ($node, $parents) ==>
-        $predicate($node, $parents) ? Missing::getInstance() : $node,
-    );
-  }
-
-  public function without(Node $target): this {
-    return $this->replace($target, Missing::getInstance());
-  }
-
   final public function replace(Node $old, Node $new): this {
     if ($old === $new) {
       return $this;
@@ -197,9 +179,7 @@ abstract class Node {
 
   public function getFirstToken(): ?Token {
     foreach ($this->getChildren() as $child) {
-      if (!$child->isMissing()) {
-        return $child->getFirstToken();
-      }
+      return $child->getFirstToken();
     }
     return null;
   }
@@ -210,73 +190,13 @@ abstract class Node {
 
   public function getLastToken(): ?Token {
     foreach (Vec\reverse($this->getChildren()) as $child) {
-      if (!$child->isMissing()) {
-        return $child->getLastToken();
-      }
+      return $child->getLastToken();
     }
     return null;
   }
 
-  public function insertBefore(Node $target, Node $new_node): this {
-    // Inserting before missing is an error.
-    if ($target->isMissing()) {
-      throw new \Exception('Target must not be missing in insert_before.');
-    }
-
-    // Inserting missing is a no-op
-    if ($new_node->isMissing()) {
-      return $this;
-    }
-
-    if ($new_node->isTrivia() && !$target->isTrivia()) {
-      $token = $target->getFirstToken();
-      if ($token === null) {
-        throw new \Exception('Unable to find token to insert trivia.');
-      }
-      $token = TypeAssert\instance_of(Token::class, $token);
-
-      // Inserting trivia before token is inserting to the right end of
-      // the leading trivia.
-      $new_leading = NodeList::concat($token->getLeading(), $new_node);
-      $new_token = $token->withLeading($new_leading);
-      return $this->replace($token, $new_token);
-    }
-
-    return $this->replace($target, NodeList::concat($new_node, $target));
-  }
-
-  public function insertAfter(Node $target, Node $new_node): this {
-
-    // Inserting after missing is an error.
-    if ($target->isMissing()) {
-      throw new \Exception('Target must not be missing in insert_after.');
-    }
-
-    // Inserting missing is a no-op
-    if ($new_node->isMissing()) {
-      return $this;
-    }
-
-    if ($new_node->isTrivia() && !$target->isTrivia()) {
-      $token = $target->getLastToken();
-      if ($token === null) {
-        throw new \Exception('Unable to find token to insert trivia.');
-      }
-
-      $token = TypeAssert\instance_of(Token::class, $token);
-
-      // Inserting trivia after token is inserting to the left end of
-      // the trailing trivia.
-      $new_trailing = NodeList::concat($new_node, $token->getTrailing());
-      $new_token = $token->withTrailing($new_trailing);
-      return $this->replace($token, $new_token);
-    }
-
-    return $this->replace($target, NodeList::concat($target, $new_node));
-  }
-
-  final public function rewriteDescendants(
-    self::TRewriter $rewriter,
+  final public function rewriteDescendants<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     return $this->rewriteChildren(
@@ -285,15 +205,15 @@ abstract class Node {
     );
   }
 
-  abstract public function rewriteChildren(
-    self::TRewriter $rewriter,
+  abstract public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this;
 
-  public function rewrite(
-    self::TRewriter $rewriter,
+  public function rewrite<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
-  ): Node {
+  ): Tret {
     $with_rewritten_children = $this->rewriteDescendants($rewriter, $parents);
     return $rewriter($with_rewritten_children, $parents);
   }
@@ -313,6 +233,20 @@ abstract class Node {
         continue;
       }
       return Vec\concat(vec[$this], $child->getAncestorsOfDescendant($node));
+    }
+    invariant_violation('unreachable');
+  }
+
+  final public function getParentOfDescendant(Node $node): Node {
+    invariant($node !== $this, "Asked to find parent of self");
+    invariant($this->isAncestorOf($node), "Node is not a descendant");
+    foreach ($this->getChildren() as $child) {
+      if ($child === $node) {
+        return $this;
+      }
+      if ($child->isAncestorOf($node)) {
+        return $child->getParentOfDescendant($node);
+      }
     }
     invariant_violation('unreachable');
   }

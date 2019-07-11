@@ -18,7 +18,6 @@ use type Facebook\HHAST\{
   Script,
   WhiteSpace,
 };
-use function Facebook\HHAST\Missing;
 
 final class NoElseifLinter extends AutoFixingASTLinter {
   const type TNode = ElseifToken;
@@ -39,8 +38,11 @@ final class NoElseifLinter extends AutoFixingASTLinter {
 
   public function getFixedNode(ElseifToken $expr): Node {
     return new NodeList(vec[
-      new ElseToken($expr->getLeading(), new WhiteSpace(' ')),
-      new IfToken(Missing(), $expr->getTrailing()),
+      new ElseToken(
+        $expr->getLeading(),
+        new NodeList(vec[new WhiteSpace(' ')]),
+      ),
+      new IfToken(null, $expr->getTrailing()),
     ]);
   }
 }

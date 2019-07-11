@@ -26,7 +26,7 @@ use type Facebook\HHAST\{
   TypeToken,
 };
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class UnusedUseClauseLinter extends AutoFixingASTLinter {
   const type TNode = INamespaceUseDeclaration;
@@ -131,7 +131,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
     $clauses = $node->getClauses()->getChildrenOfItems();
     $clause_count = C\count($clauses);
     $unused = $this->getUnusedClauses($node->getKind(), $clauses)
-      |> Vec\map($$, $p ==> $p[1]);
+      |> Keyset\map($$, $p ==> $p[1]->getUniqueID());
     $unused_count = C\count($unused);
     if ($clause_count === $unused_count) {
       return $node->getFirstTokenx()->getLeading();
@@ -168,9 +168,10 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
           ),
         );
       }
+      $t = $clause->getFirstTokenx();
       $clause = $clause
         ->withName($name)
-        ->without($clause->getFirstTokenx()->getLeading());
+        ->replace($t, $t->withLeading(null));
 
       $fixed = new NamespaceUseDeclaration(
         $node->getKeyword(),
@@ -181,16 +182,12 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
         $node->getSemicolon(),
       );
     } else {
-      $fixed = $node;
-      $list = $node->getClausesx();
-      foreach ($unused as $clause) {
-        $fixed = $fixed->without(
-          $list->getFirstAncestorOfDescendantWhere(
-            $clause,
-            $it ==> $it instanceof HHAST\ListItem,
-          ) as nonnull,
-        );
-      }
+      $fixed = $node->getClausesx()->getChildren()
+        |> Vec\filter(
+          $$,
+          $child ==> !C\contains_key($unused, $child->getItem()->getUniqueID()),
+        )
+        |> $node->withClauses(new NodeList($$));
     }
     $last = C\lastx(
       $fixed->getClauses()->getChildrenOfType(HHAST\ListItem::class),
@@ -198,7 +195,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
     $sep = $last->getSeparator();
 
     if ($sep && !Str\contains($sep->getTrailing()->getCode(), "\n")) {
-      return $fixed->without($sep);
+      return $fixed->replace($last, $last->withSeparator(null));
     }
     return $fixed;
   }

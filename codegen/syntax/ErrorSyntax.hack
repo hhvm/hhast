@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f4f4ac159ce2c1beb07147aa855f534f>>
+ * @generated SignedSource<<f52d0a8b1e9e2c31a9b0b67ed0ece675>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -58,8 +58,8 @@ final class ErrorSyntax extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

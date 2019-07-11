@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<758310a94d7b85f9ddc97b4ba886a086>>
+ * @generated SignedSource<<1be278dbddc0cb2ab2747cb1d16fbc06>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -146,8 +146,8 @@ final class SwitchStatement
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

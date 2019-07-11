@@ -70,7 +70,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
   public function getPrettyTextForNode(Script $node): string {
     return $node->getDeclarations()->getChildren()
       |> Vec\take($$, 2)
-      |> NodeList::createNonEmptyListOrMissing($$)
+      |> NodeList::createMaybeEmptyList($$)
       |> $$->getCode();
   }
 
@@ -84,14 +84,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
 
   public function getFixedNode(Script $node): Script {
     $first = $node->getDeclarations()->getChildren()[1]->getFirstTokenx();
-    $leading = $first->getLeading();
-    if ($leading instanceof NodeList) {
-      $leading = $leading->getChildren();
-    } else if ($leading === null) {
-      $leading = vec[];
-    } else {
-      $leading = vec[$leading];
-    }
+    $leading = $first->getLeading()->toVec();
 
     $key = C\find_key(
       $leading,
@@ -114,9 +107,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
       }
 
       return $node->replace(
-        $existing,
-        NodeList::createNonEmptyListOrMissing($new),
-      );
+        $existing, NodeList::createMaybeEmptyList($new));
     }
 
 
@@ -136,7 +127,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
     );
     return $node->replace(
       $first,
-      $first->withLeading(NodeList::createNonEmptyListOrMissing($leading)),
+      $first->withLeading(NodeList::createMaybeEmptyList($leading)),
     );
   }
 

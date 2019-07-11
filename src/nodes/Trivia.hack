@@ -60,8 +60,8 @@ abstract class Trivia extends Node {
   }
 
   <<__Override>>
-  final public function rewriteChildren(
-    self::TRewriter $_rewriter,
+  final public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $_rewriter,
     vec<Node> $_parents = vec[],
   ): this {
     // Trivia have no children

@@ -18,11 +18,11 @@ use type Facebook\HHAST\{
   LambdaSignature,
   LeftParenToken,
   Node,
+  NodeList,
   PrefixUnaryExpression,
   Script,
   WhiteSpace,
 };
-use function Facebook\HHAST\Missing;
 use namespace HH\Lib\C;
 
 final class PreferLambdasLinter extends AutoFixingASTLinter {
@@ -67,7 +67,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
     $parameters = $node->getParameters();
     $left_paren = new LeftParenToken(
       $node->getFunctionKeyword()->getLeading(),
-      Missing(),
+      null,
     );
     $right_paren = $node->getRightParen();
     $colon = $node->getColon();
@@ -81,7 +81,10 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
       $type,
     );
 
-    $arrow = new EqualEqualGreaterThanToken(Missing(), new WhiteSpace(' '));
+    $arrow = new EqualEqualGreaterThanToken(
+      null,
+      new NodeList(vec[new WhiteSpace(' ')]),
+    );
     $body = $node->getBody();
 
     return new LambdaExpression(

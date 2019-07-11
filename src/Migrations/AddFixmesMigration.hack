@@ -11,7 +11,7 @@ namespace Facebook\HHAST\Migrations;
 
 use function Facebook\HHAST\find_node_at_position;
 use type Facebook\HHAST\__Private\TTypecheckerError;
-use type Facebook\HHAST\{FixMe, Missing, NodeList, Script, WhiteSpace};
+use type Facebook\HHAST\{FixMe, NodeList, Script, WhiteSpace};
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 final class AddFixmesMigration extends BaseMigration {
@@ -52,17 +52,9 @@ final class AddFixmesMigration extends BaseMigration {
       }
       $node = find_node_at_position($root, $line, $column)->getFirstTokenx();
       $leading = $node->getLeading();
-      if ($leading instanceof Missing) {
-        $new_leading = NodeList::createNonEmptyListOrMissing($fixmes);
-      } else if ($leading instanceof NodeList) {
-        $new_leading = NodeList::createNonEmptyListOrMissing(
-          Vec\concat($leading->getChildren(), $fixmes),
-        );
-      } else {
-        $new_leading = NodeList::createNonEmptyListOrMissing(
-          Vec\concat(vec[$leading], $fixmes),
-        );
-      }
+      $new_leading = NodeList::createMaybeEmptyList(
+        Vec\concat($leading->getChildren(), $fixmes),
+      );
 
       $column_offset += Str\length($new_leading->getCode()) -
         Str\length($leading->getCode());

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3977f5ff6de7d7e9f288175cd35618ee>>
+ * @generated SignedSource<<70e1af07db5479b8347c1b04cbd42f99>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,8 +117,8 @@ final class ElseifClause extends Node implements IControlFlowStatement {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

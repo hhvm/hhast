@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f04a3d5fee1f22b3901f18cca7edbdf>>
+ * @generated SignedSource<<d7f1f8f59526e7fe1a6336919b4a8c85>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -170,8 +170,8 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

@@ -13,6 +13,7 @@ use type Facebook\HHAST\{
   INamespaceUseDeclaration,
   NameToken,
   NamespaceToken,
+  NodeList,
   QualifiedName,
   Script,
   TypeToken,
@@ -89,6 +90,7 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
 
     $leading = $node->getClauses()->getFirstTokenx()->getLeadingWhitespace();
     $trailing = $node->getKeywordx()->getTrailingWhitespace();
+    $leading = $leading === null ? new NodeList() : new NodeList(vec[$leading]);
     if ($used_as_type && !$used_as_ns) {
       return $node->withKind(new TypeToken($leading, $trailing));
     }

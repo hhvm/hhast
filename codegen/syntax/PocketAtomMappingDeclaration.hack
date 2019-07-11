@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<12798cee5ff9c6f86037bad1737d046c>>
+ * @generated SignedSource<<fba031f8ad0749f072ce252bac0c5e06>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -131,8 +131,8 @@ final class PocketAtomMappingDeclaration extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

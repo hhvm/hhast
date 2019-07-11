@@ -15,12 +15,12 @@ final class NodeList<+Titem as Node> extends Node {
   const string SYNTAX_KIND = 'list';
   /**
    * Use `NodeList::createMaybeEmptyList()` or
-   * `NodeList::createNonEmptyListOrMissing()` instead to be explicit
+   * `NodeList::createNonEmptyListNull()` instead to be explicit
    * about desired behavior.
    */
   <<__Override>>
   public function __construct(
-    private vec<Titem> $_children,
+    private vec<Titem> $_children = vec[],
     ?__Private\SourceRef $ref = null,
   ) {
     parent::__construct($ref);
@@ -33,18 +33,16 @@ final class NodeList<+Titem as Node> extends Node {
 
   <<__Override>>
   public function toVec(): vec<Titem> {
-    return /* HH_FIXME[4110] */ $this->_children;
+    return $this->_children;
   }
 
   <<__Override>>
   public function getChildren(): vec<Titem> {
-    return /* HH_FIXME[4110] */ $this->_children;
+    return $this->_children;
   }
 
   final public function getChildrenOfItems<T>(
   ): vec<T> where Titem as ListItem<T> {
-    /* HH_FIXME[4110] we have to trust the typechecker here; in future, use
-     * reified generics */
     return Vec\map($this->getChildren(), $child ==> $child->getItem());
   }
 
@@ -69,24 +67,17 @@ final class NodeList<+Titem as Node> extends Node {
     return new self($items);
   }
 
-  public static function createNonEmptyListOrMissing(vec<Node> $items): Node {
-    return self::createNonEmptyListOrNull($items) ?? Missing();
-  }
-
   public static function createMaybeEmptyList<T as Node>(
     vec<T> $items,
   ): NodeList<T> {
     return new self($items);
   }
 
-  public static function concat(Node $left, Node $right): Node {
-    if ($left->isMissing()) {
-      return $right;
-    }
-    if ($right->isMissing()) {
-      return $left;
-    }
-    return new NodeList(Vec\concat($left->toVec(), $right->toVec()));
+  public static function concat<T as Node>(
+    NodeList<T> $first,
+    NodeList<T> $second,
+  ): NodeList<T> {
+    return new NodeList(Vec\concat($first->toVec(), $second->toVec()));
   }
 
   <<__Override>>
@@ -126,8 +117,8 @@ final class NodeList<+Titem as Node> extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
@@ -137,9 +128,6 @@ final class NodeList<+Titem as Node> extends Node {
       $new = $rewriter($old, $parents);
       if ($old === $new) {
         $new_children[] = $old;
-        continue;
-      }
-      if ($new->isMissing()) {
         continue;
       }
       if ($new instanceof NodeList) {
@@ -170,23 +158,55 @@ final class NodeList<+Titem as Node> extends Node {
       $children[$idx] = $child->replaceImpl($old_id, $new);
       break;
     }
-    return new self(Vec\filter(
-      /* HH_FIXME[4110] */ $children,
-      $child ==> !$child->isMissing(),
+    return new self(Vec\filter_nulls(/* HH_FIXME[4110] */ $children));
+  }
+
+  public function insertBefore<Tchild super Titem as Node>(
+    Tchild $before,
+    Tchild $child,
+  ): NodeList<Tchild> {
+    $idx = C\find_key($this->_children, $c ==> $c === $before);
+    invariant($idx !== null, 'asked to insert before non-child');
+    return new NodeList(Vec\concat(
+      Vec\take($this->_children, $idx),
+      vec[$child],
+      Vec\drop($this->_children, $idx),
     ));
   }
 
-  <<__Override>>
-  public function rewrite(
-    self::TRewriter $rewriter,
-    vec<Node> $parents = vec[],
-  ): Node {
-    $with_rewritten_children = $this->rewriteDescendants($rewriter, $parents);
-    if (C\is_empty($with_rewritten_children->_children)) {
-      $node = Missing();
-    } else {
-      $node = $with_rewritten_children;
+  public function insertAfter<Tchild super Titem as Node>(
+    Tchild $after,
+    Tchild $child,
+  ): NodeList<Tchild> {
+    $idx = C\find_key($this->_children, $c ==> $c === $after);
+    invariant($idx !== null, 'asked to insert after non-child');
+    return new NodeList(Vec\concat(
+      Vec\take($this->_children, $idx + 1),
+      vec[$child],
+      Vec\drop($this->_children, $idx + 1),
+    ));
+  }
+
+
+  public function withoutChild<Tchild super Titem>(Tchild $child): this {
+    $new = Vec\filter($this->_children, $c ==> $c !== $child);
+    if ($new === $this->_children) {
+      return $this;
     }
-    return $rewriter($node, $parents);
+    return new NodeList($new);
+  }
+
+  public function withoutItemWithChild<Tinner super Node>(
+    Tinner $inner,
+  ): this where Titem as ListItem<Tinner> {
+    $new = Vec\filter($this->_children, $c ==> $c->getItem() !== $inner);
+    if ($new === $this->_children) {
+      return $this;
+    }
+    return new NodeList($new);
+  }
+
+  final public function isEmpty(): bool {
+    return C\is_empty($this->_children);
   }
 }

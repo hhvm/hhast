@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c3840896a6f8639523a8bde46bf46a1>>
+ * @generated SignedSource<<0b546c5966997a10a76ee60ee631ce77>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -186,8 +186,8 @@ final class ForeachStatement
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

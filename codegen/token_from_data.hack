@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c3e3937a9ce86edd7bce3bdbab12df0>>
+ * @generated SignedSource<<78c1cba0c8b3e1ebfb99a0e46875218a>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -9,8 +9,8 @@ use namespace Facebook\HHAST;
 function token_from_data(
   SourceRef $source_ref,
   string $token_kind,
-  HHAST\Node $leading,
-  HHAST\Node $trailing,
+  HHAST\NodeList<HHAST\Trivia> $leading,
+  HHAST\NodeList<HHAST\Trivia> $trailing,
   string $token_text,
 ): HHAST\Token {
   $cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;

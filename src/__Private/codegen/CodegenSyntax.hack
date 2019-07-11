@@ -490,9 +490,9 @@ final class CodegenSyntax extends CodegenBase {
     $fields = Vec\map($syntax['fields'], $field ==> $field['field_name']);
 
     return $cg
-      ->codegenMethod('rewriteChildren')
+      ->codegenMethod('rewriteChildren<Tret as ?Node>')
       ->setIsOverride()
-      ->addParameter('self::TRewriter $rewriter')
+      ->addParameter('(function(Node, vec<Node>): Tret) $rewriter')
       ->addParameter('vec<Node> $parents = vec[]')
       ->setReturnType('this')
       ->setBody(

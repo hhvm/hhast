@@ -95,8 +95,8 @@ final class CodegenTokenFromData extends CodegenBase {
           ->setReturnType('HHAST\\Token')
           ->addParameter('SourceRef $source_ref')
           ->addParameter('string $token_kind')
-          ->addParameter('HHAST\\Node $leading')
-          ->addParameter('HHAST\\Node $trailing')
+          ->addParameter('HHAST\\NodeList<HHAST\\Trivia> $leading')
+          ->addParameter('HHAST\\NodeList<HHAST\\Trivia> $trailing')
           ->addParameter('string $token_text')
           ->setBody(
             $cg

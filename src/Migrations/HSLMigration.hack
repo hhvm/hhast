@@ -272,9 +272,17 @@ final class HSLMigration extends BaseMigration {
     }
 
     // remove any current use statements for HH\Lib\* namespaces, we'll group them together
-    $root = $root->removeWhere(
-      ($node, $parents) ==> C\contains($hsl_declarations, $node),
-    );
+    $lists = $root->getDescendantsOfType(NodeList::class);
+    foreach ($lists as $list) {
+      $children = $list->toVec();
+      $filtered = Vec\filter(
+        $children,
+        $c ==> !C\contains($hsl_declarations, $c),
+      );
+      if ($children !== $filtered) {
+        $root = $root->replace($list, new NodeList($filtered));
+      }
+    }
 
     // build a possibly grouped namespace use declaration
     $new_namespace_use_declaration = $this->buildUseDeclaration($suffixes);
@@ -302,9 +310,13 @@ final class HSLMigration extends BaseMigration {
         // next statement is another use declaration, remove the trailing newline
         $last_token = $new_namespace_use_declaration->getLastTokenx();
         $new_namespace_use_declaration = $new_namespace_use_declaration
-          ->replace($last_token, $last_token->withTrailing(HHAST\Missing()));
+          ->replace($last_token, $last_token->withTrailing(null));
       }
-      return $root->insertBefore($child, $new_namespace_use_declaration);
+      $parent = $root->getParentOfDescendant($child) as NodeList<_>;
+      return $root->replace(
+        $parent,
+        $parent->insertBefore($child, $new_namespace_use_declaration),
+      );
     }
 
     invariant_violation('should not fail to insert new node');
@@ -400,13 +412,10 @@ final class HSLMigration extends BaseMigration {
           ExpressionStatement::class,
         );
 
-        $new_argument_list = NodeList::createNonEmptyListOrMissing(vec[
+        $new_argument_list = new NodeList(vec[
           new ListItem(
             $items[2],
-            new CommaToken(
-              HHAST\Missing(),
-              NodeList::createNonEmptyListOrMissing(vec[new WhiteSpace(' ')]),
-            ),
+            new CommaToken(null, new NodeList(vec[new WhiteSpace(' ')])),
           ),
           new ListItem($replacement_patterns, null),
         ]);
@@ -434,8 +443,8 @@ final class HSLMigration extends BaseMigration {
           );
           $new_length = new ListItem(
             new LiteralExpression(new DecimalLiteralToken(
-              HHAST\Missing(),
-              HHAST\Missing(),
+              null,
+              null,
               (string)$rewrite_length_value,
             )),
             null,
@@ -492,9 +501,7 @@ final class HSLMigration extends BaseMigration {
         );
       }
 
-      $new_argument_list = NodeList::createNonEmptyListOrMissing(
-        $new_argument_list,
-      );
+      $new_argument_list = new NodeList($new_argument_list);
     }
 
     return tuple(
@@ -696,7 +703,7 @@ final class HSLMigration extends BaseMigration {
 
       $new_receiver = new NameToken(
         $first_item->getSeparatorx()->getLeading(),
-        HHAST\Missing(),
+        null,
         $new_name,
       );
     }

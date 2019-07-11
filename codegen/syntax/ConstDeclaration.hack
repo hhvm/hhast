@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b29c29b12f1ec88d2f702bcf00654c6>>
+ * @generated SignedSource<<26e460d9a737da15a753bfdc32d7cb28>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,8 +128,8 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

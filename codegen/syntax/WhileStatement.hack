@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5eb1ab37bd42d454d95813b2aea6f949>>
+ * @generated SignedSource<<fed70b08c3ef7a9031e067af39d4581f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -119,8 +119,8 @@ final class WhileStatement
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

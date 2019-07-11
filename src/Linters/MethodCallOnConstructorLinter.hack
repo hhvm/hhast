@@ -17,7 +17,6 @@ use type Facebook\HHAST\{
   RightParenToken,
   Script,
 };
-use function Facebook\HHAST\Missing;
 
 final class MethodCallOnConstructorLinter extends AutoFixingASTLinter {
   const type TNode = MemberSelectionExpression;
@@ -51,10 +50,17 @@ final class MethodCallOnConstructorLinter extends AutoFixingASTLinter {
   ): MemberSelectionExpression {
     $obj = $node->getObject();
     return $node->withObject(new ParenthesizedExpression(
-      new LeftParenToken($obj->getFirstTokenx()->getLeading(), Missing()),
-      $obj->without($obj->getFirstTokenx()->getLeading())
-        ->without($obj->getLastTokenx()->getTrailing()),
-      new RightParenToken(Missing(), $obj->getLastTokenx()->getTrailing()),
+      new LeftParenToken($obj->getFirstTokenx()->getLeading(), null),
+      $obj
+        ->replace(
+          $obj->getFirstTokenx(),
+          $obj->getFirstTokenx()->withLeading(null),
+        )
+        ->replace(
+          $obj->getLastTokenx(),
+          $obj->getLastTokenx()->withTrailing(null),
+        ),
+      new RightParenToken(null, $obj->getLastTokenx()->getTrailing()),
     ));
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9443d7cdb99ecb0599e368d8683d1219>>
+ * @generated SignedSource<<593e927f7bec8c8c8ba02d89c83bf395>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,8 +60,8 @@ final class SimpleTypeSpecifier
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;

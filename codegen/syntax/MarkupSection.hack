@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4d6ca97d2eab096f743820cc54409d4>>
+ * @generated SignedSource<<8d4a55c43bd65e4001a5c6234c6140ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -101,8 +101,8 @@ final class MarkupSection extends Node {
   }
 
   <<__Override>>
-  public function rewriteChildren(
-    self::TRewriter $rewriter,
+  public function rewriteChildren<Tret as ?Node>(
+    (function(Node, vec<Node>): Tret) $rewriter,
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
