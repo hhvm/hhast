@@ -1,7 +1,7 @@
 [
     {
-        "blame": "elseif ",
-        "blame_pretty": "elseif ",
+        "blame": "elseif (false) {\n  } ",
+        "blame_pretty": "elseif (false) {\n  } ",
         "description": "Do not use \"elseif\", use \"else if\" instead."
     }
 ]

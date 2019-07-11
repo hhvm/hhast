@@ -10,8 +10,10 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
+  ElseClause,
   ElseToken,
-  ElseifToken,
+  ElseifClause,
+  IfStatement,
   IfToken,
   Node,
   NodeList,
@@ -20,13 +22,13 @@ use type Facebook\HHAST\{
 };
 
 final class NoElseifLinter extends AutoFixingASTLinter {
-  const type TNode = ElseifToken;
+  const type TNode = ElseifClause;
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
-    ElseifToken $expr,
+    ElseifClause $expr,
   ): ?ASTLintError {
     return new ASTLintError(
       $this,
@@ -36,13 +38,22 @@ final class NoElseifLinter extends AutoFixingASTLinter {
     );
   }
 
-  public function getFixedNode(ElseifToken $expr): Node {
-    return new NodeList(vec[
+  public function getFixedNode(ElseifClause $expr): Node {
+    $t = $expr->getKeyword();
+    return new ElseClause(
       new ElseToken(
-        $expr->getLeading(),
+        $t->getLeading(),
         new NodeList(vec[new WhiteSpace(' ')]),
       ),
-      new IfToken(null, $expr->getTrailing()),
-    ]);
+      new IfStatement(
+        new IfToken(null, $t->getTrailing()),
+        $expr->getLeftParen(),
+        $expr->getCondition(),
+        $expr->getRightParen(),
+        $expr->getStatement(),
+        null,
+        null,
+      ),
+    );
   }
 }

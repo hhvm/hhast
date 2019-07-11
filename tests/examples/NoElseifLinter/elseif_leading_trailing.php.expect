@@ -1,17 +1,17 @@
 [
     {
-        "blame": "elseif ",
-        "blame_pretty": "elseif ",
+        "blame": "elseif (false) {\n  } ",
+        "blame_pretty": "elseif (false) {\n  } ",
         "description": "Do not use \"elseif\", use \"else if\" instead."
     },
     {
-        "blame": "elseif  ",
-        "blame_pretty": "elseif  ",
+        "blame": "elseif  (false) {\n  } \/* foo *\/ ",
+        "blame_pretty": "elseif  (false) {\n  } \/* foo *\/ ",
         "description": "Do not use \"elseif\", use \"else if\" instead."
     },
     {
-        "blame": "elseif \/* bar *\/ ",
-        "blame_pretty": "elseif \/* bar *\/ ",
+        "blame": "elseif \/* bar *\/ (false) {\n  }\n",
+        "blame_pretty": "elseif \/* bar *\/ (false) {\n  }\n",
         "description": "Do not use \"elseif\", use \"else if\" instead."
     }
 ]
