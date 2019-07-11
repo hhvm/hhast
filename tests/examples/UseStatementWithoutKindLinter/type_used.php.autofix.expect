@@ -1,7 +1,7 @@
 <?hh // strict
 
 use type Herp\Derp;
-use type Foo\{Bar, Baz}
+use type Foo\{Bar, Baz};
 use type Foo\Bat;
 
 new Derp();

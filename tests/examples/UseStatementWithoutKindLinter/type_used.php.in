@@ -1,7 +1,7 @@
 <?hh // strict
 
 use Herp\Derp;
-use Foo\{Bar, Baz}
+use Foo\{Bar, Baz};
 use Foo\Bat;
 
 new Derp();
