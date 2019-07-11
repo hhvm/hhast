@@ -17,8 +17,8 @@ final class OffsetFromPositionTest extends TestCase {
     return [
       tuple("<?hh // strict \n", tuple(1, 1), 0),
       tuple("<?hh // strict \n", tuple(1, 3), 2),
-      tuple("<?hh\nbar()\n", tuple(2, 1), 5),
-      tuple("<?hh\nbar()\n", tuple(2, 2), 6),
+      tuple("<?hh\nbar();\n", tuple(2, 1), 5),
+      tuple("<?hh\nbar();\n", tuple(2, 2), 6),
     ];
   }
 

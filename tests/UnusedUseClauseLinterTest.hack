@@ -21,7 +21,8 @@ final class UnusedUseClauseLinterTest extends TestCase {
     return vec[
       tuple("<?hh\nuse type Foo; Foo::bar();"),
       tuple("<?hh\nuse type Foo; \$x instanceof Foo;"),
-      tuple("<?hh\nuse type Foo; class Bar<T as Foo>(): void {}"),
+      tuple("<?hh\nuse type Foo; function bar<T as Foo>(): void {}"),
+      tuple("<?hh\nuse type Foo; class Bar<T as Foo>{}"),
       tuple("<?hh\nuse type Foo; new Foo();"),
       tuple("<?hh\nuse type Foo; function bar(Foo \$in): void {}"),
       tuple("<?hh\nuse type Foo; function bar(): Foo {}"),
