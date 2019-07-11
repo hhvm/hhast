@@ -10,6 +10,7 @@
 namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
+  BinaryExpression,
   DollarToken,
   DotToken,
   DoubleQuotedStringLiteralHeadToken,
@@ -17,12 +18,13 @@ use type Facebook\HHAST\{
   DoubleQuotedStringLiteralToken,
   EmbeddedBracedExpression,
   HeredocStringLiteralHeadToken,
+  IExpression,
   LiteralExpression,
   NameToken,
-  Node,
   NodeList,
   Script,
   StringLiteralBodyToken,
+  VariableExpression,
   VariableToken,
 };
 use namespace HH\Lib\{C, Vec};
@@ -55,7 +57,7 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
     return 'Replace interpolation with concatenation';
   }
 
-  public function getFixedNode(LiteralExpression $root_expr): ?Node {
+  public function getFixedNode(LiteralExpression $root_expr): ?IExpression {
     $expr = $root_expr->getExpression();
     invariant(
       $expr instanceof NodeList,
@@ -148,16 +150,32 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
       $new_children[] = $child;
     }
 
-    $children = $new_children;
-    for ($i = 0; $i < C\count($children) - 1; ++$i) {
-      $children = Vec\concat(
-        Vec\slice($children, 0, $i + 1),
-        vec[new DotToken(null, null)],
-        Vec\slice($children, $i + 1),
+    $children = Vec\map(
+      $new_children,
+      $child ==> {
+        if ($child is IExpression) {
+          return $child;
+        }
+        if ($child is DoubleQuotedStringLiteralToken) {
+          return new LiteralExpression($child);
+        }
+        invariant(
+          $child is VariableToken,
+          'expected double quoted string or variable, got %s',
+          \get_class($child),
+        );
+        return new VariableExpression($child);
+      },
+    );
+    $expr = C\firstx($children);
+    for ($i = 1; $i < C\count($children); ++$i) {
+      $expr = new BinaryExpression(
+        $expr,
+        new DotToken(null, null),
+        $children[$i],
       );
-      ++$i;
     }
 
-    return NodeList::createNonEmptyListOrNull($children);
+    return $expr;
   }
 }
