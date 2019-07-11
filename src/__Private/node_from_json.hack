@@ -18,7 +18,24 @@ function node_from_json(
   string $source,
   string $type_hint,
 ): ?Node {
-  $node = node_from_json_unwrapped($json, $file, $offset, $source, $type_hint);
+  try {
+    $node = node_from_json_unwrapped(
+      $json,
+      $file,
+      $offset,
+      $source,
+      $type_hint,
+    );
+  } catch (\Facebook\HHAST\ASTError $e) {
+    throw $e;
+  } catch (\Throwable $t) {
+    throw new \Facebook\HHAST\ASTDeserializationError(
+      $file,
+      $offset,
+      $source,
+      $t,
+    );
+  }
   if ($node === null) {
     return $node;
   }
