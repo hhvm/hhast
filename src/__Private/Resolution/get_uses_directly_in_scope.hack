@@ -21,11 +21,14 @@ use type Facebook\HHAST\{
 use namespace HH\Lib\{C, Str};
 
 function get_uses_directly_in_scope(
-  NodeList<Node> $scope,
+  ?NodeList<Node> $scope,
 ): shape(
   'namespaces' => dict<string, string>,
   'types' => dict<string, string>,
 ) {
+  if ($scope === null) {
+    return shape('namespaces' => dict[], 'types' => dict[]);
+  }
   $uses = vec[];
 
   // use [kind] Foo, [kind] Bar;

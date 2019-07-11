@@ -70,7 +70,7 @@ final class Script extends ScriptGeneratedBase {
       $namespaces,
       $ns ==> {
         $inner = __Private\Resolution\get_uses_directly_in_scope(
-          ($ns->getBody() as NamespaceBody)->getDeclarationsx(),
+          ($ns->getBody() as NamespaceBody)->getDeclarations(),
         );
         return shape(
           'statement' => false,
