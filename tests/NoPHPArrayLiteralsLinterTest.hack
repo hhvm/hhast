@@ -22,7 +22,7 @@ final class NoPHPArrayLiteralsLinterTest extends TestCase {
       tuple('<?hh $a = vec[1, 2];'),
       tuple('<?hh $a = dict[];'),
       tuple('<?hh $a = dict["a" => 1, "b" => 2];'),
-      tuple('<?hh $a = vec[dict["a" => vec[), "b" => vec[1, 2]]];'),
+      tuple('<?hh $a = vec[dict["a" => vec[], "b" => vec[1, 2]]];'),
     ];
   }
 }
