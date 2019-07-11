@@ -187,9 +187,6 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     VariableExpression $var,
     vec<Node> $parents,
   ): bool {
-    // Whether we have encountered a $parent SubscriptExpression where SubscriptExpression::getReceiver === $var
-    $is_subscript_receiver = null;
-
     foreach (Vec\reverse($parents) as $parent) {
       if ($parent === $var) {
         continue;
@@ -212,11 +209,11 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       // $a[$b] = '123'; // assignment of $a, use of $b
       // f($a[$b]);      // use of $a
       if ($parent is HHAST\SubscriptExpression) {
-        $is_subscript_receiver ??= $parent->getReceiver() === $var;
-        if ($is_subscript_receiver) {
-          continue;
-        } else {
+        $index = $parent->getIndex();
+        if ($index !== null && $index->isAncestorOf($var)) {
           return false;
+        } else {
+          continue;
         }
       }
 
