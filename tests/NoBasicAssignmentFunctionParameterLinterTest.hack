@@ -22,10 +22,10 @@ final class NoBasicAssignmentFunctionParameterLinterTest extends TestCase {
 
   public function getCleanExamples(): array<array<string>> {
     return [
-      ['<?hh foo(1, 2)'],
-      ['<?hh foo($a == 1, $b == 2)'],
-      ['<?hh foo(1 + 1, $b + 2)'],
-      ['<?hh foo($a, $b)'],
+      ['<?hh foo(1, 2);'],
+      ['<?hh foo($a == 1, $b == 2);'],
+      ['<?hh foo(1 + 1, $b + 2);'],
+      ['<?hh foo($a, $b);'],
       ['<?hh class Foo { public function foo(int $a = 1, int $b = 2): int {} }'],
       ['<?hh function foo(int $a = 1, int $b = 2) : int {}'],
     ];
