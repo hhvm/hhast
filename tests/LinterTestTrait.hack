@@ -19,7 +19,7 @@ trait LinterTestTrait {
 
   abstract protected function getLinter(string $file): Linters\BaseLinter ;
 
-  abstract public function getCleanExamples(): array<array<string>>;
+  abstract public function getCleanExamples(): vec<(string)>;
   final public function getDirtyFixtures(): vec<array<string>> {
     return static::class
       |> \explode('\\', $$)

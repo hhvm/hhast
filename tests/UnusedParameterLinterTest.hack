@@ -16,17 +16,23 @@ final class UnusedParameterLinterTest extends TestCase {
     return Linters\UnusedParameterLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh function foo(int $bar) { return $bar; }'],
-      ['<?hh function foo(int $bar) { var_dump($bar); }'],
-      ['<?hh function foo(int $_) { }'],
-      ['<?hh function foo(int $_bar) { }'],
-      ['<?hh class Foo { public function bar(int $_) { }'],
-      ['<?hh class Foo { public function bar(int $baz) { var_dump($baz); }'],
-      ['<?hh interface Foo { public function bar(int $baz); }'],
-      ['<?hh abstract class Foo { abstract public function bar(int $baz); }'],
-      ['<?hh class Foo { public function __construct(private int $bar) {} }'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh function foo(int $bar) { return $bar; }'),
+      tuple('<?hh function foo(int $bar) { var_dump($bar); }'),
+      tuple('<?hh function foo(int $_) { }'),
+      tuple('<?hh function foo(int $_bar) { }'),
+      tuple('<?hh class Foo { public function bar(int $_) { }'),
+      tuple(
+        '<?hh class Foo { public function bar(int $baz) { var_dump($baz); }',
+      ),
+      tuple('<?hh interface Foo { public function bar(int $baz); }'),
+      tuple(
+        '<?hh abstract class Foo { abstract public function bar(int $baz); }',
+      ),
+      tuple(
+        '<?hh class Foo { public function __construct(private int $bar) {} }',
+      ),
     ];
   }
 }

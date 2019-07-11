@@ -22,24 +22,24 @@ final class LicenseHeaderLinterTest extends TestCase {
     return Linters\LicenseHeaderLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
+  public function getCleanExamples(): vec<(string)> {
     $header = \file_get_contents(__DIR__.'/../.LICENSE_HEADER.hh.txt');
-    return [
+    return vec[
       // .php, hh
-      ["<?hh\n".$header],
-      ["<?hh // strict\n".$header],
-      ["<?hh // partial\n".$header],
-      ["<?php\n".$header],
-      ["<?php\n".$header."\nfoo();\n"],
+      tuple("<?hh\n".$header),
+      tuple("<?hh // strict\n".$header),
+      tuple("<?hh // partial\n".$header),
+      tuple("<?php\n".$header),
+      tuple("<?php\n".$header."\nfoo();\n"),
       // .hack
-      [$header],
-      [
+      tuple($header),
+      tuple(
         $header.
         "\n".
         "use namespace HH\Lib\Str;\n".
         "<<__EntryPoint>>\n".
-        "function main(): noreturn { exit (0); }\n"
-      ],
+        "function main(): noreturn { exit (0); }\n",
+      ),
     ];
   }
 }

@@ -16,13 +16,13 @@ final class StrictModeOnlyLinterTest extends TestCase {
     return Linters\StrictModeOnlyLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ["<?hh // strict\n"],
-      ["<?hh // strict\n/* foo */\n\nfunction bar() {}"],
-      ["<?hh // strict\n// foo;"],
-      ["<?php // hello, world;"],
-      ["<? // hello, world"],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple("<?hh // strict\n"),
+      tuple("<?hh // strict\n/* foo */\n\nfunction bar() {}"),
+      tuple("<?hh // strict\n// foo;"),
+      tuple("<?php // hello, world;"),
+      tuple("<? // hello, world"),
     ];
   }
 }

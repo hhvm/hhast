@@ -18,13 +18,13 @@ final class UseStatementWithoutKindLinterTest extends TestCase {
     return Linters\UseStatementWithoutKindLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ["<?hh\nuse type Foo;"],
-      ["<?hh\nuse namespace Foo;"],
-      ["<?hh\nuse function Foo;"],
-      ["<?hh\nuse const Foo;"],
-      ["<?hh\nuse type Foo\\{Bar, Baz};"],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple("<?hh\nuse type Foo;"),
+      tuple("<?hh\nuse namespace Foo;"),
+      tuple("<?hh\nuse function Foo;"),
+      tuple("<?hh\nuse const Foo;"),
+      tuple("<?hh\nuse type Foo\\{Bar, Baz};"),
     ];
   }
 }

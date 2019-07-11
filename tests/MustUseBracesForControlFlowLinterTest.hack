@@ -21,12 +21,12 @@ final class MustUseBracesForControlFlowLinterTest extends TestCase {
     return Linters\MustUseBracesForControlFlowLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh if (foo) { bar(); }'],
-      ['<?hh if (foo) { bar(); } else { baz(); }'],
-      ['<?hh foreach ($x as $y) { bar(); }'],
-      ['<?hh while(true) { x(); }'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh if (foo) { bar(); }'),
+      tuple('<?hh if (foo) { bar(); } else { baz(); }'),
+      tuple('<?hh foreach ($x as $y) { bar(); }'),
+      tuple('<?hh while(true) { x(); }'),
     ];
   }
 }

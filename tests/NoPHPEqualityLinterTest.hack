@@ -18,11 +18,11 @@ final class NoPHPEqualityLinterTest extends TestCase {
     return Linters\NoPHPEqualityLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh "foo" === "bar";'],
-      ['<?hh "foo" !== "bar";'],
-      ['<?hh "foo" > "bar";'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh "foo" === "bar";'),
+      tuple('<?hh "foo" !== "bar";'),
+      tuple('<?hh "foo" > "bar";'),
     ];
   }
 }

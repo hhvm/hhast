@@ -20,10 +20,10 @@ final class SuppressASTLinterAwaitTest extends TestCase {
     return Linters\DontAwaitInALoopLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
+  public function getCleanExamples(): vec<(string)> {
     // this tests that we can check for the comment in the parents until we hit a statement.
-    return [
-      [
+    return vec[
+      tuple(
         '<?hh '.
         'async function await_all<T>(vec<Awaitable<T>> $in): Awaitable<vec<T>> {'.
         '  $out = vec[];'.
@@ -33,7 +33,7 @@ final class SuppressASTLinterAwaitTest extends TestCase {
         '  }'.
         '  return $out;'.
         '}',
-      ],
+      ),
     ];
   }
 }

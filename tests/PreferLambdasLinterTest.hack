@@ -17,10 +17,10 @@ final class PreferLambdasLinterTest extends TestCase {
     return Linters\PreferLambdasLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh $fn = () ==> 5; '],
-      ['<?hh $fn = ($a, $b) ==> { return $a === $b; }'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh $fn = () ==> 5; '),
+      tuple('<?hh $fn = ($a, $b) ==> { return $a === $b; }'),
     ];
   }
 }

@@ -20,29 +20,29 @@ final class SuppressASTLinterCaseTest extends TestCase {
     return Linters\CamelCasedMethodsUnderscoredFunctionsLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      [
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple(
         "<?hh\n".
         '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
         'function CamelCasing() { return null; }',
-      ],
-      [
+      ),
+      tuple(
         "<?hh ".
         '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
         'function CamelCasing() { return null; }',
-      ],
-      [
+      ),
+      tuple(
         "<?hh\n".
         'foo(); /* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
         'function CamelCasing() { return null; }',
-      ],
-      [
+      ),
+      tuple(
         "<?hh\n".
         'foo(); '.
         'bar(); /* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
         'function CamelCasing() { return null; }',
-      ],
+      ),
     ];
   }
 }

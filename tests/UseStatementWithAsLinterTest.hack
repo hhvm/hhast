@@ -16,13 +16,13 @@ final class UseStatementWithAsLinterTest extends TestCase {
     return Linters\UseStatementWithAsLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ["<?hh\nuse Foo;"],
-      ["<?hh\nuse type Foo;"],
-      ["<?hh\nuse namespace Foo;"],
-      ["<?hh\nuse type Foo;"],
-      ["<?hh\nuse function Foo;"],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple("<?hh\nuse Foo;"),
+      tuple("<?hh\nuse type Foo;"),
+      tuple("<?hh\nuse namespace Foo;"),
+      tuple("<?hh\nuse type Foo;"),
+      tuple("<?hh\nuse function Foo;"),
     ];
   }
 }

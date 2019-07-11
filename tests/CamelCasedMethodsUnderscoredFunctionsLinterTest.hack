@@ -20,22 +20,22 @@ final class CamelCasedMethodsUnderscoredFunctionsLinterTest extends TestCase {
     return Linters\CamelCasedMethodsUnderscoredFunctionsLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh class Foo { public function __construct() {} }'],
-      ['<?hh class Foo { public function __destruct() {} }'],
-      ['<?hh class Foo { public function fooBar() {} }'],
-      ['<?hh class Foo { public function getFooBar() {} }'],
-      ['<?hh class Foo { public function getFooBarUNSAFE() {} }'],
-      ['<?hh class Foo { public function getFooBarUNTYPED() {} }'],
-      ['<?hh class Foo { public function getFooBarDEPRECATED() {} }'],
-      ['<?hh function foo_bar() {}'],
-      ['<?hh function foo_bar_UNSAFE() {}'],
-      ['<?hh function foo_bar_UNTYPED() {}'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh class Foo { public function __construct() {} }'),
+      tuple('<?hh class Foo { public function __destruct() {} }'),
+      tuple('<?hh class Foo { public function fooBar() {} }'),
+      tuple('<?hh class Foo { public function getFooBar() {} }'),
+      tuple('<?hh class Foo { public function getFooBarUNSAFE() {} }'),
+      tuple('<?hh class Foo { public function getFooBarUNTYPED() {} }'),
+      tuple('<?hh class Foo { public function getFooBarDEPRECATED() {} }'),
+      tuple('<?hh function foo_bar() {}'),
+      tuple('<?hh function foo_bar_UNSAFE() {}'),
+      tuple('<?hh function foo_bar_UNTYPED() {}'),
       // Special-case factory functions:
-      ['<?hh function Foo(): Foo {}'],
-      ['<?hh function Foo(): Foo<T> {}'],
-      ['<?hh function Foo(): __Private\Foo<T> {}'],
+      tuple('<?hh function Foo(): Foo {}'),
+      tuple('<?hh function Foo(): Foo<T> {}'),
+      tuple('<?hh function Foo(): __Private\Foo<T> {}'),
     ];
   }
 }

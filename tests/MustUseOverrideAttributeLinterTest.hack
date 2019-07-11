@@ -20,35 +20,35 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
     return Linters\MustUseOverrideAttributeLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh class Foo {}'],
-      ['<?hh class Foo { function do_stuff(){}; }'],
-      [
-          '<?hh '.
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh class Foo {}'),
+      tuple('<?hh class Foo { function do_stuff(){}; }'),
+      tuple(
+        '<?hh '.
           'class Foo extends '.self::class.' {'.
           'public function everyoneLovesMagicTrevor(){}'.
-          '}'
-      ],
-      [
-          '<?hh '.
+          '}',
+      ),
+      tuple(
+        '<?hh '.
           'class Foo extends '.self::class.' {'.
           '<<__Override>>'.
           'public function '.__FUNCTION__.'(){}'.
-          '}'
-      ],
-      [
-          '<?hh '.
+          '}',
+      ),
+      tuple(
+        '<?hh '.
           'class Foo extends '.self::class.' {'.
           'public function __construct(){}'.
-          '}'
-      ],
-      [
-          '<?hh '.
+          '}',
+      ),
+      tuple(
+        '<?hh '.
           'class Foo extends '.self::class.' {'.
           'public function __destruct(){}'.
-          '}'
-      ],
+          '}',
+      ),
     ];
   }
 }

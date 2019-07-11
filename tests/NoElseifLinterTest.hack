@@ -18,9 +18,9 @@ final class NoElseifLinterTest extends TestCase {
     return Linters\NoElseifLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh if (true) {} else if (false) {}'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh if (true) {} else if (false) {}'),
     ];
   }
 }

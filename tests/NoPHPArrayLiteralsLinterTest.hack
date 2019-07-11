@@ -16,13 +16,13 @@ final class NoPHPArrayLiteralsLinterTest extends TestCase {
     return Linters\NoPHPArrayLiteralsLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh $a = vec[];'],
-      ['<?hh $a = vec[1, 2];'],
-      ['<?hh $a = dict[];'],
-      ['<?hh $a = dict["a" => 1, "b" => 2];'],
-      ['<?hh $a = vec[dict["a" => vec[], "b" => vec[1, 2]]];'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh $a = vec[];'),
+      tuple('<?hh $a = vec[1, 2];'),
+      tuple('<?hh $a = dict[];'),
+      tuple('<?hh $a = dict["a" => 1, "b" => 2];'),
+      tuple('<?hh $a = vec[dict["a" => vec[), "b" => vec[1, 2]]];'),
     ];
   }
 }

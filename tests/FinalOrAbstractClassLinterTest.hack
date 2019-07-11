@@ -18,14 +18,14 @@ final class FinalOrAbstractClassLinterTest extends TestCase {
     return Linters\FinalOrAbstractClassLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh final class test {}'],
-      ['<?hh abstract class test {}'],
-      ['<?hh interface test {}'],
-      ['<?hh trait test {}'],
-      ['<?hh final class :page:test-page-1 extends SomeXHPPage {}'],
-      ['<?hh abstract final class test {}'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh final class test {}'),
+      tuple('<?hh abstract class test {}'),
+      tuple('<?hh interface test {}'),
+      tuple('<?hh trait test {}'),
+      tuple('<?hh final class :page:test-page-1 extends SomeXHPPage {}'),
+      tuple('<?hh abstract final class test {}'),
     ];
   }
 }

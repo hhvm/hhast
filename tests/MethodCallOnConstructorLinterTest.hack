@@ -18,11 +18,11 @@ final class MethodCallOnConstructorLinterTest extends TestCase {
     return Linters\MethodCallOnConstructorLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh $x->foo();'],
-      ['<?hh $x = new Foo(); $x->foo();'],
-      ['<?hh (new Foo())->bar();'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh $x->foo();'),
+      tuple('<?hh $x = new Foo(); $x->foo();'),
+      tuple('<?hh (new Foo())->bar();'),
     ];
   }
 }

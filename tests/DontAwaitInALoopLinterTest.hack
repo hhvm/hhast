@@ -18,31 +18,34 @@ final class DontAwaitInALoopLinterTest extends TestCase {
     return Linters\DontAwaitInALoopLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh function foo() { await $bar(); }'],
-      ['<?hh function foo() { $x = await $bar(); }'],
-      ['<?hh function foo() { return await $bar(); }'],
-      [
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh function foo() { await $bar(); }'),
+      tuple('<?hh function foo() { $x = await $bar(); }'),
+      tuple('<?hh function foo() { return await $bar(); }'),
+      tuple(
         '<?hh function foo($x) {'.
-        '$v = Vector {};'.
-        'foreach ($x as $y) { $v[] = async { await herp(); } }'.
-        'return await HH\Asio\v($v);',
-      ],
-      [
+        '  $v = Vector {};'.
+        '  foreach ($x as $y) { $v[] = async { await herp(); }; }'.
+        '  return await HH\Asio\v($v);'.
+        '}',
+      ),
+      tuple(
         '<?hh function foo($x) {'.
-        '$v = Vector {};'.
-        'foreach ($x as $y) { $v[] = (async () ==> await $y)(); }'.
-        'return await HH\Asio\v($v);',
-      ],
-      [
+        '  $v = Vector {};'.
+        '  foreach ($x as $y) { $v[] = (async () ==> await $y)(); }'.
+        '  return await HH\Asio\v($v);'.
+        '}',
+      ),
+      tuple(
         '<?hh function foo($x) {'.
-        '$v = Vector {};'.
-        'foreach ($x as $y) {'.
-        '$v[] = (function($it) { return await $yt; })($y);'.
-        '}'.
-        'return await HH\Asio\v($v);',
-      ],
+        '  $v = Vector {};'.
+        '  foreach ($x as $y) {'.
+        '    $v[] = (function($it) { return await $yt; })($y);'.
+        '  }'.
+        '  return await HH\Asio\v($v);'.
+        '}',
+      ),
     ];
   }
 }

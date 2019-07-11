@@ -20,14 +20,16 @@ final class NoBasicAssignmentFunctionParameterLinterTest extends TestCase {
     return Linters\NoBasicAssignmentFunctionParameterLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh foo(1, 2);'],
-      ['<?hh foo($a == 1, $b == 2);'],
-      ['<?hh foo(1 + 1, $b + 2);'],
-      ['<?hh foo($a, $b);'],
-      ['<?hh class Foo { public function foo(int $a = 1, int $b = 2): int {} }'],
-      ['<?hh function foo(int $a = 1, int $b = 2) : int {}'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh foo(1, 2);'),
+      tuple('<?hh foo($a == 1, $b == 2);'),
+      tuple('<?hh foo(1 + 1, $b + 2);'),
+      tuple('<?hh foo($a, $b);'),
+      tuple(
+        '<?hh class Foo { public function foo(int $a = 1, int $b = 2): int {} }',
+      ),
+      tuple('<?hh function foo(int $a = 1, int $b = 2) : int {}'),
     ];
   }
 }

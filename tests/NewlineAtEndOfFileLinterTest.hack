@@ -18,7 +18,11 @@ final class NewlineAtEndOfFileLinterTest extends TestCase {
     return Linters\NewlineAtEndOfFileLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [["<?hh\n"], ["<?hh\nfoo();\n"], ["<?hh\nfoo();\n/* hello */\n"]];
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple("<?hh\n"),
+      tuple("<?hh\nfoo();\n"),
+      tuple("<?hh\nfoo();\n/* hello */\n"),
+    ];
   }
 }

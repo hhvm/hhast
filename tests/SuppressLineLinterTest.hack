@@ -20,13 +20,13 @@ final class SuppressLineLinterTest extends TestCase {
     return Linters\NoWhitespaceAtEndOfLineLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      [
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple(
         '<?hh'.
         " /* HHAST_FIXME[NoWhitespaceAtEndOfLine] */\n".
         ' function NoWhiteSpace() { return null; }         ',
-      ],
+      ),
     ];
   }
 }

@@ -19,10 +19,10 @@ final class NoWhitespaceAtEndOfLineLinterTest extends TestCase {
     return Linters\NoWhitespaceAtEndOfLineLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ["<?hh print('foo');"],
-      ["<?hh\n"."class Foo {\n"."public function trogdor(){}\n"."}\n"],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple("<?hh print('foo');"),
+      tuple("<?hh\n"."class Foo {\n"."public function trogdor(){}\n"."}\n"),
     ];
   }
 }

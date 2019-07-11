@@ -20,24 +20,32 @@ final class AsyncFunctionAndMethodLinterTest extends TestCase {
     return Linters\AsyncFunctionAndMethodLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh class Foo { public function __construct() {} }'],
-      ['<?hh class Foo { public function __destruct() {} }'],
-      ['<?hh class Foo { public function fooBar() {} }'],
-      ['<?hh class Foo { public function getFooBarAsync(): Awaitable<void> {} }'],
-      ['<?hh class Foo { public function getFooBarUNSAFE() {} }'],
-      ['<?hh class Foo { public function getFooBarAsyncxUNTYPED(): Awaitable<string> {} }'],
-      ['<?hh class Foo { public function getFooBarDEPRECATED(): int {} }'],
-      ['<?hh function foo_bar() {}'],
-      ['<?hh function get_foo_bar_asyncx(): Awaitable<float> {}'],
-      ['<?hh function foo_bar_UNSAFE() {}'],
-      ['<?hh function foo_bar_async_UNTYPED(): Awaitable<int> {}'],
-      ['<?hh function foo_bar_DEPRECATED(): void {}'],
-      ['<?php class Foo { function defaultVisibilityIsPublic(): string {}' ],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh class Foo { public function __construct() {} }'),
+      tuple('<?hh class Foo { public function __destruct() {} }'),
+      tuple('<?hh class Foo { public function fooBar() {} }'),
+      tuple(
+        '<?hh class Foo { public function getFooBarAsync(): Awaitable<void> {} }',
+      ),
+      tuple('<?hh class Foo { public function getFooBarUNSAFE() {} }'),
+      tuple(
+        '<?hh class Foo { public function getFooBarAsyncxUNTYPED(): Awaitable<string> {} }',
+      ),
+      tuple('<?hh class Foo { public function getFooBarDEPRECATED(): int {} }'),
+      tuple('<?hh function foo_bar() {}'),
+      tuple('<?hh function get_foo_bar_asyncx(): Awaitable<float> {}'),
+      tuple('<?hh function foo_bar_UNSAFE() {}'),
+      tuple('<?hh function foo_bar_async_UNTYPED(): Awaitable<int> {}'),
+      tuple('<?hh function foo_bar_DEPRECATED(): void {}'),
+      tuple(
+        '<?php class Foo { function defaultVisibilityIsPublic(): string {}',
+      ),
       // functions that start with 'test':
-      ['<?hh class Foo { public function testFoo() : Awaitable<string> {}'],
-      ['<?hh function test_foo_async(): Awaitable<void> {}'],
+      tuple(
+        '<?hh class Foo { public function testFoo() : Awaitable<string> {}',
+      ),
+      tuple('<?hh function test_foo_async(): Awaitable<void> {}'),
     ];
   }
 }

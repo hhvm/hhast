@@ -16,10 +16,10 @@ final class GroupUseStatementsLinterTest extends TestCase {
     return Linters\GroupUseStatementsLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh use namespace HH\C;'],
-      ['<?hh use namespace HH\{Lib\Vec, Lib\Math};'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh use namespace HH\C;'),
+      tuple('<?hh use namespace HH\{Lib\Vec, Lib\Math};'),
     ];
   }
 }

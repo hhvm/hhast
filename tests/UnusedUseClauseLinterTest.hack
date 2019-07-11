@@ -17,20 +17,20 @@ final class UnusedUseClauseLinterTest extends TestCase {
     return Linters\UnusedUseClauseLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ["<?hh\nuse type Foo; Foo::bar();"],
-      ["<?hh\nuse type Foo; \$x instanceof Foo;"],
-      ["<?hh\nuse type Foo; class Bar<T as Foo>(): void {}"],
-      ["<?hh\nuse type Foo; new Foo();"],
-      ["<?hh\nuse type Foo; function bar(Foo \$in): void {}"],
-      ["<?hh\nuse type Foo; function bar(): Foo {}"],
-      ["<?hh\nuse namespace Foo; Foo\bar();"],
-      ["<?hh\nuse namespace Foo; new Foo\Bar();"],
-      ["<?hh\nuse Foo; new Foo();"],
-      ["<?hh\nuse Foo; new Foo\Bar();"],
-      ["<?hh\nuse function foo; foo();"],
-      ["<?hh\nuse const FOO; var_dump(FOO);"],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple("<?hh\nuse type Foo; Foo::bar();"),
+      tuple("<?hh\nuse type Foo; \$x instanceof Foo;"),
+      tuple("<?hh\nuse type Foo; class Bar<T as Foo>(): void {}"),
+      tuple("<?hh\nuse type Foo; new Foo();"),
+      tuple("<?hh\nuse type Foo; function bar(Foo \$in): void {}"),
+      tuple("<?hh\nuse type Foo; function bar(): Foo {}"),
+      tuple("<?hh\nuse namespace Foo; Foo\bar();"),
+      tuple("<?hh\nuse namespace Foo; new Foo\Bar();"),
+      tuple("<?hh\nuse Foo; new Foo();"),
+      tuple("<?hh\nuse Foo; new Foo\Bar();"),
+      tuple("<?hh\nuse function foo; foo();"),
+      tuple("<?hh\nuse const FOO; var_dump(FOO);"),
     ];
   }
 }

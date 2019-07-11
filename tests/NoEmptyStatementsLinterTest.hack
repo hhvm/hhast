@@ -16,7 +16,7 @@ final class NoEmptyStatementsLinterTest extends TestCase {
     return Linters\NoEmptyStatementsLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [['<?hh fn_call(); '], ['<?hh for(;;) { }']];
+  public function getCleanExamples(): vec<(string)> {
+    return vec[tuple('<?hh fn_call(); '), tuple('<?hh for(;;) { }')];
   }
 }

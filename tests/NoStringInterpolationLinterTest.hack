@@ -18,13 +18,13 @@ final class NoStringInterpolationLinterTest extends TestCase {
     return Linters\NoStringInterpolationLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh "foobar";'],
-      ['<?hh "foo"."bar";'],
-      ['<?hh "foo".$bar;'],
-      ['<?hh "foo".$bar."baz";'],
-      ['<?hh "foo{bar}baz";'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh "foobar";'),
+      tuple('<?hh "foo"."bar";'),
+      tuple('<?hh "foo".$bar;'),
+      tuple('<?hh "foo".$bar."baz";'),
+      tuple('<?hh "foo{bar}baz";'),
     ];
   }
 }

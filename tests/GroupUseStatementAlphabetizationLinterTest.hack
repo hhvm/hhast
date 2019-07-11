@@ -18,11 +18,11 @@ final class GroupUseStatementAlphabetizationLinterTest extends TestCase {
     return Linters\GroupUseStatementAlphabetizationLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh use type Facebook\HHAST\{AbstractToken};'],
-      ['<?hh use type Facebook\HHAST\{AbstractToken, AsToken};'],
-      ['<?hh use type Facebook\{HHAST\AbstractToken, HHAST\AsToken};'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh use type Facebook\HHAST\{AbstractToken};'),
+      tuple('<?hh use type Facebook\HHAST\{AbstractToken, AsToken};'),
+      tuple('<?hh use type Facebook\{HHAST\AbstractToken, HHAST\AsToken};'),
     ];
   }
 }
