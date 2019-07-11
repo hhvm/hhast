@@ -22,9 +22,9 @@ final class UnusedParameterLinterTest extends TestCase {
       tuple('<?hh function foo(int $bar) { var_dump($bar); }'),
       tuple('<?hh function foo(int $_) { }'),
       tuple('<?hh function foo(int $_bar) { }'),
-      tuple('<?hh class Foo { public function bar(int $_) { }'),
+      tuple('<?hh class Foo { public function bar(int $_) { } }'),
       tuple(
-        '<?hh class Foo { public function bar(int $baz) { var_dump($baz); }',
+        '<?hh class Foo { public function bar(int $baz) { var_dump($baz); } }',
       ),
       tuple('<?hh interface Foo { public function bar(int $baz); }'),
       tuple(
