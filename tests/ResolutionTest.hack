@@ -68,7 +68,7 @@ final class ResolutionTest extends TestCase {
 
   public async function testWithUnrelatedNamespaceBlock(): Awaitable<void> {
     list($root, $node) = await self::getRootAndNodeAsync(
-      '<?hh namespace \\MyNS { } namespace { class Foo {} }',
+      '<?hh namespace MyNS { } namespace { class Foo {} }',
     );
     expect(Resolution\get_current_namespace($root, $node))->toBeNull();
   }
