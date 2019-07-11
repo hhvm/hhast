@@ -121,5 +121,5 @@ function not_empty_exprs(): void {
   $fn = () ==> 'a';
   $fn = () ==> {
     return 'a';
-  }
+  };
 }
