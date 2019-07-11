@@ -488,10 +488,14 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                       new NodeList(vec[
                         new ListItem(
                           new NameToken(
-                            new NodeList(Vec\concat(
-                              vec[new WhiteSpace('  ')],
-                              $name_leading,
-                            )),
+                            new NodeList(
+                              $multiple
+                                ? Vec\concat(
+                                    vec[new WhiteSpace('  ')],
+                                    $name_leading,
+                                  )
+                                : $name_leading,
+                            ),
                             new NodeList($name_trailing),
                             $name,
                           ),
@@ -519,8 +523,8 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                         null,
                         new NodeList(Vec\concat($comma_trailing, vec[
                           $multiple
-                              ? new WhiteSpace("\n")
-                              : new WhiteSpace(' '),
+                            ? new WhiteSpace("\n")
+                            : new WhiteSpace(' '),
                         ])),
                       ),
                 );
