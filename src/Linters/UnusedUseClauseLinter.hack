@@ -142,7 +142,10 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
       $node instanceof NamespaceGroupUseDeclaration &&
       $clause_count === ($unused_count + 1)
     ) {
-      $clause = Vec\filter($clauses, $item ==> !C\contains($unused, $item))
+      $clause = Vec\filter(
+        $clauses,
+        $item ==> !C\contains_key($unused, $item->getUniqueID()),
+      )
         |> C\onlyx($$);
       $name = $clause->getName();
       if ($name instanceof NameToken) {
