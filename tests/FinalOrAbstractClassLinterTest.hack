@@ -24,7 +24,7 @@ final class FinalOrAbstractClassLinterTest extends TestCase {
       tuple('<?hh abstract class test {}'),
       tuple('<?hh interface test {}'),
       tuple('<?hh trait test {}'),
-      tuple('<?hh final class :page:test-page-1 extends SomeXHPPage {}'),
+      tuple('<?hh final class :page:test-page extends SomeXHPPage {}'),
       tuple('<?hh abstract final class test {}'),
     ];
   }

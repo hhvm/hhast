@@ -5,8 +5,8 @@
         "description": "Class should always be declared abstract or final"
     },
     {
-        "blame": "\nclass :page:test-page-2 extends SomeXHPPage {\n\n}\n",
-        "blame_pretty": "\nclass :page:test-page-2 extends SomeXHPPage {\n\n}\n",
+        "blame": "\nclass :page:test-page-two extends SomeXHPPage {\n\n}\n",
+        "blame_pretty": "\nclass :page:test-page-two extends SomeXHPPage {\n\n}\n",
         "description": "Class should always be declared abstract or final"
     }
 ]
