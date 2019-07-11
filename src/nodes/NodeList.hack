@@ -141,7 +141,7 @@ final class NodeList<+Titem as Node> extends Node {
       return $this;
     }
 
-    return new NodeList(/* HH_FIXME[4110] */ $new_children);
+    return new NodeList(/* HH_FIXME[4110] */ Vec\filter_nulls($new_children));
   }
 
   <<__Override>>

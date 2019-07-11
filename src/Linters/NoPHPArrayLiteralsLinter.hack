@@ -28,7 +28,6 @@ use type Facebook\HHAST\{
   VectorIntrinsicExpression,
 };
 use namespace HH\Lib\C;
-use function Facebook\HHAST\Missing;
 
 final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
   const type TNode = IPHPArray;
