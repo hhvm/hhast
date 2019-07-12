@@ -29,7 +29,7 @@ use type Facebook\HHAST\{
   TypeArguments,
   WhiteSpace,
 };
-use function Facebook\HHAST\{from_file_async, resolve_type, Missing};
+use function Facebook\HHAST\{Missing, from_file_async, resolve_type};
 use namespace HH\Lib\{C, Str, Vec};
 
 final class InstanceofIsMigration extends BaseMigration {
