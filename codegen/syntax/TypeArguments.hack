@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9fdef40ef1a52e13476f9b65347b3ce1>>
+ * @generated SignedSource<<9fa0df754f5405b888c907226d3b831c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -156,13 +156,15 @@ final class TypeArguments extends Node {
   }
 
   /**
-   * @return NodeList<ListItem<ClassnameTypeSpecifier>> |
+   * @return NodeList<ListItem<AttributizedSpecifier>> |
+   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ClosureTypeSpecifier>> |
    * NodeList<ListItem<DarrayTypeSpecifier>> |
    * NodeList<ListItem<ITypeSpecifier>> |
    * NodeList<ListItem<DictionaryTypeSpecifier>> |
    * NodeList<ListItem<GenericTypeSpecifier>> |
    * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<KeysetTypeSpecifier>> |
    * NodeList<ListItem<LikeTypeSpecifier>> |
    * NodeList<ListItem<MapArrayTypeSpecifier>> |
    * NodeList<ListItem<NullableTypeSpecifier>> |
@@ -170,7 +172,8 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<SimpleTypeSpecifier>> |
    * NodeList<ListItem<SoftTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * | NodeList<ListItem<VarrayTypeSpecifier>> |
+   * NodeList<ListItem<VectorArrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
   public function getTypes(): NodeList<ListItem<ITypeSpecifier>> {
@@ -178,13 +181,15 @@ final class TypeArguments extends Node {
   }
 
   /**
-   * @return NodeList<ListItem<ClassnameTypeSpecifier>> |
+   * @return NodeList<ListItem<AttributizedSpecifier>> |
+   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ClosureTypeSpecifier>> |
    * NodeList<ListItem<DarrayTypeSpecifier>> |
    * NodeList<ListItem<ITypeSpecifier>> |
    * NodeList<ListItem<DictionaryTypeSpecifier>> |
    * NodeList<ListItem<GenericTypeSpecifier>> |
    * NodeList<ListItem<ISimpleCreationSpecifier>> |
+   * NodeList<ListItem<KeysetTypeSpecifier>> |
    * NodeList<ListItem<LikeTypeSpecifier>> |
    * NodeList<ListItem<MapArrayTypeSpecifier>> |
    * NodeList<ListItem<NullableTypeSpecifier>> |
@@ -192,7 +197,8 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<SimpleTypeSpecifier>> |
    * NodeList<ListItem<SoftTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * | NodeList<ListItem<VarrayTypeSpecifier>> |
+   * NodeList<ListItem<VectorArrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
   public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {

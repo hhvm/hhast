@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<280ad2a2d8d369501d56440bb57ef137>>
+ * @generated SignedSource<<0e8e5dbf2149904fdaf69382718ef837>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -187,16 +187,18 @@ final class WhereConstraint extends Node {
   }
 
   /**
-   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | TypeConstant | VectorTypeSpecifier
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * VectorTypeSpecifier
    */
   public function getRightType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_right_type);
   }
 
   /**
-   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | TypeConstant | VectorTypeSpecifier
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * VectorTypeSpecifier
    */
   public function getRightTypex(): ITypeSpecifier {
     return $this->getRightType();

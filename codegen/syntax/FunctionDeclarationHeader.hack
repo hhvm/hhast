@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c13f2002283fc3c951fb4897982258f1>>
+ * @generated SignedSource<<1b25b31043eca73c1eef7ec665a5775f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -588,24 +588,26 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | LikeTypeSpecifier | MapArrayTypeSpecifier | null |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * @return AttributizedSpecifier | ClassnameTypeSpecifier |
+   * ClosureTypeSpecifier | DarrayTypeSpecifier | DictionaryTypeSpecifier |
+   * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
+   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | ShapeTypeSpecifier
+   * | SimpleTypeSpecifier | SoftTypeSpecifier | NoreturnToken |
+   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
   /**
-   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | LikeTypeSpecifier | MapArrayTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * @return AttributizedSpecifier | ClassnameTypeSpecifier |
+   * ClosureTypeSpecifier | DarrayTypeSpecifier | DictionaryTypeSpecifier |
+   * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
+   * MapArrayTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | SoftTypeSpecifier | NoreturnToken |
+   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

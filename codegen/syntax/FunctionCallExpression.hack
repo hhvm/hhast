@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2ebc4b263eec30cf7db2d23560ca5edf>>
+ * @generated SignedSource<<95719a8e4dea79e5e0ec521738e6e4e0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,8 +171,8 @@ final class FunctionCallExpression
   }
 
   /**
-   * @return array_creation_expression | function_call_expression | literal |
-   * member_selection_expression | parenthesized_expression | qualified_name |
+   * @return function_call_expression | member_selection_expression |
+   * parenthesized_expression | qualified_name |
    * safe_member_selection_expression | scope_resolution_expression |
    * subscript_expression | token:name | variable
    */
@@ -181,8 +181,8 @@ final class FunctionCallExpression
   }
 
   /**
-   * @return array_creation_expression | function_call_expression | literal |
-   * member_selection_expression | parenthesized_expression | qualified_name |
+   * @return function_call_expression | member_selection_expression |
+   * parenthesized_expression | qualified_name |
    * safe_member_selection_expression | scope_resolution_expression |
    * subscript_expression | token:name | variable
    */

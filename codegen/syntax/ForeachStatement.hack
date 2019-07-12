@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0b546c5966997a10a76ee60ee631ce77>>
+ * @generated SignedSource<<60d24a95d684edef7e15af81fd2f4ced>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -469,15 +469,15 @@ final class ForeachStatement
 
   /**
    * @return ListExpression | MemberSelectionExpression | null |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * SubscriptExpression | VariableExpression
    */
   public function getKey(): ?IExpression {
     return $this->_key;
   }
 
   /**
-   * @return ListExpression | MemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * @return ListExpression | MemberSelectionExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getKeyx(): IExpression {
     return TypeAssert\not_null($this->getKey());
@@ -632,16 +632,16 @@ final class ForeachStatement
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
-   * ExpressionStatement | ForeachStatement
+   * @return CompoundStatement | EchoStatement | ExpressionStatement |
+   * ForeachStatement
    */
   public function getBody(): IStatement {
     return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
-   * ExpressionStatement | ForeachStatement
+   * @return CompoundStatement | EchoStatement | ExpressionStatement |
+   * ForeachStatement
    */
   public function getBodyx(): IStatement {
     return $this->getBody();

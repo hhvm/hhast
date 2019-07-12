@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3abc4be21d91a55c327339f96d0ff31>>
+ * @generated SignedSource<<d37d03904734abf561644a7c353ad779>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -157,7 +157,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   }
 
   /**
-   * @return NodeList<IStatement> | NodeList<BreakStatement> |
+   * @return NodeList<BreakStatement> | NodeList<IStatement> |
    * NodeList<CompoundStatement> | NodeList<ConcurrentStatement> |
    * NodeList<ContinueStatement> | NodeList<DoStatement> |
    * NodeList<ILoopStatement> | NodeList<EchoStatement> |
@@ -174,7 +174,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   }
 
   /**
-   * @return NodeList<IStatement> | NodeList<BreakStatement> |
+   * @return NodeList<BreakStatement> | NodeList<IStatement> |
    * NodeList<CompoundStatement> | NodeList<ConcurrentStatement> |
    * NodeList<ContinueStatement> | NodeList<DoStatement> |
    * NodeList<ILoopStatement> | NodeList<EchoStatement> |

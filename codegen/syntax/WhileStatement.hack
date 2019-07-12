@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fed70b08c3ef7a9031e067af39d4581f>>
+ * @generated SignedSource<<e639043ac1cd79d2f92b2542b7cdbe18>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -315,16 +315,16 @@ final class WhileStatement
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement | ContinueStatement |
-   * EchoStatement | ExpressionStatement
+   * @return CompoundStatement | ContinueStatement | EchoStatement |
+   * ExpressionStatement
    */
   public function getBody(): IStatement {
     return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement | ContinueStatement |
-   * EchoStatement | ExpressionStatement
+   * @return CompoundStatement | ContinueStatement | EchoStatement |
+   * ExpressionStatement
    */
   public function getBodyx(): IStatement {
     return $this->getBody();

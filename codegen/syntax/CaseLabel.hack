@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd8ade949bed6b5f30d07425b6e120ad>>
+ * @generated SignedSource<<94c7aeea8f2eb41d2dcde94a6e9b6485>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,12 +14,12 @@ final class CaseLabel extends Node implements ISwitchLabel {
 
   private CaseToken $_keyword;
   private IExpression $_expression;
-  private Token $_colon;
+  private ColonToken $_colon;
 
   public function __construct(
     CaseToken $keyword,
     IExpression $expression,
-    Token $colon,
+    ColonToken $colon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -60,7 +60,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
-      'Token',
+      'ColonToken',
     );
     $colon = $colon as nonnull;
     $offset += $colon->getWidth();
@@ -156,20 +156,16 @@ final class CaseLabel extends Node implements ISwitchLabel {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression |
-   * FunctionCallExpression | InstanceofExpression | LiteralExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | NameToken |
-   * VariableExpression
+   * @return FunctionCallExpression | LiteralExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | NameToken | VariableExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression |
-   * FunctionCallExpression | InstanceofExpression | LiteralExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | NameToken |
-   * VariableExpression
+   * @return FunctionCallExpression | LiteralExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | NameToken | VariableExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();
@@ -179,7 +175,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
     return $this->_colon;
   }
 
-  public function withColon(Token $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -191,16 +187,16 @@ final class CaseLabel extends Node implements ISwitchLabel {
   }
 
   /**
-   * @return ColonToken | SemicolonToken
+   * @return ColonToken
    */
-  public function getColon(): Token {
-    return TypeAssert\instance_of(Token::class, $this->_colon);
+  public function getColon(): ColonToken {
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @return ColonToken | SemicolonToken
+   * @return ColonToken
    */
-  public function getColonx(): Token {
+  public function getColonx(): ColonToken {
     return $this->getColon();
   }
 }

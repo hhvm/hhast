@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5ded0848375a882dba292473e9a64f1>>
+ * @generated SignedSource<<ed86ed6c8c517dc05bd0f4b64391ca9b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,8 +128,8 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
 
   /**
    * @return FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
-   * VariableExpression
+   * MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | TupleExpression | VariableExpression
    */
   public function getLeftOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
@@ -137,8 +137,8 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
 
   /**
    * @return FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression | TupleExpression |
-   * VariableExpression
+   * MemberSelectionExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | TupleExpression | VariableExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();
@@ -189,16 +189,18 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getRightOperand(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_right_operand);
   }
 
   /**
-   * @return GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getRightOperandx(): ITypeSpecifier {
     return $this->getRightOperand();

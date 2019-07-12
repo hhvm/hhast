@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6be728deb72e62fd416d32a17ad8a48>>
+ * @generated SignedSource<<e4b358826482da84ec1a052fa115ecf0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,8 +12,8 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'type_const_declaration';
 
-  private ?Node $_attribute_spec;
-  private ?AbstractToken $_abstract;
+  private ?AttributeSpecification $_attribute_spec;
+  private ?NodeList<Token> $_modifiers;
   private ConstToken $_keyword;
   private TypeToken $_type_keyword;
   private NameToken $_name;
@@ -24,8 +24,8 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   private SemicolonToken $_semicolon;
 
   public function __construct(
-    ?Node $attribute_spec,
-    ?AbstractToken $abstract,
+    ?AttributeSpecification $attribute_spec,
+    ?NodeList<Token> $modifiers,
     ConstToken $keyword,
     TypeToken $type_keyword,
     NameToken $name,
@@ -37,7 +37,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
-    $this->_abstract = $abstract;
+    $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
     $this->_type_keyword = $type_keyword;
     $this->_name = $name;
@@ -63,17 +63,17 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
-      'Node',
+      'AttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
-    $abstract = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_abstract'],
+    $modifiers = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['type_const_modifiers'],
       $file,
       $offset,
       $source,
-      'AbstractToken',
+      'NodeList<Token>',
     );
-    $offset += $abstract?->getWidth() ?? 0;
+    $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_const_keyword'],
       $file,
@@ -150,7 +150,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $abstract,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $type_keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
@@ -167,7 +167,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
-      'abstract' => $this->_abstract,
+      'modifiers' => $this->_modifiers,
       'keyword' => $this->_keyword,
       'type_keyword' => $this->_type_keyword,
       'name' => $this->_name,
@@ -189,9 +189,9 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
-    $abstract = $this->_abstract === null
+    $modifiers = $this->_modifiers === null
       ? null
-      : $rewriter($this->_abstract, $parents);
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $type_keyword = $rewriter($this->_type_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
@@ -208,7 +208,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
-      $abstract === $this->_abstract &&
+      $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
       $type_keyword === $this->_type_keyword &&
       $name === $this->_name &&
@@ -222,7 +222,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $abstract,
+      /* HH_FIXME[4110] use `as` */ $modifiers,
       /* HH_FIXME[4110] use `as` */ $keyword,
       /* HH_FIXME[4110] use `as` */ $type_keyword,
       /* HH_FIXME[4110] use `as` */ $name,
@@ -238,13 +238,13 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(?Node $value): this {
+  public function withAttributeSpec(?AttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
     return new static(
       $value,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_keyword,
       $this->_name,
@@ -261,25 +261,25 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   /**
-   * @return null
+   * @return AttributeSpecification | null
    */
-  public function getAttributeSpec(): ?Node {
+  public function getAttributeSpec(): ?AttributeSpecification {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return
+   * @return AttributeSpecification
    */
-  public function getAttributeSpecx(): Node {
+  public function getAttributeSpecx(): AttributeSpecification {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getAbstractUNTYPED(): ?Node {
-    return $this->_abstract;
+  public function getModifiersUNTYPED(): ?Node {
+    return $this->_modifiers;
   }
 
-  public function withAbstract(?AbstractToken $value): this {
-    if ($value === $this->_abstract) {
+  public function withModifiers(?NodeList<Token> $value): this {
+    if ($value === $this->_modifiers) {
       return $this;
     }
     return new static(
@@ -296,22 +296,23 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
   }
 
-  public function hasAbstract(): bool {
-    return $this->_abstract !== null;
+  public function hasModifiers(): bool {
+    return $this->_modifiers !== null;
   }
 
   /**
-   * @return null | AbstractToken
+   * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<PublicToken>
+   * | null
    */
-  public function getAbstract(): ?AbstractToken {
-    return $this->_abstract;
+  public function getModifiers(): ?NodeList<Token> {
+    return $this->_modifiers;
   }
 
   /**
-   * @return AbstractToken
+   * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<PublicToken>
    */
-  public function getAbstractx(): AbstractToken {
-    return TypeAssert\not_null($this->getAbstract());
+  public function getModifiersx(): NodeList<Token> {
+    return TypeAssert\not_null($this->getModifiers());
   }
 
   public function getKeywordUNTYPED(): ?Node {
@@ -324,7 +325,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_abstract,
+      $this->_modifiers,
       $value,
       $this->_type_keyword,
       $this->_name,
@@ -364,7 +365,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $value,
       $this->_name,
@@ -404,7 +405,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_keyword,
       $value,
@@ -444,7 +445,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_keyword,
       $this->_name,
@@ -484,7 +485,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_keyword,
       $this->_name,
@@ -524,7 +525,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_keyword,
       $this->_name,
@@ -564,7 +565,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_keyword,
       $this->_name,
@@ -612,7 +613,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_keyword,
       $this->_name,

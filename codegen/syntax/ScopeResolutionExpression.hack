@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18aeb4c97fec2fbe3df6ea23c6f7fa3a>>
+ * @generated SignedSource<<b79f7688191d4e2c8d2bb992f7fbf99e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,20 +129,18 @@ final class ScopeResolutionExpression
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
-   * ParenthesizedExpression | PipeVariableExpression | QualifiedName |
-   * ScopeResolutionExpression | SimpleTypeSpecifier | XHPClassNameToken |
-   * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
+   * @return PipeVariableExpression | QualifiedName | SimpleTypeSpecifier |
+   * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
+   * VariableExpression
    */
   public function getQualifier(): Node {
     return $this->_qualifier;
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
-   * ParenthesizedExpression | PipeVariableExpression | QualifiedName |
-   * ScopeResolutionExpression | SimpleTypeSpecifier | XHPClassNameToken |
-   * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
+   * @return PipeVariableExpression | QualifiedName | SimpleTypeSpecifier |
+   * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
+   * VariableExpression
    */
   public function getQualifierx(): Node {
     return $this->getQualifier();
@@ -193,16 +191,14 @@ final class ScopeResolutionExpression
   }
 
   /**
-   * @return BracedExpression | ConstructToken | ClassToken | NameToken |
-   * VariableToken
+   * @return BracedExpression | ClassToken | NameToken | VariableToken
    */
   public function getName(): Node {
     return $this->_name;
   }
 
   /**
-   * @return BracedExpression | ConstructToken | ClassToken | NameToken |
-   * VariableToken
+   * @return BracedExpression | ClassToken | NameToken | VariableToken
    */
   public function getNamex(): Node {
     return $this->getName();

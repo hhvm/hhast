@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78c1cba0c8b3e1ebfb99a0e46875218a>>
+ * @generated SignedSource<<292596350e047dd4e3ac618d71032a73>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -32,7 +32,6 @@ class TokenClassMap {
 
   const dict<string, classname<HHAST\TokenWithVariableText>> WITH_TEXT = dict[
     'abstract' => HHAST\AbstractToken::class,
-    'and' => HHAST\AndToken::class,
     'array' => HHAST\ArrayToken::class,
     'arraykey' => HHAST\ArraykeyToken::class,
     'as' => HHAST\AsToken::class,
@@ -110,7 +109,6 @@ class TokenClassMap {
     'null' => HHAST\NullLiteralToken::class,
     'num' => HHAST\NumToken::class,
     'object' => HHAST\ObjectToken::class,
-    'or' => HHAST\OrToken::class,
     'parent' => HHAST\ParentToken::class,
     'print' => HHAST\PrintToken::class,
     'private' => HHAST\PrivateToken::class,
@@ -148,7 +146,6 @@ class TokenClassMap {
     'void' => HHAST\VoidToken::class,
     'where' => HHAST\WhereToken::class,
     'while' => HHAST\WhileToken::class,
-    'xor' => HHAST\XorToken::class,
     'yield' => HHAST\YieldToken::class,
     'binary_literal' => HHAST\BinaryLiteralToken::class,
     'boolean_literal' => HHAST\BooleanLiteralToken::class,

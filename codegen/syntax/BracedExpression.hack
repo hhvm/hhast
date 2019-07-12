@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d586d2fe6629a30d8e29d0907792ae71>>
+ * @generated SignedSource<<87011e45f5d8477117a49a7407f5a966>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,8 +158,8 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression | NameToken |
-   * VariableExpression
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * PrefixUnaryExpression | NameToken | VariableExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
@@ -168,8 +168,8 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression | NameToken |
-   * VariableExpression
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * PrefixUnaryExpression | NameToken | VariableExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();

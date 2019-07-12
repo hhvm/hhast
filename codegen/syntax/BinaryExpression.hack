@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64f9227d309438d25480d9716eb55b3f>>
+ * @generated SignedSource<<7c3b94cc8bb18ae38bdf813a6c714cd9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -188,8 +188,8 @@ final class BinaryExpression
    * EqualEqualEqualToken | GreaterThanToken | GreaterThanEqualToken |
    * GreaterThanGreaterThanToken | GreaterThanGreaterThanEqualToken |
    * QuestionColonToken | QuestionQuestionToken | QuestionQuestionEqualToken |
-   * CaratToken | CaratEqualToken | AndToken | OrToken | XorToken | BarToken |
-   * BarEqualToken | BarGreaterThanToken | BarBarToken
+   * CaratToken | CaratEqualToken | BarToken | BarEqualToken |
+   * BarGreaterThanToken | BarBarToken
    */
   public function getOperator(): Token {
     return TypeAssert\instance_of(Token::class, $this->_operator);
@@ -206,8 +206,8 @@ final class BinaryExpression
    * EqualEqualEqualToken | GreaterThanToken | GreaterThanEqualToken |
    * GreaterThanGreaterThanToken | GreaterThanGreaterThanEqualToken |
    * QuestionColonToken | QuestionQuestionToken | QuestionQuestionEqualToken |
-   * CaratToken | CaratEqualToken | AndToken | OrToken | XorToken | BarToken |
-   * BarEqualToken | BarGreaterThanToken | BarBarToken
+   * CaratToken | CaratEqualToken | BarToken | BarEqualToken |
+   * BarGreaterThanToken | BarBarToken
    */
   public function getOperatorx(): Token {
     return $this->getOperator();
@@ -237,9 +237,9 @@ final class BinaryExpression
    * InclusionExpression | InstanceofExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | Php7AnonymousFunction
-   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | PrefixedStringExpression | QualifiedName | RecordCreationExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * PrefixedStringExpression | QualifiedName | RecordCreationExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
@@ -258,9 +258,9 @@ final class BinaryExpression
    * InclusionExpression | InstanceofExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | Php7AnonymousFunction
-   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | PrefixedStringExpression | QualifiedName | RecordCreationExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * PrefixedStringExpression | QualifiedName | RecordCreationExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression

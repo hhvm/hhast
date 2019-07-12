@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<26e460d9a737da15a753bfdc32d7cb28>>
+ * @generated SignedSource<<5d92fb9d1ee2cb8600ae174eb7a6f2ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,24 +12,21 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'const_declaration';
 
-  private ?Token $_visibility;
-  private ?AbstractToken $_abstract;
+  private ?NodeList<AbstractToken> $_modifiers;
   private ConstToken $_keyword;
   private ?ITypeSpecifier $_type_specifier;
   private NodeList<ListItem<ConstantDeclarator>> $_declarators;
   private SemicolonToken $_semicolon;
 
   public function __construct(
-    ?Token $visibility,
-    ?AbstractToken $abstract,
+    ?NodeList<AbstractToken> $modifiers,
     ConstToken $keyword,
     ?ITypeSpecifier $type_specifier,
     NodeList<ListItem<ConstantDeclarator>> $declarators,
     SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    $this->_visibility = $visibility;
-    $this->_abstract = $abstract;
+    $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
     $this->_type_specifier = $type_specifier;
     $this->_declarators = $declarators;
@@ -46,22 +43,14 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
-    $visibility = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_visibility'],
+    $modifiers = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['const_modifiers'],
       $file,
       $offset,
       $source,
-      'Token',
+      'NodeList<AbstractToken>',
     );
-    $offset += $visibility?->getWidth() ?? 0;
-    $abstract = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_abstract'],
-      $file,
-      $offset,
-      $source,
-      'AbstractToken',
-    );
-    $offset += $abstract?->getWidth() ?? 0;
+    $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['const_keyword'],
       $file,
@@ -104,8 +93,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $visibility,
-      /* HH_IGNORE_ERROR[4110] */ $abstract,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $type_specifier,
       /* HH_IGNORE_ERROR[4110] */ $declarators,
@@ -117,8 +105,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
-      'visibility' => $this->_visibility,
-      'abstract' => $this->_abstract,
+      'modifiers' => $this->_modifiers,
       'keyword' => $this->_keyword,
       'type_specifier' => $this->_type_specifier,
       'declarators' => $this->_declarators,
@@ -133,12 +120,9 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $visibility = $this->_visibility === null
+    $modifiers = $this->_modifiers === null
       ? null
-      : $rewriter($this->_visibility, $parents);
-    $abstract = $this->_abstract === null
-      ? null
-      : $rewriter($this->_abstract, $parents);
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $type_specifier = $this->_type_specifier === null
       ? null
@@ -146,8 +130,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     $declarators = $rewriter($this->_declarators, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
-      $visibility === $this->_visibility &&
-      $abstract === $this->_abstract &&
+      $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
       $type_specifier === $this->_type_specifier &&
       $declarators === $this->_declarators &&
@@ -156,8 +139,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $visibility,
-      /* HH_FIXME[4110] use `as` */ $abstract,
+      /* HH_FIXME[4110] use `as` */ $modifiers,
       /* HH_FIXME[4110] use `as` */ $keyword,
       /* HH_FIXME[4110] use `as` */ $type_specifier,
       /* HH_FIXME[4110] use `as` */ $declarators,
@@ -165,52 +147,15 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     );
   }
 
-  public function getVisibilityUNTYPED(): ?Node {
-    return $this->_visibility;
+  public function getModifiersUNTYPED(): ?Node {
+    return $this->_modifiers;
   }
 
-  public function withVisibility(?Token $value): this {
-    if ($value === $this->_visibility) {
+  public function withModifiers(?NodeList<AbstractToken> $value): this {
+    if ($value === $this->_modifiers) {
       return $this;
     }
     return new static(
-      $value,
-      $this->_abstract,
-      $this->_keyword,
-      $this->_type_specifier,
-      $this->_declarators,
-      $this->_semicolon,
-    );
-  }
-
-  public function hasVisibility(): bool {
-    return $this->_visibility !== null;
-  }
-
-  /**
-   * @return null | ProtectedToken | PublicToken
-   */
-  public function getVisibility(): ?Token {
-    return $this->_visibility;
-  }
-
-  /**
-   * @return ProtectedToken | PublicToken
-   */
-  public function getVisibilityx(): Token {
-    return TypeAssert\not_null($this->getVisibility());
-  }
-
-  public function getAbstractUNTYPED(): ?Node {
-    return $this->_abstract;
-  }
-
-  public function withAbstract(?AbstractToken $value): this {
-    if ($value === $this->_abstract) {
-      return $this;
-    }
-    return new static(
-      $this->_visibility,
       $value,
       $this->_keyword,
       $this->_type_specifier,
@@ -219,22 +164,22 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     );
   }
 
-  public function hasAbstract(): bool {
-    return $this->_abstract !== null;
+  public function hasModifiers(): bool {
+    return $this->_modifiers !== null;
   }
 
   /**
-   * @return null | AbstractToken
+   * @return NodeList<AbstractToken> | null
    */
-  public function getAbstract(): ?AbstractToken {
-    return $this->_abstract;
+  public function getModifiers(): ?NodeList<AbstractToken> {
+    return $this->_modifiers;
   }
 
   /**
-   * @return AbstractToken
+   * @return NodeList<AbstractToken>
    */
-  public function getAbstractx(): AbstractToken {
-    return TypeAssert\not_null($this->getAbstract());
+  public function getModifiersx(): NodeList<AbstractToken> {
+    return TypeAssert\not_null($this->getModifiers());
   }
 
   public function getKeywordUNTYPED(): ?Node {
@@ -246,8 +191,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      $this->_visibility,
-      $this->_abstract,
+      $this->_modifiers,
       $value,
       $this->_type_specifier,
       $this->_declarators,
@@ -282,8 +226,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      $this->_visibility,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $value,
       $this->_declarators,
@@ -326,8 +269,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      $this->_visibility,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_specifier,
       $value,
@@ -362,8 +304,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      $this->_visibility,
-      $this->_abstract,
+      $this->_modifiers,
       $this->_keyword,
       $this->_type_specifier,
       $this->_declarators,

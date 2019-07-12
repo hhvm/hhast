@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ffbbaf34cc561e79e394dd61a6f11e5>>
+ * @generated SignedSource<<4e3899ccecc0b87eb43c86aa29206487>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,11 +13,11 @@ final class MarkupSuffix extends Node {
   const string SYNTAX_KIND = 'markup_suffix';
 
   private LessThanQuestionToken $_less_than_question;
-  private ?NameToken $_name;
+  private NameToken $_name;
 
   public function __construct(
     LessThanQuestionToken $less_than_question,
-    ?NameToken $name,
+    NameToken $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_less_than_question = $less_than_question;
@@ -50,7 +50,8 @@ final class MarkupSuffix extends Node {
       $source,
       'NameToken',
     );
-    $offset += $name?->getWidth() ?? 0;
+    $name = $name as nonnull;
+    $offset += $name->getWidth();
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -80,7 +81,7 @@ final class MarkupSuffix extends Node {
   ): this {
     $parents[] = $this;
     $less_than_question = $rewriter($this->_less_than_question, $parents);
-    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
+    $name = $rewriter($this->_name, $parents);
     if (
       $less_than_question === $this->_less_than_question &&
       $name === $this->_name
@@ -129,7 +130,7 @@ final class MarkupSuffix extends Node {
     return $this->_name;
   }
 
-  public function withName(?NameToken $value): this {
+  public function withName(NameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -141,16 +142,16 @@ final class MarkupSuffix extends Node {
   }
 
   /**
-   * @return null | NameToken
+   * @return NameToken
    */
-  public function getName(): ?NameToken {
-    return $this->_name;
+  public function getName(): NameToken {
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
    * @return NameToken
    */
   public function getNamex(): NameToken {
-    return TypeAssert\not_null($this->getName());
+    return $this->getName();
   }
 }

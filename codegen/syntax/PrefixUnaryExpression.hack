@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a9c27d836ed57f342670c378c319109>>
+ * @generated SignedSource<<9c1255a01a2d08bbad8c7454cbf069a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,18 +109,18 @@ final class PrefixUnaryExpression
   }
 
   /**
-   * @return ExclamationToken | DollarToken | AmpersandToken | PlusToken |
-   * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
-   * CloneToken | PrintToken | TildeToken
+   * @return ExclamationToken | AmpersandToken | PlusToken | PlusPlusToken |
+   * MinusToken | MinusMinusToken | AtToken | AwaitToken | CloneToken |
+   * PrintToken | TildeToken
    */
   public function getOperator(): Token {
     return TypeAssert\instance_of(Token::class, $this->_operator);
   }
 
   /**
-   * @return ExclamationToken | DollarToken | AmpersandToken | PlusToken |
-   * PlusPlusToken | MinusToken | MinusMinusToken | AtToken | AwaitToken |
-   * CloneToken | PrintToken | TildeToken
+   * @return ExclamationToken | AmpersandToken | PlusToken | PlusPlusToken |
+   * MinusToken | MinusMinusToken | AtToken | AwaitToken | CloneToken |
+   * PrintToken | TildeToken
    */
   public function getOperatorx(): Token {
     return $this->getOperator();
@@ -143,14 +143,14 @@ final class PrefixUnaryExpression
 
   /**
    * @return AnonymousFunction | ArrayIntrinsicExpression |
-   * AwaitableCreationExpression | BinaryExpression | BracedExpression |
-   * CastExpression | ConditionalExpression | EvalExpression |
-   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression
+   * AwaitableCreationExpression | BinaryExpression | CastExpression |
+   * ConditionalExpression | EvalExpression | FunctionCallExpression |
+   * InclusionExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
@@ -158,14 +158,14 @@ final class PrefixUnaryExpression
 
   /**
    * @return AnonymousFunction | ArrayIntrinsicExpression |
-   * AwaitableCreationExpression | BinaryExpression | BracedExpression |
-   * CastExpression | ConditionalExpression | EvalExpression |
-   * FunctionCallExpression | InclusionExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression
+   * AwaitableCreationExpression | BinaryExpression | CastExpression |
+   * ConditionalExpression | EvalExpression | FunctionCallExpression |
+   * InclusionExpression | InstanceofExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<593e927f7bec8c8c8ba02d89c83bf395>>
+ * @generated SignedSource<<b631f9963aa9791b63d5b45339f25b67>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,24 +88,24 @@ final class SimpleTypeSpecifier
   }
 
   /**
-   * @return QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
-   * ArraykeyToken | BoolToken | BooleanToken | DarrayToken | DictToken |
-   * DoubleToken | FloatToken | IntToken | IntegerToken | KeysetToken |
-   * MixedToken | NameToken | NoreturnToken | NullLiteralToken | NumToken |
-   * ObjectToken | ParentToken | RealToken | ResourceToken | SelfToken |
-   * StringToken | ThisToken | VarToken | VarrayToken | VecToken | VoidToken
+   * @return QualifiedName | XHPClassNameToken | ArrayToken | ArraykeyToken |
+   * BoolToken | BooleanToken | DarrayToken | DictToken | DoubleToken |
+   * FloatToken | IntToken | IntegerToken | KeysetToken | MixedToken |
+   * NameToken | NoreturnToken | NullLiteralToken | NumToken | ObjectToken |
+   * ParentToken | RealToken | ResourceToken | SelfToken | StringToken |
+   * ThisToken | VarToken | VarrayToken | VecToken | VoidToken
    */
   public function getSpecifier(): Node {
     return $this->_specifier;
   }
 
   /**
-   * @return QualifiedName | XHPClassNameToken | ConstructToken | ArrayToken |
-   * ArraykeyToken | BoolToken | BooleanToken | DarrayToken | DictToken |
-   * DoubleToken | FloatToken | IntToken | IntegerToken | KeysetToken |
-   * MixedToken | NameToken | NoreturnToken | NullLiteralToken | NumToken |
-   * ObjectToken | ParentToken | RealToken | ResourceToken | SelfToken |
-   * StringToken | ThisToken | VarToken | VarrayToken | VecToken | VoidToken
+   * @return QualifiedName | XHPClassNameToken | ArrayToken | ArraykeyToken |
+   * BoolToken | BooleanToken | DarrayToken | DictToken | DoubleToken |
+   * FloatToken | IntToken | IntegerToken | KeysetToken | MixedToken |
+   * NameToken | NoreturnToken | NullLiteralToken | NumToken | ObjectToken |
+   * ParentToken | RealToken | ResourceToken | SelfToken | StringToken |
+   * ThisToken | VarToken | VarrayToken | VecToken | VoidToken
    */
   public function getSpecifierx(): Node {
     return $this->getSpecifier();

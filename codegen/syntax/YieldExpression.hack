@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<48fd3ad409c0babb9cf2e9347d3ab883>>
+ * @generated SignedSource<<f2c985d5905bd11bcf441f1601f2924d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,22 +137,21 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * ElementInitializer | FunctionCallExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | null |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
-   * | SubscriptExpression | BreakToken | NameToken | TupleExpression |
-   * VariableExpression
+   * @return AnonymousFunction | BinaryExpression | ElementInitializer |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | null | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | BreakToken | NameToken |
+   * TupleExpression | VariableExpression
    */
   public function getOperand(): ?Node {
     return $this->_operand;
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * ElementInitializer | FunctionCallExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AnonymousFunction | BinaryExpression | ElementInitializer |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | BreakToken | NameToken |
    * TupleExpression | VariableExpression

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<551d78347cb35d8077f41c516434946b>>
+ * @generated SignedSource<<2d250f24ee13369746ecccd4c57ac369>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,24 +13,33 @@ final class RecordDeclaration extends Node {
   const string SYNTAX_KIND = 'record_declaration';
 
   private Node $_attribute_spec;
+  private Node $_modifier;
   private Node $_keyword;
   private Node $_name;
+  private Node $_extends_keyword;
+  private Node $_extends_list;
   private Node $_left_brace;
   private Node $_fields;
   private Node $_right_brace;
 
   public function __construct(
     Node $attribute_spec,
+    Node $modifier,
     Node $keyword,
     Node $name,
+    Node $extends_keyword,
+    Node $extends_list,
     Node $left_brace,
     Node $fields,
     Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
+    $this->_modifier = $modifier;
     $this->_keyword = $keyword;
     $this->_name = $name;
+    $this->_extends_keyword = $extends_keyword;
+    $this->_extends_list = $extends_list;
     $this->_left_brace = $left_brace;
     $this->_fields = $fields;
     $this->_right_brace = $right_brace;
@@ -55,6 +64,15 @@ final class RecordDeclaration extends Node {
     );
     $attribute_spec = $attribute_spec as nonnull;
     $offset += $attribute_spec->getWidth();
+    $modifier = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['record_modifier'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $modifier = $modifier as nonnull;
+    $offset += $modifier->getWidth();
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_keyword'],
       $file,
@@ -73,6 +91,24 @@ final class RecordDeclaration extends Node {
     );
     $name = $name as nonnull;
     $offset += $name->getWidth();
+    $extends_keyword = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['record_extends_keyword'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $extends_keyword = $extends_keyword as nonnull;
+    $offset += $extends_keyword->getWidth();
+    $extends_list = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['record_extends_list'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $extends_list = $extends_list as nonnull;
+    $offset += $extends_list->getWidth();
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_left_brace'],
       $file,
@@ -108,8 +144,11 @@ final class RecordDeclaration extends Node {
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $modifier,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $extends_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $extends_list,
       /* HH_IGNORE_ERROR[4110] */ $left_brace,
       /* HH_IGNORE_ERROR[4110] */ $fields,
       /* HH_IGNORE_ERROR[4110] */ $right_brace,
@@ -121,8 +160,11 @@ final class RecordDeclaration extends Node {
   public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
+      'modifier' => $this->_modifier,
       'keyword' => $this->_keyword,
       'name' => $this->_name,
+      'extends_keyword' => $this->_extends_keyword,
+      'extends_list' => $this->_extends_list,
       'left_brace' => $this->_left_brace,
       'fields' => $this->_fields,
       'right_brace' => $this->_right_brace,
@@ -137,15 +179,21 @@ final class RecordDeclaration extends Node {
   ): this {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $modifier = $rewriter($this->_modifier, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
+    $extends_keyword = $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $rewriter($this->_extends_list, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
     $fields = $rewriter($this->_fields, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
+      $modifier === $this->_modifier &&
       $keyword === $this->_keyword &&
       $name === $this->_name &&
+      $extends_keyword === $this->_extends_keyword &&
+      $extends_list === $this->_extends_list &&
       $left_brace === $this->_left_brace &&
       $fields === $this->_fields &&
       $right_brace === $this->_right_brace
@@ -154,8 +202,11 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       /* HH_FIXME[4110] use `as` */ $attribute_spec,
+      /* HH_FIXME[4110] use `as` */ $modifier,
       /* HH_FIXME[4110] use `as` */ $keyword,
       /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $extends_keyword,
+      /* HH_FIXME[4110] use `as` */ $extends_list,
       /* HH_FIXME[4110] use `as` */ $left_brace,
       /* HH_FIXME[4110] use `as` */ $fields,
       /* HH_FIXME[4110] use `as` */ $right_brace,
@@ -172,8 +223,11 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       $value,
+      $this->_modifier,
       $this->_keyword,
       $this->_name,
+      $this->_extends_keyword,
+      $this->_extends_list,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -198,6 +252,45 @@ final class RecordDeclaration extends Node {
     return $this->getAttributeSpec();
   }
 
+  public function getModifierUNTYPED(): ?Node {
+    return $this->_modifier;
+  }
+
+  public function withModifier(Node $value): this {
+    if ($value === $this->_modifier) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $value,
+      $this->_keyword,
+      $this->_name,
+      $this->_extends_keyword,
+      $this->_extends_list,
+      $this->_left_brace,
+      $this->_fields,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasModifier(): bool {
+    return $this->_modifier !== null;
+  }
+
+  /**
+   * @return
+   */
+  public function getModifier(): Node {
+    return $this->_modifier;
+  }
+
+  /**
+   * @return
+   */
+  public function getModifierx(): Node {
+    return $this->getModifier();
+  }
+
   public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
@@ -208,8 +301,11 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifier,
       $value,
       $this->_name,
+      $this->_extends_keyword,
+      $this->_extends_list,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -244,8 +340,11 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifier,
       $this->_keyword,
       $value,
+      $this->_extends_keyword,
+      $this->_extends_list,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -270,6 +369,84 @@ final class RecordDeclaration extends Node {
     return $this->getName();
   }
 
+  public function getExtendsKeywordUNTYPED(): ?Node {
+    return $this->_extends_keyword;
+  }
+
+  public function withExtendsKeyword(Node $value): this {
+    if ($value === $this->_extends_keyword) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_modifier,
+      $this->_keyword,
+      $this->_name,
+      $value,
+      $this->_extends_list,
+      $this->_left_brace,
+      $this->_fields,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasExtendsKeyword(): bool {
+    return $this->_extends_keyword !== null;
+  }
+
+  /**
+   * @return
+   */
+  public function getExtendsKeyword(): Node {
+    return $this->_extends_keyword;
+  }
+
+  /**
+   * @return
+   */
+  public function getExtendsKeywordx(): Node {
+    return $this->getExtendsKeyword();
+  }
+
+  public function getExtendsListUNTYPED(): ?Node {
+    return $this->_extends_list;
+  }
+
+  public function withExtendsList(Node $value): this {
+    if ($value === $this->_extends_list) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_modifier,
+      $this->_keyword,
+      $this->_name,
+      $this->_extends_keyword,
+      $value,
+      $this->_left_brace,
+      $this->_fields,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasExtendsList(): bool {
+    return $this->_extends_list !== null;
+  }
+
+  /**
+   * @return
+   */
+  public function getExtendsList(): Node {
+    return $this->_extends_list;
+  }
+
+  /**
+   * @return
+   */
+  public function getExtendsListx(): Node {
+    return $this->getExtendsList();
+  }
+
   public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
@@ -280,8 +457,11 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifier,
       $this->_keyword,
       $this->_name,
+      $this->_extends_keyword,
+      $this->_extends_list,
       $value,
       $this->_fields,
       $this->_right_brace,
@@ -316,8 +496,11 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifier,
       $this->_keyword,
       $this->_name,
+      $this->_extends_keyword,
+      $this->_extends_list,
       $this->_left_brace,
       $value,
       $this->_right_brace,
@@ -352,8 +535,11 @@ final class RecordDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifier,
       $this->_keyword,
       $this->_name,
+      $this->_extends_keyword,
+      $this->_extends_list,
       $this->_left_brace,
       $this->_fields,
       $value,

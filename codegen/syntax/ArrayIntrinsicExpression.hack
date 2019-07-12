@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2daaf91c72f8d445cbd880e8f58233b4>>
+ * @generated SignedSource<<c4e2d8ee4cf88fc311943304f0f04d2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -226,11 +226,9 @@ final class ArrayIntrinsicExpression
    * NodeList<ListItem<ArrayIntrinsicExpression>> | NodeList<ListItem<Node>> |
    * NodeList<ListItem<AwaitableCreationExpression>> |
    * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
-   * NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<ElementInitializer>> |
    * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<IFunctionCallishExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
@@ -253,11 +251,9 @@ final class ArrayIntrinsicExpression
    * NodeList<ListItem<ArrayIntrinsicExpression>> | NodeList<ListItem<Node>> |
    * NodeList<ListItem<AwaitableCreationExpression>> |
    * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
-   * NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<ElementInitializer>> |
    * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<IFunctionCallishExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |

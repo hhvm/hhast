@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39b8f4391ebe570a5a22bb79ead86513>>
+ * @generated SignedSource<<eaebd5c3bdcad7715cfae91ea879b1f3>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -37,15 +37,8 @@ function node_from_json_unwrapped(
     'fix_me' => HHAST\FixMe::class,
     'ignore_error' => HHAST\IgnoreError::class,
     'single_line_comment' => HHAST\SingleLineComment::class,
-    'unsafe' => HHAST\Unsafe::class,
-    'unsafe_expression' => HHAST\UnsafeExpression::class,
     'whitespace' => HHAST\WhiteSpace::class,
     'alias_declaration' => HHAST\AliasDeclaration::class,
-    'alternate_else_clause' => HHAST\AlternateElseClause::class,
-    'alternate_elseif_clause' => HHAST\AlternateElseifClause::class,
-    'alternate_if_statement' => HHAST\AlternateIfStatement::class,
-    'alternate_loop_statement' => HHAST\AlternateLoopStatement::class,
-    'alternate_switch_statement' => HHAST\AlternateSwitchStatement::class,
     'anonymous_class' => HHAST\AnonymousClass::class,
     'anonymous_function' => HHAST\AnonymousFunction::class,
     'anonymous_function_use_clause' => HHAST\AnonymousFunctionUseClause::class,
@@ -53,6 +46,7 @@ function node_from_json_unwrapped(
     'array_intrinsic_expression' => HHAST\ArrayIntrinsicExpression::class,
     'as_expression' => HHAST\AsExpression::class,
     'attribute_specification' => HHAST\AttributeSpecification::class,
+    'attributized_specifier' => HHAST\AttributizedSpecifier::class,
     'awaitable_creation_expression' => HHAST\AwaitableCreationExpression::class,
     'binary_expression' => HHAST\BinaryExpression::class,
     'braced_expression' => HHAST\BracedExpression::class,
@@ -142,7 +136,6 @@ function node_from_json_unwrapped(
     'object_creation_expression' => HHAST\ObjectCreationExpression::class,
     'parameter_declaration' => HHAST\ParameterDeclaration::class,
     'parenthesized_expression' => HHAST\ParenthesizedExpression::class,
-    'php7_anonymous_function' => HHAST\Php7AnonymousFunction::class,
     'pipe_variable' => HHAST\PipeVariableExpression::class,
     'pocket_atom' => HHAST\PocketAtomExpression::class,
     'pocket_atom_mapping' => HHAST\PocketAtomMappingDeclaration::class,

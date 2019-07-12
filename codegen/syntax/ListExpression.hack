@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96e688e16db3af45e0d3b5e7b7a45733>>
+ * @generated SignedSource<<24991c0777c34bb74bafe4c40f861cd6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -219,10 +219,9 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
 
   /**
    * @return NodeList<ListItem<ListExpression>> |
-   * NodeList<ListItem<IExpression>> | NodeList<ListItem<?IExpression>> |
+   * NodeList<ListItem<?IExpression>> | NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<Missing>> | NodeList<ListItem<?VariableExpression>> |
-   * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>> | null
    */
@@ -232,10 +231,9 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
 
   /**
    * @return NodeList<ListItem<ListExpression>> |
-   * NodeList<ListItem<IExpression>> | NodeList<ListItem<?IExpression>> |
+   * NodeList<ListItem<?IExpression>> | NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<Missing>> | NodeList<ListItem<?VariableExpression>> |
-   * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>>
    */

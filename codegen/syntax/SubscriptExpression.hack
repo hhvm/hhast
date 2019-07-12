@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ade909343e7b21cb247f6f6fde866c2e>>
+ * @generated SignedSource<<521fc2a89473f1214168e55b8972800c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,15 +15,15 @@ final class SubscriptExpression
   const string SYNTAX_KIND = 'subscript_expression';
 
   private IExpression $_receiver;
-  private Token $_left_bracket;
+  private LeftBracketToken $_left_bracket;
   private ?IExpression $_index;
-  private Token $_right_bracket;
+  private RightBracketToken $_right_bracket;
 
   public function __construct(
     IExpression $receiver,
-    Token $left_bracket,
+    LeftBracketToken $left_bracket,
     ?IExpression $index,
-    Token $right_bracket,
+    RightBracketToken $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_receiver = $receiver;
@@ -56,7 +56,7 @@ final class SubscriptExpression
       $file,
       $offset,
       $source,
-      'Token',
+      'LeftBracketToken',
     );
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
@@ -73,7 +73,7 @@ final class SubscriptExpression
       $file,
       $offset,
       $source,
-      'Token',
+      'RightBracketToken',
     );
     $right_bracket = $right_bracket as nonnull;
     $offset += $right_bracket->getWidth();
@@ -175,7 +175,7 @@ final class SubscriptExpression
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(Token $value): this {
+  public function withLeftBracket(LeftBracketToken $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -192,16 +192,19 @@ final class SubscriptExpression
   }
 
   /**
-   * @return LeftBracketToken | LeftBraceToken
+   * @return LeftBracketToken
    */
-  public function getLeftBracket(): Token {
-    return TypeAssert\instance_of(Token::class, $this->_left_bracket);
+  public function getLeftBracket(): LeftBracketToken {
+    return TypeAssert\instance_of(
+      LeftBracketToken::class,
+      $this->_left_bracket,
+    );
   }
 
   /**
-   * @return LeftBracketToken | LeftBraceToken
+   * @return LeftBracketToken
    */
-  public function getLeftBracketx(): Token {
+  public function getLeftBracketx(): LeftBracketToken {
     return $this->getLeftBracket();
   }
 
@@ -226,9 +229,8 @@ final class SubscriptExpression
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | null | ObjectCreationExpression |
+   * @return BinaryExpression | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | null |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression
@@ -238,12 +240,10 @@ final class SubscriptExpression
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * @return BinaryExpression | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | ScopeResolutionExpression
+   * | SubscriptExpression | NameToken | VariableExpression
    */
   public function getIndexx(): IExpression {
     return TypeAssert\not_null($this->getIndex());
@@ -253,7 +253,7 @@ final class SubscriptExpression
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(Token $value): this {
+  public function withRightBracket(RightBracketToken $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
@@ -270,16 +270,19 @@ final class SubscriptExpression
   }
 
   /**
-   * @return RightBracketToken | RightBraceToken
+   * @return RightBracketToken
    */
-  public function getRightBracket(): Token {
-    return TypeAssert\instance_of(Token::class, $this->_right_bracket);
+  public function getRightBracket(): RightBracketToken {
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 
   /**
-   * @return RightBracketToken | RightBraceToken
+   * @return RightBracketToken
    */
-  public function getRightBracketx(): Token {
+  public function getRightBracketx(): RightBracketToken {
     return $this->getRightBracket();
   }
 }

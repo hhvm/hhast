@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d85c88816b491db5586df22ae952b67>>
+ * @generated SignedSource<<1b7a46747b4e718e1f59f558ce30067d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -238,7 +238,6 @@ final class UnsetStatement extends Node implements IStatement {
 
   /**
    * @return NodeList<ListItem<MemberSelectionExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>>
@@ -249,7 +248,6 @@ final class UnsetStatement extends Node implements IStatement {
 
   /**
    * @return NodeList<ListItem<MemberSelectionExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>>

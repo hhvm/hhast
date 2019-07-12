@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c36308eb2097311f684b17d29b116cd5>>
+ * @generated SignedSource<<debe6bcf1ec67c1dc3497f2a7cdcb67f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,11 +13,11 @@ final class DefaultLabel extends Node implements ISwitchLabel {
   const string SYNTAX_KIND = 'default_label';
 
   private DefaultToken $_keyword;
-  private Token $_colon;
+  private ColonToken $_colon;
 
   public function __construct(
     DefaultToken $keyword,
-    Token $colon,
+    ColonToken $colon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -48,7 +48,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
       $file,
       $offset,
       $source,
-      'Token',
+      'ColonToken',
     );
     $colon = $colon as nonnull;
     $offset += $colon->getWidth();
@@ -124,7 +124,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     return $this->_colon;
   }
 
-  public function withColon(Token $value): this {
+  public function withColon(ColonToken $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -136,16 +136,16 @@ final class DefaultLabel extends Node implements ISwitchLabel {
   }
 
   /**
-   * @return ColonToken | SemicolonToken
+   * @return ColonToken
    */
-  public function getColon(): Token {
-    return TypeAssert\instance_of(Token::class, $this->_colon);
+  public function getColon(): ColonToken {
+    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
   }
 
   /**
-   * @return ColonToken | SemicolonToken
+   * @return ColonToken
    */
-  public function getColonx(): Token {
+  public function getColonx(): ColonToken {
     return $this->getColon();
   }
 }

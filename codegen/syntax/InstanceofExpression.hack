@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43367eb16874274e5833020aeb249cd2>>
+ * @generated SignedSource<<4470b241ffcdff3f30f658a32ccc5d91>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -131,8 +131,8 @@ final class InstanceofExpression
   /**
    * @return AnonymousFunction | CastExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * ParenthesizedExpression | PrefixUnaryExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getLeftOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
@@ -141,8 +141,8 @@ final class InstanceofExpression
   /**
    * @return AnonymousFunction | CastExpression | FunctionCallExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * ParenthesizedExpression | PrefixUnaryExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();
@@ -193,18 +193,14 @@ final class InstanceofExpression
   }
 
   /**
-   * @return member_selection_expression | parenthesized_expression |
-   * qualified_name | scope_resolution_expression | subscript_expression |
-   * token:name | variable
+   * @return qualified_name | token:name | variable
    */
   public function getRightOperand(): Node {
     return $this->_right_operand;
   }
 
   /**
-   * @return member_selection_expression | parenthesized_expression |
-   * qualified_name | scope_resolution_expression | subscript_expression |
-   * token:name | variable
+   * @return qualified_name | token:name | variable
    */
   public function getRightOperandx(): Node {
     return $this->getRightOperand();

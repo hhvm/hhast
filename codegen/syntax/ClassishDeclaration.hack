@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d243e1fd785bc844e8d78dc99cc18648>>
+ * @generated SignedSource<<662dae76b619cc5f7b1d0fdf64e7205e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,6 +23,7 @@ abstract class ClassishDeclarationGeneratedBase
   private ?NodeList<ListItem<ISimpleCreationSpecifier>> $_extends_list;
   private ?ImplementsToken $_implements_keyword;
   private ?NodeList<ListItem<ISimpleCreationSpecifier>> $_implements_list;
+  private ?Node $_where_clause;
   private ClassishBody $_body;
 
   public function __construct(
@@ -35,6 +36,7 @@ abstract class ClassishDeclarationGeneratedBase
     ?NodeList<ListItem<ISimpleCreationSpecifier>> $extends_list,
     ?ImplementsToken $implements_keyword,
     ?NodeList<ListItem<ISimpleCreationSpecifier>> $implements_list,
+    ?Node $where_clause,
     ClassishBody $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -47,6 +49,7 @@ abstract class ClassishDeclarationGeneratedBase
     $this->_extends_list = $extends_list;
     $this->_implements_keyword = $implements_keyword;
     $this->_implements_list = $implements_list;
+    $this->_where_clause = $where_clause;
     $this->_body = $body;
     parent::__construct($source_ref);
   }
@@ -134,6 +137,14 @@ abstract class ClassishDeclarationGeneratedBase
       'NodeList<ListItem<ISimpleCreationSpecifier>>',
     );
     $offset += $implements_list?->getWidth() ?? 0;
+    $where_clause = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['classish_where_clause'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $where_clause?->getWidth() ?? 0;
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_body'],
       $file,
@@ -159,6 +170,7 @@ abstract class ClassishDeclarationGeneratedBase
       /* HH_IGNORE_ERROR[4110] */ $extends_list,
       /* HH_IGNORE_ERROR[4110] */ $implements_keyword,
       /* HH_IGNORE_ERROR[4110] */ $implements_list,
+      /* HH_IGNORE_ERROR[4110] */ $where_clause,
       /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
@@ -176,6 +188,7 @@ abstract class ClassishDeclarationGeneratedBase
       'extends_list' => $this->_extends_list,
       'implements_keyword' => $this->_implements_keyword,
       'implements_list' => $this->_implements_list,
+      'where_clause' => $this->_where_clause,
       'body' => $this->_body,
     ]
       |> Dict\filter_nulls($$);
@@ -210,6 +223,9 @@ abstract class ClassishDeclarationGeneratedBase
     $implements_list = $this->_implements_list === null
       ? null
       : $rewriter($this->_implements_list, $parents);
+    $where_clause = $this->_where_clause === null
+      ? null
+      : $rewriter($this->_where_clause, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
       $attribute === $this->_attribute &&
@@ -221,6 +237,7 @@ abstract class ClassishDeclarationGeneratedBase
       $extends_list === $this->_extends_list &&
       $implements_keyword === $this->_implements_keyword &&
       $implements_list === $this->_implements_list &&
+      $where_clause === $this->_where_clause &&
       $body === $this->_body
     ) {
       return $this;
@@ -235,6 +252,7 @@ abstract class ClassishDeclarationGeneratedBase
       /* HH_FIXME[4110] use `as` */ $extends_list,
       /* HH_FIXME[4110] use `as` */ $implements_keyword,
       /* HH_FIXME[4110] use `as` */ $implements_list,
+      /* HH_FIXME[4110] use `as` */ $where_clause,
       /* HH_FIXME[4110] use `as` */ $body,
     );
   }
@@ -257,6 +275,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -297,6 +316,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -338,6 +358,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -378,6 +399,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -418,6 +440,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -458,6 +481,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -500,6 +524,7 @@ abstract class ClassishDeclarationGeneratedBase
       $value,
       $this->_implements_keyword,
       $this->_implements_list,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -546,6 +571,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $value,
       $this->_implements_list,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -588,6 +614,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $value,
+      $this->_where_clause,
       $this->_body,
     );
   }
@@ -616,6 +643,47 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getImplementsList());
   }
 
+  public function getWhereClauseUNTYPED(): ?Node {
+    return $this->_where_clause;
+  }
+
+  public function withWhereClause(?Node $value): this {
+    if ($value === $this->_where_clause) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute,
+      $this->_modifiers,
+      $this->_keyword,
+      $this->_name,
+      $this->_type_parameters,
+      $this->_extends_keyword,
+      $this->_extends_list,
+      $this->_implements_keyword,
+      $this->_implements_list,
+      $value,
+      $this->_body,
+    );
+  }
+
+  public function hasWhereClause(): bool {
+    return $this->_where_clause !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getWhereClause(): ?Node {
+    return $this->_where_clause;
+  }
+
+  /**
+   * @return
+   */
+  public function getWhereClausex(): Node {
+    return TypeAssert\not_null($this->getWhereClause());
+  }
+
   public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
@@ -634,6 +702,7 @@ abstract class ClassishDeclarationGeneratedBase
       $this->_extends_list,
       $this->_implements_keyword,
       $this->_implements_list,
+      $this->_where_clause,
       $value,
     );
   }

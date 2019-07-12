@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7969d767b6065e38d0a98a76fe6ebe6>>
+ * @generated SignedSource<<05081441642f3eb58b00274e55619f4d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -116,7 +116,7 @@ final class ExpressionStatement extends Node implements IStatement {
    * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
    * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | null | ObjectCreationExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
@@ -133,7 +133,7 @@ final class ExpressionStatement extends Node implements IStatement {
    * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
    * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |

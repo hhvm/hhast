@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ffcfb2cc6a423c06515ecbeb91b1b12>>
+ * @generated SignedSource<<5137f6588cf4edd98448bee483c82980>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -32,10 +32,6 @@ function trivia_from_json(
       return new HHAST\IgnoreError($trivia_text, $source_ref);
     case 'single_line_comment':
       return new HHAST\SingleLineComment($trivia_text, $source_ref);
-    case 'unsafe':
-      return new HHAST\Unsafe($trivia_text, $source_ref);
-    case 'unsafe_expression':
-      return new HHAST\UnsafeExpression($trivia_text, $source_ref);
     case 'whitespace':
       return new HHAST\WhiteSpace($trivia_text, $source_ref);
     default:

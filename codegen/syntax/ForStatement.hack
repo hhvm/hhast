@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2a8e6f252e85a974005ac32cab70b22>>
+ * @generated SignedSource<<4f96a63da6d5134c940a814cc2424fef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -588,16 +588,16 @@ final class ForStatement
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
-   * ExpressionStatement | ForStatement | UnsetStatement
+   * @return CompoundStatement | EchoStatement | ExpressionStatement |
+   * ForStatement | UnsetStatement
    */
   public function getBody(): IStatement {
     return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
-   * @return AlternateLoopStatement | CompoundStatement | EchoStatement |
-   * ExpressionStatement | ForStatement | UnsetStatement
+   * @return CompoundStatement | EchoStatement | ExpressionStatement |
+   * ForStatement | UnsetStatement
    */
   public function getBodyx(): IStatement {
     return $this->getBody();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8ecc256355d62c545d39942bb83b906>>
+ * @generated SignedSource<<08ab14005d286131d03a6fb8d300406e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -157,10 +157,11 @@ final class NamespaceBody extends Node implements INamespaceBody {
   }
 
   /**
-   * @return NodeList<Node> | NodeList<ClassishDeclaration> |
-   * NodeList<IHasAttributeSpec> | NodeList<ConstDeclaration> |
-   * NodeList<EchoStatement> | NodeList<IStatement> | NodeList<EnumDeclaration>
-   * | NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
+   * @return NodeList<AliasDeclaration> | NodeList<Node> |
+   * NodeList<IHasAttributeSpec> | NodeList<ClassishDeclaration> |
+   * NodeList<ConstDeclaration> | NodeList<EchoStatement> |
+   * NodeList<IStatement> | NodeList<EnumDeclaration> |
+   * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
    * NodeList<FunctionDeclaration> | NodeList<InclusionDirective> |
    * NodeList<NamespaceGroupUseDeclaration> |
    * NodeList<INamespaceUseDeclaration> | NodeList<NamespaceUseDeclaration> |
@@ -171,10 +172,11 @@ final class NamespaceBody extends Node implements INamespaceBody {
   }
 
   /**
-   * @return NodeList<Node> | NodeList<ClassishDeclaration> |
-   * NodeList<IHasAttributeSpec> | NodeList<ConstDeclaration> |
-   * NodeList<EchoStatement> | NodeList<IStatement> | NodeList<EnumDeclaration>
-   * | NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
+   * @return NodeList<AliasDeclaration> | NodeList<Node> |
+   * NodeList<IHasAttributeSpec> | NodeList<ClassishDeclaration> |
+   * NodeList<ConstDeclaration> | NodeList<EchoStatement> |
+   * NodeList<IStatement> | NodeList<EnumDeclaration> |
+   * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
    * NodeList<FunctionDeclaration> | NodeList<InclusionDirective> |
    * NodeList<NamespaceGroupUseDeclaration> |
    * NodeList<INamespaceUseDeclaration> | NodeList<NamespaceUseDeclaration>
