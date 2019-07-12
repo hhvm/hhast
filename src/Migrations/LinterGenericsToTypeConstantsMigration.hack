@@ -101,7 +101,7 @@ final class LinterGenericsToTypeConstantsMigration extends StepBasedMigration {
         ? $leading
         : (
             (
-              $leading instanceof HHAST\NodeList &&
+              $leading is HHAST\NodeList<_> &&
               $leading->getChildren()[0] is HHAST\EndOfLine
             )
               ? $leading->getChildren()[0]

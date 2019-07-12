@@ -100,17 +100,17 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   }
 
   private function getHTMLForNode(HHAST\Node $node): string {
-    if ($node instanceof HHAST\Missing) {
+    if ($node is HHAST\Missing) {
       return '';
     }
 
     if ($node->isTrivia()) {
       $inner = \htmlspecialchars($node->getCode());
-    } else if ($node instanceof HHAST\Token) {
+    } else if ($node is HHAST\Token) {
       $inner = '';
 
       $leading = $node->getLeading();
-      if (!$leading instanceof HHAST\Missing) {
+      if (!$leading is HHAST\Missing) {
         $inner .= '<span data-field="leading">'.
           $this->getHTMLForNode($leading).
           '</span>';
@@ -119,7 +119,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
       $inner .= \htmlspecialchars($node->getText());
 
       $trailing = $node->getTrailing();
-      if (!$trailing instanceof HHAST\Missing) {
+      if (!$trailing is HHAST\Missing) {
         $inner .= '<span data-field="trailing">'.
           $this->getHTMLForNode($trailing).
           '</span>';

@@ -89,7 +89,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
       return $node;
     }
     $useKind = $node->getKind();
-    if ($useKind !== null && $useKind instanceof FunctionToken) {
+    if ($useKind !== null && $useKind is FunctionToken) {
       $node = $node->insertAfter(
         $node->getLastTokenx(),
         self::getExpectFunction(),
@@ -121,7 +121,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
     $this->useExpectFunctionNeeded = false;
     $body = $node->getBodyx();
     $expectFunction = self::getExpectFunction();
-    if ($body instanceof NamespaceEmptyBody) {
+    if ($body is NamespaceEmptyBody) {
       return $node->insertAfter($node->getLastTokenx(), $expectFunction);
     }
     return $node->insertAfter(
@@ -319,9 +319,9 @@ final class AssertToExpectMigration extends StepBasedMigration {
   ): FunctionCallExpression {
     $rec = $node->getReceiver();
     $leading = Missing();
-    if ($rec instanceof ScopeResolutionExpression) {
+    if ($rec is ScopeResolutionExpression) {
       $leading = $rec->getQualifier()->getFirstTokenx()->getLeading();
-    } else if ($rec instanceof NameToken) {
+    } else if ($rec is NameToken) {
       $leading = $rec->getLeading();
     }
     $exp = new MemberSelectionExpression(
@@ -329,7 +329,7 @@ final class AssertToExpectMigration extends StepBasedMigration {
       new MinusGreaterThanToken(Missing(), Missing()),
       Missing(),
     );
-    if (!$rec instanceof MemberSelectionExpression) {
+    if (!$rec is MemberSelectionExpression) {
       $rec = $exp;
     } else {
       $leading = $rec->getObject()->getFirstTokenx()->getLeading();

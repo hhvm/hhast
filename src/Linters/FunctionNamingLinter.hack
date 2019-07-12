@@ -67,11 +67,11 @@ abstract class FunctionNamingLinter extends AutoFixingASTLinter {
   }
 
   private function getCurrentNameNodeForFunctionOrMethod(Node $node): ?Token {
-    if ($node instanceof FunctionDeclaration) {
+    if ($node is FunctionDeclaration) {
       return $node->getDeclarationHeader()->getName();
     }
 
-    if ($node instanceof MethodishDeclaration) {
+    if ($node is MethodishDeclaration) {
       return $node->getFunctionDeclHeader()->getName();
     }
 
@@ -84,17 +84,17 @@ abstract class FunctionNamingLinter extends AutoFixingASTLinter {
     this::TNode $header,
   ): ?FunctionNamingLintError {
     $token = $header->getName();
-    if (!$token instanceof NameToken) {
+    if (!$token is NameToken) {
       return null;
     }
     $old = $token->getText();
     if (Str\starts_with($old, '__')) {
       return null;
     }
-    if ($func instanceof FunctionDeclaration) {
+    if ($func is FunctionDeclaration) {
       $what = 'Function';
       $new = $this->getSuggestedNameForFunction($old, $func);
-    } else if ($func instanceof MethodishDeclaration) {
+    } else if ($func is MethodishDeclaration) {
       if (
         $header->getModifiers()
           ?->getDescendantsOfType(StaticToken::class)
@@ -116,13 +116,13 @@ abstract class FunctionNamingLinter extends AutoFixingASTLinter {
 
     $root = $this->getAST();
     $ns = HHAST\__Private\Resolution\get_current_namespace($root, $func);
-    if ($func instanceof FunctionDeclaration) {
+    if ($func is FunctionDeclaration) {
       $class = null;
     } else {
       $class = (
         $root->getFirstAncestorOfDescendantWhere(
           $func,
-          $c ==> $c instanceof ClassishDeclaration,
+          $c ==> $c is ClassishDeclaration,
         ) as ClassishDeclaration
       )->getName()->getText();
     }

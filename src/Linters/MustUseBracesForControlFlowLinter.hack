@@ -42,12 +42,12 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
     if ($body === null) {
       return null;
     }
-    if ($body instanceof CompoundStatement) {
+    if ($body is CompoundStatement) {
       return null;
     }
 
     // Consider '} else if {' to be the same as '} elseif {'
-    if ($node instanceof ElseClause && $body instanceof IfStatement) {
+    if ($node is ElseClause && $body is IfStatement) {
       return null;
     }
 
@@ -63,42 +63,42 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
   }
 
   private function getBody(Node $node): ?Node {
-    if ($node instanceof IfStatement) {
+    if ($node is IfStatement) {
       return $node->getStatement();
     }
-    if ($node instanceof ElseClause) {
+    if ($node is ElseClause) {
       return $node->getStatement();
     }
-    if ($node instanceof ElseifClause) {
+    if ($node is ElseifClause) {
       return $node->getStatement();
     }
-    if ($node instanceof ForeachStatement) {
+    if ($node is ForeachStatement) {
       return $node->getBody();
     }
-    if ($node instanceof WhileStatement) {
+    if ($node is WhileStatement) {
       return $node->getBody();
     }
     return null;
   }
 
   private function getLastHeadToken(Node $node): Token {
-    if ($node instanceof IfStatement) {
+    if ($node is IfStatement) {
       $paren = $node->getRightParen();
       if ($paren !== null) {
         return $paren->getLastTokenx();
       }
       return $node->getCondition()->getLastTokenx();
     }
-    if ($node instanceof ElseClause) {
+    if ($node is ElseClause) {
       return $node->getKeyword();
     }
-    if ($node instanceof ElseifClause) {
+    if ($node is ElseifClause) {
       return $node->getRightParen()->getLastTokenx();
     }
-    if ($node instanceof ForeachStatement) {
+    if ($node is ForeachStatement) {
       return $node->getRightParen()->getLastTokenx();
     }
-    if ($node instanceof WhileStatement) {
+    if ($node is WhileStatement) {
       return $node->getRightParen()->getLastTokenx();
     }
     invariant_violation('unhandled type: %s', \get_class($node));
@@ -125,7 +125,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
         ->toVec();
       $no_newlines = vec[];
       foreach (Vec\reverse($whitespace_nodes) as $whitespace) {
-        if ($whitespace instanceof EndOfLine) {
+        if ($whitespace is EndOfLine) {
           break;
         }
         $no_newlines[] = $whitespace;

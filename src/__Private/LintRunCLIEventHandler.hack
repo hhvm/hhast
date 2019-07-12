@@ -51,7 +51,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     $colors = $this->terminal->supportsColors();
 
     $fixing_linter = (
-      $linter instanceof Linters\AutoFixingLinter &&
+      $linter is Linters\AutoFixingLinter<_> &&
       !C\contains_key($config['autoFixBlacklist'], $class)
     )
       ? $linter
@@ -82,7 +82,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
       if ($fixing_linter) {
         /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-        $should_fix = await $this->shouldFixLintAsync($fixing_linter, $error);
+        $should_fix = await $this->shouldFixLintAsync(/* HH_FIXME[4110] */ $fixing_linter, $error);
         if ($should_fix) {
           $to_fix[] = $error;
         } else {
@@ -98,7 +98,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
     if (!C\is_empty($to_fix)) {
       invariant($fixing_linter, "Can't fix without a fixing linter");
-      self::fixErrors($fixing_linter, $to_fix);
+      self::fixErrors(/* HH_FIXME[4110] */ $fixing_linter, $to_fix);
     }
 
     return $result;
@@ -123,7 +123,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     vec<Terror> $errors,
   ): void {
     invariant(
-      $linter instanceof Linters\AutoFixingLinter,
+      $linter is Linters\AutoFixingLinter<_>,
       '%s is not an auto-fixing-linter',
       \get_class($linter),
     );

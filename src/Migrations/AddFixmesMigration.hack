@@ -52,9 +52,9 @@ final class AddFixmesMigration extends BaseMigration {
       }
       $node = find_node_at_position($root, $line, $column)->getFirstTokenx();
       $leading = $node->getLeading();
-      if ($leading instanceof Missing) {
+      if ($leading is Missing) {
         $new_leading = NodeList::createNonEmptyListOrMissing($fixmes);
-      } else if ($leading instanceof NodeList) {
+      } else if ($leading is NodeList<_>) {
         $new_leading = NodeList::createNonEmptyListOrMissing(
           Vec\concat($leading->getChildren(), $fixmes),
         );

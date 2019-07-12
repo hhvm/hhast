@@ -31,6 +31,6 @@ final class TypedMigrationStep<Tin as Node, Tout as Node>
       return $node;
     }
     $rewriter = $this->rewriter;
-    return $rewriter($node);
+    return $rewriter(/* HH_FIXME[4110] */ $node);
   }
 }

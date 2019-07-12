@@ -141,7 +141,7 @@ final class GroupUseStatementAlphabetizationLinter
                   if (
                     C\any(
                       $comma_tokens[0]->getTrailing()->getChildren(),
-                      $child ==> $child instanceof EndOfLine,
+                      $child ==> $child is EndOfLine,
                     )
                   ) {
                     $trailing = new EndOfLine("\n");

@@ -17,7 +17,7 @@ final class OptionalShapeFieldsMigration extends StepBasedMigration {
   ): HHAST\ListItem<HHAST\Node> {
     $field = $node->getItem();
 
-    if (!$field instanceof HHAST\FieldSpecifier) {
+    if (!$field is HHAST\FieldSpecifier) {
       return $node;
     }
 
@@ -26,7 +26,7 @@ final class OptionalShapeFieldsMigration extends StepBasedMigration {
     }
 
     $type = $field->getType();
-    if (!$type instanceof HHAST\NullableTypeSpecifier) {
+    if (!$type is HHAST\NullableTypeSpecifier) {
       return $node;
     }
 

@@ -27,12 +27,12 @@ final class DontAwaitInALoopLinter extends ASTLinter {
     ILoopStatement $context,
     PrefixUnaryExpression $node,
   ): ?ASTLintError {
-    if (!$node->getOperator() instanceof AwaitToken) {
+    if (!$node->getOperator() is AwaitToken) {
       return null;
     }
     $boundary = $context->getFirstAncestorOfDescendantWhere(
       $node,
-      $a ==> $a instanceof IHasFunctionBody,
+      $a ==> $a is IHasFunctionBody,
     );
     if ($boundary !== null) {
       return null;
@@ -44,7 +44,7 @@ final class DontAwaitInALoopLinter extends ASTLinter {
   <<__Override>>
   public function getPrettyTextForNode(PrefixUnaryExpression $blame): string {
     $loops = $this->getAST()->getAncestorsOfDescendant($blame)
-      |> Vec\map($$, $x ==> $x instanceof ILoopStatement ? $x : null)
+      |> Vec\map($$, $x ==> $x is ILoopStatement ? $x : null)
       |> Vec\filter_nulls($$);
 
     $lines = $this->getFile()->getContents() |> Str\split($$, "\n");

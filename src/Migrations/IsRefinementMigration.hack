@@ -79,7 +79,7 @@ final class IsRefinementMigration extends BaseMigration {
       $parent = C\lastx($parents as nonnull);
       // Whitelist of cases where parenthese are not needed
       if (
-        ($parent instanceof HHAST\ListItem) ||
+        ($parent is HHAST\ListItem<_>) ||
         ($parent is HHAST\IfStatement) ||
         ($parent is HHAST\ParenthesizedExpression)
       ) {

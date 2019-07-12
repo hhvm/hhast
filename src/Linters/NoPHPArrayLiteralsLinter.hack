@@ -55,10 +55,10 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
       if ($child->isList()) {
         foreach ($child->getChildren() as $item) {
           if (
-            $item instanceof ListItem &&
+            $item is ListItem<_> &&
             C\any(
               $item->getChildren(),
-              $child ==> $child instanceof ElementInitializer,
+              $child ==> $child is ElementInitializer,
             )
           ) {
             $is_assoc = true;
@@ -74,12 +74,12 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
 
     $children = vec($expr->getChildren());
 
-    if ($expr instanceof ArrayCreationExpression && C\count($children) === 3) {
+    if ($expr is ArrayCreationExpression && C\count($children) === 3) {
       list($left, $list, $right) = $children;
       if (
-        $left instanceof LeftBracketToken &&
+        $left is LeftBracketToken &&
         $list->isList() &&
-        $right instanceof RightBracketToken
+        $right is RightBracketToken
       ) {
         if ($is_assoc) {
           return new DictionaryIntrinsicExpression(
@@ -101,13 +101,13 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
       }
     }
 
-    if ($expr instanceof ArrayIntrinsicExpression && C\count($children) === 4) {
+    if ($expr is ArrayIntrinsicExpression && C\count($children) === 4) {
       list($array, $left, $list, $right) = $children;
       if (
-        $array instanceof ArrayToken &&
-        $left instanceof LeftParenToken &&
+        $array is ArrayToken &&
+        $left is LeftParenToken &&
         $list->isList() &&
-        $right instanceof RightParenToken
+        $right is RightParenToken
       ) {
         if ($is_assoc) {
           return new DictionaryIntrinsicExpression(

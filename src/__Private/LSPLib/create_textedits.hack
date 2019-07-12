@@ -21,13 +21,13 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
   while (!C\is_empty($diff)) {
     $first = C\firstx($diff);
     $diff = Vec\drop($diff, 1);
-    if ($first instanceof DiffLib\DiffKeepOp) {
+    if ($first is DiffLib\DiffKeepOp<_>) {
       continue;
     }
 
     // If we have a replacement, the deletion always comes first - so, if we
     // have an InsertOp here, it's a pure insertion
-    if ($first instanceof DiffLib\DiffInsertOp) {
+    if ($first is DiffLib\DiffInsertOp<_>) {
       $pos = shape(
         'line' => $first->getNewPos(),
         'character' => 0,
@@ -41,7 +41,7 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
     }
 
     invariant(
-      $first instanceof DiffLib\DiffDeleteOp,
+      $first is DiffLib\DiffDeleteOp<_>,
       'Expected a DeleteOp, InsertOp, or KeepOp, got %s',
       \get_class($first),
     );
@@ -51,7 +51,7 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
 
     // if ($first, $next) is (Delete, Insert) we have a replacement
     $next = C\first($diff);
-    if (!$next instanceof DiffLib\DiffInsertOp) {
+    if (!$next is DiffLib\DiffInsertOp<_>) {
       // (Delete, null|Keep) - just a deletion
       $edits[] = shape(
         'range' => shape(
@@ -99,11 +99,11 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
       $ilfirst = C\firstx($ildiff);
       $ildiff = Vec\drop($ildiff, 1);
 
-      if ($ilfirst instanceof DiffLib\DiffKeepOp) {
+      if ($ilfirst is DiffLib\DiffKeepOp<_>) {
         continue;
       }
 
-      if ($ilfirst instanceof DiffLib\DiffInsertOp) {
+      if ($ilfirst is DiffLib\DiffInsertOp<_>) {
         $ilpos = $offset_to_pos($ilfirst->getNewPos());
         $edits[] = shape(
           'range' => shape(
@@ -115,10 +115,10 @@ function create_textedits(string $from, string $to): vec<LSP\TextEdit> {
         continue;
       }
 
-      invariant($ilfirst instanceof DiffLib\DiffDeleteOp, 'unhandled op kind');
+      invariant($ilfirst is DiffLib\DiffDeleteOp<_>, 'unhandled op kind');
 
       $ilnext = C\first($ildiff);
-      if (!$ilnext instanceof DiffLib\DiffInsertOp) {
+      if (!$ilnext is DiffLib\DiffInsertOp<_>) {
         $edits[] = shape(
           'range' => shape(
             'start' => $offset_to_pos($ilfirst->getOldPos()),

@@ -43,10 +43,10 @@ final class FixtureRewritingTest extends TestCase {
       HHAST\Node $node,
       ?vec<HHAST\Node> $_parents,
     ) ==> {
-      if ($node instanceof HHAST\SingleLineComment) {
+      if ($node is HHAST\SingleLineComment) {
         return $node->withText('// blah blah blah');
       }
-      if ($node instanceof HHAST\DelimitedComment) {
+      if ($node is HHAST\DelimitedComment) {
         if (Str\contains($node->getText(), 'Copyright')) {
           return $node;
         }
@@ -69,7 +69,7 @@ final class FixtureRewritingTest extends TestCase {
 
     // Remove all try statements
     $ast = $ast->removeWhere(
-      ($node, $_parents) ==> $node instanceof HHAST\TryStatement,
+      ($node, $_parents) ==> $node is HHAST\TryStatement,
     );
 
     // Remove first method

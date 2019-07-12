@@ -293,7 +293,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
     $need_recursion = false;
     $has_file_list = vec[];
     foreach ($migrations as $migration) {
-      if ($migration instanceof IMigrationWithFileList) {
+      if ($migration is IMigrationWithFileList) {
         $has_file_list[] = $migration;
       } else {
         $need_recursion = true;

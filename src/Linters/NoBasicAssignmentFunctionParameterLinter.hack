@@ -41,8 +41,8 @@ class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
     if (
       !C\any(
         $exps,
-        $exp ==> $exp instanceof BinaryExpression &&
-          $exp->getOperator() instanceof EqualToken,
+        $exp ==> $exp is BinaryExpression &&
+          $exp->getOperator() is EqualToken,
       )
     ) {
       return null;
@@ -72,8 +72,8 @@ class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
     foreach ($args as $exp) {
       $item = $exp->getItemx();
       if (
-        $item instanceof BinaryExpression &&
-        $item->getOperator() instanceof EqualToken
+        $item is BinaryExpression &&
+        $item->getOperator() is EqualToken
       ) {
         $fixed_exps[] = new DelimitedComment(
           '/* '.

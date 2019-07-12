@@ -30,48 +30,48 @@ function get_unresolved_referenced_names(
   );
 
   foreach ($root->traverse() as $node) {
-    if ($node instanceof QualifiedName) {
+    if ($node is QualifiedName) {
       $name = C\firstx($node->getParts()->getChildrenOfItems());
-      if ($name instanceof NameToken) {
+      if ($name is NameToken) {
         $ret['namespaces'][] = $name->getText();
       }
       continue;
     }
 
-    if ($node instanceof SimpleTypeSpecifier) {
+    if ($node is SimpleTypeSpecifier) {
       $name = $node->getSpecifierx();
-      if ($name instanceof NameToken) {
+      if ($name is NameToken) {
         $ret['types'][] = $name->getText();
       }
       continue;
     }
 
-    if ($node instanceof GenericTypeSpecifier) {
+    if ($node is GenericTypeSpecifier) {
       $name = $node->getClassType();
-      if ($name instanceof NameToken) {
+      if ($name is NameToken) {
         $ret['types'][] = $name->getText();
       }
     }
 
-    if ($node instanceof ScopeResolutionExpression) {
+    if ($node is ScopeResolutionExpression) {
       $name = $node->getQualifier();
-      if ($name instanceof NameToken) {
+      if ($name is NameToken) {
         $ret['types'][] = $name->getText();
       }
       continue;
     }
 
-    if ($node instanceof InstanceofExpression) {
+    if ($node is InstanceofExpression) {
       $name = $node->getRightOperand();
-      if ($name instanceof NameToken) {
+      if ($name is NameToken) {
         $ret['types'][] = $name->getText();
       }
       continue;
     }
 
-    if ($node instanceof FunctionCallExpression) {
+    if ($node is FunctionCallExpression) {
       $name = $node->getReceiver();
-      if ($name instanceof NameToken) {
+      if ($name is NameToken) {
         $ret['functions'][] = $name->getText();
       }
       continue;
@@ -79,7 +79,7 @@ function get_unresolved_referenced_names(
 
     // `new Foo()` gets us a SimpleTypeSpecifier, but
     // <<Foo>> gets us a NameToken directly
-    if ($node instanceof ConstructorCall) {
+    if ($node is ConstructorCall) {
       $name = $node->getType() ?as NameToken;
       if ($name !== null) {
         $ret['types'][] = $name->getText();

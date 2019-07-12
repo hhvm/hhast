@@ -29,7 +29,7 @@ final class MethodCallOnConstructorLinter extends AutoFixingASTLinter {
     MemberSelectionExpression $node,
   ): ?ASTLintError {
     $obj = $node->getObject();
-    if (!$obj instanceof ObjectCreationExpression) {
+    if (!$obj is ObjectCreationExpression) {
       return null;
     }
 

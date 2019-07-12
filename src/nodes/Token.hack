@@ -54,15 +54,15 @@ abstract class Token extends Node {
     if ($leading->isMissing()) {
       return $leading;
     }
-    if ($leading instanceof WhiteSpace || $leading instanceof EndOfLine) {
+    if ($leading is WhiteSpace || $leading is EndOfLine) {
       return $leading;
     }
-    if (!$leading instanceof NodeList) {
+    if (!$leading is NodeList<_>) {
       return Missing();
     }
     $last = Missing();
     foreach ($leading->getChildren() as $child) {
-      if ($child instanceof WhiteSpace || $child instanceof EndOfLine) {
+      if ($child is WhiteSpace || $child is EndOfLine) {
         $last = $child;
       }
     }
@@ -74,17 +74,17 @@ abstract class Token extends Node {
     if ($trailing->isMissing()) {
       return $trailing;
     }
-    if ($trailing instanceof WhiteSpace || $trailing instanceof EndOfLine) {
+    if ($trailing is WhiteSpace || $trailing is EndOfLine) {
       return $trailing;
     }
-    if (!$trailing instanceof NodeList) {
+    if (!$trailing is NodeList<_>) {
       return Missing();
     }
     $result = vec[];
     foreach ($trailing->getChildren() as $child) {
-      if ($child instanceof WhiteSpace) {
+      if ($child is WhiteSpace) {
         $result[] = $child;
-      } else if ($child instanceof EndOfLine) {
+      } else if ($child is EndOfLine) {
         $result[] = $child;
         break;
       }

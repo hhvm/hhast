@@ -42,15 +42,15 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
     if ($first === null) {
       return null;
     }
-    if ($first instanceof EndOfFile) {
+    if ($first is EndOfFile) {
       return null;
     }
     $leading = $first->getFirstToken()?->getLeading();
-    if ($leading instanceof NodeList) {
+    if ($leading is NodeList<_>) {
       $leading = $leading->getChildren()[0];
     }
 
-    if ($leading instanceof DelimitedComment) {
+    if ($leading is DelimitedComment) {
       if (
         $leading->getText() ===
           self::getLicenseHeaderForPath(\dirname($this->getFile()->getPath()))
@@ -85,7 +85,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
   public function getFixedNode(Script $node): Script {
     $first = $node->getDeclarations()->getChildren()[1]->getFirstTokenx();
     $leading = $first->getLeading();
-    if ($leading instanceof NodeList) {
+    if ($leading is NodeList<_>) {
       $leading = $leading->getChildren();
     } else if ($leading === null) {
       $leading = vec[];
@@ -95,7 +95,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
 
     $key = C\find_key(
       $leading,
-      $item ==> ($item instanceof DelimitedComment) &&
+      $item ==> ($item is DelimitedComment) &&
         Str\contains_ci($item->getText(), 'copyright'),
     );
 
@@ -109,7 +109,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
           self::getLicenseHeaderForPath(\dirname($this->getFile()->getPath())),
         ),
       )];
-      if (!($next instanceof EndOfLine && $next_next instanceof EndOfLine)) {
+      if (!($next is EndOfLine && $next_next is EndOfLine)) {
         $new[] = new EndOfLine("\n");
       }
 

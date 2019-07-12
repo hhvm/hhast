@@ -61,15 +61,15 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
 
     $use_kind = (INamespaceUseDeclaration $node): ?string ==> {
       foreach ($node->getChildren() as $child) {
-        if ($child instanceof FunctionToken) {
+        if ($child is FunctionToken) {
           return 'function';
         }
 
-        if ($child instanceof NamespaceToken) {
+        if ($child is NamespaceToken) {
           return 'namespace';
         }
 
-        if ($child instanceof TypeToken) {
+        if ($child is TypeToken) {
           return 'type';
         }
       }
@@ -81,7 +81,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
       $script->getDescendantsOfType(INamespaceUseDeclaration::class) as
         $use_decl
     ) {
-      if ($use_decl instanceof NamespaceUseDeclaration) {
+      if ($use_decl is NamespaceUseDeclaration) {
         foreach (
           $use_decl->getDescendantsOfType(NamespaceUseClause::class) as
             $use_clause
@@ -92,7 +92,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
           $name_trailing = vec[];
 
           $name = $use_clause->getName();
-          if ($name instanceof NameToken) {
+          if ($name is NameToken) {
             if ($name->getLeading()->isList()) {
               foreach ($name->getLeading()->getChildren() as $leading) {
                 $name_leading[] = $leading;
@@ -106,7 +106,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
             }
 
             $parts[] = $name->getText();
-          } else if ($name instanceof QualifiedName) {
+          } else if ($name is QualifiedName) {
             foreach (
               $name->getDescendantsOfType(NameToken::class) as $name_token
             ) {
@@ -156,7 +156,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
         }
       }
 
-      if ($use_decl instanceof NamespaceGroupUseDeclaration) {
+      if ($use_decl is NamespaceGroupUseDeclaration) {
         $parts = vec[];
 
         foreach (
@@ -197,7 +197,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
           }
 
           $name = $use_clause->getName();
-          if ($name instanceof NameToken) {
+          if ($name is NameToken) {
             if ($name->getLeading()->isList()) {
               foreach ($name->getLeading()->getChildren() as $leading) {
                 $name_leading[] = $leading;
@@ -211,7 +211,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
             }
 
             $parts_item[] = $name->getText();
-          } else if ($name instanceof QualifiedName) {
+          } else if ($name is QualifiedName) {
             foreach (
               $name->getDescendantsOfType(NameToken::class) as $name_token
             ) {
@@ -302,7 +302,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
           $drop = 0;
           foreach ($name_leading as $leading) {
             if (
-              !$leading instanceof WhiteSpace && !$leading instanceof EndOfLine
+              !$leading is WhiteSpace && !$leading is EndOfLine
             ) {
               break;
             }
@@ -315,8 +315,8 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
             $take = C\count($trailings);
             foreach (Vec\reverse($trailings) as $trailing) {
               if (
-                !$trailing instanceof WhiteSpace &&
-                !$trailing instanceof EndOfLine
+                !$trailing is WhiteSpace &&
+                !$trailing is EndOfLine
               ) {
                 break;
               }

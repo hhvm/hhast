@@ -67,35 +67,35 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
         $as = $as->getText();
       } else {
         $name = $clause->getName();
-        if ($name instanceof NameToken) {
+        if ($name is NameToken) {
           $as = $name->getText();
         } else {
-          invariant($name instanceof QualifiedName, "Unhandled name type");
+          invariant($name is QualifiedName, "Unhandled name type");
           $as = $name->getParts()->getChildrenOfItemsOfType(NameToken::class)
             |> (C\lastx($$) as nonnull)->getText();
         }
       }
-      if ($kind instanceof NamespaceToken) {
+      if ($kind is NamespaceToken) {
         if (!C\contains($used['namespaces'], $as)) {
           $unused[] = tuple($as, $clause);
         }
         continue;
       }
-      if ($kind instanceof TypeToken) {
+      if ($kind is TypeToken) {
         if (!C\contains($used['types'], $as)) {
           $unused[] = tuple($as, $clause);
         }
         continue;
       }
 
-      if ($kind instanceof FunctionToken) {
+      if ($kind is FunctionToken) {
         if (!C\contains($used['functions'], $as)) {
           $unused[] = tuple($as, $clause);
         }
         continue;
       }
 
-      if ($kind instanceof ConstToken) {
+      if ($kind is ConstToken) {
         // unsupported
         continue;
       }
@@ -139,13 +139,13 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
 
     // Don't create a single-element group use statement
     if (
-      $node instanceof NamespaceGroupUseDeclaration &&
+      $node is NamespaceGroupUseDeclaration &&
       $clause_count === ($unused_count + 1)
     ) {
       $clause = Vec\filter($clauses, $item ==> !C\contains($unused, $item))
         |> C\onlyx($$);
       $name = $clause->getName();
-      if ($name instanceof NameToken) {
+      if ($name is NameToken) {
         $name = new QualifiedName(
           NodeList::createNonEmptyListOrMissing(
             Vec\concat(
@@ -156,7 +156,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
         );
       } else {
         invariant(
-          $name instanceof QualifiedName,
+          $name is QualifiedName,
           'name is not a name or qualified name',
         );
         $name = new QualifiedName(
@@ -187,7 +187,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
         $fixed = $fixed->without(
           $list->getFirstAncestorOfDescendantWhere(
             $clause,
-            $it ==> $it instanceof HHAST\ListItem,
+            $it ==> $it is HHAST\ListItem<_>,
           ) as nonnull,
         );
       }

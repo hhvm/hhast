@@ -73,7 +73,7 @@ abstract class Node {
         $out[$k] = $node;
       }
     }
-    return $out;
+    return /* HH_FIXME[4110] */ $out;
   }
 
   final public function traverse(): Container<Node> {
@@ -150,7 +150,7 @@ abstract class Node {
         $out[] = $node;
       }
     }
-    return $out;
+    return /* HH_FIXME[4110] */ $out;
   }
 
   public function removeWhere(

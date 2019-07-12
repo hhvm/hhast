@@ -24,7 +24,7 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   ): string {
     list($head, $suffix) = self::splitName($name);
     $type = $func->getDeclarationHeader()->getType();
-    if (!$type instanceof GenericTypeSpecifier) {
+    if (!$type is GenericTypeSpecifier) {
       return $name;
     }
     $type = $type->getClassType()->getCode();
@@ -46,7 +46,7 @@ class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   ): string {
     list($head, $suffix) = self::splitName($name);
     $type = $meth->getFunctionDeclHeader()->getType();
-    if (!$type instanceof GenericTypeSpecifier) {
+    if (!$type is GenericTypeSpecifier) {
       return $name;
     }
     $type = $type->getClassType()->getCode();

@@ -71,7 +71,7 @@ function is_linter_suppressed_up_to_statement(
   string $fixme,
   string $ignore,
 ): bool {
-  if ($node instanceof IStatement) {
+  if ($node is IStatement) {
     return false;
   }
   $children = $root->getChildren();
@@ -86,7 +86,7 @@ function is_linter_suppressed_up_to_statement(
       continue;
     }
     $children = $child->getChildren();
-    if ($child instanceof IStatement) {
+    if ($child is IStatement) {
       $statement = $child;
     }
   }
