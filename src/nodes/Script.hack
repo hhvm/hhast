@@ -57,7 +57,7 @@ final class Script extends ScriptGeneratedBase {
     );
 
     if (
-      $count === 1 && $namespaces[0]->getBody() instanceof NamespaceEmptyBody
+      $count === 1 && $namespaces[0]->getBody() is NamespaceEmptyBody
     ) {
       return vec[shape(
         'statement' => true,

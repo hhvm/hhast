@@ -70,31 +70,31 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * Returns whether the given expression is empty.
    */
   private function isEmptyExpression(Node $expr): bool {
-    return $expr instanceof ArrayCreationExpression ||
-      $expr instanceof AnonymousFunction ||
+    return $expr is ArrayCreationExpression ||
+      $expr is AnonymousFunction ||
       (
-        $expr instanceof BinaryExpression &&
+        $expr is BinaryExpression &&
         $this->isOperatorWithoutSideEffects($expr->getOperator())
       ) ||
-      $expr instanceof CastExpression ||
-      $expr instanceof CollectionLiteralExpression ||
-      $expr instanceof DarrayIntrinsicExpression ||
-      $expr instanceof DictionaryIntrinsicExpression ||
-      $expr instanceof InstanceofExpression ||
-      $expr instanceof IsExpression ||
-      $expr instanceof IssetExpression ||
-      $expr instanceof KeysetIntrinsicExpression ||
-      $expr instanceof LambdaExpression ||
-      $expr instanceof LiteralExpression ||
-      $expr instanceof NameExpression ||
+      $expr is CastExpression ||
+      $expr is CollectionLiteralExpression ||
+      $expr is DarrayIntrinsicExpression ||
+      $expr is DictionaryIntrinsicExpression ||
+      $expr is InstanceofExpression ||
+      $expr is IsExpression ||
+      $expr is IssetExpression ||
+      $expr is KeysetIntrinsicExpression ||
+      $expr is LambdaExpression ||
+      $expr is LiteralExpression ||
+      $expr is NameExpression ||
       (
-        $expr instanceof ParenthesizedExpression &&
+        $expr is ParenthesizedExpression &&
         $this->isEmptyExpression($expr->getExpression())
       ) ||
-      $expr instanceof SubscriptExpression ||
-      $expr instanceof VectorIntrinsicExpression ||
-      $expr instanceof VariableExpression ||
-      $expr instanceof VarrayIntrinsicExpression;
+      $expr is SubscriptExpression ||
+      $expr is VectorIntrinsicExpression ||
+      $expr is VariableExpression ||
+      $expr is VarrayIntrinsicExpression;
   }
 
   /**
@@ -105,7 +105,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
     // The pipe operator does not necessarily have any side effects but it
     // typically implies function invocation which can have side effects.
     return !$this->isAssignmentOperator($op) &&
-      !$op instanceof BarGreaterThanToken;
+      !$op is BarGreaterThanToken;
   }
 
   /**
@@ -115,21 +115,21 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * that include "Equal" and are not comparison operators (==, >=, etc.);
    */
   private function isAssignmentOperator(Token $op): bool {
-    return $op instanceof AmpersandEqualToken ||
-      $op instanceof BarEqualToken ||
-      $op instanceof CaratEqualToken ||
-      $op instanceof DotEqualToken ||
-      $op instanceof EqualToken ||
-      $op instanceof GreaterThanEqualToken ||
-      $op instanceof GreaterThanGreaterThanEqualToken ||
-      $op instanceof LessThanEqualToken ||
-      $op instanceof LessThanLessThanEqualToken ||
-      $op instanceof MinusEqualToken ||
-      $op instanceof PercentEqualToken ||
-      $op instanceof PlusEqualToken ||
-      $op instanceof QuestionQuestionEqualToken ||
-      $op instanceof SlashEqualToken ||
-      $op instanceof StarEqualToken ||
-      $op instanceof StarStarEqualToken;
+    return $op is AmpersandEqualToken ||
+      $op is BarEqualToken ||
+      $op is CaratEqualToken ||
+      $op is DotEqualToken ||
+      $op is EqualToken ||
+      $op is GreaterThanEqualToken ||
+      $op is GreaterThanGreaterThanEqualToken ||
+      $op is LessThanEqualToken ||
+      $op is LessThanLessThanEqualToken ||
+      $op is MinusEqualToken ||
+      $op is PercentEqualToken ||
+      $op is PlusEqualToken ||
+      $op is QuestionQuestionEqualToken ||
+      $op is SlashEqualToken ||
+      $op is StarEqualToken ||
+      $op is StarStarEqualToken;
   }
 }

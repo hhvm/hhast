@@ -61,7 +61,7 @@ abstract class Token extends Node {
     $leading = $this->getLeading();
     $last = null;
     foreach ($leading->getChildren() as $child) {
-      if ($child instanceof WhiteSpace || $child instanceof EndOfLine) {
+      if ($child is WhiteSpace || $child is EndOfLine) {
         $last = $child;
       }
     }
@@ -72,9 +72,9 @@ abstract class Token extends Node {
     $trailing = $this->getTrailing();
     $result = vec[];
     foreach ($trailing->getChildren() as $child) {
-      if ($child instanceof WhiteSpace) {
+      if ($child is WhiteSpace) {
         $result[] = $child;
-      } else if ($child instanceof EndOfLine) {
+      } else if ($child is EndOfLine) {
         $result[] = $child;
         break;
       }

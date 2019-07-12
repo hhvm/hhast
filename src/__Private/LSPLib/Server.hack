@@ -115,7 +115,7 @@ abstract class Server<TState as ServerState> {
       $notification['params'] ?? null,
     );
     await $handler->executeAsync($params);
-    if ($handler instanceof InitializedNotification) {
+    if ($handler is InitializedNotification<_>) {
       $this->inited = true;
     }
   }
@@ -147,7 +147,7 @@ abstract class Server<TState as ServerState> {
       $request['params'] ?? null,
     );
     $result = await $command->executeAsync($params);
-    if ($result instanceof Success) {
+    if ($result is Success<_, _, _>) {
       await $this->client
         ->sendResponseMessageAsync(shape(
           'jsonrpc' => '2.0',

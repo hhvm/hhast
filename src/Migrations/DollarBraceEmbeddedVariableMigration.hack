@@ -18,15 +18,15 @@ final class DollarBraceEmbeddedVariableMigration extends StepBasedMigration {
   ): HHAST\LiteralExpression {
     $children = $node->getChildren();
     $child = C\first($children);
-    if (!($child instanceof HHAST\NodeList)) {
+    if (!($child is HHAST\NodeList<_>)) {
       return $node;
     }
     $literal_parts = $child->getChildren();
     $first_part = C\first($literal_parts);
     if (
       !(
-        $first_part instanceof HHAST\DoubleQuotedStringLiteralHeadToken ||
-        $first_part instanceof HHAST\HeredocStringLiteralHeadToken
+        $first_part is HHAST\DoubleQuotedStringLiteralHeadToken ||
+        $first_part is HHAST\HeredocStringLiteralHeadToken
       )
     ) {
       return $node;
@@ -35,11 +35,11 @@ final class DollarBraceEmbeddedVariableMigration extends StepBasedMigration {
     $made_change = false;
     for ($i = 0; $i < C\count($literal_parts); $i++) {
       $current_part = $literal_parts[$i];
-      if ($current_part instanceof HHAST\DollarToken) {
+      if ($current_part is HHAST\DollarToken) {
         $next_part = idx($literal_parts, $i + 1);
-        if ($next_part instanceof HHAST\EmbeddedBracedExpression) {
+        if ($next_part is HHAST\EmbeddedBracedExpression) {
           $braced_expression_inner = $next_part->getExpression();
-          if ($braced_expression_inner instanceof HHAST\NameToken) {
+          if ($braced_expression_inner is HHAST\NameToken) {
             $new_literal_parts[] = $next_part->replace(
               $braced_expression_inner,
               new HHAST\VariableExpression(

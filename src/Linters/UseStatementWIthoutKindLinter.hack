@@ -53,7 +53,7 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
           return $clause->getAsx()->getText();
         }
         $name = $clause->getName();
-        if ($name instanceof QualifiedName) {
+        if ($name is QualifiedName) {
           return (
             C\lastx(
               $name->getParts()->getChildrenOfItemsOfType(NameToken::class),
@@ -61,7 +61,7 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
           )->getText();
         }
         invariant(
-          $name instanceof NameToken,
+          $name is NameToken,
           "Expected a Qualified or NameToken, got %s",
           \get_class($name),
         );

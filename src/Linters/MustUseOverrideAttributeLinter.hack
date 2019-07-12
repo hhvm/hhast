@@ -65,10 +65,10 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     ClassishDeclaration $class,
   ): string {
     $super = C\onlyx($class->getExtendsListx()->getChildren());
-    if ($super instanceof ListItem) {
+    if ($super is ListItem<_>) {
       $super = $super->getItemx();
     }
-    if ($super instanceof GenericTypeSpecifier) {
+    if ($super is GenericTypeSpecifier) {
       $super = $super->getClassType();
     }
     return $super->getCode()
@@ -85,11 +85,11 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     }
 
     $name = $method->getFunctionDeclHeader()->getName();
-    if ($name instanceof ConstructToken) {
+    if ($name is ConstructToken) {
       return true;
     }
 
-    if ($name instanceof DestructToken) {
+    if ($name is DestructToken) {
       return true;
     }
 
@@ -101,7 +101,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
       return true;
     }
 
-    if (!$class->getKeyword() instanceof ClassToken) {
+    if (!$class->getKeyword() is ClassToken) {
       return true;
     }
 

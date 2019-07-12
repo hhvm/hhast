@@ -102,7 +102,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   private function getHTMLForNode(HHAST\Node $node): string {
     if ($node->isTrivia()) {
       $inner = \htmlspecialchars($node->getCode());
-    } else if ($node instanceof HHAST\Token) {
+    } else if ($node is HHAST\Token) {
       $inner = '';
 
       $leading = $node->getLeading();

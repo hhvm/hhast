@@ -15,7 +15,7 @@ final class NamespaceDeclaration extends NamespaceDeclarationGeneratedBase {
   <<__Memoize>>
   public function getQualifiedNameAsString(): string {
     $name = $this->getName();
-    if ($name instanceof NameToken) {
+    if ($name is NameToken) {
       return $name->getText();
     }
 

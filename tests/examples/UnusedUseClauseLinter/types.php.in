@@ -18,7 +18,7 @@ use type Foo\{
 };
 
 function foo(ParameterType $in): ReturnType {
-  return $in instanceof InstanceOfType;
+  return $in is InstanceOfType;
 }
 
 class Class1<T as GenericType> {

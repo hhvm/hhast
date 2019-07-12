@@ -56,7 +56,7 @@ final class RewriteBehaviorTest extends TestCase {
 
     $new = $orig->rewrite(
       ($x, $_) ==> {
-        if (!$x instanceof HHAST\SingleLineComment) {
+        if (!$x is HHAST\SingleLineComment) {
           return $x;
         }
         return new HHAST\DelimitedComment('bar');
@@ -76,7 +76,7 @@ final class RewriteBehaviorTest extends TestCase {
 
     $new = $orig->rewrite(
       ($x, $_) ==> {
-        if (!$x instanceof HHAST\SingleLineComment) {
+        if (!$x is HHAST\SingleLineComment) {
           return $x;
         }
         return $x->withText('bar');
@@ -101,7 +101,7 @@ final class RewriteBehaviorTest extends TestCase {
 
     $new = $orig->rewrite(
       ($node, $_) ==> {
-        if (!$node instanceof HHAST\DelimitedComment) {
+        if (!$node is HHAST\DelimitedComment) {
           return $node;
         }
         return $node->withText('/* bar */');
@@ -126,7 +126,7 @@ final class RewriteBehaviorTest extends TestCase {
 
     $new = $orig->rewrite(
       ($node, $parents) ==> {
-        if (!$node instanceof HHAST\Trivia) {
+        if (!$node is HHAST\Trivia) {
           return $node;
         }
         return null;
@@ -158,7 +158,7 @@ final class RewriteBehaviorTest extends TestCase {
 
     $new = $orig->rewrite(
       ($shape, $_) ==> {
-        if (!$shape instanceof HHAST\ShapeTypeSpecifier) {
+        if (!$shape is HHAST\ShapeTypeSpecifier) {
           return $shape;
         }
 

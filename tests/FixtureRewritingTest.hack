@@ -17,10 +17,10 @@ use namespace HH\Lib\Str;
 final class FixtureRewritingTest extends TestCase {
   public async function testRewriteComments(): Awaitable<void> {
     $rewriter = (HHAST\Node $node, ?vec<HHAST\Node> $_parents) ==> {
-      if ($node instanceof HHAST\SingleLineComment) {
+      if ($node is HHAST\SingleLineComment) {
         return $node->withText('// blah blah blah');
       }
-      if ($node instanceof HHAST\DelimitedComment) {
+      if ($node is HHAST\DelimitedComment) {
         if (Str\contains($node->getText(), 'Copyright')) {
           return $node;
         }

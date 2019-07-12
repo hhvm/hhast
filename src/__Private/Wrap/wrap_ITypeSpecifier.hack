@@ -17,11 +17,11 @@ use type Facebook\HHAST\{
 };
 
 function wrap_ITypeSpecifier(Node $node): ITypeSpecifier {
-  if ($node instanceof ITypeSpecifier) {
+  if ($node is ITypeSpecifier) {
     return $node;
   }
 
-  if ($node instanceof IWrappableWithSimpleTypeSpecifier) {
+  if ($node is IWrappableWithSimpleTypeSpecifier) {
     return new SimpleTypeSpecifier($node);
   }
 

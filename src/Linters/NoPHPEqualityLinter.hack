@@ -34,9 +34,9 @@ final class NoPHPEqualityLinter extends AutoFixingASTLinter {
   ): ?ASTLintError {
     $token = $expr->getOperator();
     $replacement = null;
-    if ($token instanceof EqualEqualToken) {
+    if ($token is EqualEqualToken) {
       $replacement = '===';
-    } else if ($token instanceof ExclamationEqualToken) {
+    } else if ($token is ExclamationEqualToken) {
       $replacement = '!==';
     } else {
       return null;
@@ -52,9 +52,9 @@ final class NoPHPEqualityLinter extends AutoFixingASTLinter {
 
   public function getFixedNode(BinaryExpression $expr): BinaryExpression {
     $op = $expr->getOperator();
-    if ($op instanceof EqualEqualToken) {
+    if ($op is EqualEqualToken) {
       $op = new EqualEqualEqualToken($op->getLeading(), $op->getTrailing());
-    } else if ($op instanceof ExclamationEqualToken) {
+    } else if ($op is ExclamationEqualToken) {
       $op = new ExclamationEqualEqualToken(
         $op->getLeading(),
         $op->getTrailing(),

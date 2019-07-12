@@ -130,7 +130,7 @@ final class NodeList<+Titem as Node> extends Node {
         $new_children[] = $old;
         continue;
       }
-      if ($new instanceof NodeList) {
+      if ($new is NodeList<_>) {
         $new_children = Vec\concat($new_children, $new->getChildren());
         continue;
       }

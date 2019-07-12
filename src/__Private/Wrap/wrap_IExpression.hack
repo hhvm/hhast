@@ -13,11 +13,11 @@ use type Facebook\HHAST\{IExpression, INameishNode, NameExpression, Node};
 use namespace HH\Lib\{C, Str};
 
 function wrap_IExpression(Node $node): IExpression {
-  if ($node instanceof IExpression) {
+  if ($node is IExpression) {
     return $node;
   }
 
-  if ($node instanceof INameishNode) {
+  if ($node is INameishNode) {
     return new NameExpression($node);
   }
 

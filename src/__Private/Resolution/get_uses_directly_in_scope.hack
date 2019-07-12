@@ -78,9 +78,9 @@ function get_uses_directly_in_scope(
     if ($kind === null) {
       $namespaces[$alias] = $name;
       $types[$alias] = $name;
-    } else if ($kind instanceof NamespaceToken) {
+    } else if ($kind is NamespaceToken) {
       $namespaces[$alias] = $name;
-    } else if ($kind instanceof TypeToken) {
+    } else if ($kind is TypeToken) {
       $types[$alias] = $name;
     }
   }

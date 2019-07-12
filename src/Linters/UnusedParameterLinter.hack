@@ -26,16 +26,16 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
     }
 
     $name = $node->getName();
-    if (!$name instanceof VariableToken) {
+    if (!$name is VariableToken) {
       return null;
     }
     if (Str\starts_with($name->getText(), '$_')) {
       return null;
     }
 
-    if ($functionish instanceof FunctionDeclaration) {
+    if ($functionish is FunctionDeclaration) {
       $body = $functionish->getBody();
-    } else if ($functionish instanceof MethodishDeclaration) {
+    } else if ($functionish is MethodishDeclaration) {
       $body = $functionish->getFunctionBody();
     } else {
       invariant_violation(
@@ -52,7 +52,7 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
     if ($statements !== null) {
       $name = $name->getText();
       foreach ($statements->traverse() as $var) {
-        if (!$var instanceof VariableToken) {
+        if (!$var is VariableToken) {
           continue;
         }
         if ($var->getText() === $name) {
@@ -73,7 +73,7 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
     ParameterDeclaration $node,
   ): ParameterDeclaration {
     $name = $node->getName();
-    if (!$name instanceof VariableToken) {
+    if (!$name is VariableToken) {
       return $node;
     }
     return $node->withName(
@@ -84,7 +84,7 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
   <<__Override>>
   public function getTitleForFix(ASTLintError $err): string {
     $name = ($err->getBlameNode() as this::TNode)->getName();
-    invariant($name instanceof VariableToken, 'unhandled type');
+    invariant($name is VariableToken, 'unhandled type');
     $new_name = '$_'.Str\strip_prefix($name->getText(), '$');
     return Str\format('Rename to `%s`', $new_name);
   }

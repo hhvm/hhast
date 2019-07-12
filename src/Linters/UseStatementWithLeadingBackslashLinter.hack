@@ -22,16 +22,16 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
     INamespaceUseDeclaration $node,
   ): ?ASTLintError {
     $matched = false;
-    if ($node instanceof NamespaceGroupUseDeclaration) {
+    if ($node is NamespaceGroupUseDeclaration) {
       $prefix = $node->getPrefix()->getFirstToken();
-      if (!$prefix instanceof BackslashToken) {
+      if (!$prefix is BackslashToken) {
         return null;
       }
       $matched = true;
     } else {
       foreach ($node->getClausesx()->getChildrenOfItems() as $clause) {
         $name = $clause->getName()->getFirstToken();
-        if ($name instanceof BackslashToken) {
+        if ($name is BackslashToken) {
           $matched = true;
           break;
         }
@@ -56,7 +56,7 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
   public function getFixedNode(
     INamespaceUseDeclaration $node,
   ): INamespaceUseDeclaration {
-    if ($node instanceof NamespaceUseDeclaration) {
+    if ($node is NamespaceUseDeclaration) {
       $clauses = $node->getClauses();
       foreach ($clauses->getChildrenOfItems() as $clause) {
         $name = $clause->getName();
@@ -77,7 +77,7 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
     }
 
     invariant(
-      $node instanceof NamespaceGroupUseDeclaration,
+      $node is NamespaceGroupUseDeclaration,
       "Got an unexpected INamespaceUseDeclaration subclass",
     );
 

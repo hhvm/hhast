@@ -260,23 +260,23 @@ final class HSLMigration extends BaseMigration {
     // insert the new node: skip the <?hh sigil and namespace declaration if present,
     // then insert before the first declaration that remains
     foreach ($root->getChildren()['declarations']->getChildren() as $child) {
-      if ($child instanceof MarkupSection) {
+      if ($child is MarkupSection) {
         continue;
       }
 
-      if ($child instanceof NamespaceDeclaration) {
+      if ($child is NamespaceDeclaration) {
         $body = $child->getBody();
         // namespace Foo; style declaration, skip over it
-        if ($body instanceof NamespaceEmptyBody) {
+        if ($body is NamespaceEmptyBody) {
           continue;
         }
         // namespace Foo { style declaration
         // insert the use statement inside the braces, before the first child
-        invariant($body instanceof NamespaceBody, 'expected NamespaceBody');
+        invariant($body is NamespaceBody, 'expected NamespaceBody');
         $child = $body->getDeclarationsx()->getChildren() |> C\firstx($$);
       }
 
-      if ($child instanceof INamespaceUseDeclaration) {
+      if ($child is INamespaceUseDeclaration) {
         // next statement is another use declaration, remove the trailing newline
         $last_token = $new_namespace_use_declaration->getLastTokenx();
         $new_namespace_use_declaration = $new_namespace_use_declaration
@@ -293,14 +293,14 @@ final class HSLMigration extends BaseMigration {
   }
 
   protected function resolveIntegerArgument(Node $node): ?int {
-    if ($node instanceof LiteralExpression) {
+    if ($node is LiteralExpression) {
       $expr = $node->getExpression();
-      if ($expr instanceof DecimalLiteralToken) {
+      if ($expr is DecimalLiteralToken) {
         return (int)$expr->getText();
       }
 
       // a literal 0 shows as octal
-      if ($expr instanceof OctalLiteralToken) {
+      if ($expr is OctalLiteralToken) {
         return (int)$expr->getText();
       }
 
@@ -308,8 +308,8 @@ final class HSLMigration extends BaseMigration {
     }
 
     if (
-      $node instanceof PrefixUnaryExpression &&
-      $node->getOperator() instanceof MinusToken
+      $node is PrefixUnaryExpression &&
+      $node->getOperator() is MinusToken
     ) {
       $val = $this->resolveIntegerArgument($node->getOperand());
       return ($val !== null) ? -1 * $val : null;
@@ -333,7 +333,7 @@ final class HSLMigration extends BaseMigration {
     $items = Vec\map(
       $arguments,
       $argument ==> {
-        invariant($argument instanceof ListItem, 'expected ListItem');
+        invariant($argument is ListItem<_>, 'expected ListItem');
         return $argument->getItemx();
       },
     );
@@ -460,7 +460,7 @@ final class HSLMigration extends BaseMigration {
       $new_argument_list = vec[];
 
       foreach ($arguments as $i => $argument) {
-        invariant($argument instanceof ListItem, 'expected ListItem');
+        invariant($argument is ListItem<_>, 'expected ListItem');
         $new_argument_list[] = $argument->replace(
           $argument->getItemx(),
           $new_items[(int)$i],
@@ -490,7 +490,7 @@ final class HSLMigration extends BaseMigration {
     $stack_count = C\count($stack);
     $parent = $stack[$stack_count - 2];
 
-    if (!($parent instanceof BinaryExpression)) {
+    if (!($parent is BinaryExpression)) {
       return $root;
     }
 
@@ -500,9 +500,9 @@ final class HSLMigration extends BaseMigration {
       $check = $parent->getLeftOperand();
     }
 
-    if ($check instanceof LiteralExpression) {
+    if ($check is LiteralExpression) {
       $expression = $check->getExpression();
-      if ($expression instanceof BooleanLiteralToken) {
+      if ($expression is BooleanLiteralToken) {
         if (Str\lowercase($expression->getText()) === 'false') {
           $new = new NullLiteralToken(
             $expression->getLeading(),
@@ -527,11 +527,11 @@ final class HSLMigration extends BaseMigration {
     $suffixes = vec[];
     foreach ($declarations as $decl) {
       // we only care about "use namespace" directives
-      if (!($decl->getKind() instanceof NamespaceToken)) {
+      if (!($decl->getKind() is NamespaceToken)) {
         continue;
       }
 
-      if ($decl instanceof NamespaceGroupUseDeclaration) {
+      if ($decl is NamespaceGroupUseDeclaration) {
         // group declarations: does prefix match?
         $parts = $decl->getPrefix()
           ->getParts()
@@ -564,7 +564,7 @@ final class HSLMigration extends BaseMigration {
             $$,
             $c ==> {
               $n = $c->getName();
-              return $n instanceof NameToken
+              return $n is NameToken
                 ? HslNamespace::coerce($n->getText())
                 : null;
             },
@@ -573,7 +573,7 @@ final class HSLMigration extends BaseMigration {
           |> Vec\concat($suffixes, $$);
       } else {
         invariant(
-          $decl instanceof NamespaceUseDeclaration,
+          $decl is NamespaceUseDeclaration,
           'Unhandled declaration type',
         );
 
@@ -581,7 +581,7 @@ final class HSLMigration extends BaseMigration {
         foreach ($clauses as $clause) {
 
           $name = $clause->getName();
-          if ($name instanceof QualifiedName) {
+          if ($name is QualifiedName) {
             $parts = $name->getParts()
               ->getChildrenOfItemsOfType(NameToken::class);
             if (C\count($parts) !== 3) {
@@ -630,17 +630,17 @@ final class HSLMigration extends BaseMigration {
   protected function getFunctionName(FunctionCallExpression $node): ?string {
     $receiver = $node->getReceiver();
 
-    if ($receiver instanceof NameToken) {
+    if ($receiver is NameToken) {
       return $receiver->getText();
-    } else if ($receiver instanceof QualifiedName) {
+    } else if ($receiver is QualifiedName) {
       foreach ($receiver->getParts()->getChildren() as $child) {
         $item = $child->getItemUNTYPED();
         if (
-          !$child->hasItem() && $child->getSeparator() instanceof BackslashToken
+          !$child->hasItem() && $child->getSeparator() is BackslashToken
         ) {
           // leading backslash such as \implode(), skip over this to get the name token
           continue;
-        } else if ($item instanceof NameToken) {
+        } else if ($item is NameToken) {
           return $item->getText();
         }
         return null;
@@ -656,16 +656,16 @@ final class HSLMigration extends BaseMigration {
   ): FunctionCallExpression {
     // build the replacement AST node
     $receiver = $node->getReceiver();
-    if ($receiver instanceof NameToken) {
+    if ($receiver is NameToken) {
       $new_receiver = new NameToken(
         $receiver->getLeading(),
         $receiver->getTrailing(),
         $new_name,
       );
     } else {
-      invariant($receiver instanceof QualifiedName, 'expected QualifiedName');
+      invariant($receiver is QualifiedName, 'expected QualifiedName');
       $first_item = $receiver->getParts()->getChildren() |> C\firstx($$);
-      invariant($first_item instanceof ListItem, 'expected ListItem');
+      invariant($first_item is ListItem<_>, 'expected ListItem');
 
       $new_receiver = new NameToken(
         $first_item->getSeparatorx()->getLeading(),
