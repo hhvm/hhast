@@ -22,10 +22,20 @@ function resolve_type(string $type, Script $root, Node $node): string {
   );
 
   $autoimports = keyset[
-    'Traversable',
-    'KeyedTraversable',
+    'Awaitable',
+    'ConstMap',
+    'ConstSet',
+    'ConstVector',
     'Container',
+    'ImmMap',
+    'ImmSet',
+    'ImmVector',
     'KeyedContainer',
+    'KeyedTraversable',
+    'Map',
+    'Set',
+    'Traversable',
+    'Vector',
   ];
   if (C\contains_key($autoimports, $type)) {
     return 'HH\\'.$type;
