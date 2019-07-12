@@ -55,7 +55,7 @@ final class CodegenRelations extends CodegenBase {
             }
           }
           if ($new) {
-            await execute_async('hhvm', '-vEval.EnablePHP=true', '-l', $file);
+            await execute_async('hhvm', '-l', $file);
             foreach ($new as $key => $children) {
               $relationships->v[$key] = Keyset\union(
                 $relationships->v[$key],
