@@ -1,0 +1,24 @@
+namespace Foo;
+
+// builtin, 1 generic
+$_ is ConstVector<_>;
+$_ is \ConstVector<_>;
+$_ is Set<_>;
+$_ is Vector<_>;
+$_ is Traversable<_>;
+
+// builtin, 2 generics
+$_ is Map<_, _>;
+$_ is KeyedTraversable<_, _>;
+$_ is \SplObjectStorage<_, _>;
+
+// builtin, no generics
+$_ is Stringish;
+
+// non-builtin, 1 generic
+$_ is \Facebook\HHAST\ListItem<_>;
+// non-builtin, no generics
+$_ is \Facebook\HHAST\Node;
+
+// trivia
+$_ is Map<_, _> && foo();

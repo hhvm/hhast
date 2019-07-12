@@ -46,10 +46,12 @@ final class InstanceofIsMigration extends BaseMigration {
         $generics === 0
           ? new SimpleTypeSpecifier($type)
           : new GenericTypeSpecifier(
-              $type->replace(
-                $type->getLastTokenx(),
-                $type->getLastTokenx()->withTrailing(null),
-              ),
+              $type === $type->getLastTokenx()
+                ? ($type as Token)->withTrailing(null)
+                : $type->replace(
+                  $type->getLastTokenx(),
+                  $type->getLastTokenx()->withTrailing(null),
+                ),
               new TypeArguments(
                 new LessThanToken(null, null),
                 new NodeList(

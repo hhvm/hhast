@@ -1,0 +1,24 @@
+namespace Foo;
+
+// builtin, 1 generic
+$_ instanceof ConstVector;
+$_ instanceof \ConstVector;
+$_ instanceof Set;
+$_ instanceof Vector;
+$_ instanceof Traversable;
+
+// builtin, 2 generics
+$_ instanceof Map;
+$_ instanceof KeyedTraversable;
+$_ instanceof \SplObjectStorage;
+
+// builtin, no generics
+$_ instanceof Stringish;
+
+// non-builtin, 1 generic
+$_ instanceof \Facebook\HHAST\ListItem;
+// non-builtin, no generics
+$_ instanceof \Facebook\HHAST\Node;
+
+// trivia
+$_ instanceof Map && foo();
