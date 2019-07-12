@@ -7,41 +7,11 @@
  *
  */
 
-namespace Facebook\HHAST\Migrations;
+namespace Facebook\HHAST;
 
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset, Math, Str, Vec};
 
-use type Facebook\HHAST\{
-  BackslashToken,
-  BinaryExpression,
-  BooleanLiteralToken,
-  CommaToken,
-  DecimalLiteralToken,
-  FunctionCallExpression,
-  IExpression,
-  INamespaceUseDeclaration,
-  ListItem,
-  LiteralExpression,
-  MarkupSection,
-  MinusToken,
-  NameToken,
-  NamespaceBody,
-  NamespaceDeclaration,
-  NamespaceEmptyBody,
-  NamespaceGroupUseDeclaration,
-  NamespaceToken,
-  NamespaceUseClause,
-  NamespaceUseDeclaration,
-  Node,
-  NodeList,
-  NullLiteralToken,
-  OctalLiteralToken,
-  PrefixUnaryExpression,
-  QualifiedName,
-  Script,
-  WhiteSpace,
-};
 
 use function Facebook\HHAST\__Private\find_type_for_node_async;
 

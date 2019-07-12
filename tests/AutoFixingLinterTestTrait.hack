@@ -14,36 +14,34 @@ use type Facebook\HackTest\DataProvider;
 use function Facebook\HHAST\TestLib\expect;
 use namespace HH\Lib\Str;
 
-trait AutoFixingLinterTestTrait<Terror as Linters\LintError> {
-	require extends TestCase;
-	use LinterTestTrait;
+trait AutoFixingLinterTestTrait<Terror as LintError> {
+  require extends TestCase;
+  use LinterTestTrait;
 
-	abstract protected function getLinter(
-		string $file,
-	): Linters\AutoFixingLinter<Terror>;
+  abstract protected function getLinter(string $file): AutoFixingLinter<Terror>;
 
-	<<DataProvider('getDirtyFixtures')>>
-	final public function testAutofix(string $example): void {
-		$example = $this->getFullFixtureName($example);
+  <<DataProvider('getDirtyFixtures')>>
+  final public function testAutofix(string $example): void {
+    $example = $this->getFullFixtureName($example);
 
-		$in = __DIR__.'/examples/'.$example.'.in';
-		$out = Str\strip_suffix($in, '.in').'.autofix.out';
-		\copy($in, $out);
-		$linter = $this->getLinter($out);
+    $in = __DIR__.'/examples/'.$example.'.in';
+    $out = Str\strip_suffix($in, '.in').'.autofix.out';
+    \copy($in, $out);
+    $linter = $this->getLinter($out);
 
-		$all_errors = vec(\HH\Asio\join($linter->getLintErrorsAsync()));
-		$code = $linter->getFixedFile($all_errors)->getContents();
-		// Provide raw output for easier debugging
-		\file_put_contents($out, $code);
+    $all_errors = vec(\HH\Asio\join($linter->getLintErrorsAsync()));
+    $code = $linter->getFixedFile($all_errors)->getContents();
+    // Provide raw output for easier debugging
+    \file_put_contents($out, $code);
 
-		expect($code)->toMatchExpectFileWithInputFile(
-			$example.'.autofix.expect',
-			$example.'.in',
-		);
+    expect($code)->toMatchExpectFileWithInputFile(
+      $example.'.autofix.expect',
+      $example.'.in',
+    );
 
-		$linter = $this->getLinter(__DIR__.'/examples/'.$example.'.autofix.expect');
-		$errors = \HH\Asio\join($linter->getLintErrorsAsync());
-		$re_fixed = $linter->getFixedFile($errors)->getContents();
-		expect($re_fixed)->toBeSame($code, "Not all fixable errors were fixed");
-	}
+    $linter = $this->getLinter(__DIR__.'/examples/'.$example.'.autofix.expect');
+    $errors = \HH\Asio\join($linter->getLintErrorsAsync());
+    $re_fixed = $linter->getFixedFile($errors)->getContents();
+    expect($re_fixed)->toBeSame($code, "Not all fixable errors were fixed");
+  }
 }

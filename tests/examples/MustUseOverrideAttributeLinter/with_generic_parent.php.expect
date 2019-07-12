@@ -2,6 +2,6 @@
     {
         "blame": "  public function getPrettyTextForNode(Node $node): Node {\n  }\n",
         "blame_pretty": "  public function getPrettyTextForNode(Node $node): Node {",
-        "description": "Foo::getPrettyTextForNode() overrides Facebook\\HHAST\\Linters\\ASTLinter::getPrettyTextForNode() without <<__Override>>"
+        "description": "Foo::getPrettyTextForNode() overrides Facebook\\HHAST\\ASTLinter::getPrettyTextForNode() without <<__Override>>"
     }
 ]

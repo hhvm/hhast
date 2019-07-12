@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use namespace HH\Lib\{C, Str};

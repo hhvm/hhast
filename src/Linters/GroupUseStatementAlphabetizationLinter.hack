@@ -7,18 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  CommaToken,
-  ListItem,
-  NameToken,
-  NamespaceGroupUseDeclaration,
-  NamespaceUseClause,
-  NodeList,
-  Script,
-  WhiteSpace,
-};
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class GroupUseStatementAlphabetizationLinter extends AutoFixingASTLinter {

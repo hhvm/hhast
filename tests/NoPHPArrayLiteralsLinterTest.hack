@@ -10,10 +10,10 @@
 namespace Facebook\HHAST;
 
 final class NoPHPArrayLiteralsLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(string $file): Linters\NoPHPArrayLiteralsLinter {
-    return Linters\NoPHPArrayLiteralsLinter::fromPath($file);
+  protected function getLinter(string $file): NoPHPArrayLiteralsLinter {
+    return NoPHPArrayLiteralsLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

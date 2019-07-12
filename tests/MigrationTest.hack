@@ -15,7 +15,7 @@ use type Facebook\HackTest\DataProvider;
 use namespace HH\Lib\{C, Str};
 
 abstract class MigrationTest extends TestCase {
-  abstract const type TMigration as Migrations\BaseMigration;
+  abstract const type TMigration as BaseMigration;
 
   public function getExamples(): vec<(string)> {
     $fname = Str\format(
@@ -92,7 +92,7 @@ abstract class MigrationTest extends TestCase {
     if (
       \is_a(
         static::getClassname(),
-        Migrations\StepBasedMigration::class, /* string = */
+        StepBasedMigration::class, /* string = */
         true,
       )
     ) {

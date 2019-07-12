@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 final class IsRefinementMigrationTest extends MigrationTest {
-  const type TMigration = Migrations\IsRefinementMigration;
+  const type TMigration = IsRefinementMigration;
 }

@@ -14,10 +14,8 @@ namespace Facebook\HHAST;
 final class NoBasicAssignmentFunctionParameterLinterTest extends TestCase {
   use LinterTestTrait;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\BaseLinter {
-    return Linters\NoBasicAssignmentFunctionParameterLinter::fromPath($file);
+  protected function getLinter(string $file): BaseLinter {
+    return NoBasicAssignmentFunctionParameterLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

@@ -13,7 +13,7 @@ final class StatementList extends WrapperNode implements IStatement {
   const type TWrapped = NodeList<IStatement>;
 
   <<__Override>>
-  public function getWrappedNode(): this::TWrapped{
+  public function getWrappedNode(): this::TWrapped {
     return $this->wrapped;
   }
 }

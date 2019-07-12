@@ -10,12 +10,10 @@
 namespace Facebook\HHAST;
 
 final class MethodCallOnConstructorLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\MethodCallOnConstructorLinter {
-    return Linters\MethodCallOnConstructorLinter::fromPath($file);
+  protected function getLinter(string $file): MethodCallOnConstructorLinter {
+    return MethodCallOnConstructorLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

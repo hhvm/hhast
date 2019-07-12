@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 final class OptionalShapeFieldsMigrationTest extends StepBasedMigrationTest {
-  const type TMigration = Migrations\OptionalShapeFieldsMigration;
+  const type TMigration = OptionalShapeFieldsMigration;
 }

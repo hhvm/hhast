@@ -7,22 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\Linters\{ASTLintError, AutoFixingASTLinter};
-use type Facebook\HHAST\{
-  AmpersandToken,
-  AnonymousFunction,
-  EqualEqualGreaterThanToken,
-  LambdaExpression,
-  LambdaSignature,
-  LeftParenToken,
-  Node,
-  NodeList,
-  PrefixUnaryExpression,
-  Script,
-  WhiteSpace,
-};
 use namespace HH\Lib\C;
 
 final class PreferLambdasLinter extends AutoFixingASTLinter {

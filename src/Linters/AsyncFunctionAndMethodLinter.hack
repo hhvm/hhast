@@ -7,13 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  FunctionDeclaration,
-  GenericTypeSpecifier,
-  MethodishDeclaration,
-};
 use namespace HH\Lib\Str;
 
 class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {

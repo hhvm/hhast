@@ -11,5 +11,5 @@ namespace Facebook\HHAST;
 
 final class DollarBraceEmbeddedVariableMigrationTest
   extends StepBasedMigrationTest {
-  const type TMigration = Migrations\DollarBraceEmbeddedVariableMigration;
+  const type TMigration = DollarBraceEmbeddedVariableMigration;
 }

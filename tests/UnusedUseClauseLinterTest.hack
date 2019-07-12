@@ -10,11 +10,10 @@
 namespace Facebook\HHAST;
 
 final class UnusedUseClauseLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(
-    string $file): Linters\AutoFixingASTLinter {
-    return Linters\UnusedUseClauseLinter::fromPath($file);
+  protected function getLinter(string $file): AutoFixingASTLinter {
+    return UnusedUseClauseLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

@@ -10,10 +10,10 @@
 namespace Facebook\HHAST;
 
 final class StrictModeOnlyLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(string $file): Linters\StrictModeOnlyLinter {
-    return Linters\StrictModeOnlyLinter::fromPath($file);
+  protected function getLinter(string $file): StrictModeOnlyLinter {
+    return StrictModeOnlyLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

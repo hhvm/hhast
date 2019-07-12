@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 final class ExplicitPartialModeMigrationTest extends MigrationTest {
-  const type TMigration = Migrations\ExplicitPartialModeMigration;
+  const type TMigration = ExplicitPartialModeMigration;
 
   <<__Override>>
   public function getExamples(): vec<(string)> {

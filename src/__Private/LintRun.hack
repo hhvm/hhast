@@ -9,8 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\Linters\{BaseLinter, LinterException};
-use type Facebook\HHAST\File;
+use type Facebook\HHAST\{BaseLinter, File, LinterException};
 use type Facebook\CLILib\ExitException;
 use namespace HH\Lib\{C, Str, Vec};
 

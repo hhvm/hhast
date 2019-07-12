@@ -9,9 +9,14 @@
 
 namespace Facebook\HHAST\__Private\Wrap;
 
-use type Facebook\HHAST\{ITypeSpecifier, Node, SimpleTypeSpecifier, __Private\IWrappableWithSimpleTypeSpecifier};
+use type Facebook\HHAST\{
+  ITypeSpecifier,
+  Node,
+  SimpleTypeSpecifier,
+  __Private\IWrappableWithSimpleTypeSpecifier,
+};
 
-function wrap_ITypeSpecifier(Node $node): ITypeSpecifier{
+function wrap_ITypeSpecifier(Node $node): ITypeSpecifier {
   if ($node instanceof ITypeSpecifier) {
     return $node;
   }

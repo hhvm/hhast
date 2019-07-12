@@ -7,26 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  ArrayCreationExpression,
-  ArrayIntrinsicExpression,
-  ArrayToken,
-  DictToken,
-  DictionaryIntrinsicExpression,
-  ElementInitializer,
-  IPHPArray,
-  LeftBracketToken,
-  LeftParenToken,
-  ListItem,
-  Node,
-  RightBracketToken,
-  RightParenToken,
-  Script,
-  VecToken,
-  VectorIntrinsicExpression,
-};
 use namespace HH\Lib\C;
 
 final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {

@@ -7,9 +7,9 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\Linters\{BaseLinter};
+use type Facebook\HHAST\{BaseLinter};
 use namespace HH\Lib\{C, Str, Vec};
 
 abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {

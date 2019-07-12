@@ -30,7 +30,9 @@ final class OffsetFromPositionTest extends TestCase {
   ): Awaitable<void> {
     list($line, $column) = $position;
 
-    $root = await from_file_async(File::fromPathAndContents('/dev/null', $code));
+    $root = await from_file_async(
+      File::fromPathAndContents('/dev/null', $code),
+    );
     $actual_offset = offset_from_position($root, $line, $column);
     expect($actual_offset)->toBeSame(
       $expected_offset,

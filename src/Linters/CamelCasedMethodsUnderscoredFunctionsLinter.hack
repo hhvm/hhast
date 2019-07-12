@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 use type Facebook\HHAST\{FunctionDeclaration, MethodishDeclaration};
 use namespace HH\Lib\{C, Str};

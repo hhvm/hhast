@@ -7,16 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  EndOfLine,
-  MarkupSuffix,
-  NodeList,
-  Script,
-  SingleLineComment,
-  WhiteSpace,
-};
 
 class StrictModeOnlyLinter extends AutoFixingASTLinter {
   const type TNode = MarkupSuffix;

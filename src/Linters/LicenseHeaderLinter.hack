@@ -7,17 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  DelimitedComment,
-  EndOfFile,
-  EndOfLine,
-  File,
-  MarkupSection,
-  NodeList,
-  Script,
-};
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -45,7 +36,9 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
     if ($first instanceof EndOfFile) {
       return null;
     }
-    $leading = C\first($first->getFirstToken()?->getLeading()?->toVec() ?? vec[]);
+    $leading = C\first(
+      $first->getFirstToken()?->getLeading()?->toVec() ?? vec[],
+    );
 
     if ($leading instanceof DelimitedComment) {
       if (
@@ -103,8 +96,7 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
         $new[] = new EndOfLine("\n");
       }
 
-      return $node->replace(
-        $existing, NodeList::createMaybeEmptyList($new));
+      return $node->replace($existing, NodeList::createMaybeEmptyList($new));
     }
 
 

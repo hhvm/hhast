@@ -7,17 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  AbstractToken,
-  ClassToken,
-  ClassishDeclaration,
-  FinalToken,
-  Script,
-};
-
-use type Facebook\HHAST\Linters\{ASTLintError, ASTLinter};
 
 /*
  * This linter ensures we always qualify classes as final or abstract

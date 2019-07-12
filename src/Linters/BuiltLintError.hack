@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 class BuiltLintError extends LintError {
   private ?(int, int) $position = null;

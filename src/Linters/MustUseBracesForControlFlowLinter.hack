@@ -7,27 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  CompoundStatement,
-  ElseClause,
-  ElseifClause,
-  EndOfLine,
-  ForeachStatement,
-  IControlFlowStatement,
-  IStatement,
-  IfStatement,
-  LeftBraceToken,
-  Node,
-  NodeList,
-  RightBraceToken,
-  Script,
-  Token,
-  WhileStatement,
-  WhiteSpace,
-};
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
@@ -117,7 +98,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
         ->getDescendantsOfType(EndOfLine::class)
       |> C\is_empty(vec($$))
     ) {
-      $right_brace_leading = new HHAST\NodeList(vec[new WhiteSpace(' ')]);
+      $right_brace_leading = new NodeList(vec[new WhiteSpace(' ')]);
       $body_trailing = null;
     } else {
       $whitespace = $node
@@ -133,7 +114,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
         $body,
         new CompoundStatement(
           new LeftBraceToken(
-            new HHAST\NodeList(vec[new WhiteSpace(' ')]),
+            new NodeList(vec[new WhiteSpace(' ')]),
             $last_token->getTrailingWhitespace(),
           ),
           $body->replace(

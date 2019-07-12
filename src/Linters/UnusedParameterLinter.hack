@@ -7,17 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  CompoundStatement,
-  FunctionDeclaration,
-  IFunctionishDeclaration,
-  MethodishDeclaration,
-  ParameterDeclaration,
-  SemicolonToken,
-  VariableToken,
-};
 use namespace HH\Lib\Str;
 
 final class UnusedParameterLinter extends AutoFixingASTLinter {

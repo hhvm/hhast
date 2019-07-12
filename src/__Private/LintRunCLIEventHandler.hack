@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
 use type Facebook\DiffLib\{CLIColoredUnifiedDiff, StringDiff};
-use namespace Facebook\HHAST\Linters;
+use type Facebook\HHAST\{AutoFixingLinter, BaseLinter, LintError};
 use namespace HH\Lib\{C, Str, Vec};
 
 final class LintRunCLIEventHandler implements LintRunEventHandler {
@@ -22,9 +22,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   public async function linterRaisedErrorsAsync(
-    Linters\BaseLinter $linter,
+    BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
-    Traversable<Linters\LintError> $errors,
+    Traversable<LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     if (!$this->terminal->isInteractive()) {
       return await $this->linterRaisedErrorsImplAsync(
@@ -41,9 +41,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   private async function linterRaisedErrorsImplAsync(
-    Linters\BaseLinter $linter,
+    BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
-    Traversable<Linters\LintError> $errors,
+    Traversable<LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     $class = \get_class($linter);
     $to_fix = vec[];
@@ -51,7 +51,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     $colors = $this->terminal->supportsColors();
 
     $fixing_linter = (
-      $linter instanceof Linters\AutoFixingLinter &&
+      $linter instanceof AutoFixingLinter &&
       !C\contains_key($config['autoFixBlacklist'], $class)
     )
       ? $linter
@@ -118,12 +118,12 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     }
   }
 
-  private static function fixErrors<Terror as Linters\LintError>(
-    Linters\AutoFixingLinter<Terror> $linter,
+  private static function fixErrors<Terror as LintError>(
+    AutoFixingLinter<Terror> $linter,
     vec<Terror> $errors,
   ): void {
     invariant(
-      $linter instanceof Linters\AutoFixingLinter,
+      $linter instanceof AutoFixingLinter,
       '%s is not an auto-fixing-linter',
       \get_class($linter),
     );
@@ -134,8 +134,8 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
   private dict<string, bool> $userResponseCache = dict[];
 
-  private async function shouldFixLintAsync<Terror as Linters\LintError>(
-    Linters\AutoFixingLinter<Terror> $linter,
+  private async function shouldFixLintAsync<Terror as LintError>(
+    AutoFixingLinter<Terror> $linter,
     Terror $error,
   ): Awaitable<bool> {
     $old = $linter->getFile()->getContents();
@@ -209,7 +209,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   private async function renderLintBlameAsync(
-    Linters\LintError $error,
+    LintError $error,
   ): Awaitable<void> {
     $blame = $error->getPrettyBlame();
     if ($blame === null) {

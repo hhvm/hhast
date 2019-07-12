@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Migrations;
+namespace Facebook\HHAST;
 
 use type Facebook\HHAST\Node;
 

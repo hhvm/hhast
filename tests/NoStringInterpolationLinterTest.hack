@@ -10,12 +10,10 @@
 namespace Facebook\HHAST;
 
 final class NoStringInterpolationLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\NoStringInterpolationLinter {
-    return Linters\NoStringInterpolationLinter::fromPath($file);
+  protected function getLinter(string $file): NoStringInterpolationLinter {
+    return NoStringInterpolationLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

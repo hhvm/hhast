@@ -7,11 +7,10 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 use type Facebook\HHAST\{ExpressionStatement, Node, NodeList, Script, Token};
 
-use namespace Facebook\HHAST;
 
 final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
   const type TNode = ExpressionStatement;
@@ -71,31 +70,31 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * Returns whether the given expression is empty.
    */
   private function isEmptyExpression(Node $expr): bool {
-    return $expr instanceof HHAST\ArrayCreationExpression ||
-      $expr instanceof HHAST\AnonymousFunction ||
+    return $expr instanceof ArrayCreationExpression ||
+      $expr instanceof AnonymousFunction ||
       (
-        $expr instanceof HHAST\BinaryExpression &&
+        $expr instanceof BinaryExpression &&
         $this->isOperatorWithoutSideEffects($expr->getOperator())
       ) ||
-      $expr instanceof HHAST\CastExpression ||
-      $expr instanceof HHAST\CollectionLiteralExpression ||
-      $expr instanceof HHAST\DarrayIntrinsicExpression ||
-      $expr instanceof HHAST\DictionaryIntrinsicExpression ||
-      $expr instanceof HHAST\InstanceofExpression ||
-      $expr instanceof HHAST\IsExpression ||
-      $expr instanceof HHAST\IssetExpression ||
-      $expr instanceof HHAST\KeysetIntrinsicExpression ||
-      $expr instanceof HHAST\LambdaExpression ||
-      $expr instanceof HHAST\LiteralExpression ||
-      $expr instanceof HHAST\NameExpression ||
+      $expr instanceof CastExpression ||
+      $expr instanceof CollectionLiteralExpression ||
+      $expr instanceof DarrayIntrinsicExpression ||
+      $expr instanceof DictionaryIntrinsicExpression ||
+      $expr instanceof InstanceofExpression ||
+      $expr instanceof IsExpression ||
+      $expr instanceof IssetExpression ||
+      $expr instanceof KeysetIntrinsicExpression ||
+      $expr instanceof LambdaExpression ||
+      $expr instanceof LiteralExpression ||
+      $expr instanceof NameExpression ||
       (
-        $expr instanceof HHAST\ParenthesizedExpression &&
+        $expr instanceof ParenthesizedExpression &&
         $this->isEmptyExpression($expr->getExpression())
       ) ||
-      $expr instanceof HHAST\SubscriptExpression ||
-      $expr instanceof HHAST\VectorIntrinsicExpression ||
-      $expr instanceof HHAST\VariableExpression ||
-      $expr instanceof HHAST\VarrayIntrinsicExpression;
+      $expr instanceof SubscriptExpression ||
+      $expr instanceof VectorIntrinsicExpression ||
+      $expr instanceof VariableExpression ||
+      $expr instanceof VarrayIntrinsicExpression;
   }
 
   /**
@@ -106,7 +105,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
     // The pipe operator does not necessarily have any side effects but it
     // typically implies function invocation which can have side effects.
     return !$this->isAssignmentOperator($op) &&
-      !$op instanceof HHAST\BarGreaterThanToken;
+      !$op instanceof BarGreaterThanToken;
   }
 
   /**
@@ -116,21 +115,21 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * that include "Equal" and are not comparison operators (==, >=, etc.);
    */
   private function isAssignmentOperator(Token $op): bool {
-    return $op instanceof HHAST\AmpersandEqualToken ||
-      $op instanceof HHAST\BarEqualToken ||
-      $op instanceof HHAST\CaratEqualToken ||
-      $op instanceof HHAST\DotEqualToken ||
-      $op instanceof HHAST\EqualToken ||
-      $op instanceof HHAST\GreaterThanEqualToken ||
-      $op instanceof HHAST\GreaterThanGreaterThanEqualToken ||
-      $op instanceof HHAST\LessThanEqualToken ||
-      $op instanceof HHAST\LessThanLessThanEqualToken ||
-      $op instanceof HHAST\MinusEqualToken ||
-      $op instanceof HHAST\PercentEqualToken ||
-      $op instanceof HHAST\PlusEqualToken ||
-      $op instanceof HHAST\QuestionQuestionEqualToken ||
-      $op instanceof HHAST\SlashEqualToken ||
-      $op instanceof HHAST\StarEqualToken ||
-      $op instanceof HHAST\StarStarEqualToken;
+    return $op instanceof AmpersandEqualToken ||
+      $op instanceof BarEqualToken ||
+      $op instanceof CaratEqualToken ||
+      $op instanceof DotEqualToken ||
+      $op instanceof EqualToken ||
+      $op instanceof GreaterThanEqualToken ||
+      $op instanceof GreaterThanGreaterThanEqualToken ||
+      $op instanceof LessThanEqualToken ||
+      $op instanceof LessThanLessThanEqualToken ||
+      $op instanceof MinusEqualToken ||
+      $op instanceof PercentEqualToken ||
+      $op instanceof PlusEqualToken ||
+      $op instanceof QuestionQuestionEqualToken ||
+      $op instanceof SlashEqualToken ||
+      $op instanceof StarEqualToken ||
+      $op instanceof StarStarEqualToken;
   }
 }

@@ -12,8 +12,8 @@ namespace Facebook\HHAST;
 final class UseStatementWithAsLinterTest extends TestCase {
   use LinterTestTrait;
 
-  protected function getLinter(string $file): Linters\UseStatementWithAsLinter {
-    return Linters\UseStatementWithAsLinter::fromPath($file);
+  protected function getLinter(string $file): UseStatementWithAsLinter {
+    return UseStatementWithAsLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

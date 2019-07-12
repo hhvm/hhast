@@ -7,16 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  BinaryExpression,
-  EqualEqualEqualToken,
-  EqualEqualToken,
-  ExclamationEqualEqualToken,
-  ExclamationEqualToken,
-  Script,
-};
 use namespace HH\Lib\Str;
 
 final class NoPHPEqualityLinter extends AutoFixingASTLinter {

@@ -9,9 +9,9 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace Facebook\HHAST\Linters;
 use namespace HH\Lib\{C, Math, Str, Vec};
 
+use type Facebook\HHAST\LinterException;
 use type Facebook\CLILib\CLIWithArguments;
 use namespace Facebook\CLILib\CLIOptions;
 
@@ -148,7 +148,7 @@ final class LinterCLI extends CLIWithArguments {
       $result = await (
         new LintRun($config, $error_handler, $roots)
       )->runAsync();
-    } catch (Linters\LinterException $e) {
+    } catch (LinterException $e) {
       $orig = $e->getPrevious() ?? $e;
       $err = $terminal->getStderr();
       $pos = $e->getPosition();

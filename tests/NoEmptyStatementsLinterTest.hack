@@ -10,10 +10,10 @@
 namespace Facebook\HHAST;
 
 final class NoEmptyStatementsLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(string $file): Linters\NoEmptyStatementsLinter {
-    return Linters\NoEmptyStatementsLinter::fromPath($file);
+  protected function getLinter(string $file): NoEmptyStatementsLinter {
+    return NoEmptyStatementsLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

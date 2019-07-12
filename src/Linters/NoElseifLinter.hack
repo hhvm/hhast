@@ -7,19 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  ElseClause,
-  ElseToken,
-  ElseifClause,
-  IfStatement,
-  IfToken,
-  Node,
-  NodeList,
-  Script,
-  WhiteSpace,
-};
 
 final class NoElseifLinter extends AutoFixingASTLinter {
   const type TNode = ElseifClause;
@@ -41,10 +30,7 @@ final class NoElseifLinter extends AutoFixingASTLinter {
   public function getFixedNode(ElseifClause $expr): Node {
     $t = $expr->getKeyword();
     return new ElseClause(
-      new ElseToken(
-        $t->getLeading(),
-        new NodeList(vec[new WhiteSpace(' ')]),
-      ),
+      new ElseToken($t->getLeading(), new NodeList(vec[new WhiteSpace(' ')])),
       new IfStatement(
         new IfToken(null, $t->getTrailing()),
         $expr->getLeftParen(),

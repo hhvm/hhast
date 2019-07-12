@@ -10,5 +10,5 @@
 namespace Facebook\HHAST;
 
 final class ImplicitShapeSubtypesMigrationTest extends StepBasedMigrationTest {
-  const type TMigration = Migrations\ImplicitShapeSubtypesMigration;
+  const type TMigration = ImplicitShapeSubtypesMigration;
 }

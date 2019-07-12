@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Migrations;
+namespace Facebook\HHAST;
 
 use function Facebook\HHAST\__Private\get_typechecker_errors;
 use type Facebook\HHAST\__Private\TTypecheckerError;

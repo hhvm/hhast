@@ -181,15 +181,19 @@ final class RewriteBehaviorTest extends TestCase {
                 }
 
                 return $field->withName(
-                  $name->replace($name_t, $name_t->withText(
-                    Str\slice(
-                      $name_t->getText(),
-                      1,
-                      Str\length($name_t->getText()) - 2,
-                    )
-                      |> Str\format("'%s_new'", $$),
+                  $name->replace(
+                    $name_t,
+                    $name_t->withText(
+                      Str\slice(
+                        $name_t->getText(),
+                        1,
+                        Str\length($name_t->getText()) - 2,
+                      )
+                        |> Str\format("'%s_new'", $$),
+                    ),
                   ),
-                )) |> $item->replace($field, $$);
+                )
+                  |> $item->replace($field, $$);
               },
             ),
           ),

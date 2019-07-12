@@ -7,16 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  LeftParenToken,
-  MemberSelectionExpression,
-  ObjectCreationExpression,
-  ParenthesizedExpression,
-  RightParenToken,
-  Script,
-};
 
 final class MethodCallOnConstructorLinter extends AutoFixingASTLinter {
   const type TNode = MemberSelectionExpression;

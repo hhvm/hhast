@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace Facebook\HHAST\Linters;
+use type Facebook\HHAST\{BaseLinter, LintError};
 
 /**
  * Interface for creating custom handlers for lint errors that are found during
@@ -23,9 +23,9 @@ interface LintRunEventHandler {
    * single file
    */
   public function linterRaisedErrorsAsync(
-    Linters\BaseLinter $linter,
+    BaseLinter $linter,
     LintRunConfig::TFileConfig $config,
-    Traversable<Linters\LintError> $errors,
+    Traversable<LintError> $errors,
   ): Awaitable<LintAutoFixResult>;
 
   public function finishedFileAsync(

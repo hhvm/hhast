@@ -11,15 +11,13 @@ namespace Facebook\HHAST;
 
 
 final class LicenseHeaderLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\LicenseHeaderLinter {
-    Linters\LicenseHeaderLinter::__setExpectedHeaderForTesting(
-      \file_get_contents(__DIR__.'/../.LICENSE_HEADER.hh.txt')
+  protected function getLinter(string $file): LicenseHeaderLinter {
+    LicenseHeaderLinter::__setExpectedHeaderForTesting(
+      \file_get_contents(__DIR__.'/../.LICENSE_HEADER.hh.txt'),
     );
-    return Linters\LicenseHeaderLinter::fromPath($file);
+    return LicenseHeaderLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

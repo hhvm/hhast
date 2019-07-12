@@ -7,18 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  BinaryExpression,
-  CommaToken,
-  DelimitedComment,
-  EqualToken,
-  FunctionCallExpression,
-  NodeList,
-  Script,
-  WhiteSpace,
-};
 
 use namespace HH\Lib\C;
 

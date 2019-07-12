@@ -7,21 +7,9 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  AttributeSpecification,
-  ClassToken,
-  ClassishDeclaration,
-  GenericTypeSpecifier,
-  ListItem,
-  MethodishDeclaration,
-  NameToken,
-  PrivateToken,
-  Script,
-};
 use function Facebook\HHAST\resolve_type;
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
@@ -97,11 +85,11 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     }
 
     $name = $method->getFunctionDeclHeader()->getName();
-    if ($name instanceof HHAST\ConstructToken) {
+    if ($name instanceof ConstructToken) {
       return true;
     }
 
-    if ($name instanceof HHAST\DestructToken) {
+    if ($name instanceof DestructToken) {
       return true;
     }
 
@@ -150,29 +138,29 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
       $first_token = $node->getFirstTokenx();
       return $node->withAttribute(
         new AttributeSpecification(
-          new HHAST\LessThanLessThanToken($first_token->getLeading(), null),
-          new HHAST\ConstructorCall(
-            new HHAST\NameToken(null, null, '__Override'),
+          new LessThanLessThanToken($first_token->getLeading(), null),
+          new ConstructorCall(
+            new NameToken(null, null, '__Override'),
             null,
             null,
             null,
           )
-            |> new HHAST\NodeList(vec[new HHAST\ListItem($$, null)]),
-          new HHAST\GreaterThanGreaterThanToken(
+            |> new NodeList(vec[new ListItem($$, null)]),
+          new GreaterThanGreaterThanToken(
             null,
             Str\contains(
               C\lastx($first_token->getLeading()->getChildren())->getCode(),
               "\n",
             )
               ? null
-              : new HHAST\NodeList(vec[new HHAST\WhiteSpace("\n")]),
+              : new NodeList(vec[new WhiteSpace("\n")]),
           ),
         ),
       )
         ->replace(
           $first_token,
           $first_token->withLeading(
-            new HHAST\NodeList(
+            new NodeList(
               vec[C\lastx($first_token->getLeading()->getChildren())],
             ),
           ),
@@ -184,22 +172,17 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     $last = $list[$last_idx];
     if (!$last->hasSeparator()) {
       $list[$last_idx] = $last->withSeparator(
-        new HHAST\CommaToken(
-          null,
-          new HHAST\NodeList(vec[new HHAST\WhiteSpace(' ')]),
-        ),
+        new CommaToken(null, new NodeList(vec[new WhiteSpace(' ')])),
       );
     }
-    $list[] = new HHAST\ConstructorCall(
-      new HHAST\NameToken(null, null, '__Override'),
+    $list[] = new ConstructorCall(
+      new NameToken(null, null, '__Override'),
       null,
       null,
       null,
     )
-      |> new HHAST\ListItem($$, null);
+      |> new ListItem($$, null);
 
-    return $node->withAttribute(
-      $attrs->withAttributes(new HHAST\NodeList($list)),
-    );
+    return $node->withAttribute($attrs->withAttributes(new NodeList($list)));
   }
 }

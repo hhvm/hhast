@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
-use namespace Facebook\HHAST\Linters;
+use type Facebook\HHAST\{BaseLinter, LintError};
 use namespace HH\Lib\Vec;
 
 final class LintRunJSONEventHandler implements LintRunEventHandler {
@@ -43,9 +43,9 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
 
 
   public async function linterRaisedErrorsAsync(
-    Linters\BaseLinter $_linter,
+    BaseLinter $_linter,
     LintRunConfig::TFileConfig $_config,
-    Traversable<Linters\LintError> $errors,
+    Traversable<LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     $transformed_errors = self::transformErrors($errors);
     $this->errors = Vec\concat($this->errors, $transformed_errors);
@@ -72,7 +72,7 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
   }
 
   private static function transformErrors(
-    Traversable<Linters\LintError> $errors,
+    Traversable<LintError> $errors,
   ): vec<self::TOutputError> {
     return Vec\map(
       $errors,

@@ -9,10 +9,9 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace Facebook\HHAST\Linters;
-use namespace Facebook\TypeAssert;
+use namespace Facebook\{HHAST, TypeAssert};
 use namespace HH\Lib\{C, Keyset, Str, Vec};
-use type Facebook\HHAST\Linters\BaseLinter;
+use type Facebook\HHAST\BaseLinter;
 
 final class LintRunConfig {
   const type TConfigFile = shape(
@@ -60,30 +59,30 @@ final class LintRunConfig {
   );
 
   const vec<classname<BaseLinter>> DEFAULT_LINTERS = vec[
-    Linters\AsyncFunctionAndMethodLinter::class,
-    Linters\CamelCasedMethodsUnderscoredFunctionsLinter::class,
-    Linters\DontAwaitInALoopLinter::class,
-    Linters\LicenseHeaderLinter::class,
-    Linters\NewlineAtEndOfFileLinter::class,
-    Linters\NoBasicAssignmentFunctionParameterLinter::class,
-    Linters\MethodCallOnConstructorLinter::class,
-    Linters\MustUseBracesForControlFlowLinter::class,
-    Linters\MustUseOverrideAttributeLinter::class,
-    Linters\NoElseifLinter::class,
-    Linters\NoPHPEqualityLinter::class,
-    Linters\UnusedParameterLinter::class,
-    Linters\UnusedUseClauseLinter::class,
-    Linters\UseStatementWithLeadingBackslashLinter::class,
-    Linters\UseStatementWithoutKindLinter::class,
-    Linters\GroupUseStatementsLinter::class,
-    Linters\GroupUseStatementAlphabetizationLinter::class,
-    Linters\NoWhitespaceAtEndOfLineLinter::class,
+    HHAST\AsyncFunctionAndMethodLinter::class,
+    HHAST\CamelCasedMethodsUnderscoredFunctionsLinter::class,
+    HHAST\DontAwaitInALoopLinter::class,
+    HHAST\LicenseHeaderLinter::class,
+    HHAST\NewlineAtEndOfFileLinter::class,
+    HHAST\NoBasicAssignmentFunctionParameterLinter::class,
+    HHAST\MethodCallOnConstructorLinter::class,
+    HHAST\MustUseBracesForControlFlowLinter::class,
+    HHAST\MustUseOverrideAttributeLinter::class,
+    HHAST\NoElseifLinter::class,
+    HHAST\NoPHPEqualityLinter::class,
+    HHAST\UnusedParameterLinter::class,
+    HHAST\UnusedUseClauseLinter::class,
+    HHAST\UseStatementWithLeadingBackslashLinter::class,
+    HHAST\UseStatementWithoutKindLinter::class,
+    HHAST\GroupUseStatementsLinter::class,
+    HHAST\GroupUseStatementAlphabetizationLinter::class,
+    HHAST\NoWhitespaceAtEndOfLineLinter::class,
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
-    Linters\NoStringInterpolationLinter::class,
-    Linters\StrictModeOnlyLinter::class,
-    Linters\UseStatementWithAsLinter::class,
+    HHAST\NoStringInterpolationLinter::class,
+    HHAST\StrictModeOnlyLinter::class,
+    HHAST\UseStatementWithAsLinter::class,
   ];
 
   private static function getNamedLinterGroup(

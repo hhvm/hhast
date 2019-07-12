@@ -123,7 +123,8 @@ abstract class Token extends Node {
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] + $p,
       $offset,
-    ) |> Vec\filter_nulls($$);
+    )
+      |> Vec\filter_nulls($$);
 
     $leading = C\is_empty($leading_list)
       ? new NodeList(vec[])
@@ -145,7 +146,8 @@ abstract class Token extends Node {
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] + $p,
       $trailing_position,
-    ) |> Vec\filter_nulls($$);
+    )
+      |> Vec\filter_nulls($$);
     $trailing = C\is_empty($trailing_list)
       ? new NodeList(vec[])
       : new NodeList(

@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 

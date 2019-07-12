@@ -12,17 +12,13 @@ namespace Facebook\HHAST;
 use function Facebook\HHAST\TestLib\expect;
 
 final class HSLMigrationTest extends MigrationTest {
-  const type TMigration = Migrations\HSLMigration;
+  const type TMigration = HSLMigration;
 
   public function testHslMigrationReturnsSameResults(): void {
     $base_path = __DIR__.'/examples/migrations/hsl.php';
     $handle = \HH\Lib\Tuple\from_async(
       __Private\execute_async('hhvm', '--no-config', $base_path.'.in'),
-      __Private\execute_async(
-        'hhvm',
-        '--no-config',
-        $base_path.'.expect',
-      ),
+      __Private\execute_async('hhvm', '--no-config', $base_path.'.expect'),
     );
     list($phpstdlib_results, $hsl_results) = \HH\Asio\join($handle);
     expect($hsl_results)->toBeSame(

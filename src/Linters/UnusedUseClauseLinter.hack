@@ -7,25 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  ConstToken,
-  FunctionToken,
-  INamespaceUseDeclaration,
-  NameToken,
-  NamespaceGroupUseDeclaration,
-  NamespaceToken,
-  NamespaceUseClause,
-  NamespaceUseDeclaration,
-  Node,
-  NodeList,
-  QualifiedName,
-  Script,
-  Token,
-  TypeToken,
-};
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class UnusedUseClauseLinter extends AutoFixingASTLinter {
@@ -153,7 +136,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
           NodeList::createMaybeEmptyList(
             Vec\concat(
               $node->getPrefix()->getParts()->getChildren(),
-              vec[new HHAST\ListItem($name, null)],
+              vec[new ListItem($name, null)],
             ),
           ),
         );
@@ -179,9 +162,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
       $fixed = new NamespaceUseDeclaration(
         $node->getKeyword(),
         $node->getKind(),
-        NodeList::createMaybeEmptyList(
-          vec[new HHAST\ListItem($clause, null)],
-        ),
+        NodeList::createMaybeEmptyList(vec[new ListItem($clause, null)]),
         $node->getSemicolon(),
       );
     } else {
@@ -192,9 +173,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
         )
         |> $node->withClauses(new NodeList($$));
     }
-    $last = C\lastx(
-      $fixed->getClauses()->getChildrenOfType(HHAST\ListItem::class),
-    );
+    $last = C\lastx($fixed->getClauses()->getChildrenOfType(ListItem::class));
     $sep = $last->getSeparator();
 
     if ($sep && !Str\contains($sep->getTrailing()->getCode(), "\n")) {
@@ -210,6 +189,6 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
     'types' => keyset<string>,
     'functions' => keyset<string>,
   ) {
-    return HHAST\get_unresolved_referenced_names($this->getAST());
+    return get_unresolved_referenced_names($this->getAST());
   }
 }

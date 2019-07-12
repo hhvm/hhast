@@ -7,26 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  BinaryExpression,
-  DollarToken,
-  DotToken,
-  DoubleQuotedStringLiteralHeadToken,
-  DoubleQuotedStringLiteralTailToken,
-  DoubleQuotedStringLiteralToken,
-  EmbeddedBracedExpression,
-  HeredocStringLiteralHeadToken,
-  IExpression,
-  LiteralExpression,
-  NameToken,
-  NodeList,
-  Script,
-  StringLiteralBodyToken,
-  VariableExpression,
-  VariableToken,
-};
 use namespace HH\Lib\{C, Vec};
 
 final class NoStringInterpolationLinter extends AutoFixingASTLinter {
@@ -137,8 +119,7 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
           $inner instanceof NameToken,
           '"${}" should contain a variable name',
         );
-        $new_children[] = new VariableToken(null, null, '$'.$inner->getText(),
-        );
+        $new_children[] = new VariableToken(null, null, '$'.$inner->getText());
         continue;
       }
 

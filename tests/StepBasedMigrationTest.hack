@@ -14,10 +14,9 @@ use namespace Facebook\HHAST;
 use type Facebook\HackTest\DataProvider;
 
 abstract class StepBasedMigrationTest extends MigrationTest {
-  abstract const type TMigration as Migrations\StepBasedMigration;
+  abstract const type TMigration as StepBasedMigration;
 
-  final public function getStepsAndExamples(
-  ): vec<(Migrations\IMigrationStep, string)> {
+  final public function getStepsAndExamples(): vec<(IMigrationStep, string)> {
     $out = vec[];
     $class = static::getClassname();
     $m = new $class('/var/empty');
@@ -31,7 +30,7 @@ abstract class StepBasedMigrationTest extends MigrationTest {
 
   <<DataProvider('getStepsAndExamples')>>
   final public async function testMigrationStepsAreIdempotent(
-    Migrations\IMigrationStep $step,
+    IMigrationStep $step,
     string $example,
   ): Awaitable<void> {
     $rewrite = (HHAST\Node $ast) ==>

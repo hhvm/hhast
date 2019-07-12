@@ -7,10 +7,10 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 use namespace Facebook\{HHAST, TypeAssert};
-use namespace Facebook\HHAST\Linters\SuppressASTLinter;
+use namespace Facebook\HHAST\SuppressASTLinter;
 use namespace HH\Lib\Vec;
 
 abstract class ASTLinter extends BaseLinter {

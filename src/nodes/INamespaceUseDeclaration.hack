@@ -22,7 +22,9 @@ interface INamespaceUseDeclaration {
   public function getKind(): ?Token;
   public function getKindx(): Token;
 
-  public function withClauses(NodeList<ListItem<NamespaceUseClause>> $value): this;
+  public function withClauses(
+    NodeList<ListItem<NamespaceUseClause>> $value,
+  ): this;
   public function hasClauses(): bool;
   public function getClauses(): NodeList<ListItem<NamespaceUseClause>>;
   public function getClausesx(): NodeList<ListItem<NamespaceUseClause>>;

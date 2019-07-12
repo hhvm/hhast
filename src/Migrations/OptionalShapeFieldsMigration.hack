@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Migrations;
+namespace Facebook\HHAST;
 
 use namespace Facebook\HHAST;
 

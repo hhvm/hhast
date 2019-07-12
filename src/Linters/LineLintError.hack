@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 class LineLintError extends LintError {
 

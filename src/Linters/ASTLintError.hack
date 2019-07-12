@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 use type Facebook\HHAST\Node;
 use function Facebook\HHAST\find_position;

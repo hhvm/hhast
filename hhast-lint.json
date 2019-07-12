@@ -5,15 +5,15 @@
     {
       "patterns": [ "codegen/*", "tests/examples/*" ],
       "disabledLinters": [
-        "Facebook\\HHAST\\Linters\\UnusedUseClauseLinter",
-        "Facebook\\HHAST\\Linters\\LicenseHeaderLinter"
+        "Facebook\\HHAST\\UnusedUseClauseLinter",
+        "Facebook\\HHAST\\LicenseHeaderLinter"
       ],
       "disableAllAutoFixes": true
     },
     {
       "patterns": [ "src/__Private/Wrap/*" ],
       "disabledLinters": [
-        "Facebook\\HHAST\\Linters\\CamelCasedMethodsUnderscoredFunctionsLinter"
+        "Facebook\\HHAST\\CamelCasedMethodsUnderscoredFunctionsLinter"
       ]
     }
   ]

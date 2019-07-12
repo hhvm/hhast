@@ -17,7 +17,7 @@ use namespace HH\Lib\{C, Str, Vec};
 trait LinterTestTrait {
   require extends TestCase;
 
-  abstract protected function getLinter(string $file): Linters\BaseLinter ;
+  abstract protected function getLinter(string $file): BaseLinter;
 
   abstract public function getCleanExamples(): vec<(string)>;
   final public function getDirtyFixtures(): vec<array<string>> {
@@ -62,13 +62,16 @@ trait LinterTestTrait {
       if (C\is_empty($errors)) {
         return;
       }
-      Vec\map($errors, $error ==> Str\format(
-        "- %s: %s at line %d:\n%s",
-        \get_class($error->getLinter()),
-        $error->getDescription(),
-        $error->getPosition()[1] ?? -1,
-        $error->getPrettyBlame() ?? ''
-      ))
+      Vec\map(
+        $errors,
+        $error ==> Str\format(
+          "- %s: %s at line %d:\n%s",
+          \get_class($error->getLinter()),
+          $error->getDescription(),
+          $error->getPosition()[1] ?? -1,
+          $error->getPrettyBlame() ?? '',
+        ),
+      )
         |> Str\join($$, "\n")
         |> self::fail("Expected no errors, got:\n".$$);
     } finally {
@@ -83,17 +86,12 @@ trait LinterTestTrait {
     $linter = $this->getLinter(__DIR__.'/examples/'.$example.'.in');
 
     $out = \HH\Asio\join($linter->getLintErrorsAsync())
-      |> Vec\map(
-        $$,
-        $error ==> self::getErrorAsShape($error),
-      )
+      |> Vec\map($$, $error ==> self::getErrorAsShape($error))
       |> \json_encode($$, \JSON_PRETTY_PRINT)."\n";
     expect($out)->toMatchExpectFile($example.'.expect');
   }
 
-  final protected static function getErrorAsShape(
-    Linters\LintError $e,
-   ): shape(...) {
+  final protected static function getErrorAsShape(LintError $e): shape(...) {
     return shape(
       'blame' => $e->getBlameCode(),
       'blame_pretty' => $e->getPrettyBlame(),

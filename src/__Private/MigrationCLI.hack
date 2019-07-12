@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
-use type Facebook\HHAST\Migrations\{
+use type Facebook\HHAST\{
   AddFixmesMigration,
   BaseMigration,
   DollarBraceEmbeddedVariableMigration,

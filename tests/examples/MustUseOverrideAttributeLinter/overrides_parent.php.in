@@ -10,7 +10,7 @@
  *
  */
 
-abstract class Foo extends \Facebook\HHAST\Linters\BaseLinter {
+abstract class Foo extends \Facebook\HHAST\BaseLinter {
   public static function shouldLintFile(File $_): bool {
     return false;
   }

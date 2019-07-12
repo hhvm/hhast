@@ -116,7 +116,7 @@ final class LSPServerTest extends TestCase {
 
     $responses = Ref(vec[]);
 
-    $debug = (bool) \getenv('HHAST_LSP_DEBUG') ?? false;
+    $debug = (bool)\getenv('HHAST_LSP_DEBUG') ?? false;
 
     list($code, $_) = await Tuple\from_async(
       $cli->mainAsync(),
@@ -155,9 +155,11 @@ final class LSPServerTest extends TestCase {
       },
     );
 
-    $output =
-      \json_encode($responses->v, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES).
-        "\n"
+    $output = \json_encode(
+      $responses->v,
+      \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES,
+    ).
+      "\n"
       |> Str\replace_every($$, Dict\flip($mappings));
 
     expect($output)->toMatchExpectFileWithInputFile(

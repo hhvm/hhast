@@ -25,7 +25,11 @@ trait LinterCLITestTrait {
     $stdout = new StringOutput();
     $stderr = new StringOutput();
     $term = new Terminal($stdin, $stdout, $stderr);
-    return
-      tuple(new __Private\LinterCLI($argv, $term), $stdin, $stdout, $stderr);
+    return tuple(
+      new __Private\LinterCLI($argv, $term),
+      $stdin,
+      $stdout,
+      $stderr,
+    );
   }
 }

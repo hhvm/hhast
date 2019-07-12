@@ -12,12 +12,10 @@ namespace Facebook\HHAST;
 
 
 final class MustUseOverrideAttributeLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\MustUseOverrideAttributeLinter {
-    return Linters\MustUseOverrideAttributeLinter::fromPath($file);
+  protected function getLinter(string $file): MustUseOverrideAttributeLinter {
+    return MustUseOverrideAttributeLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {
@@ -26,28 +24,38 @@ final class MustUseOverrideAttributeLinterTest extends TestCase {
       tuple('<?hh class Foo { function do_stuff(){}; }'),
       tuple(
         '<?hh '.
-          'class Foo extends '.self::class.' {'.
-          'public function everyoneLovesMagicTrevor(){}'.
-          '}',
+        'class Foo extends '.
+        self::class.
+        ' {'.
+        'public function everyoneLovesMagicTrevor(){}'.
+        '}',
       ),
       tuple(
         '<?hh '.
-          'class Foo extends '.self::class.' {'.
-          '<<__Override>>'.
-          'public function '.__FUNCTION__.'(){}'.
-          '}',
+        'class Foo extends '.
+        self::class.
+        ' {'.
+        '<<__Override>>'.
+        'public function '.
+        __FUNCTION__.
+        '(){}'.
+        '}',
       ),
       tuple(
         '<?hh '.
-          'class Foo extends '.self::class.' {'.
-          'public function __construct(){}'.
-          '}',
+        'class Foo extends '.
+        self::class.
+        ' {'.
+        'public function __construct(){}'.
+        '}',
       ),
       tuple(
         '<?hh '.
-          'class Foo extends '.self::class.' {'.
-          'public function __destruct(){}'.
-          '}',
+        'class Foo extends '.
+        self::class.
+        ' {'.
+        'public function __destruct(){}'.
+        '}',
       ),
     ];
   }

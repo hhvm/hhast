@@ -10,10 +10,10 @@
 namespace Facebook\HHAST;
 
 final class GroupUseStatementsLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(string $file): Linters\GroupUseStatementsLinter {
-    return Linters\GroupUseStatementsLinter::fromPath($file);
+  protected function getLinter(string $file): GroupUseStatementsLinter {
+    return GroupUseStatementsLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

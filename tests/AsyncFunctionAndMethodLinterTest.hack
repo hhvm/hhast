@@ -14,10 +14,8 @@ namespace Facebook\HHAST;
 final class AsyncFunctionAndMethodLinterTest extends TestCase {
   use LinterTestTrait;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\BaseLinter {
-    return Linters\AsyncFunctionAndMethodLinter::fromPath($file);
+  protected function getLinter(string $file): BaseLinter {
+    return AsyncFunctionAndMethodLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

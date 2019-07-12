@@ -7,20 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  ClassishDeclaration,
-  FunctionDeclaration,
-  FunctionDeclarationHeader,
-  IFunctionishDeclaration,
-  MethodishDeclaration,
-  NameToken,
-  Node,
-  StaticToken,
-  Token,
-};
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
 abstract class FunctionNamingLinter extends AutoFixingASTLinter {
@@ -115,7 +103,7 @@ abstract class FunctionNamingLinter extends AutoFixingASTLinter {
     }
 
     $root = $this->getAST();
-    $ns = HHAST\__Private\Resolution\get_current_namespace($root, $func);
+    $ns = __Private\Resolution\get_current_namespace($root, $func);
     if ($func instanceof FunctionDeclaration) {
       $class = null;
     } else {

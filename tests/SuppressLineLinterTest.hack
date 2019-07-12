@@ -16,8 +16,8 @@ namespace Facebook\HHAST;
 final class SuppressLineLinterTest extends TestCase {
   use LinterTestTrait;
 
-  protected function getLinter(string $file): Linters\BaseLinter {
-    return Linters\NoWhitespaceAtEndOfLineLinter::fromPath($file);
+  protected function getLinter(string $file): BaseLinter {
+    return NoWhitespaceAtEndOfLineLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

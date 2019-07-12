@@ -7,7 +7,7 @@
  *
  */
 
-namespace Facebook\HHAST\Migrations;
+namespace Facebook\HHAST;
 
 use function Facebook\HHAST\find_node_at_position;
 use type Facebook\HHAST\__Private\TTypecheckerError;

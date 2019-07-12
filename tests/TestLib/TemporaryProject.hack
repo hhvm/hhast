@@ -15,9 +15,7 @@ use namespace HH\Lib\Str;
 final class TemporaryProject implements \IAsyncDisposable {
   private resource $hhServer;
   private string $path;
-  public function __construct(
-    string $source_path,
-  ) {
+  public function __construct(string $source_path) {
     $path = \sys_get_temp_dir().'/hhast-test-temp'.\bin2hex(\random_bytes(16));
     $orig = \umask(022);
     \mkdir($path);

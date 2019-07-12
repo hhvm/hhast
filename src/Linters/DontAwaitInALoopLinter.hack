@@ -7,15 +7,9 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Str, Vec};
-use type Facebook\HHAST\{
-  AwaitToken,
-  IHasFunctionBody,
-  ILoopStatement,
-  PrefixUnaryExpression,
-};
 use function Facebook\HHAST\find_position;
 
 final class DontAwaitInALoopLinter extends ASTLinter {

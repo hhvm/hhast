@@ -7,18 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  INamespaceUseDeclaration,
-  NameToken,
-  NamespaceToken,
-  NodeList,
-  QualifiedName,
-  Script,
-  TypeToken,
-};
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset};
 
 final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
@@ -109,6 +99,6 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
     'types' => keyset<string>,
     'functions' => keyset<string>,
   ) {
-    return HHAST\get_unresolved_referenced_names($this->getAST());
+    return get_unresolved_referenced_names($this->getAST());
   }
 }

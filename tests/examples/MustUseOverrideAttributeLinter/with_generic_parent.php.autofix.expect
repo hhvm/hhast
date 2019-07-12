@@ -10,7 +10,7 @@
  *
  */
 
-use type Facebook\HHAST\Linters\AutoFixingASTLinter;
+use type Facebook\HHAST\AutoFixingASTLinter;
 use type Facebook\HHAST\Node;
 
 class Foo extends AutoFixingASTLinter<Node> {

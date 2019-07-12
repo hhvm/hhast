@@ -12,13 +12,13 @@ namespace Facebook\HHAST;
 
 
 final class MustUseBracesForControlFlowLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
 
   protected function getLinter(
     string $file,
-  ): Linters\MustUseBracesForControlFlowLinter {
-    return Linters\MustUseBracesForControlFlowLinter::fromPath($file);
+  ): MustUseBracesForControlFlowLinter {
+    return MustUseBracesForControlFlowLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

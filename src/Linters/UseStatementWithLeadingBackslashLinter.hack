@@ -7,16 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  BackslashToken,
-  INamespaceUseDeclaration,
-  NamespaceGroupUseDeclaration,
-  NamespaceUseDeclaration,
-  QualifiedName,
-  Script,
-};
 
 use namespace HH\Lib\C;
 

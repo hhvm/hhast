@@ -12,10 +12,8 @@ namespace Facebook\HHAST;
 final class FinalOrAbstractClassLinterTest extends TestCase {
   use LinterTestTrait;
 
-  protected function getLinter(
-    string $file,
-  ): Linters\BaseLinter {
-    return Linters\FinalOrAbstractClassLinter::fromPath($file);
+  protected function getLinter(string $file): BaseLinter {
+    return FinalOrAbstractClassLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {
