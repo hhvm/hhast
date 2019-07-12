@@ -78,10 +78,24 @@ final class InstanceofIsMigration extends BaseMigration {
   }
 
   const dict<string, int> BUILTINS_WITH_GENERICS = dict[
-    'HH\\Traversable' => 1,
-    'HH\\KeyedTraversable' => 2,
+    'HH\\Awaitable' => 1,
+    'HH\\ConstMap' => 2,
+    'HH\\ConstSet' => 1,
+    'HH\\ConstVector' => 1,
     'HH\\Container' => 1,
+    'HH\\ImmMap' => 2,
+    'HH\\ImmSet' => 1,
+    'HH\\ImmVector' => 1,
     'HH\\KeyedContainer' => 2,
+    'HH\\KeyedTraversable' => 2,
+    'HH\\Map' => 2,
+    'HH\\Set' => 1,
+    'HH\\Traversable' => 1,
+    'HH\\Vector' => 1,
+    'ConstMap' => 2,
+    'ConstSet' => 1,
+    'ConstVector' => 1,
+    'SplObjectStorage' => 2,
   ];
 
   <<__Memoize>>
@@ -94,7 +108,10 @@ final class InstanceofIsMigration extends BaseMigration {
     try {
       $rc = new \ReflectionClass($type);
       $file = $rc->getFileName();
-      $in_file = await self::getClassGenericCountsInFileAsync($file as string);
+      if (!$file is string) {
+        return 0;
+      }
+      $in_file = await self::getClassGenericCountsInFileAsync($file);
       return $in_file[$type] ?? 0;
     } catch (\ReflectionException $_) {
     }
