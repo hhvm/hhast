@@ -299,7 +299,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
     $need_recursion = false;
     $has_file_list = vec[];
     foreach ($migrations as $migration) {
-      if ($migration instanceof IMigrationWithFileList) {
+      if ($migration is IMigrationWithFileList) {
         $has_file_list[] = $migration;
       } else {
         $need_recursion = true;
@@ -333,14 +333,6 @@ class MigrationCLI extends CLIWithRequiredArguments {
       }
       $file = $info->getPathname();
       if (!$this->includeVendor) {
-        if (Str\contains($file, '/.git/')) {
-          $this->verbosePrintf(
-            self::VERBOSE_SKIP_BECAUSE_GIT,
-            "Skipping file '%s' because it is in .git/\n",
-            $file,
-          );
-          continue;
-        }
         if (Str\contains($file, '/vendor/')) {
           $this->verbosePrintf(
             self::VERBOSE_SKIP_BECAUSE_VENDOR,
@@ -349,14 +341,23 @@ class MigrationCLI extends CLIWithRequiredArguments {
           );
           continue;
         }
-        if (!self::isHackFile($file)) {
-          $this->verbosePrintf(
-            self::VERBOSE_SKIP_BECAUSE_NOT_HACK,
-            "Skipping file '%s' because it is not a Hack file\n",
-            $file,
-          );
-          continue;
-        }
+      }
+
+      if (Str\contains($file, '/.git/')) {
+        $this->verbosePrintf(
+          self::VERBOSE_SKIP_BECAUSE_GIT,
+          "Skipping file '%s' because it is in .git/\n",
+          $file,
+        );
+        continue;
+      }
+      if (!self::isHackFile($file)) {
+        $this->verbosePrintf(
+          self::VERBOSE_SKIP_BECAUSE_NOT_HACK,
+          "Skipping file '%s' because it is not a Hack file\n",
+          $file,
+        );
+        continue;
       }
       $this->migrateFile($migrations, $file);
     }
