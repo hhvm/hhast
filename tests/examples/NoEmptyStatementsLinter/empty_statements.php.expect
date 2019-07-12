@@ -140,8 +140,8 @@
         "description": "This statement includes an expression that has no effect"
     },
     {
-        "blame": "  $a instanceof MyClass;\n",
-        "blame_pretty": "  $a instanceof MyClass;\n",
+        "blame": "  $a is MyClass;\n",
+        "blame_pretty": "  $a is MyClass;\n",
         "description": "This statement includes an expression that has no effect"
     },
     {
