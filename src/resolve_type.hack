@@ -34,6 +34,7 @@ function resolve_type(string $type, Script $root, Node $node): string {
     'KeyedTraversable',
     'Map',
     'Set',
+    'Stringish',
     'Traversable',
     'Vector',
   ];
