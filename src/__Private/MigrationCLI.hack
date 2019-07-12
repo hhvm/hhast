@@ -20,6 +20,7 @@ use type Facebook\HHAST\Migrations\{
   HSLMigration,
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
+  InstanceofIsMigration,
   IsRefinementMigration,
   LinterGenericsToTypeConstantsMigration,
   NamespaceFallbackMigration,
@@ -225,6 +226,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          $this->migrations[] = InstanceofIsMigration::class;
+        },
+        'Replace `$x instanceof Foo` with `$x is Foo`',
+        '--instanceof-is',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->migrations[] = AddFixmesMigration::class;
         },
         'Add /* HH_FIXME[] */ comments where needed',
@@ -319,14 +327,6 @@ class MigrationCLI extends CLIWithRequiredArguments {
       }
       $file = $info->getPathname();
       if (!$this->includeVendor) {
-        if (Str\contains($file, '/.git/')) {
-          $this->verbosePrintf(
-            self::VERBOSE_SKIP_BECAUSE_GIT,
-            "Skipping file '%s' because it is in .git/\n",
-            $file,
-          );
-          continue;
-        }
         if (Str\contains($file, '/vendor/')) {
           $this->verbosePrintf(
             self::VERBOSE_SKIP_BECAUSE_VENDOR,
@@ -335,14 +335,23 @@ class MigrationCLI extends CLIWithRequiredArguments {
           );
           continue;
         }
-        if (!self::isHackFile($file)) {
-          $this->verbosePrintf(
-            self::VERBOSE_SKIP_BECAUSE_NOT_HACK,
-            "Skipping file '%s' because it is not a Hack file\n",
-            $file,
-          );
-          continue;
-        }
+      }
+
+      if (Str\contains($file, '/.git/')) {
+        $this->verbosePrintf(
+          self::VERBOSE_SKIP_BECAUSE_GIT,
+          "Skipping file '%s' because it is in .git/\n",
+          $file,
+        );
+        continue;
+      }
+      if (!self::isHackFile($file)) {
+        $this->verbosePrintf(
+          self::VERBOSE_SKIP_BECAUSE_NOT_HACK,
+          "Skipping file '%s' because it is not a Hack file\n",
+          $file,
+        );
+        continue;
       }
       $this->migrateFile($migrations, $file);
     }
