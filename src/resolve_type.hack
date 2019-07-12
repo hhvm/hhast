@@ -21,6 +21,27 @@ function resolve_type(string $type, Script $root, Node $node): string {
     'Call on the class name without generics',
   );
 
+  $autoimports = keyset[
+    'Awaitable',
+    'ConstMap',
+    'ConstSet',
+    'ConstVector',
+    'Container',
+    'ImmMap',
+    'ImmSet',
+    'ImmVector',
+    'KeyedContainer',
+    'KeyedTraversable',
+    'Map',
+    'Set',
+    'Stringish',
+    'Traversable',
+    'Vector',
+  ];
+  if (C\contains_key($autoimports, $type)) {
+    return 'HH\\'.$type;
+  }
+
   $ns = Resolution\get_current_namespace($root, $node);
   $uses = Resolution\get_current_uses($root, $node);
 

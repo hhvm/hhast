@@ -121,6 +121,7 @@ final class InstanceofIsMigration extends BaseMigration {
     'HH\\KeyedTraversable' => 2,
     'HH\\Map' => 2,
     'HH\\Set' => 1,
+    'HH\\Stringish' => 0, // don't make the autoloader annoyed
     'HH\\Traversable' => 1,
     'HH\\Vector' => 1,
     'ConstMap' => 2,
