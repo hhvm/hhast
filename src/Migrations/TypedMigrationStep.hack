@@ -27,10 +27,10 @@ final class TypedMigrationStep<Tin as Node, Tout as Node>
   }
 
   public function rewrite(Node $node): Node {
-    if (!$node instanceof $this->tin) {
+    if (!\is_a($node, $this->tin)) {
       return $node;
     }
     $rewriter = $this->rewriter;
-    return $rewriter($node);
+    return $rewriter(/* HH_FIXME[4110] need reified generics */ $node);
   }
 }

@@ -72,7 +72,7 @@ abstract class Node {
         $out[$k] = $node;
       }
     }
-    return $out;
+    return /* HH_FIXME[4110] need reified generics */ $out;
   }
 
   final public function traverse(): Container<Node> {
@@ -145,7 +145,7 @@ abstract class Node {
         $out[] = $node;
       }
     }
-    return $out;
+    return /* HH_FIXME[4110] need reified generics */ $out;
   }
 
   final public function getFirstDescendantOfType<T as Node>(
@@ -154,7 +154,7 @@ abstract class Node {
     $out = vec[];
     foreach ($this->_descendants as $node) {
       if ($node instanceof $what) {
-        return $node;
+        return /* HH_FIXME[4110] need reified generics */ $node;
       }
     }
     return null;
