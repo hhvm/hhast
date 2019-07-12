@@ -209,4 +209,8 @@ final class NodeList<+Titem as Node> extends Node {
   final public function isEmpty(): bool {
     return C\is_empty($this->_children);
   }
+
+  final public function getCount(): int {
+    return C\count($this->_children);
+  }
 }
