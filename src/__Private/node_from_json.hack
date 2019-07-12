@@ -26,6 +26,16 @@ function node_from_json(
       $source,
       $type_hint,
     );
+    if ($node === null) {
+      return $node;
+    }
+    if ($type_hint === 'IExpression') {
+      return Wrap\wrap_IExpression($node);
+    }
+    if ($type_hint === 'ITypeSpecifier') {
+      return Wrap\wrap_ITypeSpecifier($node);
+    }
+    return $node;
   } catch (\Facebook\HHAST\ASTError $e) {
     throw $e;
   } catch (\Throwable $t) {
@@ -36,14 +46,4 @@ function node_from_json(
       $t,
     );
   }
-  if ($node === null) {
-    return $node;
-  }
-  if ($type_hint === 'IExpression') {
-    return Wrap\wrap_IExpression($node);
-  }
-  if ($type_hint === 'ITypeSpecifier') {
-    return Wrap\wrap_ITypeSpecifier($node);
-  }
-  return $node;
 }
