@@ -413,6 +413,11 @@ class MigrationCLI extends CLIWithRequiredArguments {
       }
     }
 
+    if (Str\ends_with($file, '.hack')) {
+      self::$lastFileIsHack = tuple($file, true);
+      return true;
+    }
+
     $f = \fopen($file, 'r');
     $prefix = \fread($f, 4);
     if ($prefix === '<?hh') {
