@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e707696dbb3ac6774e935db2303b3b90>>
+ * @generated SignedSource<<7000da028db976efd07a74c87984d1d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,12 +15,12 @@ final class XHPChildrenDeclaration
   const string SYNTAX_KIND = 'xhp_children_declaration';
 
   private ChildrenToken $_keyword;
-  private EmptyToken $_expression;
+  private Node $_expression;
   private SemicolonToken $_semicolon;
 
   public function __construct(
     ChildrenToken $keyword,
-    EmptyToken $expression,
+    Node $expression,
     SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -53,7 +53,7 @@ final class XHPChildrenDeclaration
       $file,
       $offset,
       $source,
-      'EmptyToken',
+      'Node',
     );
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
@@ -146,7 +146,7 @@ final class XHPChildrenDeclaration
     return $this->_expression;
   }
 
-  public function withExpression(EmptyToken $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -158,16 +158,16 @@ final class XHPChildrenDeclaration
   }
 
   /**
-   * @return EmptyToken
+   * @return EmptyToken | XHPChildrenParenthesizedList
    */
-  public function getExpression(): EmptyToken {
-    return TypeAssert\instance_of(EmptyToken::class, $this->_expression);
+  public function getExpression(): Node {
+    return $this->_expression;
   }
 
   /**
-   * @return EmptyToken
+   * @return EmptyToken | XHPChildrenParenthesizedList
    */
-  public function getExpressionx(): EmptyToken {
+  public function getExpressionx(): Node {
     return $this->getExpression();
   }
 

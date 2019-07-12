@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05fe0539a799dc2f54928e521cb25126>>
+ * @generated SignedSource<<670819f4f8040b06ced774f3321d4dbb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,14 +12,14 @@ final class XHPChildrenParenthesizedList extends Node {
 
   const string SYNTAX_KIND = 'xhp_children_parenthesized_list';
 
-  private Node $_left_paren;
-  private Node $_xhp_children;
-  private Node $_right_paren;
+  private LeftParenToken $_left_paren;
+  private NodeList<ListItem<IExpression>> $_xhp_children;
+  private RightParenToken $_right_paren;
 
   public function __construct(
-    Node $left_paren,
-    Node $xhp_children,
-    Node $right_paren,
+    LeftParenToken $left_paren,
+    NodeList<ListItem<IExpression>> $xhp_children,
+    RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -42,7 +42,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'LeftParenToken',
     );
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
@@ -51,7 +51,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'NodeList<ListItem<IExpression>>',
     );
     $xhp_children = $xhp_children as nonnull;
     $offset += $xhp_children->getWidth();
@@ -60,7 +60,7 @@ final class XHPChildrenParenthesizedList extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'RightParenToken',
     );
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
@@ -115,7 +115,7 @@ final class XHPChildrenParenthesizedList extends Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(LeftParenToken $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -127,16 +127,16 @@ final class XHPChildrenParenthesizedList extends Node {
   }
 
   /**
-   * @return unknown
+   * @return LeftParenToken
    */
-  public function getLeftParen(): Node {
-    return $this->_left_paren;
+  public function getLeftParen(): LeftParenToken {
+    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
   }
 
   /**
-   * @return unknown
+   * @return LeftParenToken
    */
-  public function getLeftParenx(): Node {
+  public function getLeftParenx(): LeftParenToken {
     return $this->getLeftParen();
   }
 
@@ -144,7 +144,9 @@ final class XHPChildrenParenthesizedList extends Node {
     return $this->_xhp_children;
   }
 
-  public function withXhpChildren(Node $value): this {
+  public function withXhpChildren(
+    NodeList<ListItem<IExpression>> $value,
+  ): this {
     if ($value === $this->_xhp_children) {
       return $this;
     }
@@ -156,16 +158,18 @@ final class XHPChildrenParenthesizedList extends Node {
   }
 
   /**
-   * @return unknown
+   * @return NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<XHPClassNameToken>>
    */
-  public function getXhpChildren(): Node {
-    return $this->_xhp_children;
+  public function getXhpChildren(): NodeList<ListItem<IExpression>> {
+    return TypeAssert\instance_of(NodeList::class, $this->_xhp_children);
   }
 
   /**
-   * @return unknown
+   * @return NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<XHPClassNameToken>>
    */
-  public function getXhpChildrenx(): Node {
+  public function getXhpChildrenx(): NodeList<ListItem<IExpression>> {
     return $this->getXhpChildren();
   }
 
@@ -173,7 +177,7 @@ final class XHPChildrenParenthesizedList extends Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(RightParenToken $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -185,16 +189,16 @@ final class XHPChildrenParenthesizedList extends Node {
   }
 
   /**
-   * @return unknown
+   * @return RightParenToken
    */
-  public function getRightParen(): Node {
-    return $this->_right_paren;
+  public function getRightParen(): RightParenToken {
+    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
   }
 
   /**
-   * @return unknown
+   * @return RightParenToken
    */
-  public function getRightParenx(): Node {
+  public function getRightParenx(): RightParenToken {
     return $this->getRightParen();
   }
 }

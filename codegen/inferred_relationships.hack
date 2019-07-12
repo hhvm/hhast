@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9649bef7a48b76662641537c0564f446>>
+ * @generated SignedSource<<ed392eb7ce9fdf4d2aaec512ee228d62>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -502,7 +502,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:??=',
     'token:^',
     'token:^=',
+    'token:and',
     'token:or',
+    'token:xor',
     'token:|',
     'token:|=',
     'token:|>',
@@ -690,6 +692,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<trait_use_conflict_resolution>',
     'list<trait_use|trait_use_conflict_resolution>',
     'list<type_const_declaration>',
+    'list<xhp_children_declaration>',
     'list<xhp_class_attribute_declaration>',
     'missing',
   ],
@@ -2678,6 +2681,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'simple_type_specifier',
     'soft_type_specifier',
     'subscript_expression',
+    'token:XHP_class_name',
     'token:name',
     'token:variable',
     'trait_use_alias_item',
@@ -3067,11 +3071,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'member_selection_expression',
     'scope_resolution_expression',
     'subscript_expression',
+    'token:XHP_class_name',
     'variable',
   ],
   'postfix_unary_expression.postfix_unary_operator' => keyset[
+    'token:*',
     'token:++',
     'token:--',
+    'token:?',
   ],
   'prefix_unary_expression.prefix_unary_operand' => keyset[
     'anonymous_function',
@@ -3398,6 +3405,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|end_of_file|markup_section>',
     'list<classish_declaration|end_of_file|markup_section|throw_statement|try_statement>',
     'list<classish_declaration|end_of_file|markup_section|try_statement>',
+    'list<classish_declaration|end_of_file|namespace_declaration>',
     'list<classish_declaration|end_of_file|namespace_declaration|namespace_group_use_declaration|namespace_use_declaration>',
     'list<const_declaration|echo_statement|end_of_file|expression_statement|for_statement|markup_section>',
     'list<const_declaration|echo_statement|end_of_file|expression_statement|function_declaration|markup_section|unset_statement>',
@@ -4221,6 +4229,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<literal>>',
     'list<list_item<function_call_expression>>',
+    'list<list_item<function_call_expression>|list_item<keyset_intrinsic_expression>|list_item<variable>>',
     'list<list_item<keyset_intrinsic_expression>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<literal>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<variable>>',
@@ -4322,12 +4331,23 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'xhp_children_declaration.xhp_children_expression' => keyset[
     'token:empty',
+    'xhp_children_parenthesized_list',
   ],
   'xhp_children_declaration.xhp_children_keyword' => keyset[
     'token:children',
   ],
   'xhp_children_declaration.xhp_children_semicolon' => keyset[
     'token:;',
+  ],
+  'xhp_children_parenthesized_list.xhp_children_list_left_paren' => keyset[
+    'token:(',
+  ],
+  'xhp_children_parenthesized_list.xhp_children_list_right_paren' => keyset[
+    'token:)',
+  ],
+  'xhp_children_parenthesized_list.xhp_children_list_xhp_children' => keyset[
+    'list<list_item<postfix_unary_expression>|list_item<token:XHP_class_name>>',
+    'list<list_item<token:XHP_class_name>>',
   ],
   'xhp_class_attribute.xhp_attribute_decl_initializer' => keyset[
     'missing',

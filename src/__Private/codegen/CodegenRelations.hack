@@ -149,6 +149,7 @@ final class CodegenRelations extends CodegenBase {
       $hack_tests,
       $systemlib,
       keyset[__FILE__], // see syntaxExamples()
+      \glob(__DIR__.'/data/*SyntaxExample.hack'),
     ]);
   }
 
