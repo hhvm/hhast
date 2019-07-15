@@ -1,13 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<097d322067c73882ebd5b3a79f5192e5>>
+ * @generated SignedSource<<d2222e238e1709fa35e2cc669af77309>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 
 <<__ConsistentConstruct>>
-final class XHPChildrenParenthesizedList extends Node {
+final class XHPChildrenParenthesizedList
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'xhp_children_parenthesized_list';
 

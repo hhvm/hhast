@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b30c798b5cf378a6998341fcd736a9c>>
+ * @generated SignedSource<<f7e0eedfef1de253c3288c4f07bcc843>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -9,7 +9,7 @@ use namespace Facebook\TypeAssert;
 <<__ConsistentConstruct>>
 final class XHPChildrenDeclaration
   extends Node
-  implements IClassBodyDeclaration {
+  implements IClassBodyDeclaration, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'xhp_children_declaration';
 
