@@ -143,4 +143,23 @@ final class NodeTypesTest extends TestCase {
     $rhs = $bin_expr->getOperator();
     expect($rhs)->toBeInstanceOf(PlusToken::class);
   }
+
+  public async function testXHPChildListAsExpression(): Awaitable<void> {
+    $code = "<?hh class :foo { children (pcdata)*; }";
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
+    list($_markup, $x) = $ast->getDeclarations()->getChildren();
+    $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
+    $decl = $class->getBody()
+      ->getElementsx()
+      ->getChildrenOfType(XHPChildrenDeclaration::class)
+      |> C\onlyx($$);
+
+    $bin_expr = $decl->getDescendantsOfType(PostfixUnaryExpression::class)
+      |> C\onlyx($$);
+    $lhs = $bin_expr->getOperand();
+    $lhs = expect($lhs)->toBeInstanceOf(XHPChildrenParenthesizedList::class);
+    expect($lhs->getCode())->toBeSame('(pcdata)');
+    $rhs = $bin_expr->getOperator();
+    expect($rhs)->toBeInstanceOf(StarToken::class);
+  }
 }

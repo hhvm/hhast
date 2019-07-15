@@ -228,6 +228,8 @@ abstract class CodegenBase {
         keyset[
           HHAST\AnonymousFunction::class,
           HHAST\VariableToken::class,
+          HHAST\XHPChildrenDeclaration::class,
+          HHAST\XHPChildrenParenthesizedList::class,
         ],
         Vec\filter(
           $this->getSchema()['AST'],
