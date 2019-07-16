@@ -11,12 +11,10 @@ namespace Facebook\HHAST\Linters;
 
 use type Facebook\HHAST\{
   CommaToken,
-  EndOfLine,
   ListItem,
   NameToken,
   NamespaceGroupUseDeclaration,
   NamespaceUseClause,
-  Node,
   NodeList,
   Script,
   WhiteSpace,
