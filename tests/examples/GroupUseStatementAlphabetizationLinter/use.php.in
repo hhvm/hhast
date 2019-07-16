@@ -31,3 +31,13 @@ use type Foo\Bar\{
   FooBar,
   Foo,
 };
+
+use type Foo\Bar\{
+  AAA as ZZZ,
+  BBB as YYY,
+};
+
+use type Foo\Bar\{
+  BBB as YYY,
+  AAA as ZZZ,
+};
