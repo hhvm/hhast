@@ -26,3 +26,23 @@ use type Facebook\HHAST\{
 };
 
 use type Facebook\{HHAST\FloatToken, HHAST\LessThanEqualToken};
+
+use type Foo\Bar\{
+  Foo,
+  FooBar,
+};
+
+use type Foo\Bar\{
+  AAA as ZZZ,
+  BBB as YYY,
+};
+
+use type Foo\Bar\{
+  AAA as ZZZ,
+  BBB as YYY,
+};
+
+use type Facebook\Markdown\Blocks\{
+  TableExtension as ASTTableExtension,
+  TableExtensionColumnAlignment as ColumnAlignment,
+};
