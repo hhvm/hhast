@@ -11,7 +11,7 @@
 namespace Facebook\HHAST\TestLib;
 
 use namespace Facebook\DiffLib;
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{C, Str, Vec};
 
 final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
   public function __construct(private T $var) {
@@ -47,14 +47,21 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
       \fprintf(\STDERR, "----- %s -----\n", $out_file);
       \fwrite(\STDERR, $code);
 
-      $diff = DiffLib\StringDiff::lines(\file_get_contents($input_file), $code)
-        ->getUnifiedDiff();
-      if (Str\length($diff) < Str\length($code)) {
+      $diff = DiffLib\StringDiff::lines(\file_get_contents($input_file), $code);
+      $kept_lines = $diff->getDiff()
+        |> Vec\filter($$, $op ==> $op is DiffLib\DiffKeepOp<_>)
+        |> C\count($$);
+      $total_lines = Str\split($code, "\n") |> C\count($$);
+      // Arbitrary heuristic for if rendering a diff makes sense; e.g. if the
+      // input file is Hack but the output is JSON error data, it doesn't.
+      if ($kept_lines >= 0.1 * $total_lines) {
         if (\posix_isatty(\STDERR)) {
           $diff = DiffLib\CLIColoredUnifiedDiff::create(
             \file_get_contents($input_file),
             $code,
           );
+        } else {
+          $diff = $diff->getUnifiedDiff();
         }
         \fprintf(
           \STDERR,
@@ -64,22 +71,22 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
         );
         \fwrite(\STDERR, $diff);
       }
-      \fwrite(\STDERR, "----- END -----\n");
-      \stream_set_blocking(\STDERR, false);
+    }
+    \fwrite(\STDERR, "----- END -----\n");
+    \stream_set_blocking(\STDERR, false);
 
-      $recorded = false;
-      if (\posix_isatty(\STDIN) && \posix_isatty(\STDERR)) {
-        \fprintf(\STDERR, "Would you like to save this output? [y/N] ");
-        \stream_set_blocking(\STDIN, true);
-        $response = Str\trim(\fgets(\STDIN));
-        \stream_set_blocking(\STDIN, false);
-        if ($response === 'y') {
-          \file_put_contents($expect_file, $code);
-          $recorded = true;
-        }
-      } else {
-        throw new \Exception($expect_file.' does not exist');
+    $recorded = false;
+    if (\posix_isatty(\STDIN) && \posix_isatty(\STDERR)) {
+      \fprintf(\STDERR, "Would you like to save this output? [y/N] ");
+      \stream_set_blocking(\STDIN, true);
+      $response = Str\trim(\fgets(\STDIN));
+      \stream_set_blocking(\STDIN, false);
+      if ($response === 'y') {
+        \file_put_contents($expect_file, $code);
+        $recorded = true;
       }
+    } else {
+      throw new \Exception($expect_file.' does not exist');
     }
     $this->toBeSame(\file_get_contents($expect_file));
   }
