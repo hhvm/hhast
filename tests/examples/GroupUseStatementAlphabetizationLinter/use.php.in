@@ -41,3 +41,8 @@ use type Foo\Bar\{
   BBB as YYY,
   AAA as ZZZ,
 };
+
+use type Facebook\Markdown\Blocks\{
+  TableExtensionColumnAlignment as ColumnAlignment,
+  TableExtension as ASTTableExtension,
+};
