@@ -84,7 +84,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
         $should_fix = await $this->shouldFixLintAsync(
           /* HH_FIXME[4110] */ $fixing_linter,
-          $error,
+          /* HH_FIXME[4110] */ $error,
         );
         if ($should_fix) {
           $to_fix[] = $error;
