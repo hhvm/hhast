@@ -20,8 +20,13 @@
         "description": "Group use statements should be sorted alphabetically"
     },
     {
-        "blame": "\nuse type Facebook\\{HHAST\\LessThanEqualToken, HHAST\\FloatToken};",
-        "blame_pretty": "\nuse type Facebook\\{HHAST\\LessThanEqualToken, HHAST\\FloatToken};",
+        "blame": "\nuse type Facebook\\{HHAST\\LessThanEqualToken, HHAST\\FloatToken};\n",
+        "blame_pretty": "\nuse type Facebook\\{HHAST\\LessThanEqualToken, HHAST\\FloatToken};\n",
+        "description": "Group use statements should be sorted alphabetically"
+    },
+    {
+        "blame": "\nuse type Foo\\Bar\\{\n  FooBar,\n  Foo,\n};\n",
+        "blame_pretty": "\nuse type Foo\\Bar\\{\n  FooBar,\n  Foo,\n};\n",
         "description": "Group use statements should be sorted alphabetically"
     }
 ]

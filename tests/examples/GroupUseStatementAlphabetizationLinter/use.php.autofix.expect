@@ -26,3 +26,8 @@ use type Facebook\HHAST\{
 };
 
 use type Facebook\{HHAST\FloatToken, HHAST\LessThanEqualToken};
+
+use type Foo\Bar\{
+  Foo,
+  FooBar,
+};
