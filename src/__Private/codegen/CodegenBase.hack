@@ -210,6 +210,8 @@ abstract class CodegenBase {
       HHAST\INameishNode::class => keyset[
         HHAST\NameToken::class,
         HHAST\QualifiedName::class,
+        HHAST\XHPClassNameToken::class,
+        HHAST\XHPCategoryNameToken::class,
       ],
       HHAST\INamespaceBody::class => keyset[
         HHAST\NamespaceBody::class,

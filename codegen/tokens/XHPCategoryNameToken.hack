@@ -1,11 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4ff0fbed05667fb655b2518d73b04efe>>
+ * @generated SignedSource<<db1b0397c3ddb0165d547dd02d24c45f>>
  */
 namespace Facebook\HHAST;
 
-final class XHPCategoryNameToken extends TokenWithVariableText {
+final class XHPCategoryNameToken
+  extends TokenWithVariableText
+  implements INameishNode {
 
   const string KIND = 'XHP_category_name';
 
