@@ -64,6 +64,10 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
     }
 
     $name = $receiver->getName();
+    if (!$name is HHAST\NameExpression) {
+      return $in;
+    }
+    $name = $name->getWrappedNode();
     $name = ($name ?as HHAST\NameToken)?->getText();
     if ($name !== 'markTestIncomplete' && $name !== 'markTestSkipped') {
       return $in;
@@ -469,7 +473,9 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
                 ),
               ),
               new HHAST\MinusGreaterThanToken($m, $m),
-              new HHAST\NameToken($m, $m, 'expectException'),
+              new HHAST\NameExpression(
+                new HHAST\NameToken($m, $m, 'expectException'),
+              ),
             ),
             HHAST\Missing(),
             new HHAST\LeftParenToken($m, $m),
@@ -568,7 +574,11 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
           return false;
         }
 
-        $n = $r->getNamex() ?as HHAST\NameToken;
+        $n = $r->getNamex();
+        if ($n is HHAST\NameExpression) {
+          $n = $n->getWrappedNode();
+        }
+        $n = $n ?as HHAST\NameToken;
         if ($n?->getText() !== 'expectException') {
           return false;
         }
@@ -670,7 +680,7 @@ final class PHPUnitToHackTestMigration extends StepBasedMigration {
       new HHAST\MemberSelectionExpression(
         $expect_call,
         new HHAST\MinusGreaterThanToken($m, $m),
-        new HHAST\NameToken($m, $m, 'toThrow'),
+        new HHAST\NameExpression(new HHAST\NameToken($m, $m, 'toThrow')),
       ),
       HHAST\Missing(),
       new HHAST\LeftParenToken($m, $m),
