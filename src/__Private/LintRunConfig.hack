@@ -231,6 +231,10 @@ final class LintRunConfig {
   }
 
   private function getFullyQualifiedLinterName(string $name): string {
+    if (Str\starts_with($name, "Facebook\\HHAST\\Linters")) {
+      $name = "Facebook\\HHAST".
+        Str\strip_prefix($name, "Facebook\\HHAST\\Linters");
+    }
     $aliases = $this->configFile['namespaceAliases'] ?? dict[];
     if (C\is_empty($aliases)) {
       return $name;
