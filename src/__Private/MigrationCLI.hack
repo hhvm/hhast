@@ -280,7 +280,12 @@ class MigrationCLI extends CLIWithRequiredArguments {
         $file,
       );
     }
-    $ast = \HH\Asio\join(HHAST\from_file_async(HHAST\File::fromPath($file)));
+    try {
+      $ast = \HH\Asio\join(HHAST\from_file_async(HHAST\File::fromPath($file)));
+    } catch (\Facebook\HHAST\ASTError $e) {
+      \HH\Asio\join($this->getStderr()->writeAsync($e->getMessage()));
+      return;
+    }
     foreach ($migrations as $migration) {
       $new_ast = $migration->migrateFile($file, $ast);
       if ($ast !== $new_ast) {
