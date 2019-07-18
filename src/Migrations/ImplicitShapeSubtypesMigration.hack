@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\{HHAST, TypeAssert};
+use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str};
 
 final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
