@@ -22,3 +22,7 @@ $_ instanceof \Facebook\HHAST\Node;
 
 // trivia
 $_ instanceof Map && foo();
+
+// not names
+$_ instanceof $foo;
+$_ instanceof foo();

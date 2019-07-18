@@ -22,3 +22,7 @@ $_ is \Facebook\HHAST\Node;
 
 // trivia
 $_ is Map<_, _> && foo();
+
+// not names
+\is_a($_, $foo);
+\is_a($_, foo());

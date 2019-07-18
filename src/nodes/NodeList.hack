@@ -51,7 +51,7 @@ final class NodeList<+Titem as Node> extends Node {
   ): vec<T> where Titem as ListItem<T> {
     $out = vec[];
     foreach ($this->getChildrenOfItems() as $item) {
-      if ($item instanceof $what) {
+      if (\is_a($item, $what)) {
         $out[] = $item;
       }
     }

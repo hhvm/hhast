@@ -24,65 +24,100 @@ final class InstanceofIsMigration extends BaseMigration {
     $targets = $script->getDescendantsOfType(InstanceofExpression::class);
     $replacements = await Vec\map_async($targets, async $target ==> {
       $type = $target->getRightOperand();
-      if (!$type is INameishNode) {
-        // e.g. `$x instanceof 'foo'` or `$x instanceof $classname_t`
-        return null;
+      if ($type is INameishNode) {
+        return tuple(
+          $target,
+          await $this->migrateToIsExpressionAsync($script, $target, $type),
+        );
       }
-      $name = $type->getDescendantsOfType(Token::class)
-        |> Vec\map($$, $t ==> $t->getText())
-        |> Str\join($$, '');
-
-      $resolved = resolve_type($name, $script, $type);
-      $generics = await self::getGenericsCountAsync($resolved);
-
-      $instanceof_token = $target->getOperator();
-
-      $replacement = new IsExpression(
-        $target->getLeftOperand(),
-        new IsToken(
-          $instanceof_token->getLeading(),
-          $instanceof_token->getTrailing(),
-        ),
-        $generics === 0
-          ? new SimpleTypeSpecifier($type)
-          : new GenericTypeSpecifier(
-              $type === $type->getLastTokenx()
-                ? ($type as Token)->withTrailing(null)
-                : $type->replace(
-                  $type->getLastTokenx(),
-                  $type->getLastTokenx()->withTrailing(null),
-                ),
-              new TypeArguments(
-                new LessThanToken(null, null),
-                new NodeList(
-                  Vec\range(1, $generics)
-                    |> Vec\map(
-                      $$,
-                      $i ==> new ListItem(
-                        new SimpleTypeSpecifier(new NameToken(null, null, '_')),
-                        $i === $generics
-                          ? null
-                          : new CommaToken(
-                              null,
-                              new NodeList(vec[new WhiteSpace(' ')]),
-                            ),
-                      ),
-                    ),
-                ),
-                new GreaterThanToken(
-                  null,
-                  $type->getLastTokenx()->getTrailing(),
-                ),
-              ),
-            ),
-      );
-      return tuple($target, $replacement);
+      return tuple($target, $this->migrateToIsACall($target));
     });
     $replacements = Vec\filter_nulls($replacements);
     foreach ($replacements as list($old, $new)) {
       $script = $script->replace($old, $new);
     }
     return $script;
+  }
+
+  private function migrateToIsACall(
+    InstanceofExpression $target,
+  ): FunctionCallExpression {
+    $lhs = $target->getLeftOperand();
+    $first_t = $lhs->getFirstTokenx();
+    $rhs = $target->getRightOperand();
+    $last_t = $rhs->getLastTokenx();
+
+    return new FunctionCallExpression(
+      new NameToken($first_t->getLeading(), null, '\\is_a'),
+      /* type args = */ null,
+      new LeftParenToken(null, null),
+      new NodeList(vec[
+        new ListItem(
+          $lhs->replace($first_t, $first_t->withLeading(null)->withTrailing(null)),
+          new CommaToken(null, $target->getOperatorx()->getTrailing()),
+        ),
+        new ListItem(
+          __Private\Wrap\wrap_IExpression(
+            $rhs->replace($last_t, $last_t->withTrailing(null)),
+          ),
+          null,
+        ),
+      ]),
+      new RightParenToken(null, $last_t->getTrailing()),
+    );
+  }
+
+  private async function migrateToIsExpressionAsync(
+    Script $script,
+    InstanceofExpression $target,
+    INameishNode $type,
+  ): Awaitable<IsExpression> {
+    $name = $type->getDescendantsOfType(Token::class)
+      |> Vec\map($$, $t ==> $t->getText())
+      |> Str\join($$, '');
+
+    $resolved = resolve_type($name, $script, $type);
+    $generics = await self::getGenericsCountAsync($resolved);
+
+    $instanceof_token = $target->getOperator();
+
+    $replacement = new IsExpression(
+      $target->getLeftOperand(),
+      new IsToken(
+        $instanceof_token->getLeading(),
+        $instanceof_token->getTrailing(),
+      ),
+      $generics === 0
+        ? new SimpleTypeSpecifier($type)
+        : new GenericTypeSpecifier(
+            $type === $type->getLastTokenx()
+              ? ($type as Token)->withTrailing(null)
+              : $type->replace(
+                $type->getLastTokenx(),
+                $type->getLastTokenx()->withTrailing(null),
+              ),
+            new TypeArguments(
+              new LessThanToken(null, null),
+              new NodeList(
+                Vec\range(1, $generics)
+                  |> Vec\map(
+                    $$,
+                    $i ==> new ListItem(
+                      new SimpleTypeSpecifier(new NameToken(null, null, '_')),
+                      $i === $generics
+                        ? null
+                        : new CommaToken(
+                            null,
+                            new NodeList(vec[new WhiteSpace(' ')]),
+                          ),
+                    ),
+                  ),
+              ),
+              new GreaterThanToken(null, $type->getLastTokenx()->getTrailing()),
+            ),
+          ),
+    );
+    return $replacement;
   }
 
   const dict<string, int> BUILTINS_WITH_GENERICS = dict[

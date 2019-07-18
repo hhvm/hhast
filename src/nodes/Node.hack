@@ -68,7 +68,7 @@ abstract class Node {
   ): KeyedContainer<arraykey, T> {
     $out = dict[];
     foreach ($this->getChildren() as $k => $node) {
-      if ($node instanceof $what) {
+      if (\is_a($node, $what)) {
         $out[$k] = $node;
       }
     }
@@ -141,7 +141,7 @@ abstract class Node {
   ): vec<T> {
     $out = vec[];
     foreach ($this->_descendants as $node) {
-      if ($node instanceof $what) {
+      if (\is_a($node, $what)) {
         $out[] = $node;
       }
     }
@@ -153,7 +153,7 @@ abstract class Node {
   ): ?T {
     $out = vec[];
     foreach ($this->_descendants as $node) {
-      if ($node instanceof $what) {
+      if (\is_a($node, $what)) {
         return /* HH_FIXME[4110] need reified generics */ $node;
       }
     }
@@ -165,6 +165,10 @@ abstract class Node {
     if ($old === $new) {
       return $this;
     }
+    return $this->replaceDescendant($old, $new);
+  }
+
+  final public function replaceDescendant(Node $old, Node $new): this {
     $old_id = $old->getUniqueID();
     if (!C\contains_key($this->_descendants, $old_id)) {
       return $this;

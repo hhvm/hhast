@@ -234,7 +234,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           $this->migrations[] = InstanceofIsMigration::class;
         },
-        'Replace `$x instanceof Foo` with an `is` expression',
+        'Replace `$x instanceof Foo` with an `is` expression or `is_a()` call',
         '--instanceof-is',
       ),
       CLIOptions\flag(
