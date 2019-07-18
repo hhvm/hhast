@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\C;
 use type Facebook\HHAST\Script;
 
 <<__ConsistentConstruct>>
@@ -21,4 +22,27 @@ abstract class BaseMigration {
   }
 
   abstract public function migrateFile(string $path, Script $ast): Script;
+
+  protected static async function expressionFromCodeAsync(
+    string $code,
+  ): Awaitable<IExpression> {
+    $script = await from_file_async(
+      File::fromPathAndContents('/dev/null', '$_='.$code.';'),
+    );
+    return $script->getDeclarations()
+      ->getChildren()
+      |> C\firstx($$) as ExpressionStatement
+      |> $$->getExpression() as BinaryExpression
+      |> $$->getRightOperand();
+  }
+
+  protected static async function statementFromCodeAsync(
+    string $code,
+  ): Awaitable<IStatement> {
+    $script = await from_file_async(
+      File::fromPathAndContents('/dev/null', $code),
+    );
+    return $script->getDeclarations()->getChildren()
+      |> C\firstx($$) as IStatement;
+  }
 }

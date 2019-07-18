@@ -2,6 +2,9 @@
 
 <<__EntryPoint>>
 function main(): void {
-        require_once('foo');
+        (() ==> {
+                // HHAST-generated to avoid pseudomain local leaks
+                require_once('foo');
+        })();
         bar();
 }

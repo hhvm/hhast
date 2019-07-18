@@ -689,7 +689,6 @@ final class HSLMigration extends BaseMigration {
   }
 
   protected function expressionFromCode(string $code): IExpression {
-    return $this->nodeFromCode('$_ = '.$code.';', BinaryExpression::class)
-      ->getRightOperand();
+    return \HH\Asio\join(self::expressionFromCodeAsync($code));
   }
 }

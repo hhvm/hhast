@@ -15,6 +15,10 @@ use namespace HH\Lib\{C, Str, Vec};
 final class TopLevelRequiresMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(string $_path, Script $script): Script {
+    return \HH\Asio\join($this->migrateFileAsync($script));
+  }
+
+  private async function migrateFileAsync(Script $script): Awaitable<Script> {
     $decls = $script->getDeclarations();
     $includes = $decls->getChildrenOfType(InclusionDirective::class);
     if (C\is_empty($includes)) {
@@ -45,7 +49,11 @@ final class TopLevelRequiresMigration extends BaseMigration {
       |> C\first($$);
 
     if ($entrypoint) {
-      return $this->moveToEntryPoint($script, $includes, $entrypoint);
+      return await $this->moveToEntryPointAsync(
+        $script,
+        $includes,
+        $entrypoint,
+      );
     }
     return $this->addFixmes($script, $includes);
   }
@@ -74,11 +82,11 @@ final class TopLevelRequiresMigration extends BaseMigration {
     return $script;
   }
 
-  private function moveToEntryPoint(
+  private async function moveToEntryPointAsync(
     Script $script,
     Container<InclusionDirective> $includes,
     FunctionDeclaration $entrypoint,
-  ): Script {
+  ): Awaitable<Script> {
     // Figure out leading whitespace
     $body = $entrypoint->getBody();
     if (!$body is CompoundStatement) {
@@ -91,19 +99,38 @@ final class TopLevelRequiresMigration extends BaseMigration {
       |> $$?->getFirstTokenx()?->getLeadingWhitespace()
       |> $$?->getText() ?? '  ';
 
+    // Generate a lambda so that if the require()'d file sets variables in
+    // the psuedomain, they don't affect the entrypoint
+    $includes_text = Vec\map(
+      $includes,
+      $incl ==> {
+        $t = $incl->getFirstTokenx();
+        return $incl->replace(
+          $t,
+          $t->withLeading(new NodeList(vec[new WhiteSpace($leading.$leading)])),
+        )
+          ->getCode();
+      },
+    )
+      |> Str\join($$, '');
+    $lambda = await self::statementFromCodeAsync(
+      $leading.
+      "(() ==> {\n".
+      $leading.
+      $leading.
+      "// HHAST-generated to avoid pseudomain local leaks\n".
+      $includes_text.
+      $leading.
+      "})();\n\n",
+    );
+
+
     $body = $body->withStatements(
       new NodeList(
-        Vec\map(
-          $includes,
-          $incl ==> {
-            $t = $incl->getFirstTokenx();
-            return $incl->replace(
-              $t,
-              $t->withLeading(new NodeList(vec[new WhiteSpace($leading)])),
-            );
-          },
-        )
-          |> Vec\concat($$, $body->getStatements()?->toVec() ?? vec[]),
+        Vec\concat(
+          vec[$lambda],
+          $body->getStatements()?->getChildren() ?? [],
+        ),
       ),
     );
 

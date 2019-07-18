@@ -2,9 +2,12 @@
 
 <<__EntryPoint>>
 function main(): void {
-  include('a');
-  include_once('b');
-  require('c');
-  require_once('d');
+  (() ==> {
+    // HHAST-generated to avoid pseudomain local leaks
+    include('a');
+    include_once('b');
+    require('c');
+    require_once('d');
+  })();
   foo();
 }
