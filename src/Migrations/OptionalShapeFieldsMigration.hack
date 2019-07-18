@@ -9,15 +9,14 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\HHAST;
 
 final class OptionalShapeFieldsMigration extends StepBasedMigration {
   private static function makeNullableFieldsOptional(
-    HHAST\ListItem<HHAST\Node> $node,
-  ): HHAST\ListItem<HHAST\Node> {
+    ListItem<Node> $node,
+  ): ListItem<Node> {
     $field = $node->getItem();
 
-    if (!$field is HHAST\FieldSpecifier) {
+    if (!$field is FieldSpecifier) {
       return $node;
     }
 
@@ -26,14 +25,14 @@ final class OptionalShapeFieldsMigration extends StepBasedMigration {
     }
 
     $type = $field->getType();
-    if (!$type is HHAST\NullableTypeSpecifier) {
+    if (!$type is NullableTypeSpecifier) {
       return $node;
     }
 
     $name = $field->getName();
     $name_t = $name->getFirstTokenx();
     $field = $field
-      ->withQuestion(new HHAST\QuestionToken($name_t->getLeading(), null))
+      ->withQuestion(new QuestionToken($name_t->getLeading(), null))
       ->withName($name->replace($name_t, $name_t->withLeading(null)));
     return $node->withItem($field);
   }
@@ -43,8 +42,8 @@ final class OptionalShapeFieldsMigration extends StepBasedMigration {
     return vec[
       new TypedMigrationStep(
         'make nullable fields optional',
-        HHAST\ListItem::class,
-        HHAST\ListItem::class,
+        ListItem::class,
+        ListItem::class,
         $node ==> self::makeNullableFieldsOptional($node),
       ),
     ];

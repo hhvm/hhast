@@ -276,9 +276,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
         ) {
           $drop = 0;
           foreach ($name_leading as $leading) {
-            if (
-              !$leading is WhiteSpace && !$leading is EndOfLine
-            ) {
+            if (!$leading is WhiteSpace && !$leading is EndOfLine) {
               break;
             }
 
@@ -289,10 +287,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
           $take_trailing = (vec<Trivia> $trailings) ==> {
             $take = C\count($trailings);
             foreach (Vec\reverse($trailings) as $trailing) {
-              if (
-                !$trailing is WhiteSpace &&
-                !$trailing is EndOfLine
-              ) {
+              if (!$trailing is WhiteSpace && !$trailing is EndOfLine) {
                 break;
               }
 

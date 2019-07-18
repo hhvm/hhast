@@ -37,10 +37,7 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
         foreach ($child->getChildren() as $item) {
           if (
             $item is ListItem<_> &&
-            C\any(
-              $item->getChildren(),
-              $child ==> $child is ElementInitializer,
-            )
+            C\any($item->getChildren(), $child ==> $child is ElementInitializer)
           ) {
             $is_assoc = true;
             break;

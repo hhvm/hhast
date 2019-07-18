@@ -9,13 +9,12 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class ExplicitPartialModeMigration extends BaseMigration {
   protected static function addPartialModeIfNoneSpecified(
-    HHAST\MarkupSuffix $node,
-  ): HHAST\MarkupSuffix {
+    MarkupSuffix $node,
+  ): MarkupSuffix {
     $name = $node->getName()->getText();
     if ($name !== 'hh') {
       return $node;
@@ -32,40 +31,37 @@ final class ExplicitPartialModeMigration extends BaseMigration {
       return $node->replace(
         $t,
         $t->withTrailing(
-          new HHAST\NodeList(vec[
-            new HHAST\WhiteSpace(' '),
-            new HHAST\SingleLineComment('// partial'),
+          new NodeList(vec[
+            new WhiteSpace(' '),
+            new SingleLineComment('// partial'),
           ]),
         ),
       );
     }
     $children = $trailing->toVec();
-    $idx = C\find_key($children, $c ==> $c is HHAST\EndOfLine);
+    $idx = C\find_key($children, $c ==> $c is EndOfLine);
 
     if ($idx === null) {
-      return $node->replace($trailing, new HHAST\NodeList(vec[
-        new HHAST\WhiteSpace(' '),
-        new HHAST\SingleLineComment('// partial'),
-        new HHAST\EndOfLine("\n"),
+      return $node->replace($trailing, new NodeList(vec[
+        new WhiteSpace(' '),
+        new SingleLineComment('// partial'),
+        new EndOfLine("\n"),
       ]));
     }
 
-    return $node->replace($trailing, new HHAST\NodeList(Vec\concat(
+    return $node->replace($trailing, new NodeList(Vec\concat(
       vec[
-        new HHAST\WhiteSpace(' '),
-        new HHAST\SingleLineComment('// partial'),
+        new WhiteSpace(' '),
+        new SingleLineComment('// partial'),
       ],
       Vec\drop($children, $idx),
     )));
   }
 
   <<__Override>>
-  final public function migrateFile(
-    string $_path,
-    HHAST\Script $ast,
-  ): HHAST\Script {
+  final public function migrateFile(string $_path, Script $ast): Script {
     $markup = C\first($ast->getDeclarationsx()->getChildren());
-    if (!$markup is HHAST\MarkupSection) {
+    if (!$markup is MarkupSection) {
       return $ast;
     }
     $suffix = $markup->getSuffix();

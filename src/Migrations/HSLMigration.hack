@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset, Math, Str, Vec};
 
 
@@ -307,10 +306,7 @@ final class HSLMigration extends BaseMigration {
       return null;
     }
 
-    if (
-      $node is PrefixUnaryExpression &&
-      $node->getOperator() is MinusToken
-    ) {
+    if ($node is PrefixUnaryExpression && $node->getOperator() is MinusToken) {
       $val = $this->resolveIntegerArgument($node->getOperand());
       return ($val !== null) ? -1 * $val : null;
     }
@@ -635,9 +631,7 @@ final class HSLMigration extends BaseMigration {
     } else if ($receiver is QualifiedName) {
       foreach ($receiver->getParts()->getChildren() as $child) {
         $item = $child->getItemUNTYPED();
-        if (
-          !$child->hasItem() && $child->getSeparator() is BackslashToken
-        ) {
+        if (!$child->hasItem() && $child->getSeparator() is BackslashToken) {
           // leading backslash such as \implode(), skip over this to get the name token
           continue;
         } else if ($item is NameToken) {
@@ -681,9 +675,9 @@ final class HSLMigration extends BaseMigration {
     string $code,
     classname<T> $expected,
   ): T {
-    $script = \HH\Asio\join(HHAST\from_file_async(
-      HHAST\File::fromPathAndContents('/dev/null', $code),
-    ));
+    $script = \HH\Asio\join(
+      from_file_async(File::fromPathAndContents('/dev/null', $code)),
+    );
     $node = $script->getDeclarations()->getFirstDescendantOfType($expected);
     invariant(
       $node !== null,

@@ -9,60 +9,56 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class IsRefinementMigration extends BaseMigration {
   <<__Override>>
-  public function migrateFile(string $_path, HHAST\Script $ast): HHAST\Script {
+  public function migrateFile(string $_path, Script $ast): Script {
     $map = dict[
-      'is_string' => () ==> new HHAST\StringToken(null, null),
-      'is_int' => () ==> new HHAST\IntToken(null, null),
-      'is_float' => () ==> new HHAST\FloatToken(null, null),
-      'is_bool' => () ==> new HHAST\BoolToken(null, null),
-      'is_resource' => () ==> new HHAST\ResourceToken(null, null),
-      'is_vec' => () ==> new HHAST\VectorTypeSpecifier(
-        new HHAST\VecToken(null, null),
-        new HHAST\LessThanToken(null, null),
-        new HHAST\SimpleTypeSpecifier(new HHAST\NameToken(null, null, '_')),
+      'is_string' => () ==> new StringToken(null, null),
+      'is_int' => () ==> new IntToken(null, null),
+      'is_float' => () ==> new FloatToken(null, null),
+      'is_bool' => () ==> new BoolToken(null, null),
+      'is_resource' => () ==> new ResourceToken(null, null),
+      'is_vec' => () ==> new VectorTypeSpecifier(
+        new VecToken(null, null),
+        new LessThanToken(null, null),
+        new SimpleTypeSpecifier(new NameToken(null, null, '_')),
         /* trailing comma */ null,
-        new HHAST\GreaterThanToken(null, null),
+        new GreaterThanToken(null, null),
       ),
-      'is_keyset' => () ==> new HHAST\KeysetTypeSpecifier(
-        new HHAST\KeysetToken(null, null),
-        new HHAST\LessThanToken(null, null),
-        new HHAST\SimpleTypeSpecifier(new HHAST\NameToken(null, null, '_')),
+      'is_keyset' => () ==> new KeysetTypeSpecifier(
+        new KeysetToken(null, null),
+        new LessThanToken(null, null),
+        new SimpleTypeSpecifier(new NameToken(null, null, '_')),
         /* trailing comma */ null,
-        new HHAST\GreaterThanToken(null, null),
+        new GreaterThanToken(null, null),
       ),
-      'is_dict' => () ==> new HHAST\DictionaryTypeSpecifier(
-        new HHAST\DictToken(null, null),
-        new HHAST\LessThanToken(null, null),
-        HHAST\NodeList::createMaybeEmptyList(vec[
-          new HHAST\ListItem(
-            new HHAST\SimpleTypeSpecifier(new HHAST\NameToken(null, null, '_')),
-            new HHAST\CommaToken(
-              null,
-              new HHAST\NodeList(vec[new HHAST\WhiteSpace(' ')]),
-            ),
+      'is_dict' => () ==> new DictionaryTypeSpecifier(
+        new DictToken(null, null),
+        new LessThanToken(null, null),
+        NodeList::createMaybeEmptyList(vec[
+          new ListItem(
+            new SimpleTypeSpecifier(new NameToken(null, null, '_')),
+            new CommaToken(null, new NodeList(vec[new WhiteSpace(' ')])),
           ),
-          new HHAST\ListItem(
-            new HHAST\SimpleTypeSpecifier(new HHAST\NameToken(null, null, '_')),
+          new ListItem(
+            new SimpleTypeSpecifier(new NameToken(null, null, '_')),
             null,
           ),
         ]),
-        new HHAST\GreaterThanToken(null, null),
+        new GreaterThanToken(null, null),
       ),
     ];
 
     return $ast->rewriteDescendants(($node, $parents) ==> {
-      if (!$node is HHAST\FunctionCallExpression) {
+      if (!$node is FunctionCallExpression) {
         return $node;
       }
       $name = $node->getReceiver();
-      if ($name is HHAST\NameToken) {
+      if ($name is NameToken) {
         $key = $name->getText();
-      } else if ($name is HHAST\QualifiedName) {
+      } else if ($name is QualifiedName) {
         $key = $name->getParts()->getChildrenOfItems()
           |> Vec\map($$, $item ==> $item?->getText() ?? '')
           |> Str\join($$, '\\')
@@ -76,14 +72,14 @@ final class IsRefinementMigration extends BaseMigration {
         return $node;
       }
       $replacement = $make_replacement();
-      if (!$replacement is HHAST\ITypeSpecifier) {
-        $replacement = new HHAST\SimpleTypeSpecifier($replacement);
+      if (!$replacement is ITypeSpecifier) {
+        $replacement = new SimpleTypeSpecifier($replacement);
       }
-      $replacement = new HHAST\IsExpression(
+      $replacement = new IsExpression(
         $node->getArgumentListx()->getChildrenOfItems()[0] as nonnull,
-        new HHAST\IsToken(
-          new HHAST\NodeList(vec[new HHAST\WhiteSpace(' ')]),
-          new HHAST\NodeList(vec[new HHAST\WhiteSpace(' ')]),
+        new IsToken(
+          new NodeList(vec[new WhiteSpace(' ')]),
+          new NodeList(vec[new WhiteSpace(' ')]),
         ),
         $replacement,
       );
@@ -91,9 +87,9 @@ final class IsRefinementMigration extends BaseMigration {
       $parent = C\lastx($parents as nonnull);
       // Whitelist of cases where parenthese are not needed
       if (
-        ($parent is HHAST\ListItem<_>) ||
-        ($parent is HHAST\IfStatement) ||
-        ($parent is HHAST\ParenthesizedExpression)
+        ($parent is ListItem<_>) ||
+        ($parent is IfStatement) ||
+        ($parent is ParenthesizedExpression)
       ) {
         $first = $replacement->getFirstTokenx();
         $last = $replacement->getLastTokenx();
@@ -107,10 +103,10 @@ final class IsRefinementMigration extends BaseMigration {
           );
       }
 
-      return new HHAST\ParenthesizedExpression(
-        new HHAST\LeftParenToken($node->getFirstTokenx()->getLeading(), null),
+      return new ParenthesizedExpression(
+        new LeftParenToken($node->getFirstTokenx()->getLeading(), null),
         $replacement,
-        new HHAST\RightParenToken(null, $node->getLastTokenx()->getTrailing()),
+        new RightParenToken(null, $node->getLastTokenx()->getTrailing()),
       );
     });
   }

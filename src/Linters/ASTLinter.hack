@@ -14,8 +14,8 @@ use namespace Facebook\HHAST\SuppressASTLinter;
 use namespace HH\Lib\Vec;
 
 abstract class ASTLinter extends BaseLinter {
-  abstract const type TContext as HHAST\Node;
-  abstract const type TNode as HHAST\Node;
+  abstract const type TContext as Node;
+  abstract const type TNode as Node;
   private ?HHAST\Script $ast;
 
   abstract protected function getLintErrorForNode(
@@ -44,12 +44,12 @@ abstract class ASTLinter extends BaseLinter {
   <<__Override>>
   final public async function getLintErrorsAsync(
   ): Awaitable<vec<ASTLintError>> {
-    $ast = await HHAST\__Private\ASTCache::get()->fetchAsync($this->getFile());
+    $ast = await __Private\ASTCache::get()->fetchAsync($this->getFile());
     $this->ast = $ast;
     $targets = dict[];
     $ancestor = static::getAncestorType();
     $target = static::getTargetType();
-    if ($ancestor === HHAST\Script::class) {
+    if ($ancestor === Script::class) {
       $context = TypeAssert\instance_of($ancestor, $ast);
       $targets = Vec\map(
         $ast->getDescendantsOfType($target),
@@ -74,7 +74,7 @@ abstract class ASTLinter extends BaseLinter {
           throw $e;
         }
         try {
-          $position = HHAST\find_position($this->getAST(), $node);
+          $position = find_position($this->getAST(), $node);
         } catch (\Throwable $_) {
           throw $e;
         }
@@ -87,7 +87,7 @@ abstract class ASTLinter extends BaseLinter {
         );
       } catch (\Throwable $t) {
         try {
-          $position = HHAST\find_position($this->getAST(), $node);
+          $position = find_position($this->getAST(), $node);
         } catch (\Throwable $_) {
           throw $t;
         }
@@ -111,7 +111,7 @@ abstract class ASTLinter extends BaseLinter {
   }
 
 
-  final public function getAST(): HHAST\Script {
+  final public function getAST(): Script {
     $ast = $this->ast;
     invariant($ast !== null, "Calling getAST before it was initialized");
     return $ast;

@@ -9,24 +9,23 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\HHAST;
 use namespace HH\Lib\C;
 
 final class DollarBraceEmbeddedVariableMigration extends StepBasedMigration {
   private static function migrateLiteralExpression(
-    HHAST\LiteralExpression $node,
-  ): HHAST\LiteralExpression {
+    LiteralExpression $node,
+  ): LiteralExpression {
     $children = $node->getChildren();
     $child = C\first($children);
-    if (!($child is HHAST\NodeList<_>)) {
+    if (!($child is NodeList<_>)) {
       return $node;
     }
     $literal_parts = $child->getChildren();
     $first_part = C\first($literal_parts);
     if (
       !(
-        $first_part is HHAST\DoubleQuotedStringLiteralHeadToken ||
-        $first_part is HHAST\HeredocStringLiteralHeadToken
+        $first_part is DoubleQuotedStringLiteralHeadToken ||
+        $first_part is HeredocStringLiteralHeadToken
       )
     ) {
       return $node;
@@ -35,15 +34,15 @@ final class DollarBraceEmbeddedVariableMigration extends StepBasedMigration {
     $made_change = false;
     for ($i = 0; $i < C\count($literal_parts); $i++) {
       $current_part = $literal_parts[$i];
-      if ($current_part is HHAST\DollarToken) {
+      if ($current_part is DollarToken) {
         $next_part = idx($literal_parts, $i + 1);
-        if ($next_part is HHAST\EmbeddedBracedExpression) {
+        if ($next_part is EmbeddedBracedExpression) {
           $braced_expression_inner = $next_part->getExpression();
-          if ($braced_expression_inner is HHAST\NameToken) {
+          if ($braced_expression_inner is NameToken) {
             $new_literal_parts[] = $next_part->replace(
               $braced_expression_inner,
-              new HHAST\VariableExpression(
-                new HHAST\VariableToken(
+              new VariableExpression(
+                new VariableToken(
                   $braced_expression_inner->getLeading(),
                   $braced_expression_inner->getTrailing(),
                   '$'.$braced_expression_inner->getCode(),
@@ -59,7 +58,7 @@ final class DollarBraceEmbeddedVariableMigration extends StepBasedMigration {
       $new_literal_parts[] = $current_part;
     }
     if ($made_change) {
-      return $node->replace($child, new HHAST\NodeList($new_literal_parts));
+      return $node->replace($child, new NodeList($new_literal_parts));
     } else {
       return $node;
     }
@@ -70,8 +69,8 @@ final class DollarBraceEmbeddedVariableMigration extends StepBasedMigration {
     return vec[
       new TypedMigrationStep(
         'convert "${foo}" to "{$foo}"',
-        HHAST\LiteralExpression::class,
-        HHAST\LiteralExpression::class,
+        LiteralExpression::class,
+        LiteralExpression::class,
         $node ==> self::migrateLiteralExpression($node),
       ),
     ];

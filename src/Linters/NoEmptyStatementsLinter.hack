@@ -104,8 +104,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
   private function isOperatorWithoutSideEffects(Token $op): bool {
     // The pipe operator does not necessarily have any side effects but it
     // typically implies function invocation which can have side effects.
-    return !$this->isAssignmentOperator($op) &&
-      !$op is BarGreaterThanToken;
+    return !$this->isAssignmentOperator($op) && !$op is BarGreaterThanToken;
   }
 
   /**

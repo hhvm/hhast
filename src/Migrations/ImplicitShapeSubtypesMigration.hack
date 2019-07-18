@@ -15,15 +15,15 @@ use namespace HH\Lib\{C, Str};
 final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
   // Required for adding ellipsis
   private static function addTrailingCommaToFields(
-    HHAST\ShapeTypeSpecifier $shape,
-  ): HHAST\ShapeTypeSpecifier {
+    ShapeTypeSpecifier $shape,
+  ): ShapeTypeSpecifier {
     $fields = $shape->getFields();
     if ($fields === null) {
       return $shape;
     }
 
     $last_field = C\lastx($fields->getChildren())
-      |> TypeAssert\instance_of(HHAST\ListItem::class, $$);
+      |> TypeAssert\instance_of(ListItem::class, $$);
 
     if ($last_field->hasSeparator()) {
       return $shape;
@@ -35,10 +35,7 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
           return $node;
         }
         return $last_field->withSeparator(
-          new HHAST\CommaToken(
-            null,
-            $last_field->getLastTokenx()->getTrailing(),
-          ),
+          new CommaToken(null, $last_field->getLastTokenx()->getTrailing()),
         )
           ->withItem(
             $last_field->getItemx()->rewriteDescendants(
@@ -57,22 +54,22 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
   }
 
   private static function allowImplicitSubtypes(
-    HHAST\ShapeTypeSpecifier $shape,
-  ): HHAST\ShapeTypeSpecifier {
+    ShapeTypeSpecifier $shape,
+  ): ShapeTypeSpecifier {
     if ($shape->hasEllipsis()) {
       return $shape;
     }
-    $fields = $shape->getDescendantsOfType(HHAST\FieldSpecifier::class);
+    $fields = $shape->getDescendantsOfType(FieldSpecifier::class);
     $first_field = C\first($fields);
     if ($first_field === null) {
-      return $shape->withEllipsis(new HHAST\DotDotDotToken(null, null));
+      return $shape->withEllipsis(new DotDotDotToken(null, null));
     }
 
     return $shape->withEllipsis(
-      new HHAST\DotDotDotToken(
+      new DotDotDotToken(
         Str\contains($shape->getCode(), "\n")
           ? $first_field->getFirstTokenx()->getLeading()
-          : new HHAST\NodeList(vec[new HHAST\WhiteSpace(' ')]),
+          : new NodeList(vec[new WhiteSpace(' ')]),
         C\lastx($shape->getFieldsx()->getChildren())
           ->getLastTokenx()
           ->getTrailing(),
@@ -86,11 +83,11 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
   final public function getSteps(): Traversable<IMigrationStep> {
     $make_step = (
       string $name,
-      (function(HHAST\ShapeTypeSpecifier): HHAST\ShapeTypeSpecifier) $impl,
+      (function(ShapeTypeSpecifier): ShapeTypeSpecifier) $impl,
     ) ==> new TypedMigrationStep(
       $name,
-      HHAST\ShapeTypeSpecifier::class,
-      HHAST\ShapeTypeSpecifier::class,
+      ShapeTypeSpecifier::class,
+      ShapeTypeSpecifier::class,
       $impl,
     );
 

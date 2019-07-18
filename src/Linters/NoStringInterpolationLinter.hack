@@ -41,11 +41,7 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
 
   public function getFixedNode(LiteralExpression $root_expr): ?IExpression {
     $expr = $root_expr->getExpression();
-    invariant(
-      $expr is NodeList<_>,
-      "Expected list, got %s",
-      \get_class($expr),
-    );
+    invariant($expr is NodeList<_>, "Expected list, got %s", \get_class($expr));
 
     $leading = null;
     $trailing = null;
@@ -115,10 +111,7 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
           'expression.',
         );
         $inner = $next->getExpression();
-        invariant(
-          $inner is NameToken,
-          '"${}" should contain a variable name',
-        );
+        invariant($inner is NameToken, '"${}" should contain a variable name');
         $new_children[] = new VariableToken(null, null, '$'.$inner->getText());
         continue;
       }
