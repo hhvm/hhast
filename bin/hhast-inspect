@@ -10,11 +10,13 @@
 
 namespace Facebook\HHAST\__Private;
 
-require_once(__DIR__.'/hhast-inspect.hack');
-
 // As this file does not have an extension, it is not typechecked. Delegate
 // to the typechecked one.
 <<__EntryPoint>>
 async function hhast_inspect_main_async_UNSAFE(): Awaitable<noreturn> {
+  (() ==> {
+    // HHAST-generated to avoid pseudomain local leaks
+    require_once(__DIR__.'/hhast-inspect.hack');
+  })();
   await hhast_inspect_main_async();
 }
