@@ -161,6 +161,21 @@ final class NodeList<+Titem as Node> extends Node {
     return new self(Vec\filter_nulls(/* HH_FIXME[4110] */ $children));
   }
 
+  public function replaceChild<Tchild super Titem as Node>(
+    Tchild $old,
+    Tchild $new,
+  ): NodeList<Tchild> {
+    if ($old === $new) {
+      return $this;
+    }
+    if (!C\contains($this->_children, $old)) {
+      return $this;
+    }
+    return new NodeList(
+      Vec\map($this->_children, $c ==> $c === $old ? $new : $c),
+    );
+  }
+
   public function insertBefore<Tchild super Titem as Node>(
     Tchild $before,
     Tchild $child,
@@ -187,6 +202,13 @@ final class NodeList<+Titem as Node> extends Node {
     ));
   }
 
+  public function filterChildren((function(Titem): bool) $filter): this {
+    $new = Vec\filter($this->_children, $filter);
+    if ($new === $this->_children) {
+      return $this;
+    }
+    return new NodeList($new);
+  }
 
   public function withoutChild<Tchild super Titem>(Tchild $child): this {
     $new = Vec\filter($this->_children, $c ==> $c !== $child);

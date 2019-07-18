@@ -1,0 +1,11 @@
+<?hh
+
+include('a');
+include_once('b');
+require('c');
+require_once('d');
+
+<<__EntryPoint>>
+function main(): void {
+  foo();
+}

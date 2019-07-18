@@ -1,0 +1,7 @@
+<?hh
+require_once('foo');
+
+foo();
+
+function bar() {
+}
