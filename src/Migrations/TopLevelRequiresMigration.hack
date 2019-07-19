@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Str, Vec};
 
-/** Move requires to top-level `<<__EntryPoint>>` functions, or FIXME them. */
+/** Move requires to top-level `<<__EntryPoint>>` functions */
 final class TopLevelRequiresMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(string $_path, Script $script): Script {
@@ -22,17 +22,6 @@ final class TopLevelRequiresMigration extends BaseMigration {
     $decls = $script->getDeclarations();
     $includes = $decls->getChildrenOfType(InclusionDirective::class);
     if (C\is_empty($includes)) {
-      return $script;
-    }
-    if (
-      C\every(
-        $includes,
-        $incl ==> Str\contains(
-          $incl->getFirstTokenx()->getLeading()->getCode(),
-          '/* HH_FIXME[1002]',
-        ),
-      )
-    ) {
       return $script;
     }
 
@@ -48,50 +37,15 @@ final class TopLevelRequiresMigration extends BaseMigration {
       )
       |> C\first($$);
 
-    if ($entrypoint) {
-      return await $this->moveToEntryPointAsync(
-        $script,
-        $includes,
-        $entrypoint,
-      );
+    if (!$entrypoint) {
+      return $script;
     }
-    return $this->addFixmes($script, $includes);
-  }
 
-  private function addFixmes(
-    Script $script,
-    Container<InclusionDirective> $includes,
-  ): Script {
-    foreach ($includes as $include) {
-      $t = $include->getFirstTokenx();
-      $script = $script->replace(
-        $t,
-        $t->withLeading(new NodeList(
-          Vec\concat(
-            $t->getLeading()->toVec(),
-            vec[
-              new FixMe(
-                '/* HH_FIXME[1002] HHAST: move to <<__EntryPoint>> function */',
-              ),
-              new WhiteSpace(' '),
-            ],
-          ),
-        )),
-      );
-    }
-    return $script;
-  }
-
-  private async function moveToEntryPointAsync(
-    Script $script,
-    Container<InclusionDirective> $includes,
-    FunctionDeclaration $entrypoint,
-  ): Awaitable<Script> {
     // Figure out leading whitespace
     $body = $entrypoint->getBody();
     if (!$body is CompoundStatement) {
       // Invalid, but e.g. `<<__EntryPoint>> function foo(): void;`
-      return $this->addFixmes($script, $includes);
+      return $script;
     }
 
     $leading = $body->getStatements()?->toVec() ?? vec[]

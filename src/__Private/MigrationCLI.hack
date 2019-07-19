@@ -242,7 +242,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           $this->migrations[] = TopLevelRequiresMigration::class;
         },
-        'Migrate top-level require()s to <<__EntryPoint>> functions or FIXME',
+        'Migrate top-level require()s to <<__EntryPoint>> functions',
         '--top-level-requires',
       ),
       CLIOptions\flag(

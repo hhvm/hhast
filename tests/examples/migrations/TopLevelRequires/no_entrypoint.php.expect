@@ -1,5 +1,5 @@
 <?hh
-/* HH_FIXME[1002] HHAST: move to <<__EntryPoint>> function */ require_once('foo');
+require_once('foo');
 
 foo();
 
