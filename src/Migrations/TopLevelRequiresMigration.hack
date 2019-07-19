@@ -40,6 +40,20 @@ final class TopLevelRequiresMigration extends BaseMigration {
     if (!$entrypoint) {
       return $script;
     }
+    $classes = $script->getDescendantsOfType(ClassishDeclaration::class);
+    if (
+      C\any(
+        $classes,
+        $c ==> $c->hasExtendsKeyword() || $c->hasImplementsKeyword(),
+      )
+    ) {
+      /* This kind of file needs to be manually refactored:
+       *
+       * require_once('Bar.php');
+       * class Foo extends Bar {}
+       */
+      return $script;
+    }
 
     // Figure out leading whitespace
     $body = $entrypoint->getBody();
@@ -81,10 +95,7 @@ final class TopLevelRequiresMigration extends BaseMigration {
 
     $body = $body->withStatements(
       new NodeList(
-        Vec\concat(
-          vec[$lambda],
-          $body->getStatements()?->getChildren() ?? [],
-        ),
+        Vec\concat(vec[$lambda], $body->getStatements()?->getChildren() ?? []),
       ),
     );
 

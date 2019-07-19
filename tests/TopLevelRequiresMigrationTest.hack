@@ -18,7 +18,7 @@ final class TopLevelRequiresMigrationTest extends MigrationTest {
   public function getExamples(): vec<(string)> {
     $prefix = __DIR__.'/examples/';
     $dir = $prefix.'migrations/TopLevelRequires/';
-    return Vec\concat(\glob($dir.'*.php.in'), \glob($dir.'*.hack.hack'))
+    return Vec\concat(\glob($dir.'*.php.in'), \glob($dir.'*.hack.in'))
       |> Vec\map(
         $$,
         $file ==>
