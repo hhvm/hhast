@@ -22,6 +22,7 @@ use type Facebook\HHAST\{
   InstanceofIsMigration,
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
+  TopLevelRequiresMigration,
 };
 
 use type Facebook\CLILib\{CLIWithRequiredArguments, ExitException};
@@ -236,6 +237,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Replace `$x instanceof Foo` with an `is` expression or `is_a()` call',
         '--instanceof-is',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = TopLevelRequiresMigration::class;
+        },
+        'Migrate top-level require()s to <<__EntryPoint>> functions',
+        '--top-level-requires',
       ),
       CLIOptions\flag(
         () ==> {

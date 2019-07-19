@@ -1,0 +1,9 @@
+<?hh
+
+<<__EntryPoint>>
+function main(): void {
+  (() ==> {
+    // HHAST-generated to avoid pseudomain local leaks
+    require_once('foo');
+  })();
+}

@@ -1,0 +1,7 @@
+<?hh
+
+require_once('foo');
+
+<<__EntryPoint>>
+function main(): void {
+}

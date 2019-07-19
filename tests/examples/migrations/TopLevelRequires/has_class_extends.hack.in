@@ -1,0 +1,7 @@
+require_once('Foo.hack');
+
+class Bar extends Foo {}
+
+<<__EntryPoint>>
+function main(): void {
+}

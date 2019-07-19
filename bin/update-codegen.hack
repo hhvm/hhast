@@ -10,10 +10,12 @@
 
 namespace Facebook\HHAST\__Private;
 
-require_once(__DIR__.'/../vendor/autoload.hack');
-
 <<__EntryPoint>>
 async function update_codegen_async(): Awaitable<noreturn> {
+  (() ==> {
+    // HHAST-generated to avoid pseudomain local leaks
+    require_once(__DIR__.'/../vendor/autoload.hack');
+  })();
   \Facebook\AutoloadMap\initialize();
   $status = await CodegenCLI::runAsync();
   exit($status);
