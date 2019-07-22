@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06053e5e44f021696bb388439888a86a>>
+ * @generated SignedSource<<8dbdcf9db4b5900b0efbc630d1a378e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -18,13 +18,13 @@ abstract class MethodishDeclarationGeneratedBase
 
   const string SYNTAX_KIND = 'methodish_declaration';
 
-  private ?AttributeSpecification $_attribute;
+  private ?OldAttributeSpecification $_attribute;
   private FunctionDeclarationHeader $_function_decl_header;
   private ?CompoundStatement $_function_body;
   private ?SemicolonToken $_semicolon;
 
   public function __construct(
-    ?AttributeSpecification $attribute,
+    ?OldAttributeSpecification $attribute,
     FunctionDeclarationHeader $function_decl_header,
     ?CompoundStatement $function_body,
     ?SemicolonToken $semicolon,
@@ -51,7 +51,7 @@ abstract class MethodishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $offset += $attribute?->getWidth() ?? 0;
     $function_decl_header = Node::fromJSON(
@@ -141,7 +141,7 @@ abstract class MethodishDeclarationGeneratedBase
     return $this->_attribute;
   }
 
-  public function withAttribute(?AttributeSpecification $value): this {
+  public function withAttribute(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -158,16 +158,16 @@ abstract class MethodishDeclarationGeneratedBase
   }
 
   /**
-   * @return AttributeSpecification | null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttribute(): ?AttributeSpecification {
+  public function getAttribute(): ?OldAttributeSpecification {
     return $this->_attribute;
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributex(): AttributeSpecification {
+  public function getAttributex(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttribute());
   }
 

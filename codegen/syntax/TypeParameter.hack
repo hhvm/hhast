@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb9ed20cfb8bb323feee88210a37d6ae>>
+ * @generated SignedSource<<437f3b4b516d71e8eb5b17a66676a2a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,14 +12,14 @@ final class TypeParameter extends Node {
 
   const string SYNTAX_KIND = 'type_parameter';
 
-  private ?AttributeSpecification $_attribute_spec;
+  private ?OldAttributeSpecification $_attribute_spec;
   private ?ReifyToken $_reified;
   private ?Token $_variance;
   private NameToken $_name;
   private ?NodeList<TypeConstraint> $_constraints;
 
   public function __construct(
-    ?AttributeSpecification $attribute_spec,
+    ?OldAttributeSpecification $attribute_spec,
     ?ReifyToken $reified,
     ?Token $variance,
     NameToken $name,
@@ -48,7 +48,7 @@ final class TypeParameter extends Node {
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $reified = Node::fromJSON(
@@ -153,7 +153,7 @@ final class TypeParameter extends Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(?AttributeSpecification $value): this {
+  public function withAttributeSpec(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -171,16 +171,16 @@ final class TypeParameter extends Node {
   }
 
   /**
-   * @return AttributeSpecification | null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttributeSpec(): ?AttributeSpecification {
+  public function getAttributeSpec(): ?OldAttributeSpecification {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributeSpecx(): AttributeSpecification {
+  public function getAttributeSpecx(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 

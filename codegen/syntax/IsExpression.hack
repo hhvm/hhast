@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e03e2d77205135e6b3d2bf94be49f635>>
+ * @generated SignedSource<<6dc6fd3667c0a24a25cc60ac8f15a6d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,18 +127,20 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return FunctionCallExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | PipeVariableExpression | PrefixUnaryExpression
-   * | VariableExpression
+   * @return AnonymousFunction | CastExpression | FunctionCallExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * SubscriptExpression | VariableExpression
    */
   public function getLeftOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**
-   * @return FunctionCallExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | PipeVariableExpression | PrefixUnaryExpression
-   * | VariableExpression
+   * @return AnonymousFunction | CastExpression | FunctionCallExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * SubscriptExpression | VariableExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();

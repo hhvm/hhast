@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a79c9246bc7e974e62e57b85ac53b442>>
+ * @generated SignedSource<<324c86c324f7cd11c19bd6aaa000cff3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,7 +14,7 @@ final class LambdaExpression
 
   const string SYNTAX_KIND = 'lambda_expression';
 
-  private ?AttributeSpecification $_attribute_spec;
+  private ?OldAttributeSpecification $_attribute_spec;
   private ?AsyncToken $_async;
   private ?Node $_coroutine;
   private Node $_signature;
@@ -22,7 +22,7 @@ final class LambdaExpression
   private ILambdaBody $_body;
 
   public function __construct(
-    ?AttributeSpecification $attribute_spec,
+    ?OldAttributeSpecification $attribute_spec,
     ?AsyncToken $async,
     ?Node $coroutine,
     Node $signature,
@@ -53,7 +53,7 @@ final class LambdaExpression
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $async = Node::fromJSON(
@@ -169,7 +169,7 @@ final class LambdaExpression
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(?AttributeSpecification $value): this {
+  public function withAttributeSpec(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -188,16 +188,16 @@ final class LambdaExpression
   }
 
   /**
-   * @return AttributeSpecification | null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttributeSpec(): ?AttributeSpecification {
+  public function getAttributeSpec(): ?OldAttributeSpecification {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributeSpecx(): AttributeSpecification {
+  public function getAttributeSpecx(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 

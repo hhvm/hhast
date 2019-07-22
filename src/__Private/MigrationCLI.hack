@@ -19,7 +19,6 @@ use type Facebook\HHAST\{
   HSLMigration,
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
-  InstanceofIsMigration,
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
   TopLevelRequiresMigration,
@@ -233,9 +232,9 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = InstanceofIsMigration::class;
+          throw new ExitException(1, 'Use HHAST 4.14.* for this migration');
         },
-        'Replace `$x instanceof Foo` with an `is` expression or `is_a()` call',
+        'no longer supported',
         '--instanceof-is',
       ),
       CLIOptions\flag(

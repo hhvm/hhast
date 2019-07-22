@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<811c0fbd74fa3f043034abbc4231193e>>
+ * @generated SignedSource<<bc97003efe9c404c9f07953a54e55f13>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,12 +14,12 @@ final class FunctionDeclaration
 
   const string SYNTAX_KIND = 'function_declaration';
 
-  private ?AttributeSpecification $_attribute_spec;
+  private ?OldAttributeSpecification $_attribute_spec;
   private FunctionDeclarationHeader $_declaration_header;
   private Node $_body;
 
   public function __construct(
-    ?AttributeSpecification $attribute_spec,
+    ?OldAttributeSpecification $attribute_spec,
     FunctionDeclarationHeader $declaration_header,
     Node $body,
     ?__Private\SourceRef $source_ref = null,
@@ -44,7 +44,7 @@ final class FunctionDeclaration
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $declaration_header = Node::fromJSON(
@@ -118,7 +118,7 @@ final class FunctionDeclaration
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(?AttributeSpecification $value): this {
+  public function withAttributeSpec(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -130,16 +130,16 @@ final class FunctionDeclaration
   }
 
   /**
-   * @return AttributeSpecification | null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttributeSpec(): ?AttributeSpecification {
+  public function getAttributeSpec(): ?OldAttributeSpecification {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributeSpecx(): AttributeSpecification {
+  public function getAttributeSpecx(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 

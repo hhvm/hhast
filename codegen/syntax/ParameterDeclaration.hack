@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6df2ac2b6c9281d935a6ed77ed14dfdb>>
+ * @generated SignedSource<<ec668586f3d06a259177d749e406ba62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,7 +14,7 @@ abstract class ParameterDeclarationGeneratedBase
 
   const string SYNTAX_KIND = 'parameter_declaration';
 
-  private ?AttributeSpecification $_attribute;
+  private ?OldAttributeSpecification $_attribute;
   private ?Token $_visibility;
   private ?InoutToken $_call_convention;
   private ?ITypeSpecifier $_type;
@@ -22,7 +22,7 @@ abstract class ParameterDeclarationGeneratedBase
   private ?SimpleInitializer $_default_value;
 
   public function __construct(
-    ?AttributeSpecification $attribute,
+    ?OldAttributeSpecification $attribute,
     ?Token $visibility,
     ?InoutToken $call_convention,
     ?ITypeSpecifier $type,
@@ -53,7 +53,7 @@ abstract class ParameterDeclarationGeneratedBase
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $offset += $attribute?->getWidth() ?? 0;
     $visibility = Node::fromJSON(
@@ -171,7 +171,7 @@ abstract class ParameterDeclarationGeneratedBase
     return $this->_attribute;
   }
 
-  public function withAttribute(?AttributeSpecification $value): this {
+  public function withAttribute(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -190,16 +190,16 @@ abstract class ParameterDeclarationGeneratedBase
   }
 
   /**
-   * @return AttributeSpecification | null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttribute(): ?AttributeSpecification {
+  public function getAttribute(): ?OldAttributeSpecification {
     return $this->_attribute;
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributex(): AttributeSpecification {
+  public function getAttributex(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttribute());
   }
 

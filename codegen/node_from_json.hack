@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eaebd5c3bdcad7715cfae91ea879b1f3>>
+ * @generated SignedSource<<100a0f470bd26c0075525f742ba70ade>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -45,6 +45,7 @@ function node_from_json_unwrapped(
     'array_creation_expression' => HHAST\ArrayCreationExpression::class,
     'array_intrinsic_expression' => HHAST\ArrayIntrinsicExpression::class,
     'as_expression' => HHAST\AsExpression::class,
+    'attribute' => HHAST\Attribute::class,
     'attribute_specification' => HHAST\AttributeSpecification::class,
     'attributized_specifier' => HHAST\AttributizedSpecifier::class,
     'awaitable_creation_expression' => HHAST\AwaitableCreationExpression::class,
@@ -134,6 +135,7 @@ function node_from_json_unwrapped(
     'nullable_as_expression' => HHAST\NullableAsExpression::class,
     'nullable_type_specifier' => HHAST\NullableTypeSpecifier::class,
     'object_creation_expression' => HHAST\ObjectCreationExpression::class,
+    'old_attribute_specification' => HHAST\OldAttributeSpecification::class,
     'parameter_declaration' => HHAST\ParameterDeclaration::class,
     'parenthesized_expression' => HHAST\ParenthesizedExpression::class,
     'pipe_variable' => HHAST\PipeVariableExpression::class,

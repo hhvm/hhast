@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aaa6ff4aa68b209998b750a006cf43bc>>
+ * @generated SignedSource<<e78b745a276beaa83b02711291a3e3d8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,7 +12,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'alias_declaration';
 
-  private ?AttributeSpecification $_attribute_spec;
+  private ?OldAttributeSpecification $_attribute_spec;
   private Token $_keyword;
   private NameToken $_name;
   private ?TypeParameters $_generic_parameter;
@@ -22,7 +22,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   private SemicolonToken $_semicolon;
 
   public function __construct(
-    ?AttributeSpecification $attribute_spec,
+    ?OldAttributeSpecification $attribute_spec,
     Token $keyword,
     NameToken $name,
     ?TypeParameters $generic_parameter,
@@ -57,7 +57,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
@@ -203,7 +203,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(?AttributeSpecification $value): this {
+  public function withAttributeSpec(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -224,16 +224,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return AttributeSpecification | null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttributeSpec(): ?AttributeSpecification {
+  public function getAttributeSpec(): ?OldAttributeSpecification {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributeSpecx(): AttributeSpecification {
+  public function getAttributeSpecx(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 

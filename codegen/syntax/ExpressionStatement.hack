@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05081441642f3eb58b00274e55619f4d>>
+ * @generated SignedSource<<50e6911f6d1108247e0ad6e85f5123e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -113,8 +113,8 @@ final class ExpressionStatement extends Node implements IStatement {
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * HaltCompilerExpression | InclusionExpression | IsExpression |
+   * IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
@@ -130,8 +130,8 @@ final class ExpressionStatement extends Node implements IStatement {
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * HaltCompilerExpression | InclusionExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * HaltCompilerExpression | InclusionExpression | IsExpression |
+   * IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e639043ac1cd79d2f92b2542b7cdbe18>>
+ * @generated SignedSource<<803837c5d5708254b448f8aeaa0e3c1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -239,20 +239,20 @@ final class WhileStatement
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
+   * @return BinaryExpression | FunctionCallExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * VariableExpression
    */
   public function getCondition(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
+   * @return BinaryExpression | FunctionCallExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * VariableExpression
    */
   public function getConditionx(): IExpression {
     return $this->getCondition();

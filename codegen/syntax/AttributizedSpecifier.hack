@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<319a5b31763a1a062090e58c2f9e1e2d>>
+ * @generated SignedSource<<d74ff72b0718b801723da58233b1cf9f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,11 +12,11 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'attributized_specifier';
 
-  private AttributeSpecification $_attribute_spec;
+  private OldAttributeSpecification $_attribute_spec;
   private ISimpleCreationSpecifier $_type;
 
   public function __construct(
-    AttributeSpecification $attribute_spec,
+    OldAttributeSpecification $attribute_spec,
     ISimpleCreationSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -39,7 +39,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $attribute_spec = $attribute_spec as nonnull;
     $offset += $attribute_spec->getWidth();
@@ -95,7 +95,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(AttributeSpecification $value): this {
+  public function withAttributeSpec(OldAttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -107,19 +107,19 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributeSpec(): AttributeSpecification {
+  public function getAttributeSpec(): OldAttributeSpecification {
     return TypeAssert\instance_of(
-      AttributeSpecification::class,
+      OldAttributeSpecification::class,
       $this->_attribute_spec,
     );
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributeSpecx(): AttributeSpecification {
+  public function getAttributeSpecx(): OldAttributeSpecification {
     return $this->getAttributeSpec();
   }
 

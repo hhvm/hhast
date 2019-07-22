@@ -137,7 +137,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     if ($attrs === null) {
       $first_token = $node->getFirstTokenx();
       return $node->withAttribute(
-        new AttributeSpecification(
+        new OldAttributeSpecification(
           new LessThanLessThanToken($first_token->getLeading(), null),
           new ConstructorCall(
             new NameToken(null, null, '__Override'),

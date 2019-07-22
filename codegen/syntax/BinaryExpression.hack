@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7c3b94cc8bb18ae38bdf813a6c714cd9>>
+ * @generated SignedSource<<edda522f672cc55db93f4bf56d2afc89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,13 +129,12 @@ final class BinaryExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * AwaitableCreationExpression | BinaryExpression | CastExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression | AsExpression
+   * | AwaitableCreationExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression |
-   * InstanceofExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | ListExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | ListExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
@@ -146,13 +145,12 @@ final class BinaryExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * AwaitableCreationExpression | BinaryExpression | CastExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression | AsExpression
+   * | AwaitableCreationExpression | BinaryExpression | CastExpression |
    * CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression |
-   * InstanceofExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | ListExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | ListExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
@@ -234,9 +232,9 @@ final class BinaryExpression
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * InclusionExpression | IsExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * PrefixedStringExpression | QualifiedName | RecordCreationExpression |
@@ -255,9 +253,9 @@ final class BinaryExpression
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * InclusionExpression | IsExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * PrefixedStringExpression | QualifiedName | RecordCreationExpression |

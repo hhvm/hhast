@@ -14,19 +14,19 @@ trait AttributeAsAttributeSpecTrait {
   require extends Node;
 
   abstract public function hasAttribute(): bool;
-  abstract public function getAttribute(): ?AttributeSpecification;
-  abstract public function getAttributex(): AttributeSpecification;
+  abstract public function getAttribute(): ?OldAttributeSpecification;
+  abstract public function getAttributex(): OldAttributeSpecification;
   abstract public function getAttributeUNTYPED(): ?Node;
 
   final public function hasAttributeSpec(): bool {
     return $this->hasAttribute();
   }
 
-  final public function getAttributeSpec(): ?AttributeSpecification {
+  final public function getAttributeSpec(): ?OldAttributeSpecification {
     return $this->getAttribute();
   }
 
-  public function getAttributeSpecx(): AttributeSpecification {
+  public function getAttributeSpecx(): OldAttributeSpecification {
     return $this->getAttributex();
   }
 

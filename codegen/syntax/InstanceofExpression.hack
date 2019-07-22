@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4470b241ffcdff3f30f658a32ccc5d91>>
+ * @generated SignedSource<<70a8aacdac25da5a26e8c2d4ab225a70>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,13 +14,13 @@ final class InstanceofExpression
 
   const string SYNTAX_KIND = 'instanceof_expression';
 
-  private IExpression $_left_operand;
-  private InstanceofToken $_operator;
+  private Node $_left_operand;
+  private Node $_operator;
   private Node $_right_operand;
 
   public function __construct(
-    IExpression $left_operand,
-    InstanceofToken $operator,
+    Node $left_operand,
+    Node $operator,
     Node $right_operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -44,7 +44,7 @@ final class InstanceofExpression
       $file,
       $offset,
       $source,
-      'IExpression',
+      'Node',
     );
     $left_operand = $left_operand as nonnull;
     $offset += $left_operand->getWidth();
@@ -53,7 +53,7 @@ final class InstanceofExpression
       $file,
       $offset,
       $source,
-      'InstanceofToken',
+      'Node',
     );
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
@@ -117,7 +117,7 @@ final class InstanceofExpression
     return $this->_left_operand;
   }
 
-  public function withLeftOperand(IExpression $value): this {
+  public function withLeftOperand(Node $value): this {
     if ($value === $this->_left_operand) {
       return $this;
     }
@@ -129,22 +129,16 @@ final class InstanceofExpression
   }
 
   /**
-   * @return AnonymousFunction | CastExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | SubscriptExpression |
-   * VariableExpression
+   * @return
    */
-  public function getLeftOperand(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
+  public function getLeftOperand(): Node {
+    return $this->_left_operand;
   }
 
   /**
-   * @return AnonymousFunction | CastExpression | FunctionCallExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | SubscriptExpression |
-   * VariableExpression
+   * @return
    */
-  public function getLeftOperandx(): IExpression {
+  public function getLeftOperandx(): Node {
     return $this->getLeftOperand();
   }
 
@@ -152,7 +146,7 @@ final class InstanceofExpression
     return $this->_operator;
   }
 
-  public function withOperator(InstanceofToken $value): this {
+  public function withOperator(Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -164,16 +158,16 @@ final class InstanceofExpression
   }
 
   /**
-   * @return InstanceofToken
+   * @return
    */
-  public function getOperator(): InstanceofToken {
-    return TypeAssert\instance_of(InstanceofToken::class, $this->_operator);
+  public function getOperator(): Node {
+    return $this->_operator;
   }
 
   /**
-   * @return InstanceofToken
+   * @return
    */
-  public function getOperatorx(): InstanceofToken {
+  public function getOperatorx(): Node {
     return $this->getOperator();
   }
 
@@ -193,14 +187,14 @@ final class InstanceofExpression
   }
 
   /**
-   * @return qualified_name | token:name | variable
+   * @return
    */
   public function getRightOperand(): Node {
     return $this->_right_operand;
   }
 
   /**
-   * @return qualified_name | token:name | variable
+   * @return
    */
   public function getRightOperandx(): Node {
     return $this->getRightOperand();

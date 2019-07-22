@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95719a8e4dea79e5e0ec521738e6e4e0>>
+ * @generated SignedSource<<4aa1b957f661620dd2c029198bb63af4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -301,7 +301,6 @@ final class FunctionCallExpression
    * NodeList<ListItem<IHackArray>> | NodeList<ListItem<EvalExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<IFunctionCallishExpression>> |
-   * NodeList<ListItem<InstanceofExpression>> |
    * NodeList<ListItem<IsExpression>> | NodeList<ListItem<IssetExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
@@ -345,7 +344,6 @@ final class FunctionCallExpression
    * NodeList<ListItem<IHackArray>> | NodeList<ListItem<EvalExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<IFunctionCallishExpression>> |
-   * NodeList<ListItem<InstanceofExpression>> |
    * NodeList<ListItem<IsExpression>> | NodeList<ListItem<IssetExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LambdaExpression>> |

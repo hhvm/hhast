@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1573949aa559075c693126c16b789ec3>>
+ * @generated SignedSource<<cca3c913f6463b4c6354700562d9029f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -238,20 +238,20 @@ final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * DarrayTypeSpecifier | DictionaryTypeSpecifier | LikeTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | VectorTypeSpecifier
+   * @return ClassnameTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
-   * DarrayTypeSpecifier | DictionaryTypeSpecifier | LikeTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | VectorTypeSpecifier
+   * @return ClassnameTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

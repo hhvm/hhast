@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<662dae76b619cc5f7b1d0fdf64e7205e>>
+ * @generated SignedSource<<5af15ff8d57a27541a024e738d826b7c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,7 +14,7 @@ abstract class ClassishDeclarationGeneratedBase
 
   const string SYNTAX_KIND = 'classish_declaration';
 
-  private ?AttributeSpecification $_attribute;
+  private ?OldAttributeSpecification $_attribute;
   private ?NodeList<Token> $_modifiers;
   private Token $_keyword;
   private Token $_name;
@@ -27,7 +27,7 @@ abstract class ClassishDeclarationGeneratedBase
   private ClassishBody $_body;
 
   public function __construct(
-    ?AttributeSpecification $attribute,
+    ?OldAttributeSpecification $attribute,
     ?NodeList<Token> $modifiers,
     Token $keyword,
     Token $name,
@@ -68,7 +68,7 @@ abstract class ClassishDeclarationGeneratedBase
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $offset += $attribute?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
@@ -261,7 +261,7 @@ abstract class ClassishDeclarationGeneratedBase
     return $this->_attribute;
   }
 
-  public function withAttribute(?AttributeSpecification $value): this {
+  public function withAttribute(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute) {
       return $this;
     }
@@ -285,16 +285,16 @@ abstract class ClassishDeclarationGeneratedBase
   }
 
   /**
-   * @return AttributeSpecification | null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttribute(): ?AttributeSpecification {
+  public function getAttribute(): ?OldAttributeSpecification {
     return $this->_attribute;
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributex(): AttributeSpecification {
+  public function getAttributex(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttribute());
   }
 

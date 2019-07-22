@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4b358826482da84ec1a052fa115ecf0>>
+ * @generated SignedSource<<822b517e8d5ca177416b9f6bc5ab3565>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,7 +12,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'type_const_declaration';
 
-  private ?AttributeSpecification $_attribute_spec;
+  private ?OldAttributeSpecification $_attribute_spec;
   private ?NodeList<Token> $_modifiers;
   private ConstToken $_keyword;
   private TypeToken $_type_keyword;
@@ -24,7 +24,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   private SemicolonToken $_semicolon;
 
   public function __construct(
-    ?AttributeSpecification $attribute_spec,
+    ?OldAttributeSpecification $attribute_spec,
     ?NodeList<Token> $modifiers,
     ConstToken $keyword,
     TypeToken $type_keyword,
@@ -63,7 +63,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
-      'AttributeSpecification',
+      'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
@@ -238,7 +238,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(?AttributeSpecification $value): this {
+  public function withAttributeSpec(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -261,16 +261,16 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   /**
-   * @return AttributeSpecification | null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttributeSpec(): ?AttributeSpecification {
+  public function getAttributeSpec(): ?OldAttributeSpecification {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return AttributeSpecification
+   * @return OldAttributeSpecification
    */
-  public function getAttributeSpecx(): AttributeSpecification {
+  public function getAttributeSpecx(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 

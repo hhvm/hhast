@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e47b8569f94b785600cc0c0cc664be55>>
+ * @generated SignedSource<<3228a0ae642be068aadb87bbc4d4abab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -282,9 +282,8 @@ final class IfStatement
 
   /**
    * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression |
+   * CastExpression | FunctionCallExpression | IsExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */
@@ -294,9 +293,8 @@ final class IfStatement
 
   /**
    * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression |
+   * CastExpression | FunctionCallExpression | IsExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression
    */

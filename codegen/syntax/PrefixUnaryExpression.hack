@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c1255a01a2d08bbad8c7454cbf069a9>>
+ * @generated SignedSource<<bd8797c078ab95557bf06675da01c6b3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,12 +145,11 @@ final class PrefixUnaryExpression
    * @return AnonymousFunction | ArrayIntrinsicExpression |
    * AwaitableCreationExpression | BinaryExpression | CastExpression |
    * ConditionalExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * InclusionExpression | IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
@@ -160,12 +159,11 @@ final class PrefixUnaryExpression
    * @return AnonymousFunction | ArrayIntrinsicExpression |
    * AwaitableCreationExpression | BinaryExpression | CastExpression |
    * ConditionalExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | InstanceofExpression | IsExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * InclusionExpression | IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

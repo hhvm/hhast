@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<adcbbc999100b6a934f7d6abf5d90444>>
+ * @generated SignedSource<<8fca081682194930384b5a2cf9ff3083>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -169,22 +169,22 @@ final class ConditionalExpression
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PrefixUnaryExpression | SubscriptExpression |
-   * NameToken | VariableExpression
+   * @return BinaryExpression | FunctionCallExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getTest(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_test);
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | InstanceofExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PrefixUnaryExpression | SubscriptExpression |
-   * NameToken | VariableExpression
+   * @return BinaryExpression | FunctionCallExpression | IsExpression |
+   * IssetExpression | LiteralExpression | MemberSelectionExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression
    */
   public function getTestx(): IExpression {
     return $this->getTest();

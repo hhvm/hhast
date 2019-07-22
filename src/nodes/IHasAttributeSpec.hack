@@ -13,7 +13,7 @@ interface IHasAttributeSpec {
   require extends Node;
 
   public function hasAttributeSpec(): bool;
-  public function getAttributeSpec(): ?AttributeSpecification;
-  public function getAttributeSpecx(): AttributeSpecification;
+  public function getAttributeSpec(): ?OldAttributeSpecification;
+  public function getAttributeSpecx(): OldAttributeSpecification;
   public function getAttributeSpecUNTYPED(): ?Node;
 }
