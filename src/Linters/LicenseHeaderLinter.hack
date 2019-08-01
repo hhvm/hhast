@@ -73,7 +73,9 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
   }
 
   public function getFixedNode(Script $node): Script {
-    $first = $node->getDeclarations()->getChildren()[1]->getFirstTokenx();
+    $children = $node->getDeclarations()->getChildren();
+    $first = (($children[0] is MarkupSection) ? $children[1] : $children[0])
+      ->getFirstTokenx();
     $leading = $first->getLeading()->toVec();
 
     $key = C\find_key(

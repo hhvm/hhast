@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "namespace Foo;\n\nclass Bar {}\n",
+        "blame_pretty": "namespace Foo;\n\nclass Bar {}\n",
+        "description": "Incorrect or missing license header"
+    }
+]
