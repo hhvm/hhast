@@ -58,6 +58,9 @@ final class ParserCache {
     if ($path === null) {
       return;
     }
+    // We've already checked the version is compatible when parsing, so
+    // use the codegen version
+    $ast['version'] = \Facebook\HHAST\SCHEMA_VERSION;
     unset($ast['program_text']);
     \file_put_contents(
       $path,
