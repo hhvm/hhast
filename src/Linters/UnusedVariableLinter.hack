@@ -33,7 +33,6 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       return null;
     }
 
-
     list($header, $body) = $this->getFunctionishParts($functionish);
     if (C\contains($this->getAlwaysUsedVariables($header), $name)) {
       return null;
