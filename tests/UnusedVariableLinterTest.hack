@@ -10,46 +10,46 @@
 namespace Facebook\HHAST;
 
 final class UnusedVariableLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<Linters\ASTLintError>;
+  use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(string $file): Linters\UnusedVariableLinter {
-    return Linters\UnusedVariableLinter::fromPath($file);
+  protected function getLinter(string $file): UnusedVariableLinter {
+    return UnusedVariableLinter::fromPath($file);
   }
 
-  public function getCleanExamples(): array<array<string>> {
-    return [
-      ['<?hh function foo() { $bar = 1; return $bar; }'],
-      ['<?hh function foo() { $_bar = 1; return 2; }'],
-      ['<?hh function foo() { $GLOBALS["foo"] = "bar"; }'],
-      ['<?hh function foo($xs) { foreach($xs as $x) { echo $x; } }'],
-      ['<?hh function foo($xs) { foreach($xs as $i => $x) { echo $i; echo $x; } }'],
-      ['<?hh function foo() { $k = 1; return dict[1 => 2][$k]; }'],
-      ['<?hh function foo($d) { $k = 1; $d[$k] = 5; return $d; }'],
-      ['<?hh function foo() { $d = []; return $d[1]; }'],
-      ['<?hh function foo() { $d = []; $d["a"] = "b"; f($d["a"]); }'],
-      ['<?hh function foo(&$d) { $d = 5; }'],
-      ['<?hh function foo(inout $d) { $d = 5; }'],
-      ['<?hh function foo() { $users = []; $u = ["id" => 15]; $users[$u["id"]] = 5; return $users; }'],
-      ['<?hh function foo() { $s = "a"; echo "{$s}"; }'],
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple('<?hh function foo() { $bar = 1; return $bar; }'),
+      tuple('<?hh function foo() { $_bar = 1; return 2; }'),
+      tuple('<?hh function foo() { $GLOBALS["foo"] = "bar"; }'),
+      tuple('<?hh function foo($xs) { foreach($xs as $x) { echo $x; } }'),
+      tuple('<?hh function foo($xs) { foreach($xs as $i => $x) { echo $i; echo $x; } }'),
+      tuple('<?hh function foo() { $k = 1; return dict[1 => 2][$k]; }'),
+      tuple('<?hh function foo($d) { $k = 1; $d[$k] = 5; return $d; }'),
+      tuple('<?hh function foo() { $d = []; return $d[1]; }'),
+      tuple('<?hh function foo() { $d = []; $d["a"] = "b"; f($d["a"]); }'),
+      tuple('<?hh function foo(&$d) { $d = 5; }'),
+      tuple('<?hh function foo(inout $d) { $d = 5; }'),
+      tuple('<?hh function foo() { $users = []; $u = ["id" => 15]; $users[$u["id"]] = 5; return $users; }'),
+      tuple('<?hh function foo() { $s = "a"; echo "{$s}"; }'),
       // TODO: Decide whether to support "${}" style string interpolation
-      // ['<?hh function foo() { $s = "a"; echo "${s}"; }'],
-      // ['<?hh function foo() { $d = dict["a" => "b"]; echo "${d[\'a\']}"; }'],
-      ['<?hh class C { public function foo() { $bar = 1; return $bar; } }'],
-      ['<?hh class C { public function foo() { $_bar = 1; return 2; } }'],
-      ['<?hh class C { public function foo() { $GLOBALS["foo"] = "bar"; } }'],
-      ['<?hh class C { public function foo($xs) { foreach($xs as $x) { echo $x; } } }'],
-      ['<?hh class C { public function foo($xs) { foreach($xs as $i => $x) { echo $i; echo $x; } } }'],
-      ['<?hh class C { public function foo() { $k = 1; return dict[1 => 2][$k]; } }'],
-      ['<?hh class C { public function foo($d) { $k = 1; $d[$k] = 5; return $d; } }'],
-      ['<?hh class C { public function foo() { $d = []; return $d[1]; } }'],
-      ['<?hh class C { public function foo() { $d = []; $d["a"] = "b"; f($d["a"]); } }'],
-      ['<?hh class C { public function foo(&$d) { $d = 5; } }'],
-      ['<?hh class C { public function foo(inout $d) { $d = 5; } }'],
-      ['<?hh class C { public function foo() { $users = []; $u = ["id" => 15]; $users[$u["id"]] = 5; return $users; } }'],
-      ['<?hh class C { public function foo() { $s = "a"; echo "{$s}"; } }'],
+      // tuple('<?hh function foo() { $s = "a"; echo "${s}"; }'),
+      // tuple('<?hh function foo() { $d = dict["a" => "b"]; echo "${d[\'a\']}"; }'),
+      tuple('<?hh class C { public function foo() { $bar = 1; return $bar; } }'),
+      tuple('<?hh class C { public function foo() { $_bar = 1; return 2; } }'),
+      tuple('<?hh class C { public function foo() { $GLOBALS["foo"] = "bar"; } }'),
+      tuple('<?hh class C { public function foo($xs) { foreach($xs as $x) { echo $x; } } }'),
+      tuple('<?hh class C { public function foo($xs) { foreach($xs as $i => $x) { echo $i; echo $x; } } }'),
+      tuple('<?hh class C { public function foo() { $k = 1; return dict[1 => 2][$k]; } }'),
+      tuple('<?hh class C { public function foo($d) { $k = 1; $d[$k] = 5; return $d; } }'),
+      tuple('<?hh class C { public function foo() { $d = []; return $d[1]; } }'),
+      tuple('<?hh class C { public function foo() { $d = []; $d["a"] = "b"; f($d["a"]); } }'),
+      tuple('<?hh class C { public function foo(&$d) { $d = 5; } }'),
+      tuple('<?hh class C { public function foo(inout $d) { $d = 5; } }'),
+      tuple('<?hh class C { public function foo() { $users = []; $u = ["id" => 15]; $users[$u["id"]] = 5; return $users; } }'),
+      tuple('<?hh class C { public function foo() { $s = "a"; echo "{$s}"; } }'),
       // TODO: Decide whether to support "${}" style string interpolation
-      // ['<?hh class C { public function foo() { $s = "a"; echo "${s}"; } }'],
-      // ['<?hh class C { public function foo() { $d = dict["a" => "b"]; echo "${d[\'a\']}"; } }'],
+      // tuple('<?hh class C { public function foo() { $s = "a"; echo "${s}"; } }'),
+      // tuple('<?hh class C { public function foo() { $d = dict["a" => "b"]; echo "${d[\'a\']}"; } }'),
     ];
   }
 }

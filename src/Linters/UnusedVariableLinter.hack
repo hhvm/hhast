@@ -7,21 +7,8 @@
  *
  */
 
-namespace Facebook\HHAST\Linters;
+namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{
-  CompoundStatement,
-  FunctionDeclaration,
-  FunctionDeclarationHeader,
-  IFunctionishDeclaration,
-  MethodishDeclaration,
-  Node,
-  ParameterDeclaration,
-  VariableExpression,
-  VariableToken,
-};
-
-use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class UnusedVariableLinter extends AutoFixingASTLinter {
@@ -72,7 +59,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
    * considered "used"
    */
   private function getAlwaysUsedVariables(
-    HHAST\FunctionDeclarationHeader $header,
+    FunctionDeclarationHeader $header,
   ): keyset<string> {
     $params = $header->getDescendantsOfType(ParameterDeclaration::class);
 
@@ -84,13 +71,13 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
   }
 
   private static function isInoutParam(ParameterDeclaration $param): bool {
-    return $param->getCallConvention() is HHAST\InoutToken;
+    return $param->getCallConvention() is InoutToken;
   }
 
   private static function isByRefParam(ParameterDeclaration $param): bool {
     $name = $param->getName();
-    return $name is HHAST\DecoratedExpression &&
-      $name->getDecorator() is HHAST\AmpersandToken;
+    return $name is DecoratedExpression &&
+      $name->getDecorator() is AmpersandToken;
   }
 
   private static function getParamName(ParameterDeclaration $param): string {
@@ -98,7 +85,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     return $name is VariableToken
       ? $name->getText()
       : (
-          ($name as HHAST\DecoratedExpression)->getExpression() as VariableToken
+          ($name as DecoratedExpression)->getExpression() as VariableToken
         )->getText();
   }
 
@@ -193,7 +180,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       }
 
       // Too early to tell
-      if ($parent is HHAST\ListItem<_> || $parent is HHAST\NodeList<_>) {
+      if ($parent is ListItem<_> || $parent is NodeList<_>) {
         continue;
       }
 
@@ -208,7 +195,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       //
       // $a[$b] = '123'; // assignment of $a, use of $b
       // f($a[$b]);      // use of $a
-      if ($parent is HHAST\SubscriptExpression) {
+      if ($parent is SubscriptExpression) {
         $index = $parent->getIndex();
         if ($index !== null && $index->isAncestorOf($var)) {
           return false;
@@ -218,7 +205,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       }
 
       if (
-        $parent is HHAST\BinaryExpression &&
+        $parent is BinaryExpression &&
         $this->isAssignmentExpression($parent) &&
         $parent->getLeftOperand()->isAncestorOf($var)
       ) {
@@ -226,14 +213,14 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       }
 
       if (
-        $parent is HHAST\ForeachStatement &&
+        $parent is ForeachStatement &&
         (($parent->getValue() === $var) || ($parent->getKey() === $var))
       ) {
         return true;
       }
 
       if (
-        $parent is HHAST\ListExpression &&
+        $parent is ListExpression &&
         (bool)$parent->getMembers()?->isAncestorOf($var)
       ) {
         return true;
@@ -249,23 +236,23 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
    * These are all the return types of BinaryExpression::getOperator
    * that contain "Equal" and are not comparison operators.
    */
-  private function isAssignmentExpression(HHAST\BinaryExpression $expr): bool {
+  private function isAssignmentExpression(BinaryExpression $expr): bool {
     $op = $expr->getOperator();
     return (
-      $op is HHAST\AmpersandEqualToken ||
-      $op is HHAST\BarEqualToken ||
-      $op is HHAST\CaratEqualToken ||
-      $op is HHAST\DotEqualToken ||
-      $op is HHAST\EqualToken ||
-      $op is HHAST\GreaterThanGreaterThanEqualToken ||
-      $op is HHAST\LessThanLessThanEqualToken ||
-      $op is HHAST\MinusEqualToken ||
-      $op is HHAST\PercentEqualToken ||
-      $op is HHAST\PlusEqualToken ||
-      $op is HHAST\QuestionQuestionEqualToken ||
-      $op is HHAST\SlashEqualToken ||
-      $op is HHAST\StarEqualToken ||
-      $op is HHAST\StarStarEqualToken
+      $op is AmpersandEqualToken ||
+      $op is BarEqualToken ||
+      $op is CaratEqualToken ||
+      $op is DotEqualToken ||
+      $op is EqualToken ||
+      $op is GreaterThanGreaterThanEqualToken ||
+      $op is LessThanLessThanEqualToken ||
+      $op is MinusEqualToken ||
+      $op is PercentEqualToken ||
+      $op is PlusEqualToken ||
+      $op is QuestionQuestionEqualToken ||
+      $op is SlashEqualToken ||
+      $op is StarEqualToken ||
+      $op is StarStarEqualToken
     );
   }
 
