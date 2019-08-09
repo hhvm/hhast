@@ -160,7 +160,6 @@ final class LinterCLI extends CLIWithArguments {
       ));
       if ($pos !== null && \is_readable($e->getFileBeingLinted())) {
         list($line, $column) = $pos;
-        $content = \file_get_contents($e->getFileBeingLinted());
         await (
           \file_get_contents($e->getFileBeingLinted())
           |> Str\split($$, "\n")

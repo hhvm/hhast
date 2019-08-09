@@ -23,7 +23,7 @@ final class LSPServerTest extends TestCase {
   use LinterCLITestTrait;
 
   public function testImmediateExit(): void {
-    list($cli, $in, $out, $err) = $this->getCLI('--mode', 'lsp');
+    list($cli, $in, $_out, $err) = $this->getCLI('--mode', 'lsp');
 
     shape(
       'jsonrpc' => '2.0',
@@ -39,7 +39,7 @@ final class LSPServerTest extends TestCase {
   }
 
   public function testExitAfterShutdown(): void {
-    list($cli, $in, $out, $err) = $this->getCLI('--mode', 'lsp');
+    list($cli, $in, $_out, $err) = $this->getCLI('--mode', 'lsp');
 
     shape(
       'jsonrpc' => '2.0',
@@ -118,7 +118,7 @@ final class LSPServerTest extends TestCase {
 
     $debug = (bool)\getenv('HHAST_LSP_DEBUG') ?? false;
 
-    list($code, $_) = await Tuple\from_async(
+    list($_code, $_) = await Tuple\from_async(
       $cli->mainAsync(),
       async {
         foreach ($messages as $message) {

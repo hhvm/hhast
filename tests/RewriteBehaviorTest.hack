@@ -162,9 +162,6 @@ final class RewriteBehaviorTest extends TestCase {
           return $shape;
         }
 
-        $fields = $shape->getFieldsx()
-          ->getDescendantsOfType(HHAST\FieldSpecifier::class);
-
         return $shape->withFields(
           new HHAST\NodeList(
             Vec\map(

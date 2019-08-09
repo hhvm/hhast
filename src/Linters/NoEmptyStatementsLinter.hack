@@ -57,8 +57,6 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
     }
 
     $semicolon = $stmt->getSemicolonx();
-    $leading = $semicolon->getLeading();
-    $trailing = $semicolon->getTrailing();
 
     return NodeList::concat(
       $semicolon->getLeading(),

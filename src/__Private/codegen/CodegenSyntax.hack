@@ -440,7 +440,6 @@ final class CodegenSyntax extends CodegenBase {
             Vec\map(
               $fields,
               $field ==> {
-                $spec = $this->getTypeSpecForField($syntax, $field);
                 return Str\format(
                   '$%s = $this->_%s->rewrite($rewriter, $parents);',
                   $field,

@@ -48,7 +48,7 @@ final class AddFixmesMigration extends BaseMigration {
         $column += $column_offset;
       } else {
         $previous_error_line = $line;
-        $column_offest = 0;
+        $column_offset = 0;
       }
       $node = find_node_at_position($root, $line, $column)->getFirstTokenx();
       $leading = $node->getLeading();

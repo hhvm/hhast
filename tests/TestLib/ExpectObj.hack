@@ -74,7 +74,6 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
       \fwrite(\STDERR, "----- END -----\n");
       \stream_set_blocking(\STDERR, false);
 
-      $recorded = false;
       if (\posix_isatty(\STDIN) && \posix_isatty(\STDERR)) {
         \fprintf(\STDERR, "Would you like to save this output? [y/N] ");
         \stream_set_blocking(\STDIN, true);
@@ -82,7 +81,6 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
         \stream_set_blocking(\STDIN, false);
         if ($response === 'y') {
           \file_put_contents($expect_file, $code);
-          $recorded = true;
         }
       } else {
         throw new \Exception($expect_file.' does not exist');
