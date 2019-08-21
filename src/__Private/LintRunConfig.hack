@@ -71,6 +71,7 @@ final class LintRunConfig {
     HHAST\NoElseifLinter::class,
     HHAST\NoPHPEqualityLinter::class,
     HHAST\UnusedParameterLinter::class,
+    HHAST\UnusedVariableLinter::class,
     HHAST\UnusedUseClauseLinter::class,
     HHAST\UseStatementWithLeadingBackslashLinter::class,
     HHAST\UseStatementWithoutKindLinter::class,

@@ -1,0 +1,72 @@
+[
+    {
+        "blame": "$item",
+        "blame_pretty": "$item",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$i ",
+        "blame_pretty": "$i ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$item",
+        "blame_pretty": "$item",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "  $i ",
+        "blame_pretty": "  $i ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "  $item ",
+        "blame_pretty": "  $item ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$i ",
+        "blame_pretty": "$i ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$item",
+        "blame_pretty": "$item",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$item",
+        "blame_pretty": "$item",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$i ",
+        "blame_pretty": "$i ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$item",
+        "blame_pretty": "$item",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "    $i ",
+        "blame_pretty": "    $i ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "    $item ",
+        "blame_pretty": "    $item ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$i ",
+        "blame_pretty": "$i ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$item",
+        "blame_pretty": "$item",
+        "description": "Variable is unused"
+    }
+]

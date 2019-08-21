@@ -29,7 +29,6 @@ final class FinalOrAbstractClassLinter extends ASTLinter {
 
     // check if the ClassishDeclaration has modifiers
     $modifiers = $node->getModifiers();
-    $found = false;
     if ($modifiers !== null) {
       foreach ($modifiers->traverse() as $mod) {
         if ($mod is FinalToken || $mod is AbstractToken) {

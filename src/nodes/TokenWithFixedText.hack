@@ -32,7 +32,6 @@ abstract class TokenWithFixedText extends Token {
     $parents[] = $this;
     $leading = $rewriter($this->getLeading(), $parents);
     $trailing = $rewriter($this->getTrailing(), $parents);
-    $text = $this->getText();
     if (
       $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {

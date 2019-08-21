@@ -116,7 +116,7 @@ abstract class Node {
   protected function getCodeUncached(): string {
     /* TODO: Make an accumulation sequence operator */
     $s = '';
-    foreach ($this->getChildren() as $key => $node) {
+    foreach ($this->getChildren() as $node) {
       $s .= $node->getCode();
     }
     return $s;
@@ -151,7 +151,6 @@ abstract class Node {
   final public function getFirstDescendantOfType<T as Node>(
     classname<T> $what,
   ): ?T {
-    $out = vec[];
     foreach ($this->_descendants as $node) {
       if (\is_a($node, $what)) {
         return /* HH_FIXME[4110] need reified generics */ $node;
@@ -241,7 +240,6 @@ abstract class Node {
     }
 
     invariant($this->isAncestorOf($node), "Node is not a descendant");
-    $stack = vec[$this];
     foreach ($this->getChildren() as $child) {
       if ($child === $node) {
         return vec[$this, $node];

@@ -43,8 +43,6 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
     $expr = $root_expr->getExpression();
     invariant($expr is NodeList<_>, "Expected list, got %s", \get_class($expr));
 
-    $leading = null;
-    $trailing = null;
     $children = vec($expr->getChildren());
     $child_count = C\count($children);
     $new_children = vec[];
@@ -56,7 +54,6 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
       }
       if ($child is DoubleQuotedStringLiteralHeadToken) {
         if ($child->getText() === '"') {
-          $leading = $child->getLeading();
           continue;
         }
         $new_children[] = new DoubleQuotedStringLiteralToken(
@@ -69,7 +66,6 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
 
       if ($child is DoubleQuotedStringLiteralTailToken) {
         if ($child->getText() === '"') {
-          $trailing = $child->getTrailing();
           break;
         }
         $new_children[] = new DoubleQuotedStringLiteralToken(

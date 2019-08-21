@@ -157,7 +157,6 @@ abstract class Server<TState as ServerState> {
       return;
     }
 
-    $error = $result->getError();
     await $this->client
       ->sendResponseMessageAsync(shape(
         'jsonrpc' => '2.0',

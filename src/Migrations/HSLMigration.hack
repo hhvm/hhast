@@ -401,9 +401,6 @@ final class HSLMigration extends BaseMigration {
         // we can compute the correct length as abs(offset) + length and rewrite teh node
         if ($offset < 0) {
           $rewrite_length_value = Math\abs($offset) + $length;
-          $unary = C\onlyx(
-            $items[2]->getDescendantsOfType(PrefixUnaryExpression::class),
-          );
           $new_length = new ListItem(
             new LiteralExpression(new DecimalLiteralToken(
               null,
@@ -478,8 +475,6 @@ final class HSLMigration extends BaseMigration {
     Script $root,
     FunctionCallExpression $node,
   ): Script {
-    $parents = null;
-    $found = false;
     $stack = $root->getAncestorsOfDescendant($node);
     invariant(!C\is_empty($stack), 'did not find node in root');
     invariant(C\lastx($stack) === $node, 'expected node at top of stack');
