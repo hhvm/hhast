@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\HHAST\{
   AddFixmesMigration,
   BaseMigration,
@@ -401,24 +401,87 @@ class MigrationCLI extends CLIWithRequiredArguments {
       $this->displayHelp($err);
       return 1;
     }
-    foreach ($args as $path) {
-      $migrations = Vec\map($this->migrations, $class ==> new $class($path));
-      if (\is_file($path)) {
-        $this->migrateFile($migrations, $path);
-        continue;
-      }
-      if (\is_dir($path)) {
-        $this->migrateDirectory($migrations, $path);
-        continue;
+
+    $all_config_options = dict[];
+    foreach ($this->migrations as $migration) {
+      $min_version = $migration::getMinimumHHVMVersion();
+      if (
+        $min_version is nonnull &&
+        \version_compare(\HHVM_VERSION, $min_version, '<')
+      ) {
+        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] we quit after doing this once */
+        await $err->writeAsync(Str\format(
+          "Migration %s requires HHVM version %s or newer.\n",
+          $migration,
+          $min_version,
+        ));
+        return 1;
       }
 
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      await $err->writeAsync(
-        Str\format("Don't know how to process path: %s\n", $path),
-      );
-      return 1;
+      $config_options = $migration::getRequiredHHConfigOptions();
+      $all_config_options = Dict\merge($config_options, $all_config_options);
+      foreach ($config_options as $option => $value) {
+        if ($all_config_options[$option] !== $value) {
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] same as above */
+          await $err->writeAsync(Str\format(
+            "Migration %s requires .hhconfig option %s=%s which conflicts ".
+            "with another migration.\n",
+            $migration,
+            $option,
+            $value,
+          ));
+          return 1;
+        }
+      }
     }
-    return 0;
+
+    try {
+      // Restart hh_server for each path (some or all of these may be the same
+      // hh_server instance) with the correct .hhconfig options.
+      if (!C\is_empty($all_config_options)) {
+        foreach ($args as $path) {
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop]
+             these shouldn't run concurrently */
+          await execute_async(
+            'hh_client',
+            'restart',
+            '--config',
+            $all_config_options
+              |> Vec\map_with_key($$, ($option, $value) ==> $option.'='.$value)
+              |> Str\join($$, ','),
+            $path,
+          );
+        }
+      }
+
+      foreach ($args as $path) {
+        $migrations = Vec\map($this->migrations, $class ==> new $class($path));
+        if (\is_file($path)) {
+          $this->migrateFile($migrations, $path);
+          continue;
+        }
+        if (\is_dir($path)) {
+          $this->migrateDirectory($migrations, $path);
+          continue;
+        }
+
+        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+        await $err->writeAsync(
+          Str\format("Don't know how to process path: %s\n", $path),
+        );
+        return 1;
+      }
+      return 0;
+    } finally {
+      // Restart hh_server to get rid of the overridden .hhconfig options.
+      if (!C\is_empty($all_config_options)) {
+        foreach ($args as $path) {
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop]
+             these shouldn't run concurrently */
+          await execute_async('hh_client', 'restart', $path);
+        }
+      }
+    }
   }
 
   private static ?(string, bool) $lastFileIsHack = null;
