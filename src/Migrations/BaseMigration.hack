@@ -21,6 +21,22 @@ abstract class BaseMigration {
     return $this->root;
   }
 
+  /**
+   * Subclasses can override these if they depend on a specific HHVM version or
+   * .hhconfig option.
+   */
+  public static function getMinimumHHVMVersion(): ?string {
+    return null;
+  }
+
+  /**
+   * If your subclass returns any .hhconfig options here, also add the same
+   * options to your test's migration_name.hack.hhconfig file.
+   */
+  public static function getRequiredHHConfigOptions(): dict<string, string> {
+    return dict[];
+  }
+
   abstract public function migrateFile(string $path, Script $ast): Script;
 
   protected static async function expressionFromCodeAsync(
