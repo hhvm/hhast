@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 use namespace Facebook\TypeAssert;
 
-abstract class Node {
+abstract class Node implements IMemoizeParam {
   abstract const string SYNTAX_KIND;
 
   protected dict<int, Node> $_descendants = dict[];
@@ -45,6 +45,10 @@ abstract class Node {
     $id = self::$_maxID;
     self::$_maxID++;
     return $id;
+  }
+
+  public function getInstanceKey(): string {
+    return (string)$this->getUniqueID();
   }
 
   final public function isAncestorOf(Node $other): bool {
