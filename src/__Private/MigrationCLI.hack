@@ -16,6 +16,7 @@ use type Facebook\HHAST\{
   BaseMigration,
   DollarBraceEmbeddedVariableMigration,
   ExplicitPartialModeMigration,
+  Fixme4110Migration,
   HSLMigration,
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
@@ -250,6 +251,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Add /* HH_FIXME[] */ comments where needed',
         '--add-fixmes',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = Fixme4110Migration::class;
+        },
+        'Migrate /* HH_FIXME[4110] */ to the equivalent new error codes',
+        '--migrate-fixme-4110',
       ),
       CLIOptions\flag(
         () ==> {
