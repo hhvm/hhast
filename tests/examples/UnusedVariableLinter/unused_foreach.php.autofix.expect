@@ -11,9 +11,15 @@ function foreach_key_value($items) {
 }
 
 function foreach_shadow($items) {
-  $_i = 0;
-  $_item = 'a';
+  $i = 0;
+  $item = 'a';
   foreach ($items as $_i => $_item) {
+  }
+}
+
+function foreach_nested($items) {
+  foreach ($items as $item) {
+    $a = $item;
   }
 }
 
@@ -29,9 +35,15 @@ class C {
   }
 
   public function foreach_shadow($items) {
-    $_i = 0;
-    $_item = 'a';
+    $i = 0;
+    $item = 'a';
     foreach ($items as $_i => $_item) {
+    }
+  }
+
+  public function foreach_nested($items) {
+    foreach ($items as $item) {
+      $a = $item;
     }
   }
 }

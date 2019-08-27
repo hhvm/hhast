@@ -35,6 +35,11 @@
         "description": "Variable is unused"
     },
     {
+        "blame": "    $a ",
+        "blame_pretty": "    $a ",
+        "description": "Variable is unused"
+    },
+    {
         "blame": "$item",
         "blame_pretty": "$item",
         "description": "Variable is unused"
@@ -67,6 +72,11 @@
     {
         "blame": "$item",
         "blame_pretty": "$item",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "      $a ",
+        "blame_pretty": "      $a ",
         "description": "Variable is unused"
     }
 ]
