@@ -44,12 +44,12 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     }
 
     // If a variable is not classified as used then we are currently
-    // evaluating an assignment
+    // evaluating an unused assignment.
     return new ASTLintError(
       $this,
       "Variable is unused",
       $node,
-      () ==> $this->getFixedNode($node),
+      () ==> $this->getFixedNode($node, $functionish),
     );
   }
 
@@ -253,14 +253,40 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     );
   }
 
-  public function getFixedNode(VariableExpression $node): VariableExpression {
+  /**
+   * Return a fixed node if possible.
+   *
+   * Most unused assignments require user evaluation to fix. An unused assignment
+   * that has a typo should be corrected; others should be deleted. List
+   * expressions and foreach keys/values are exceptions where it is safe to
+   * suggest renaming the variable.
+   */
+  public function getFixedNode(
+    VariableExpression $node,
+    IFunctionishDeclaration $functionish,
+  ): VariableExpression {
     $expr = $node->getExpression();
     if (!$expr is VariableToken) {
       return $node;
     }
-    return $node->withExpression(
-      $expr->withText('$_'.Str\strip_prefix($expr->getText(), '$')),
+
+    $parents = $functionish->getAncestorsOfDescendant($node);
+    $should_autofix = (
+      C\any($parents, $p ==> $p is ListExpression) ||
+      C\any(
+        $parents,
+        $p ==> $p is ForeachStatement &&
+          (($p->getValue() === $node) || ($p->getKey() === $node)),
+      )
     );
+
+    if ($should_autofix) {
+      return $node->withExpression(
+        $expr->withText('$_'.Str\strip_prefix($expr->getText(), '$')),
+      );
+    } else {
+      return $node;
+    }
   }
 
   <<__Override>>

@@ -1,30 +1,30 @@
 <?hh
 
 function subscript_expressions(): void {
-  $_a = dict[];
+  $a = dict[];
   $b = 'b';
   $c = 'c';
   $d = 'd';
-  $_a['a'] = 1;
-  $_a[$b] = 5;
-  $_a[$c.$d] = 10;
-  $_a[1]['a']['b'] = 10;
-  $_a[1]['c'][] = 10;
+  $a['a'] = 1;
+  $a[$b] = 5;
+  $a[$c.$d] = 10;
+  $a[1]['a']['b'] = 10;
+  $a[1]['c'][] = 10;
 
   return;
 }
 
 class C {
   public function subscript_expressions(): void {
-    $_a = dict[];
+    $a = dict[];
     $b = 'b';
     $c = 'c';
     $d = 'd';
-    $_a['a'] = 1;
-    $_a[$b] = 5;
-    $_a[$c.$d] = 10;
-    $_a[1]['a']['b'] = 10;
-    $_a[1]['c'][] = 10;
+    $a['a'] = 1;
+    $a[$b] = 5;
+    $a[$c.$d] = 10;
+    $a[1]['a']['b'] = 10;
+    $a[1]['c'][] = 10;
 
     return;
   }
