@@ -31,6 +31,7 @@ final class UnusedVariableLinterTest extends TestCase {
       tuple('<?hh function foo(inout $d) { $d = 5; }'),
       tuple('<?hh function foo() { $users = []; $u = ["id" => 15]; $users[$u["id"]] = 5; return $users; }'),
       tuple('<?hh function foo() { $s = "a"; echo "{$s}"; }'),
+      tuple('<?hh function foo() { return (inout vec<int> $p) ==> { $p[] = 1; }; }'),
       tuple('<?hh class C { public function foo() { $bar = 1; return $bar; } }'),
       tuple('<?hh class C { public function foo() { $_bar = 1; return 2; } }'),
       tuple('<?hh class C { public function foo() { $GLOBALS["foo"] = "bar"; } }'),
