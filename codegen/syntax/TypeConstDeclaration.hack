@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<822b517e8d5ca177416b9f6bc5ab3565>>
+ * @generated SignedSource<<626e67efa3e072338e4e4604bd19d489>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,7 +13,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   const string SYNTAX_KIND = 'type_const_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private ?NodeList<Token> $_modifiers;
+  private ?NodeList<AbstractToken> $_modifiers;
   private ConstToken $_keyword;
   private TypeToken $_type_keyword;
   private NameToken $_name;
@@ -25,7 +25,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    ?NodeList<Token> $modifiers,
+    ?NodeList<AbstractToken> $modifiers,
     ConstToken $keyword,
     TypeToken $type_keyword,
     NameToken $name,
@@ -71,7 +71,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
-      'NodeList<Token>',
+      'NodeList<AbstractToken>',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
@@ -278,7 +278,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?NodeList<Token> $value): this {
+  public function withModifiers(?NodeList<AbstractToken> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -301,17 +301,16 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   /**
-   * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<PublicToken>
-   * | null
+   * @return NodeList<AbstractToken> | null
    */
-  public function getModifiers(): ?NodeList<Token> {
+  public function getModifiers(): ?NodeList<AbstractToken> {
     return $this->_modifiers;
   }
 
   /**
-   * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<PublicToken>
+   * @return NodeList<AbstractToken>
    */
-  public function getModifiersx(): NodeList<Token> {
+  public function getModifiersx(): NodeList<AbstractToken> {
     return TypeAssert\not_null($this->getModifiers());
   }
 

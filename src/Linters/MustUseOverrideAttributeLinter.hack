@@ -89,10 +89,6 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
       return true;
     }
 
-    if ($name is DestructToken) {
-      return true;
-    }
-
     $private = $method->getFunctionDeclHeader()
       ->getModifiersx()
       ->getDescendantsOfType(PrivateToken::class)

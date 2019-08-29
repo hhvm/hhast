@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7649910cb5c2fb2b399b0d7d2abddf79>>
+ * @generated SignedSource<<caf7505b81f2f33a61700dfe295fb844>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,14 +15,14 @@ final class PropertyDeclaration
   const string SYNTAX_KIND = 'property_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private Node $_modifiers;
+  private NodeList<Token> $_modifiers;
   private ?ITypeSpecifier $_type;
   private NodeList<ListItem<PropertyDeclarator>> $_declarators;
   private SemicolonToken $_semicolon;
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    Node $modifiers,
+    NodeList<Token> $modifiers,
     ?ITypeSpecifier $type,
     NodeList<ListItem<PropertyDeclarator>> $declarators,
     SemicolonToken $semicolon,
@@ -58,7 +58,7 @@ final class PropertyDeclaration
       $file,
       $offset,
       $source,
-      'Node',
+      'NodeList<Token>',
     );
     $modifiers = $modifiers as nonnull;
     $offset += $modifiers->getWidth();
@@ -186,7 +186,7 @@ final class PropertyDeclaration
     return $this->_modifiers;
   }
 
-  public function withModifiers(Node $value): this {
+  public function withModifiers(NodeList<Token> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -205,19 +205,17 @@ final class PropertyDeclaration
 
   /**
    * @return NodeList<PrivateToken> | NodeList<Token> |
-   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken> |
-   * VarToken
+   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken>
    */
-  public function getModifiers(): Node {
-    return $this->_modifiers;
+  public function getModifiers(): NodeList<Token> {
+    return TypeAssert\instance_of(NodeList::class, $this->_modifiers);
   }
 
   /**
    * @return NodeList<PrivateToken> | NodeList<Token> |
-   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken> |
-   * VarToken
+   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken>
    */
-  public function getModifiersx(): Node {
+  public function getModifiersx(): NodeList<Token> {
     return $this->getModifiers();
   }
 
