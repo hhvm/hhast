@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a2514d5bf5e7e34728b1a0737fd1de2>>
+ * @generated SignedSource<<fe2f1c95f94ea6f39e0be5eee8167f8a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -20,7 +20,7 @@ final class AnonymousFunction
   private ?Node $_coroutine_keyword;
   private FunctionToken $_function_keyword;
   private LeftParenToken $_left_paren;
-  private ?NodeList<ListItem<IParameter>> $_parameters;
+  private ?NodeList<ListItem<ParameterDeclaration>> $_parameters;
   private RightParenToken $_right_paren;
   private ?ColonToken $_colon;
   private ?ITypeSpecifier $_type;
@@ -34,7 +34,7 @@ final class AnonymousFunction
     ?Node $coroutine_keyword,
     FunctionToken $function_keyword,
     LeftParenToken $left_paren,
-    ?NodeList<ListItem<IParameter>> $parameters,
+    ?NodeList<ListItem<ParameterDeclaration>> $parameters,
     RightParenToken $right_paren,
     ?ColonToken $colon,
     ?ITypeSpecifier $type,
@@ -121,7 +121,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<IParameter>>',
+      'NodeList<ListItem<ParameterDeclaration>>',
     );
     $offset += $parameters?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
@@ -527,7 +527,9 @@ final class AnonymousFunction
     return $this->_parameters;
   }
 
-  public function withParameters(?NodeList<ListItem<IParameter>> $value): this {
+  public function withParameters(
+    ?NodeList<ListItem<ParameterDeclaration>> $value,
+  ): this {
     if ($value === $this->_parameters) {
       return $this;
     }
@@ -552,18 +554,16 @@ final class AnonymousFunction
   }
 
   /**
-   * @return NodeList<ListItem<ParameterDeclaration>> |
-   * NodeList<ListItem<VariadicParameter>> | null
+   * @return NodeList<ListItem<ParameterDeclaration>> | null
    */
-  public function getParameters(): ?NodeList<ListItem<IParameter>> {
+  public function getParameters(): ?NodeList<ListItem<ParameterDeclaration>> {
     return $this->_parameters;
   }
 
   /**
-   * @return NodeList<ListItem<ParameterDeclaration>> |
-   * NodeList<ListItem<VariadicParameter>>
+   * @return NodeList<ListItem<ParameterDeclaration>>
    */
-  public function getParametersx(): NodeList<ListItem<IParameter>> {
+  public function getParametersx(): NodeList<ListItem<ParameterDeclaration>> {
     return TypeAssert\not_null($this->getParameters());
   }
 

@@ -78,7 +78,6 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
       $expr is CollectionLiteralExpression ||
       $expr is DarrayIntrinsicExpression ||
       $expr is DictionaryIntrinsicExpression ||
-      $expr is InstanceofExpression ||
       $expr is IsExpression ||
       $expr is IssetExpression ||
       $expr is KeysetIntrinsicExpression ||

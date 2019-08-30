@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b25b31043eca73c1eef7ec665a5775f>>
+ * @generated SignedSource<<c69c7e73fee6fbc3fcde91e83be251db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,7 +17,7 @@ final class FunctionDeclarationHeader extends Node {
   private Token $_name;
   private ?TypeParameters $_type_parameter_list;
   private LeftParenToken $_left_paren;
-  private ?NodeList<ListItem<IParameter>> $_parameter_list;
+  private ?NodeList<ListItem<ParameterDeclaration>> $_parameter_list;
   private RightParenToken $_right_paren;
   private ?ColonToken $_colon;
   private ?ITypeSpecifier $_type;
@@ -29,7 +29,7 @@ final class FunctionDeclarationHeader extends Node {
     Token $name,
     ?TypeParameters $type_parameter_list,
     LeftParenToken $left_paren,
-    ?NodeList<ListItem<IParameter>> $parameter_list,
+    ?NodeList<ListItem<ParameterDeclaration>> $parameter_list,
     RightParenToken $right_paren,
     ?ColonToken $colon,
     ?ITypeSpecifier $type,
@@ -106,7 +106,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<IParameter>>',
+      'NodeList<ListItem<ParameterDeclaration>>',
     );
     $offset += $parameter_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
@@ -343,14 +343,14 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return ConstructToken | DestructToken | NameToken
+   * @return ConstructToken | NameToken
    */
   public function getName(): Token {
     return TypeAssert\instance_of(Token::class, $this->_name);
   }
 
   /**
-   * @return ConstructToken | DestructToken | NameToken
+   * @return ConstructToken | NameToken
    */
   public function getNamex(): Token {
     return $this->getName();
@@ -441,7 +441,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function withParameterList(
-    ?NodeList<ListItem<IParameter>> $value,
+    ?NodeList<ListItem<ParameterDeclaration>> $value,
   ): this {
     if ($value === $this->_parameter_list) {
       return $this;
@@ -465,19 +465,18 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return NodeList<ListItem<ParameterDeclaration>> |
-   * NodeList<ListItem<IParameter>> | NodeList<ListItem<VariadicParameter>> |
-   * null
+   * @return NodeList<ListItem<ParameterDeclaration>> | null
    */
-  public function getParameterList(): ?NodeList<ListItem<IParameter>> {
+  public function getParameterList(
+  ): ?NodeList<ListItem<ParameterDeclaration>> {
     return $this->_parameter_list;
   }
 
   /**
-   * @return NodeList<ListItem<ParameterDeclaration>> |
-   * NodeList<ListItem<IParameter>> | NodeList<ListItem<VariadicParameter>>
+   * @return NodeList<ListItem<ParameterDeclaration>>
    */
-  public function getParameterListx(): NodeList<ListItem<IParameter>> {
+  public function getParameterListx(
+  ): NodeList<ListItem<ParameterDeclaration>> {
     return TypeAssert\not_null($this->getParameterList());
   }
 

@@ -61,14 +61,6 @@ function get_unresolved_referenced_names(
       continue;
     }
 
-    if ($node is InstanceofExpression) {
-      $name = $node->getRightOperand();
-      if ($name is NameToken) {
-        $ret['types'][] = $name->getText();
-      }
-      continue;
-    }
-
     if ($node is FunctionCallExpression) {
       $name = $node->getReceiver();
       if ($name is NameToken) {

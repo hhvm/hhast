@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<292596350e047dd4e3ac618d71032a73>>
+ * @generated SignedSource<<3b202efb97258ee4c09a5841d1d296a4>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -57,7 +57,6 @@ class TokenClassMap {
     'darray' => HHAST\DarrayToken::class,
     'default' => HHAST\DefaultToken::class,
     'define' => HHAST\DefineToken::class,
-    '__destruct' => HHAST\DestructToken::class,
     'dict' => HHAST\DictToken::class,
     'do' => HHAST\DoToken::class,
     'double' => HHAST\DoubleToken::class,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<564e8da5fd051884f976d56d8930e46e>>
+ * @generated SignedSource<<b17e7b585498848e5cb163b00c6c6f02>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -188,7 +188,7 @@ final class FieldInitializer extends Node {
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * DarrayIntrinsicExpression | LambdaExpression | LiteralExpression |
    * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
-   * | VariableExpression
+   * | VariableExpression | VarrayIntrinsicExpression
    */
   public function getValue(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_value);
@@ -198,7 +198,7 @@ final class FieldInitializer extends Node {
    * @return ArrayIntrinsicExpression | BinaryExpression |
    * DarrayIntrinsicExpression | LambdaExpression | LiteralExpression |
    * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
-   * | VariableExpression
+   * | VariableExpression | VarrayIntrinsicExpression
    */
   public function getValuex(): IExpression {
     return $this->getValue();

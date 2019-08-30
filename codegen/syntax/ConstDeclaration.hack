@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d92fb9d1ee2cb8600ae174eb7a6f2ae>>
+ * @generated SignedSource<<ff90c5054f5bc4d604e49b7b22f8e81a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -240,9 +240,9 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
 
   /**
    * @return ClassnameTypeSpecifier | DarrayTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | null | NullableTypeSpecifier
-   * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
+   * null | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypeSpecifier(): ?ITypeSpecifier {
     return $this->_type_specifier;
@@ -250,9 +250,9 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
 
   /**
    * @return ClassnameTypeSpecifier | DarrayTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypeSpecifierx(): ITypeSpecifier {
     return TypeAssert\not_null($this->getTypeSpecifier());
