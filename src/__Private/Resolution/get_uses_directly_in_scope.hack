@@ -10,6 +10,7 @@
 namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{
+  FunctionToken,
   NamespaceGroupUseDeclaration,
   NamespaceToken,
   NamespaceUseClause,
@@ -25,9 +26,14 @@ function get_uses_directly_in_scope(
 ): shape(
   'namespaces' => dict<string, string>,
   'types' => dict<string, string>,
+  'functions' => dict<string, string>,
 ) {
   if ($scope === null) {
-    return shape('namespaces' => dict[], 'types' => dict[]);
+    return shape(
+      'namespaces' => dict[],
+      'types' => dict[],
+      'functions' => dict[],
+    );
   }
   $uses = vec[];
 
@@ -66,8 +72,11 @@ function get_uses_directly_in_scope(
 
   $namespaces = dict[];
   $types = dict[];
+  $functions = dict[];
   foreach ($uses as $use) {
     list($kind, $name, $alias) = $use;
+    // Leading "\" in "use" declarations does nothing.
+    $name = Str\strip_prefix($name, '\\');
     $alias = $alias === null
       ? $name
         |> \explode('\\', $$)
@@ -78,15 +87,19 @@ function get_uses_directly_in_scope(
     if ($kind === null) {
       $namespaces[$alias] = $name;
       $types[$alias] = $name;
+      $functions[$alias] = $name;
     } else if ($kind is NamespaceToken) {
       $namespaces[$alias] = $name;
     } else if ($kind is TypeToken) {
       $types[$alias] = $name;
+    } else if ($kind is FunctionToken) {
+      $functions[$alias] = $name;
     }
   }
 
   return shape(
     'namespaces' => $namespaces,
     'types' => $types,
+    'functions' => $functions,
   );
 }

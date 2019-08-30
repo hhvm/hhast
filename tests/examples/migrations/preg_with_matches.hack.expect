@@ -11,6 +11,11 @@
  *
  */
 
+namespace MyNamespace {
+
+use function preg_match as analbumcover;
+use function \preg_match_all as catchthesemen;
+
 function foo(): void {
   $matches = null;
 
@@ -31,14 +36,25 @@ function foo(): void {
     \PREG_SET_ORDER | \PREG_OFFSET_CAPTURE,
   );
 
-  \ // Weird formatting is preserved.
-  preg_match_with_matches /* So long and thanks for all the fish. */ (
+  \preg_match_with_matches /* ...but trivia at the end is preserved. */ (
     '/foo/',
     'bar',
     inout/* no space here */$matches,
   );
 
+  // Aliased.
+  \preg_match_with_matches('/foo/', 'bar', inout $matches);
+  \preg_match_all_with_matches('/foo/', 'bar', inout $matches);
+
   // Not in the root namespace.
   preg_match('/foo/', 'bar', &$matches);
   MyNamespace\preg_match_all('/foo/', 'bar', &$matches);
+}
+
+} // end of MyNamespace
+
+
+function bar(): void {
+  $matches = null;
+  \preg_match_with_matches('/foo/', 'bar', inout $matches);
 }

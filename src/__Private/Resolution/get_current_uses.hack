@@ -17,6 +17,7 @@ function get_current_uses(
 ): shape(
   'namespaces' => dict<string, string>,
   'types' => dict<string, string>,
+  'functions' => dict<string, string>,
 ) {
   $namespaces = $root->getNamespaces();
   if (!$namespaces) {
@@ -32,5 +33,9 @@ function get_current_uses(
     }
   }
 
-  return shape('namespaces' => dict[], 'types' => dict[]);
+  return shape(
+    'namespaces' => dict[],
+    'types' => dict[],
+    'functions' => dict[],
+  );
 }
