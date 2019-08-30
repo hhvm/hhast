@@ -34,7 +34,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     }
 
     list($header, $body) = $this->getFunctionishParts($functionish);
-    if (C\contains($this->getAlwaysUsedVariables($header), $name)) {
+    if (C\contains($this->getAlwaysUsedVariables($header, $body), $name)) {
       return null;
     }
 
@@ -55,15 +55,40 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
 
   /**
    * Get parameters that are passed by reference or marked inout which are always
-   * considered "used"
+   * considered "used".
+   *
+   * This also looks for parameters to anonymous functions and lambda expressions
+   * that are passed by reference or marked inout and treats those as always
+   * used. This is done to avoid false positives at the cost of potential false
+   * negatives (unused variables that are not identified as unused).
    */
+  <<__Memoize>>
   private function getAlwaysUsedVariables(
     FunctionDeclarationHeader $header,
+    CompoundStatement $body,
   ): keyset<string> {
     $params = $header->getDescendantsOfType(ParameterDeclaration::class);
+    $anon_fns = $body->getDescendantsOfType(AnonymousFunction::class);
+    $lambdas = $body->getDescendantsOfType(LambdaExpression::class);
+
+    $anon_fn_params = Vec\map($anon_fns, $fn ==> {
+      $params = $fn->getParameters();
+      return $params is null
+        ? vec[]
+        : $params->getDescendantsOfType(ParameterDeclaration::class);
+    })
+      |> Vec\flatten($$);
+
+    $lambda_params = Vec\map($lambdas, $lambda ==> {
+      $signature = $lambda->getSignature();
+      return $signature is LambdaSignature
+        ? $signature->getDescendantsOfType(ParameterDeclaration::class)
+        : vec[];
+    })
+      |> Vec\flatten($$);
 
     return Vec\filter(
-      $params,
+      Vec\concat($params, $anon_fn_params, $lambda_params),
       $p ==> self::isByRefParam($p) || self::isInoutParam($p),
     )
       |> Keyset\map($$, $p ==> self::getParamName($p));
