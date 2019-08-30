@@ -32,6 +32,10 @@ final class UnusedVariableLinterTest extends TestCase {
       tuple('<?hh function foo() { $users = []; $u = ["id" => 15]; $users[$u["id"]] = 5; return $users; }'),
       tuple('<?hh function foo() { $s = "a"; echo "{$s}"; }'),
       tuple('<?hh function foo() { return (inout vec<int> $p) ==> { $p[] = 1; }; }'),
+      tuple('<?hh function foo() { return function(inout vec<int> $p) ==> { $p[] = 1; }; }',),
+      // This is a false negative, tested here for documentation
+      // It would be an improvement to detect $a = 10 as unused while not detecting $a = 5 as unused.
+      tuple('<?hh function foo() { (inout $a) ==> { $a = 5; }; $a = 10; }'),
       tuple('<?hh class C { public function foo() { $bar = 1; return $bar; } }'),
       tuple('<?hh class C { public function foo() { $_bar = 1; return 2; } }'),
       tuple('<?hh class C { public function foo() { $GLOBALS["foo"] = "bar"; } }'),
