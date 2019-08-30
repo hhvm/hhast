@@ -22,6 +22,7 @@ use type Facebook\HHAST\{
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
+  PregWithMatchesMigration,
   TopLevelRequiresMigration,
 };
 
@@ -258,6 +259,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Migrate /* HH_FIXME[4110] */ to the equivalent new error codes',
         '--migrate-fixme-4110',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = Fixme4110Migration::class;
+        },
+        'Migrate preg_match[_all]() with a by-ref/inout $matches argument to '.
+        'preg_match[_all]_with_matches()',
+        '--preg-with-matches',
       ),
       CLIOptions\flag(
         () ==> {
