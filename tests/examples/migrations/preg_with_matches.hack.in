@@ -36,6 +36,10 @@ function foo(): void {
     \PREG_SET_ORDER | \PREG_OFFSET_CAPTURE,
   );
 
+  if (\preg_match('/foo/', 'bar', &$matches)) {
+    return;
+  }
+
   \ // Trivia in the middle of the function name is lost...
   preg_match /* ...but trivia at the end is preserved. */ (
     '/foo/',
