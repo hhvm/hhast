@@ -79,6 +79,7 @@ final class ResolutionTest extends TestCase {
     shape(
       'namespaces' => dict<string, string>,
       'types' => dict<string, string>,
+      'functions' => dict<string, string>,
     ),
   )> {
     return [
@@ -95,20 +96,28 @@ final class ResolutionTest extends TestCase {
             'Bar' => 'Bar',
             'Baz' => 'Baz',
           ],
+          'functions' => dict[
+            'Foo' => 'Foo',
+            'Bar' => 'Bar',
+            'Baz' => 'Baz',
+          ],
         ),
       ),
       tuple(
-        '<?hh use namespace Foo, type Bar; class Target {}',
+        '<?hh use namespace Foo, type Bar, function Baz; class Target {}',
         shape(
           'namespaces' => dict['Foo' => 'Foo'],
           'types' => dict['Bar' => 'Bar'],
+          'functions' => dict['Baz' => 'Baz'],
         ),
       ),
       tuple(
-        '<?hh use Foo as Bar, type Herp as Derp; class Target {}',
+        '<?hh use Foo as Bar, type Herp as Derp, function Hot as Cold; '.
+        'class Target {}',
         shape(
           'namespaces' => dict['Bar' => 'Foo'],
           'types' => dict['Bar' => 'Foo', 'Derp' => 'Herp'],
+          'functions' => dict['Bar' => 'Foo', 'Cold' => 'Hot'],
         ),
       ),
       tuple(
@@ -117,13 +126,25 @@ final class ResolutionTest extends TestCase {
         shape(
           'namespaces' => dict[],
           'types' => dict['Foo' => 'Foo', 'Derp' => 'Herp\\Derp'],
+          'functions' => dict[],
         ),
       ),
       tuple(
-        '<?hh use type NS\\{Foo, Bar}; class Target{}',
+        '<?hh use type NS\\{Foo, Bar}; use function NS\\{Herp, Derp}; '.
+        'class Target{}',
         shape(
           'namespaces' => dict[],
           'types' => dict['Foo' => 'NS\\Foo', 'Bar' => 'NS\\Bar'],
+          'functions' => dict['Herp' => 'NS\\Herp', 'Derp' => 'NS\\Derp'],
+        ),
+      ),
+      // Verify meaningless "\" are stripped.
+      tuple(
+        '<?hh use namespace \\Foo, type \\Bar, function \\Baz; class Target{}',
+        shape(
+          'namespaces' => dict['Foo' => 'Foo'],
+          'types' => dict['Bar' => 'Bar'],
+          'functions' => dict['Baz' => 'Baz'],
         ),
       ),
     ];

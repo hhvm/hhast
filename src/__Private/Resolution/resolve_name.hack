@@ -51,11 +51,11 @@ function resolve_name(
 
   if (Str\contains($name, '\\')) {
     $maybe_aliased = $name
-      |> \explode("\\", $$)
+      |> Str\split($$, '\\')
       |> C\firstx($$);
     if (C\contains_key($used_namespaces, $maybe_aliased)) {
       return $name
-        |> \explode('\\', $$)
+        |> Str\split($$, '\\')
         |> Vec\drop($$, 1)
         |> Str\join($$, '\\')
         |> $used_namespaces[$maybe_aliased].'\\'.$$;
