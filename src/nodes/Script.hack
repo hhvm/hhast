@@ -40,6 +40,7 @@ final class Script extends ScriptGeneratedBase {
     'uses' => shape(
       'namespaces' => dict<string, string>,
       'types' => dict<string, string>,
+      'functions' => dict<string, string>,
     ),
   );
 
@@ -79,6 +80,7 @@ final class Script extends ScriptGeneratedBase {
             'namespaces' =>
               Dict\merge($outer['namespaces'], $inner['namespaces']),
             'types' => Dict\merge($outer['types'], $inner['types']),
+            'functions' => Dict\merge($outer['functions'], $inner['functions']),
           ),
         );
       },

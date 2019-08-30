@@ -1,0 +1,60 @@
+<?hh // strict
+
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional
+ * grant of patent rights can be found in the PATENTS file in the same
+ * directory.
+ *
+ */
+
+namespace MyNamespace {
+
+use function preg_match as analbumcover;
+use function \preg_match_all as catchthesemen;
+
+function foo(): void {
+  $matches = null;
+
+  \preg_match('/foo/', 'bar');
+  \preg_match_all('/foo/', 'bar');
+
+  \preg_match_with_matches('/foo/', 'bar', inout $matches);
+  \preg_match_all_with_matches('/foo/', 'bar', inout $matches);
+
+  \preg_match_with_matches('/foo/', 'bar', inout $matches);
+  \preg_match_all_with_matches('/foo/', 'bar', inout $matches);
+
+  \preg_match_with_matches('/foo/', 'bar', inout $matches, \PREG_UNMATCHED_AS_NULL, 42);
+  \preg_match_all_with_matches(
+    '/foo/',
+    'bar',
+    inout $matches,
+    \PREG_SET_ORDER | \PREG_OFFSET_CAPTURE,
+  );
+
+  \preg_match_with_matches /* ...but trivia at the end is preserved. */ (
+    '/foo/',
+    'bar',
+    inout/* no space here */$matches,
+  );
+
+  // Aliased.
+  \preg_match_with_matches('/foo/', 'bar', inout $matches);
+  \preg_match_all_with_matches('/foo/', 'bar', inout $matches);
+
+  // Not in the root namespace.
+  preg_match('/foo/', 'bar', &$matches);
+  MyNamespace\preg_match_all('/foo/', 'bar', &$matches);
+}
+
+} // end of MyNamespace
+
+
+function bar(): void {
+  $matches = null;
+  \preg_match_with_matches('/foo/', 'bar', inout $matches);
+}
