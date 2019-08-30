@@ -262,7 +262,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = Fixme4110Migration::class;
+          $this->migrations[] = PregWithMatchesMigration::class;
         },
         'Migrate preg_match[_all]() with a by-ref/inout $matches argument to '.
         'preg_match[_all]_with_matches()',

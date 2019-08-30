@@ -44,11 +44,8 @@ final class PregWithMatchesMigration extends BaseMigration {
           $fn_name .= $part->getItem()?->getText() ?? '';
           $fn_name .= $part->getSeparator()?->getText() ?? '';
         }
-      } else {
-        invariant_violation(
-          'Unsupported function call receiver type %s.',
-          \get_class($receiver),
-        );
+      } else {  // probably a method call
+        continue;
       }
 
       $resolved_name = resolve_function($fn_name, $root, $node);

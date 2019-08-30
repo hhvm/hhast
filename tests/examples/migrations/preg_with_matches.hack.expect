@@ -36,6 +36,10 @@ function foo(): void {
     \PREG_SET_ORDER | \PREG_OFFSET_CAPTURE,
   );
 
+  if (\preg_match_with_matches('/foo/', 'bar', inout $matches)) {
+    return;
+  }
+
   \preg_match_with_matches /* ...but trivia at the end is preserved. */ (
     '/foo/',
     'bar',
