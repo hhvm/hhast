@@ -1,0 +1,44 @@
+<?hh // strict
+
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional
+ * grant of patent rights can be found in the PATENTS file in the same
+ * directory.
+ *
+ */
+
+function foo(): void {
+  $matches = null;
+
+  \preg_match('/foo/', 'bar');
+  \preg_match_all('/foo/', 'bar');
+
+  \preg_match_with_matches('/foo/', 'bar', inout $matches);
+  \preg_match_all_with_matches('/foo/', 'bar', inout $matches);
+
+  \preg_match_with_matches('/foo/', 'bar', inout $matches);
+  \preg_match_all_with_matches('/foo/', 'bar', inout $matches);
+
+  \preg_match_with_matches('/foo/', 'bar', inout $matches, \PREG_UNMATCHED_AS_NULL, 42);
+  \preg_match_all_with_matches(
+    '/foo/',
+    'bar',
+    inout $matches,
+    \PREG_SET_ORDER | \PREG_OFFSET_CAPTURE,
+  );
+
+  \ // Weird formatting is preserved.
+  preg_match_with_matches /* So long and thanks for all the fish. */ (
+    '/foo/',
+    'bar',
+    inout/* no space here */$matches,
+  );
+
+  // Not in the root namespace.
+  preg_match('/foo/', 'bar', &$matches);
+  MyNamespace\preg_match_all('/foo/', 'bar', &$matches);
+}
