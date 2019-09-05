@@ -12,12 +12,35 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\C;
 use namespace Facebook\HHAST\__Private\Resolution;
 
-function resolve_type(string $type, Script $root, Node $node): string {
+enum ResolvedTypeKind: string {
+  GENERIC_PARAMETER = 'generic_parameter';
+  QUALIFIED_TYPE = 'qualified_type';
+}
+
+function resolve_type(
+  string $type,
+  Script $root,
+  Node $node,
+): shape('kind' => ResolvedTypeKind, 'name' => string) {
   $uses = Resolution\get_current_uses($root, $node);
 
-  if (C\contains_key($uses['types'], $type)) {
-    return $uses['types'][$type];
+  if (C\contains_key(Resolution\get_current_generics($root, $node), $type)) {
+    // Generic type names don't belong to a namespace, nothing to resolve.
+    return shape(
+      'kind' => ResolvedTypeKind::GENERIC_PARAMETER,
+      'name' => $type,
+    );
   }
 
-  return Resolution\resolve_name($type, $root, $node, $uses['namespaces']);
+  if (C\contains_key($uses['types'], $type)) {
+    return shape(
+      'kind' => ResolvedTypeKind::QUALIFIED_TYPE,
+      'name' => $uses['types'][$type],
+    );
+  }
+
+  return shape(
+    'kind' => ResolvedTypeKind::QUALIFIED_TYPE,
+    'name' => Resolution\resolve_name($type, $root, $node, $uses['namespaces']),
+  );
 }

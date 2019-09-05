@@ -187,6 +187,8 @@ final class ResolutionTest extends TestCase {
         'Herp\\Derp',
         'Herp\\Derp',
       ),
+      // generics
+      tuple('<?hh namespace Foo; class Target<T> {}', 'T', 'T'),
     ];
   }
 
@@ -197,7 +199,7 @@ final class ResolutionTest extends TestCase {
     string $expected,
   ): Awaitable<void> {
     list($root, $node) = await self::getRootAndNodeAsync($code);
-    expect(resolve_type($type, $root, $node))
+    expect(resolve_type($type, $root, $node)['name'])
       ->toBeSame($expected);
   }
 }

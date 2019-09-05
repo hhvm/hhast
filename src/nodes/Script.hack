@@ -86,4 +86,54 @@ final class Script extends ScriptGeneratedBase {
       },
     );
   }
+
+  /**
+   * Find all nodes that have generics and return both the nodes and their
+   * generics.
+   */
+  <<__Memoize>>
+  public function getNodesWithGenerics(): vec<(Node, TypeParameters)> {
+    $root = $this->getDeclarationsx();
+
+    // Sadly these don't have a consistent API so we need a separate Vec\map
+    // for each node type.
+    $nodes_with_maybe_generics = Vec\concat(
+      // classes/interfaces/traits
+      Vec\map(
+        $root->getChildrenOfType(ClassishDeclaration::class),
+        $n ==> tuple($n, $n->getTypeParameters()),
+      ),
+      // type declarations
+      Vec\map(
+        $root->getChildrenOfType(AliasDeclaration::class),
+        $n ==> tuple($n, $n->getGenericParameter()),
+      ),
+      Vec\map(
+        $root->getChildrenOfType(TypeConstDeclaration::class),
+        $n ==> tuple($n, $n->getTypeParameters() as ?TypeParameters),
+      ),
+      // functions/methods
+      Vec\map(
+        $root->getChildrenOfType(FunctionDeclaration::class),
+        $n ==> tuple($n, $n->getDeclarationHeader()->getTypeParameterList()),
+      ),
+      Vec\map(
+        $root->getChildrenOfType(MethodishDeclaration::class),
+        $n ==> tuple($n, $n->getFunctionDeclHeader()->getTypeParameterList()),
+      ),
+      // whatever this is
+      Vec\map(
+        $root->getChildrenOfType(MethodishTraitResolution::class),
+        $n ==> tuple($n, $n->getFunctionDeclHeader()->getTypeParameterList()),
+      ),
+    );
+
+    $nodes_with_generics = vec[];
+    foreach ($nodes_with_maybe_generics as list($node, $maybe_generics)) {
+      if ($maybe_generics is nonnull) {
+        $nodes_with_generics[] = tuple($node, $maybe_generics);
+      }
+    }
+    return $nodes_with_generics;
+  }
 }

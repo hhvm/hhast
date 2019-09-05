@@ -45,7 +45,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
           '%s::%s() overrides %s::%s() without <<__Override>>',
           $class->getNamex()->getCode()
             |> Str\trim($$)
-            |> resolve_type($$, $root, $node),
+            |> resolve_type($$, $root, $node)['name'],
           $method,
           $reflection_method->getDeclaringClass()->getName(),
           $method,
@@ -73,7 +73,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     }
     return $super->getCode()
       |> Str\trim($$)
-      |> resolve_type($$, $root, $class);
+      |> resolve_type($$, $root, $class)['name'];
   }
 
   private function canIgnoreMethod(
