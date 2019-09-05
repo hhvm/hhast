@@ -12,11 +12,6 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\C;
 use namespace Facebook\HHAST\__Private\Resolution;
 
-enum ResolvedTypeKind: string {
-  GENERIC_PARAMETER = 'generic_parameter';
-  QUALIFIED_TYPE = 'qualified_type';
-}
-
 function resolve_type(
   string $type,
   Script $root,
