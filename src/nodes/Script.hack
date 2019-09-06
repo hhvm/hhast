@@ -35,8 +35,8 @@ final class Script extends ScriptGeneratedBase {
   }
 
   const type TNamespace = shape(
-    'decl' => NamespaceDeclaration,
-    'statement' => bool,
+    'name' => ?string,
+    'children' => NodeList<Node>,
     'uses' => shape(
       'namespaces' => dict<string, string>,
       'types' => dict<string, string>,
@@ -44,45 +44,80 @@ final class Script extends ScriptGeneratedBase {
     ),
   );
 
+  /**
+   * Returns all namespaces along with a list of `use`s applicable inside each
+   * namespace. Also returns a NodeList of declarations belonging to each
+   * namespace, which are correctly resolved for namespace declarations both
+   * with and without a body.
+   */
   <<__Memoize>>
   public function getNamespaces(): vec<this::TNamespace> {
-    $namespaces = $this->getDeclarationsx()
-      ->getChildrenOfType(NamespaceDeclaration::class)
-      |> vec($$);
-    $count = C\count($namespaces);
-    if ($count === 0) {
-      return vec[];
+    $all_declarations = $this->getDeclarationsx()->getChildren();
+    $global_declarations = vec[];
+    $namespaces = vec[];
+
+    $idx = 0;
+    while ($idx < C\count($all_declarations)) {
+      $namespace = $all_declarations[$idx++];
+      if (!$namespace is NamespaceDeclaration) {
+        $global_declarations[] = $namespace;
+        continue;
+      }
+
+      $body = $namespace->getBody();
+      if ($body is NamespaceBody) {
+        $namespaces[] = shape(
+          'name' => $namespace->getQualifiedNameAsString(),
+          'children' =>
+            $body->getDeclarations() ?? NodeList::createMaybeEmptyList(vec[]),
+        );
+        continue;
+      }
+
+      // Everything until the next namespace declaration belongs to this
+      // namespace.
+      $children = vec[];
+      while (
+        $idx < C\count($all_declarations) &&
+        !$all_declarations[$idx] is NamespaceDeclaration
+      ) {
+        $children[] = $all_declarations[$idx++];
+      }
+
+      $namespaces[] = shape(
+        'name' => $namespace->getQualifiedNameAsString(),
+        'children' => NodeList::createMaybeEmptyList($children),
+      );
     }
-    $outer = __Private\Resolution\get_uses_directly_in_scope(
-      $this->getDeclarationsx(),
+
+    $global_nodelist = NodeList::createMaybeEmptyList($global_declarations);
+
+    // Add-in the global namespace.
+    $namespaces[] = shape(
+      'name' => null,
+      'children' => $global_nodelist,
     );
 
-    if (
-      $count === 1 && $namespaces[0]->getBody() is NamespaceEmptyBody
-    ) {
-      return vec[shape(
-        'statement' => true,
-        'decl' => $namespaces[0],
-        'uses' => $outer,
-      )];
-    }
+    // Normalize name and calculate `use`s for each namespace.
+
+    // Global `use` declarations apply to each namespace.
+    $outer = __Private\Resolution\get_uses_directly_in_scope($global_nodelist);
 
     return Vec\map(
       $namespaces,
       $ns ==> {
-        $inner = __Private\Resolution\get_uses_directly_in_scope(
-          ($ns->getBody() as NamespaceBody)->getDeclarations(),
+        if ($ns['name'] === '') {
+          $ns['name'] = null;
+        }
+        $inner =
+          __Private\Resolution\get_uses_directly_in_scope($ns['children']);
+        $ns['uses'] = shape(
+          'namespaces' =>
+            Dict\merge($outer['namespaces'], $inner['namespaces']),
+          'types' => Dict\merge($outer['types'], $inner['types']),
+          'functions' => Dict\merge($outer['functions'], $inner['functions']),
         );
-        return shape(
-          'statement' => false,
-          'decl' => $ns,
-          'uses' => shape(
-            'namespaces' =>
-              Dict\merge($outer['namespaces'], $inner['namespaces']),
-            'types' => Dict\merge($outer['types'], $inner['types']),
-            'functions' => Dict\merge($outer['functions'], $inner['functions']),
-          ),
-        );
+        return $ns;
       },
     );
   }

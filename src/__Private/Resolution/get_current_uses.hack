@@ -19,20 +19,13 @@ function get_current_uses(
   'types' => dict<string, string>,
   'functions' => dict<string, string>,
 ) {
-  $namespaces = $root->getNamespaces();
-  if (!$namespaces) {
-    return get_uses_directly_in_scope($root->getDeclarations());
-  }
-  if ($namespaces[0]['statement']) {
-    return $namespaces[0]['uses'];
-  }
-
-  foreach ($namespaces as $ns) {
-    if ($ns['decl']->isAncestorOf($node)) {
+  foreach ($root->getNamespaces() as $ns) {
+    if ($ns['children']->isAncestorOf($node)) {
       return $ns['uses'];
     }
   }
 
+  // We should only get here if $node is inside a namespace declaration header.
   return shape(
     'namespaces' => dict[],
     'types' => dict[],

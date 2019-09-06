@@ -10,23 +10,14 @@
 namespace Facebook\HHAST\__Private\Resolution;
 
 use type Facebook\HHAST\{Node, Script};
-use namespace HH\Lib\C;
 
 function get_current_namespace(Script $root, Node $node): ?string {
-  $namespaces = $root->getNamespaces();
-  if (C\is_empty($namespaces)) {
-    return null;
-  }
-  if ($namespaces[0]['statement']) {
-    return $namespaces[0]['decl']->getQualifiedNameAsString();
-  }
-
-  foreach ($namespaces as $ns) {
-    $ns = $ns['decl'];
-    if ($ns->isAncestorOf($node)) {
-      $ns = $ns->getQualifiedNameAsString();
-      return ($ns === '') ? null : $ns;
+  foreach ($root->getNamespaces() as $ns) {
+    if ($ns['children']->isAncestorOf($node)) {
+      return $ns['name'];
     }
   }
+
+  // We should only get here if $node is inside a namespace declaration header.
   return null;
 }

@@ -189,17 +189,38 @@ final class ResolutionTest extends TestCase {
       ),
       // generics
       tuple('<?hh namespace Foo; class Target<T> {}', 'T', 'T'),
+      // multiple namespaces
+      tuple(
+        'namespace Foo; namespace Bar; class Target {}',
+        'Target',
+        'Bar\\Target',
+      ),
+      tuple(
+        'namespace Foo; class Target {} namespace Bar;',
+        'Target',
+        'Foo\\Target',
+      ),
+      tuple(
+        'class Target {} namespace Foo; namespace Bar;',
+        'Target',
+        'Target',
+      ),
+      // multiple namespaces with a "use" statement
+      tuple(
+        'use type Herp\Derp; namespace Foo; namespace Bar; class Target {}',
+        'Derp',
+        'Herp\\Derp',
+      ),
+      tuple(
+        'namespace Foo; use type Herp\Derp; namespace Bar; class Target {}',
+        'Derp',
+        'Bar\\Derp',
+      ),
+      tuple(
+        'namespace Foo; namespace Bar; use type Herp\Derp; class Target {}',
+        'Derp',
+        'Herp\\Derp',
+      ),
     ];
-  }
-
-  <<DataProvider('getTypeResolutionExamples')>>
-  public async function testTypeResolution(
-    string $code,
-    string $type,
-    string $expected,
-  ): Awaitable<void> {
-    list($root, $node) = await self::getRootAndNodeAsync($code);
-    expect(resolve_type($type, $root, $node)['name'])
-      ->toBeSame($expected);
   }
 }
