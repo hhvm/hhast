@@ -17,8 +17,17 @@ function resolve_type(
   Script $root,
   Node $node,
 ): shape('kind' => ResolvedTypeKind, 'name' => string) {
+  if ($type === 'callable') {
+    // Super special case. It's not a legal type anymore but still supported by
+    // runtime.
+    return shape(
+      'kind' => ResolvedTypeKind::CALLABLE,
+      'name' => 'callable',
+    );
+  }
+
+  // From hhvm/hphp/hack/src/parser/namespaces.ml
   $autoimports = keyset[
-    // from hhvm/hphp/hack/src/parser/namespaces.ml
     'AsyncFunctionWaitHandle',
     'AsyncGenerator',
     'AsyncGeneratorWaitHandle',
@@ -58,8 +67,6 @@ function resolve_type(
     'Vector',
     'WaitableWaitHandle',
     'XenonSample',
-    // not a legal type anymore but still supported by runtime
-    'callable',
   ];
 
   if (C\contains_key($autoimports, $type)) {
