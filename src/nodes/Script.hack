@@ -135,30 +135,30 @@ final class Script extends ScriptGeneratedBase {
     $nodes_with_maybe_generics = Vec\concat(
       // classes/interfaces/traits
       Vec\map(
-        $root->getChildrenOfType(ClassishDeclaration::class),
+        $root->getDescendantsOfType(ClassishDeclaration::class),
         $n ==> tuple($n, $n->getTypeParameters()),
       ),
       // type declarations
       Vec\map(
-        $root->getChildrenOfType(AliasDeclaration::class),
+        $root->getDescendantsOfType(AliasDeclaration::class),
         $n ==> tuple($n, $n->getGenericParameter()),
       ),
       Vec\map(
-        $root->getChildrenOfType(TypeConstDeclaration::class),
+        $root->getDescendantsOfType(TypeConstDeclaration::class),
         $n ==> tuple($n, $n->getTypeParameters() as ?TypeParameters),
       ),
       // functions/methods
       Vec\map(
-        $root->getChildrenOfType(FunctionDeclaration::class),
+        $root->getDescendantsOfType(FunctionDeclaration::class),
         $n ==> tuple($n, $n->getDeclarationHeader()->getTypeParameterList()),
       ),
       Vec\map(
-        $root->getChildrenOfType(MethodishDeclaration::class),
+        $root->getDescendantsOfType(MethodishDeclaration::class),
         $n ==> tuple($n, $n->getFunctionDeclHeader()->getTypeParameterList()),
       ),
       // whatever this is
       Vec\map(
-        $root->getChildrenOfType(MethodishTraitResolution::class),
+        $root->getDescendantsOfType(MethodishTraitResolution::class),
         $n ==> tuple($n, $n->getFunctionDeclHeader()->getTypeParameterList()),
       ),
     );
