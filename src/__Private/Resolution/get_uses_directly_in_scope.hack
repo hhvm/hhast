@@ -85,9 +85,9 @@ function get_uses_directly_in_scope(
       |> Str\trim($$)
       |> Str\strip_prefix($$, '\\');
     if ($kind === null) {
-      $namespaces[$alias] = $name;
-      $types[$alias] = $name;
-      $functions[$alias] = $name;
+      $namespaces[$alias] ??= $name;
+      $types[$alias] ??= $name;
+      $functions[$alias] ??= $name;
     } else if ($kind is NamespaceToken) {
       $namespaces[$alias] = $name;
     } else if ($kind is TypeToken) {
