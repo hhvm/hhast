@@ -17,7 +17,57 @@ function resolve_type(
   Script $root,
   Node $node,
 ): shape('kind' => ResolvedTypeKind, 'name' => string) {
-  $uses = Resolution\get_current_uses($root, $node);
+  $autoimports = keyset[
+    // from hhvm/hphp/hack/src/parser/namespaces.ml
+    AsyncFunctionWaitHandle::class,
+    AsyncGenerator::class,
+    AsyncGeneratorWaitHandle::class,
+    AsyncIterator::class,
+    AsyncKeyedIterator::class,
+    Awaitable::class,
+    AwaitAllWaitHandle::class,
+    Collection::class,
+    ConditionWaitHandle::class,
+    Container::class,
+    ExternalThreadEventWaitHandle::class,
+    IMemoizeParam::class,
+    ImmMap::class,
+    ImmSet::class,
+    ImmVector::class,
+    InvariantException::class,
+    Iterable::class,
+    Iterator::class,
+    KeyedContainer::class,
+    KeyedIterable::class,
+    KeyedIterator::class,
+    KeyedTraversable::class,
+    Map::class,
+    ObjprofObjectStats::class,
+    ObjprofPathsStats::class,
+    ObjprofStringStats::class,
+    Pair::class,
+    RescheduleWaitHandle::class,
+    ResumableWaitHandle::class,
+    Set::class,
+    Shapes::class,
+    SleepWaitHandle::class,
+    StaticWaitHandle::class,
+    Traversable::class,
+    TypeStructure::class,
+    TypeStructureKind::class,
+    Vector::class,
+    WaitableWaitHandle::class,
+    XenonSample::class,
+    // not a legal type anymore but still supported by runtime
+    'callable',
+  ];
+
+  if (C\contains_key($autoimports, $type)) {
+    return shape(
+      'kind' => ResolvedTypeKind::QUALIFIED_AUTOIMPORTED_TYPE,
+      'name' => 'HH\\'.$type,
+    );
+  }
 
   if (C\contains_key(Resolution\get_current_generics($root, $node), $type)) {
     // Generic type names don't belong to a namespace, nothing to resolve.
@@ -26,6 +76,8 @@ function resolve_type(
       'name' => $type,
     );
   }
+
+  $uses = Resolution\get_current_uses($root, $node);
 
   if (C\contains_key($uses['types'], $type)) {
     return shape(

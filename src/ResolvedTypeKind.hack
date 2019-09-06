@@ -12,4 +12,5 @@ namespace Facebook\HHAST;
 enum ResolvedTypeKind: string {
   GENERIC_PARAMETER = 'generic_parameter';
   QUALIFIED_TYPE = 'qualified_type';
+  QUALIFIED_AUTOIMPORTED_TYPE = 'qualified_autoimported_type';
 }

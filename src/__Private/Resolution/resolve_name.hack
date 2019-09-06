@@ -26,27 +26,6 @@ function resolve_name(
     'Call on the class name without generics',
   );
 
-  $autoimports = keyset[
-    'Awaitable',
-    'ConstMap',
-    'ConstSet',
-    'ConstVector',
-    'Container',
-    'ImmMap',
-    'ImmSet',
-    'ImmVector',
-    'KeyedContainer',
-    'KeyedTraversable',
-    'Map',
-    'Set',
-    'Stringish',
-    'Traversable',
-    'Vector',
-  ];
-  if (C\contains_key($autoimports, $name)) {
-    return 'HH\\'.$name;
-  }
-
   $ns = get_current_namespace($root, $node);
 
   if (Str\contains($name, '\\')) {
