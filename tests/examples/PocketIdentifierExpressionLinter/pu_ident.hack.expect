@@ -1,0 +1,11 @@
+[
+    {
+        "blame": "PocketIdentifierExpressionLinter ",
+        "blame_pretty": "Pocket Universes Identifier ",
+        "description": [
+            "This is a reserved syntax for the Pocket Universes prototype.",
+            "Only use it if you know  what you are doing.",
+            "We advise you to remove it."
+        ].join("\n")
+    }
+]
