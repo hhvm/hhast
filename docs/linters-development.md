@@ -22,6 +22,19 @@ The best way is to read through [the existing linters](../src/Linters/) to get a
 
 It's best to heavily use unit tests when working on linters; once your tests pass and you're ready to get started, add it to your `hhast-lint.json`.
 
+## Testing
+
+We are using *HackTest* -- see [its documentation](https://github.com/hhvm/hacktest/blob/master/README.md).
+
+Instead of extending `TestCase` directly, you probably want to extend one of the more specific base classes (use the `LinterTestTrait` trait for linter tests). Again, see [existing tests](https://github.com/hhvm/hhast/tree/master/tests) for examples.
+
+Most tests require Hack files as input and expected output. These go in the [`tests/examples`](https://github.com/hhvm/hhast/tree/master/tests/examples) directory. You should provide:
+
+- `file.hack.in` -- test input
+- `file.hack.expect` -- expected output (if you don't create one, the test framework will offer to do so when you run your test for the first time)
+- `file.hack.autofix.expect` (for auto-fixing linters) -- expected code after applying autofixes
+- `file.hack.hhconfig` (optional) -- custom `.hhconfig` file, if your test depends on specific options
+
 ## Advice
 
  - install `jq` or another JSON prettifier, and examine files containing AST structures you're interested in with `hh_parse --full-fidelity-json $file | jq`
