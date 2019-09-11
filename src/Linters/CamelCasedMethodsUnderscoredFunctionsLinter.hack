@@ -38,10 +38,13 @@ class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
       }
     }
 
+    $_count = null;
     return \preg_replace_callback(
       '/[A-Z]+/',
       $matches ==> '_'.Str\lowercase($matches[0]),
       $head,
+      -1,
+      inout $_count,
     )
       |> Str\strip_prefix($$, '_')
       |> Str\strip_suffix($$, '_')
@@ -59,10 +62,13 @@ class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
       return $name;
     }
 
+    $_count = null;
     $name = \preg_replace_callback(
       '/_[a-z]/',
       $matches ==> Str\uppercase($matches[0][1]),
       $head,
+      -1,
+      inout $_count,
     )
       |> ($suffix === null ? $$ : $$.'_'.$suffix);
     $name[0] = Str\lowercase($name[0]);
