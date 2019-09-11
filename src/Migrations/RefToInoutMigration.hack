@@ -13,10 +13,12 @@ use namespace HH\Lib\C;
 use function Facebook\HHAST\resolve_function;
 
 /**
- * Migrates preg_match() and preg_match_all() calls with a by-ref $matches
- * argument to preg_match_with_matches() and preg_match_all_with_matches().
+ * Migrates builtin functions that originally accepted one or more parameters by
+ * reference to the equivalent functions with inout parameters. For example,
+ * preg_match() and preg_match_all() to preg_match_with_matches() and
+ * preg_match_all_with_matches().
  */
-final class PregWithMatchesMigration extends BaseMigration {
+final class RefToInoutMigration extends BaseMigration {
 
   const dict<string, string> REPLACEMENTS = dict[
     'preg_match' => 'preg_match_with_matches',
