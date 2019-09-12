@@ -9,6 +9,6 @@
 
 namespace Facebook\HHAST;
 
-final class PregWithMatchesMigrationTest extends MigrationTest {
-  const type TMigration = PregWithMatchesMigration;
+final class RefToInoutMigrationTest extends MigrationTest {
+  const type TMigration = RefToInoutMigration;
 }

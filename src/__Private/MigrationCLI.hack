@@ -22,7 +22,7 @@ use type Facebook\HHAST\{
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
-  PregWithMatchesMigration,
+  RefToInoutMigration,
   TopLevelRequiresMigration,
 };
 
@@ -262,11 +262,12 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = PregWithMatchesMigration::class;
+          $this->migrations[] = RefToInoutMigration::class;
         },
-        'Migrate preg_match[_all]() with a by-ref/inout $matches argument to '.
-        'preg_match[_all]_with_matches()',
-        '--preg-with-matches',
+        'Migrate builtin functions with by-ref parameters to the equivalent '.
+        'functions with inout parameters (e.g. preg_match to '.
+        'preg_match_with_matches)',
+        '--ref-to-inout',
       ),
       CLIOptions\flag(
         () ==> {
