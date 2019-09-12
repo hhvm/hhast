@@ -54,6 +54,13 @@ function foo(): void {
   // Not in the root namespace.
   preg_match('/foo/', 'bar', &$matches);
   MyNamespace\preg_match_all('/foo/', 'bar', &$matches);
+
+  // Some other functions.
+  \current(&$arr);
+  \key(inout $arr);
+
+  // By-ref to inout without renaming.
+  \reset(&$arr);
 }
 
 } // end of MyNamespace

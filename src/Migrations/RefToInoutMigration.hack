@@ -9,9 +9,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\C;
-use function Facebook\HHAST\resolve_function;
-
 /**
  * Migrates builtin functions that originally accepted one or more parameters by
  * reference to the equivalent functions with inout parameters. For example,
@@ -20,10 +17,135 @@ use function Facebook\HHAST\resolve_function;
  */
 final class RefToInoutMigration extends BaseMigration {
 
-  const dict<string, string> REPLACEMENTS = dict[
-    'preg_match' => 'preg_match_with_matches',
-    'preg_match_all' => 'preg_match_all_with_matches',
-  ];
+  const type TNodes = shape(
+    'root' => Script,
+    'call' => FunctionCallExpression,
+    'name' => Node,
+    'args' => vec<IExpression>,
+  );
+
+  <<__Memoize>>
+  private static function getRules(
+  ): dict<string, (function(this::TNodes): Script)> {
+    return dict[
+      'current' => $n ==>
+        self::renameIfHasRefOrInout($n, 'current_ref', 0),
+      'key' => $n ==>
+        self::renameIfHasRefOrInout($n, 'key_ref', 0),
+      'preg_match' => $n ==>
+        self::renameIfHasRefOrInout($n, 'preg_match_with_matches', 2),
+      'preg_match_all' => $n ==>
+        self::renameIfHasRefOrInout($n, 'preg_match_all_with_matches', 2),
+      'reset' => $n ==>
+        self::refToInout($n, 0),
+      'preg_replace_callback' => $n ==>
+        self::optionalToRequired($n, 4, vec['-1']),
+    ];
+  }
+
+  /**
+   * Changes the name of the called function, but only if the specified argument
+   * is by-ref or inout (not by-value). If the argument is by-ref, also changes
+   * it to inout.
+   *
+   * Ex: preg_match('/([a-z])/', $str, &$matches)
+   * To: preg_match_with_matches('/([a-z])/', $str, inout $matches)
+   */
+  private static function renameIfHasRefOrInout(
+    this::TNodes $n,
+    string $new_name,
+    int $arg_idx,
+  ): Script {
+    $arg = $n['args'][$arg_idx] ?? null;
+    if ($arg is null || !self::isRefOrInout($arg)) {
+      return $n['root'];
+    }
+
+    $leading = $n['name']->getFirstTokenx()->getLeading();
+    $trailing = $n['name']->getLastTokenx()->getTrailing();
+
+    $n['root'] = $n['root']->replace(
+      $n['name'],
+      new QualifiedName(
+        NodeList::createMaybeEmptyList(vec[
+          new ListItem(null, new BackslashToken($leading, null)),
+          new ListItem(new NameToken(null, $trailing, $new_name), null),
+        ]),
+      ),
+    );
+
+    return self::refToInout($n, $arg_idx);
+  }
+
+  /**
+   * Convert by-ref argument to inout. Do nothing if already inout. Throw if
+   * neither by-ref nor inout (this should have been a Hack error).
+   *
+   * Ex: reset(&$arr)
+   * To: reset(inout $arr)
+   */
+  private static function refToInout(this::TNodes $n, int $arg_idx): Script {
+    $arg = $n['args'][$arg_idx] ?? null;
+
+    invariant(
+      $arg is nonnull && self::isRefOrInout($arg),
+      '%s expects by-ref or inout argument node, got "%s" (%s).',
+      __METHOD__,
+      $arg?->getCode(),
+      \get_class($arg),
+    );
+
+    if (
+      !$arg is PrefixUnaryExpression || !$arg->getOperator() is AmpersandToken
+    ) {
+      return $n['root'];  // already inout
+    }
+
+    // If there is nothing between "&" and the next token, insert a space.
+    $trailing = $arg->getOperator()->getTrailing();
+    if (
+      $trailing->isEmpty() &&
+      $arg->getOperand()->getFirstTokenx()->getLeading()->isEmpty()
+    ) {
+      $trailing = NodeList::createMaybeEmptyList(vec[new WhiteSpace(' ')]);
+    }
+
+    return $n['root']->replace(
+      $arg->getOperator(),
+      new InoutToken($arg->getOperator()->getLeading(), $trailing),
+    );
+  }
+
+  /**
+   * Adds an inout argument at the specified position, if missing. If the
+   * argument exists, converts it from by-ref to inout. Optionally also adds the
+   * specified by-value arguments before the inout argument, if they are missing
+   * (this is needed because when converting an optional argument to required,
+   * all previous arguments also need to be changed to required).
+   *
+   * Ex: preg_replace_callback('/([a-z])/', fun('Str\\uppercase'), $str)
+   * To: $__unused_inout = null;
+   *     preg_replace_callback('/([a-z])/', fun('Str\\uppercase'), $str,
+   *                           -1, inout $__unused_inout)
+   */
+  private static function optionalToRequired(
+    this::TNodes $nodes,
+    int $_arg_idx,
+    vec<string> $_previous_defaults = vec[],
+  ): Script {
+    return $nodes['root'];  // TODO
+  }
+
+  private static function isRefOrInout(IExpression $arg): bool {
+    return self::isRef($arg) ||
+      $arg is DecoratedExpression && $arg->getDecorator() is InoutToken ||
+      $arg is PrefixUnaryExpression && $arg->getOperator() is InoutToken;
+  }
+
+  private static function isRef(IExpression $arg): bool {
+    return $arg is PrefixUnaryExpression &&
+      $arg->getOperator() is AmpersandToken;
+  }
 
   <<__Override>>
   public function migrateFile(string $_path, Script $root): Script {
@@ -52,52 +174,15 @@ final class RefToInoutMigration extends BaseMigration {
 
       $resolved_name = resolve_function($fn_name, $root, $node);
 
-      if (!C\contains_key(self::REPLACEMENTS, $resolved_name)) {
-        continue;
-      }
+      $rule = self::getRules()[$resolved_name] ?? null;
 
-      // We only need to migrate calls that have a by-ref/inout 3rd argument.
-      $args = ($node->getArgumentList() as nonnull)->getChildren();
-      if (C\count($args) < 3) {
-        continue;
-      }
-
-      $arg3 = $args[2]->getItemx();
-      if (
-        $arg3 is DecoratedExpression && $arg3->getDecorator() is InoutToken ||
-        $arg3 is PrefixUnaryExpression && $arg3->getOperator() is AmpersandToken
-      ) {
-        $leading = $receiver->getFirstTokenx()->getLeading();
-        $trailing = $receiver->getLastTokenx()->getTrailing();
-        $new_name = self::REPLACEMENTS[$resolved_name];
-
-        $root = $root->replace(
-          $receiver,
-          new QualifiedName(
-            NodeList::createMaybeEmptyList(vec[
-              new ListItem(null, new BackslashToken($leading, null)),
-              new ListItem(new NameToken(null, $trailing, $new_name), null),
-            ]),
-          ),
-        );
-
-        // If it's by-ref, migrate to inout.
-        if ($arg3 is PrefixUnaryExpression) {
-          // If there is nothing between "&" and the next token, insert a space.
-          $trailing = $arg3->getOperator()->getTrailing();
-          if (
-            $trailing->isEmpty() &&
-            $arg3->getOperand()->getFirstTokenx()->getLeading()->isEmpty()
-          ) {
-            $trailing =
-              NodeList::createMaybeEmptyList(vec[new WhiteSpace(' ')]);
-          }
-
-          $root = $root->replace(
-            $arg3->getOperator(),
-            new InoutToken($arg3->getOperator()->getLeading(), $trailing),
-          );
-        }
+      if ($rule is nonnull) {
+        $root = $rule(shape(
+          'root' => $root,
+          'call' => $node,
+          'name' => $receiver,
+          'args' => ($node->getArgumentList() as nonnull)->getChildrenOfItems(),
+        ));
       }
     }
 
