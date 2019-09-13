@@ -60,6 +60,138 @@ function foo(): void {
 
   // By-ref to inout without renaming.
   \reset(inout $arr);
+
+  $out = null;
+  \preg_replace_callback('/([a-z])/', fun('Str\\uppercase'), $str, -1, inout $out);
+
+  // Missing arguments after migration from optional by-ref to required inout.
+  $__unused_inout = null;
+  \preg_replace_callback('/([a-z])/', fun('Str\\uppercase'), $str, -1, inout $__unused_inout);
+
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/([a-z])/',
+    fun('Str\\uppercase'),
+    $str,
+    -1,
+    inout $__unused_inout,
+  );
+
+  // Edge cases (non-standard formatting, comments inside, etc.)
+  $__unused_inout = null;
+  \preg_replace_callback('/foo/','bar',$str,-1,inout $__unused_inout);
+  $__unused_inout = null;
+  \preg_replace_callback('/foo/', 'bar', $str, -1, inout $__unused_inout,);
+  $__unused_inout = null;
+  \preg_replace_callback('/foo/', 'bar', $str, -1, inout $__unused_inout, );
+  $__unused_inout = null;
+  \preg_replace_callback('/foo/', 'bar', $str, /* hi */ -1, inout $__unused_inout);
+  $__unused_inout = null;
+  \preg_replace_callback('/foo/', 'bar', $str, /* hi */ -1, inout $__unused_inout );
+  $__unused_inout = null;
+  \preg_replace_callback('/foo/', 'bar', $str, /* hi */ -1, inout $__unused_inout,);
+  $__unused_inout = null;
+  \preg_replace_callback('/foo/', 'bar', $str, /* hi */ -1, inout $__unused_inout, );
+  $__unused_inout = null;
+  \preg_replace_callback('/foo/', 'bar', /* hi */$str, -1, inout $__unused_inout);
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/foo/', 'bar', $str, -1, inout $__unused_inout,
+  );
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str,
+    -1,
+    inout $__unused_inout
+  );
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str,  // hello
+    -1,
+    inout $__unused_inout
+  );
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str,  // hello
+    -1,
+    inout $__unused_inout,
+  );
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str,
+    -1,
+    inout $__unused_inout);
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str,
+    -1,
+    inout $__unused_inout, );
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    // hello
+    $str,
+    -1,
+    inout $__unused_inout,
+  );
+  $__unused_inout = null;
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    /* hi */ $str,
+    -1,
+    inout $__unused_inout,
+  );
+  $__unused_inout = null;
+  \preg_replace_callback(
+    /* hi */ '/foo/',  // hello
+    /* hi */ 'bar',  // hello
+    /* hi */ $str,  // hello
+    -1,
+    inout $__unused_inout,
+  );
+  $__unused_inout = null;
+  \preg_replace_callback(
+
+    /* hi */ '/foo/',  // hello
+
+    /* hi */ 'bar',  // hello
+
+    /* hi */ $str,  // hello
+    -1,
+    inout $__unused_inout,
+
+  );
+
+  // Inside a complicated statement.
+  while (true) {
+    do {
+      $__unused_inout = null;
+      $__unused_inout = null;
+      $_ = true
+        ? \preg_replace_callback('/foo/', 'bar', $str, -1, inout $__unused_inout)
+        : \preg_replace_callback('/foo/', 'bar', $str, -1, inout $__unused_inout);
+    } while (false);
+  }
+
+  // Fun edge case: Braceless if.
+  $__unused_inout = null;
+  if (true)
+    \preg_replace_callback('/foo/', 'bar', $str, -1, inout $__unused_inout);
+
+  // Compund statement with non-standard formatting.
+  for (;;) { $__unused_inout = null; \preg_replace_callback('/foo/', 'bar', $str, -1, inout $__unused_inout); }
 }
 
 } // end of MyNamespace

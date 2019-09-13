@@ -9,6 +9,8 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\{C, Vec};
+
 /**
  * Migrates builtin functions that originally accepted one or more parameters by
  * reference to the equivalent functions with inout parameters. For example,
@@ -23,6 +25,8 @@ final class RefToInoutMigration extends BaseMigration {
     'name' => Node,
     'args' => vec<IExpression>,
   );
+
+  const DUMMY_VARIABLE_NAME = '__unused_inout';
 
   <<__Memoize>>
   private static function getRules(
@@ -129,11 +133,54 @@ final class RefToInoutMigration extends BaseMigration {
    *                           -1, inout $__unused_inout)
    */
   private static function optionalToRequired(
-    this::TNodes $nodes,
-    int $_arg_idx,
-    vec<string> $_previous_defaults = vec[],
+    this::TNodes $n,
+    int $inout_arg_idx,
+    vec<string> $previous_defaults = vec[],
   ): Script {
-    return $nodes['root'];  // TODO
+    $last_old_arg_idx = C\count($n['args']) - 1;
+    if ($last_old_arg_idx >= $inout_arg_idx) {
+      return self::refToInout($n, $inout_arg_idx);
+    }
+
+    // Figure out how many arguments with the provided default values we need
+    // to insert before the inout argument.
+    $default_cnt = $inout_arg_idx - $last_old_arg_idx - 1;
+    invariant(
+      $default_cnt <= C\count($previous_defaults),
+      'Need to add %d extra arguments but only %d values are available.',
+      $default_cnt,
+      C\count($previous_defaults),
+    );
+
+    $args_to_add = Vec\slice($previous_defaults, -$default_cnt)
+      |> Vec\map($$, $code ==> self::expressionFromCode($code));
+
+    // Add the new inout argument at the end.
+    $args_to_add[] = new DecoratedExpression(
+      new InoutToken(null, null),
+      new VariableToken(
+        NodeList::createMaybeEmptyList(vec[new WhiteSpace(' ')]),
+        null,
+        '$'.self::DUMMY_VARIABLE_NAME,
+      )
+    );
+
+    $new_call = add_arguments($n['root'], $n['call'], $args_to_add);
+
+    return $n['root']->replace($n['call'], $new_call)
+      |> prepend_statement($$, self::getDummyAssignment(), $new_call);
+  }
+
+  <<__Memoize>>
+  private static function getDummyAssignment(): IStatement {
+    return \HH\Asio\join(
+      self::statementFromCodeAsync('$'.self::DUMMY_VARIABLE_NAME.' = null;'),
+    );
+  }
+
+  <<__Memoize>>
+  private static function expressionFromCode(string $code): IExpression {
+    return \HH\Asio\join(self::expressionFromCodeAsync($code));
   }
 
   private static function isRefOrInout(IExpression $arg): bool {
@@ -163,7 +210,7 @@ final class RefToInoutMigration extends BaseMigration {
             $part->getSeparator() is null ||
               $part->getSeparator() is BackslashToken,
             'Unexpected separator inside qualified function name: "%s"',
-            ($part->getSeparator() as nonnull)->getText(),
+            $part->getSeparatorx()->getText(),
           );
           $fn_name .= $part->getItem()?->getText() ?? '';
           $fn_name .= $part->getSeparator()?->getText() ?? '';
@@ -181,7 +228,7 @@ final class RefToInoutMigration extends BaseMigration {
           'root' => $root,
           'call' => $node,
           'name' => $receiver,
-          'args' => ($node->getArgumentList() as nonnull)->getChildrenOfItems(),
+          'args' => $node->getArgumentListx()->getChildrenOfItems(),
         ));
       }
     }
