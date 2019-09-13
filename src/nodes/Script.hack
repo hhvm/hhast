@@ -34,6 +34,11 @@ final class Script extends ScriptGeneratedBase {
     return $this->getTokens()[$idx - 1];
   }
 
+  public function getNextToken(Token $token): ?Token {
+    $idx = $this->getTokenIndices()[$token->getUniqueID()];
+    return $this->getTokens()[$idx + 1] ?? null;
+  }
+
   const type TNamespace = shape(
     'name' => ?string,
     'children' => NodeList<Node>,

@@ -61,6 +61,95 @@ function foo(): void {
 
   // By-ref to inout without renaming.
   \reset(&$arr);
+
+  $out = null;
+  \preg_replace_callback('/([a-z])/', fun('Str\\uppercase'), $str, -1, &$out);
+
+  // Missing arguments after migration from optional by-ref to required inout.
+  \preg_replace_callback('/([a-z])/', fun('Str\\uppercase'), $str);
+
+  \preg_replace_callback(
+    '/([a-z])/',
+    fun('Str\\uppercase'),
+    $str,
+  );
+
+  // Edge cases (non-standard formatting, comments inside, etc.)
+  \preg_replace_callback('/foo/','bar',$str);
+  \preg_replace_callback('/foo/', 'bar', $str,);
+  \preg_replace_callback('/foo/', 'bar', $str, );
+  \preg_replace_callback('/foo/', 'bar', $str /* hi */);
+  \preg_replace_callback('/foo/', 'bar', $str /* hi */ );
+  \preg_replace_callback('/foo/', 'bar', $str, /* hi */);
+  \preg_replace_callback('/foo/', 'bar', $str, /* hi */ );
+  \preg_replace_callback('/foo/', 'bar', /* hi */$str);
+  \preg_replace_callback(
+    '/foo/', 'bar', $str,
+  );
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str
+  );
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str  // hello
+  );
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str,  // hello
+  );
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str);
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    $str, );
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    // hello
+    $str,
+  );
+  \preg_replace_callback(
+    '/foo/',
+    'bar',
+    /* hi */ $str,
+  );
+  \preg_replace_callback(
+    /* hi */ '/foo/',  // hello
+    /* hi */ 'bar',  // hello
+    /* hi */ $str,  // hello
+  );
+  \preg_replace_callback(
+
+    /* hi */ '/foo/',  // hello
+
+    /* hi */ 'bar',  // hello
+
+    /* hi */ $str,  // hello
+
+  );
+
+  // Inside a complicated statement.
+  while (true) {
+    do {
+      $_ = true
+        ? \preg_replace_callback('/foo/', 'bar', $str)
+        : \preg_replace_callback('/foo/', 'bar', $str);
+    } while (false);
+  }
+
+  // Fun edge case: Braceless if.
+  if (true)
+    \preg_replace_callback('/foo/', 'bar', $str);
+
+  // Compund statement with non-standard formatting.
+  for (;;) { \preg_replace_callback('/foo/', 'bar', $str); }
 }
 
 } // end of MyNamespace
