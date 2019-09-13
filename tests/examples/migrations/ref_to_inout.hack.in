@@ -177,6 +177,19 @@ function foo(): void {
     \GRAPHEME_EXTR_MAXBYTES  // one default value provided
     // one missing default value
   );
+
+  // Method calls.
+  $df = new IntlDateFormatter();
+  $df->localtime('now', &$pos);
+  $df->localtime('now', inout $pos);
+  (new IntlDateFormatter())->localtime('now', &$pos);
+
+  $not_date_formatter->localtime();
+  $not_date_formatter->localtime(42);
+  $not_date_formatter->localtime(42, $var);
+
+  $a = $b = null;
+  (new IntlTimeZone())->getOffset(1234567890, true, &$a, &$b);
 }
 
 } // end of MyNamespace

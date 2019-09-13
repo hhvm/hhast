@@ -232,6 +232,19 @@ function foo(): void {
     0,
     inout $__unused_inout
   );
+
+  // Method calls.
+  $df = new IntlDateFormatter();
+  $df->localtime('now', inout $pos);
+  $df->localtime('now', inout $pos);
+  (new IntlDateFormatter())->localtime('now', inout $pos);
+
+  $not_date_formatter->localtime();
+  $not_date_formatter->localtime(42);
+  $not_date_formatter->localtime(42, $var);
+
+  $a = $b = null;
+  (new IntlTimeZone())->getOffset(1234567890, true, inout $a, inout $b);
 }
 
 } // end of MyNamespace
