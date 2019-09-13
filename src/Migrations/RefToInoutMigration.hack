@@ -40,10 +40,70 @@ final class RefToInoutMigration extends BaseMigration {
         self::renameIfHasRefOrInout($n, 'preg_match_with_matches', 2),
       'preg_match_all' => $n ==>
         self::renameIfHasRefOrInout($n, 'preg_match_all_with_matches', 2),
-      'reset' => $n ==>
-        self::refToInout($n, 0),
       'preg_replace_callback' => $n ==>
         self::optionalToRequired($n, 4, vec['-1']),
+
+      // straightforward refToInout
+      'array_pop' => $n ==> self::refToInout($n, 0),
+      'array_push' => $n ==> self::refToInout($n, 0),
+      'array_shift' => $n ==> self::refToInout($n, 0),
+      'array_splice' => $n ==> self::refToInout($n, 0),
+      'array_unshift' => $n ==> self::refToInout($n, 0),
+      'arsort' => $n ==> self::refToInout($n, 0),
+      'asort' => $n ==> self::refToInout($n, 0),
+      'clock_getres' => $n ==> self::refToInout($n, 1, 2),
+      'clock_gettime' => $n ==> self::refToInout($n, 1, 2),
+      'collator_asort' => $n ==> self::refToInout($n, 1),
+      'collator_sort' => $n ==> self::refToInout($n, 1),
+      'collator_sort_with_sort_keys' => $n ==> self::refToInout($n, 1),
+      'curl_multi_exec' => $n ==> self::refToInout($n, 1),
+      'datefmt_localtime' => $n ==> self::refToInout($n, 2),
+      'each' => $n ==> self::refToInout($n, 0),
+      'end' => $n ==> self::refToInout($n, 0),
+      'fb_unserialize' => $n ==> self::refToInout($n, 1),
+      'fb_utf8ize' => $n ==> self::refToInout($n, 0),
+      'intltz_get_offset' => $n ==> self::refToInout($n, 3, 4),
+      'krsort' => $n ==> self::refToInout($n, 0),
+      'ksort' => $n ==> self::refToInout($n, 0),
+      'ldap_get_option' => $n ==> self::refToInout($n, 2),
+      'ldap_parse_reference' => $n ==> self::refToInout($n, 2),
+      'mb_convert_variables' => $n ==> self::refToInout($n, 2),
+      'natcasesort' => $n ==> self::refToInout($n, 0),
+      'natsort' => $n ==> self::refToInout($n, 0),
+      'next' => $n ==> self::refToInout($n, 0),
+      'openssl_csr_export' => $n ==> self::refToInout($n, 1),
+      'openssl_csr_new' => $n ==> self::refToInout($n, 1),
+      'openssl_open' => $n ==> self::refToInout($n, 1),
+      'openssl_pkcs12_export' => $n ==> self::refToInout($n, 1),
+      'openssl_pkcs12_read' => $n ==> self::refToInout($n, 1),
+      'openssl_pkey_export' => $n ==> self::refToInout($n, 1),
+      'openssl_private_decrypt' => $n ==> self::refToInout($n, 1),
+      'openssl_private_encrypt' => $n ==> self::refToInout($n, 1),
+      'openssl_public_decrypt' => $n ==> self::refToInout($n, 1),
+      'openssl_public_encrypt' => $n ==> self::refToInout($n, 1),
+      'openssl_sign' => $n ==> self::refToInout($n, 1),
+      'openssl_x509_export' => $n ==> self::refToInout($n, 1),
+      'pagelet_server_task_result' => $n ==> self::refToInout($n, 1, 2),
+      'parse_str' => $n ==> self::refToInout($n, 1),
+      'pcntl_wait' => $n ==> self::refToInout($n, 0),
+      'pcntl_waitpid' => $n ==> self::refToInout($n, 1),
+      'prev' => $n ==> self::refToInout($n, 0),
+      'proc_open' => $n ==> self::refToInout($n, 2),
+      'reset' => $n ==> self::refToInout($n, 0),
+      'rsort' => $n ==> self::refToInout($n, 0),
+      'shuffle' => $n ==> self::refToInout($n, 0),
+      'socket_create_pair' => $n ==> self::refToInout($n, 3),
+      'socket_recv' => $n ==> self::refToInout($n, 1),
+      'socket_select' => $n ==> self::refToInout($n, 0, 1, 2),
+      'sodium_add' => $n ==> self::refToInout($n, 0),
+      'sodium_increment' => $n ==> self::refToInout($n, 0),
+      'sort' => $n ==> self::refToInout($n, 0),
+      'stream_select' => $n ==> self::refToInout($n, 0, 1, 2),
+      'uasort' => $n ==> self::refToInout($n, 0),
+      'uksort' => $n ==> self::refToInout($n, 0),
+      'usort' => $n ==> self::refToInout($n, 0),
+      'xbox_send_message' => $n ==> self::refToInout($n, 1),
+      'xbox_task_result' => $n ==> self::refToInout($n, 2),
     ];
   }
 
@@ -88,7 +148,20 @@ final class RefToInoutMigration extends BaseMigration {
    * Ex: reset(&$arr)
    * To: reset(inout $arr)
    */
-  private static function refToInout(this::TNodes $n, int $arg_idx): Script {
+  private static function refToInout(
+    this::TNodes $n,
+    int ...$arg_idxs
+  ): Script {
+    foreach ($arg_idxs as $arg_idx) {
+      $n['root'] = self::refToInoutImpl($n, $arg_idx);
+    }
+    return $n['root'];
+  }
+
+  private static function refToInoutImpl(
+    this::TNodes $n,
+    int $arg_idx,
+  ): Script {
     $arg = $n['args'][$arg_idx] ?? null;
 
     invariant(

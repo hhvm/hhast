@@ -62,6 +62,12 @@ function foo(): void {
   // By-ref to inout without renaming.
   \reset(&$arr);
 
+  $sec = $nsec = null;
+  \clock_gettime(42, &$sec, &$nsec);
+  \clock_gettime(42, inout $sec, &$nsec);
+  \clock_gettime(42, &$sec, inout $nsec);
+  \clock_gettime(42, inout $sec, inout $nsec);
+
   $out = null;
   \preg_replace_callback('/([a-z])/', fun('Str\\uppercase'), $str, -1, &$out);
 
