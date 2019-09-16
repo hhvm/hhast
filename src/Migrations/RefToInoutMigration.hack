@@ -32,14 +32,6 @@ final class RefToInoutMigration extends BaseMigration {
   private static function getRules(
   ): dict<string, (function(this::TNodes): Script)> {
     return dict[
-      'current' => $n ==>
-        self::renameIfHasRefOrInout($n, 'current_ref', 0),
-      'key' => $n ==>
-        self::renameIfHasRefOrInout($n, 'key_ref', 0),
-      'preg_match' => $n ==>
-        self::renameIfHasRefOrInout($n, 'preg_match_with_matches', 2),
-      'preg_match_all' => $n ==>
-        self::renameIfHasRefOrInout($n, 'preg_match_all_with_matches', 2),
       'preg_replace_callback' => $n ==>
         self::optionalToRequired($n, 4, vec['-1']),
 
@@ -109,6 +101,32 @@ final class RefToInoutMigration extends BaseMigration {
       'usort' => $n ==> self::refToInout($n, 0),
       'xbox_send_message' => $n ==> self::refToInout($n, 1),
       'xbox_task_result' => $n ==> self::refToInout($n, 2),
+
+      // variant with inout argument has a new name
+      'current' => $n ==>
+        self::renameIfHasRefOrInout($n, 'current_ref', 0),
+      'icu_match' => $n ==>
+        self::renameIfHasRefOrInout($n, 'icu_match_with_matches', 2),
+      'is_callable' => $n ==>
+        self::renameIfHasRefOrInout($n, 'is_callable_with_name', 2),
+      'key' => $n ==>
+        self::renameIfHasRefOrInout($n, 'key_ref', 0),
+      'openssl_encrypt' => $n ==>
+        self::renameIfHasRefOrInout($n, 'openssl_encrypt_with_tag', 5),
+      'pos' => $n ==>
+        self::renameIfHasRefOrInout($n, 'current_ref', 0),
+      'preg_match' => $n ==>
+        self::renameIfHasRefOrInout($n, 'preg_match_with_matches', 2),
+      'preg_match_all' => $n ==>
+        self::renameIfHasRefOrInout($n, 'preg_match_all_with_matches', 2),
+      'preg_replace' => $n ==>
+        self::renameIfHasRefOrInout($n, 'preg_replace_with_count', 4),
+      'str_ireplace' => $n ==>
+        self::renameIfHasRefOrInout($n, 'str_ireplace_with_count', 3),
+      'str_replace' => $n ==>
+        self::renameIfHasRefOrInout($n, 'str_replace_with_count', 3),
+      'xml_set_object' => $n ==>
+        self::renameIfHasRefOrInout($n, 'xml_set_object_ref', 1),
     ];
   }
 
