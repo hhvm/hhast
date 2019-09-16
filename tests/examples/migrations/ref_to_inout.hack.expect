@@ -83,6 +83,9 @@ function foo(): void {
     inout $__unused_inout,
   );
 
+  $__unused_inout = null;
+  \stream_socket_accept($s, \ini_get('default_socket_timeout'), inout $__unused_inout);
+
   // Edge cases (non-standard formatting, comments inside, etc.)
   $__unused_inout = null;
   \preg_replace_callback('/foo/','bar',$str,-1,inout $__unused_inout);
@@ -198,6 +201,37 @@ function foo(): void {
 
   // Compund statement with non-standard formatting.
   for (;;) { $__unused_inout = null; \preg_replace_callback('/foo/', 'bar', $str, -1, inout $__unused_inout); }
+
+  // Multiple optional to required params.
+  $out = $out2 = $out3 = $out4 = null;
+  $__unused_inout = null;
+  $__unused_inout_2 = null;
+  $__unused_inout_3 = null;
+  \ldap_parse_result($foo, $bar, inout $out, inout $__unused_inout, inout $__unused_inout_2, inout $__unused_inout_3);
+  $__unused_inout = null;
+  \ldap_parse_result($foo, $bar, inout $out, inout $out2, inout $out3, inout $__unused_inout);
+  \ldap_parse_result($foo, $bar, inout $out, inout $out2, inout $out3, inout $out4);
+
+  $__unused_inout = null;
+  $__unused_inout_2 = null;
+  \dns_get_record('example.com', \DNS_ANY, inout $__unused_inout, inout $__unused_inout_2);
+  $__unused_inout = null;
+  $__unused_inout_2 = null;
+  \dns_get_record('example.com', \DNS_A, inout $__unused_inout, inout $__unused_inout_2);
+  $__unused_inout = null;
+  \dns_get_record('example.com', \DNS_A, inout $out, inout $__unused_inout);
+  \dns_get_record('example.com', \DNS_A, inout $out, inout $out2);
+  \dns_get_record('example.com', \DNS_A, inout $out, inout $out2, true);
+
+  $__unused_inout = null;
+  \grapheme_extract(
+    'analbumcover',
+    42,
+    \GRAPHEME_EXTR_MAXBYTES,  // one default value provided
+    // one missing default value
+    0,
+    inout $__unused_inout
+  );
 }
 
 } // end of MyNamespace

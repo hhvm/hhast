@@ -32,9 +32,6 @@ final class RefToInoutMigration extends BaseMigration {
   private static function getRules(
   ): dict<string, (function(this::TNodes): Script)> {
     return dict[
-      'preg_replace_callback' => $n ==>
-        self::optionalToRequired($n, 4, vec['-1']),
-
       // straightforward refToInout
       'array_pop' => $n ==> self::refToInout($n, 0),
       'array_push' => $n ==> self::refToInout($n, 0),
@@ -127,12 +124,98 @@ final class RefToInoutMigration extends BaseMigration {
         self::renameIfHasRefOrInout($n, 'str_replace_with_count', 3),
       'xml_set_object' => $n ==>
         self::renameIfHasRefOrInout($n, 'xml_set_object_ref', 1),
+
+      // optional by-ref params became required inout params
+      'apc_dec' => $n ==>
+        self::optionalToRequired($n, 2, 1, vec['1']),
+      'apc_fetch' => $n ==>
+        self::optionalToRequired($n, 1),
+      'apc_inc' => $n ==>
+        self::optionalToRequired($n, 2, 1, vec['1']),
+      'curl_multi_info_read' => $n ==>
+        self::optionalToRequired($n, 1),
+      'datefmt_parse' => $n ==>
+        self::optionalToRequired($n, 2),
+      'dns_get_record' => $n ==>
+        self::optionalToRequired($n, 2, 2, vec['\\DNS_ANY']),
+      'exec' => $n ==>
+        self::optionalToRequired($n, 1, 2),
+      'exif_thumbnail' => $n ==>
+        self::optionalToRequired($n, 1, 3),
+      'fb_compact_unserialize' => $n ==>
+        self::optionalToRequired($n, 1, 2),
+      'fb_curl_multi_fdset' => $n ==>
+        self::optionalToRequired($n, 1, 4),
+      'flock' => $n ==>
+        self::optionalToRequired($n, 2),
+      'fsockopen' => $n ==>
+        self::optionalToRequired($n, 2, 2, vec['-1']),
+      'getimagesize' => $n ==>
+        self::optionalToRequired($n, 1),
+      'getimagesizefromstring' => $n ==>
+        self::optionalToRequired($n, 1),
+      'getmxrr' => $n ==>
+        self::optionalToRequired($n, 1, 2),
+      'grapheme_extract' => $n ==>
+        self::optionalToRequired($n, 4, 1, vec['\\GRAPHEME_EXTR_COUNT', '0']),
+      'intltz_get_canonical_id' => $n ==>
+        self::optionalToRequired($n, 1),
+      'ldap_control_paged_result_response' => $n ==>
+        self::optionalToRequired($n, 2, 2),
+      'ldap_parse_result' => $n ==>
+        self::optionalToRequired($n, 2, 4),
+      'mb_ereg' => $n ==>
+        self::optionalToRequired($n, 2),
+      'mb_eregi' => $n ==>
+        self::optionalToRequired($n, 2),
+      'mb_parse_str' => $n ==>
+        self::optionalToRequired($n, 1),
+      'msg_send' => $n ==>
+        self::optionalToRequired($n, 5, 1, vec['true', 'true']),
+      'numfmt_parse' => $n ==>
+        self::optionalToRequired($n, 3),
+      'numfmt_parse_currency' => $n ==>
+        self::optionalToRequired($n, 2, 2),
+      'openssl_random_pseudo_bytes' => $n ==>
+        self::optionalToRequired($n, 1),
+      'passthru' => $n ==>
+        self::optionalToRequired($n, 1),
+      'pcntl_sigprocmask' => $n ==>
+        self::optionalToRequired($n, 2),
+      'pfsockopen' => $n ==>
+        self::optionalToRequired($n, 2, 2, vec['-1']),
+      'preg_filter' => $n ==>
+        self::optionalToRequired($n, 4, 1, vec['-1']),
+      'preg_replace_callback' => $n ==>
+        self::optionalToRequired($n, 4, 1, vec['-1']),
+      'preg_replace_callback_array' => $n ==>
+        self::optionalToRequired($n, 3, 1, vec['-1']),
+      'similar_text' => $n ==>
+        self::optionalToRequired($n, 2),
+      'socket_getpeername' => $n ==>
+        self::optionalToRequired($n, 1, 2),
+      'socket_getsockname' => $n ==>
+        self::optionalToRequired($n, 1, 2),
+      'socket_server' => $n ==>
+        self::optionalToRequired($n, 2, 2, vec['-1']),
+      'stream_socket_accept' => $n ==>
+        self::optionalToRequired($n, 2, 1, vec["\\ini_get('default_socket_timeout')"]),
+      'stream_socket_client' => $n ==>
+        self::optionalToRequired($n, 1, 2),
+      'stream_socket_recvfrom' => $n ==>
+        self::optionalToRequired($n, 3, 1, vec['0']),
+      'stream_socket_server' => $n ==>
+        self::optionalToRequired($n, 1, 2),
+      'system' => $n ==>
+        self::optionalToRequired($n, 1),
+      'xml_parse_into_struct' => $n ==>
+        self::optionalToRequired($n, 2, 2),
     ];
   }
 
   /**
-   * Changes the name of the called function, but only if the specified argument
-   * is by-ref or inout (not by-value). If the argument is by-ref, also changes
+   * Change the name of the called function, but only if the specified argument
+   * is by-ref or inout (not by-value). If the argument is by-ref, also change
    * it to inout.
    *
    * Ex: preg_match('/([a-z])/', $str, &$matches)
@@ -217,11 +300,12 @@ final class RefToInoutMigration extends BaseMigration {
   }
 
   /**
-   * Adds an inout argument at the specified position, if missing. If the
-   * argument exists, converts it from by-ref to inout. Optionally also adds the
-   * specified by-value arguments before the inout argument, if they are missing
-   * (this is needed because when converting an optional argument to required,
-   * all previous arguments also need to be changed to required).
+   * Add one or more inout arguments at the specified position, if missing. If
+   * any of the arguments already exist, convert them from by-ref to inout.
+   * Optionally also add the specified by-value arguments before the inout
+   * argument(s), if they are missing (this is needed because when converting an
+   * optional argument to required, all previous arguments also need to be
+   * changed to required).
    *
    * Ex: preg_replace_callback('/([a-z])/', fun('Str\\uppercase'), $str)
    * To: $__unused_inout = null;
@@ -230,17 +314,15 @@ final class RefToInoutMigration extends BaseMigration {
    */
   private static function optionalToRequired(
     this::TNodes $n,
-    int $inout_arg_idx,
+    int $first_inout_arg_idx,
+    int $inout_arg_count = 1,
     vec<string> $previous_defaults = vec[],
   ): Script {
     $last_old_arg_idx = C\count($n['args']) - 1;
-    if ($last_old_arg_idx >= $inout_arg_idx) {
-      return self::refToInout($n, $inout_arg_idx);
-    }
 
     // Figure out how many arguments with the provided default values we need
-    // to insert before the inout argument.
-    $default_cnt = $inout_arg_idx - $last_old_arg_idx - 1;
+    // to insert before the inout argument(s).
+    $default_cnt = $first_inout_arg_idx - $last_old_arg_idx - 1;
     invariant(
       $default_cnt <= C\count($previous_defaults),
       'Need to add %d extra arguments but only %d values are available.',
@@ -248,29 +330,60 @@ final class RefToInoutMigration extends BaseMigration {
       C\count($previous_defaults),
     );
 
-    $args_to_add = Vec\slice($previous_defaults, -$default_cnt)
-      |> Vec\map($$, $code ==> self::expressionFromCode($code));
+    $args_to_add = vec[];
+    if ($default_cnt > 0) {
+      $args_to_add = Vec\slice($previous_defaults, -$default_cnt)
+        |> Vec\map($$, $code ==> self::expressionFromCode($code));
+    }
 
-    // Add the new inout argument at the end.
-    $args_to_add[] = new DecoratedExpression(
-      new InoutToken(null, null),
-      new VariableToken(
-        NodeList::createMaybeEmptyList(vec[new WhiteSpace(' ')]),
-        null,
-        '$'.self::DUMMY_VARIABLE_NAME,
-      )
-    );
+    $existing_arg_idxs = vec[];
+    $dummy_assignments = vec[];
+
+    for ($i = 0; $i < $inout_arg_count; ++$i) {
+      $inout_arg_idx = $first_inout_arg_idx + $i;
+
+      if ($inout_arg_idx <= $last_old_arg_idx) {
+        // Argument already exists, just convert it to inout below.
+        $existing_arg_idxs[] = $inout_arg_idx;
+        continue;
+      }
+
+      // Missing inout argument -- add it.
+      $dummy_var_name = self::DUMMY_VARIABLE_NAME;
+      if (!C\is_empty($dummy_assignments)) {
+        $dummy_var_name .= '_'.(C\count($dummy_assignments) + 1);
+      }
+      $dummy_assignments[] = self::getDummyAssignment($dummy_var_name);
+
+      $args_to_add[] = new DecoratedExpression(
+        new InoutToken(null, null),
+        new VariableToken(
+          NodeList::createMaybeEmptyList(vec[new WhiteSpace(' ')]),
+          null,
+          '$'.$dummy_var_name,
+        ),
+      );
+    }
 
     $new_call = add_arguments($n['root'], $n['call'], $args_to_add);
 
     return $n['root']->replace($n['call'], $new_call)
-      |> prepend_statement($$, self::getDummyAssignment(), $new_call);
+      |> prepend_statements($$, $dummy_assignments, $new_call)
+      |> self::refToInout(
+        shape(
+          'root' => $$,
+          'call' => $new_call,
+          'name' => $n['name'],
+          'args' => $n['args'],
+        ),
+        ...$existing_arg_idxs
+      );
   }
 
   <<__Memoize>>
-  private static function getDummyAssignment(): IStatement {
+  private static function getDummyAssignment(string $var_name): IStatement {
     return \HH\Asio\join(
-      self::statementFromCodeAsync('$'.self::DUMMY_VARIABLE_NAME.' = null;'),
+      self::statementFromCodeAsync('$'.$var_name.' = null;'),
     );
   }
 

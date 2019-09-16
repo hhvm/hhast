@@ -49,7 +49,10 @@ function add_arguments(
   // Trim whitespace (but not other trivia) after the last argument. It will be
   // replaced by $whitespace['between'] later.
   $last_token = C\lastx($arg_items)->getLastTokenx();
-  $trivia = $last_token->getTrailing()->getChildren();
+  $trivia = Vec\concat(
+    $last_token->getTrailing()->getChildren(),
+    $call->getRightParen()->getLeading()->getChildren(),
+  );
   for ($take_cnt = C\count($trivia); $take_cnt > 0; --$take_cnt) {
     if (
       !$trivia[$take_cnt - 1] is WhiteSpace &&

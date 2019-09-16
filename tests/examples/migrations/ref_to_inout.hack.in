@@ -80,6 +80,8 @@ function foo(): void {
     $str,
   );
 
+  \stream_socket_accept($s);
+
   // Edge cases (non-standard formatting, comments inside, etc.)
   \preg_replace_callback('/foo/','bar',$str);
   \preg_replace_callback('/foo/', 'bar', $str,);
@@ -156,6 +158,25 @@ function foo(): void {
 
   // Compund statement with non-standard formatting.
   for (;;) { \preg_replace_callback('/foo/', 'bar', $str); }
+
+  // Multiple optional to required params.
+  $out = $out2 = $out3 = $out4 = null;
+  \ldap_parse_result($foo, $bar, &$out);
+  \ldap_parse_result($foo, $bar, &$out, inout $out2, &$out3);
+  \ldap_parse_result($foo, $bar, &$out, inout $out2, &$out3, inout $out4);
+
+  \dns_get_record('example.com');
+  \dns_get_record('example.com', \DNS_A);
+  \dns_get_record('example.com', \DNS_A, &$out);
+  \dns_get_record('example.com', \DNS_A, inout $out, &$out2);
+  \dns_get_record('example.com', \DNS_A, &$out, &$out2, true);
+
+  \grapheme_extract(
+    'analbumcover',
+    42,
+    \GRAPHEME_EXTR_MAXBYTES  // one default value provided
+    // one missing default value
+  );
 }
 
 } // end of MyNamespace

@@ -21,11 +21,15 @@ use function Facebook\HHAST\__Private\whitespace_from_nodelist;
  * Tries to make the formatting consistent with the rest of the block into which
  * the statement is inserted.
  */
-function prepend_statement(
+function prepend_statements(
   Script $root,
-  IStatement $new_statement,
+  vec<IStatement> $new,
   Node $before,
 ): Script {
+  if (C\is_empty($new)) {
+    return $root;
+  }
+
   // Find the closest parent block.
   $ancestors = $root->getAncestorsOfDescendant($before);
   for ($i = C\count($ancestors) - 1; $i >= 0; --$i) {
@@ -44,47 +48,50 @@ function prepend_statement(
   );
 
   $parent_block = $ancestors[$i] as NodeList<_>;
-  $statements = $parent_block->getChildren();
-  for ($cur_idx = 0; $cur_idx < C\count($statements); ++$cur_idx) {
-    if ($statements[$cur_idx] === $ancestors[$i + 1]) {
+  $old = $parent_block->getChildren();
+  for ($before_idx = 0; $before_idx < C\count($old); ++$before_idx) {
+    if ($old[$before_idx] === $ancestors[$i + 1]) {
       break;
     }
   }
   invariant(
-    $cur_idx < C\count($statements),
-    'Failed to find the current statement in the parent block. This should '.
+    $before_idx < C\count($old),
+    'Failed to find the provided statement in the parent block. This should '.
     'never happen.',
   );
 
   // Move leading trivia (both whitespace and comments) from the current
-  // statement to the statement being prepended -- i.e. we want to insert the
-  // new statement _inbetween_ the current statement and its leading trivia.
-  $new_statement = $new_statement->replace(
-    $new_statement->getFirstTokenx(),
-    $new_statement->getFirstTokenx()
-      ->withLeading($statements[$cur_idx]->getFirstTokenx()->getLeading()),
+  // statement to the first statement being prepended -- i.e. we want to insert
+  // the new statements _inbetween_ the current statement and its leading
+  // trivia.
+  $new[0] = $new[0]->replace(
+    $new[0]->getFirstTokenx(),
+    $new[0]->getFirstTokenx()
+      ->withLeading($old[$before_idx]->getFirstTokenx()->getLeading()),
   );
 
-  $statements[$cur_idx] = $statements[$cur_idx]->replace(
-    $statements[$cur_idx]->getFirstTokenx(),
-    $statements[$cur_idx]->getFirstTokenx()->withLeading(null),
+  $old[$before_idx] = $old[$before_idx]->replace(
+    $old[$before_idx]->getFirstTokenx(),
+    $old[$before_idx]->getFirstTokenx()->withLeading(null),
   );
 
   // Put an autodetected (via whitespace_from_nodelist) amount of whitespace
-  // between the current statement and the prepended one.
-  $new_statement = $new_statement->replace(
-    $new_statement->getLastTokenx(),
-    $new_statement->getLastTokenx()
-      ->withTrailing(whitespace_from_nodelist($root, $parent_block)['between']),
-  );
+  // between each pair of statements.
+  $whitespace = whitespace_from_nodelist($root, $parent_block);
+  foreach ($new as $idx => $statement) {
+    $new[$idx] = $statement->replace(
+      $statement->getLastTokenx(),
+      $statement->getLastTokenx()->withTrailing($whitespace['between']),
+    );
+  }
 
   return $root->replace(
     $parent_block,
     NodeList::createMaybeEmptyList(
       Vec\concat(
-        Vec\take($statements, $cur_idx),
-        vec[$new_statement],
-        Vec\drop($statements, $cur_idx),
+        Vec\take($old, $before_idx),
+        $new,
+        Vec\drop($old, $before_idx),
       ),
     ),
   );
