@@ -246,6 +246,14 @@ function foo(): void {
   $a = $b = null;
   (new IntlTimeZone())->getOffset(1234567890, true, inout $a, inout $b);
 
+  // Functions with multiple combined rules.
+  $__unused_inout = null;
+  \msg_receive($queue, \MSG_IPC_NOWAIT, inout $out, 42, inout $out2, true, 0, inout $__unused_inout);
+  $__unused_inout = null;
+  \openssl_seal('analbumcover', inout $out, inout $out2, varray[], 'RC4', inout $__unused_inout);
+  $__unused_inout = null;
+  \socket_recvfrom($s, inout $out, 42, 0, inout $out2, inout $__unused_inout);
+
   // Special cases.
   \headers_sent();
   $__unused_inout = null;
@@ -253,6 +261,14 @@ function foo(): void {
   \headers_sent_with_file_line(inout $out, inout $out2);
   $__unused_inout = null;
   \headers_sent_with_file_line(inout $out, inout $__unused_inout);
+
+  \array_multisort();
+  \array_multisort1(inout $a);
+  \array_multisort2(inout $a, inout $b);
+  \array_multisort5(inout $a, inout $b, inout $c, inout $d, inout $e);
+  \array_multisort8(inout $a, inout $b, inout $c, inout $d, inout $e, inout $f, inout $g, inout $h);
+  \array_multisort9(inout $a, inout $b, inout $c, inout $d, inout $e, inout $f, inout $g, inout $h, inout $i);
+  \array_multisort(&$a, &$b, &$c, &$d, &$e, &$f, &$g, &$h, &$i, &$j);
 }
 
 } // end of MyNamespace

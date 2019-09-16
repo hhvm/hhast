@@ -211,7 +211,32 @@ final class RefToInoutMigration extends BaseMigration {
       'xml_parse_into_struct' => $n ==>
         self::optionalToRequired($n, 2, 2),
 
+      // these have multiple by-ref params that need different rules
+      'msg_receive' => $n ==> {
+        $n['root'] = self::optionalToRequired($n, 7, 1, vec['true', '0']);
+        return self::refToInout($n, 2, 4);
+      },
+      'openssl_seal' => $n ==> {
+        $n['root'] = self::optionalToRequired($n, 5, 1, vec["'RC4'"]);
+        return self::refToInout($n, 1, 2);
+      },
+      'socket_recvfrom' => $n ==> {
+        $n['root'] = self::optionalToRequired($n, 5);
+        return self::refToInout($n, 1, 4);
+      },
+
       // special cases
+      'array_multisort' => $n ==>
+        C\count($n['args']) < 1 || C\count($n['args']) > 9
+          ? $n['root']
+          : (
+              self::renameImpl($n, 'array_multisort'.C\count($n['args']))
+              |> self::refToInout(
+                $$,
+                ...Vec\keys(Vec\fill(C\count($n['args']), null)) // vec[0...n-1]
+              )
+            ),
+
       'headers_sent' => $n ==>
         C\is_empty($n['args'])
           ? $n['root']
@@ -267,7 +292,6 @@ final class RefToInoutMigration extends BaseMigration {
     if ($arg is null || !self::isRefOrInout($arg)) {
       return $n['root'];
     }
-
     return self::renameImpl($n, $new_name) |> self::refToInout($$, $arg_idx);
   }
 

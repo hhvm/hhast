@@ -191,11 +191,24 @@ function foo(): void {
   $a = $b = null;
   (new IntlTimeZone())->getOffset(1234567890, true, &$a, &$b);
 
+  // Functions with multiple combined rules.
+  \msg_receive($queue, \MSG_IPC_NOWAIT, &$out, 42, &$out2);
+  \openssl_seal('analbumcover', &$out, &$out2, varray[]);
+  \socket_recvfrom($s, &$out, 42, 0, &$out2);
+
   // Special cases.
   \headers_sent();
   \headers_sent(&$out);
   \headers_sent(&$out, &$out2);
   \headers_sent(inout $out);
+
+  \array_multisort();
+  \array_multisort(&$a);
+  \array_multisort(&$a, &$b);
+  \array_multisort(&$a, &$b, &$c, &$d, &$e);
+  \array_multisort(&$a, &$b, &$c, &$d, &$e, &$f, &$g, &$h);
+  \array_multisort(&$a, &$b, &$c, &$d, &$e, &$f, &$g, &$h, &$i);
+  \array_multisort(&$a, &$b, &$c, &$d, &$e, &$f, &$g, &$h, &$i, &$j);
 }
 
 } // end of MyNamespace
