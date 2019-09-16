@@ -227,7 +227,7 @@ final class RefToInoutMigration extends BaseMigration {
 
       // special cases
       'array_multisort' => $n ==>
-        C\count($n['args']) < 1 || C\count($n['args']) > 9
+        C\is_empty($n['args']) || C\count($n['args']) > 9
           ? $n['root']
           : (
               self::renameImpl($n, 'array_multisort'.C\count($n['args']))

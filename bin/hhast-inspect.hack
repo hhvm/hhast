@@ -26,7 +26,7 @@ async function hhast_inspect_main_async(): Awaitable<noreturn> {
       break;
     }
     $parts = \explode('/', $root);
-    \array_pop(&$parts);
+    \array_pop(inout $parts);
     $root = \implode('/', $parts);
   }
 

@@ -45,7 +45,14 @@ function get_typechecker_errors(string $path): vec<TTypecheckerError> {
     \escapeshellarg($path),
   ];
   $output = \tempnam(\sys_get_temp_dir(), 'hhast-temp');
-  \exec(Str\join($command, ' ').' >/dev/null 2>'.\escapeshellarg($output));
+
+  $_stdout = null;
+  $_exit_code = null;
+  \exec(
+    Str\join($command, ' ').' >/dev/null 2>'.\escapeshellarg($output),
+    inout $_stdout,
+    inout $_exit_code,
+  );
   // Exit code is unstable, so not checking it
 
   $lines = \file_get_contents($output);

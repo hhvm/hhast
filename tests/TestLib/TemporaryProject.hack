@@ -37,7 +37,7 @@ final class TemporaryProject implements \IAsyncDisposable {
     $this->hhServer = \proc_open(
       'hh_server '.\escapeshellarg($path).' >/dev/null 2>/dev/null',
       [],
-      &$pipes,
+      inout $pipes,
     );
     \file_put_contents($path.'/test.php', \file_get_contents($source_path));
   }
