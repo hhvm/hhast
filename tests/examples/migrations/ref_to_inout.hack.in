@@ -190,6 +190,12 @@ function foo(): void {
 
   $a = $b = null;
   (new IntlTimeZone())->getOffset(1234567890, true, &$a, &$b);
+
+  // Special cases.
+  \headers_sent();
+  \headers_sent(&$out);
+  \headers_sent(&$out, &$out2);
+  \headers_sent(inout $out);
 }
 
 } // end of MyNamespace

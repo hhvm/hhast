@@ -245,6 +245,14 @@ function foo(): void {
 
   $a = $b = null;
   (new IntlTimeZone())->getOffset(1234567890, true, inout $a, inout $b);
+
+  // Special cases.
+  \headers_sent();
+  $__unused_inout = null;
+  \headers_sent_with_file_line(inout $out, inout $__unused_inout);
+  \headers_sent_with_file_line(inout $out, inout $out2);
+  $__unused_inout = null;
+  \headers_sent_with_file_line(inout $out, inout $__unused_inout);
 }
 
 } // end of MyNamespace

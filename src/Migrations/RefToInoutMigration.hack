@@ -210,6 +210,15 @@ final class RefToInoutMigration extends BaseMigration {
         self::optionalToRequired($n, 1),
       'xml_parse_into_struct' => $n ==>
         self::optionalToRequired($n, 2, 2),
+
+      // special cases
+      'headers_sent' => $n ==>
+        C\is_empty($n['args'])
+          ? $n['root']
+          : (
+              self::renameImpl($n, 'headers_sent_with_file_line')
+              |> self::optionalToRequired($$, 0, 2)
+            ),
     ];
   }
 
@@ -259,20 +268,28 @@ final class RefToInoutMigration extends BaseMigration {
       return $n['root'];
     }
 
+    return self::renameImpl($n, $new_name) |> self::refToInout($$, $arg_idx);
+  }
+
+  private static function renameImpl(this::TNodes $n, string $new_name): this::TNodes {
     $leading = $n['name']->getFirstTokenx()->getLeading();
     $trailing = $n['name']->getLastTokenx()->getTrailing();
 
-    $n['root'] = $n['root']->replace(
-      $n['name'],
-      new QualifiedName(
-        NodeList::createMaybeEmptyList(vec[
-          new ListItem(null, new BackslashToken($leading, null)),
-          new ListItem(new NameToken(null, $trailing, $new_name), null),
-        ]),
-      ),
+    $new_name = new QualifiedName(
+      NodeList::createMaybeEmptyList(vec[
+        new ListItem(null, new BackslashToken($leading, null)),
+        new ListItem(new NameToken(null, $trailing, $new_name), null),
+      ]),
     );
+    $new_call = $n['call']->replace($n['name'], $new_name);
+    $new_root = $n['root']->replace($n['call'], $new_call);
 
-    return self::refToInout($n, $arg_idx);
+    return shape(
+      'root' => $new_root,
+      'call' => $new_call,
+      'name' => $new_name,
+      'args' => $n['args'],
+    );
   }
 
   /**
@@ -438,14 +455,10 @@ final class RefToInoutMigration extends BaseMigration {
   }
 
   private static function isRefOrInout(?IExpression $arg): bool {
-    return self::isRef($arg) ||
+    return
+      $arg is PrefixUnaryExpression && $arg->getOperator() is AmpersandToken ||
       $arg is DecoratedExpression && $arg->getDecorator() is InoutToken ||
       $arg is PrefixUnaryExpression && $arg->getOperator() is InoutToken;
-  }
-
-  private static function isRef(?IExpression $arg): bool {
-    return $arg is PrefixUnaryExpression &&
-      $arg->getOperator() is AmpersandToken;
   }
 
   <<__Override>>
@@ -496,7 +509,7 @@ final class RefToInoutMigration extends BaseMigration {
           'root' => $root,
           'call' => $node,
           'name' => $receiver,
-          'args' => $node->getArgumentListx()->getChildrenOfItems(),
+          'args' => $node->getArgumentList()?->getChildrenOfItems() ?? vec[],
         ));
       }
     }
