@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 
 /**
  * Migrates builtin functions that originally accepted one or more parameters by
@@ -29,7 +29,7 @@ final class RefToInoutMigration extends BaseMigration {
   const DUMMY_VARIABLE_NAME = '__unused_inout';
 
   <<__Memoize>>
-  private static function getRules(
+  private static function getFunctionRules(
   ): dict<string, (function(this::TNodes): Script)> {
     return dict[
       // straightforward refToInout
@@ -213,6 +213,34 @@ final class RefToInoutMigration extends BaseMigration {
     ];
   }
 
+  <<__Memoize>>
+  private static function getMethodRules(
+  ): dict<string, (function(this::TNodes): Script)> {
+    return dict[
+      'Collator::asort' => $n ==> self::refToInout($n, 0),
+      'Collator::sort' => $n ==> self::refToInout($n, 0),
+      'Collator::sortWithSortKeys' => $n ==> self::maybeRefToInout($n, 0),
+      'IntlDateFormatter::localtime' => $n ==> self::maybeRefToInout($n, 1),
+      'IntlTimeZone::getOffset' => $n ==> self::maybeRefToInout($n, 2, 3),
+      'Redis::hScan' => $n ==> self::maybeRefToInout($n, 1),
+      'Redis::sScan' => $n ==> self::maybeRefToInout($n, 1),
+      'Redis::scan' => $n ==> self::maybeRefToInout($n, 0),
+      'Redis::scanImpl' => $n ==> self::maybeRefToInout($n, 2),
+      'Redis::sockReadData' => $n ==> self::refToInout($n, 0),
+      'Redis::sortClause' => $n ==> self::maybeRefToInout($n, 1),
+      'Redis::zScan' => $n ==> self::maybeRefToInout($n, 1),
+      'UConverter::fromUCallback' => $n ==> self::maybeRefToInout($n, 3),
+      'UConverter::toUCallback' => $n ==> self::maybeRefToInout($n, 3),
+    ]
+      // We actually don't care about the class name right now, but we keep it
+      // in the list above (and strip it here) in case we start caring later.
+      |> Dict\pull_with_key(
+        $$,
+        ($_, $v) ==> $v,
+        ($k, $_) ==> Str\split($k, '::')[1],
+      );
+  }
+
   /**
    * Change the name of the called function, but only if the specified argument
    * is by-ref or inout (not by-value). If the argument is by-ref, also change
@@ -264,6 +292,23 @@ final class RefToInoutMigration extends BaseMigration {
     return $n['root'];
   }
 
+  /**
+   * Same as refToInout(), but doesn't throw if the argument is not by-ref or
+   * inout. Used for method calls, where we expect some false positives.
+   */
+  private static function maybeRefToInout(
+    this::TNodes $n,
+    int ...$arg_idxs
+  ): Script {
+    return self::refToInout(
+      $n,
+      ...Vec\filter(
+        $arg_idxs,
+        $idx ==> self::isRefOrInout($n['args'][$idx] ?? null),
+      )
+    );
+  }
+
   private static function refToInoutImpl(
     this::TNodes $n,
     int $arg_idx,
@@ -271,7 +316,7 @@ final class RefToInoutMigration extends BaseMigration {
     $arg = $n['args'][$arg_idx] ?? null;
 
     invariant(
-      $arg is nonnull && self::isRefOrInout($arg),
+      self::isRefOrInout($arg),
       '%s expects by-ref or inout argument node, got "%s" (%s).',
       __METHOD__,
       $arg?->getCode(),
@@ -392,13 +437,13 @@ final class RefToInoutMigration extends BaseMigration {
     return \HH\Asio\join(self::expressionFromCodeAsync($code));
   }
 
-  private static function isRefOrInout(IExpression $arg): bool {
+  private static function isRefOrInout(?IExpression $arg): bool {
     return self::isRef($arg) ||
       $arg is DecoratedExpression && $arg->getDecorator() is InoutToken ||
       $arg is PrefixUnaryExpression && $arg->getOperator() is InoutToken;
   }
 
-  private static function isRef(IExpression $arg): bool {
+  private static function isRef(?IExpression $arg): bool {
     return $arg is PrefixUnaryExpression &&
       $arg->getOperator() is AmpersandToken;
   }
@@ -408,29 +453,43 @@ final class RefToInoutMigration extends BaseMigration {
     foreach (
       $root->getDescendantsOfType(FunctionCallExpression::class) as $node
     ) {
-      // Only replace calls to functions from the root namespace.
       $receiver = $node->getReceiver();
-      if ($receiver is NameToken) {
-        $fn_name = $receiver->getText();
-      } else if ($receiver is QualifiedName) {
-        $fn_name = '';
-        foreach ($receiver->getParts()->getChildren() as $part) {
-          invariant(
-            $part->getSeparator() is null ||
-              $part->getSeparator() is BackslashToken,
-            'Unexpected separator inside qualified function name: "%s"',
-            $part->getSeparatorx()->getText(),
-          );
-          $fn_name .= $part->getItem()?->getText() ?? '';
-          $fn_name .= $part->getSeparator()?->getText() ?? '';
+
+      if ($receiver is NameToken || $receiver is QualifiedName) {
+        if ($receiver is NameToken) {
+          $fn_name = $receiver->getText();
+        } else {
+          $receiver as QualifiedName;
+          $fn_name = '';
+          foreach ($receiver->getParts()->getChildren() as $part) {
+            invariant(
+              $part->getSeparator() is null ||
+                $part->getSeparator() is BackslashToken,
+              'Unexpected separator inside qualified function name: "%s"',
+              $part->getSeparatorx()->getText(),
+            );
+            $fn_name .= $part->getItem()?->getText() ?? '';
+            $fn_name .= $part->getSeparator()?->getText() ?? '';
+          }
         }
-      } else {  // probably a method call
+
+        // Only replace calls to functions from the root namespace.
+        $resolved_name = resolve_function($fn_name, $root, $node);
+        $rule = self::getFunctionRules()[$resolved_name] ?? null;
+
+      } else if ($receiver is MemberSelectionExpression) {
+        if ($node->getArgumentList() is null) {
+          continue;
+        }
+
+        // Note that we don't care about the type of the object, only about the
+        // method name. This can result in some false positives, but that's OK
+        // because & and inout can be used interchangeably right now.
+        $rule = self::getMethodRules()[$receiver->getName()->getCode()] ?? null;
+
+      } else {
         continue;
       }
-
-      $resolved_name = resolve_function($fn_name, $root, $node);
-
-      $rule = self::getRules()[$resolved_name] ?? null;
 
       if ($rule is nonnull) {
         $root = $rule(shape(
