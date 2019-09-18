@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9ca559e77f6a22bd4a0ac0b7af43397>>
+ * @generated SignedSource<<b5f162acfda7fc4d02de7706aeea6da9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,26 +12,26 @@ final class AnonymousClass extends Node {
 
   const string SYNTAX_KIND = 'anonymous_class';
 
-  private Node $_class_keyword;
-  private Node $_left_paren;
-  private Node $_argument_list;
-  private Node $_right_paren;
-  private Node $_extends_keyword;
-  private Node $_extends_list;
-  private Node $_implements_keyword;
-  private Node $_implements_list;
-  private Node $_body;
+  private ?Node $_class_keyword;
+  private ?Node $_left_paren;
+  private ?Node $_argument_list;
+  private ?Node $_right_paren;
+  private ?Node $_extends_keyword;
+  private ?Node $_extends_list;
+  private ?Node $_implements_keyword;
+  private ?Node $_implements_list;
+  private ?Node $_body;
 
   public function __construct(
-    Node $class_keyword,
-    Node $left_paren,
-    Node $argument_list,
-    Node $right_paren,
-    Node $extends_keyword,
-    Node $extends_list,
-    Node $implements_keyword,
-    Node $implements_list,
-    Node $body,
+    ?Node $class_keyword,
+    ?Node $left_paren,
+    ?Node $argument_list,
+    ?Node $right_paren,
+    ?Node $extends_keyword,
+    ?Node $extends_list,
+    ?Node $implements_keyword,
+    ?Node $implements_list,
+    ?Node $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_class_keyword = $class_keyword;
@@ -62,8 +62,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $class_keyword = $class_keyword as nonnull;
-    $offset += $class_keyword->getWidth();
+    $offset += $class_keyword?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_left_paren'],
       $file,
@@ -71,8 +70,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $left_paren = $left_paren as nonnull;
-    $offset += $left_paren->getWidth();
+    $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_argument_list'],
       $file,
@@ -80,8 +78,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $argument_list = $argument_list as nonnull;
-    $offset += $argument_list->getWidth();
+    $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_right_paren'],
       $file,
@@ -89,8 +86,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $right_paren = $right_paren as nonnull;
-    $offset += $right_paren->getWidth();
+    $offset += $right_paren?->getWidth() ?? 0;
     $extends_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_extends_keyword'],
       $file,
@@ -98,8 +94,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $extends_keyword = $extends_keyword as nonnull;
-    $offset += $extends_keyword->getWidth();
+    $offset += $extends_keyword?->getWidth() ?? 0;
     $extends_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_extends_list'],
       $file,
@@ -107,8 +102,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $extends_list = $extends_list as nonnull;
-    $offset += $extends_list->getWidth();
+    $offset += $extends_list?->getWidth() ?? 0;
     $implements_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_implements_keyword'],
       $file,
@@ -116,8 +110,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $implements_keyword = $implements_keyword as nonnull;
-    $offset += $implements_keyword->getWidth();
+    $offset += $implements_keyword?->getWidth() ?? 0;
     $implements_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_implements_list'],
       $file,
@@ -125,8 +118,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $implements_list = $implements_list as nonnull;
-    $offset += $implements_list->getWidth();
+    $offset += $implements_list?->getWidth() ?? 0;
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_class_body'],
       $file,
@@ -134,8 +126,7 @@ final class AnonymousClass extends Node {
       $source,
       'Node',
     );
-    $body = $body as nonnull;
-    $offset += $body->getWidth();
+    $offset += $body?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -178,15 +169,31 @@ final class AnonymousClass extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $class_keyword = $rewriter($this->_class_keyword, $parents);
-    $left_paren = $rewriter($this->_left_paren, $parents);
-    $argument_list = $rewriter($this->_argument_list, $parents);
-    $right_paren = $rewriter($this->_right_paren, $parents);
-    $extends_keyword = $rewriter($this->_extends_keyword, $parents);
-    $extends_list = $rewriter($this->_extends_list, $parents);
-    $implements_keyword = $rewriter($this->_implements_keyword, $parents);
-    $implements_list = $rewriter($this->_implements_list, $parents);
-    $body = $rewriter($this->_body, $parents);
+    $class_keyword = $this->_class_keyword === null
+      ? null
+      : $rewriter($this->_class_keyword, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $argument_list = $this->_argument_list === null
+      ? null
+      : $rewriter($this->_argument_list, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
+    $extends_keyword = $this->_extends_keyword === null
+      ? null
+      : $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $this->_extends_list === null
+      ? null
+      : $rewriter($this->_extends_list, $parents);
+    $implements_keyword = $this->_implements_keyword === null
+      ? null
+      : $rewriter($this->_implements_keyword, $parents);
+    $implements_list = $this->_implements_list === null
+      ? null
+      : $rewriter($this->_implements_list, $parents);
+    $body = $this->_body === null ? null : $rewriter($this->_body, $parents);
     if (
       $class_keyword === $this->_class_keyword &&
       $left_paren === $this->_left_paren &&
@@ -217,7 +224,7 @@ final class AnonymousClass extends Node {
     return $this->_class_keyword;
   }
 
-  public function withClassKeyword(Node $value): this {
+  public function withClassKeyword(?Node $value): this {
     if ($value === $this->_class_keyword) {
       return $this;
     }
@@ -241,7 +248,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getClassKeyword(): Node {
+  public function getClassKeyword(): ?Node {
     return $this->_class_keyword;
   }
 
@@ -249,14 +256,14 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getClassKeywordx(): Node {
-    return $this->getClassKeyword();
+    return TypeAssert\not_null($this->getClassKeyword());
   }
 
   public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(?Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -280,7 +287,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getLeftParen(): Node {
+  public function getLeftParen(): ?Node {
     return $this->_left_paren;
   }
 
@@ -288,14 +295,14 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getLeftParenx(): Node {
-    return $this->getLeftParen();
+    return TypeAssert\not_null($this->getLeftParen());
   }
 
   public function getArgumentListUNTYPED(): ?Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(Node $value): this {
+  public function withArgumentList(?Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -319,7 +326,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getArgumentList(): Node {
+  public function getArgumentList(): ?Node {
     return $this->_argument_list;
   }
 
@@ -327,14 +334,14 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getArgumentListx(): Node {
-    return $this->getArgumentList();
+    return TypeAssert\not_null($this->getArgumentList());
   }
 
   public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(?Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -358,7 +365,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getRightParen(): Node {
+  public function getRightParen(): ?Node {
     return $this->_right_paren;
   }
 
@@ -366,14 +373,14 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getRightParenx(): Node {
-    return $this->getRightParen();
+    return TypeAssert\not_null($this->getRightParen());
   }
 
   public function getExtendsKeywordUNTYPED(): ?Node {
     return $this->_extends_keyword;
   }
 
-  public function withExtendsKeyword(Node $value): this {
+  public function withExtendsKeyword(?Node $value): this {
     if ($value === $this->_extends_keyword) {
       return $this;
     }
@@ -397,7 +404,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getExtendsKeyword(): Node {
+  public function getExtendsKeyword(): ?Node {
     return $this->_extends_keyword;
   }
 
@@ -405,14 +412,14 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getExtendsKeywordx(): Node {
-    return $this->getExtendsKeyword();
+    return TypeAssert\not_null($this->getExtendsKeyword());
   }
 
   public function getExtendsListUNTYPED(): ?Node {
     return $this->_extends_list;
   }
 
-  public function withExtendsList(Node $value): this {
+  public function withExtendsList(?Node $value): this {
     if ($value === $this->_extends_list) {
       return $this;
     }
@@ -436,7 +443,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getExtendsList(): Node {
+  public function getExtendsList(): ?Node {
     return $this->_extends_list;
   }
 
@@ -444,14 +451,14 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getExtendsListx(): Node {
-    return $this->getExtendsList();
+    return TypeAssert\not_null($this->getExtendsList());
   }
 
   public function getImplementsKeywordUNTYPED(): ?Node {
     return $this->_implements_keyword;
   }
 
-  public function withImplementsKeyword(Node $value): this {
+  public function withImplementsKeyword(?Node $value): this {
     if ($value === $this->_implements_keyword) {
       return $this;
     }
@@ -475,7 +482,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getImplementsKeyword(): Node {
+  public function getImplementsKeyword(): ?Node {
     return $this->_implements_keyword;
   }
 
@@ -483,14 +490,14 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getImplementsKeywordx(): Node {
-    return $this->getImplementsKeyword();
+    return TypeAssert\not_null($this->getImplementsKeyword());
   }
 
   public function getImplementsListUNTYPED(): ?Node {
     return $this->_implements_list;
   }
 
-  public function withImplementsList(Node $value): this {
+  public function withImplementsList(?Node $value): this {
     if ($value === $this->_implements_list) {
       return $this;
     }
@@ -514,7 +521,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getImplementsList(): Node {
+  public function getImplementsList(): ?Node {
     return $this->_implements_list;
   }
 
@@ -522,14 +529,14 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getImplementsListx(): Node {
-    return $this->getImplementsList();
+    return TypeAssert\not_null($this->getImplementsList());
   }
 
   public function getBodyUNTYPED(): ?Node {
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(?Node $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -553,7 +560,7 @@ final class AnonymousClass extends Node {
   /**
    * @return unknown
    */
-  public function getBody(): Node {
+  public function getBody(): ?Node {
     return $this->_body;
   }
 
@@ -561,6 +568,6 @@ final class AnonymousClass extends Node {
    * @return unknown
    */
   public function getBodyx(): Node {
-    return $this->getBody();
+    return TypeAssert\not_null($this->getBody());
   }
 }

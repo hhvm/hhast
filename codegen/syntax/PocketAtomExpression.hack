@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad4a714a065604a3491c3900cb370474>>
+ * @generated SignedSource<<7de2c914fd8df43b4cf6074061f50cd2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,12 +14,12 @@ final class PocketAtomExpression
 
   const string SYNTAX_KIND = 'pocket_atom_expression';
 
-  private Node $_glyph;
-  private Node $_expression;
+  private ?Node $_glyph;
+  private ?Node $_expression;
 
   public function __construct(
-    Node $glyph,
-    Node $expression,
+    ?Node $glyph,
+    ?Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_glyph = $glyph;
@@ -43,8 +43,7 @@ final class PocketAtomExpression
       $source,
       'Node',
     );
-    $glyph = $glyph as nonnull;
-    $offset += $glyph->getWidth();
+    $offset += $glyph?->getWidth() ?? 0;
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_expression'],
       $file,
@@ -52,8 +51,7 @@ final class PocketAtomExpression
       $source,
       'Node',
     );
-    $expression = $expression as nonnull;
-    $offset += $expression->getWidth();
+    $offset += $expression?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -82,8 +80,10 @@ final class PocketAtomExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $glyph = $rewriter($this->_glyph, $parents);
-    $expression = $rewriter($this->_expression, $parents);
+    $glyph = $this->_glyph === null ? null : $rewriter($this->_glyph, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
     if ($glyph === $this->_glyph && $expression === $this->_expression) {
       return $this;
     }
@@ -97,7 +97,7 @@ final class PocketAtomExpression
     return $this->_glyph;
   }
 
-  public function withGlyph(Node $value): this {
+  public function withGlyph(?Node $value): this {
     if ($value === $this->_glyph) {
       return $this;
     }
@@ -111,7 +111,7 @@ final class PocketAtomExpression
   /**
    * @return unknown
    */
-  public function getGlyph(): Node {
+  public function getGlyph(): ?Node {
     return $this->_glyph;
   }
 
@@ -119,14 +119,14 @@ final class PocketAtomExpression
    * @return unknown
    */
   public function getGlyphx(): Node {
-    return $this->getGlyph();
+    return TypeAssert\not_null($this->getGlyph());
   }
 
   public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(?Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -140,7 +140,7 @@ final class PocketAtomExpression
   /**
    * @return unknown
    */
-  public function getExpression(): Node {
+  public function getExpression(): ?Node {
     return $this->_expression;
   }
 
@@ -148,6 +148,6 @@ final class PocketAtomExpression
    * @return unknown
    */
   public function getExpressionx(): Node {
-    return $this->getExpression();
+    return TypeAssert\not_null($this->getExpression());
   }
 }

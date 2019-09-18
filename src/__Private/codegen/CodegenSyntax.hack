@@ -578,7 +578,7 @@ final class CodegenSyntax extends CodegenBase {
     if (!C\contains_key($specs, $key)) {
       return shape(
         'class' => 'Node',
-        'nullable' => false,
+        'nullable' => true,
         'possibleTypes' => keyset['unknown'],
       );
     }

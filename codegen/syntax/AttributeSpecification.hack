@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce4a5ff0c3c821f473fcabb0b7ffeb29>>
+ * @generated SignedSource<<e25679e73a25d9dbc404977b4f0640f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,10 +12,10 @@ final class AttributeSpecification extends Node {
 
   const string SYNTAX_KIND = 'attribute_specification';
 
-  private Node $_attributes;
+  private ?Node $_attributes;
 
   public function __construct(
-    Node $attributes,
+    ?Node $attributes,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attributes = $attributes;
@@ -38,8 +38,7 @@ final class AttributeSpecification extends Node {
       $source,
       'Node',
     );
-    $attributes = $attributes as nonnull;
-    $offset += $attributes->getWidth();
+    $offset += $attributes?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -63,7 +62,9 @@ final class AttributeSpecification extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attributes = $rewriter($this->_attributes, $parents);
+    $attributes = $this->_attributes === null
+      ? null
+      : $rewriter($this->_attributes, $parents);
     if ($attributes === $this->_attributes) {
       return $this;
     }
@@ -74,7 +75,7 @@ final class AttributeSpecification extends Node {
     return $this->_attributes;
   }
 
-  public function withAttributes(Node $value): this {
+  public function withAttributes(?Node $value): this {
     if ($value === $this->_attributes) {
       return $this;
     }
@@ -88,7 +89,7 @@ final class AttributeSpecification extends Node {
   /**
    * @return unknown
    */
-  public function getAttributes(): Node {
+  public function getAttributes(): ?Node {
     return $this->_attributes;
   }
 
@@ -96,6 +97,6 @@ final class AttributeSpecification extends Node {
    * @return unknown
    */
   public function getAttributesx(): Node {
-    return $this->getAttributes();
+    return TypeAssert\not_null($this->getAttributes());
   }
 }

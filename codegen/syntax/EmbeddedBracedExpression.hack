@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24ce63d134866c05f283218dff54d486>>
+ * @generated SignedSource<<dbe8983e67617660e023c6b4719fbb01>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,14 +14,14 @@ final class EmbeddedBracedExpression
 
   const string SYNTAX_KIND = 'embedded_braced_expression';
 
-  private Node $_left_brace;
-  private Node $_expression;
-  private Node $_right_brace;
+  private ?Node $_left_brace;
+  private ?Node $_expression;
+  private ?Node $_right_brace;
 
   public function __construct(
-    Node $left_brace,
-    Node $expression,
-    Node $right_brace,
+    ?Node $left_brace,
+    ?Node $expression,
+    ?Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_brace = $left_brace;
@@ -46,8 +46,7 @@ final class EmbeddedBracedExpression
       $source,
       'Node',
     );
-    $left_brace = $left_brace as nonnull;
-    $offset += $left_brace->getWidth();
+    $offset += $left_brace?->getWidth() ?? 0;
     $expression = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_braced_expression_expression'],
       $file,
@@ -55,8 +54,7 @@ final class EmbeddedBracedExpression
       $source,
       'Node',
     );
-    $expression = $expression as nonnull;
-    $offset += $expression->getWidth();
+    $offset += $expression?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_braced_expression_right_brace'],
       $file,
@@ -64,8 +62,7 @@ final class EmbeddedBracedExpression
       $source,
       'Node',
     );
-    $right_brace = $right_brace as nonnull;
-    $offset += $right_brace->getWidth();
+    $offset += $right_brace?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -96,9 +93,15 @@ final class EmbeddedBracedExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_brace = $rewriter($this->_left_brace, $parents);
-    $expression = $rewriter($this->_expression, $parents);
-    $right_brace = $rewriter($this->_right_brace, $parents);
+    $left_brace = $this->_left_brace === null
+      ? null
+      : $rewriter($this->_left_brace, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
+    $right_brace = $this->_right_brace === null
+      ? null
+      : $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&
       $expression === $this->_expression &&
@@ -117,7 +120,7 @@ final class EmbeddedBracedExpression
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(?Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -131,7 +134,7 @@ final class EmbeddedBracedExpression
   /**
    * @return unknown
    */
-  public function getLeftBrace(): Node {
+  public function getLeftBrace(): ?Node {
     return $this->_left_brace;
   }
 
@@ -139,14 +142,14 @@ final class EmbeddedBracedExpression
    * @return unknown
    */
   public function getLeftBracex(): Node {
-    return $this->getLeftBrace();
+    return TypeAssert\not_null($this->getLeftBrace());
   }
 
   public function getExpressionUNTYPED(): ?Node {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(?Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -160,7 +163,7 @@ final class EmbeddedBracedExpression
   /**
    * @return unknown
    */
-  public function getExpression(): Node {
+  public function getExpression(): ?Node {
     return $this->_expression;
   }
 
@@ -168,14 +171,14 @@ final class EmbeddedBracedExpression
    * @return unknown
    */
   public function getExpressionx(): Node {
-    return $this->getExpression();
+    return TypeAssert\not_null($this->getExpression());
   }
 
   public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(?Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -189,7 +192,7 @@ final class EmbeddedBracedExpression
   /**
    * @return unknown
    */
-  public function getRightBrace(): Node {
+  public function getRightBrace(): ?Node {
     return $this->_right_brace;
   }
 
@@ -197,6 +200,6 @@ final class EmbeddedBracedExpression
    * @return unknown
    */
   public function getRightBracex(): Node {
-    return $this->getRightBrace();
+    return TypeAssert\not_null($this->getRightBrace());
   }
 }

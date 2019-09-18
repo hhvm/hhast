@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21ff3924ff4f71f85a21c63513a66b9b>>
+ * @generated SignedSource<<ad7986f83ced48c2a621bbc8507fdbcd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,14 +14,14 @@ final class EmbeddedMemberSelectionExpression
 
   const string SYNTAX_KIND = 'embedded_member_selection_expression';
 
-  private Node $_object;
-  private Node $_operator;
-  private Node $_name;
+  private ?Node $_object;
+  private ?Node $_operator;
+  private ?Node $_name;
 
   public function __construct(
-    Node $object,
-    Node $operator,
-    Node $name,
+    ?Node $object,
+    ?Node $operator,
+    ?Node $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_object = $object;
@@ -46,8 +46,7 @@ final class EmbeddedMemberSelectionExpression
       $source,
       'Node',
     );
-    $object = $object as nonnull;
-    $offset += $object->getWidth();
+    $offset += $object?->getWidth() ?? 0;
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_member_operator'],
       $file,
@@ -55,8 +54,7 @@ final class EmbeddedMemberSelectionExpression
       $source,
       'Node',
     );
-    $operator = $operator as nonnull;
-    $offset += $operator->getWidth();
+    $offset += $operator?->getWidth() ?? 0;
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_member_name'],
       $file,
@@ -64,8 +62,7 @@ final class EmbeddedMemberSelectionExpression
       $source,
       'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -96,9 +93,13 @@ final class EmbeddedMemberSelectionExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $object = $rewriter($this->_object, $parents);
-    $operator = $rewriter($this->_operator, $parents);
-    $name = $rewriter($this->_name, $parents);
+    $object = $this->_object === null
+      ? null
+      : $rewriter($this->_object, $parents);
+    $operator = $this->_operator === null
+      ? null
+      : $rewriter($this->_operator, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     if (
       $object === $this->_object &&
       $operator === $this->_operator &&
@@ -117,7 +118,7 @@ final class EmbeddedMemberSelectionExpression
     return $this->_object;
   }
 
-  public function withObject(Node $value): this {
+  public function withObject(?Node $value): this {
     if ($value === $this->_object) {
       return $this;
     }
@@ -131,7 +132,7 @@ final class EmbeddedMemberSelectionExpression
   /**
    * @return unknown
    */
-  public function getObject(): Node {
+  public function getObject(): ?Node {
     return $this->_object;
   }
 
@@ -139,14 +140,14 @@ final class EmbeddedMemberSelectionExpression
    * @return unknown
    */
   public function getObjectx(): Node {
-    return $this->getObject();
+    return TypeAssert\not_null($this->getObject());
   }
 
   public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
-  public function withOperator(Node $value): this {
+  public function withOperator(?Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -160,7 +161,7 @@ final class EmbeddedMemberSelectionExpression
   /**
    * @return unknown
    */
-  public function getOperator(): Node {
+  public function getOperator(): ?Node {
     return $this->_operator;
   }
 
@@ -168,14 +169,14 @@ final class EmbeddedMemberSelectionExpression
    * @return unknown
    */
   public function getOperatorx(): Node {
-    return $this->getOperator();
+    return TypeAssert\not_null($this->getOperator());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -189,7 +190,7 @@ final class EmbeddedMemberSelectionExpression
   /**
    * @return unknown
    */
-  public function getName(): Node {
+  public function getName(): ?Node {
     return $this->_name;
   }
 
@@ -197,6 +198,6 @@ final class EmbeddedMemberSelectionExpression
    * @return unknown
    */
   public function getNamex(): Node {
-    return $this->getName();
+    return TypeAssert\not_null($this->getName());
   }
 }

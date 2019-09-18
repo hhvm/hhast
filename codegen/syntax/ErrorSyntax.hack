@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f52d0a8b1e9e2c31a9b0b67ed0ece675>>
+ * @generated SignedSource<<b4218430a13c84dc4a3a3d5344280bb0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,10 +12,10 @@ final class ErrorSyntax extends Node {
 
   const string SYNTAX_KIND = 'error';
 
-  private Node $_error;
+  private ?Node $_error;
 
   public function __construct(
-    Node $error,
+    ?Node $error,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_error = $error;
@@ -38,8 +38,7 @@ final class ErrorSyntax extends Node {
       $source,
       'Node',
     );
-    $error = $error as nonnull;
-    $offset += $error->getWidth();
+    $offset += $error?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -63,7 +62,7 @@ final class ErrorSyntax extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $error = $rewriter($this->_error, $parents);
+    $error = $this->_error === null ? null : $rewriter($this->_error, $parents);
     if ($error === $this->_error) {
       return $this;
     }
@@ -74,7 +73,7 @@ final class ErrorSyntax extends Node {
     return $this->_error;
   }
 
-  public function withError(Node $value): this {
+  public function withError(?Node $value): this {
     if ($value === $this->_error) {
       return $this;
     }
@@ -88,7 +87,7 @@ final class ErrorSyntax extends Node {
   /**
    * @return unknown
    */
-  public function getError(): Node {
+  public function getError(): ?Node {
     return $this->_error;
   }
 
@@ -96,6 +95,6 @@ final class ErrorSyntax extends Node {
    * @return unknown
    */
   public function getErrorx(): Node {
-    return $this->getError();
+    return TypeAssert\not_null($this->getError());
   }
 }

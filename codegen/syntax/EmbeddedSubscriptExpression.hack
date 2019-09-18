@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<74b0fe34d7089e957b97707c8cd90df6>>
+ * @generated SignedSource<<081cbabb45eb7d2161aec1c635453cce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,16 +14,16 @@ final class EmbeddedSubscriptExpression
 
   const string SYNTAX_KIND = 'embedded_subscript_expression';
 
-  private Node $_receiver;
-  private Node $_left_bracket;
-  private Node $_index;
-  private Node $_right_bracket;
+  private ?Node $_receiver;
+  private ?Node $_left_bracket;
+  private ?Node $_index;
+  private ?Node $_right_bracket;
 
   public function __construct(
-    Node $receiver,
-    Node $left_bracket,
-    Node $index,
-    Node $right_bracket,
+    ?Node $receiver,
+    ?Node $left_bracket,
+    ?Node $index,
+    ?Node $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_receiver = $receiver;
@@ -49,8 +49,7 @@ final class EmbeddedSubscriptExpression
       $source,
       'Node',
     );
-    $receiver = $receiver as nonnull;
-    $offset += $receiver->getWidth();
+    $offset += $receiver?->getWidth() ?? 0;
     $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_left_bracket'],
       $file,
@@ -58,8 +57,7 @@ final class EmbeddedSubscriptExpression
       $source,
       'Node',
     );
-    $left_bracket = $left_bracket as nonnull;
-    $offset += $left_bracket->getWidth();
+    $offset += $left_bracket?->getWidth() ?? 0;
     $index = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_index'],
       $file,
@@ -67,8 +65,7 @@ final class EmbeddedSubscriptExpression
       $source,
       'Node',
     );
-    $index = $index as nonnull;
-    $offset += $index->getWidth();
+    $offset += $index?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['embedded_subscript_right_bracket'],
       $file,
@@ -76,8 +73,7 @@ final class EmbeddedSubscriptExpression
       $source,
       'Node',
     );
-    $right_bracket = $right_bracket as nonnull;
-    $offset += $right_bracket->getWidth();
+    $offset += $right_bracket?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -110,10 +106,16 @@ final class EmbeddedSubscriptExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $receiver = $rewriter($this->_receiver, $parents);
-    $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $index = $rewriter($this->_index, $parents);
-    $right_bracket = $rewriter($this->_right_bracket, $parents);
+    $receiver = $this->_receiver === null
+      ? null
+      : $rewriter($this->_receiver, $parents);
+    $left_bracket = $this->_left_bracket === null
+      ? null
+      : $rewriter($this->_left_bracket, $parents);
+    $index = $this->_index === null ? null : $rewriter($this->_index, $parents);
+    $right_bracket = $this->_right_bracket === null
+      ? null
+      : $rewriter($this->_right_bracket, $parents);
     if (
       $receiver === $this->_receiver &&
       $left_bracket === $this->_left_bracket &&
@@ -134,7 +136,7 @@ final class EmbeddedSubscriptExpression
     return $this->_receiver;
   }
 
-  public function withReceiver(Node $value): this {
+  public function withReceiver(?Node $value): this {
     if ($value === $this->_receiver) {
       return $this;
     }
@@ -153,7 +155,7 @@ final class EmbeddedSubscriptExpression
   /**
    * @return unknown
    */
-  public function getReceiver(): Node {
+  public function getReceiver(): ?Node {
     return $this->_receiver;
   }
 
@@ -161,14 +163,14 @@ final class EmbeddedSubscriptExpression
    * @return unknown
    */
   public function getReceiverx(): Node {
-    return $this->getReceiver();
+    return TypeAssert\not_null($this->getReceiver());
   }
 
   public function getLeftBracketUNTYPED(): ?Node {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(Node $value): this {
+  public function withLeftBracket(?Node $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -187,7 +189,7 @@ final class EmbeddedSubscriptExpression
   /**
    * @return unknown
    */
-  public function getLeftBracket(): Node {
+  public function getLeftBracket(): ?Node {
     return $this->_left_bracket;
   }
 
@@ -195,14 +197,14 @@ final class EmbeddedSubscriptExpression
    * @return unknown
    */
   public function getLeftBracketx(): Node {
-    return $this->getLeftBracket();
+    return TypeAssert\not_null($this->getLeftBracket());
   }
 
   public function getIndexUNTYPED(): ?Node {
     return $this->_index;
   }
 
-  public function withIndex(Node $value): this {
+  public function withIndex(?Node $value): this {
     if ($value === $this->_index) {
       return $this;
     }
@@ -221,7 +223,7 @@ final class EmbeddedSubscriptExpression
   /**
    * @return unknown
    */
-  public function getIndex(): Node {
+  public function getIndex(): ?Node {
     return $this->_index;
   }
 
@@ -229,14 +231,14 @@ final class EmbeddedSubscriptExpression
    * @return unknown
    */
   public function getIndexx(): Node {
-    return $this->getIndex();
+    return TypeAssert\not_null($this->getIndex());
   }
 
   public function getRightBracketUNTYPED(): ?Node {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(Node $value): this {
+  public function withRightBracket(?Node $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
@@ -255,7 +257,7 @@ final class EmbeddedSubscriptExpression
   /**
    * @return unknown
    */
-  public function getRightBracket(): Node {
+  public function getRightBracket(): ?Node {
     return $this->_right_bracket;
   }
 
@@ -263,6 +265,6 @@ final class EmbeddedSubscriptExpression
    * @return unknown
    */
   public function getRightBracketx(): Node {
-    return $this->getRightBracket();
+    return TypeAssert\not_null($this->getRightBracket());
   }
 }

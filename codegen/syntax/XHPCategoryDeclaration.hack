@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d126075898cc208eceffecdad326a1d9>>
+ * @generated SignedSource<<5421362f2336139ca4d1e60e6d21d222>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,14 +14,14 @@ final class XHPCategoryDeclaration
 
   const string SYNTAX_KIND = 'xhp_category_declaration';
 
-  private Node $_keyword;
-  private Node $_categories;
-  private Node $_semicolon;
+  private ?Node $_keyword;
+  private ?Node $_categories;
+  private ?Node $_semicolon;
 
   public function __construct(
-    Node $keyword,
-    Node $categories,
-    Node $semicolon,
+    ?Node $keyword,
+    ?Node $categories,
+    ?Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -46,8 +46,7 @@ final class XHPCategoryDeclaration
       $source,
       'Node',
     );
-    $keyword = $keyword as nonnull;
-    $offset += $keyword->getWidth();
+    $offset += $keyword?->getWidth() ?? 0;
     $categories = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_category_categories'],
       $file,
@@ -55,8 +54,7 @@ final class XHPCategoryDeclaration
       $source,
       'Node',
     );
-    $categories = $categories as nonnull;
-    $offset += $categories->getWidth();
+    $offset += $categories?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_category_semicolon'],
       $file,
@@ -64,8 +62,7 @@ final class XHPCategoryDeclaration
       $source,
       'Node',
     );
-    $semicolon = $semicolon as nonnull;
-    $offset += $semicolon->getWidth();
+    $offset += $semicolon?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -96,9 +93,15 @@ final class XHPCategoryDeclaration
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $rewriter($this->_keyword, $parents);
-    $categories = $rewriter($this->_categories, $parents);
-    $semicolon = $rewriter($this->_semicolon, $parents);
+    $keyword = $this->_keyword === null
+      ? null
+      : $rewriter($this->_keyword, $parents);
+    $categories = $this->_categories === null
+      ? null
+      : $rewriter($this->_categories, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $categories === $this->_categories &&
@@ -117,7 +120,7 @@ final class XHPCategoryDeclaration
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(?Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -131,7 +134,7 @@ final class XHPCategoryDeclaration
   /**
    * @return unknown
    */
-  public function getKeyword(): Node {
+  public function getKeyword(): ?Node {
     return $this->_keyword;
   }
 
@@ -139,14 +142,14 @@ final class XHPCategoryDeclaration
    * @return unknown
    */
   public function getKeywordx(): Node {
-    return $this->getKeyword();
+    return TypeAssert\not_null($this->getKeyword());
   }
 
   public function getCategoriesUNTYPED(): ?Node {
     return $this->_categories;
   }
 
-  public function withCategories(Node $value): this {
+  public function withCategories(?Node $value): this {
     if ($value === $this->_categories) {
       return $this;
     }
@@ -160,7 +163,7 @@ final class XHPCategoryDeclaration
   /**
    * @return unknown
    */
-  public function getCategories(): Node {
+  public function getCategories(): ?Node {
     return $this->_categories;
   }
 
@@ -168,14 +171,14 @@ final class XHPCategoryDeclaration
    * @return unknown
    */
   public function getCategoriesx(): Node {
-    return $this->getCategories();
+    return TypeAssert\not_null($this->getCategories());
   }
 
   public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(?Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -189,7 +192,7 @@ final class XHPCategoryDeclaration
   /**
    * @return unknown
    */
-  public function getSemicolon(): Node {
+  public function getSemicolon(): ?Node {
     return $this->_semicolon;
   }
 
@@ -197,6 +200,6 @@ final class XHPCategoryDeclaration
    * @return unknown
    */
   public function getSemicolonx(): Node {
-    return $this->getSemicolon();
+    return TypeAssert\not_null($this->getSemicolon());
   }
 }

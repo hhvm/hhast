@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6bdaf901d32fe9e92f75273983edb822>>
+ * @generated SignedSource<<918ade2b5e772281e3b1eefde8d1b37d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,12 +14,12 @@ final class PrefixedStringExpression
 
   const string SYNTAX_KIND = 'prefixed_string_expression';
 
-  private Node $_name;
-  private Node $_str;
+  private ?Node $_name;
+  private ?Node $_str;
 
   public function __construct(
-    Node $name,
-    Node $str,
+    ?Node $name,
+    ?Node $str,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_name = $name;
@@ -43,8 +43,7 @@ final class PrefixedStringExpression
       $source,
       'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $str = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['prefixed_string_str'],
       $file,
@@ -52,8 +51,7 @@ final class PrefixedStringExpression
       $source,
       'Node',
     );
-    $str = $str as nonnull;
-    $offset += $str->getWidth();
+    $offset += $str?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -82,8 +80,8 @@ final class PrefixedStringExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $name = $rewriter($this->_name, $parents);
-    $str = $rewriter($this->_str, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
+    $str = $this->_str === null ? null : $rewriter($this->_str, $parents);
     if ($name === $this->_name && $str === $this->_str) {
       return $this;
     }
@@ -97,7 +95,7 @@ final class PrefixedStringExpression
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -111,7 +109,7 @@ final class PrefixedStringExpression
   /**
    * @return unknown
    */
-  public function getName(): Node {
+  public function getName(): ?Node {
     return $this->_name;
   }
 
@@ -119,14 +117,14 @@ final class PrefixedStringExpression
    * @return unknown
    */
   public function getNamex(): Node {
-    return $this->getName();
+    return TypeAssert\not_null($this->getName());
   }
 
   public function getStrUNTYPED(): ?Node {
     return $this->_str;
   }
 
-  public function withStr(Node $value): this {
+  public function withStr(?Node $value): this {
     if ($value === $this->_str) {
       return $this;
     }
@@ -140,7 +138,7 @@ final class PrefixedStringExpression
   /**
    * @return unknown
    */
-  public function getStr(): Node {
+  public function getStr(): ?Node {
     return $this->_str;
   }
 
@@ -148,6 +146,6 @@ final class PrefixedStringExpression
    * @return unknown
    */
   public function getStrx(): Node {
-    return $this->getStr();
+    return TypeAssert\not_null($this->getStr());
   }
 }

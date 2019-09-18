@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9677ae3744a6ae5b5bc40865a35f5640>>
+ * @generated SignedSource<<0e4e853dd4e4817ecde918f3c4f3fcff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,18 +14,18 @@ final class PocketIdentifierExpression
 
   const string SYNTAX_KIND = 'pocket_identifier_expression';
 
-  private Node $_qualifier;
-  private Node $_pu_operator;
-  private Node $_field;
-  private Node $_operator;
-  private Node $_name;
+  private ?Node $_qualifier;
+  private ?Node $_pu_operator;
+  private ?Node $_field;
+  private ?Node $_operator;
+  private ?Node $_name;
 
   public function __construct(
-    Node $qualifier,
-    Node $pu_operator,
-    Node $field,
-    Node $operator,
-    Node $name,
+    ?Node $qualifier,
+    ?Node $pu_operator,
+    ?Node $field,
+    ?Node $operator,
+    ?Node $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_qualifier = $qualifier;
@@ -52,8 +52,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
-    $qualifier = $qualifier as nonnull;
-    $offset += $qualifier->getWidth();
+    $offset += $qualifier?->getWidth() ?? 0;
     $pu_operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_pu_operator'],
       $file,
@@ -61,8 +60,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
-    $pu_operator = $pu_operator as nonnull;
-    $offset += $pu_operator->getWidth();
+    $offset += $pu_operator?->getWidth() ?? 0;
     $field = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_field'],
       $file,
@@ -70,8 +68,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
-    $field = $field as nonnull;
-    $offset += $field->getWidth();
+    $offset += $field?->getWidth() ?? 0;
     $operator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_operator'],
       $file,
@@ -79,8 +76,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
-    $operator = $operator as nonnull;
-    $offset += $operator->getWidth();
+    $offset += $operator?->getWidth() ?? 0;
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_identifier_name'],
       $file,
@@ -88,8 +84,7 @@ final class PocketIdentifierExpression
       $source,
       'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -124,11 +119,17 @@ final class PocketIdentifierExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $qualifier = $rewriter($this->_qualifier, $parents);
-    $pu_operator = $rewriter($this->_pu_operator, $parents);
-    $field = $rewriter($this->_field, $parents);
-    $operator = $rewriter($this->_operator, $parents);
-    $name = $rewriter($this->_name, $parents);
+    $qualifier = $this->_qualifier === null
+      ? null
+      : $rewriter($this->_qualifier, $parents);
+    $pu_operator = $this->_pu_operator === null
+      ? null
+      : $rewriter($this->_pu_operator, $parents);
+    $field = $this->_field === null ? null : $rewriter($this->_field, $parents);
+    $operator = $this->_operator === null
+      ? null
+      : $rewriter($this->_operator, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     if (
       $qualifier === $this->_qualifier &&
       $pu_operator === $this->_pu_operator &&
@@ -151,7 +152,7 @@ final class PocketIdentifierExpression
     return $this->_qualifier;
   }
 
-  public function withQualifier(Node $value): this {
+  public function withQualifier(?Node $value): this {
     if ($value === $this->_qualifier) {
       return $this;
     }
@@ -171,7 +172,7 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getQualifier(): Node {
+  public function getQualifier(): ?Node {
     return $this->_qualifier;
   }
 
@@ -179,14 +180,14 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getQualifierx(): Node {
-    return $this->getQualifier();
+    return TypeAssert\not_null($this->getQualifier());
   }
 
   public function getPuOperatorUNTYPED(): ?Node {
     return $this->_pu_operator;
   }
 
-  public function withPuOperator(Node $value): this {
+  public function withPuOperator(?Node $value): this {
     if ($value === $this->_pu_operator) {
       return $this;
     }
@@ -206,7 +207,7 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getPuOperator(): Node {
+  public function getPuOperator(): ?Node {
     return $this->_pu_operator;
   }
 
@@ -214,14 +215,14 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getPuOperatorx(): Node {
-    return $this->getPuOperator();
+    return TypeAssert\not_null($this->getPuOperator());
   }
 
   public function getFieldUNTYPED(): ?Node {
     return $this->_field;
   }
 
-  public function withField(Node $value): this {
+  public function withField(?Node $value): this {
     if ($value === $this->_field) {
       return $this;
     }
@@ -241,7 +242,7 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getField(): Node {
+  public function getField(): ?Node {
     return $this->_field;
   }
 
@@ -249,14 +250,14 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getFieldx(): Node {
-    return $this->getField();
+    return TypeAssert\not_null($this->getField());
   }
 
   public function getOperatorUNTYPED(): ?Node {
     return $this->_operator;
   }
 
-  public function withOperator(Node $value): this {
+  public function withOperator(?Node $value): this {
     if ($value === $this->_operator) {
       return $this;
     }
@@ -276,7 +277,7 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getOperator(): Node {
+  public function getOperator(): ?Node {
     return $this->_operator;
   }
 
@@ -284,14 +285,14 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getOperatorx(): Node {
-    return $this->getOperator();
+    return TypeAssert\not_null($this->getOperator());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -311,7 +312,7 @@ final class PocketIdentifierExpression
   /**
    * @return unknown
    */
-  public function getName(): Node {
+  public function getName(): ?Node {
     return $this->_name;
   }
 
@@ -319,6 +320,6 @@ final class PocketIdentifierExpression
    * @return unknown
    */
   public function getNamex(): Node {
-    return $this->getName();
+    return TypeAssert\not_null($this->getName());
   }
 }

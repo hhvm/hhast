@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f945387e8548862b11069db3cb7994be>>
+ * @generated SignedSource<<4e401cf3f1d483a04bf59520d2525598>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,10 +12,10 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'literal_expression';
 
-  private Node $_expression;
+  private ?Node $_expression;
 
   public function __construct(
-    Node $expression,
+    ?Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -38,8 +38,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'Node',
     );
-    $expression = $expression as nonnull;
-    $offset += $expression->getWidth();
+    $offset += $expression?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -63,7 +62,9 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
     if ($expression === $this->_expression) {
       return $this;
     }
@@ -74,7 +75,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(?Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -88,7 +89,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return unknown
    */
-  public function getExpression(): Node {
+  public function getExpression(): ?Node {
     return $this->_expression;
   }
 
@@ -96,6 +97,6 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
    * @return unknown
    */
   public function getExpressionx(): Node {
-    return $this->getExpression();
+    return TypeAssert\not_null($this->getExpression());
   }
 }

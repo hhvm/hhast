@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac2d7850aae3145c8a86475e9c4a8cb1>>
+ * @generated SignedSource<<35b85a2358171ed463e0a8b13ccffe80>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,20 +12,20 @@ final class PocketEnumDeclaration extends Node {
 
   const string SYNTAX_KIND = 'pocket_enum_declaration';
 
-  private Node $_modifiers;
-  private Node $_enum;
-  private Node $_name;
-  private Node $_left_brace;
-  private Node $_fields;
-  private Node $_right_brace;
+  private ?Node $_modifiers;
+  private ?Node $_enum;
+  private ?Node $_name;
+  private ?Node $_left_brace;
+  private ?Node $_fields;
+  private ?Node $_right_brace;
 
   public function __construct(
-    Node $modifiers,
-    Node $enum,
-    Node $name,
-    Node $left_brace,
-    Node $fields,
-    Node $right_brace,
+    ?Node $modifiers,
+    ?Node $enum,
+    ?Node $name,
+    ?Node $left_brace,
+    ?Node $fields,
+    ?Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_modifiers = $modifiers;
@@ -53,8 +53,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
-    $modifiers = $modifiers as nonnull;
-    $offset += $modifiers->getWidth();
+    $offset += $modifiers?->getWidth() ?? 0;
     $enum = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_enum'],
       $file,
@@ -62,8 +61,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
-    $enum = $enum as nonnull;
-    $offset += $enum->getWidth();
+    $offset += $enum?->getWidth() ?? 0;
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_name'],
       $file,
@@ -71,8 +69,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_left_brace'],
       $file,
@@ -80,8 +77,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
-    $left_brace = $left_brace as nonnull;
-    $offset += $left_brace->getWidth();
+    $offset += $left_brace?->getWidth() ?? 0;
     $fields = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_fields'],
       $file,
@@ -89,8 +85,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
-    $fields = $fields as nonnull;
-    $offset += $fields->getWidth();
+    $offset += $fields?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_right_brace'],
       $file,
@@ -98,8 +93,7 @@ final class PocketEnumDeclaration extends Node {
       $source,
       'Node',
     );
-    $right_brace = $right_brace as nonnull;
-    $offset += $right_brace->getWidth();
+    $offset += $right_brace?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -136,12 +130,20 @@ final class PocketEnumDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $rewriter($this->_modifiers, $parents);
-    $enum = $rewriter($this->_enum, $parents);
-    $name = $rewriter($this->_name, $parents);
-    $left_brace = $rewriter($this->_left_brace, $parents);
-    $fields = $rewriter($this->_fields, $parents);
-    $right_brace = $rewriter($this->_right_brace, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
+    $enum = $this->_enum === null ? null : $rewriter($this->_enum, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
+    $left_brace = $this->_left_brace === null
+      ? null
+      : $rewriter($this->_left_brace, $parents);
+    $fields = $this->_fields === null
+      ? null
+      : $rewriter($this->_fields, $parents);
+    $right_brace = $this->_right_brace === null
+      ? null
+      : $rewriter($this->_right_brace, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $enum === $this->_enum &&
@@ -166,7 +168,7 @@ final class PocketEnumDeclaration extends Node {
     return $this->_modifiers;
   }
 
-  public function withModifiers(Node $value): this {
+  public function withModifiers(?Node $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -187,7 +189,7 @@ final class PocketEnumDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getModifiers(): Node {
+  public function getModifiers(): ?Node {
     return $this->_modifiers;
   }
 
@@ -195,14 +197,14 @@ final class PocketEnumDeclaration extends Node {
    * @return unknown
    */
   public function getModifiersx(): Node {
-    return $this->getModifiers();
+    return TypeAssert\not_null($this->getModifiers());
   }
 
   public function getEnumUNTYPED(): ?Node {
     return $this->_enum;
   }
 
-  public function withEnum(Node $value): this {
+  public function withEnum(?Node $value): this {
     if ($value === $this->_enum) {
       return $this;
     }
@@ -223,7 +225,7 @@ final class PocketEnumDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getEnum(): Node {
+  public function getEnum(): ?Node {
     return $this->_enum;
   }
 
@@ -231,14 +233,14 @@ final class PocketEnumDeclaration extends Node {
    * @return unknown
    */
   public function getEnumx(): Node {
-    return $this->getEnum();
+    return TypeAssert\not_null($this->getEnum());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -259,7 +261,7 @@ final class PocketEnumDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getName(): Node {
+  public function getName(): ?Node {
     return $this->_name;
   }
 
@@ -267,14 +269,14 @@ final class PocketEnumDeclaration extends Node {
    * @return unknown
    */
   public function getNamex(): Node {
-    return $this->getName();
+    return TypeAssert\not_null($this->getName());
   }
 
   public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(Node $value): this {
+  public function withLeftBrace(?Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -295,7 +297,7 @@ final class PocketEnumDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getLeftBrace(): Node {
+  public function getLeftBrace(): ?Node {
     return $this->_left_brace;
   }
 
@@ -303,14 +305,14 @@ final class PocketEnumDeclaration extends Node {
    * @return unknown
    */
   public function getLeftBracex(): Node {
-    return $this->getLeftBrace();
+    return TypeAssert\not_null($this->getLeftBrace());
   }
 
   public function getFieldsUNTYPED(): ?Node {
     return $this->_fields;
   }
 
-  public function withFields(Node $value): this {
+  public function withFields(?Node $value): this {
     if ($value === $this->_fields) {
       return $this;
     }
@@ -331,7 +333,7 @@ final class PocketEnumDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getFields(): Node {
+  public function getFields(): ?Node {
     return $this->_fields;
   }
 
@@ -339,14 +341,14 @@ final class PocketEnumDeclaration extends Node {
    * @return unknown
    */
   public function getFieldsx(): Node {
-    return $this->getFields();
+    return TypeAssert\not_null($this->getFields());
   }
 
   public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(Node $value): this {
+  public function withRightBrace(?Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -367,7 +369,7 @@ final class PocketEnumDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getRightBrace(): Node {
+  public function getRightBrace(): ?Node {
     return $this->_right_brace;
   }
 
@@ -375,6 +377,6 @@ final class PocketEnumDeclaration extends Node {
    * @return unknown
    */
   public function getRightBracex(): Node {
-    return $this->getRightBrace();
+    return TypeAssert\not_null($this->getRightBrace());
   }
 }
