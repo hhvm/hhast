@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65e3083917bf46331628d4297df9fdb7>>
+ * @generated SignedSource<<fa5bc7201bbd13e19979f9165fadce0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,14 +12,14 @@ final class PUAccess extends Node {
 
   const string SYNTAX_KIND = 'pu_access';
 
-  private Node $_left_type;
-  private Node $_separator;
-  private Node $_right_type;
+  private ?Node $_left_type;
+  private ?Node $_separator;
+  private ?Node $_right_type;
 
   public function __construct(
-    Node $left_type,
-    Node $separator,
-    Node $right_type,
+    ?Node $left_type,
+    ?Node $separator,
+    ?Node $right_type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_type = $left_type;
@@ -44,8 +44,7 @@ final class PUAccess extends Node {
       $source,
       'Node',
     );
-    $left_type = $left_type as nonnull;
-    $offset += $left_type->getWidth();
+    $offset += $left_type?->getWidth() ?? 0;
     $separator = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pu_access_separator'],
       $file,
@@ -53,8 +52,7 @@ final class PUAccess extends Node {
       $source,
       'Node',
     );
-    $separator = $separator as nonnull;
-    $offset += $separator->getWidth();
+    $offset += $separator?->getWidth() ?? 0;
     $right_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pu_access_right_type'],
       $file,
@@ -62,8 +60,7 @@ final class PUAccess extends Node {
       $source,
       'Node',
     );
-    $right_type = $right_type as nonnull;
-    $offset += $right_type->getWidth();
+    $offset += $right_type?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -94,9 +91,15 @@ final class PUAccess extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_type = $rewriter($this->_left_type, $parents);
-    $separator = $rewriter($this->_separator, $parents);
-    $right_type = $rewriter($this->_right_type, $parents);
+    $left_type = $this->_left_type === null
+      ? null
+      : $rewriter($this->_left_type, $parents);
+    $separator = $this->_separator === null
+      ? null
+      : $rewriter($this->_separator, $parents);
+    $right_type = $this->_right_type === null
+      ? null
+      : $rewriter($this->_right_type, $parents);
     if (
       $left_type === $this->_left_type &&
       $separator === $this->_separator &&
@@ -115,7 +118,7 @@ final class PUAccess extends Node {
     return $this->_left_type;
   }
 
-  public function withLeftType(Node $value): this {
+  public function withLeftType(?Node $value): this {
     if ($value === $this->_left_type) {
       return $this;
     }
@@ -129,7 +132,7 @@ final class PUAccess extends Node {
   /**
    * @return unknown
    */
-  public function getLeftType(): Node {
+  public function getLeftType(): ?Node {
     return $this->_left_type;
   }
 
@@ -137,14 +140,14 @@ final class PUAccess extends Node {
    * @return unknown
    */
   public function getLeftTypex(): Node {
-    return $this->getLeftType();
+    return TypeAssert\not_null($this->getLeftType());
   }
 
   public function getSeparatorUNTYPED(): ?Node {
     return $this->_separator;
   }
 
-  public function withSeparator(Node $value): this {
+  public function withSeparator(?Node $value): this {
     if ($value === $this->_separator) {
       return $this;
     }
@@ -158,7 +161,7 @@ final class PUAccess extends Node {
   /**
    * @return unknown
    */
-  public function getSeparator(): Node {
+  public function getSeparator(): ?Node {
     return $this->_separator;
   }
 
@@ -166,14 +169,14 @@ final class PUAccess extends Node {
    * @return unknown
    */
   public function getSeparatorx(): Node {
-    return $this->getSeparator();
+    return TypeAssert\not_null($this->getSeparator());
   }
 
   public function getRightTypeUNTYPED(): ?Node {
     return $this->_right_type;
   }
 
-  public function withRightType(Node $value): this {
+  public function withRightType(?Node $value): this {
     if ($value === $this->_right_type) {
       return $this;
     }
@@ -187,7 +190,7 @@ final class PUAccess extends Node {
   /**
    * @return unknown
    */
-  public function getRightType(): Node {
+  public function getRightType(): ?Node {
     return $this->_right_type;
   }
 
@@ -195,6 +198,6 @@ final class PUAccess extends Node {
    * @return unknown
    */
   public function getRightTypex(): Node {
-    return $this->getRightType();
+    return TypeAssert\not_null($this->getRightType());
   }
 }

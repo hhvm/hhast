@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc84ad384da673c529cb2b6608313b7e>>
+ * @generated SignedSource<<6024480dcf9c3e98e81455c109811d9e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,10 +14,10 @@ final class PipeVariableExpression
 
   const string SYNTAX_KIND = 'pipe_variable_expression';
 
-  private Node $_expression;
+  private ?Node $_expression;
 
   public function __construct(
-    Node $expression,
+    ?Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -40,8 +40,7 @@ final class PipeVariableExpression
       $source,
       'Node',
     );
-    $expression = $expression as nonnull;
-    $offset += $expression->getWidth();
+    $offset += $expression?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -65,7 +64,9 @@ final class PipeVariableExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
     if ($expression === $this->_expression) {
       return $this;
     }
@@ -76,7 +77,7 @@ final class PipeVariableExpression
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(?Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -90,7 +91,7 @@ final class PipeVariableExpression
   /**
    * @return unknown
    */
-  public function getExpression(): Node {
+  public function getExpression(): ?Node {
     return $this->_expression;
   }
 
@@ -98,6 +99,6 @@ final class PipeVariableExpression
    * @return unknown
    */
   public function getExpressionx(): Node {
-    return $this->getExpression();
+    return TypeAssert\not_null($this->getExpression());
   }
 }

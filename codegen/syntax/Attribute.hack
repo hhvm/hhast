@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c93dbdf0af6f0860341ace858d00f3da>>
+ * @generated SignedSource<<72a60760ebd9f4e695f3653d475b4c5a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,12 +12,12 @@ final class Attribute extends Node {
 
   const string SYNTAX_KIND = 'attribute';
 
-  private Node $_at;
-  private Node $_attribute_name;
+  private ?Node $_at;
+  private ?Node $_attribute_name;
 
   public function __construct(
-    Node $at,
-    Node $attribute_name,
+    ?Node $at,
+    ?Node $attribute_name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_at = $at;
@@ -41,8 +41,7 @@ final class Attribute extends Node {
       $source,
       'Node',
     );
-    $at = $at as nonnull;
-    $offset += $at->getWidth();
+    $offset += $at?->getWidth() ?? 0;
     $attribute_name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['attribute_attribute_name'],
       $file,
@@ -50,8 +49,7 @@ final class Attribute extends Node {
       $source,
       'Node',
     );
-    $attribute_name = $attribute_name as nonnull;
-    $offset += $attribute_name->getWidth();
+    $offset += $attribute_name?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -80,8 +78,10 @@ final class Attribute extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $at = $rewriter($this->_at, $parents);
-    $attribute_name = $rewriter($this->_attribute_name, $parents);
+    $at = $this->_at === null ? null : $rewriter($this->_at, $parents);
+    $attribute_name = $this->_attribute_name === null
+      ? null
+      : $rewriter($this->_attribute_name, $parents);
     if ($at === $this->_at && $attribute_name === $this->_attribute_name) {
       return $this;
     }
@@ -95,7 +95,7 @@ final class Attribute extends Node {
     return $this->_at;
   }
 
-  public function withAt(Node $value): this {
+  public function withAt(?Node $value): this {
     if ($value === $this->_at) {
       return $this;
     }
@@ -109,7 +109,7 @@ final class Attribute extends Node {
   /**
    * @return unknown
    */
-  public function getAt(): Node {
+  public function getAt(): ?Node {
     return $this->_at;
   }
 
@@ -117,14 +117,14 @@ final class Attribute extends Node {
    * @return unknown
    */
   public function getAtx(): Node {
-    return $this->getAt();
+    return TypeAssert\not_null($this->getAt());
   }
 
   public function getAttributeNameUNTYPED(): ?Node {
     return $this->_attribute_name;
   }
 
-  public function withAttributeName(Node $value): this {
+  public function withAttributeName(?Node $value): this {
     if ($value === $this->_attribute_name) {
       return $this;
     }
@@ -138,7 +138,7 @@ final class Attribute extends Node {
   /**
    * @return unknown
    */
-  public function getAttributeName(): Node {
+  public function getAttributeName(): ?Node {
     return $this->_attribute_name;
   }
 
@@ -146,6 +146,6 @@ final class Attribute extends Node {
    * @return unknown
    */
   public function getAttributeNamex(): Node {
-    return $this->getAttributeName();
+    return TypeAssert\not_null($this->getAttributeName());
   }
 }

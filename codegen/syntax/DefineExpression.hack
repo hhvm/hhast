@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<239e61dec4443fc6e769a3e25e0af492>>
+ * @generated SignedSource<<13afaeb1f543b2511650fa8921f9df83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,16 +12,16 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'define_expression';
 
-  private Node $_keyword;
-  private Node $_left_paren;
-  private Node $_argument_list;
-  private Node $_right_paren;
+  private ?Node $_keyword;
+  private ?Node $_left_paren;
+  private ?Node $_argument_list;
+  private ?Node $_right_paren;
 
   public function __construct(
-    Node $keyword,
-    Node $left_paren,
-    Node $argument_list,
-    Node $right_paren,
+    ?Node $keyword,
+    ?Node $left_paren,
+    ?Node $argument_list,
+    ?Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -47,8 +47,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'Node',
     );
-    $keyword = $keyword as nonnull;
-    $offset += $keyword->getWidth();
+    $offset += $keyword?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['define_left_paren'],
       $file,
@@ -56,8 +55,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'Node',
     );
-    $left_paren = $left_paren as nonnull;
-    $offset += $left_paren->getWidth();
+    $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['define_argument_list'],
       $file,
@@ -65,8 +63,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'Node',
     );
-    $argument_list = $argument_list as nonnull;
-    $offset += $argument_list->getWidth();
+    $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['define_right_paren'],
       $file,
@@ -74,8 +71,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
       $source,
       'Node',
     );
-    $right_paren = $right_paren as nonnull;
-    $offset += $right_paren->getWidth();
+    $offset += $right_paren?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -108,10 +104,18 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $rewriter($this->_keyword, $parents);
-    $left_paren = $rewriter($this->_left_paren, $parents);
-    $argument_list = $rewriter($this->_argument_list, $parents);
-    $right_paren = $rewriter($this->_right_paren, $parents);
+    $keyword = $this->_keyword === null
+      ? null
+      : $rewriter($this->_keyword, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $argument_list = $this->_argument_list === null
+      ? null
+      : $rewriter($this->_argument_list, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -132,7 +136,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(?Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -151,7 +155,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return unknown
    */
-  public function getKeyword(): Node {
+  public function getKeyword(): ?Node {
     return $this->_keyword;
   }
 
@@ -159,14 +163,14 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
    * @return unknown
    */
   public function getKeywordx(): Node {
-    return $this->getKeyword();
+    return TypeAssert\not_null($this->getKeyword());
   }
 
   public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(?Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -185,7 +189,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return unknown
    */
-  public function getLeftParen(): Node {
+  public function getLeftParen(): ?Node {
     return $this->_left_paren;
   }
 
@@ -193,14 +197,14 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
    * @return unknown
    */
   public function getLeftParenx(): Node {
-    return $this->getLeftParen();
+    return TypeAssert\not_null($this->getLeftParen());
   }
 
   public function getArgumentListUNTYPED(): ?Node {
     return $this->_argument_list;
   }
 
-  public function withArgumentList(Node $value): this {
+  public function withArgumentList(?Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -219,7 +223,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return unknown
    */
-  public function getArgumentList(): Node {
+  public function getArgumentList(): ?Node {
     return $this->_argument_list;
   }
 
@@ -227,14 +231,14 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
    * @return unknown
    */
   public function getArgumentListx(): Node {
-    return $this->getArgumentList();
+    return TypeAssert\not_null($this->getArgumentList());
   }
 
   public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(?Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -253,7 +257,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return unknown
    */
-  public function getRightParen(): Node {
+  public function getRightParen(): ?Node {
     return $this->_right_paren;
   }
 
@@ -261,6 +265,6 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
    * @return unknown
    */
   public function getRightParenx(): Node {
-    return $this->getRightParen();
+    return TypeAssert\not_null($this->getRightParen());
   }
 }

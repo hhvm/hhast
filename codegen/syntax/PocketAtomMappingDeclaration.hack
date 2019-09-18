@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fba031f8ad0749f072ce252bac0c5e06>>
+ * @generated SignedSource<<fef3e2dc24bfbc328a6828a91a2b4442>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,20 +12,20 @@ final class PocketAtomMappingDeclaration extends Node {
 
   const string SYNTAX_KIND = 'pocket_atom_mapping_declaration';
 
-  private Node $_glyph;
-  private Node $_name;
-  private Node $_left_paren;
-  private Node $_mappings;
-  private Node $_right_paren;
-  private Node $_semicolon;
+  private ?Node $_glyph;
+  private ?Node $_name;
+  private ?Node $_left_paren;
+  private ?Node $_mappings;
+  private ?Node $_right_paren;
+  private ?Node $_semicolon;
 
   public function __construct(
-    Node $glyph,
-    Node $name,
-    Node $left_paren,
-    Node $mappings,
-    Node $right_paren,
-    Node $semicolon,
+    ?Node $glyph,
+    ?Node $name,
+    ?Node $left_paren,
+    ?Node $mappings,
+    ?Node $right_paren,
+    ?Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_glyph = $glyph;
@@ -53,8 +53,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
-    $glyph = $glyph as nonnull;
-    $offset += $glyph->getWidth();
+    $offset += $glyph?->getWidth() ?? 0;
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_name'],
       $file,
@@ -62,8 +61,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_left_paren'],
       $file,
@@ -71,8 +69,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
-    $left_paren = $left_paren as nonnull;
-    $offset += $left_paren->getWidth();
+    $offset += $left_paren?->getWidth() ?? 0;
     $mappings = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_mappings'],
       $file,
@@ -80,8 +77,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
-    $mappings = $mappings as nonnull;
-    $offset += $mappings->getWidth();
+    $offset += $mappings?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_right_paren'],
       $file,
@@ -89,8 +85,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
-    $right_paren = $right_paren as nonnull;
-    $offset += $right_paren->getWidth();
+    $offset += $right_paren?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_atom_mapping_semicolon'],
       $file,
@@ -98,8 +93,7 @@ final class PocketAtomMappingDeclaration extends Node {
       $source,
       'Node',
     );
-    $semicolon = $semicolon as nonnull;
-    $offset += $semicolon->getWidth();
+    $offset += $semicolon?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -136,12 +130,20 @@ final class PocketAtomMappingDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $glyph = $rewriter($this->_glyph, $parents);
-    $name = $rewriter($this->_name, $parents);
-    $left_paren = $rewriter($this->_left_paren, $parents);
-    $mappings = $rewriter($this->_mappings, $parents);
-    $right_paren = $rewriter($this->_right_paren, $parents);
-    $semicolon = $rewriter($this->_semicolon, $parents);
+    $glyph = $this->_glyph === null ? null : $rewriter($this->_glyph, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $mappings = $this->_mappings === null
+      ? null
+      : $rewriter($this->_mappings, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
     if (
       $glyph === $this->_glyph &&
       $name === $this->_name &&
@@ -166,7 +168,7 @@ final class PocketAtomMappingDeclaration extends Node {
     return $this->_glyph;
   }
 
-  public function withGlyph(Node $value): this {
+  public function withGlyph(?Node $value): this {
     if ($value === $this->_glyph) {
       return $this;
     }
@@ -187,7 +189,7 @@ final class PocketAtomMappingDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getGlyph(): Node {
+  public function getGlyph(): ?Node {
     return $this->_glyph;
   }
 
@@ -195,14 +197,14 @@ final class PocketAtomMappingDeclaration extends Node {
    * @return unknown
    */
   public function getGlyphx(): Node {
-    return $this->getGlyph();
+    return TypeAssert\not_null($this->getGlyph());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(Node $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -223,7 +225,7 @@ final class PocketAtomMappingDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getName(): Node {
+  public function getName(): ?Node {
     return $this->_name;
   }
 
@@ -231,14 +233,14 @@ final class PocketAtomMappingDeclaration extends Node {
    * @return unknown
    */
   public function getNamex(): Node {
-    return $this->getName();
+    return TypeAssert\not_null($this->getName());
   }
 
   public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(Node $value): this {
+  public function withLeftParen(?Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -259,7 +261,7 @@ final class PocketAtomMappingDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getLeftParen(): Node {
+  public function getLeftParen(): ?Node {
     return $this->_left_paren;
   }
 
@@ -267,14 +269,14 @@ final class PocketAtomMappingDeclaration extends Node {
    * @return unknown
    */
   public function getLeftParenx(): Node {
-    return $this->getLeftParen();
+    return TypeAssert\not_null($this->getLeftParen());
   }
 
   public function getMappingsUNTYPED(): ?Node {
     return $this->_mappings;
   }
 
-  public function withMappings(Node $value): this {
+  public function withMappings(?Node $value): this {
     if ($value === $this->_mappings) {
       return $this;
     }
@@ -295,7 +297,7 @@ final class PocketAtomMappingDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getMappings(): Node {
+  public function getMappings(): ?Node {
     return $this->_mappings;
   }
 
@@ -303,14 +305,14 @@ final class PocketAtomMappingDeclaration extends Node {
    * @return unknown
    */
   public function getMappingsx(): Node {
-    return $this->getMappings();
+    return TypeAssert\not_null($this->getMappings());
   }
 
   public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(Node $value): this {
+  public function withRightParen(?Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -331,7 +333,7 @@ final class PocketAtomMappingDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getRightParen(): Node {
+  public function getRightParen(): ?Node {
     return $this->_right_paren;
   }
 
@@ -339,14 +341,14 @@ final class PocketAtomMappingDeclaration extends Node {
    * @return unknown
    */
   public function getRightParenx(): Node {
-    return $this->getRightParen();
+    return TypeAssert\not_null($this->getRightParen());
   }
 
   public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(Node $value): this {
+  public function withSemicolon(?Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -367,7 +369,7 @@ final class PocketAtomMappingDeclaration extends Node {
   /**
    * @return unknown
    */
-  public function getSemicolon(): Node {
+  public function getSemicolon(): ?Node {
     return $this->_semicolon;
   }
 
@@ -375,6 +377,6 @@ final class PocketAtomMappingDeclaration extends Node {
    * @return unknown
    */
   public function getSemicolonx(): Node {
-    return $this->getSemicolon();
+    return TypeAssert\not_null($this->getSemicolon());
   }
 }

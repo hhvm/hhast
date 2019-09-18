@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9f2a2bd581cfa2384f231d0cd337783>>
+ * @generated SignedSource<<330fecdbc5d5a7eeb1a8c44986895eda>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,10 +14,10 @@ final class VariableExpression
 
   const string SYNTAX_KIND = 'variable_expression';
 
-  private Node $_expression;
+  private ?Node $_expression;
 
   public function __construct(
-    Node $expression,
+    ?Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -40,8 +40,7 @@ final class VariableExpression
       $source,
       'Node',
     );
-    $expression = $expression as nonnull;
-    $offset += $expression->getWidth();
+    $offset += $expression?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -65,7 +64,9 @@ final class VariableExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
     if ($expression === $this->_expression) {
       return $this;
     }
@@ -76,7 +77,7 @@ final class VariableExpression
     return $this->_expression;
   }
 
-  public function withExpression(Node $value): this {
+  public function withExpression(?Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -90,7 +91,7 @@ final class VariableExpression
   /**
    * @return unknown
    */
-  public function getExpression(): Node {
+  public function getExpression(): ?Node {
     return $this->_expression;
   }
 
@@ -98,6 +99,6 @@ final class VariableExpression
    * @return unknown
    */
   public function getExpressionx(): Node {
-    return $this->getExpression();
+    return TypeAssert\not_null($this->getExpression());
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc6edba4755aafa2fa5069b8a84ddd0f>>
+ * @generated SignedSource<<28fa111851e53669839f14d81d9bc448>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,16 +12,16 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'tuple_type_explicit_specifier';
 
-  private Node $_keyword;
-  private Node $_left_angle;
-  private Node $_types;
-  private Node $_right_angle;
+  private ?Node $_keyword;
+  private ?Node $_left_angle;
+  private ?Node $_types;
+  private ?Node $_right_angle;
 
   public function __construct(
-    Node $keyword,
-    Node $left_angle,
-    Node $types,
-    Node $right_angle,
+    ?Node $keyword,
+    ?Node $left_angle,
+    ?Node $types,
+    ?Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -47,8 +47,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
-    $keyword = $keyword as nonnull;
-    $offset += $keyword->getWidth();
+    $offset += $keyword?->getWidth() ?? 0;
     $left_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_type_left_angle'],
       $file,
@@ -56,8 +55,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
-    $left_angle = $left_angle as nonnull;
-    $offset += $left_angle->getWidth();
+    $offset += $left_angle?->getWidth() ?? 0;
     $types = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_type_types'],
       $file,
@@ -65,8 +63,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
-    $types = $types as nonnull;
-    $offset += $types->getWidth();
+    $offset += $types?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['tuple_type_right_angle'],
       $file,
@@ -74,8 +71,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       $source,
       'Node',
     );
-    $right_angle = $right_angle as nonnull;
-    $offset += $right_angle->getWidth();
+    $offset += $right_angle?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -108,10 +104,16 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $rewriter($this->_keyword, $parents);
-    $left_angle = $rewriter($this->_left_angle, $parents);
-    $types = $rewriter($this->_types, $parents);
-    $right_angle = $rewriter($this->_right_angle, $parents);
+    $keyword = $this->_keyword === null
+      ? null
+      : $rewriter($this->_keyword, $parents);
+    $left_angle = $this->_left_angle === null
+      ? null
+      : $rewriter($this->_left_angle, $parents);
+    $types = $this->_types === null ? null : $rewriter($this->_types, $parents);
+    $right_angle = $this->_right_angle === null
+      ? null
+      : $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
@@ -132,7 +134,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     return $this->_keyword;
   }
 
-  public function withKeyword(Node $value): this {
+  public function withKeyword(?Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -151,7 +153,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
   /**
    * @return unknown
    */
-  public function getKeyword(): Node {
+  public function getKeyword(): ?Node {
     return $this->_keyword;
   }
 
@@ -159,14 +161,14 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
    * @return unknown
    */
   public function getKeywordx(): Node {
-    return $this->getKeyword();
+    return TypeAssert\not_null($this->getKeyword());
   }
 
   public function getLeftAngleUNTYPED(): ?Node {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(Node $value): this {
+  public function withLeftAngle(?Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -185,7 +187,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
   /**
    * @return unknown
    */
-  public function getLeftAngle(): Node {
+  public function getLeftAngle(): ?Node {
     return $this->_left_angle;
   }
 
@@ -193,14 +195,14 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
    * @return unknown
    */
   public function getLeftAnglex(): Node {
-    return $this->getLeftAngle();
+    return TypeAssert\not_null($this->getLeftAngle());
   }
 
   public function getTypesUNTYPED(): ?Node {
     return $this->_types;
   }
 
-  public function withTypes(Node $value): this {
+  public function withTypes(?Node $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -219,7 +221,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
   /**
    * @return unknown
    */
-  public function getTypes(): Node {
+  public function getTypes(): ?Node {
     return $this->_types;
   }
 
@@ -227,14 +229,14 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
    * @return unknown
    */
   public function getTypesx(): Node {
-    return $this->getTypes();
+    return TypeAssert\not_null($this->getTypes());
   }
 
   public function getRightAngleUNTYPED(): ?Node {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(Node $value): this {
+  public function withRightAngle(?Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -253,7 +255,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
   /**
    * @return unknown
    */
-  public function getRightAngle(): Node {
+  public function getRightAngle(): ?Node {
     return $this->_right_angle;
   }
 
@@ -261,6 +263,6 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
    * @return unknown
    */
   public function getRightAnglex(): Node {
-    return $this->getRightAngle();
+    return TypeAssert\not_null($this->getRightAngle());
   }
 }
