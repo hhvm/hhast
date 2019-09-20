@@ -78,6 +78,9 @@ final class LintRunConfig {
     HHAST\GroupUseStatementsLinter::class,
     HHAST\GroupUseStatementAlphabetizationLinter::class,
     HHAST\NoWhitespaceAtEndOfLineLinter::class,
+    HHAST\PocketAtomExpressionLinter::class,
+    HHAST\PocketIdentifierExpressionLinter::class,
+    HHAST\PocketEnumDeclarationLinter::class,
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
