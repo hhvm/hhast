@@ -10,15 +10,20 @@
 namespace Facebook\HHAST;
 
 final class PocketIdentifierExpressionLinterTest extends TestCase {
-    use LinterTestTrait;
+  use LinterTestTrait;
 
-    protected function getLinter(
-        string $file,
-    ): PocketIdentifierExpressionLinter {
-        return PocketIdentifierExpressionLinter::fromPath($file);
+  protected function getLinter(
+    string $file,
+  ): PocketIdentifierExpressionLinter {
+    if (\version_compare(\HHVM_VERSION, '4.23.0') < 0) {
+      self::markTestSkipped(
+        'Pocket Universe tests are only relevant on HHVM 4.23+',
+      );
     }
+    return PocketIdentifierExpressionLinter::fromPath($file);
+  }
 
-    public function getCleanExamples(): vec<(string)> {
-        return vec[tuple('<?hh if (true) {} else if (false) {}')];
-    }
+  public function getCleanExamples(): vec<(string)> {
+    return vec[tuple('<?hh if (true) {} else if (false) {}')];
+  }
 }

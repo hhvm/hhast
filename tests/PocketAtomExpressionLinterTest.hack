@@ -10,13 +10,18 @@
 namespace Facebook\HHAST;
 
 final class PocketAtomExpressionLinterTest extends TestCase {
-    use LinterTestTrait;
+  use LinterTestTrait;
 
-    protected function getLinter(string $file): PocketAtomExpressionLinter {
-        return PocketAtomExpressionLinter::fromPath($file);
+  protected function getLinter(string $file): PocketAtomExpressionLinter {
+    if (\version_compare(\HHVM_VERSION, '4.23.0') < 0) {
+      self::markTestSkipped(
+        'Pocket Universe tests are only relevant on HHVM 4.23+',
+      );
     }
+    return PocketAtomExpressionLinter::fromPath($file);
+  }
 
-    public function getCleanExamples(): vec<(string)> {
-        return vec[tuple('<?hh if (true) {} else if (false) {}')];
-    }
+  public function getCleanExamples(): vec<(string)> {
+    return vec[tuple('<?hh if (true) {} else if (false) {}')];
+  }
 }
