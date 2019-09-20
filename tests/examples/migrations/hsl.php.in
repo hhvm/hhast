@@ -14,9 +14,6 @@ function hsl_migration_main(): void {
   echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz',);
   echo "\nstr_replace: ".
     str_replace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
-  $count = 0;
-  // this case is not handled in HSL because of the &$count
-  echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz', &$count);
   echo "\nstr_ireplace: ".str_ireplace('foo', 'bar', 'foobarbaz');
   // this case is also not handled because there is no case insensitive version of Str\replace_every
   echo "\nstr_ireplace: ".

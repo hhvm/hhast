@@ -16,9 +16,6 @@ function hsl_migration_main(): void {
   echo "\nstr_replace: ".Str\replace('foobarbaz', 'foo', 'bar',);
   echo "\nstr_replace: ".
     Str\replace_every('a test example with arrays', Dict\associate(['a', 'b'], ['x', 'y']));
-  $count = 0;
-  // this case is not handled in HSL because of the &$count
-  echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz', &$count);
   echo "\nstr_ireplace: ".Str\replace_ci('foobarbaz', 'foo', 'bar');
   // this case is also not handled because there is no case insensitive version of Str\replace_every
   echo "\nstr_ireplace: ".
