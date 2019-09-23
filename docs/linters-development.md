@@ -2,19 +2,19 @@
 
 ## Linter Base Classes
 
- - [`BaseLinter`](../src/Linters/BaseLinter.php): base class of all linters, and independent from the AST
- - [`BaseASTLinter`](../src/Linters/BaseASTLinter.php): base class for linters that operate on AST nodes; you shouldn't usually extend this directly; you probably want either `ASTLinter` or `AutoFixingASTLinter` instead. You'll need to extend this if you want to use the AST to detect an issue, but an approach other than AST manipulation to automatically fix them (e.g. shelling out to `hh_client --refactor`)
- - [`ASTLinter`](../src/Linters/ASTLinter.php): base class for linters that use the AST to detect issues, but don't have an auto-fix
- - [`AutoFixingLinter`](../src/Linters/AutoFixingLinter.php): an interface that specifies that a linter is able to fix   its' own lint problems
- - [`AutoFixingASTLinter`](../src/Linters/AutoFixingASTLinter.php): a subclass of `ASTLinter` which implements `AutoFixingLinter`, for when your auto-fix is based on an AST mutation
- - [`FunctionNamingLinterTrait`](../src/Linters/FunctionNamingLinterTrait): helper for `ASTLinter` subclasses
+ - [`BaseLinter`](../src/Linters/BaseLinter.hack): base class of all linters, and independent from the AST
+ - [`AutoFixingLinter`](../src/Linters/AutoFixingLinter.hack): an interface that specifies that a linter is able to fix its own lint problems. Usually you shouldn't extend this directly, but use one of the base classes below, or [`AutoFixingLinterTrait`](../src/Linters/AutoFixingLinterTrait.hack) if there is no appropriate base class.
+ - [`ASTLinter`](../src/Linters/ASTLinter.hack): base class for linters that use the AST to detect issues, but don't have an auto-fix. You'll need to extend this if you want to use the AST to detect an issue, but an approach other than AST manipulation to automatically fix them (e.g. shelling out to `hh_client --refactor`)
+ - [`AutoFixingASTLinter`](../src/Linters/AutoFixingASTLinter.hack): a subclass of `ASTLinter` which implements `AutoFixingLinter`, for when your auto-fix is based on an AST mutation
+ - [`LineLinter`](../src/Linters/LineLinter.hack), [`AutoFixingLineLinter`](../src/Linters/AutoFixingLineLinter.hack): for linters that operate on a single line at a time
+ - [`FunctionNamingLinter`](../src/Linters/FunctionNamingLinter.hack): for linters that enforce function/method naming conventions
 
 ## Error Base Classes
 
- - [`LintError`](../src/Linters/LintError.php): base of all linter errors. It allows you to provide a description, and blame text (usually code)
- - [`FixableLintError`](../src/Linters/FixableLintError.php): interface for lint errors that might be fixable. It specifies how to fix them, and a way to describe the fix. The error is actually fixed by passing the error to the linters' fix method
- - [`ASTLintError`](../src/Linters/ASTLintError.php): subclass of `LintError` for linters that derive from `BaseASTLintError`, but not `AutoFixingASTLintError`
- - [`FixableASTLintError`](../src/Linters/FixableASTLintError.php): subclass of `ASTLintError` for linters that are a subclass of `AutoFixingASTLinter`
+ - [`LintError`](../src/Linters/LintError.hack): base of all linter errors. It allows you to provide a description, and blame text (usually code)
+ - [`FixableLintError`](../src/Linters/FixableLintError.hack): interface for lint errors that might be fixable. It specifies how to fix them, and a way to describe the fix. The error is actually fixed by passing the error to the linters' fix method
+ - [`ASTLintError`](../src/Linters/ASTLintError.hack): subclass of `LintError` for linters that derive from `BaseASTLintError`, but not `AutoFixingASTLintError`
+ - [`FixableASTLintError`](../src/Linters/FixableASTLintError.hack): subclass of `ASTLintError` for linters that are a subclass of `AutoFixingASTLinter`
 
 ## Getting Started
 
