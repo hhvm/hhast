@@ -11,10 +11,9 @@
 
 ## Error Base Classes
 
- - [`LintError`](../src/Linters/LintError.hack): base of all linter errors. It allows you to provide a description, and blame text (usually code)
- - [`FixableLintError`](../src/Linters/FixableLintError.hack): interface for lint errors that might be fixable. It specifies how to fix them, and a way to describe the fix. The error is actually fixed by passing the error to the linters' fix method
- - [`ASTLintError`](../src/Linters/ASTLintError.hack): subclass of `LintError` for linters that derive from `BaseASTLintError`, but not `AutoFixingASTLintError`
- - [`FixableASTLintError`](../src/Linters/FixableASTLintError.hack): subclass of `ASTLintError` for linters that are a subclass of `AutoFixingASTLinter`
+ - [`LintError`](../src/Linters/LintError.hack): base of all linter errors. It allows you to provide a description and blame text (usually code)
+ - [`ASTLintError`](../src/Linters/ASTLintError.hack): subclass of `LintError` for linters that derive from `ASTLinter` or `AutoFixingASTLinter`
+ - [`LineLintError`](../src/Linters/LineLintError.hack): for `LineLinter` and `AutoFixingLineLinter`
 
 ## Getting Started
 
