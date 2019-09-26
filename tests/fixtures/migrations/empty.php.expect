@@ -10,7 +10,7 @@ function foo($x) {
   if (foo\empty($x)) {
     \var_dump('empty function call');
   }
-  if ((!$x ?? false)) {
+  if (!($x ?? false)) {
     \var_dump('empty intrinsic');
   }
 }

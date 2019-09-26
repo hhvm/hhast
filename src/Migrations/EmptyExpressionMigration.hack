@@ -37,20 +37,20 @@ final class EmptyExpressionMigration extends BaseMigration {
     foreach ($to_fix as $expr) {
       $ast = $ast->replace(
         $expr,
-        new ParenthesizedExpression(
-          new LeftParenToken($expr->getFirstTokenx()->getLeading(), $m),
-          new BinaryExpression(
-            new PrefixUnaryExpression(
-              new ExclamationToken($m, $m),
+        new PrefixUnaryExpression(
+          new ExclamationToken($m, $m),
+          new ParenthesizedExpression(
+            new LeftParenToken($expr->getFirstTokenx()->getLeading(), $m),
+            new BinaryExpression(
               $expr->getArgument(),
+              new QuestionQuestionToken(
+                new WhiteSpace(' '),
+                new WhiteSpace(' '),
+              ),
+              new BooleanLiteralToken($m, $m, 'false'),
             ),
-            new QuestionQuestionToken(
-              new WhiteSpace(' '),
-              new WhiteSpace(' '),
-            ),
-            new BooleanLiteralToken($m, $m, 'false'),
+            new RightParenToken($m, $expr->getLastTokenx()->getTrailing()),
           ),
-          new RightParenToken($m, $expr->getLastTokenx()->getTrailing()),
         ),
       );
     }
