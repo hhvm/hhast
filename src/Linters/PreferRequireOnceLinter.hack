@@ -1,5 +1,5 @@
 /*
- *  Copyright (c) 2019-present, Facebook, Inc.
+ *  Copyright (c) 2017-present, Facebook, Inc.
  *  All rights reserved.
  *
  *  This source code is licensed under the MIT license found in the
@@ -38,11 +38,12 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
   /**
    * Could I get a helping hand here?
    * I want this to replace `include_once __DIR__ . '/../file.hack'` with `require_once __DIR__ . '/../file.hack'`.
-   * However, this destroys the space between the IncludeToken and the __DIR__.
-   * This makes the file fail to parse, since `require_once__DIR__` is not a valid token.
-   * It also consumes all the indentation.
+   * It consumes all the indentation.
+   * Is there something that feels like Node::getLeadingWhitespace()?
    */
   public function getFixedNode(InclusionExpression $node): ?Node {
-    return $node->withRequire(new Require_onceToken(null, null));
+    return $node->withRequire(
+      new Require_onceToken(null, new NodeList(vec[new WhiteSpace(' ')])),
+    );
   }
 }
