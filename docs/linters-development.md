@@ -21,6 +21,8 @@ The best way is to read through [the existing linters](../src/Linters/) to get a
 
 It's best to heavily use unit tests when working on linters; once your tests pass and you're ready to get started, add it to your `hhast-lint.json`.
 
+To run your own new linter, you can add the classname of your linter to `Facebook\HHAST\__Private\LintRunConfig::DEFAULT_LINTERS` which can be found at `src/__Private/LintRunConfig.hack:61` as of October 2019.
+
 ## Testing
 
 We are using *HackTest* -- see [its documentation](https://github.com/hhvm/hacktest/blob/master/README.md).
