@@ -10,8 +10,6 @@
 namespace Facebook\HHAST\__Private;
 
 use type Facebook\HHAST\{SchemaVersionError, Script};
-use const Facebook\HHAST\SCHEMA_VERSION;
-use namespace HH\Lib\C;
 
 function from_decoded_json(
   dict<string, mixed> $json,
