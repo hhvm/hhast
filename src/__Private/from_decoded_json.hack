@@ -13,26 +13,12 @@ use type Facebook\HHAST\{SchemaVersionError, Script};
 use const Facebook\HHAST\SCHEMA_VERSION;
 use namespace HH\Lib\C;
 
-// Allow multiple schema versions if the only differences are
-// deletions. The codegen should be built with the most complete
-// version.
-//
-// Using fully-qualified constant names due to
-// https://github.com/facebook/hhvm/issues/8511
-const keyset<string> COMPATIBLE_SCHEMA_VERSIONS = (
-  \Facebook\HHAST\SCHEMA_VERSION === '2019-05-20-0001'
-)
-  ? keyset[\Facebook\HHAST\SCHEMA_VERSION, '2019-07-23-0001']
-  : keyset[\Facebook\HHAST\SCHEMA_VERSION];
-
 function from_decoded_json(
   dict<string, mixed> $json,
   ?string $file = null,
 ): Script {
   $version = $json['version'] ?? null;
-  if (
-    $version is string && !C\contains_key(COMPATIBLE_SCHEMA_VERSIONS, $version)
-  ) {
+  if ($version is string && !is_compatible_schema_version($version)) {
     throw new SchemaVersionError($file ?? '! no file !', $version);
   }
   return Script::fromJSON(
