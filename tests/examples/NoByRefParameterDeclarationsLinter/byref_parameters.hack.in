@@ -1,0 +1,27 @@
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
+
+function byref_parameters(
+  string &$ref,
+  float $not_ref,
+  /* has comment */ bool /* and weird */ & /* formatting */ $ref2,
+  mixed & $ref3,
+  mixed& $ref4,
+  // hello
+  mixed&$ref5,
+  &$ref6,
+  // hi
+  & $ref7,
+  /* foo */ & /* $bar */ $ref8,
+  int &$ref_with_default = 42,
+): void {
+  // not a parameter, no auto-fix, no Lint error
+  $ref = &$foo;
+  $ref2 =& $ref;
+}

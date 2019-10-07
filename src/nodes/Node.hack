@@ -256,6 +256,19 @@ abstract class Node implements IMemoizeParam {
     invariant_violation('unreachable');
   }
 
+  final public function getClosestAncestorOfDescendantOfType<
+    <<__Enforceable>> reify TAncestor as Node,
+  >(
+    Node $node,
+  ): ?TAncestor {
+    foreach (Vec\reverse($this->getAncestorsOfDescendant($node)) as $ancestor) {
+      if ($ancestor is TAncestor) {
+        return $ancestor;
+      }
+    }
+    return null;
+  }
+
   final public function getParentOfDescendant(Node $node): Node {
     invariant($node !== $this, "Asked to find parent of self");
     invariant($this->isAncestorOf($node), "Node is not a descendant");

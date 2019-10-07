@@ -81,6 +81,8 @@ final class LintRunConfig {
     HHAST\PocketAtomExpressionLinter::class,
     HHAST\PocketIdentifierExpressionLinter::class,
     HHAST\PocketEnumDeclarationLinter::class,
+    HHAST\NoByRefCallArgumentsLinter::class,
+    HHAST\NoByRefParameterDeclarationsLinter::class,
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
