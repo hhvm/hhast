@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ebcdbaeb3af23fd164e79b63b0fe635b>>
+ * @generated SignedSource<<6fe371b0af0b1928ccd9fdaabf6cd1de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,18 +183,16 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
-   * | FloatToken | IntToken | IntegerToken | ObjectToken | StringToken |
-   * UnsetToken
+   * @return ArrayToken | BinaryToken | BoolToken | FloatToken | IntToken |
+   * StringToken | UnsetToken
    */
   public function getType(): Token {
     return TypeAssert\instance_of(Token::class, $this->_type);
   }
 
   /**
-   * @return ArrayToken | BinaryToken | BoolToken | BooleanToken | DoubleToken
-   * | FloatToken | IntToken | IntegerToken | ObjectToken | StringToken |
-   * UnsetToken
+   * @return ArrayToken | BinaryToken | BoolToken | FloatToken | IntToken |
+   * StringToken | UnsetToken
    */
   public function getTypex(): Token {
     return $this->getType();
@@ -255,26 +253,24 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | XHPExpression
+   * @return ArrayIntrinsicExpression | CollectionLiteralExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
+   * | ObjectCreationExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression | XHPExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * CollectionLiteralExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | KeysetIntrinsicExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | XHPExpression
+   * @return ArrayIntrinsicExpression | CollectionLiteralExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
+   * | ObjectCreationExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression | XHPExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

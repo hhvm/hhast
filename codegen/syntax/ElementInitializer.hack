@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94ef02e78c959c5ba25c8098df476c63>>
+ * @generated SignedSource<<fc6675e5099c81054730fcab49737127>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -128,11 +128,11 @@ final class ElementInitializer extends Node {
 
   /**
    * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * FunctionCallExpression | LiteralExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getKey(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_key);
@@ -140,11 +140,11 @@ final class ElementInitializer extends Node {
 
   /**
    * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | BinaryExpression | CastExpression |
-   * FunctionCallExpression | LiteralExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CastExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression
    */
   public function getKeyx(): IExpression {
     return $this->getKey();

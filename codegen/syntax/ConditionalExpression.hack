@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8fca081682194930384b5a2cf9ff3083>>
+ * @generated SignedSource<<89098c8d13f853466dd63a9da283c776>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -249,8 +249,8 @@ final class ConditionalExpression
   /**
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression
@@ -262,8 +262,8 @@ final class ConditionalExpression
   /**
    * @return ArrayCreationExpression | ArrayIntrinsicExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression

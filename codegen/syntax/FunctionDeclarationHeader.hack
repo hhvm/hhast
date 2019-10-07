@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c69c7e73fee6fbc3fcde91e83be251db>>
+ * @generated SignedSource<<669e4b4c4525ea8d0309614c7e1156aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -592,8 +592,8 @@ final class FunctionDeclarationHeader extends Node {
    * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
    * MapArrayTypeSpecifier | null | NullableTypeSpecifier | ShapeTypeSpecifier
    * | SimpleTypeSpecifier | SoftTypeSpecifier | NoreturnToken |
-   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * TupleTypeSpecifier | TypeConstant | UnionTypeSpecifier |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -605,8 +605,8 @@ final class FunctionDeclarationHeader extends Node {
    * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
    * MapArrayTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
    * SimpleTypeSpecifier | SoftTypeSpecifier | NoreturnToken |
-   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * TupleTypeSpecifier | TypeConstant | UnionTypeSpecifier |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

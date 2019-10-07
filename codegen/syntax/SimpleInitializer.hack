@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a30482e692ac25438c91717dac4691e3>>
+ * @generated SignedSource<<60b5c6e4ffbb3b2030c345a4c877f81b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,8 +136,8 @@ final class SimpleInitializer extends Node {
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression | AsExpression
+   * | BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | ParenthesizedExpression | PrefixUnaryExpression |
@@ -150,8 +150,8 @@ final class SimpleInitializer extends Node {
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
+   * @return ArrayCreationExpression | ArrayIntrinsicExpression | AsExpression
+   * | BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | ParenthesizedExpression | PrefixUnaryExpression |

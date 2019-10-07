@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec668586f3d06a259177d749e406ba62>>
+ * @generated SignedSource<<cb6bee194e70856caf045e6833b23217>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -300,10 +300,11 @@ abstract class ParameterDeclarationGeneratedBase
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | LikeTypeSpecifier | MapArrayTypeSpecifier | null |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * IntersectionTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
+   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | ShapeTypeSpecifier
+   * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -312,10 +313,11 @@ abstract class ParameterDeclarationGeneratedBase
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * KeysetTypeSpecifier | LikeTypeSpecifier | MapArrayTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * IntersectionTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
+   * MapArrayTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
+   * SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

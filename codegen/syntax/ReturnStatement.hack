@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a73db0f3d64b121081a477af04e10556>>
+ * @generated SignedSource<<50b6856e5c3ad4c0ec107af9f4d0f0f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -166,10 +166,11 @@ final class ReturnStatement extends Node implements IStatement {
    * LiteralExpression | MemberSelectionExpression | null |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldFromExpression
+   * RecordCreationExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
+   * YieldFromExpression
    */
   public function getExpression(): ?IExpression {
     return $this->_expression;
@@ -184,10 +185,11 @@ final class ReturnStatement extends Node implements IStatement {
    * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | SafeMemberSelectionExpression | ScopeResolutionExpression
-   * | ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldFromExpression
+   * QualifiedName | RecordCreationExpression | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
+   * YieldFromExpression
    */
   public function getExpressionx(): IExpression {
     return TypeAssert\not_null($this->getExpression());

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed86ed6c8c517dc05bd0f4b64391ca9b>>
+ * @generated SignedSource<<fa7d14fb5512863ca35286e7bad5e2e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -189,8 +189,8 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier
+   * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getRightOperand(): ITypeSpecifier {
@@ -198,8 +198,8 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier
+   * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
    */
   public function getRightOperandx(): ITypeSpecifier {
