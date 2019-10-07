@@ -12,6 +12,7 @@ namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Str};
 use type Facebook\CLILib\CLIWithRequiredArguments;
+use type HH\Lib\_Private\PHPWarningSuppressor;
 use namespace Facebook\CLILib\CLIOptions;
 
 final class InspectorCLI extends CLIWithRequiredArguments {
@@ -91,15 +92,14 @@ final class InspectorCLI extends CLIWithRequiredArguments {
       return false;
     }
 
-    /*HH_FIXME[2050] Use of a super global*/
-    $env = $_ENV;
+    $env = \HH\global_get('_ENV');
 
     switch ($os) {
       case OperatingSystem::MACOS:
         \pcntl_exec('/usr/bin/open', [$filename], $env);
         break;
       case OperatingSystem::LINUX:
-        using ($no_warnings = new PHPWarningSuppressor()) {
+        using ($_no_warnings = new PHPWarningSuppressor()) {
           $result = \pcntl_exec('/usr/bin/sensible-browser', [$filename], $env);
         }
         if ($result === false) {
