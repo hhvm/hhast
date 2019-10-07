@@ -21,6 +21,8 @@ The best way is to read through [the existing linters](../src/Linters/) to get a
 
 It's best to heavily use unit tests when working on linters; once your tests pass and you're ready to get started, add it to your `hhast-lint.json`.
 
+HHAST can generate HTML pages to explore the AST when given a file from disk. You can create such an HTML file by using `bin/hhast-inspect --output="where_do_you_want_it.html" /path/to/hackfile.hack` This works for all hack files, not just for `.hack` files. These files are a tremendous help for visualizing the AST.
+
 ## Testing
 
 We are using *HackTest* -- see [its documentation](https://github.com/hhvm/hacktest/blob/master/README.md).
