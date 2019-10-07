@@ -3,5 +3,7 @@
   "hack.useHhast": true,
   "files.associations": {
     "*.php": "hack"
-  }
+  },
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2
 }

@@ -13,14 +13,14 @@ use namespace HH\Lib\Str;
 
 <<__Memoize>>
 function get_host_os(): ?OperatingSystem {
-    $os = \PHP_OS;
-    if (Str\starts_with_ci($os, 'linux')) {
-        return OperatingSystem::LINUX;
-    } else if (Str\starts_with_ci($os, 'darwin')) {
-        return OperatingSystem::MACOS;
-    } else if (Str\starts_with_ci($os, 'win')) {
-        return OperatingSystem::WINDOWS;
-    } else {
-        return null;
-    }
+  $os = \PHP_OS;
+  if (Str\starts_with_ci($os, 'linux')) {
+    return OperatingSystem::LINUX;
+  } else if (Str\starts_with_ci($os, 'darwin')) {
+    return OperatingSystem::MACOS;
+  } else if (Str\starts_with_ci($os, 'win')) {
+    return OperatingSystem::WINDOWS;
+  } else {
+    return null;
+  }
 }
