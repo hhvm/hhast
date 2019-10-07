@@ -76,10 +76,40 @@ final class InspectorCLI extends CLIWithRequiredArguments {
     print $output."\n";
 
     if ($this->open) {
-      \pcntl_exec('/usr/bin/open', [$output]);
+      $os_found = self::openFileInBrowser($output);
+      if (!$os_found) {
+        await $err->writeAsync('We could not determine your OS.');
+      }
     }
 
     return 0;
+  }
+
+  private static function openFileInBrowser(string $filename): bool {
+    $os = get_host_os();
+    if ($os is null) {
+      return false;
+    }
+
+    /*HH_FIXME[2050] Use of a super global*/
+    $env = $_ENV;
+
+    switch ($os) {
+      case OperatingSystem::MACOS:
+        \pcntl_exec('/usr/bin/open', [$filename], $env);
+        break;
+      case OperatingSystem::LINUX:
+        using ($no_warnings = new PHPWarningSuppressor()) {
+          $result = \pcntl_exec('/usr/bin/sensible-browser', [$filename], $env);
+        }
+        if ($result === false) {
+          \pcntl_exec('/usr/bin/xdg-open', [$filename], $env);
+        }
+        break;
+      case OperatingSystem::WINDOWS:
+        \pcntl_exec('start', [$filename], $env);
+    }
+    return true;
   }
 
   private function getHTMLHeader(): string {
