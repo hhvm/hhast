@@ -10,17 +10,23 @@
 
 namespace Facebook\HHAST;
 
-final class __MyBaseTest__PreferLambdasLinterTest extends TestCase {
+final class PreferRequireOnceLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(string $file): PreferLambdasLinter {
-    return PreferLambdasLinter::fromPath($file);
+  protected function getLinter(string $file): PreferRequireOnceLinter {
+    return PreferRequireOnceLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {
     return vec[
-      tuple('<?hh $fn = () ==> 5; '),
-      tuple('<?hh $fn = ($a, $b) ==> { return $a === $b; };'),
+      tuple(<<<REQUIRE_ONCE_FILE
+<?hh // strict
+
+function no_top_level_require_allowed_in_future_maybe(): void {
+  require_once __DIR__ . '/dont_run_this_code.hack';
+}
+REQUIRE_ONCE_FILE
+      ),
     ];
   }
 }
