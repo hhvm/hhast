@@ -23,7 +23,7 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
     Script $_context,
     InclusionExpression $node,
   ): ?ASTLintError {
-    if ($node is Require_onceToken) {
+    if ($node->getRequire() is Require_onceToken) {
       return null;
     }
 
@@ -35,15 +35,11 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
     );
   }
 
-  /**
-   * Could I get a helping hand here?
-   * I want this to replace `include_once __DIR__ . '/../file.hack'` with `require_once __DIR__ . '/../file.hack'`.
-   * It consumes all the indentation.
-   * Is there something that feels like Node::getLeadingWhitespace()?
-   */
   public function getFixedNode(InclusionExpression $node): ?Node {
+    $left_trivia = $node->getRequire()->getLeading();
+    $right_trivia = $node->getRequire()->getTrailing();
     return $node->withRequire(
-      new Require_onceToken(null, new NodeList(vec[new WhiteSpace(' ')])),
+      new Require_onceToken($left_trivia, $right_trivia),
     );
   }
 }
