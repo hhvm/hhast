@@ -14,11 +14,6 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
   const type TNode = InclusionExpression;
 
   <<__Override>>
-  protected function getTitleForFix(LintError $_): string {
-    return 'Prefer "require_once" over "include(_once)"" and "require"';
-  }
-
-  <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     InclusionExpression $node,
@@ -29,7 +24,7 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
 
     return new ASTLintError(
       $this,
-      'Use require_once to require/include files',
+      'Prefer "require_once" over "include(_once)" and "require"',
       $node,
       () ==> $this->getFixedNode($node),
     );
@@ -41,5 +36,10 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
     return $node->withRequire(
       new Require_onceToken($left_trivia, $right_trivia),
     );
+  }
+
+  <<__Override>>
+  protected function getTitleForFix(LintError $_): string {
+    return 'Change to "require_once"';
   }
 }

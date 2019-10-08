@@ -2,16 +2,12 @@
 
 function dont_execute_me(): void {
   // We get changed
-  if (0 === 1) {
-    include __DIR__.'/../vendor/common.hack';
-    require __DIR__.'/../vendor/common.hack';
-    /*0*/ include_once /*1*/ __DIR__ /*3*/. /*4*/'/../vendor/common.hack';
-  }
+  include __DIR__.'/../vendor/common.hack';
+  require __DIR__.'/../vendor/common.hack';
+  /*0*/ include_once /*1*/ __DIR__ /*3*/. /*4*/'/../vendor/common.hack';
 
   // I don't get changed
-  if (0 === 1) {
-    require_once 'file.hack';
-  }
+  require_once 'file.hack';
 }
 
 trait PreferRequireOnceLinterTestingTraitWithRequireExtends {

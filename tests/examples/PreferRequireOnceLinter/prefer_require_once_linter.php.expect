@@ -1,17 +1,17 @@
 [
     {
-        "blame": "    include __DIR__.'\/..\/vendor\/common.hack'",
-        "blame_pretty": "    include __DIR__.'\/..\/vendor\/common.hack'",
-        "description": "Use require_once to require\/include files"
+        "blame": "  \/\/ We get changed\n  include __DIR__.'\/..\/vendor\/common.hack'",
+        "blame_pretty": "  \/\/ We get changed\n  include __DIR__.'\/..\/vendor\/common.hack'",
+        "description": "Prefer \"require_once\" over \"include(_once)\" and \"require\""
     },
     {
-        "blame": "    require __DIR__.'\/..\/vendor\/common.hack'",
-        "blame_pretty": "    require __DIR__.'\/..\/vendor\/common.hack'",
-        "description": "Use require_once to require\/include files"
+        "blame": "  require __DIR__.'\/..\/vendor\/common.hack'",
+        "blame_pretty": "  require __DIR__.'\/..\/vendor\/common.hack'",
+        "description": "Prefer \"require_once\" over \"include(_once)\" and \"require\""
     },
     {
-        "blame": "    \/*0*\/ include_once \/*1*\/ __DIR__ \/*3*\/. \/*4*\/'\/..\/vendor\/common.hack'",
-        "blame_pretty": "    \/*0*\/ include_once \/*1*\/ __DIR__ \/*3*\/. \/*4*\/'\/..\/vendor\/common.hack'",
-        "description": "Use require_once to require\/include files"
+        "blame": "  \/*0*\/ include_once \/*1*\/ __DIR__ \/*3*\/. \/*4*\/'\/..\/vendor\/common.hack'",
+        "blame_pretty": "  \/*0*\/ include_once \/*1*\/ __DIR__ \/*3*\/. \/*4*\/'\/..\/vendor\/common.hack'",
+        "description": "Prefer \"require_once\" over \"include(_once)\" and \"require\""
     }
 ]
