@@ -1,0 +1,21 @@
+<?hh
+
+function dont_execute_me(): void {
+  // We get changed
+  if (0 === 1) {
+    require_once __DIR__.'/../vendor/common.hack';
+    require_once __DIR__.'/../vendor/common.hack';
+    /*0*/ require_once /*1*/ __DIR__ /*3*/. /*4*/'/../vendor/common.hack';
+  }
+
+  // I don't get changed
+  if (0 === 1) {
+    require_once 'file.hack';
+  }
+}
+
+trait PreferRequireOnceLinterTestingTraitWithRequireExtends {
+  // We are left alone too
+  require extends Exception;
+  require implements JsonSerializable;
+}
