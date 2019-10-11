@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c7517686329c6d5f6347e9db24b4466>>
+ * @generated SignedSource<<4604857a6aac4d84a59161ff604864aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,8 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $await_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_function_await_keyword'],
+      /* HH_FIXME[4110] */ $json['using_function_await_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

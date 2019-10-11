@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28fa111851e53669839f14d81d9bc448>>
+ * @generated SignedSource<<73c9a5df7a7385574266f9c3d1b46cbc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_keyword'],
+      /* HH_FIXME[4110] */ $json['tuple_type_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -49,7 +50,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_left_angle'],
+      /* HH_FIXME[4110] */ $json['tuple_type_left_angle'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -57,7 +59,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $left_angle?->getWidth() ?? 0;
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_types'],
+      /* HH_FIXME[4110] */ $json['tuple_type_types'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,7 +68,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_right_angle'],
+      /* HH_FIXME[4110] */ $json['tuple_type_right_angle'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f58c3d917dfe1952efdedfb3ed7fd3f1>>
+ * @generated SignedSource<<7e91d0ffa565e280024b383b3616eea1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -55,7 +55,8 @@ final class DictionaryIntrinsicExpression
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_explicit_type'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_explicit_type'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -72,7 +73,8 @@ final class DictionaryIntrinsicExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_members'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_members'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<caf7505b81f2f33a61700dfe295fb844>>
+ * @generated SignedSource<<32180c36f85c530afb912d5b5fcf97f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,8 @@ final class PropertyDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['property_attribute_spec'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -63,7 +64,7 @@ final class PropertyDeclaration
     $modifiers = $modifiers as nonnull;
     $offset += $modifiers->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_type'],
+      /* HH_FIXME[4110] */ $json['property_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

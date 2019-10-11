@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50b6856e5c3ad4c0ec107af9f4d0f0f4>>
+ * @generated SignedSource<<60825e36998d68c5c50cbf13a7fadcbb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,8 @@ final class ReturnStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['return_expression'],
+      /* HH_FIXME[4110] */ $json['return_expression'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<971623ea2da1125d5b6909ff0573dabf>>
+ * @generated SignedSource<<dc8db4fd6347ba873cc6fa833e1ccf14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,8 @@ final class NamespaceUseClause extends Node {
   ): this {
     $offset = $initial_offset;
     $clause_kind = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_clause_kind'],
+      /* HH_FIXME[4110] */ $json['namespace_use_clause_kind'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -58,7 +59,8 @@ final class NamespaceUseClause extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $as = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_as'],
+      /* HH_FIXME[4110] */ $json['namespace_use_as'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -66,7 +68,8 @@ final class NamespaceUseClause extends Node {
     );
     $offset += $as?->getWidth() ?? 0;
     $alias = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_alias'],
+      /* HH_FIXME[4110] */ $json['namespace_use_alias'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<081cbabb45eb7d2161aec1c635453cce>>
+ * @generated SignedSource<<8d73dceaa1fbde26613af9d9493135be>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,7 +43,8 @@ final class EmbeddedSubscriptExpression
   ): this {
     $offset = $initial_offset;
     $receiver = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_subscript_receiver'],
+      /* HH_FIXME[4110] */ $json['embedded_subscript_receiver'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -51,7 +52,8 @@ final class EmbeddedSubscriptExpression
     );
     $offset += $receiver?->getWidth() ?? 0;
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_subscript_left_bracket'],
+      /* HH_FIXME[4110] */ $json['embedded_subscript_left_bracket'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -59,7 +61,8 @@ final class EmbeddedSubscriptExpression
     );
     $offset += $left_bracket?->getWidth() ?? 0;
     $index = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_subscript_index'],
+      /* HH_FIXME[4110] */ $json['embedded_subscript_index'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -67,7 +70,8 @@ final class EmbeddedSubscriptExpression
     );
     $offset += $index?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_subscript_right_bracket'],
+      /* HH_FIXME[4110] */ $json['embedded_subscript_right_bracket'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

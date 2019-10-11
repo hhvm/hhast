@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d37d03904734abf561644a7c353ad779>>
+ * @generated SignedSource<<1998f818bef900008725c26b9dbf3f0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,8 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $statements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['compound_statements'],
+      /* HH_FIXME[4110] */ $json['compound_statements'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

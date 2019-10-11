@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6ffb27af92b6e0d366ae248d24cf2010>>
+ * @generated SignedSource<<92d8847ce24ab9802c601ea0fc1d538a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,7 +62,8 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_fields'],
+      /* HH_FIXME[4110] */ $json['shape_type_fields'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -70,7 +71,8 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $fields?->getWidth() ?? 0;
     $ellipsis = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_ellipsis'],
+      /* HH_FIXME[4110] */ $json['shape_type_ellipsis'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

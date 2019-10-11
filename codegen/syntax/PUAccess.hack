@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa5bc7201bbd13e19979f9165fadce0a>>
+ * @generated SignedSource<<8b86a98e0a09dad7847754f981803eae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,8 @@ final class PUAccess extends Node {
   ): this {
     $offset = $initial_offset;
     $left_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pu_access_left_type'],
+      /* HH_FIXME[4110] */ $json['pu_access_left_type'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -46,7 +47,8 @@ final class PUAccess extends Node {
     );
     $offset += $left_type?->getWidth() ?? 0;
     $separator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pu_access_separator'],
+      /* HH_FIXME[4110] */ $json['pu_access_separator'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -54,7 +56,8 @@ final class PUAccess extends Node {
     );
     $offset += $separator?->getWidth() ?? 0;
     $right_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pu_access_right_type'],
+      /* HH_FIXME[4110] */ $json['pu_access_right_type'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<437f3b4b516d71e8eb5b17a66676a2a9>>
+ * @generated SignedSource<<8d2cd98a289759ca81511ea53b3e1c42>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,8 @@ final class TypeParameter extends Node {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['type_attribute_spec'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -52,7 +53,7 @@ final class TypeParameter extends Node {
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $reified = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_reified'],
+      /* HH_FIXME[4110] */ $json['type_reified'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -60,7 +61,7 @@ final class TypeParameter extends Node {
     );
     $offset += $reified?->getWidth() ?? 0;
     $variance = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_variance'],
+      /* HH_FIXME[4110] */ $json['type_variance'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -77,7 +78,8 @@ final class TypeParameter extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $constraints = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_constraints'],
+      /* HH_FIXME[4110] */ $json['type_constraints'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e78b745a276beaa83b02711291a3e3d8>>
+ * @generated SignedSource<<2c8e0ba757c4c5b67f6506b82f76356e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,7 +53,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['alias_attribute_spec'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -79,7 +80,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $generic_parameter = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_generic_parameter'],
+      /* HH_FIXME[4110] */ $json['alias_generic_parameter'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -87,7 +89,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $generic_parameter?->getWidth() ?? 0;
     $constraint = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_constraint'],
+      /* HH_FIXME[4110] */ $json['alias_constraint'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

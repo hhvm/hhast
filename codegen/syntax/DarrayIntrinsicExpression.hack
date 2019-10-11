@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95be1f6e203515f27494bad5e44c567f>>
+ * @generated SignedSource<<fb0afb7d1e926c5bf9e745f3d1fa64d9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -55,7 +55,8 @@ final class DarrayIntrinsicExpression
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_intrinsic_explicit_type'],
+      /* HH_FIXME[4110] */ $json['darray_intrinsic_explicit_type'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -72,7 +73,8 @@ final class DarrayIntrinsicExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_intrinsic_members'],
+      /* HH_FIXME[4110] */ $json['darray_intrinsic_members'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

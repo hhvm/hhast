@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0fa0ac359f180e86bef42d9c6fe8e320>>
+ * @generated SignedSource<<925a1a07aa4f6b669b35e1acb8227cc2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,8 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_alias_item_modifiers'],
+      /* HH_FIXME[4110] */ $json['trait_use_alias_item_modifiers'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -67,7 +68,8 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $aliased_name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliased_name'],
+      /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliased_name'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

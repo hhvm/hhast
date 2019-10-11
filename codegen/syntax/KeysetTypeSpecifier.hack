@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f07681e5cd81c2d40a98633191557afb>>
+ * @generated SignedSource<<1fa6dfdb03e4a159d88dd83e91112895>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,7 +71,8 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_type_trailing_comma'],
+      /* HH_FIXME[4110] */ $json['keyset_type_trailing_comma'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

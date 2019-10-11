@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3232d58973572138bdebaf0eb5aa1b5>>
+ * @generated SignedSource<<c4d99ab22ec5772994f47be9392f4612>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,8 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $optional = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_enum_optional'],
+      /* HH_FIXME[4110] */ $json['xhp_enum_optional'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

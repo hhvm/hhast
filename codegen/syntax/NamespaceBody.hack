@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81e6be15ce8091ed5713e7e4baad2cab>>
+ * @generated SignedSource<<ca0a2f809928cba5d59a30da21297750>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,8 @@ final class NamespaceBody extends Node implements INamespaceBody {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $declarations = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_declarations'],
+      /* HH_FIXME[4110] */ $json['namespace_declarations'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

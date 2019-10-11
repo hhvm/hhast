@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbe8983e67617660e023c6b4719fbb01>>
+ * @generated SignedSource<<e832ae4d7686ee40a755ddcfcc51e36d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -40,7 +40,8 @@ final class EmbeddedBracedExpression
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_braced_expression_left_brace'],
+      /* HH_FIXME[4110] */ $json['embedded_braced_expression_left_brace'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -48,7 +49,8 @@ final class EmbeddedBracedExpression
     );
     $offset += $left_brace?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_braced_expression_expression'],
+      /* HH_FIXME[4110] */ $json['embedded_braced_expression_expression'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -56,7 +58,8 @@ final class EmbeddedBracedExpression
     );
     $offset += $expression?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_braced_expression_right_brace'],
+      /* HH_FIXME[4110] */ $json['embedded_braced_expression_right_brace'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d5a6a3c03987af1c7f93950a4b0b596d>>
+ * @generated SignedSource<<1db435edb8676e80f576e42f4c96c1de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -49,7 +49,8 @@ final class ArrayCreationExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['array_creation_members'],
+      /* HH_FIXME[4110] */ $json['array_creation_members'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

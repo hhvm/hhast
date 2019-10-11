@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e68b3f3fc48f629323e234e309c9bc9>>
+ * @generated SignedSource<<fd0c85916311a42df513a847ab074fce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,7 +71,8 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['varray_trailing_comma'],
+      /* HH_FIXME[4110] */ $json['varray_trailing_comma'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

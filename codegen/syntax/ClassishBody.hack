@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<032ecf7e80fd86006b0b16e82224248f>>
+ * @generated SignedSource<<b672b30826f7bb4e0cfa332dcb98f6eb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,8 @@ final class ClassishBody extends Node {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $elements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_body_elements'],
+      /* HH_FIXME[4110] */ $json['classish_body_elements'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

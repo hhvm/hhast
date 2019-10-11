@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6774fc608c4be726018db9724ab20e27>>
+ * @generated SignedSource<<6d7c1517740468c3bebd4500521384c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,7 @@ final class ContinueStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $level = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['continue_level'],
+      /* HH_FIXME[4110] */ $json['continue_level'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

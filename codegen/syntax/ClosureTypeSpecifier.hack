@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10a8689fddf260cc26bf82fb05fad1a5>>
+ * @generated SignedSource<<8a4f520acb9e034db30f7adc5f3b0a48>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -65,7 +65,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $outer_left_paren = $outer_left_paren as nonnull;
     $offset += $outer_left_paren->getWidth();
     $coroutine = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_coroutine'],
+      /* HH_FIXME[4110] */ $json['closure_coroutine'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -91,7 +92,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $inner_left_paren = $inner_left_paren as nonnull;
     $offset += $inner_left_paren->getWidth();
     $parameter_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_parameter_list'],
+      /* HH_FIXME[4110] */ $json['closure_parameter_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

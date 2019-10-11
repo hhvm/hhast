@@ -330,9 +330,17 @@ final class CodegenSyntax extends CodegenBase {
           'Node::fromJSON',
           vec[
             Str\format(
-              '/* HH_FIXME[4110] */ $json[\'%s_%s\']',
+              '/* HH_FIXME[4110] */ $json[\'%s_%s\']%s',
               $syntax['prefix'],
               $field['field_name'],
+              // Normally the JSON field always exists, even for nullable
+              // fields (it would just have "kind": "missing"), so we shouldn't
+              // need the following fallback. However, there is a special case:
+              // If the field is removed from the schema, then it will obviously
+              // not be present here. But we want to be able to treat the new
+              // schema as compatible with the previous version, which this
+              // fallback takes care of.
+              $spec['nullable'] ? " ?? dict['kind' => 'missing']" : '',
             ),
             '$file',
             '$offset',

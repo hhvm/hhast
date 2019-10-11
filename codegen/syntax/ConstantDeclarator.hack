@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<282af90195f5550cbdaee1baabedbe31>>
+ * @generated SignedSource<<ac9842b85a1e23b0ecdb815bbc6ad9ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,8 @@ final class ConstantDeclarator extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constant_declarator_initializer'],
+      /* HH_FIXME[4110] */ $json['constant_declarator_initializer'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf6b7f9ba85379334c291c90f1bfdb6e>>
+ * @generated SignedSource<<1f7997f360b424e2914a7116d1e7d5b8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,7 +83,8 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     $comma = $comma as nonnull;
     $offset += $comma->getWidth();
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['map_array_value'],
+      /* HH_FIXME[4110] */ $json['map_array_value'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

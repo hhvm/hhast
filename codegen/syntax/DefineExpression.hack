@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<13afaeb1f543b2511650fa8921f9df83>>
+ * @generated SignedSource<<7b51c4b602c33bae87bdc00ff8fc03a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['define_keyword'],
+      /* HH_FIXME[4110] */ $json['define_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -49,7 +49,8 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['define_left_paren'],
+      /* HH_FIXME[4110] */ $json['define_left_paren'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -57,7 +58,8 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['define_argument_list'],
+      /* HH_FIXME[4110] */ $json['define_argument_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,7 +67,8 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['define_right_paren'],
+      /* HH_FIXME[4110] */ $json['define_right_paren'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

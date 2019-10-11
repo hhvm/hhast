@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5421362f2336139ca4d1e60e6d21d222>>
+ * @generated SignedSource<<e6705875e126fecf828146b8a74f4578>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -40,7 +40,8 @@ final class XHPCategoryDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_keyword'],
+      /* HH_FIXME[4110] */ $json['xhp_category_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -48,7 +49,8 @@ final class XHPCategoryDeclaration
     );
     $offset += $keyword?->getWidth() ?? 0;
     $categories = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_categories'],
+      /* HH_FIXME[4110] */ $json['xhp_category_categories'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -56,7 +58,8 @@ final class XHPCategoryDeclaration
     );
     $offset += $categories?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_semicolon'],
+      /* HH_FIXME[4110] */ $json['xhp_category_semicolon'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

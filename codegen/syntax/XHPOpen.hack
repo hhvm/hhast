@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b5c5c31ae1aa8d7bd77dd869fe1a1d4>>
+ * @generated SignedSource<<048176722bc15b3a5b5bb39b87acf52c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,8 @@ final class XHPOpen extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $attributes = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_open_attributes'],
+      /* HH_FIXME[4110] */ $json['xhp_open_attributes'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

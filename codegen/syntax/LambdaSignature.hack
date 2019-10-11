@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae3ec45cb8a1ecef07d32c47aec8b222>>
+ * @generated SignedSource<<f289cd8d701276af3a0eb7072ebb1244>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,7 +53,8 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_parameters'],
+      /* HH_FIXME[4110] */ $json['lambda_parameters'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -70,7 +71,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_colon'],
+      /* HH_FIXME[4110] */ $json['lambda_colon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -78,7 +79,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     );
     $offset += $colon?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_type'],
+      /* HH_FIXME[4110] */ $json['lambda_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

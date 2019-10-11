@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a540545da6e1bfa637271688214adec9>>
+ * @generated SignedSource<<5fb8e8f78c2a9cd7d9ef916925fcbdd8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,7 +61,8 @@ final class HaltCompilerExpression
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['halt_compiler_argument_list'],
+      /* HH_FIXME[4110] */ $json['halt_compiler_argument_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

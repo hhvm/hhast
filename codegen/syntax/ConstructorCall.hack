@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<590bfe21868d868a1de04651cab99340>>
+ * @generated SignedSource<<b5111977e72bf1accfa6ab8d750578e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,7 +50,8 @@ final class ConstructorCall extends Node {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_left_paren'],
+      /* HH_FIXME[4110] */ $json['constructor_call_left_paren'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -58,7 +59,8 @@ final class ConstructorCall extends Node {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_argument_list'],
+      /* HH_FIXME[4110] */ $json['constructor_call_argument_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -66,7 +68,8 @@ final class ConstructorCall extends Node {
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_right_paren'],
+      /* HH_FIXME[4110] */ $json['constructor_call_right_paren'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

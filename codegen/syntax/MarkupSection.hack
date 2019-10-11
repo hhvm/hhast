@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d4a55c43bd65e4001a5c6234c6140ee>>
+ * @generated SignedSource<<67bed238d8b5ec73973b9924b119ea4f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,7 @@ final class MarkupSection extends Node {
   ): this {
     $offset = $initial_offset;
     $prefix = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['markup_prefix'],
+      /* HH_FIXME[4110] */ $json['markup_prefix'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -67,7 +67,8 @@ final class MarkupSection extends Node {
     $suffix = $suffix as nonnull;
     $offset += $suffix->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['markup_expression'],
+      /* HH_FIXME[4110] */ $json['markup_expression'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

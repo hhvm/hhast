@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f96a63da6d5134c940a814cc2424fef>>
+ * @generated SignedSource<<ed701c82b3dbf78747239c7ce0793086>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -76,7 +76,8 @@ final class ForStatement
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_initializer'],
+      /* HH_FIXME[4110] */ $json['for_initializer'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -93,7 +94,7 @@ final class ForStatement
     $first_semicolon = $first_semicolon as nonnull;
     $offset += $first_semicolon->getWidth();
     $control = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_control'],
+      /* HH_FIXME[4110] */ $json['for_control'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -110,7 +111,8 @@ final class ForStatement
     $second_semicolon = $second_semicolon as nonnull;
     $offset += $second_semicolon->getWidth();
     $end_of_loop = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_end_of_loop'],
+      /* HH_FIXME[4110] */ $json['for_end_of_loop'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

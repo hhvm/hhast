@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4e2d8ee4cf88fc311943304f0f04d2c>>
+ * @generated SignedSource<<3ac039f69646965dcdae184720112eac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,7 +61,8 @@ final class ArrayIntrinsicExpression
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['array_intrinsic_members'],
+      /* HH_FIXME[4110] */ $json['array_intrinsic_members'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

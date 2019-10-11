@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5f162acfda7fc4d02de7706aeea6da9>>
+ * @generated SignedSource<<2c828e63d898fc9e5884b086584ad390>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,7 +56,8 @@ final class AnonymousClass extends Node {
   ): this {
     $offset = $initial_offset;
     $class_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_class_keyword'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_class_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -64,7 +65,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $class_keyword?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_left_paren'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_left_paren'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -72,7 +74,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_argument_list'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_argument_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -80,7 +83,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_right_paren'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_right_paren'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -88,7 +92,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $right_paren?->getWidth() ?? 0;
     $extends_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_extends_keyword'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_extends_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -96,7 +101,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $extends_keyword?->getWidth() ?? 0;
     $extends_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_extends_list'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_extends_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -104,7 +110,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $extends_list?->getWidth() ?? 0;
     $implements_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_implements_keyword'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_implements_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -112,7 +119,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $implements_keyword?->getWidth() ?? 0;
     $implements_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_implements_list'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_implements_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -120,7 +128,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $implements_list?->getWidth() ?? 0;
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_body'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_body'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

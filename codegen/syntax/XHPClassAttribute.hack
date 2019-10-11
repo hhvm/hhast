@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9da8795b1761ca14331658cb590da295>>
+ * @generated SignedSource<<23712268c4dfc52326d0b3df6b7cfe3b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,8 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_initializer'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_initializer'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -67,7 +68,8 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     );
     $offset += $initializer?->getWidth() ?? 0;
     $required = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_required'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_required'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

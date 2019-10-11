@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35bf46b391122305f69dd2d9f2a2560e>>
+ * @generated SignedSource<<deb38dae579c38eb1f34b4642e225143>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,7 +35,8 @@ final class PocketMappingIdDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_id_name'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_id_name'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -43,7 +44,8 @@ final class PocketMappingIdDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_id_initializer'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_id_initializer'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

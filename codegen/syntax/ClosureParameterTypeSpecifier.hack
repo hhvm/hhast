@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af1ba4a413ae40871b0eb8d47f600bf7>>
+ * @generated SignedSource<<297cba2e9464b7fe8a4a19380bd70b44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -37,7 +37,8 @@ final class ClosureParameterTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $call_convention = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_parameter_call_convention'],
+      /* HH_FIXME[4110] */ $json['closure_parameter_call_convention'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
