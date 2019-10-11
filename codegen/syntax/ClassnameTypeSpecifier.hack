@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53f3c055afe65ba90126f4515b937b22>>
+ * @generated SignedSource<<6de428d6215177bd5ecea39ffbffe8b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,7 +53,8 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_left_angle'],
+      /* HH_FIXME[4110] */ $json['classname_left_angle'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -61,7 +62,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $left_angle?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_type'],
+      /* HH_FIXME[4110] */ $json['classname_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -69,7 +70,8 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $type?->getWidth() ?? 0;
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_trailing_comma'],
+      /* HH_FIXME[4110] */ $json['classname_trailing_comma'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -77,7 +79,8 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_right_angle'],
+      /* HH_FIXME[4110] */ $json['classname_right_angle'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

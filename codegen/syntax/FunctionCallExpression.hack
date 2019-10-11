@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4aa1b957f661620dd2c029198bb63af4>>
+ * @generated SignedSource<<1a3c155e5416f077ce6454e3d726e575>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -55,7 +55,8 @@ final class FunctionCallExpression
     $receiver = $receiver as nonnull;
     $offset += $receiver->getWidth();
     $type_args = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_type_args'],
+      /* HH_FIXME[4110] */ $json['function_call_type_args'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -72,7 +73,8 @@ final class FunctionCallExpression
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_argument_list'],
+      /* HH_FIXME[4110] */ $json['function_call_argument_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

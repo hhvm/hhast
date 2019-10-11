@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0742c19fad16c5e9ab8bb585161ecf96>>
+ * @generated SignedSource<<36afd56cf04bfcc1e954b24402738f1e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -55,7 +55,8 @@ final class RecordCreationExpression
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $array_token = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_creation_array_token'],
+      /* HH_FIXME[4110] */ $json['record_creation_array_token'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

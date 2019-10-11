@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a5b716a62a2550a151b879d3de6e51d>>
+ * @generated SignedSource<<a42fee98d639aebc6a979cc33517bfb7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -40,7 +40,8 @@ final class VariadicParameter
   ): this {
     $offset = $initial_offset;
     $call_convention = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['variadic_parameter_call_convention'],
+      /* HH_FIXME[4110] */ $json['variadic_parameter_call_convention'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -48,7 +49,8 @@ final class VariadicParameter
     );
     $offset += $call_convention?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['variadic_parameter_type'],
+      /* HH_FIXME[4110] */ $json['variadic_parameter_type'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5a58ac553ccdaa0ded59f90d2ff39a1>>
+ * @generated SignedSource<<20b05c5a01ce6aea14696f61e2dde63f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,7 @@ final class BreakStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $level = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['break_level'],
+      /* HH_FIXME[4110] */ $json['break_level'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

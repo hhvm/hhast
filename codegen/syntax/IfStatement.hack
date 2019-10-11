@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3228a0ae642be068aadb87bbc4d4abab>>
+ * @generated SignedSource<<97e4946744462156fd55ea1823f8cb2e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,7 +97,8 @@ final class IfStatement
     $statement = $statement as nonnull;
     $offset += $statement->getWidth();
     $elseif_clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_elseif_clauses'],
+      /* HH_FIXME[4110] */ $json['if_elseif_clauses'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -105,7 +106,7 @@ final class IfStatement
     );
     $offset += $elseif_clauses?->getWidth() ?? 0;
     $else_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_else_clause'],
+      /* HH_FIXME[4110] */ $json['if_else_clause'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

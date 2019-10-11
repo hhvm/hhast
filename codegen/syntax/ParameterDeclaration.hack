@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb6bee194e70856caf045e6833b23217>>
+ * @generated SignedSource<<a43a46fa033b34961ea421e2f525ac3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -49,7 +49,8 @@ abstract class ParameterDeclarationGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_attribute'],
+      /* HH_FIXME[4110] */ $json['parameter_attribute'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -57,7 +58,8 @@ abstract class ParameterDeclarationGeneratedBase
     );
     $offset += $attribute?->getWidth() ?? 0;
     $visibility = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_visibility'],
+      /* HH_FIXME[4110] */ $json['parameter_visibility'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,7 +67,8 @@ abstract class ParameterDeclarationGeneratedBase
     );
     $offset += $visibility?->getWidth() ?? 0;
     $call_convention = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_call_convention'],
+      /* HH_FIXME[4110] */ $json['parameter_call_convention'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -73,7 +76,7 @@ abstract class ParameterDeclarationGeneratedBase
     );
     $offset += $call_convention?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_type'],
+      /* HH_FIXME[4110] */ $json['parameter_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -90,7 +93,8 @@ abstract class ParameterDeclarationGeneratedBase
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $default_value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_default_value'],
+      /* HH_FIXME[4110] */ $json['parameter_default_value'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

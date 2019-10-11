@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d873988fa4d46b798103120ae6d10bcb>>
+ * @generated SignedSource<<d3d148f8f0253408c0d8b1e5eafb9231>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,7 +56,8 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['enum_attribute_spec'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -100,7 +101,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $base = $base as nonnull;
     $offset += $base->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_type'],
+      /* HH_FIXME[4110] */ $json['enum_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -117,7 +118,8 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $enumerators = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_enumerators'],
+      /* HH_FIXME[4110] */ $json['enum_enumerators'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

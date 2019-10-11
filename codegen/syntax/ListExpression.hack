@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24991c0777c34bb74bafe4c40f861cd6>>
+ * @generated SignedSource<<16265c681c6a82f02c5683ff7c829395>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['list_members'],
+      /* HH_FIXME[4110] */ $json['list_members'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

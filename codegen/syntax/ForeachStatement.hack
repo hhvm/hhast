@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60d24a95d684edef7e15af81fd2f4ced>>
+ * @generated SignedSource<<1c247277473c5103b346148ba2735f34>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,7 +88,8 @@ final class ForeachStatement
     $collection = $collection as nonnull;
     $offset += $collection->getWidth();
     $await_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_await_keyword'],
+      /* HH_FIXME[4110] */ $json['foreach_await_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -105,7 +106,7 @@ final class ForeachStatement
     $as = $as as nonnull;
     $offset += $as->getWidth();
     $key = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_key'],
+      /* HH_FIXME[4110] */ $json['foreach_key'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -113,7 +114,7 @@ final class ForeachStatement
     );
     $offset += $key?->getWidth() ?? 0;
     $arrow = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_arrow'],
+      /* HH_FIXME[4110] */ $json['foreach_arrow'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

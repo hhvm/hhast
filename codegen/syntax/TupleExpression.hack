@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5691d07c3e92e18b47392dfdccbefe52>>
+ * @generated SignedSource<<f82ba6f5443d22bddc8edba64208f800>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,8 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $items = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_items'],
+      /* HH_FIXME[4110] */ $json['tuple_expression_items'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

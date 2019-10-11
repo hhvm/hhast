@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64839851419cf832b421c3b78631d9d3>>
+ * @generated SignedSource<<cc199c8abf3e027ff1ee80fce305cafe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,8 @@ final class MethodishTraitResolution
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_attribute'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_attribute'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

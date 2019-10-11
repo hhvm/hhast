@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5de150e71e150a65e56c39ea7042424d>>
+ * @generated SignedSource<<8c86391b9c2903a287e9df3a30a1ee91>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,7 +43,8 @@ abstract class AwaitableCreationExpressionGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['awaitable_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['awaitable_attribute_spec'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -60,7 +61,8 @@ abstract class AwaitableCreationExpressionGeneratedBase
     $async = $async as nonnull;
     $offset += $async->getWidth();
     $coroutine = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['awaitable_coroutine'],
+      /* HH_FIXME[4110] */ $json['awaitable_coroutine'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e5ff1a7ca83aff818d3f5204261ca99>>
+ * @generated SignedSource<<c8ec82c3389cef7a70bcbb96fbed17e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,7 +73,8 @@ final class TraitUseConflictResolution
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_clauses'],
+      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_clauses'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

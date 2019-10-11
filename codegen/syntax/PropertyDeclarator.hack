@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5a3a9065c4798b002c6c1ef28b80c4c6>>
+ * @generated SignedSource<<04cfdabb85dbfdc8775ff00a8aa2020d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,8 @@ final class PropertyDeclarator extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_initializer'],
+      /* HH_FIXME[4110] */ $json['property_initializer'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

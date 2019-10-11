@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2b132cbcb5c6774a8766054a9c48658>>
+ * @generated SignedSource<<99aa89c604ae4d94578266fdb267f7cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,8 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_expression_fields'],
+      /* HH_FIXME[4110] */ $json['shape_expression_fields'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

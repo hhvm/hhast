@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b66abdae7276ac7719234fdba7c12a75>>
+ * @generated SignedSource<<658df95db16708a2d8106464b11e8a78>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,8 @@ final class PocketMappingTypeDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_type_keyword'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -49,7 +50,8 @@ final class PocketMappingTypeDeclaration extends Node {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_type_name'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_name'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -57,7 +59,8 @@ final class PocketMappingTypeDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_type_equal'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_equal'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,7 +68,8 @@ final class PocketMappingTypeDeclaration extends Node {
     );
     $offset += $equal?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_type_type'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_type'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

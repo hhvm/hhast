@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff90c5054f5bc4d604e49b7b22f8e81a>>
+ * @generated SignedSource<<a51daa0f2dc9fad068377bd34d8889cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,8 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_modifiers'],
+      /* HH_FIXME[4110] */ $json['const_modifiers'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -61,7 +62,8 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $type_specifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_type_specifier'],
+      /* HH_FIXME[4110] */ $json['const_type_specifier'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

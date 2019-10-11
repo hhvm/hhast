@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fef3e2dc24bfbc328a6828a91a2b4442>>
+ * @generated SignedSource<<384be2bf63eb8b36972a0efca52c9232>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,8 @@ final class PocketAtomMappingDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $glyph = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_glyph'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_glyph'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -55,7 +56,8 @@ final class PocketAtomMappingDeclaration extends Node {
     );
     $offset += $glyph?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_name'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_name'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -63,7 +65,8 @@ final class PocketAtomMappingDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_left_paren'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_left_paren'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -71,7 +74,8 @@ final class PocketAtomMappingDeclaration extends Node {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $mappings = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_mappings'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_mappings'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -79,7 +83,8 @@ final class PocketAtomMappingDeclaration extends Node {
     );
     $offset += $mappings?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_right_paren'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_right_paren'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -87,7 +92,8 @@ final class PocketAtomMappingDeclaration extends Node {
     );
     $offset += $right_paren?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_semicolon'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_mapping_semicolon'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

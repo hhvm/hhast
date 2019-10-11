@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc97003efe9c404c9f07953a54e55f13>>
+ * @generated SignedSource<<9e53b6be0b8b928db98699c5db6b3704>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -40,7 +40,8 @@ final class FunctionDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['function_attribute_spec'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

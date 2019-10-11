@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5af15ff8d57a27541a024e738d826b7c>>
+ * @generated SignedSource<<f1a470078d94911473673d987e97e7d7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -64,7 +64,8 @@ abstract class ClassishDeclarationGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_attribute'],
+      /* HH_FIXME[4110] */ $json['classish_attribute'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -72,7 +73,8 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $attribute?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_modifiers'],
+      /* HH_FIXME[4110] */ $json['classish_modifiers'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,7 +100,8 @@ abstract class ClassishDeclarationGeneratedBase
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_type_parameters'],
+      /* HH_FIXME[4110] */ $json['classish_type_parameters'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -106,7 +109,8 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $type_parameters?->getWidth() ?? 0;
     $extends_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_extends_keyword'],
+      /* HH_FIXME[4110] */ $json['classish_extends_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,7 +118,8 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $extends_keyword?->getWidth() ?? 0;
     $extends_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_extends_list'],
+      /* HH_FIXME[4110] */ $json['classish_extends_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -122,7 +127,8 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $extends_list?->getWidth() ?? 0;
     $implements_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_implements_keyword'],
+      /* HH_FIXME[4110] */ $json['classish_implements_keyword'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -130,7 +136,8 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $implements_keyword?->getWidth() ?? 0;
     $implements_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_implements_list'],
+      /* HH_FIXME[4110] */ $json['classish_implements_list'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -138,7 +145,8 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $implements_list?->getWidth() ?? 0;
     $where_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_where_clause'],
+      /* HH_FIXME[4110] */ $json['classish_where_clause'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

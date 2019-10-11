@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e1a9326972af600e1b6fbb65bb1a0d6>>
+ * @generated SignedSource<<bf60d01ebb264dff38cc8ffe7c2f35c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,7 +71,8 @@ final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['vector_type_trailing_comma'],
+      /* HH_FIXME[4110] */ $json['vector_type_trailing_comma'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

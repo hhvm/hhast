@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2c985d5905bd11bcf441f1601f2924d>>
+ * @generated SignedSource<<b30e03e6056cbb999206710b8693ebdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['yield_operand'],
+      /* HH_FIXME[4110] */ $json['yield_operand'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

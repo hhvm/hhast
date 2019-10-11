@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<521fc2a89473f1214168e55b8972800c>>
+ * @generated SignedSource<<4b7721f931af36db681869b16d637676>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,7 +61,8 @@ final class SubscriptExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $index = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['subscript_index'],
+      /* HH_FIXME[4110] */ $json['subscript_index'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

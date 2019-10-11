@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e0c7ff0e05290b58fad7c1e0be472ea>>
+ * @generated SignedSource<<ab9cdfd00e4acee7ef08d8454267d22a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,8 @@ final class PocketFieldTypeDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $case = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_case'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_case'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -49,7 +50,8 @@ final class PocketFieldTypeDeclaration extends Node {
     );
     $offset += $case?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_type'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_type'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -57,7 +59,8 @@ final class PocketFieldTypeDeclaration extends Node {
     );
     $offset += $type?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_name'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_name'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,7 +68,8 @@ final class PocketFieldTypeDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_semicolon'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_semicolon'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

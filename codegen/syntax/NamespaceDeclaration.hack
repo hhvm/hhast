@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6339026e5946791e8cb51a9b88774a1>>
+ * @generated SignedSource<<b81fa86737cf30d895fe0cac5cad839d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_name'],
+      /* HH_FIXME[4110] */ $json['namespace_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

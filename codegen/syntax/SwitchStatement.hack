@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1be278dbddc0cb2ab2747cb1d16fbc06>>
+ * @generated SignedSource<<bc414de0df346aa86cbdb10e17eb6d8c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,7 +97,8 @@ final class SwitchStatement
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $sections = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_sections'],
+      /* HH_FIXME[4110] */ $json['switch_sections'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

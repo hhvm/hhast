@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4167f15b7586454763d7938e6c005742>>
+ * @generated SignedSource<<8027ee5df38c0492f5bc50b293344342>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,8 @@ final class TryStatement extends Node implements IStatement {
     $compound_statement = $compound_statement as nonnull;
     $offset += $compound_statement->getWidth();
     $catch_clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_catch_clauses'],
+      /* HH_FIXME[4110] */ $json['try_catch_clauses'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -67,7 +68,8 @@ final class TryStatement extends Node implements IStatement {
     );
     $offset += $catch_clauses?->getWidth() ?? 0;
     $finally_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_finally_clause'],
+      /* HH_FIXME[4110] */ $json['try_finally_clause'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

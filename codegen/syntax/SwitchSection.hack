@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd1494994bc3159b277cbc3d79923467>>
+ * @generated SignedSource<<2eca331dc4300c350fec82bfd9df5c17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,8 @@ final class SwitchSection extends Node {
     $labels = $labels as nonnull;
     $offset += $labels->getWidth();
     $statements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_section_statements'],
+      /* HH_FIXME[4110] */ $json['switch_section_statements'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -55,7 +56,8 @@ final class SwitchSection extends Node {
     );
     $offset += $statements?->getWidth() ?? 0;
     $fallthrough = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_section_fallthrough'],
+      /* HH_FIXME[4110] */ $json['switch_section_fallthrough'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

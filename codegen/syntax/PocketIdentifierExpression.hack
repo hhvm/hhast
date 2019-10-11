@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e4e853dd4e4817ecde918f3c4f3fcff>>
+ * @generated SignedSource<<04750aa019a4d36e986e1571ca01d0e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,8 @@ final class PocketIdentifierExpression
   ): this {
     $offset = $initial_offset;
     $qualifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_qualifier'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_qualifier'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -54,7 +55,8 @@ final class PocketIdentifierExpression
     );
     $offset += $qualifier?->getWidth() ?? 0;
     $pu_operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_pu_operator'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_pu_operator'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -62,7 +64,8 @@ final class PocketIdentifierExpression
     );
     $offset += $pu_operator?->getWidth() ?? 0;
     $field = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_field'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_field'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -70,7 +73,8 @@ final class PocketIdentifierExpression
     );
     $offset += $field?->getWidth() ?? 0;
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_operator'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_operator'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -78,7 +82,8 @@ final class PocketIdentifierExpression
     );
     $offset += $operator?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_name'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_name'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad7986f83ced48c2a621bbc8507fdbcd>>
+ * @generated SignedSource<<02de36d46553b5786927d533becf248d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -40,7 +40,8 @@ final class EmbeddedMemberSelectionExpression
   ): this {
     $offset = $initial_offset;
     $object = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_member_object'],
+      /* HH_FIXME[4110] */ $json['embedded_member_object'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -48,7 +49,8 @@ final class EmbeddedMemberSelectionExpression
     );
     $offset += $object?->getWidth() ?? 0;
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_member_operator'],
+      /* HH_FIXME[4110] */ $json['embedded_member_operator'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -56,7 +58,8 @@ final class EmbeddedMemberSelectionExpression
     );
     $offset += $operator?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_member_name'],
+      /* HH_FIXME[4110] */ $json['embedded_member_name'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

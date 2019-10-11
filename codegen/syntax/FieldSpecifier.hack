@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8bf390826e5e47eb26e7ce511955922>>
+ * @generated SignedSource<<3f33f0b355dedc9354d427e40d95e56b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $question = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['field_question'],
+      /* HH_FIXME[4110] */ $json['field_question'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

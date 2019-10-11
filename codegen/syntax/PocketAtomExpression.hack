@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7de2c914fd8df43b4cf6074061f50cd2>>
+ * @generated SignedSource<<9f6534f758e83a86f43af422267dd72c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -37,7 +37,8 @@ final class PocketAtomExpression
   ): this {
     $offset = $initial_offset;
     $glyph = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_glyph'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_glyph'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -45,7 +46,8 @@ final class PocketAtomExpression
     );
     $offset += $glyph?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_expression'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_expression'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

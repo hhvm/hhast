@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab2e2563506717419b4bc32cde94a27c>>
+ * @generated SignedSource<<ee9817ae02f34601d3b74e80a3a52481>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     $open = $open as nonnull;
     $offset += $open->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_body'],
+      /* HH_FIXME[4110] */ $json['xhp_body'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $body?->getWidth() ?? 0;
     $close = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_close'],
+      /* HH_FIXME[4110] */ $json['xhp_close'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<324c86c324f7cd11c19bd6aaa000cff3>>
+ * @generated SignedSource<<3ce72053fecc298c41c98a4800fa7a8d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -49,7 +49,8 @@ final class LambdaExpression
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_attribute_spec'],
+      /* HH_FIXME[4110] */ $json['lambda_attribute_spec'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -57,7 +58,7 @@ final class LambdaExpression
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $async = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_async'],
+      /* HH_FIXME[4110] */ $json['lambda_async'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,7 +66,8 @@ final class LambdaExpression
     );
     $offset += $async?->getWidth() ?? 0;
     $coroutine = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_coroutine'],
+      /* HH_FIXME[4110] */ $json['lambda_coroutine'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce64854ae86d2617d99ec06f44ddcdb3>>
+ * @generated SignedSource<<f4fc47152f7cc8e542573cbc5a873770>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,7 +61,8 @@ final class CollectionLiteralExpression
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $initializers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_initializers'],
+      /* HH_FIXME[4110] */ $json['collection_literal_initializers'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
