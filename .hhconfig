@@ -8,4 +8,5 @@ user_attributes=
 disable_static_local_variables = true
 disable_instanceof_refinement = true
 
-disallow_array_literal = true
+; Once the minimum hhvm version hits 4.25 this setting can be safely enabled
+disallow_array_literal = false
