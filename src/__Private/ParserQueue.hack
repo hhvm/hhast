@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\Experimental\Async;
+use namespace HH\Lib\Async;
 
 
 final class ParserQueue {

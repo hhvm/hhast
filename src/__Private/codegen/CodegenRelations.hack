@@ -9,8 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\{C, Dict, Keyset, Str, Tuple, Vec};
-use namespace HH\Lib\Experimental\Async;
+use namespace HH\Lib\{Async, C, Dict, Keyset, Str, Tuple, Vec};
 use type Facebook\HackCodegen\{
   CodegenFileType,
   HackBuilderKeys,

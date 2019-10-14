@@ -15,8 +15,7 @@ use type Facebook\HHAST\__Private\{
 };
 use namespace Facebook\HHAST\__Private\{LSPImpl, LSPLib};
 use type Facebook\CLILib\{ExitException, ITerminal};
-use namespace HH\Lib\Str;
-use namespace HH\Lib\Experimental\Async;
+use namespace HH\Lib\{Async, Str};
 
 final class Server extends LSPLib\Server<ServerState> {
   public function __construct(private ITerminal $terminal) {
