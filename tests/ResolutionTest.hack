@@ -82,7 +82,7 @@ final class ResolutionTest extends TestCase {
       'functions' => dict<string, string>,
     ),
   )> {
-    return [
+    return varray[
       tuple(
         '<?hh use Foo; use Bar, Baz; class Target {}',
         shape(
@@ -167,7 +167,7 @@ final class ResolutionTest extends TestCase {
   }
 
   public function getTypeResolutionExamples(): array<(string, string, string)> {
-    return [
+    return varray[
       tuple('<?hh class Target {}', 'Foo', 'Foo'),
       tuple('<?hh use Foo\\Bar; class Target {}', 'Bar', 'Foo\\Bar'),
       tuple('<?hh use Foo as Bar; class Target {}', 'Bar', 'Foo'),

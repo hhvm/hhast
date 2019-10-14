@@ -76,7 +76,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
     print $output."\n";
 
     if ($this->open) {
-      \pcntl_exec('/usr/bin/open', [$output]);
+      \pcntl_exec('/usr/bin/open', varray[$output]);
     }
 
     return 0;

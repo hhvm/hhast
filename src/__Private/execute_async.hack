@@ -19,8 +19,8 @@ async function execute_async(string ...$args): Awaitable<vec<string>> {
     |> Vec\map($$, $arg ==> \escapeshellarg($arg))
     |> Str\join($$, ' ');
 
-  $spec = [0 => ['pipe', 'r'], 1 => ['pipe', 'w'], 2 => ['pipe', 'w']];
-  $pipes = [];
+  $spec = darray[0 => varray['pipe', 'r'], 1 => varray['pipe', 'w'], 2 => varray['pipe', 'w']];
+  $pipes = varray[];
 
   $proc = \proc_open($command, $spec, inout $pipes);
   invariant($proc, "Failed to execute: %s", $command);

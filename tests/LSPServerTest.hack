@@ -71,7 +71,7 @@ final class LSPServerTest extends TestCase {
   public function provideExampleExchanges(): array<array<string>> {
     return \array_map(
       function($file) {
-        return [\basename($file, '.json')];
+        return varray[\basename($file, '.json')];
       },
       \glob(__DIR__.'/lsp/*.json'),
     );

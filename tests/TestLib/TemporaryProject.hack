@@ -33,10 +33,10 @@ final class TemporaryProject implements \IAsyncDisposable {
       \touch($path.'/.hhconfig');
     }
 
-    $pipes = [];
+    $pipes = varray[];
     $this->hhServer = \proc_open(
       'hh_server '.\escapeshellarg($path).' >/dev/null 2>/dev/null',
-      [],
+      darray[],
       inout $pipes,
     );
     \file_put_contents($path.'/test.php', \file_get_contents($source_path));

@@ -95,7 +95,7 @@ final class TopLevelRequiresMigration extends BaseMigration {
 
     $body = $body->withStatements(
       new NodeList(
-        Vec\concat(vec[$lambda], $body->getStatements()?->getChildren() ?? []),
+        Vec\concat(vec[$lambda], $body->getStatements()?->getChildren() ?? varray[]),
       ),
     );
 
