@@ -23,7 +23,7 @@ trait AutoFixingLinterTrait<Terror as LintError>
   }
 
   public function getCodeActionForError(Terror $error): ?LSP\CodeAction {
-    $fixed = $this->getFixedFile([$error]);
+    $fixed = $this->getFixedFile(varray[$error]);
     if ($fixed === null) {
       return null;
     }

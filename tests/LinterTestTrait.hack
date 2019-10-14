@@ -29,7 +29,7 @@ trait LinterTestTrait {
       |> Vec\map($$, $path ==> \basename($path, '.in'))
       |> Vec\map($$, $path ==> Str\strip_suffix($path, '.php'))
       |> Vec\map($$, $path ==> Str\strip_suffix($path, '.hack'))
-      |> Vec\map($$, $arg ==> [$arg]);
+      |> Vec\map($$, $arg ==> varray[$arg]);
   }
 
   final protected function getFullFixtureName(string $name): string {
