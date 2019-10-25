@@ -44,3 +44,35 @@ Most tests require Hack files as input and expected output. These go in the [`te
  - use an IDE with autocompletion; there are far too many AST node types for memorizing the APIs to be practical
  - include various combinations of leading and trailing whitespace and comments in your unit tests for auto-fixing linters
  - if you use `hackfmt` and aren't planning to send a pull request to `HHAST`, you might want to ignore whitespace in auto-fixing AST linters: getting whitespace correct is generally more consuming than the logical change itself. Instead, you could ask your users to run `git show | hackfmt --diff`, or add a non-AST autofixing linter to do that instead
+
+### Whitespace and comments
+
+Usually the hardest part of writing an auto-fixing linter or a migration is
+dealing with whitespace and comments (e.g. preserving indentation).
+
+If you're replacing a single node, the easiest solution is to just copy the
+whitespace and comments (in HHAST these are called `Trivia`) from the original
+node:
+
+- pass `$original_node->getFirstTokenx()->getLeading()` to the constructor of
+  the first token of your replacement
+- pass `$original_node->getLastTokenx()->getTrailing()` to the constructor of
+  the last token of your replacement
+- if the original node contains more than one token (which is probably in most
+  cases), there are leading and trailing `Trivia` attached to each
+  token&mdash;consider whether these need to be copied over to specific tokens
+  in your replacement, so as to not lose any comments or FIXMEs from the
+  original code
+- make sure to add test cases with different amounts of whitespace and comments
+  before, after and in the middle (if applicable) of the node being replaced
+
+For more complicated scenarios (not replacing a single node with a single new
+node), you may need to manually implement an appropriate way to handle all the
+trivia, but there are some helper functions for common operations:
+
+- [`add_arguments()`](https://github.com/hhvm/hhast/blob/master/src/Migrations/add_arguments.hack#L15)
+- [`prepend_statements()`](https://github.com/hhvm/hhast/blob/master/src/Migrations/prepend_statements.hack#L15)
+- [`whitespace_from_nodelist()`](https://github.com/hhvm/hhast/blob/master/src/__Private/whitespace_from_nodelist.hack#L15)
+  is completely general (it can help with adding nodes to any `NodeList`) but
+  not as easy to use (both of the functions above use it, so look there for
+  example code)

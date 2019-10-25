@@ -44,7 +44,9 @@ HHAST is supported by:
 
 ## Migrations
 
-[user documentation](docs/migrations-usage.md)
+- [user documentation](docs/migrations-usage.md)
+- most of the [linters developer documentation](docs/linters-development.md)
+  applies for migrations too
 
 ![screenshot of a migration](docs/migrations.png)
 
