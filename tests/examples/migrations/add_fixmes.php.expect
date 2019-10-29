@@ -18,7 +18,5 @@ function foo(string $bar): void {
 function main(): void {
   foo(/* HH_FIXME[4110] */ 123);
   foo('bar');
-  $bar = '123';
-  foo(/* HH_FIXME[4181] */ &$bar);
   foo(/* HERP DERP */ /* HH_FIXME[4110] */ 123);
 }
