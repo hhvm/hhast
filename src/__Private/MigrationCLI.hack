@@ -22,7 +22,6 @@ use type Facebook\HHAST\{
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
-  RefToInoutMigration,
   TopLevelRequiresMigration,
 };
 
@@ -262,11 +261,12 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          $this->migrations[] = RefToInoutMigration::class;
+          throw new ExitException(
+            1,
+            'Use HHAST >=4.21.7 <4.29 for this migration',
+          );
         },
-        'Migrate builtin functions with by-ref parameters to the equivalent '.
-        'functions with inout parameters (e.g. preg_match to '.
-        'preg_match_with_matches)',
+        'no longer supported',
         '--ref-to-inout',
       ),
       CLIOptions\flag(

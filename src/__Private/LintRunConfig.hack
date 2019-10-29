@@ -81,8 +81,6 @@ final class LintRunConfig {
     HHAST\PocketAtomExpressionLinter::class,
     HHAST\PocketIdentifierExpressionLinter::class,
     HHAST\PocketEnumDeclarationLinter::class,
-    HHAST\NoByRefCallArgumentsLinter::class,
-    HHAST\NoByRefParameterDeclarationsLinter::class,
     HHAST\PreferRequireOnceLinter::class,
   ];
 
