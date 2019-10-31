@@ -269,13 +269,16 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
         }
 
         if (
-          Dict\filter($result[$kind][$namespace][1], ($n) ==> {
-            invariant(
-              $n is KeyedContainer<_, _>, <<<'EXPL'
-The typechecker thinks this a (?string | vec<Trivia>).
-The runtime knows this is a tuple (php array).
-EXPL
-            );
+          Dict\filter($result[$kind][$namespace][1], (
+            (
+              string,
+              ?string,
+              vec<Trivia>,
+              vec<Trivia>,
+              vec<Trivia>,
+              vec<Trivia>,
+            ) $n,
+          ) ==> {
             return $n[0] === $name && $n[1] === $alias;
           })
           |> C\count($$) === 0
