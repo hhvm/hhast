@@ -271,8 +271,10 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
         if (
           Dict\filter($result[$kind][$namespace][1], ($n) ==> {
             invariant(
-              $n is vec<_>,
-              '$n is actually (?string|vec<Trivia>), but this code does not make sense for string',
+              $n is KeyedContainer<_, _>, <<<'EXPL'
+The typechecker this a (?string | vec<Trivia>).
+The runtime knows this is a php array.
+EXPL
             );
             return $n[0] === $name && $n[1] === $alias;
           })
