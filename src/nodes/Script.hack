@@ -63,7 +63,8 @@ final class Script extends ScriptGeneratedBase {
 
     $idx = 0;
     while ($idx < C\count($all_declarations)) {
-      $namespace = $all_declarations[$idx++];
+      $namespace = $all_declarations[$idx];
+      $idx++;
       if (!$namespace is NamespaceDeclaration) {
         $global_declarations[] = $namespace;
         continue;
@@ -86,7 +87,8 @@ final class Script extends ScriptGeneratedBase {
         $idx < C\count($all_declarations) &&
         !$all_declarations[$idx] is NamespaceDeclaration
       ) {
-        $children[] = $all_declarations[$idx++];
+        $children[] = $all_declarations[$idx];
+        $idx++;
       }
 
       $namespaces[] = shape(

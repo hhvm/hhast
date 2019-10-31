@@ -10,3 +10,6 @@ disable_instanceof_refinement = true
 
 ; Once the minimum hhvm version hits 4.25 this setting can be safely enabled
 disallow_array_literal = false
+
+; Once hh-clilib passes disable_lval_as_an_expression this setting can be safely enabled
+disable_lval_as_an_expression = true
