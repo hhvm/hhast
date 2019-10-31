@@ -144,7 +144,6 @@ abstract class Token extends Node {
     $trailing_list = __Private\fold_map(
       /* HH_IGNORE_ERROR[4110] */ $json['trailing'],
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
-      /* HH_FIXME[4297] use like-types when available*/
       ($j, $p) ==> $j as shape('width' => int, ...) + $p,
       $trailing_position,
     )
