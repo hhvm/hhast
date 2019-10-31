@@ -170,7 +170,7 @@ final class CodegenSyntax extends CodegenBase {
       );
     $intersected = C\reduce(
       $expanded,
-      ($acc, $i) ==> $acc = Keyset\intersect($acc, $i),
+      ($acc, $i) ==> Keyset\intersect($acc, $i),
       C\firstx($expanded),
     );
     if ($intersected) {
