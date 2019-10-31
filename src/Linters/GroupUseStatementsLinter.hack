@@ -270,6 +270,10 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
 
         if (
           Dict\filter($result[$kind][$namespace][1], ($n) ==> {
+            invariant(
+              $n is KeyedContainer<_, _>,
+              '$n is actually (?string|vec<Trivia>), but this code does not make sense for string',
+            );
             return $n[0] === $name && $n[1] === $alias;
           })
           |> C\count($$) === 0

@@ -13,3 +13,5 @@ disallow_array_literal = false
 
 ; Once hh-clilib passes disable_lval_as_an_expression this setting can be safely enabled
 disable_lval_as_an_expression = false
+
+new_inference_lambda = true
