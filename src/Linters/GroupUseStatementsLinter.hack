@@ -273,7 +273,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
             invariant(
               $n is KeyedContainer<_, _>, <<<'EXPL'
 The typechecker thinks this a (?string | vec<Trivia>).
-The runtime knows this is a php array.
+The runtime knows this is a tuple (php array).
 EXPL
             );
             return $n[0] === $name && $n[1] === $alias;
