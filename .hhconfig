@@ -12,4 +12,4 @@ disable_instanceof_refinement = true
 disallow_array_literal = false
 
 ; Once hh-clilib passes disable_lval_as_an_expression this setting can be safely enabled
-disable_lval_as_an_expression = true
+disable_lval_as_an_expression = false
