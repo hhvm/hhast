@@ -269,7 +269,16 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
         }
 
         if (
-          Dict\filter($result[$kind][$namespace][1], ($n) ==> {
+          Dict\filter($result[$kind][$namespace][1], (
+            (
+              string,
+              ?string,
+              vec<Trivia>,
+              vec<Trivia>,
+              vec<Trivia>,
+              vec<Trivia>,
+            ) $n,
+          ) ==> {
             return $n[0] === $name && $n[1] === $alias;
           })
           |> C\count($$) === 0
