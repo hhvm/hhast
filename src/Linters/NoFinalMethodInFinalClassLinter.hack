@@ -60,17 +60,38 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
 
     $final = $modifiers->filterChildren($modifier ==> $modifier is FinalToken)
       ->getFirstTokenx();
-
     $non_final = $modifiers->filterChildren(
       $modifier ==> !$modifier is FinalToken,
     );
 
-    // I do not preserve comments just yet.
-    $_left_trivia = $final->getLeading();
+    $decl_without_final = $function_decl_header->withModifiers($non_final);
 
-    $without_final = $function_decl_header->withModifiers($non_final);
+    $decl_without_final = self::preserveTrivia(
+      $final,
+      $decl_without_final->getFirstTokenx(),
+      $decl_without_final,
+    );
 
-    return $method->withFunctionDeclHeader($without_final);
+    return $method->withFunctionDeclHeader($decl_without_final);
+  }
+
+  private static function preserveTrivia(
+    Token $final,
+    Token $first_token,
+    FunctionDeclarationHeader $context,
+  ): FunctionDeclarationHeader {
+
+    $final_trivia = NodeList::concat(
+      $final->getLeading(),
+      $final->getTrailing()
+        |> $$->getCode() === ' ' ? new NodeList() : $$,
+    );
+    $first_trivia = NodeList::concat($first_token->getLeading(), $final_trivia);
+
+    return $context->replaceDescendant(
+      $first_token,
+      $first_token->withLeading($first_trivia),
+    );
   }
 
   private static function hasFinalModifier(NodeList<Token> $modifiers): bool {
