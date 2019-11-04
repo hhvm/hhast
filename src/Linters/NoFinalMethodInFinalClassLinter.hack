@@ -81,6 +81,14 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
     FunctionDeclarationHeader $context,
   ): FunctionDeclarationHeader {
 
+    // This ->getCode() !== '' hack is here to give a nicer result in the common case.
+    // If your class looks like
+    // class Foo {
+    //   final public function bar(): void {}
+    // }      ^
+    // I would discard this space too, leaving public exactly where final used to be.
+    // If you actually have some useful trivia there (like a /*comment*/) I preserve it.
+
     $final_trivia = NodeList::concat(
       $final->getLeading(),
       $final->getTrailing()
