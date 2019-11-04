@@ -90,6 +90,7 @@ final class LintRunConfig {
     HHAST\NoStringInterpolationLinter::class,
     HHAST\StrictModeOnlyLinter::class,
     HHAST\UseStatementWithAsLinter::class,
+    HHAST\NoPHPArrayLiteralsLinter::class,
   ];
 
   private static function getNamedLinterGroup(
