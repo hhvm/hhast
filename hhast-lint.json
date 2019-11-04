@@ -1,5 +1,5 @@
 {
-  "roots": [ "src/", "codegen/", "tests/" ],
+  "roots": [ "some_dir/" ],
   "builtinLinters": "all",
   "overrides": [
     {
