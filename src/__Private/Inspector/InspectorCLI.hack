@@ -71,7 +71,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
 
     \file_put_contents(
       $output,
-      static::getHTMLHeader().$this->getHTMLForNode($ast).self::getHTMLFooter(),
+      self::getHTMLHeader().$this->getHTMLForNode($ast).self::getHTMLFooter(),
     );
 
     print $output."\n";
