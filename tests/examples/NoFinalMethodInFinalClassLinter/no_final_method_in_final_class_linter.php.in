@@ -9,14 +9,14 @@ final class FinalClass {
    */
   final public function withDocBlock(int $_int): void {}
 
-  final /*HH_FIXME[4110] A bad place to put a fixme*/public function withDocBlock(
+  final /*HH_FIXME[4110] A bad place to put a fixme*/public function hhFixmeBad(
     int $int,
   ): void {
     return $int;
   }
 
   /*HH_FIXME[4110] A good place to put a fixme*/
-  final public function withDocBlock(int $int): void {
+  final public function hhFixmeGood(int $int): void {
     return $int;
   }
 }

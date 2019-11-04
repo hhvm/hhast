@@ -10,13 +10,13 @@
         "description": "Method FinalClass is final in the class \/**\n   * @param int $_int\n   *\/\n  final public function withDocBlock(int $_int): void, which is also final. This is redundant."
     },
     {
-        "blame": "\n  final \/*HH_FIXME[4110] A bad place to put a fixme*\/public function withDocBlock(\n    int $int,\n  ): void {\n    return $int;\n  }\n",
-        "blame_pretty": "\n  final \/*HH_FIXME[4110] A bad place to put a fixme*\/public function withDocBlock(\n    int $int,\n  ): void {\n    return $int;\n  }\n",
-        "description": "Method FinalClass is final in the class final \/*HH_FIXME[4110] A bad place to put a fixme*\/public function withDocBlock(\n    int $int,\n  ): void, which is also final. This is redundant."
+        "blame": "\n  final \/*HH_FIXME[4110] A bad place to put a fixme*\/public function hhFixmeBad(\n    int $int,\n  ): void {\n    return $int;\n  }\n",
+        "blame_pretty": "\n  final \/*HH_FIXME[4110] A bad place to put a fixme*\/public function hhFixmeBad(\n    int $int,\n  ): void {\n    return $int;\n  }\n",
+        "description": "Method FinalClass is final in the class final \/*HH_FIXME[4110] A bad place to put a fixme*\/public function hhFixmeBad(\n    int $int,\n  ): void, which is also final. This is redundant."
     },
     {
-        "blame": "\n  \/*HH_FIXME[4110] A good place to put a fixme*\/\n  final public function withDocBlock(int $int): void {\n    return $int;\n  }\n",
-        "blame_pretty": "\n  \/*HH_FIXME[4110] A good place to put a fixme*\/\n  final public function withDocBlock(int $int): void {\n    return $int;\n  }\n",
-        "description": "Method FinalClass is final in the class \/*HH_FIXME[4110] A good place to put a fixme*\/\n  final public function withDocBlock(int $int): void, which is also final. This is redundant."
+        "blame": "\n  \/*HH_FIXME[4110] A good place to put a fixme*\/\n  final public function hhFixmeGood(int $int): void {\n    return $int;\n  }\n",
+        "blame_pretty": "\n  \/*HH_FIXME[4110] A good place to put a fixme*\/\n  final public function hhFixmeGood(int $int): void {\n    return $int;\n  }\n",
+        "description": "Method FinalClass is final in the class \/*HH_FIXME[4110] A good place to put a fixme*\/\n  final public function hhFixmeGood(int $int): void, which is also final. This is redundant."
     }
 ]
