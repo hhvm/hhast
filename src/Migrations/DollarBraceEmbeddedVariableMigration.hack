@@ -65,7 +65,7 @@ final class DollarBraceEmbeddedVariableMigration extends StepBasedMigration {
   }
 
   <<__Override>>
-  final public function getSteps(): Traversable<IMigrationStep> {
+  public function getSteps(): Traversable<IMigrationStep> {
     return vec[
       new TypedMigrationStep(
         'convert "${foo}" to "{$foo}"',

@@ -38,7 +38,7 @@ final class OptionalShapeFieldsMigration extends StepBasedMigration {
   }
 
   <<__Override>>
-  final public function getSteps(): Traversable<IMigrationStep> {
+  public function getSteps(): Traversable<IMigrationStep> {
     return vec[
       new TypedMigrationStep(
         'make nullable fields optional',

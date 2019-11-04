@@ -27,7 +27,7 @@ final class NodeList<+Titem as Node> extends Node {
   }
 
   <<__Override>>
-  final public function isList(): bool {
+  public function isList(): bool {
     return true;
   }
 
@@ -41,12 +41,12 @@ final class NodeList<+Titem as Node> extends Node {
     return $this->_children;
   }
 
-  final public function getChildrenOfItems<T>(
+  public function getChildrenOfItems<T>(
   ): vec<T> where Titem as ListItem<T> {
     return Vec\map($this->getChildren(), $child ==> $child->getItem());
   }
 
-  final public function getChildrenOfItemsOfType<T>(
+  public function getChildrenOfItemsOfType<T>(
     classname<T> $what,
   ): vec<T> where Titem as ListItem<T> {
     $out = vec[];
@@ -228,11 +228,11 @@ final class NodeList<+Titem as Node> extends Node {
     return new NodeList($new);
   }
 
-  final public function isEmpty(): bool {
+  public function isEmpty(): bool {
     return C\is_empty($this->_children);
   }
 
-  final public function getCount(): int {
+  public function getCount(): int {
     return C\count($this->_children);
   }
 }
