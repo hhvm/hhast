@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\{C, Str};
 
 final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
   const type TNode = MethodishDeclaration;
@@ -30,6 +30,17 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
       return null;
     }
 
+    return new ASTLintError(
+      $this,
+      Str\format(
+        'Method %s is final in the class %s, which is also final. This is redundant.',
+        Str\trim($class->getName()->getCode()),
+        Str\trim($method->getFunctionDeclHeader()->getCode()),
+      ),
+      $method,
+      () ==> $this->getFixedNode($method),
+    );
+
     echo $class->getName()->getCode().
       ' is final and has the final method '.
       $method->getFunctionDeclHeader()->getName()->getCode().
@@ -42,9 +53,24 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
   }
 
   public function getFixedNode(
-    MethodishDeclaration $_method,
-  ): MemberSelectionExpression {
-    throw new \RuntimeException('Not implemented');
+    MethodishDeclaration $method,
+  ): MethodishDeclaration {
+    $function_decl_header = $method->getFunctionDeclHeader();
+    $modifiers = $function_decl_header->getModifiers() as nonnull;
+
+    $final = $modifiers->filterChildren($modifier ==> $modifier is FinalToken)
+      ->getFirstTokenx();
+
+    $non_final = $modifiers->filterChildren(
+      $modifier ==> !$modifier is FinalToken,
+    );
+
+    // I do not preserve comments just yet.
+    $_left_trivia = $final->getLeading();
+
+    $without_final = $function_decl_header->withModifiers($non_final);
+
+    return $method->withFunctionDeclHeader($without_final);
   }
 
   private static function hasFinalModifier(NodeList<Token> $modifiers): bool {
