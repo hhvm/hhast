@@ -12,6 +12,7 @@ namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Str};
 use type Facebook\CLILib\CLIWithRequiredArguments;
+use type HH\Lib\_Private\PHPWarningSuppressor;
 use namespace Facebook\CLILib\CLIOptions;
 
 final class InspectorCLI extends CLIWithRequiredArguments {
@@ -70,19 +71,51 @@ final class InspectorCLI extends CLIWithRequiredArguments {
 
     \file_put_contents(
       $output,
-      $this->getHTMLHeader().$this->getHTMLForNode($ast).$this->getHTMLFooter(),
+      self::getHTMLHeader().$this->getHTMLForNode($ast).self::getHTMLFooter(),
     );
 
     print $output."\n";
 
     if ($this->open) {
-      \pcntl_exec('/usr/bin/open', varray[$output]);
+      if (!self::openFileInBrowser($output)) {
+        await $err->writeAsync("We failed to open your browser.\n");
+      }
     }
 
     return 0;
   }
 
-  private function getHTMLHeader(): string {
+  private static function openFileInBrowser(string $filename): bool {
+    $env = \HH\global_get('_ENV');
+    $os = OSFAMILY;
+    if ($os is null) {
+      return false;
+    }
+
+    switch ($os) {
+      case OSFamily::MACOS:
+        $result = \pcntl_exec('/usr/bin/open', varray[$filename], $env);
+        break;
+      case OSFamily::LINUX:
+        using ($_no_warnings = new PHPWarningSuppressor()) {
+          $result = \pcntl_exec(
+            '/usr/bin/sensible-browser',
+            varray[$filename],
+            $env,
+          );
+        }
+        if ($result === false) {
+          $result = \pcntl_exec('/usr/bin/xdg-open', varray[$filename], $env);
+        }
+        break;
+      default:
+        $result = false;
+    }
+
+    return $result;
+  }
+
+  private static function getHTMLHeader(): string {
     return "<html><head><style>".
       \file_get_contents(__DIR__.'/syntax.css').
       \file_get_contents(__DIR__.'/inspector.css').
@@ -91,7 +124,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
       '<pre><code class="language-hack">';
   }
 
-  private function getHTMLFooter(): string {
+  private static function getHTMLFooter(): string {
     return '</code></pre>'.
       '<script>'.
       \file_get_contents(__DIR__.'/inspector.js').
