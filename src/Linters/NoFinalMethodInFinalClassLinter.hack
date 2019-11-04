@@ -9,16 +9,31 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\{C, Vec};
+
 final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
   const type TNode = MethodishDeclaration;
   const type TContext = ClassishDeclaration;
 
   <<__Override>>
   public function getLintErrorForNode(
-    ClassishDeclaration $_class,
-    MethodishDeclaration $_method,
+    ClassishDeclaration $class,
+    MethodishDeclaration $method,
   ): ?ASTLintError {
-    throw new \RuntimeException('Not implemented');
+    $class_modifiers = $class->getModifiers() ?? new NodeList();
+    if (!self::hasFinalModifier($class_modifiers)) {
+      return null;
+    }
+    $function_modifiers = $method->getFunctionDeclHeader()->getModifiers() ??
+      new NodeList();
+    if (!self::hasFinalModifier($function_modifiers)) {
+      return null;
+    }
+
+    echo $class->getName()->getCode().
+      ' is final and has the final method '.
+      $method->getFunctionDeclHeader()->getName()->getCode().
+      \PHP_EOL;
   }
 
   <<__Override>>
@@ -30,5 +45,9 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
     MethodishDeclaration $_method,
   ): MemberSelectionExpression {
     throw new \RuntimeException('Not implemented');
+  }
+
+  private static function hasFinalModifier(NodeList<Token> $modifiers): bool {
+    return C\any($modifiers->toVec(), $token ==> $token is FinalToken);
   }
 }
