@@ -105,7 +105,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
           );
         }
         if ($result === false) {
-          \pcntl_exec('/usr/bin/xdg-open', varray[$filename], $env);
+          $result = \pcntl_exec('/usr/bin/xdg-open', varray[$filename], $env);
         }
         break;
       default:
