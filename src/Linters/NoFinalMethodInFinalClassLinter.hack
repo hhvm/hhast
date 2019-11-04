@@ -84,7 +84,7 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
     $final_trivia = NodeList::concat(
       $final->getLeading(),
       $final->getTrailing()
-        |> $$->getCode() === ' ' ? new NodeList() : $$,
+        |> $$->getCode() !== ' ' ? $$ : new NodeList(),
     );
     $first_trivia = NodeList::concat($first_token->getLeading(), $final_trivia);
 
