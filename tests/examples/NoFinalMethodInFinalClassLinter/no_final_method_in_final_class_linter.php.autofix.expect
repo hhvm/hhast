@@ -1,0 +1,22 @@
+<?hh // strict
+
+final class FinalClass {
+  public function goodMethod(): void {}
+  public function badMethod(): void {}
+
+  /**
+   * @param int $_int
+   */
+  public function withDocBlock(int $_int): void {}
+/*HH_FIXME[4110] A bad place to put a fixme*/
+  public function withDocBlock(
+    int $int,
+  ): void {
+    return $int;
+  }
+
+  /*HH_FIXME[4110] A good place to put a fixme*/
+  public function withDocBlock(int $int): void {
+    return $int;
+  }
+}
