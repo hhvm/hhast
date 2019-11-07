@@ -27,7 +27,9 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    if (Str\trim($name->getTrailing()->getCode(), "\n") === '') {
+    $triv_text = $name->getTrailing()->getCode();
+
+    if (Str\trim($triv_text, "\n") === '' || $triv_text === " // strict\n") {
       return null;
     }
 
