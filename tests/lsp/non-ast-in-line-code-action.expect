@@ -99,7 +99,7 @@
                         }
                     },
                     "severity": 2,
-                    "message": "Use `<?hh // strict`",
+                    "message": "Use `<?hh` (default)",
                     "code": "StrictModeOnly",
                     "source": "HHAST"
                 }
