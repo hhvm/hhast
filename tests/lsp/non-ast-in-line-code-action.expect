@@ -86,22 +86,6 @@
                     "message": "trailing whitespace at end of line",
                     "code": "NoWhitespaceAtEndOfLine",
                     "source": "HHAST"
-                },
-                {
-                    "range": {
-                        "start": {
-                            "line": 0,
-                            "character": 0
-                        },
-                        "end": {
-                            "line": 0,
-                            "character": 4
-                        }
-                    },
-                    "severity": 2,
-                    "message": "Use `<?hh // strict`",
-                    "code": "StrictModeOnly",
-                    "source": "HHAST"
                 }
             ]
         }

@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\Str;
 
 class StrictModeOnlyLinter extends AutoFixingASTLinter {
   const type TNode = MarkupSuffix;
@@ -20,22 +21,21 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter {
     MarkupSuffix $node,
   ): ?ASTLintError {
     $name = $node->getName();
-    if ($name === null) {
-      // '<?'
+
+    if ($name is null || $name->getText() !== 'hh') {
+      // Stay safe with `<?` and `<?non-hh`
       return null;
     }
 
-    if ($name->getText() !== 'hh') {
-      return null;
-    }
+    $triv_text = $name->getTrailing()->getCode();
 
-    if ($name->getTrailing()->getCode() === " // strict\n") {
+    if (Str\trim($triv_text, "\n") === '' || $triv_text === " // strict\n") {
       return null;
     }
 
     return new ASTLintError(
       $this,
-      'Use `<?hh // strict`',
+      'Use `<?hh` (default)',
       $node,
       () ==> $this->getFixedNode($node),
     );
@@ -43,15 +43,13 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter {
 
   <<__Override>>
   protected function getTitleForFix(LintError $_): string {
-    return 'Use `<?hh // strict`';
+    return 'Use `<?hh` (default)';
   }
 
   public function getFixedNode(MarkupSuffix $node): MarkupSuffix {
     $name = $node->getName();
-    invariant($name !== null, "Shouldn't be asked to fix a `<?hh`'");
+    invariant($name is nonnull, "Shouldn't be asked to fix a `<?hh`'");
     return $name->withTrailing(new NodeList(vec[
-      new WhiteSpace(' '),
-      new SingleLineComment('// strict'),
       new EndOfLine("\n"),
     ]))
       |> $node->withName($$);

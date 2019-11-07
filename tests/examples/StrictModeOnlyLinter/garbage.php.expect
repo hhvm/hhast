@@ -2,6 +2,6 @@
     {
         "blame": "<?hh \/\/foo\n",
         "blame_pretty": "<?hh \/\/foo\n",
-        "description": "Use `<?hh \/\/ strict`"
+        "description": "Use `<?hh` (default)"
     }
 ]
