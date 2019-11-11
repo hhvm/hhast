@@ -40,16 +40,11 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
       $method,
       () ==> $this->getFixedNode($method),
     );
-
-    echo $class->getName()->getCode().
-      ' is final and has the final method '.
-      $method->getFunctionDeclHeader()->getName()->getCode().
-      \PHP_EOL;
   }
 
   <<__Override>>
   public function getTitleForFix(LintError $_): string {
-    return 'Remove final from methods in final classes';
+    return 'Remove final from method';
   }
 
   public function getFixedNode(
