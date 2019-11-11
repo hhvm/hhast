@@ -14,13 +14,20 @@ use function Facebook\HHAST\TestLib\expect;
 final class HSLMigrationTest extends MigrationTest {
   const type TMigration = HSLMigration;
 
-  public function testHslMigrationReturnsSameResults(): void {
+  public async function testHslMigrationReturnsSameResults(): Awaitable<void> {
     $base_path = __DIR__.'/examples/migrations/hsl.php';
-    $handle = \HH\Lib\Tuple\from_async(
-      __Private\execute_async('hhvm', '--no-config', $base_path.'.in'),
-      __Private\execute_async('hhvm', '--no-config', $base_path.'.expect'),
-    );
-    list($phpstdlib_results, $hsl_results) = \HH\Asio\join($handle);
+    concurrent {
+      $phpstdlib_results = await __Private\execute_async(
+        'hhvm',
+        '--no-config',
+        $base_path.'.in',
+      );
+      $hsl_results = await __Private\execute_async(
+        'hhvm',
+        '--no-config',
+        $base_path.'.expect',
+      );
+    }
     expect($hsl_results)->toBeSame(
       $phpstdlib_results,
       'HSL and PHP functions return same results',

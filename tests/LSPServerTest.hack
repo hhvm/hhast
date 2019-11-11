@@ -13,7 +13,7 @@ use function Facebook\HHAST\TestLib\{Ref, expect};
 use function Facebook\HHAST\__Private\LSPImpl\read_message_async;
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{Dict, Str, Tuple};
+use namespace HH\Lib\{Dict, Str};
 use namespace HH\Lib\Experimental\IO;
 use type Facebook\CLILib\Terminal;
 use type Facebook\HHAST\TestLib\TestLSPMessageResponseBehavior;
@@ -118,9 +118,9 @@ final class LSPServerTest extends TestCase {
 
     $debug = (bool)\getenv('HHAST_LSP_DEBUG') ?? false;
 
-    list($_code, $_) = await Tuple\from_async(
-      $cli->mainAsync(),
-      async {
+    concurrent {
+      await $cli->mainAsync();
+      await async {
         foreach ($messages as $message) {
           $behavior = $this->getMessageResponseBehavior($message);
           $message = \json_encode($message, \JSON_UNESCAPED_SLASHES);
@@ -152,8 +152,8 @@ final class LSPServerTest extends TestCase {
               break;
           }
         }
-      },
-    );
+      };
+    }
 
     $output = \json_encode(
       $responses->v,
