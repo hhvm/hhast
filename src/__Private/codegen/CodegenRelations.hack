@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\{Async, C, Dict, Keyset, Str, Tuple, Vec};
+use namespace HH\Lib\{Async, C, Dict, Keyset, Str, Vec};
 use type Facebook\HackCodegen\{
   CodegenFileType,
   HackBuilderKeys,
@@ -71,9 +71,12 @@ final class CodegenRelations extends CodegenBase {
 
       },
     );
-    await Tuple\from_async(
-      Dict\map_async($files, async $file ==> await $queue->waitForAsync($file)),
-      async {
+    concurrent {
+      await Dict\map_async(
+        $files,
+        async $file ==> await $queue->waitForAsync($file),
+      );
+      await async {
         $total = C\count($files);
         while ($done->v < $total) {
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
@@ -96,8 +99,8 @@ final class CodegenRelations extends CodegenBase {
             \strftime('%H:%M:%S', (int)$end),
           );
         }
-      },
-    );
+      };
+    }
 
     $cg = $this->getCodegenFactory();
 
