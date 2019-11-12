@@ -59,7 +59,7 @@ final class ExplicitPartialModeMigration extends BaseMigration {
   }
 
   <<__Override>>
-  final public function migrateFile(string $_path, Script $ast): Script {
+  public function migrateFile(string $_path, Script $ast): Script {
     $markup = C\first($ast->getDeclarationsx()->getChildren());
     if (!$markup is MarkupSection) {
       return $ast;

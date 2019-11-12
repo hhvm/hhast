@@ -80,7 +80,7 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
   }
 
   <<__Override>>
-  final public function getSteps(): Traversable<IMigrationStep> {
+  public function getSteps(): Traversable<IMigrationStep> {
     $make_step = (
       string $name,
       (function(ShapeTypeSpecifier): ShapeTypeSpecifier) $impl,
