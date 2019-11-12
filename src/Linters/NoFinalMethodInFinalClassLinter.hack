@@ -70,10 +70,6 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
       // ignore it for nicer diffs.
       ? $final->getLeading()
       : NodeList::concat($final->getLeading(), $final->getTrailing());
-    echo "\n\n---";
-    \var_dump($final_trivia->getCode());
-    echo "---\n\n";
-
 
     $decl_without_final = $decl_without_final->replace(
       $next_token,
