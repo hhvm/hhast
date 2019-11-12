@@ -8,8 +8,8 @@ final class FinalClass {
    * @param int $_int
    */
   public function withDocBlock(int $_int): void {}
-/*HH_FIXME[4110] A bad place to put a fixme*/
-  public function hhFixmeBad(
+
+  /*HH_FIXME[4110] A bad place to put a fixme*/public function hhFixmeBad(
     int $int,
   ): void {
     return $int;

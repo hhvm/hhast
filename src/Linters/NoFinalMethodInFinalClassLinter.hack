@@ -56,46 +56,33 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
     $final = $modifiers
       ->filterChildren($modifier ==> $modifier is FinalToken)
       ->getFirstTokenx();
-    $non_final = $modifiers->filterChildren(
-      $modifier ==> !$modifier is FinalToken,
+
+    $next_token = $this->getAST()->getNextToken($final);
+    invariant($next_token is nonnull, 'Could not find token after final');
+
+    $decl_without_final = $function_decl_header->withModifiers(
+      $modifiers->filterChildren($modifier ==> !$modifier is FinalToken),
     );
 
-    $decl_without_final = $function_decl_header->withModifiers($non_final);
 
-    $decl_without_final = self::preserveTrivia(
-      $final,
-      $decl_without_final->getFirstTokenx(),
-      $decl_without_final,
+    $final_trivia = $final->getTrailing()->getCode() === ' '
+      // In the /common/ case that final only has one trailing space,
+      // ignore it for nicer diffs.
+      ? $final->getLeading()
+      : NodeList::concat($final->getLeading(), $final->getTrailing());
+    echo "\n\n---";
+    \var_dump($final_trivia->getCode());
+    echo "---\n\n";
+
+
+    $decl_without_final = $decl_without_final->replace(
+      $next_token,
+      $next_token->withLeading(
+        NodeList::concat($final_trivia, $next_token->getLeading()),
+      ),
     );
 
     return $method->withFunctionDeclHeader($decl_without_final);
-  }
-
-  private static function preserveTrivia(
-    Token $final,
-    Token $first_token,
-    FunctionDeclarationHeader $context,
-  ): FunctionDeclarationHeader {
-
-    // This ->getCode() !== '' hack is here to give a nicer result in the common case.
-    // If your class looks like
-    // class Foo {
-    //   final public function bar(): void {}
-    // }      ^
-    // I would discard this space too, leaving public exactly where final used to be.
-    // If you actually have some useful trivia there (like a /*comment*/) I preserve it.
-
-    $final_trivia = NodeList::concat(
-      $final->getLeading(),
-      $final->getTrailing()
-        |> $$->getCode() !== ' ' ? $$ : new NodeList(),
-    );
-    $first_trivia = NodeList::concat($first_token->getLeading(), $final_trivia);
-
-    return $context->replaceDescendant(
-      $first_token,
-      $first_token->withLeading($first_trivia),
-    );
   }
 
   private static function hasFinalModifier(NodeList<Token> $modifiers): bool {
