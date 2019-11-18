@@ -68,9 +68,9 @@ final class LSPServerTest extends TestCase {
     return Str\format("Content-Length: %d\r\n\r\n%s", Str\length($json), $json);
   }
 
-  public function provideExampleExchanges(): array<array<string>> {
+  public function provideExampleExchanges(): array<varray<string>> {
     return \array_map(
-      function($file) {
+      (string $file): varray<string> ==> {
         return varray[\basename($file, '.json')];
       },
       \glob(__DIR__.'/lsp/*.json'),
