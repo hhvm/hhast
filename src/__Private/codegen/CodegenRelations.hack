@@ -370,7 +370,6 @@ final class CodegenRelations extends CodegenBase {
     // https://github.com/hhvm/hhast/issues/151
     $_ = (this $x) ==> $x->flatten(dict[]) ?as this;
     $_ = (this $x) ==> $x->flatten(dict[]) as this;
-    /* HH_IGNORE_ERROR[4223] Only allowed in partial mode. */
-    (...) ==> null;
+    (mixed ... $_) ==> null;
   }
 }
