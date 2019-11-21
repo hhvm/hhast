@@ -40,6 +40,8 @@ function is_compatible_schema_version(string $other_version): bool {
       $compatible_versions[] = '2019-08-22-0001';
       // Nothing added, `break/continue <num>` removed in the next version:
       $compatible_versions[] = '2019-10-08-0001';
+      // Nothing added, unused experimental `let` statement removed in:
+      $compatible_versions[] = '2019-11-15-0001';
       break;
   }
 
