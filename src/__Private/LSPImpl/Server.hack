@@ -24,7 +24,7 @@ final class Server extends LSPLib\Server<ServerState> {
     // but lets make all errors/notices/warnings etc go through the same
     // mechanism
     \set_error_handler(
-      function(int $severity, string $message, string $file, int $line): bool {
+      (int $severity, string $message, string $file, int $line): noreturn ==> {
         throw new \ErrorException(
           $message, /* code = */
           0,

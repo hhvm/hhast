@@ -10,3 +10,4 @@ disable_instanceof_refinement = true
 disallow_array_literal = true
 disable_lval_as_an_expression = true
 new_inference_lambda = true
+error_php_lambdas = true
