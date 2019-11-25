@@ -118,10 +118,10 @@ abstract class Token extends Node {
     string $source,
     string $_type_hint,
   ): Token {
-    $leading_list = __Private\fold_map(
-      /* HH_FIXME[4110] use like-types when available*/ $json['leading'],
+    $leading_list = __Private\fold_map<dict<string, mixed>, Trivia, int>(
+      /* HH_FIXME[4110] need like types */ $json['leading'],
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
-      ($j, $p) ==> $j as KeyedContainer<_, _>['width'] as int + $p,
+      ($j, $p) ==> ($j as dict<_, _>)['width'] as int + $p,
       $offset,
     )
       |> Vec\filter_nulls($$);
@@ -141,8 +141,8 @@ abstract class Token extends Node {
     $token_width = TypeAssert\int($json['width']);
     $token_text = Str\slice($source, $token_position, $token_width);
     $trailing_position = $token_position + $token_width;
-    $trailing_list = __Private\fold_map(
-      /* HH_IGNORE_ERROR[4110] */ $json['trailing'],
+    $trailing_list = __Private\fold_map<dict<string, mixed>, Trivia, int>(
+      /* HH_FIXME[4110] need like-types */ $json['trailing'],
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j as KeyedContainer<_, _>['width'] as int + $p,
       $trailing_position,
