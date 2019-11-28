@@ -15,13 +15,13 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
 
   <<__Override>>
   public function getLintErrorForNode(
-    EnumDeclaration $_context,
-    EnumDeclaration $enum,
+    self::TContext $_context,
+    self::TNode $enum,
   ): ?ASTLintError {
     return null;
   }
 
-  public function getFixedNode(InclusionExpression $node): ?Node {
+  public function getFixedNode(self::TNode $node): ?Node {
     return null;
   }
 
