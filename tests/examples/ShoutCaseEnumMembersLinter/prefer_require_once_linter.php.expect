@@ -1,0 +1,37 @@
+[
+    {
+        "blame": "  camelCase = 1;\n",
+        "blame_pretty": "  camelCase = 1;\n",
+        "description": "Member {camelCase} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  snake_case = 1;\n",
+        "blame_pretty": "  snake_case = 1;\n",
+        "description": "Member {snake_case} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  camelCase = 1;\n",
+        "blame_pretty": "  camelCase = 1;\n",
+        "description": "Member {camelCase} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  \/\/ Really pascal case\n  CamelCase = 1;\n",
+        "blame_pretty": "  \/\/ Really pascal case\n  CamelCase = 1;\n",
+        "description": "Member {CamelCase} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  snake_case = 1;\n",
+        "blame_pretty": "  snake_case = 1;\n",
+        "description": "Member {snake_case} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  one \/*7*\/ = \/*8*\/ 'string'. \/*9*\/ 'concat' \/*10*\/; \/*11*\/\n",
+        "blame_pretty": "  one \/*7*\/ = \/*8*\/ 'string'. \/*9*\/ 'concat' \/*10*\/; \/*11*\/\n",
+        "description": "Member {one} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  two \/*12*\/ = \/*13*\/ 2 \/*14*\/; \/*15*\/\n",
+        "blame_pretty": "  two \/*12*\/ = \/*13*\/ 2 \/*14*\/; \/*15*\/\n",
+        "description": "Member {two} is not in SHOUT_CASE"
+    }
+]

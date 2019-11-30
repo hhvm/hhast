@@ -52,7 +52,7 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
     unset($upper_names[Str\uppercase($name)]);
     $shout_name = self::transformToShoutCase($name);
 
-    return !C\contains_key($upper_names, $shout_name);
+    return !C\contains($upper_names, $shout_name);
   }
 
   private static function transformToShoutCase(string $name): string {

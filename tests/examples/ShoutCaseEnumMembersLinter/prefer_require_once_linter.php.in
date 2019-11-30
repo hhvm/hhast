@@ -1,0 +1,28 @@
+<?hh
+
+enum EmptyEnum: int {}
+
+enum GoodEnum: int {
+  GOOD_MEMBER = 1;
+  ALSO_GOOD_MEMBER = 1;
+}
+
+enum BadEnum: int {
+  camelCase = 1;
+  SHOUT_CASE = 1;
+  snake_case = 1;
+}
+
+enum CollidingNamesEnum: int {
+  camelCase = 1;
+  // Really pascal case
+  CamelCase = 1;
+  snake_case = 1;
+  SHOUT_CASE = 1;
+}
+
+/*1*/
+enum /*2*/ Trivia /*3*/: /*4*/ string /*5*/ { /*6*/
+  one /*7*/ = /*8*/ 'string'. /*9*/ 'concat' /*10*/; /*11*/
+  two /*12*/ = /*13*/ 2 /*14*/; /*15*/
+}/*16*/
