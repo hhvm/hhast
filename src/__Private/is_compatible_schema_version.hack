@@ -42,6 +42,8 @@ function is_compatible_schema_version(string $other_version): bool {
       $compatible_versions[] = '2019-10-08-0001';
       // Nothing added, unused experimental `let` statement removed in:
       $compatible_versions[] = '2019-11-15-0001';
+      // update AST* with reified information for PU
+      $compatible_versions[] = '2019-11-29-0001';
       break;
   }
 
