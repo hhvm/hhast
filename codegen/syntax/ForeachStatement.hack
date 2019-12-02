@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c247277473c5103b346148ba2735f34>>
+ * @generated SignedSource<<25d35921b06c610d8f49acb47ac201ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -344,7 +344,7 @@ final class ForeachStatement
    * FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VectorIntrinsicExpression
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getCollection(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_collection);
@@ -356,7 +356,7 @@ final class ForeachStatement
    * FunctionCallExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
    * | ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VectorIntrinsicExpression
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getCollectionx(): IExpression {
     return $this->getCollection();

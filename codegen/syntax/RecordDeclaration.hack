@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d250f24ee13369746ecccd4c57ac369>>
+ * @generated SignedSource<<b699ccfe0e4251a30f5ba7ed8d362b21>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,7 +17,7 @@ final class RecordDeclaration extends Node {
   private Node $_keyword;
   private Node $_name;
   private Node $_extends_keyword;
-  private Node $_extends_list;
+  private Node $_extends_opt;
   private Node $_left_brace;
   private Node $_fields;
   private Node $_right_brace;
@@ -28,7 +28,7 @@ final class RecordDeclaration extends Node {
     Node $keyword,
     Node $name,
     Node $extends_keyword,
-    Node $extends_list,
+    Node $extends_opt,
     Node $left_brace,
     Node $fields,
     Node $right_brace,
@@ -39,7 +39,7 @@ final class RecordDeclaration extends Node {
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_extends_keyword = $extends_keyword;
-    $this->_extends_list = $extends_list;
+    $this->_extends_opt = $extends_opt;
     $this->_left_brace = $left_brace;
     $this->_fields = $fields;
     $this->_right_brace = $right_brace;
@@ -100,15 +100,15 @@ final class RecordDeclaration extends Node {
     );
     $extends_keyword = $extends_keyword as nonnull;
     $offset += $extends_keyword->getWidth();
-    $extends_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_extends_list'],
+    $extends_opt = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['record_extends_opt'],
       $file,
       $offset,
       $source,
       'Node',
     );
-    $extends_list = $extends_list as nonnull;
-    $offset += $extends_list->getWidth();
+    $extends_opt = $extends_opt as nonnull;
+    $offset += $extends_opt->getWidth();
     $left_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_left_brace'],
       $file,
@@ -148,7 +148,7 @@ final class RecordDeclaration extends Node {
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $extends_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $extends_list,
+      /* HH_IGNORE_ERROR[4110] */ $extends_opt,
       /* HH_IGNORE_ERROR[4110] */ $left_brace,
       /* HH_IGNORE_ERROR[4110] */ $fields,
       /* HH_IGNORE_ERROR[4110] */ $right_brace,
@@ -164,7 +164,7 @@ final class RecordDeclaration extends Node {
       'keyword' => $this->_keyword,
       'name' => $this->_name,
       'extends_keyword' => $this->_extends_keyword,
-      'extends_list' => $this->_extends_list,
+      'extends_opt' => $this->_extends_opt,
       'left_brace' => $this->_left_brace,
       'fields' => $this->_fields,
       'right_brace' => $this->_right_brace,
@@ -183,7 +183,7 @@ final class RecordDeclaration extends Node {
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
     $extends_keyword = $rewriter($this->_extends_keyword, $parents);
-    $extends_list = $rewriter($this->_extends_list, $parents);
+    $extends_opt = $rewriter($this->_extends_opt, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
     $fields = $rewriter($this->_fields, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
@@ -193,7 +193,7 @@ final class RecordDeclaration extends Node {
       $keyword === $this->_keyword &&
       $name === $this->_name &&
       $extends_keyword === $this->_extends_keyword &&
-      $extends_list === $this->_extends_list &&
+      $extends_opt === $this->_extends_opt &&
       $left_brace === $this->_left_brace &&
       $fields === $this->_fields &&
       $right_brace === $this->_right_brace
@@ -206,7 +206,7 @@ final class RecordDeclaration extends Node {
       /* HH_FIXME[4110] use `as` */ $keyword,
       /* HH_FIXME[4110] use `as` */ $name,
       /* HH_FIXME[4110] use `as` */ $extends_keyword,
-      /* HH_FIXME[4110] use `as` */ $extends_list,
+      /* HH_FIXME[4110] use `as` */ $extends_opt,
       /* HH_FIXME[4110] use `as` */ $left_brace,
       /* HH_FIXME[4110] use `as` */ $fields,
       /* HH_FIXME[4110] use `as` */ $right_brace,
@@ -227,7 +227,7 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $this->_name,
       $this->_extends_keyword,
-      $this->_extends_list,
+      $this->_extends_opt,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -266,7 +266,7 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $this->_name,
       $this->_extends_keyword,
-      $this->_extends_list,
+      $this->_extends_opt,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -305,7 +305,7 @@ final class RecordDeclaration extends Node {
       $value,
       $this->_name,
       $this->_extends_keyword,
-      $this->_extends_list,
+      $this->_extends_opt,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -344,7 +344,7 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $value,
       $this->_extends_keyword,
-      $this->_extends_list,
+      $this->_extends_opt,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -383,7 +383,7 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $this->_name,
       $value,
-      $this->_extends_list,
+      $this->_extends_opt,
       $this->_left_brace,
       $this->_fields,
       $this->_right_brace,
@@ -408,12 +408,12 @@ final class RecordDeclaration extends Node {
     return $this->getExtendsKeyword();
   }
 
-  public function getExtendsListUNTYPED(): ?Node {
-    return $this->_extends_list;
+  public function getExtendsOptUNTYPED(): ?Node {
+    return $this->_extends_opt;
   }
 
-  public function withExtendsList(Node $value): this {
-    if ($value === $this->_extends_list) {
+  public function withExtendsOpt(Node $value): this {
+    if ($value === $this->_extends_opt) {
       return $this;
     }
     return new static(
@@ -429,22 +429,22 @@ final class RecordDeclaration extends Node {
     );
   }
 
-  public function hasExtendsList(): bool {
-    return $this->_extends_list !== null;
+  public function hasExtendsOpt(): bool {
+    return $this->_extends_opt !== null;
   }
 
   /**
    * @return
    */
-  public function getExtendsList(): Node {
-    return $this->_extends_list;
+  public function getExtendsOpt(): Node {
+    return $this->_extends_opt;
   }
 
   /**
    * @return
    */
-  public function getExtendsListx(): Node {
-    return $this->getExtendsList();
+  public function getExtendsOptx(): Node {
+    return $this->getExtendsOpt();
   }
 
   public function getLeftBraceUNTYPED(): ?Node {
@@ -461,7 +461,7 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $this->_name,
       $this->_extends_keyword,
-      $this->_extends_list,
+      $this->_extends_opt,
       $value,
       $this->_fields,
       $this->_right_brace,
@@ -500,7 +500,7 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $this->_name,
       $this->_extends_keyword,
-      $this->_extends_list,
+      $this->_extends_opt,
       $this->_left_brace,
       $value,
       $this->_right_brace,
@@ -539,7 +539,7 @@ final class RecordDeclaration extends Node {
       $this->_keyword,
       $this->_name,
       $this->_extends_keyword,
-      $this->_extends_list,
+      $this->_extends_opt,
       $this->_left_brace,
       $this->_fields,
       $value,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab9cdfd00e4acee7ef08d8454267d22a>>
+ * @generated SignedSource<<a556d399d346b361d68254f9f5267f30>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,18 +14,21 @@ final class PocketFieldTypeDeclaration extends Node {
 
   private ?Node $_case;
   private ?Node $_type;
+  private ?Node $_reified;
   private ?Node $_name;
   private ?Node $_semicolon;
 
   public function __construct(
     ?Node $case,
     ?Node $type,
+    ?Node $reified,
     ?Node $name,
     ?Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_case = $case;
     $this->_type = $type;
+    $this->_reified = $reified;
     $this->_name = $name;
     $this->_semicolon = $semicolon;
     parent::__construct($source_ref);
@@ -58,6 +61,15 @@ final class PocketFieldTypeDeclaration extends Node {
       'Node',
     );
     $offset += $type?->getWidth() ?? 0;
+    $reified = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['pocket_field_type_reified'] ??
+        dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $reified?->getWidth() ?? 0;
     $name = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_field_type_name'] ??
         dict['kind' => 'missing'],
@@ -85,6 +97,7 @@ final class PocketFieldTypeDeclaration extends Node {
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $case,
       /* HH_IGNORE_ERROR[4110] */ $type,
+      /* HH_IGNORE_ERROR[4110] */ $reified,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
@@ -96,6 +109,7 @@ final class PocketFieldTypeDeclaration extends Node {
     return dict[
       'case' => $this->_case,
       'type' => $this->_type,
+      'reified' => $this->_reified,
       'name' => $this->_name,
       'semicolon' => $this->_semicolon,
     ]
@@ -110,6 +124,9 @@ final class PocketFieldTypeDeclaration extends Node {
     $parents[] = $this;
     $case = $this->_case === null ? null : $rewriter($this->_case, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
+    $reified = $this->_reified === null
+      ? null
+      : $rewriter($this->_reified, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $semicolon = $this->_semicolon === null
       ? null
@@ -117,6 +134,7 @@ final class PocketFieldTypeDeclaration extends Node {
     if (
       $case === $this->_case &&
       $type === $this->_type &&
+      $reified === $this->_reified &&
       $name === $this->_name &&
       $semicolon === $this->_semicolon
     ) {
@@ -125,6 +143,7 @@ final class PocketFieldTypeDeclaration extends Node {
     return new static(
       /* HH_FIXME[4110] use `as` */ $case,
       /* HH_FIXME[4110] use `as` */ $type,
+      /* HH_FIXME[4110] use `as` */ $reified,
       /* HH_FIXME[4110] use `as` */ $name,
       /* HH_FIXME[4110] use `as` */ $semicolon,
     );
@@ -138,7 +157,13 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_case) {
       return $this;
     }
-    return new static($value, $this->_type, $this->_name, $this->_semicolon);
+    return new static(
+      $value,
+      $this->_type,
+      $this->_reified,
+      $this->_name,
+      $this->_semicolon,
+    );
   }
 
   public function hasCase(): bool {
@@ -167,7 +192,13 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static($this->_case, $value, $this->_name, $this->_semicolon);
+    return new static(
+      $this->_case,
+      $value,
+      $this->_reified,
+      $this->_name,
+      $this->_semicolon,
+    );
   }
 
   public function hasType(): bool {
@@ -188,6 +219,41 @@ final class PocketFieldTypeDeclaration extends Node {
     return TypeAssert\not_null($this->getType());
   }
 
+  public function getReifiedUNTYPED(): ?Node {
+    return $this->_reified;
+  }
+
+  public function withReified(?Node $value): this {
+    if ($value === $this->_reified) {
+      return $this;
+    }
+    return new static(
+      $this->_case,
+      $this->_type,
+      $value,
+      $this->_name,
+      $this->_semicolon,
+    );
+  }
+
+  public function hasReified(): bool {
+    return $this->_reified !== null;
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getReified(): ?Node {
+    return $this->_reified;
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getReifiedx(): Node {
+    return TypeAssert\not_null($this->getReified());
+  }
+
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
@@ -196,7 +262,13 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static($this->_case, $this->_type, $value, $this->_semicolon);
+    return new static(
+      $this->_case,
+      $this->_type,
+      $this->_reified,
+      $value,
+      $this->_semicolon,
+    );
   }
 
   public function hasName(): bool {
@@ -225,7 +297,13 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static($this->_case, $this->_type, $this->_name, $value);
+    return new static(
+      $this->_case,
+      $this->_type,
+      $this->_reified,
+      $this->_name,
+      $value,
+    );
   }
 
   public function hasSemicolon(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a4d52fa638701518daeef44adec6ef6>>
+ * @generated SignedSource<<255bc5c7ffa03314dd49dc087fd1617e>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -115,7 +115,6 @@ function node_from_json_unwrapped(
     'keyset_type_specifier' => HHAST\KeysetTypeSpecifier::class,
     'lambda_expression' => HHAST\LambdaExpression::class,
     'lambda_signature' => HHAST\LambdaSignature::class,
-    'let_statement' => HHAST\LetStatement::class,
     'like_type_specifier' => HHAST\LikeTypeSpecifier::class,
     'list_expression' => HHAST\ListExpression::class,
     'literal' => HHAST\LiteralExpression::class,

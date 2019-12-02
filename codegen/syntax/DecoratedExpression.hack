@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc1f397fd9af47e87d5edf6168f275ba>>
+ * @generated SignedSource<<719383ab17bdf204bc1e41e5c21605f0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -111,14 +111,14 @@ final class DecoratedExpression
   }
 
   /**
-   * @return AmpersandToken | DotDotDotToken | InoutToken
+   * @return DotDotDotToken | InoutToken
    */
   public function getDecorator(): Token {
     return TypeAssert\instance_of(Token::class, $this->_decorator);
   }
 
   /**
-   * @return AmpersandToken | DotDotDotToken | InoutToken
+   * @return DotDotDotToken | InoutToken
    */
   public function getDecoratorx(): Token {
     return $this->getDecorator();
