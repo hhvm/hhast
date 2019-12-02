@@ -35,7 +35,7 @@ function is_compatible_schema_version(string $other_version): bool {
       break;
 
     case '2019-10-03-0001': // is a superset of:
-      // Preceeding versions:
+      // Preceding versions:
       // This one doesn't have union/intersection typehints:
       $compatible_versions[] = '2019-08-22-0001';
       // Succeeding versions:
@@ -46,7 +46,7 @@ function is_compatible_schema_version(string $other_version): bool {
       break;
 
     case '2019-11-29-0001': // is a superset of:
-      // Preceeding versions:
+      // Preceding versions:
       // This one doesn't have Pocket Universe `reify` syntax:
       $compatible_versions[] = '2019-11-15-0001';
       break;
