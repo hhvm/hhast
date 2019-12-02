@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd8797c078ab95557bf06675da01c6b3>>
+ * @generated SignedSource<<16fdfb8a90b47875b17a4622d86ef76e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,18 +109,18 @@ final class PrefixUnaryExpression
   }
 
   /**
-   * @return ExclamationToken | AmpersandToken | PlusToken | PlusPlusToken |
-   * MinusToken | MinusMinusToken | AtToken | AwaitToken | CloneToken |
-   * PrintToken | TildeToken
+   * @return ExclamationToken | PlusToken | PlusPlusToken | MinusToken |
+   * MinusMinusToken | AtToken | AwaitToken | CloneToken | PrintToken |
+   * TildeToken
    */
   public function getOperator(): Token {
     return TypeAssert\instance_of(Token::class, $this->_operator);
   }
 
   /**
-   * @return ExclamationToken | AmpersandToken | PlusToken | PlusPlusToken |
-   * MinusToken | MinusMinusToken | AtToken | AwaitToken | CloneToken |
-   * PrintToken | TildeToken
+   * @return ExclamationToken | PlusToken | PlusPlusToken | MinusToken |
+   * MinusMinusToken | AtToken | AwaitToken | CloneToken | PrintToken |
+   * TildeToken
    */
   public function getOperatorx(): Token {
     return $this->getOperator();

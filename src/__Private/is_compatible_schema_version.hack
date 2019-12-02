@@ -29,21 +29,26 @@ function is_compatible_schema_version(string $other_version): bool {
   $compatible_versions = keyset[];
 
   switch (SCHEMA_VERSION) {
-    case '2019-05-20-0001':
-      // No syntax was added, only removed, in the next schema version:
+    case '2019-05-20-0001': // is a superset of:
+      // Succeeding versions:
       $compatible_versions[] = '2019-07-23-0001';
       break;
 
-    case '2019-10-03-0001':
-      // This schema is a strict superset of the previous version (nothing was
-      // removed, syntax for union and intersection typehints was added):
+    case '2019-10-03-0001': // is a superset of:
+      // Preceding versions:
+      // This one doesn't have union/intersection typehints:
       $compatible_versions[] = '2019-08-22-0001';
-      // Nothing added, `break/continue <num>` removed in the next version:
+      // Succeeding versions:
+      // This one doesn't have `break/continue <num>`:
       $compatible_versions[] = '2019-10-08-0001';
-      // Nothing added, unused experimental `let` statement removed in:
+      // This one doesn't have `let` statement (unused experimental feature):
       $compatible_versions[] = '2019-11-15-0001';
-      // update AST* with reified information for PU
-      $compatible_versions[] = '2019-11-29-0001';
+      break;
+
+    case '2019-11-29-0001': // is a superset of:
+      // Preceding versions:
+      // This one doesn't have Pocket Universe `reify` syntax:
+      $compatible_versions[] = '2019-11-15-0001';
       break;
   }
 

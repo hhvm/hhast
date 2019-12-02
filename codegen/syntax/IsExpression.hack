@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be6f047e9b6c3cd6775ada4d05a71e92>>
+ * @generated SignedSource<<a111bfbe0eedffa5ed8a9b3356b550f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,7 +127,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return AnonymousFunction | FunctionCallExpression |
+   * @return AnonymousFunction | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
    * SubscriptExpression | VariableExpression
@@ -137,7 +137,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return AnonymousFunction | FunctionCallExpression |
+   * @return AnonymousFunction | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
    * SubscriptExpression | VariableExpression

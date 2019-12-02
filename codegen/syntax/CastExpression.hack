@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6fe371b0af0b1928ccd9fdaabf6cd1de>>
+ * @generated SignedSource<<3ed5918745d1f7d99369a9ae7d242c93>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,16 +183,14 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return ArrayToken | BinaryToken | BoolToken | FloatToken | IntToken |
-   * StringToken | UnsetToken
+   * @return ArrayToken | BoolToken | FloatToken | IntToken | StringToken
    */
   public function getType(): Token {
     return TypeAssert\instance_of(Token::class, $this->_type);
   }
 
   /**
-   * @return ArrayToken | BinaryToken | BoolToken | FloatToken | IntToken |
-   * StringToken | UnsetToken
+   * @return ArrayToken | BoolToken | FloatToken | IntToken | StringToken
    */
   public function getTypex(): Token {
     return $this->getType();
