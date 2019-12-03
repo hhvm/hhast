@@ -1,5 +1,6 @@
 {
     "name": "hhvm/hhast",
+    "description": "A mutable AST library for Hack with linting and code migrations",
     "bin": [
       "bin/hhast-lint",
       "bin/hhast-lint.hack",
