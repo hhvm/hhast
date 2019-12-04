@@ -3,8 +3,10 @@
 ## Installation
 
 ```
-hhvm composer require hhvm/hhast
+php composer.phar require hhvm/hhast
 ```
+
+`php` must be used, not `hhvm`.
 
 ## Introduction
 

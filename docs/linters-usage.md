@@ -3,9 +3,11 @@
 ## Quick Start
 
 ```
-hhvm composer require hhvm/hhast
+php composer.phar require hhvm/hhast
 vendor/bin/hhast-lint src/
 ```
+
+PHP must be used to execute composer, not HHVM.
 
 This will run a default set of linters against your source tree. If you do not have a configuration file, paths must be specified on the command line.
 
