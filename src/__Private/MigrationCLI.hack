@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace Facebook\HHAST;
+use namespace Facebook\{HHAST, TypeAssert};
 use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\HHAST\{
   AddFixmesMigration,
@@ -49,6 +49,24 @@ class MigrationCLI extends CLIWithRequiredArguments {
   <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
     $options = vec[
+      CLIOptions\with_required_string(
+        ($class) ==> {
+          try {
+            $this->migrations[] = TypeAssert\classname_of(
+              BaseMigration::class,
+              $class,
+            );
+          } catch (TypeAssert\IncorrectTypeException $_) {
+            throw new ExitException(1, Str\format(
+              "'%s' is not a subclass of %s",
+              $class,
+              BaseMigration::class,
+            ));
+          }
+        },
+        "Run the migration with the specified fully-qualified classname",
+        '--migration-classname',
+      ),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = HSLMigration::class;
