@@ -75,7 +75,7 @@ class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   }
 
   protected static function splitName(string $name): (string, ?string) {
-    $suffixes = vec['UNTYPED', 'UNSAFE', 'DEPRECATED'];
+    $suffixes = vec['UNTYPED', 'UNSAFE', 'DEPRECATED', 'DO_NOT_USE'];
     foreach ($suffixes as $suffix) {
       if (Str\ends_with_ci($name, $suffix)) {
         return tuple(
