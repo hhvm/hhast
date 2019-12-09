@@ -62,21 +62,7 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
       return Str\uppercase($name);
     } else {
       // camelCase
-      return Regex\replace_with(
-        $name,
-        re"/([a-z])([A-Z])/",
-        $shape ==> $shape[1].'_'.$shape[2],
-      )
-        |> Regex\replace_with(
-          $$,
-          re"/([a-z])(\d)/i",
-          $shape ==> $shape[1].'_'.$shape[2],
-        )
-        |> Regex\replace_with(
-          $$,
-          re"/(\d)([a-z])/i",
-          $shape ==> $shape[1].'_'.$shape[2],
-        )
+      return camel_case_to_snake_case($name)
         |> Str\uppercase($$);
     }
   }
