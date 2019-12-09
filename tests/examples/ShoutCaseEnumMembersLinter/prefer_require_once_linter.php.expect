@@ -30,6 +30,11 @@
         "description": "Member {aNumberAtTheEnd3} is not in SHOUT_CASE"
     },
     {
+        "blame": "  \/\/ I don't break out HTML and Instead, but we could.\n  getSomeHTMLInstead = 1;\n",
+        "blame_pretty": "  \/\/ I don't break out HTML and Instead, but we could.\n  getSomeHTMLInstead = 1;\n",
+        "description": "Member {getSomeHTMLInstead} is not in SHOUT_CASE"
+    },
+    {
         "blame": "  camelCase = 1;\n",
         "blame_pretty": "  camelCase = 1;\n",
         "description": "Member {camelCase} is not in SHOUT_CASE"

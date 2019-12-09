@@ -15,6 +15,8 @@ enum BadEnum: int {
   SNAKE_CASE_WITH_A_LOT_OF_WORDS = 1;
   A_NUMBER_4_IN_THE_MIDDLE_OF_2_WORDS = 1;
   A_NUMBER_AT_THE_END_3 = 1;
+  // I don't break out HTML and Instead, but we could.
+  GET_SOME_HTMLINSTEAD = 1;
 }
 
 enum CollidingNamesEnum: int {
