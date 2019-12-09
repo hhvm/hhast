@@ -67,6 +67,16 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
         re"/([a-z])([A-Z])/",
         $shape ==> $shape[1].'_'.$shape[2],
       )
+        |> Regex\replace_with(
+          $$,
+          re"/([a-z])(\d)/i",
+          $shape ==> $shape[1].'_'.$shape[2],
+        )
+        |> Regex\replace_with(
+          $$,
+          re"/(\d)([a-z])/i",
+          $shape ==> $shape[1].'_'.$shape[2],
+        )
         |> Str\uppercase($$);
     }
   }
