@@ -11,6 +11,10 @@ enum BadEnum: int {
   camelCase = 1;
   SHOUT_CASE = 1;
   snake_case = 1;
+  camelCaseWithALotOfWords = 1;
+  snake_case_with_a_lot_of_words = 1;
+  aNumber4InTheMiddleOf2Words = 1;
+  aNumberAtTheEnd3 = 1;
 }
 
 enum CollidingNamesEnum: int {

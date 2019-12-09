@@ -10,6 +10,26 @@
         "description": "Member {snake_case} is not in SHOUT_CASE"
     },
     {
+        "blame": "  camelCaseWithALotOfWords = 1;\n",
+        "blame_pretty": "  camelCaseWithALotOfWords = 1;\n",
+        "description": "Member {camelCaseWithALotOfWords} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  snake_case_with_a_lot_of_words = 1;\n",
+        "blame_pretty": "  snake_case_with_a_lot_of_words = 1;\n",
+        "description": "Member {snake_case_with_a_lot_of_words} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  aNumber4InTheMiddleOf2Words = 1;\n",
+        "blame_pretty": "  aNumber4InTheMiddleOf2Words = 1;\n",
+        "description": "Member {aNumber4InTheMiddleOf2Words} is not in SHOUT_CASE"
+    },
+    {
+        "blame": "  aNumberAtTheEnd3 = 1;\n",
+        "blame_pretty": "  aNumberAtTheEnd3 = 1;\n",
+        "description": "Member {aNumberAtTheEnd3} is not in SHOUT_CASE"
+    },
+    {
         "blame": "  camelCase = 1;\n",
         "blame_pretty": "  camelCase = 1;\n",
         "description": "Member {camelCase} is not in SHOUT_CASE"
