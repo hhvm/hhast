@@ -19,12 +19,18 @@ enum BadEnum: int {
   getSomeHTMLInstead = 1;
 }
 
-enum CollidingNamesEnum: int {
+enum CollidingNamesEnumDuringFixing: int {
   camelCase = 1;
-  // Really pascal case
+  // I WILL COLLIDE, BECAUSE HHAST GIVES ME THE UNEDITED ENUM EACH TIME!
   CamelCase = 1;
   snake_case = 1;
   SHOUT_CASE = 1;
+}
+
+enum ColldingNamesEnumBeforeFixing: int {
+  // I will correctly be left alone.
+  camelCase = 1;
+  CAMEL_CASE = 1;
 }
 
 /*1*/
