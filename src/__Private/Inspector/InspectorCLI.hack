@@ -133,6 +133,8 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   }
 
   private function getDataForTrace(vec<(HHAST\Node, arraykey)> $trace): string {
+    // This data is all included in the CSS class names, but there's a /lot/ of
+    // other stuff in there. Provide something less noisy for the JS
     return Vec\map($trace, $entry ==> {
       list($node, $field) = $entry;
       return Str\format(
@@ -149,6 +151,15 @@ final class InspectorCLI extends CLIWithRequiredArguments {
     vec<(HHAST\Node, arraykey)> $trace,
     HHAST\Node $innermost,
   ): string {
+    // This returns anything we might want for highlighting; this includes:
+    // - selection highlighting for parent AST nodes. As the parent
+    //   AST nodes do not have a DOM node, every DOM node that would be part of
+    //   that AST node needs a class indicating that node
+    // - selection highlighting for a particular AST field: this introduces the
+    //   need for (id, field), including in parents
+    // - syntax highlighting; this introduces the need for:
+    //   - (class)
+    //   - (class, field)
     $trace = Vec\map($trace, $entry ==> {
       list($node, $field) = $entry;
       $class = \get_class($node) |> Str\split($$, "\\") |> C\lastx($$);
