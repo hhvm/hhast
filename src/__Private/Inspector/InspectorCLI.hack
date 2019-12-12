@@ -151,9 +151,12 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   ): string {
     $trace = Vec\map($trace, $entry ==> {
       list($node, $field) = $entry;
+      $class = \get_class($node) |> Str\split($$, "\\") |> C\lastx($$);
       return Str\format(
-        'hs-%s hs-id-%d hs-id-%d-%s',
-        \get_class($node) |> Str\split($$, "\\") |> C\lastx($$),
+        'hs-%s hs-%s-%s hs-id-%d hs-id-%d-%s',
+        $class,
+        $class,
+        (string)$field,
         $node->getUniqueID(),
         $node->getUniqueID(),
         (string)$field,

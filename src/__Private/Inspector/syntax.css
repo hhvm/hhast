@@ -23,18 +23,18 @@
 
 /* Types */
 
-.hs-SimpleTypeSpecifier .hs-StringToken,
-.hs-SimpleTypeSpecifier .hs-NameToken,
-.hs-GenericTypeSpecifer .hs-NameToken,
-.hs-NamespaceUseClause .hs-NameToken,
-.hs-QualifiedName .hs-NameToken,
-.hs-ClassishDeclaration [data-field=name] .hs-NameToken {
+.hs-SimpleTypeSpecifier.hs-StringToken,
+.hs-SimpleTypeSpecifier.hs-NameToken,
+.hs-GenericTypeSpecifer.hs-NameToken,
+.hs-NamespaceUseClause.hs-NameToken,
+.hs-QualifiedName.hs-NameToken,
+.hs-ClassishDeclaration-name.hs-NameToken {
   color: #e5c07b;
 }
 
 /* Functions */
 
-.hs-FunctionDeclaration .hs-NameToken {
+.hs-FunctionDeclaration.hs-NameToken {
   color: #61afef;
 }
 
