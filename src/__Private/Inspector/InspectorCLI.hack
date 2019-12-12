@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\HHAST;
-use namespace HH\Lib\{C, Dict, Str};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\CLILib\CLIWithRequiredArguments;
 use type HH\Lib\_Private\PHPWarningSuppressor;
 use namespace Facebook\CLILib\CLIOptions;
@@ -132,45 +132,84 @@ final class InspectorCLI extends CLIWithRequiredArguments {
       "</body></html>\n";
   }
 
-  private function getHTMLForNode(HHAST\Node $node): string {
-    if ($node->isTrivia()) {
-      $inner = \htmlspecialchars($node->getCode());
-    } else if ($node is HHAST\Token) {
-      $inner = '';
+  private function getDataForTrace(vec<(HHAST\Node, arraykey)> $trace): string {
+    return Vec\map($trace, $entry ==> {
+      list($node, $field) = $entry;
+      return Str\format(
+        '%s.%d.%s',
+        \get_class($node) |> Str\split($$, "\\") |> C\lastx($$),
+        $node->getUniqueID(),
+        (string)$field,
+      );
+    })
+      |> Str\join($$, ' ');
+  }
 
-      $leading = $node->getLeading();
-      $inner .= '<span data-field="leading">'.
-        $this->getHTMLForNode($leading).
-        '</span>';
+  private function getCSSClassesForTrace(
+    vec<(HHAST\Node, arraykey)> $trace,
+    HHAST\Node $innermost,
+  ): string {
+    $trace = Vec\map($trace, $entry ==> {
+      list($node, $field) = $entry;
+      return Str\format(
+        'hs-%s hs-id-%d hs-id-%d-%s',
+        \get_class($node) |> Str\split($$, "\\") |> C\lastx($$),
+        $node->getUniqueID(),
+        $node->getUniqueID(),
+        (string)$field,
+      );
+    });
+    $trace[] = Str\format(
+      'hs-%s hs-id-%d',
+      \get_class($innermost) |> Str\split($$, "\\") |> C\lastx($$),
+      $innermost->getUniqueID(),
+    );
+    return Str\join($trace, ' ');
+  }
 
-      $inner .= \htmlspecialchars($node->getText());
-
-      $trailing = $node->getTrailing();
-      $inner .= '<span data-field="trailing">'.
-        $this->getHTMLForNode($trailing).
-        '</span>';
-    } else {
-      $inner = $node->getChildren()
-        |> Dict\map_with_key(
-          $$,
-          ($key, $child) ==> Str\format(
-            '<span data-field="%s">%s</span>',
-            (string)$key,
-            $this->getHTMLForNode($child),
-          ),
-        )
-        |> Str\join($$, '');
+  private function getHTMLForNode(
+    HHAST\Node $node,
+    vec<(HHAST\Node, arraykey)> $trace = vec[],
+  ): string {
+    $class = \get_class($node) |> Str\split($$, "\\") |> C\lastx($$);
+    if ($node is HHAST\Trivia) {
+      return Str\format(
+        '<span id="hs-id-%d" data-kind="%s" data-trace="%s" class="%s">%s</span>',
+        $node->getUniqueID(),
+        $class,
+        $this->getDataForTrace($trace),
+        $this->getCSSClassesForTrace($trace, $node),
+        \htmlspecialchars($node->getCode()),
+      );
     }
 
-    $class = \get_class($node)
-      |> Str\split($$, "\\")
-      |> C\lastx($$);
+    if ($node is HHAST\Token) {
+      return Str\format(
+        '%s<span id="hs-id-%d" data-kind="%s" data-trace="%s" class="%s">%s</span>%s',
+        $this->getHTMLForNode(
+          $node->getLeading(),
+          Vec\concat($trace, vec[tuple($node, 'leading')]),
+        ),
+        $node->getUniqueID(),
+        $class,
+        $this->getDataForTrace($trace),
+        $this->getCSSClassesForTrace($trace, $node),
+        \htmlspecialchars($node->getText()),
+        $this->getHTMLForNode(
+          $node->getTrailing(),
+          Vec\concat($trace, vec[tuple($node, 'trailing')]),
+        ),
+      );
+    }
 
-    return Str\format(
-      '<span class="hs-%s" data-node="%s">%s</span>',
-      $class |> Str\strip_prefix($$, ''),
-      $class,
-      $inner,
-    );
+    return $node->getChildren()
+      |> Dict\map_with_key(
+        $$,
+        ($key, $child) ==> $this->getHTMLForNode(
+          $child,
+          Vec\concat($trace, vec[tuple($node, $key)]),
+        ),
+      )
+      |> Str\join($$, '');
   }
 }

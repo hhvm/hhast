@@ -20,7 +20,7 @@ function selectElement(event) {
   }
   if (infoSelectedLeft) {
     infoSelectedLeft.classList.remove('infoSelected');
-    infoSelectedRight.classList.remove('infoSelected');
+    infoSelectedRight.forEach(node => node.classList.remove('infoSelected'));
     infoSelectedLeft = null;
     infoSelectedRight = null;
   }
@@ -29,7 +29,7 @@ function selectElement(event) {
   selected.classList.add('selected');
   event.stopPropagation();
 
-  const selectedNodeText = document.createTextNode(selected.dataset.node);
+  const selectedNodeText = document.createTextNode(selected.dataset.kind);
   const selectedStrong = document.createElement('strong');
   selectedStrong.classList.add('selected');
   selectedStrong.appendChild(selectedNodeText);
@@ -38,23 +38,17 @@ function selectElement(event) {
   const stack = document.createElement('ul');
   stack.appendChild(selectedLI);
 
-  var current = selected.parentElement;
-  while(current) {
-    if (!current.dataset.field) {
-      break;
-    }
-    let field = current.dataset.field;
-    current = current.parentElement;
-    if (!current.dataset.node) {
-      break;
-    }
-    let node = current.dataset.node;
-    let target = current;
-    current = current.parentElement;
+  let trace = selected.dataset.trace.split(' ').map(entry => {
+    let parts = entry.split('.');
+    return { kind: parts[0], id: parts[1], field: parts[2] };
+  }).reverse();
+
+  trace.forEach(frame => {
+    let { kind, id, field } = frame;
 
     const item = document.createElement('li');
     const nodeAnchor = document.createElement('a');
-    nodeAnchor.appendChild(document.createTextNode(node));
+    nodeAnchor.appendChild(document.createTextNode(kind));
     nodeAnchor.href = '#';
     item.appendChild(nodeAnchor);
     item.appendChild(document.createElement('br'));
@@ -64,17 +58,17 @@ function selectElement(event) {
     nodeAnchor.addEventListener('click', (event) => {
       if (infoSelectedLeft) {
         infoSelectedLeft.classList.remove('infoSelected');
-        infoSelectedRight.classList.remove('infoSelected');
+        infoSelectedRight.forEach(node => node.classList.remove('infoSelected'));
       }
       infoSelectedLeft = item;
-      infoSelectedRight = target;
+      infoSelectedRight = document.querySelectorAll('.hs-id-'+id);
       infoSelectedLeft.classList.add('infoSelected');
-      infoSelectedRight.classList.add('infoSelected');
+      infoSelectedRight.forEach(node => node.classList.add('infoSelected'));
 
       event.preventDefault();
       event.stopPropagation();
     });
-  }
+  });
 
   while (info.firstChild) {
     info.removeChild(info.firstChild);
