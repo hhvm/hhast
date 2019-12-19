@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f371c1600b7a0578759a5647c4781e6>>
+ * @generated SignedSource<<3f66882bd48f3e2b778299774b83729c>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -1178,6 +1178,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:,',
   ],
   'darray_type_specifier.darray_key' => keyset[
+    'classname_type_specifier',
     'simple_type_specifier',
   ],
   'darray_type_specifier.darray_keyword' => keyset[
@@ -2565,6 +2566,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:,',
   ],
   'map_array_type_specifier.map_array_key' => keyset[
+    'classname_type_specifier',
     'simple_type_specifier',
   ],
   'map_array_type_specifier.map_array_keyword' => keyset[

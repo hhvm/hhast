@@ -14,6 +14,10 @@ function classname_as_immmap_key(ImmMap<classname<mixed>, string> $_): void {
 }
 function classname_as_dict_key(dict<classname<mixed>, string> $_): void {
 }
+function classname_as_darray_key(darray<classname<mixed>, string> $_): void {
+}
+function classname_as_php_array_key(array<classname<mixed>, string> $_): void {
+}
 function classname_as_set_value(Set<classname<mixed>> $_): void {
 }
 function classname_as_immset_value(ImmSet<classname<mixed>> $_): void {

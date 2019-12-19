@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f17977386c49fdee28202abcbfbff83e>>
+ * @generated SignedSource<<872de38670b1a421a6582fcb80759822>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,7 +14,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   private DarrayToken $_keyword;
   private LessThanToken $_left_angle;
-  private SimpleTypeSpecifier $_key;
+  private ITypeSpecifier $_key;
   private CommaToken $_comma;
   private ITypeSpecifier $_value;
   private ?Node $_trailing_comma;
@@ -23,7 +23,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   public function __construct(
     DarrayToken $keyword,
     LessThanToken $left_angle,
-    SimpleTypeSpecifier $key,
+    ITypeSpecifier $key,
     CommaToken $comma,
     ITypeSpecifier $value,
     ?Node $trailing_comma,
@@ -72,7 +72,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'SimpleTypeSpecifier',
+      'ITypeSpecifier',
     );
     $key = $key as nonnull;
     $offset += $key->getWidth();
@@ -259,7 +259,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_key;
   }
 
-  public function withKey(SimpleTypeSpecifier $value): this {
+  public function withKey(ITypeSpecifier $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -279,16 +279,16 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getKey(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_key);
+  public function getKey(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_key);
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getKeyx(): SimpleTypeSpecifier {
+  public function getKeyx(): ITypeSpecifier {
     return $this->getKey();
   }
 

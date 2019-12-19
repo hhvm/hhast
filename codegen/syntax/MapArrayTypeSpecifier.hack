@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f7997f360b424e2914a7116d1e7d5b8>>
+ * @generated SignedSource<<58c41cdd75c86c08acd05a3cc813a735>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,7 +14,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   private ArrayToken $_keyword;
   private LessThanToken $_left_angle;
-  private SimpleTypeSpecifier $_key;
+  private ITypeSpecifier $_key;
   private CommaToken $_comma;
   private ?ITypeSpecifier $_value;
   private GreaterThanToken $_right_angle;
@@ -22,7 +22,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   public function __construct(
     ArrayToken $keyword,
     LessThanToken $left_angle,
-    SimpleTypeSpecifier $key,
+    ITypeSpecifier $key,
     CommaToken $comma,
     ?ITypeSpecifier $value,
     GreaterThanToken $right_angle,
@@ -69,7 +69,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'SimpleTypeSpecifier',
+      'ITypeSpecifier',
     );
     $key = $key as nonnull;
     $offset += $key->getWidth();
@@ -238,7 +238,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_key;
   }
 
-  public function withKey(SimpleTypeSpecifier $value): this {
+  public function withKey(ITypeSpecifier $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -257,16 +257,16 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getKey(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_key);
+  public function getKey(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_key);
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getKeyx(): SimpleTypeSpecifier {
+  public function getKeyx(): ITypeSpecifier {
     return $this->getKey();
   }
 
