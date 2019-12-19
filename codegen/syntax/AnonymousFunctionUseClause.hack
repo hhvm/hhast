@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8bb63a6d0a694e6fcbd572bb7f5e5f0>>
+ * @generated SignedSource<<4b7d0d044b1285cfe2cd44bb2c014375>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,13 +14,13 @@ final class AnonymousFunctionUseClause extends Node {
 
   private UseToken $_keyword;
   private LeftParenToken $_left_paren;
-  private NodeList<ListItem<VariableToken>> $_variables;
+  private ?NodeList<ListItem<VariableToken>> $_variables;
   private RightParenToken $_right_paren;
 
   public function __construct(
     UseToken $keyword,
     LeftParenToken $left_paren,
-    NodeList<ListItem<VariableToken>> $variables,
+    ?NodeList<ListItem<VariableToken>> $variables,
     RightParenToken $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -59,14 +59,14 @@ final class AnonymousFunctionUseClause extends Node {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $variables = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_variables'],
+      /* HH_FIXME[4110] */ $json['anonymous_use_variables'] ??
+        dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
       'NodeList<ListItem<VariableToken>>',
     );
-    $variables = $variables as nonnull;
-    $offset += $variables->getWidth();
+    $offset += $variables?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_use_right_paren'],
       $file,
@@ -110,7 +110,9 @@ final class AnonymousFunctionUseClause extends Node {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $variables = $rewriter($this->_variables, $parents);
+    $variables = $this->_variables === null
+      ? null
+      : $rewriter($this->_variables, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -201,7 +203,7 @@ final class AnonymousFunctionUseClause extends Node {
   }
 
   public function withVariables(
-    NodeList<ListItem<VariableToken>> $value,
+    ?NodeList<ListItem<VariableToken>> $value,
   ): this {
     if ($value === $this->_variables) {
       return $this;
@@ -219,17 +221,17 @@ final class AnonymousFunctionUseClause extends Node {
   }
 
   /**
-   * @return NodeList<ListItem<VariableToken>>
+   * @return NodeList<ListItem<VariableToken>> | null
    */
-  public function getVariables(): NodeList<ListItem<VariableToken>> {
-    return TypeAssert\instance_of(NodeList::class, $this->_variables);
+  public function getVariables(): ?NodeList<ListItem<VariableToken>> {
+    return $this->_variables;
   }
 
   /**
    * @return NodeList<ListItem<VariableToken>>
    */
   public function getVariablesx(): NodeList<ListItem<VariableToken>> {
-    return $this->getVariables();
+    return TypeAssert\not_null($this->getVariables());
   }
 
   public function getRightParenUNTYPED(): ?Node {

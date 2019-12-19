@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0688f1f8ffa547fcaa797dac32239d11>>
+ * @generated SignedSource<<bf598b138bee78ac85338e970f649dfd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,12 +16,12 @@ final class NullableAsExpression
 
   private IExpression $_left_operand;
   private QuestionAsToken $_operator;
-  private SimpleTypeSpecifier $_right_operand;
+  private ITypeSpecifier $_right_operand;
 
   public function __construct(
     IExpression $left_operand,
     QuestionAsToken $operator,
-    SimpleTypeSpecifier $right_operand,
+    ITypeSpecifier $right_operand,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_operand = $left_operand;
@@ -62,7 +62,7 @@ final class NullableAsExpression
       $file,
       $offset,
       $source,
-      'SimpleTypeSpecifier',
+      'ITypeSpecifier',
     );
     $right_operand = $right_operand as nonnull;
     $offset += $right_operand->getWidth();
@@ -175,7 +175,7 @@ final class NullableAsExpression
     return $this->_right_operand;
   }
 
-  public function withRightOperand(SimpleTypeSpecifier $value): this {
+  public function withRightOperand(ITypeSpecifier $value): this {
     if ($value === $this->_right_operand) {
       return $this;
     }
@@ -187,19 +187,16 @@ final class NullableAsExpression
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier | VectorTypeSpecifier
    */
-  public function getRightOperand(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(
-      SimpleTypeSpecifier::class,
-      $this->_right_operand,
-    );
+  public function getRightOperand(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_right_operand);
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return SimpleTypeSpecifier | VectorTypeSpecifier
    */
-  public function getRightOperandx(): SimpleTypeSpecifier {
+  public function getRightOperandx(): ITypeSpecifier {
     return $this->getRightOperand();
   }
 }

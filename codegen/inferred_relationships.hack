@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6e9c87d44515b484ca19324d2139341>>
+ * @generated SignedSource<<2f371c1600b7a0578759a5647c4781e6>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -104,6 +104,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'anonymous_function_use_clause.anonymous_use_variables' => keyset[
     'list<list_item<token:variable>>',
+    'missing',
   ],
   'array_creation_expression.array_creation_left_bracket' => keyset[
     'token:[',
@@ -1243,6 +1244,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:<',
   ],
   'dictionary_type_specifier.dictionary_type_members' => keyset[
+    'list<list_item<classname_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<dictionary_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<keyset_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<nullable_type_specifier>|list_item<simple_type_specifier>>',
@@ -2771,6 +2773,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'nullable_as_expression.nullable_as_right_operand' => keyset[
     'simple_type_specifier',
+    'vector_type_specifier',
   ],
   'nullable_type_specifier.nullable_question' => keyset[
     'token:?',
@@ -3043,6 +3046,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'literal',
     'member_selection_expression',
     'missing',
+    'nullable_as_expression',
     'object_creation_expression',
     'parenthesized_expression',
     'postfix_unary_expression',
@@ -3255,6 +3259,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<end_of_file|function_declaration|markup_section|namespace_group_use_declaration|namespace_use_declaration>',
     'list<end_of_file|function_declaration|markup_section|namespace_use_declaration>',
     'list<end_of_file|function_declaration|markup_section|return_statement>',
+    'list<end_of_file|function_declaration|namespace_declaration>',
     'list<end_of_file|if_statement|markup_section>',
     'list<end_of_file|inclusion_directive|markup_section>',
     'list<end_of_file|markup_section>',
@@ -3633,6 +3638,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'type_arguments.type_arguments_types' => keyset[
     'list<list_item<attributized_specifier>>',
     'list<list_item<classname_type_specifier>>',
+    'list<list_item<classname_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<closure_type_specifier>>',
     'list<list_item<darray_type_specifier>>',
     'list<list_item<darray_type_specifier>|list_item<simple_type_specifier>>',

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60825e36998d68c5c50cbf13a7fadcbb>>
+ * @generated SignedSource<<17893fdfcdbc75fb590628b9812deca7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -165,8 +165,8 @@ final class ReturnStatement extends Node implements IStatement {
    * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | MemberSelectionExpression | null |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * RecordCreationExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
@@ -184,9 +184,10 @@ final class ReturnStatement extends Node implements IStatement {
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | RecordCreationExpression | SafeMemberSelectionExpression |
+   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * RecordCreationExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
