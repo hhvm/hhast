@@ -31,12 +31,6 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
     $enum_name = $enum->getName()->getText();
     $shout_name = self::transformToShoutCase($original_name);
 
-    invariant(
-      $original_name !== $shout_name,
-      'Infinite fix required, shoutname detection is broken for %s',
-      $original_name,
-    );
-
     // If we can't find the shout name, we bailed, because the enum
     // member names were not unique.
     // If the shout name maps to something other than the orignal,
