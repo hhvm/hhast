@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Dict, Keyset, Regex, Str, Vec};
+use namespace HH\Lib\{C, Dict, Regex, Str, Vec};
 
 final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
   const type TContext = EnumDeclaration;
