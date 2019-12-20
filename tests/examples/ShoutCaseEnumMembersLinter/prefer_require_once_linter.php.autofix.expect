@@ -20,15 +20,13 @@ enum BadEnum: int {
 }
 
 enum CollidingNamesEnumDuringFixing: int {
-  CAMEL_CASE = 1;
-  // I WILL COLLIDE, BECAUSE HHAST GIVES ME THE UNEDITED ENUM EACH TIME!
+  camelCase = 1;
   CAMEL_CASE = 1;
   SNAKE_CASE = 1;
   SHOUT_CASE = 1;
 }
 
 enum ColldingNamesEnumBeforeFixing: int {
-  // I will correctly be left alone.
   camelCase = 1;
   CAMEL_CASE = 1;
 }
