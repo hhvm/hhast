@@ -15,9 +15,6 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
   const type TContext = EnumDeclaration;
   const type TNode = Enumerator;
 
-  /* @var enum_name -> shout_name to original_name*/
-  private static dict<string, dict<string, string>> $newNames = dict[];
-
   <<__Override>>
   public function getLintErrorForNode(
     self::TContext $enum,
@@ -27,19 +24,12 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
     if (self::isShoutCase($original_name)) {
       return null;
     }
-    self::prepareAllNewNamesFor($enum);
-    $enum_name = $enum->getName()->getText();
-    $shout_name = self::transformToShoutCase($original_name);
 
-    // If we can't find the shout name, we bailed, because the enum
-    // member names were not unique.
-    // If the shout name maps to something other than the orignal,
-    // we would cause a collision.
-    // We bail out either way.
-    if (
-      !C\contains_key(self::$newNames[$enum_name], $shout_name) ||
-      self::$newNames[$enum_name][$shout_name] !== $original_name
-    ) {
+    $transformed_names = self::prepareAllNewNamesFor($enum);
+
+    // If we can't find the shout name, we bail, because the enum
+    // member names would not be unique after the fix.
+    if (!C\contains_key($transformed_names, $original_name)) {
       return new ASTLintError(
         $this,
         Str\format(
@@ -70,12 +60,13 @@ so no autofix is suggested.',
     return $member->getName()->getLastTokenx()->getText();
   }
 
-  private static function prepareAllNewNamesFor(EnumDeclaration $enum): void {
-    $enum_name = $enum->getName()->getText();
-    if (C\contains_key(self::$newNames, $enum_name)) {
-      return;
-    }
-
+  /**
+   * @return dict<originalName, ORIGINAL_NAME>
+   */
+  <<__Memoize>>
+  private static function prepareAllNewNamesFor(
+    EnumDeclaration $enum,
+  ): dict<string, string> {
     $old_names = Vec\map(
       $enum->getChildren()['enumerators']->toVec(),
       $member ==> self::memberToName($member as Enumerator),
@@ -87,10 +78,11 @@ so no autofix is suggested.',
     $old_names = Vec\partition($old_names, $name ==> self::isShoutCase($name))
       |> Vec\concat($$[1], $$[0]);
 
-    self::$newNames[$enum_name] = Dict\from_values(
+    return Dict\from_values(
       $old_names,
       $name ==> self::transformToShoutCase($name),
-    );
+    )
+      |> Dict\flip($$);
   }
 
   private static function transformToShoutCase(string $name): string {
