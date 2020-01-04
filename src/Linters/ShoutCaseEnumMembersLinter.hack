@@ -20,12 +20,12 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
     self::TContext $enum,
     self::TNode $member,
   ): ?ASTLintError {
-    $original_name = self::memberToName($member);
-    if (self::isShoutCase($original_name)) {
+    $original_name = $this->memberToName($member);
+    if ($this->isShoutCase($original_name)) {
       return null;
     }
 
-    $transformed_names = self::prepareAllNewNamesFor($enum);
+    $transformed_names = $this->prepareAllNewNamesFor($enum);
 
     // If we can't find the shout name, we bail, because the enum
     // member names would not be unique after the fix.
@@ -47,16 +47,16 @@ so no autofix is suggested.',
       $this,
       Str\format('Member {%s} is not in SHOUT_CASE', $original_name),
       $member,
-      () ==> self::getFixedNode($member),
+      () ==> $this->getFixedNode($member),
     );
   }
 
   <<__Memoize>>
-  private static function isShoutCase(string $member_name): bool {
+  private function isShoutCase(string $member_name): bool {
     return Regex\matches($member_name, re"/^[A-Z0-9_]+$/");
   }
 
-  private static function memberToName(Enumerator $member): string {
+  private function memberToName(Enumerator $member): string {
     return $member->getName()->getLastTokenx()->getText();
   }
 
@@ -64,28 +64,29 @@ so no autofix is suggested.',
    * @return dict<originalName, ORIGINAL_NAME>
    */
   <<__Memoize>>
-  private static function prepareAllNewNamesFor(
+  private function prepareAllNewNamesFor(
     EnumDeclaration $enum,
   ): dict<string, string> {
     $old_names = Vec\map(
       $enum->getChildren()['enumerators']->toVec(),
-      $member ==> self::memberToName($member as Enumerator),
+      $member ==> $this->memberToName($member as Enumerator),
     );
 
     // Put all non-shout case names in front.
     // This way they will be overwritten if there is a shout case member
     // that has the same name as the suggested fix.
-    $old_names = Vec\partition($old_names, $name ==> self::isShoutCase($name))
+    $old_names = Vec\partition($old_names, $name ==> $this->isShoutCase($name))
       |> Vec\concat($$[1], $$[0]);
 
     return Dict\from_values(
       $old_names,
-      $name ==> self::transformToShoutCase($name),
+      $name ==> $this->transformToShoutCase($name),
     )
       |> Dict\flip($$);
   }
 
-  private static function transformToShoutCase(string $name): string {
+  <<__Memoize>>
+  private function transformToShoutCase(string $name): string {
     invariant(!Str\is_empty($name), 'Name must be at least one character');
     if (Str\contains($name, '_')) {
       // snake_case
@@ -97,10 +98,10 @@ so no autofix is suggested.',
     }
   }
 
-  public static function getFixedNode(self::TNode $node): ?Node {
+  public function getFixedNode(self::TNode $node): ?Node {
     return $node->withName(
       $node->getName()
-        ->withText(self::transformToShoutCase(self::memberToName($node))),
+        ->withText($this->transformToShoutCase($this->memberToName($node))),
     );
   }
 
