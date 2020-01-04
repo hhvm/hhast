@@ -80,25 +80,15 @@ so no autofix is suggested.',
       $enum->getChildren()['enumerators']->toVec(),
       $member ==> self::memberToName($member as Enumerator),
     );
-    $old_names_unique = keyset($old_names);
-
-    // !C\all_unique() -> bail
-    if (C\count($old_names_unique) !== C\count($old_names)) {
-      self::$newNames[$enum_name] = dict[];
-      return;
-    }
 
     // Put all non-shout case names in front.
     // This way they will be overwritten if there is a shout case member
     // that has the same name as the suggested fix.
-    $old_names_unique = Vec\partition(
-      $old_names_unique,
-      $name ==> self::isShoutCase($name),
-    )
+    $old_names = Vec\partition($old_names, $name ==> self::isShoutCase($name))
       |> Vec\concat($$[1], $$[0]);
 
     self::$newNames[$enum_name] = Dict\from_values(
-      $old_names_unique,
+      $old_names,
       $name ==> self::transformToShoutCase($name),
     );
   }
