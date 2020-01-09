@@ -38,17 +38,8 @@ class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
       }
     }
 
-    $_count = null;
-    return \preg_replace_callback(
-      '/[A-Z]+/',
-      $matches ==> '_'.Str\lowercase($matches[0]),
-      $head,
-      -1,
-      inout $_count,
-    )
-      |> Str\strip_prefix($$, '_')
-      |> Str\strip_suffix($$, '_')
-      |> Str\replace($$, '__', '_')
+    return camel_case_to_snake_case($head)
+      |> Str\lowercase($$)
       |> ($suffix === null ? $$ : $$.'_'.$suffix);
   }
 
@@ -84,7 +75,7 @@ class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   }
 
   protected static function splitName(string $name): (string, ?string) {
-    $suffixes = vec['UNTYPED', 'UNSAFE', 'DEPRECATED'];
+    $suffixes = vec['UNTYPED', 'UNSAFE', 'DEPRECATED', 'DO_NOT_USE'];
     foreach ($suffixes as $suffix) {
       if (Str\ends_with_ci($name, $suffix)) {
         return tuple(
