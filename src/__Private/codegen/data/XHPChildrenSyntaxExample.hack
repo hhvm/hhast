@@ -9,11 +9,11 @@
 namespace Facebook\HHAST\__Private\SyntaxExamples;
 
 class :xhpchildren1 {
-  children (:pcdata);
+  children (pcdata);
 }
 
 class :xhpchildren2 {
-  children (:pcdata?, :pcdata*, :pcdata);
+  children (pcdata?, pcdata*, pcdata);
 }
 class :xhpchildren3 {
   children empty;
