@@ -45,9 +45,11 @@ function is_compatible_schema_version(string $other_version): bool {
       $compatible_versions[] = '2019-11-15-0001';
       break;
 
-    case '2019-11-29-0001': // is a superset of:
+    case '2020-01-22-0001': // is a superset of:
       // Preceding versions:
-      // This one doesn't have Pocket Universe `reify` syntax:
+      // This one doesn't have XHP token, function pointer syntax:
+      $compatible_versions[] = '2019-11-29-0001';
+      // This one also doesn't have Pocket Universe `reify` syntax:
       $compatible_versions[] = '2019-11-15-0001';
       break;
   }

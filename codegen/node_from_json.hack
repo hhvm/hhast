@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<255bc5c7ffa03314dd49dc087fd1617e>>
+ * @generated SignedSource<<aea5bf16886377a29ec0dc3f0abfb35a>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -101,6 +101,7 @@ function node_from_json_unwrapped(
     'function_call_expression' => HHAST\FunctionCallExpression::class,
     'function_declaration' => HHAST\FunctionDeclaration::class,
     'function_declaration_header' => HHAST\FunctionDeclarationHeader::class,
+    'function_pointer_expression' => HHAST\FunctionPointerExpression::class,
     'generic_type_specifier' => HHAST\GenericTypeSpecifier::class,
     'goto_label' => HHAST\GotoLabel::class,
     'goto_statement' => HHAST\GotoStatement::class,

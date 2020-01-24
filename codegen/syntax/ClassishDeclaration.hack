@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1a470078d94911473673d987e97e7d7>>
+ * @generated SignedSource<<d2014e76f7a9b91b2b31630796651f89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,6 +16,7 @@ abstract class ClassishDeclarationGeneratedBase
 
   private ?OldAttributeSpecification $_attribute;
   private ?NodeList<Token> $_modifiers;
+  private ?Node $_xhp;
   private Token $_keyword;
   private Token $_name;
   private ?TypeParameters $_type_parameters;
@@ -29,6 +30,7 @@ abstract class ClassishDeclarationGeneratedBase
   public function __construct(
     ?OldAttributeSpecification $attribute,
     ?NodeList<Token> $modifiers,
+    ?Node $xhp,
     Token $keyword,
     Token $name,
     ?TypeParameters $type_parameters,
@@ -42,6 +44,7 @@ abstract class ClassishDeclarationGeneratedBase
   ) {
     $this->_attribute = $attribute;
     $this->_modifiers = $modifiers;
+    $this->_xhp = $xhp;
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_type_parameters = $type_parameters;
@@ -81,6 +84,14 @@ abstract class ClassishDeclarationGeneratedBase
       'NodeList<Token>',
     );
     $offset += $modifiers?->getWidth() ?? 0;
+    $xhp = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['classish_xhp'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $xhp?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['classish_keyword'],
       $file,
@@ -171,6 +182,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute,
       /* HH_IGNORE_ERROR[4110] */ $modifiers,
+      /* HH_IGNORE_ERROR[4110] */ $xhp,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $type_parameters,
@@ -189,6 +201,7 @@ abstract class ClassishDeclarationGeneratedBase
     return dict[
       'attribute' => $this->_attribute,
       'modifiers' => $this->_modifiers,
+      'xhp' => $this->_xhp,
       'keyword' => $this->_keyword,
       'name' => $this->_name,
       'type_parameters' => $this->_type_parameters,
@@ -214,6 +227,7 @@ abstract class ClassishDeclarationGeneratedBase
     $modifiers = $this->_modifiers === null
       ? null
       : $rewriter($this->_modifiers, $parents);
+    $xhp = $this->_xhp === null ? null : $rewriter($this->_xhp, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
     $type_parameters = $this->_type_parameters === null
@@ -238,6 +252,7 @@ abstract class ClassishDeclarationGeneratedBase
     if (
       $attribute === $this->_attribute &&
       $modifiers === $this->_modifiers &&
+      $xhp === $this->_xhp &&
       $keyword === $this->_keyword &&
       $name === $this->_name &&
       $type_parameters === $this->_type_parameters &&
@@ -253,6 +268,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       /* HH_FIXME[4110] use `as` */ $attribute,
       /* HH_FIXME[4110] use `as` */ $modifiers,
+      /* HH_FIXME[4110] use `as` */ $xhp,
       /* HH_FIXME[4110] use `as` */ $keyword,
       /* HH_FIXME[4110] use `as` */ $name,
       /* HH_FIXME[4110] use `as` */ $type_parameters,
@@ -276,6 +292,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $value,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -317,6 +334,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $value,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -348,6 +366,48 @@ abstract class ClassishDeclarationGeneratedBase
     return TypeAssert\not_null($this->getModifiers());
   }
 
+  public function getXhpUNTYPED(): ?Node {
+    return $this->_xhp;
+  }
+
+  public function withXhp(?Node $value): this {
+    if ($value === $this->_xhp) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute,
+      $this->_modifiers,
+      $value,
+      $this->_keyword,
+      $this->_name,
+      $this->_type_parameters,
+      $this->_extends_keyword,
+      $this->_extends_list,
+      $this->_implements_keyword,
+      $this->_implements_list,
+      $this->_where_clause,
+      $this->_body,
+    );
+  }
+
+  public function hasXhp(): bool {
+    return $this->_xhp !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getXhp(): ?Node {
+    return $this->_xhp;
+  }
+
+  /**
+   * @return
+   */
+  public function getXhpx(): Node {
+    return TypeAssert\not_null($this->getXhp());
+  }
+
   public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
@@ -359,6 +419,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $value,
       $this->_name,
       $this->_type_parameters,
@@ -400,6 +461,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $value,
       $this->_type_parameters,
@@ -441,6 +503,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $value,
@@ -482,6 +545,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -525,6 +589,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -572,6 +637,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -615,6 +681,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -662,6 +729,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,
@@ -703,6 +771,7 @@ abstract class ClassishDeclarationGeneratedBase
     return new static(
       $this->_attribute,
       $this->_modifiers,
+      $this->_xhp,
       $this->_keyword,
       $this->_name,
       $this->_type_parameters,

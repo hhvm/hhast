@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<385116feadd082defbef0581484e218c>>
+ * @generated SignedSource<<84c910ef32b12dbf41da2d1d2d32b86a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -114,11 +114,10 @@ final class ExpressionStatement extends Node implements IStatement {
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * HaltCompilerExpression | InclusionExpression | IsExpression |
-   * IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | null | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * InclusionExpression | IsExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | null |
+   * ObjectCreationExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
@@ -131,10 +130,9 @@ final class ExpressionStatement extends Node implements IStatement {
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * HaltCompilerExpression | InclusionExpression | IsExpression |
-   * IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * InclusionExpression | IsExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |

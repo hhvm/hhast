@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89098c8d13f853466dd63a9da283c776>>
+ * @generated SignedSource<<62864e4295c23fbee1936f831f90f1d0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -253,7 +253,7 @@ final class ConditionalExpression
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * NameToken | VariableExpression
+   * NameToken | VariableExpression | VarrayIntrinsicExpression
    */
   public function getConsequence(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_consequence);
@@ -266,7 +266,7 @@ final class ConditionalExpression
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * NameToken | VariableExpression
+   * NameToken | VariableExpression | VarrayIntrinsicExpression
    */
   public function getConsequencex(): IExpression {
     return $this->getConsequence();
@@ -336,7 +336,7 @@ final class ConditionalExpression
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getAlternative(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_alternative);
@@ -350,7 +350,7 @@ final class ConditionalExpression
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getAlternativex(): IExpression {
     return $this->getAlternative();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5fb8e8f78c2a9cd7d9ef916925fcbdd8>>
+ * @generated SignedSource<<8a0bd17bdf657d79f0c7fcab638ba65f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,16 +14,16 @@ final class HaltCompilerExpression
 
   const string SYNTAX_KIND = 'halt_compiler_expression';
 
-  private HaltCompilerToken $_keyword;
-  private LeftParenToken $_left_paren;
-  private ?Node $_argument_list;
-  private RightParenToken $_right_paren;
+  private Node $_keyword;
+  private Node $_left_paren;
+  private Node $_argument_list;
+  private Node $_right_paren;
 
   public function __construct(
-    HaltCompilerToken $keyword,
-    LeftParenToken $left_paren,
-    ?Node $argument_list,
-    RightParenToken $right_paren,
+    Node $keyword,
+    Node $left_paren,
+    Node $argument_list,
+    Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -47,7 +47,7 @@ final class HaltCompilerExpression
       $file,
       $offset,
       $source,
-      'HaltCompilerToken',
+      'Node',
     );
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
@@ -56,25 +56,25 @@ final class HaltCompilerExpression
       $file,
       $offset,
       $source,
-      'LeftParenToken',
+      'Node',
     );
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['halt_compiler_argument_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['halt_compiler_argument_list'],
       $file,
       $offset,
       $source,
       'Node',
     );
-    $offset += $argument_list?->getWidth() ?? 0;
+    $argument_list = $argument_list as nonnull;
+    $offset += $argument_list->getWidth();
     $right_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['halt_compiler_right_paren'],
       $file,
       $offset,
       $source,
-      'RightParenToken',
+      'Node',
     );
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
@@ -112,9 +112,7 @@ final class HaltCompilerExpression
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $argument_list = $this->_argument_list === null
-      ? null
-      : $rewriter($this->_argument_list, $parents);
+    $argument_list = $rewriter($this->_argument_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -136,7 +134,7 @@ final class HaltCompilerExpression
     return $this->_keyword;
   }
 
-  public function withKeyword(HaltCompilerToken $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -153,16 +151,16 @@ final class HaltCompilerExpression
   }
 
   /**
-   * @return HaltCompilerToken
+   * @return
    */
-  public function getKeyword(): HaltCompilerToken {
-    return TypeAssert\instance_of(HaltCompilerToken::class, $this->_keyword);
+  public function getKeyword(): Node {
+    return $this->_keyword;
   }
 
   /**
-   * @return HaltCompilerToken
+   * @return
    */
-  public function getKeywordx(): HaltCompilerToken {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
@@ -170,7 +168,7 @@ final class HaltCompilerExpression
     return $this->_left_paren;
   }
 
-  public function withLeftParen(LeftParenToken $value): this {
+  public function withLeftParen(Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -187,16 +185,16 @@ final class HaltCompilerExpression
   }
 
   /**
-   * @return LeftParenToken
+   * @return
    */
-  public function getLeftParen(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  public function getLeftParen(): Node {
+    return $this->_left_paren;
   }
 
   /**
-   * @return LeftParenToken
+   * @return
    */
-  public function getLeftParenx(): LeftParenToken {
+  public function getLeftParenx(): Node {
     return $this->getLeftParen();
   }
 
@@ -204,7 +202,7 @@ final class HaltCompilerExpression
     return $this->_argument_list;
   }
 
-  public function withArgumentList(?Node $value): this {
+  public function withArgumentList(Node $value): this {
     if ($value === $this->_argument_list) {
       return $this;
     }
@@ -221,9 +219,9 @@ final class HaltCompilerExpression
   }
 
   /**
-   * @return null
+   * @return
    */
-  public function getArgumentList(): ?Node {
+  public function getArgumentList(): Node {
     return $this->_argument_list;
   }
 
@@ -231,14 +229,14 @@ final class HaltCompilerExpression
    * @return
    */
   public function getArgumentListx(): Node {
-    return TypeAssert\not_null($this->getArgumentList());
+    return $this->getArgumentList();
   }
 
   public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(RightParenToken $value): this {
+  public function withRightParen(Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -255,16 +253,16 @@ final class HaltCompilerExpression
   }
 
   /**
-   * @return RightParenToken
+   * @return
    */
-  public function getRightParen(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  public function getRightParen(): Node {
+    return $this->_right_paren;
   }
 
   /**
-   * @return RightParenToken
+   * @return
    */
-  public function getRightParenx(): RightParenToken {
+  public function getRightParenx(): Node {
     return $this->getRightParen();
   }
 }

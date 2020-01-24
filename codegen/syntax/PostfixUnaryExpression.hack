@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77d5bc272f27a797378dbaa408414755>>
+ * @generated SignedSource<<a4073bb8c2f541f1e6bcc8d2f04853d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,7 +110,7 @@ final class PostfixUnaryExpression
 
   /**
    * @return MemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | XHPClassNameToken | VariableExpression
+   * SubscriptExpression | NameToken | VariableExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
@@ -118,7 +118,7 @@ final class PostfixUnaryExpression
 
   /**
    * @return MemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | XHPClassNameToken | VariableExpression
+   * SubscriptExpression | NameToken | VariableExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

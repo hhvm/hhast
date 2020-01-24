@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69821b002a8e1a565bfa11b73811a827>>
+ * @generated SignedSource<<3ce7005d5b74500b993f53ec73c54f54>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,16 +160,14 @@ final class XHPChildrenParenthesizedList
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<XHPClassNameToken>>
+   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<NameToken>>
    */
   public function getXhpChildren(): NodeList<ListItem<IExpression>> {
     return TypeAssert\instance_of(NodeList::class, $this->_xhp_children);
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<XHPClassNameToken>>
+   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<NameToken>>
    */
   public function getXhpChildrenx(): NodeList<ListItem<IExpression>> {
     return $this->getXhpChildren();

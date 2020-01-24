@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2644a07175caa92438acc61cb8618849>>
+ * @generated SignedSource<<a1e7713891cf144452e0e8068efc1110>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -283,12 +283,15 @@ final class VarrayIntrinsicExpression
   /**
    * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
-   * NodeList<ListItem<NameToken>> | NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>> | null
    */
@@ -299,12 +302,15 @@ final class VarrayIntrinsicExpression
   /**
    * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
-   * NodeList<ListItem<NameToken>> | NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>>
    */

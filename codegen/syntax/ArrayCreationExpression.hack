@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1db435edb8676e80f576e42f4c96c1de>>
+ * @generated SignedSource<<35568606f34a8067988c1fd6828c92b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -167,7 +167,6 @@ final class ArrayCreationExpression
    * NodeList<ListItem<ArrayCreationExpression>> |
    * NodeList<ListItem<IPHPArray>> | NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<Node>> | NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> | NodeList<ListItem<ElementInitializer>> |
    * NodeList<ListItem<FunctionCallExpression>> |
@@ -191,7 +190,6 @@ final class ArrayCreationExpression
    * NodeList<ListItem<ArrayCreationExpression>> |
    * NodeList<ListItem<IPHPArray>> | NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<Node>> | NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> | NodeList<ListItem<ElementInitializer>> |
    * NodeList<ListItem<FunctionCallExpression>> |
