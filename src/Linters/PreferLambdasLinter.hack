@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\C;
+use namespace HH\Lib\{C, Regex};
 
 final class PreferLambdasLinter extends AutoFixingASTLinter {
   const type TContext = Script;
@@ -71,8 +71,8 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
       null,
       new NodeList(vec[new WhiteSpace(' ')]),
     );
-    $body = $node->getBody();
-
+    $body = $this->simplifyBody($node->getBody());
+    //$body = $node->getBody();
     return new LambdaExpression(
       $attribute_spec,
       $async,
@@ -81,5 +81,25 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
       $arrow,
       $body,
     );
+  }
+
+  private function simplifyBody(ILambdaBody $body): ?ILambdaBody {
+    $content_excl_brackets = $body->getChildrenOfType(NodeList::class);
+    if (C\count($content_excl_brackets) !== 1) {
+      // Body has no content or more than one content groups, cannot be simplied.
+      return $body;
+    }
+    $statements = C\onlyx($content_excl_brackets)->getChildren();
+    if (C\count($statements) !== 1){
+      // Content has multiple statements, cannot be simplied.
+      return $body;
+    }
+    $statement = C\onlyx($statements);
+    if (!$statement is ReturnStatement) {
+      // Only a return statement can be simplified.
+      return $body;
+    }
+    // Extract the returned expression and return.
+    return $statement->getExpression();
   }
 }

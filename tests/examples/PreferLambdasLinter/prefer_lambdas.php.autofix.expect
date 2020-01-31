@@ -12,7 +12,7 @@ function test_anon(): void {
 		do_something();
 	};
 
-	$f3 = (int $a): int ==> { return $a * $a; };
+	$f3 = (int $a): int ==> $a * $a;
 
 	$f4 = ($a, $b) ==> {
 		do_something();
