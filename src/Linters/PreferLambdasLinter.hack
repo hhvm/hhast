@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Regex};
+use namespace HH\Lib\C;
 
 final class PreferLambdasLinter extends AutoFixingASTLinter {
   const type TContext = Script;
@@ -72,7 +72,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
       new NodeList(vec[new WhiteSpace(' ')]),
     );
     $body = $this->simplifyBody($node->getBody());
-    //$body = $node->getBody();
+
     return new LambdaExpression(
       $attribute_spec,
       $async,
