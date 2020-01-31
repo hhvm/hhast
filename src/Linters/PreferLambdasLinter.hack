@@ -83,7 +83,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
     );
   }
 
-  private function simplifyBody(ILambdaBody $body): ?ILambdaBody {
+  private function simplifyBody(ILambdaBody $body): ILambdaBody {
     $content_excl_brackets = $body->getChildrenOfType(NodeList::class);
     if (C\count($content_excl_brackets) !== 1) {
       // Body has no content or more than one content groups, cannot be simplied.
@@ -91,7 +91,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
     }
     $statements = C\onlyx($content_excl_brackets)->getChildren();
     if (C\count($statements) !== 1){
-      // Content has multiple statements, cannot be simplied.
+      // Content has no statement or multiple statements, cannot be simplied.
       return $body;
     }
     $statement = C\onlyx($statements);
