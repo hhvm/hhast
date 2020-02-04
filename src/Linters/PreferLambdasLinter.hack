@@ -71,7 +71,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
       null,
       new NodeList(vec[new WhiteSpace(' ')]),
     );
-    $body = $node->getBody();
+    $body = $this->simplifyBody($node->getBody());
 
     return new LambdaExpression(
       $attribute_spec,
@@ -81,5 +81,19 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
       $arrow,
       $body,
     );
+  }
+
+  private function simplifyBody(CompoundStatement $body): ILambdaBody {
+    $statements = $body->getStatements()?->getChildren();
+    if (!$statements || C\count($statements) !== 1) {
+      // Body has no statements, cannot be simplied.
+      return $body;
+    }
+    $statement = C\onlyx($statements);
+    if (!$statement is ReturnStatement) {
+      // Only a return statement can be simplified.
+      return $body;
+    }
+    return $statement->getExpressionx();
   }
 }
