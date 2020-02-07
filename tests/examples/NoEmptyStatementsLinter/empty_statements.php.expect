@@ -70,8 +70,8 @@
         "description": "This statement includes an expression that has no effect"
     },
     {
-        "blame": "  [1, 2, 3];\n",
-        "blame_pretty": "  [1, 2, 3];\n",
+        "blame": "  array(1, 2, 3);\n",
+        "blame_pretty": "  array(1, 2, 3);\n",
         "description": "This statement includes an expression that has no effect"
     },
     {

@@ -32,7 +32,7 @@ function empty_exprs($a, $b, $dict, $key): void {
   $a.$b;
   $a && $b;
   $dict[$key];
-  [1, 2, 3];
+  array(1, 2, 3);
   vec[1, 2, 3];
   dict['a' => 1, 'b' => 2];
   keyset[1, 2, 3];
@@ -111,7 +111,7 @@ function not_empty_exprs(): void {
   $i ??= 5;
   $i .= 1;
 
-  list($a, $b) = [1, 2];
+  list($a, $b) = varray[1, 2];
 
   ($i = 0);
 

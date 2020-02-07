@@ -2,7 +2,7 @@
 
 function test_anon(): void {
 
-	$outer = [];
+	$outer = vec[];
 
 	$f1 = ($a, $b) ==> {
 		do_something();

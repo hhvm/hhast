@@ -13,11 +13,11 @@ function hsl_migration_main(): void {
   // argument reordering with no trailing comma
   echo "\nstr_replace: ".str_replace('foo', 'bar', 'foobarbaz',);
   echo "\nstr_replace: ".
-    str_replace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
+    str_replace(varray['a', 'b'], varray['x', 'y'], 'a test example with arrays');
   echo "\nstr_ireplace: ".str_ireplace('foo', 'bar', 'foobarbaz');
   // this case is also not handled because there is no case insensitive version of Str\replace_every
   echo "\nstr_ireplace: ".
-    str_ireplace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
+    str_ireplace(varray['a', 'b'], varray['x', 'y'], 'a test example with arrays');
   echo "\nstrpos: ".strpos('haystack', 'stack');
   echo "\nstrpos: ".strpos('haystack', 'stack', 3);
 
@@ -33,14 +33,14 @@ function hsl_migration_main(): void {
   echo "\nstripos: ".stripos('haystack', 'stack');
 
   // implode accepts args in either order
-  echo "\nimplode: ".json_encode(implode(',', ['a', 'b', 'c']));
-  echo "\nimplode: ".json_encode(implode(['a', 'b', 'c'], ','));
+  echo "\nimplode: ".json_encode(implode(',', varray['a', 'b', 'c']));
+  echo "\nimplode: ".json_encode(implode(varray['a', 'b', 'c'], ','));
 
   // test with explicit namespace fallback
-  echo "\nimplode: ".json_encode(\implode(',', ['a', 'b', 'c']));
+  echo "\nimplode: ".json_encode(\implode(',', varray['a', 'b', 'c']));
 
   $glue = ',';
-  $pieces = ['a', 'b', 'c'];
+  $pieces = varray['a', 'b', 'c'];
   echo "\nimplode: ".json_encode(implode($glue, $pieces));
   echo "\nimplode: ".json_encode(implode($pieces, $glue));
 
@@ -97,7 +97,7 @@ function hsl_migration_main(): void {
 
   echo "\nfloor: ".floor(3.14);
 
-  echo "\narray_sum: ".array_sum([1, 2, 3]);
+  echo "\narray_sum: ".array_sum(varray[1, 2, 3]);
 
   echo "\nintdiv: ".intdiv(2, 5);
 
@@ -108,10 +108,10 @@ function hsl_migration_main(): void {
   echo "\nbase_convert: ".base_convert('a37334', 16, 2);
 
   echo "\nmax: ".max(1, 2, 3);
-  echo "\nmax: ".max([1, 2, 3]);
+  echo "\nmax: ".max(varray[1, 2, 3]);
 
   echo "\nmin: ".min(1, 2, 3);
-  echo "\nmin: ".min([1, 2, 3]);
+  echo "\nmin: ".min(varray[1, 2, 3]);
 
   echo "\ncos: ".cos(1.0);
 
@@ -124,7 +124,7 @@ function hsl_migration_main(): void {
   echo "\nlog: ".log(5.0);
   echo "\nlog: ".log(5.0, 2.0);
 
-  echo "\ncount: " .count([1, 2, 3]);
+  echo "\ncount: " .count(varray[1, 2, 3]);
 }
 
 hsl_migration_main();

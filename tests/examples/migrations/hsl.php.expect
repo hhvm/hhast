@@ -15,11 +15,11 @@ function hsl_migration_main(): void {
   // argument reordering with no trailing comma
   echo "\nstr_replace: ".Str\replace('foobarbaz', 'foo', 'bar',);
   echo "\nstr_replace: ".
-    Str\replace_every('a test example with arrays', Dict\associate(['a', 'b'], ['x', 'y']));
+    Str\replace_every('a test example with arrays', Dict\associate(varray['a', 'b'], varray['x', 'y']));
   echo "\nstr_ireplace: ".Str\replace_ci('foobarbaz', 'foo', 'bar');
   // this case is also not handled because there is no case insensitive version of Str\replace_every
   echo "\nstr_ireplace: ".
-    str_ireplace(['a', 'b'], ['x', 'y'], 'a test example with arrays');
+    str_ireplace(varray['a', 'b'], varray['x', 'y'], 'a test example with arrays');
   echo "\nstrpos: ".Str\search('haystack', 'stack');
   echo "\nstrpos: ".Str\search('haystack', 'stack', 3);
 
@@ -35,14 +35,14 @@ function hsl_migration_main(): void {
   echo "\nstripos: ".Str\search_ci('haystack', 'stack');
 
   // implode accepts args in either order
-  echo "\nimplode: ".json_encode(Str\join(['a', 'b', 'c'], ','));
-  echo "\nimplode: ".json_encode(Str\join(['a', 'b', 'c'], ','));
+  echo "\nimplode: ".json_encode(Str\join(varray['a', 'b', 'c'], ','));
+  echo "\nimplode: ".json_encode(Str\join(varray['a', 'b', 'c'], ','));
 
   // test with explicit namespace fallback
-  echo "\nimplode: ".json_encode(Str\join(['a', 'b', 'c'], ','));
+  echo "\nimplode: ".json_encode(Str\join(varray['a', 'b', 'c'], ','));
 
   $glue = ',';
-  $pieces = ['a', 'b', 'c'];
+  $pieces = varray['a', 'b', 'c'];
   echo "\nimplode: ".json_encode(Str\join($pieces, $glue));
   echo "\nimplode: ".json_encode(Str\join($pieces, $glue));
 
@@ -99,7 +99,7 @@ function hsl_migration_main(): void {
 
   echo "\nfloor: ".Math\floor(3.14);
 
-  echo "\narray_sum: ".Math\sum([1, 2, 3]);
+  echo "\narray_sum: ".Math\sum(varray[1, 2, 3]);
 
   echo "\nintdiv: ".Math\int_div(2, 5);
 
@@ -110,10 +110,10 @@ function hsl_migration_main(): void {
   echo "\nbase_convert: ".Math\base_convert('a37334', 16, 2);
 
   echo "\nmax: ".Math\maxva(1, 2, 3);
-  echo "\nmax: ".Math\max([1, 2, 3]);
+  echo "\nmax: ".Math\max(varray[1, 2, 3]);
 
   echo "\nmin: ".Math\minva(1, 2, 3);
-  echo "\nmin: ".Math\min([1, 2, 3]);
+  echo "\nmin: ".Math\min(varray[1, 2, 3]);
 
   echo "\ncos: ".Math\cos(1.0);
 
@@ -126,7 +126,7 @@ function hsl_migration_main(): void {
   echo "\nlog: ".Math\log(5.0);
   echo "\nlog: ".Math\log(5.0, 2.0);
 
-  echo "\ncount: " .C\count([1, 2, 3]);
+  echo "\ncount: " .C\count(varray[1, 2, 3]);
 }
 
 hsl_migration_main();

@@ -19,41 +19,31 @@ function foo(): void {
     dict['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5],
   ];
 
-  $a = [];
-  $a = vec[1];
-  $a = vec[1, 2, 3, 4, 5];
-  $a = dict['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
-  $a = vec[
-    [],
-    vec[1, 2, 3, 4, 5],
-    dict['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5],
-  ];
-
   $a = dict[
-    'a' => vec[vec[1, 2], [], vec['a', 'b'], dict[1 => 'a', 2 => 'b']],
+    'a' => vec[vec[1, 2], array(), vec['a', 'b'], dict[1 => 'a', 2 => 'b']],
     'b' => dict[
-      'a' => [],
+      'a' => array(),
       'b' => vec[1, 2],
       'c' => dict['a' => 'b', 'b' => 'b'],
     ],
-    'c' => vec[vec[vec[vec[[]]]]],
-    'd' => vec[vec[vec[vec[1, 2]]]],
-    'e' => vec[vec[vec[dict['a' => 1, 'b' => 2]]]],
+    'c' => vec[vec[array()]],
+    'd' => vec[vec[vec[1, 2]]],
+    'e' => vec[vec[dict['a' => 1, 'b' => 2]]],
   ];
 
   $a = /*foo*/ dict[ // bar
     /*baz*/ 'a' => /*hip*/ vec[
       vec[1, 2],
-      [/*hop*/],
+      array(/*hop*/),
       vec['a', 'b'],
       dict[1 => /*hhvm*/ 'a', 2 => 'b'],
     ] /*hack*/ , // lang
     'b' => /*yet*/ dict[
-      'a' => [], // an
+      'a' => array(), // an
       'b' => vec[1, 2], /* other */
       /* comment */'c' => dict['a' => 'b', 'b' => 'b'],
     ],
-    'c' => vec[/*for*/vec[/*testing*/vec[vec[[]]]]],
+    'c' => vec[/*for*/vec[/*testing*/vec[vec[array()]]]],
     'd' => vec[vec[vec[vec[1, /*leading*/ 2]]]],
     'e' /*trailing*/ => vec[vec[vec[dict['a' => 1, 'b' => 2]]]],
   ]; // trivia

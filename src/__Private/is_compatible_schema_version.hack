@@ -51,6 +51,9 @@ function is_compatible_schema_version(string $other_version): bool {
       $compatible_versions[] = '2019-11-29-0001';
       // This one also doesn't have Pocket Universe `reify` syntax:
       $compatible_versions[] = '2019-11-15-0001';
+      // Succeeding versions:
+      // This one doesn't have square bracket array literals:
+      $compatible_versions[] = '2020-02-03-0001';
       break;
   }
 
