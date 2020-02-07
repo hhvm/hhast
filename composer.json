@@ -24,7 +24,7 @@
         "hhvm": "^4.33",
         "hhvm/hsl": "^4.25",
         "hhvm/hsl-experimental": "^4.25",
-        "hhvm/hhvm-autoload": "^2.0.4",
+        "hhvm/hhvm-autoload": "^2.0.4|^3.0",
         "hhvm/type-assert": "^3.4",
         "facebook/hh-clilib": "^2.0.0",
         "facebook/difflib": "^1.0.0"
