@@ -1,0 +1,47 @@
+[
+    {
+        "blame": "await foo() ",
+        "blame_pretty": "Line 16:   foreach (await foo() as $_) {\nLine 17:     foreach (await foo() as $_) {",
+        "description": "Don't use await in a loop"
+    },
+    {
+        "blame": "      await foo() ",
+        "blame_pretty": "Line 16:   foreach (await foo() as $_) {\nLine 20:       await foo() as $_",
+        "description": "Don't use await in a loop"
+    },
+    {
+        "blame": "      await foo()",
+        "blame_pretty": "Line 16:   foreach (await foo() as $_) {\nLine 19:     foreach (\nLine 22:       await foo();",
+        "description": "Don't use await in a loop"
+    },
+    {
+        "blame": "    await foo()",
+        "blame_pretty": "Line 16:   foreach (await foo() as $_) {\nLine 24:     await foo();",
+        "description": "Don't use await in a loop"
+    },
+    {
+        "blame": "await foo()",
+        "blame_pretty": "Line 31:   for (await foo(); false; ) {\nLine 32:     for (await foo(); false; ) {",
+        "description": "Don't use await in a loop"
+    },
+    {
+        "blame": "      await foo()",
+        "blame_pretty": "Line 31:   for (await foo(); false; ) {\nLine 35:       await foo();",
+        "description": "Don't use await in a loop"
+    },
+    {
+        "blame": "      await foo()",
+        "blame_pretty": "Line 31:   for (await foo(); false; ) {\nLine 34:     for (\nLine 38:       await foo();",
+        "description": "Don't use await in a loop"
+    },
+    {
+        "blame": "    await foo()",
+        "blame_pretty": "Line 31:   for (await foo(); false; ) {\nLine 40:     await foo();",
+        "description": "Don't use await in a loop"
+    },
+    {
+        "blame": "        await foo()",
+        "blame_pretty": "Line 43:       while (false) {\nLine 44:         await foo();",
+        "description": "Don't use await in a loop"
+    }
+]
