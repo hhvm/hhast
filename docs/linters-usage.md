@@ -25,6 +25,24 @@ This would configure `hhast-lint` with no arguments check `src/` with otherwise-
 
 Options can also be overriden for specific file patterns or subdirectories - for example, [HHAST itself](../hhast-lint.json) disables autofixes for `codegen/`.
 
+## Suppressing Lint Errors
+
+An individual error can be suppressed by adding a comment containing
+`HHAST_FIXME[LinterName]` or `HHAST_IGNORE_ERROR[LinterName]` before the
+affected statement or expression (usually on the previous line). The comment
+should also contain an explanation.
+
+```hack
+// HHAST_FIXME[UnusedVariable] planning to use this later
+$answer = 42;
+```
+
+`HHAST_FIXME` and `HHAST_IGNORE_ERROR` behave identically, choose between them
+based on which one better explains the reason for suppressing the linter.
+
+You can suppress all lint errors of a specific type in one file by adding a
+comment containing `HHAST_IGNORE_ALL[LinterName]` anywhere in the file.
+
 ## Editor and IDE Support
 
 Editor and IDE integration requires executing `vendor/bin/hhast-lint` when a `.hhconfig` and
