@@ -62,6 +62,8 @@ outlined on that page and do not file a public issue.
 
 We do not follow the PSR guidelines.
 
+
 ## License
+
 By contributing HHAST, you agree that your contributions will be licensed
-under its BSD license.
+under the LICENSE file in the root directory of this source tree.
