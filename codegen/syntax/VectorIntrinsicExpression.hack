@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3a922ed336618a80c248b70eec54a00>>
+ * @generated SignedSource<<54613ee8ad83a759b16c9b9886e308e7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -281,7 +281,7 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
@@ -303,7 +303,7 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |

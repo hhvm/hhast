@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb0afb7d1e926c5bf9e745f3d1fa64d9>>
+ * @generated SignedSource<<9139e2c67f928d824444fec43d5032c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,7 +10,7 @@ use namespace HH\Lib\Dict;
 <<__ConsistentConstruct>>
 final class DarrayIntrinsicExpression
   extends Node
-  implements ILambdaBody, IExpression {
+  implements IContainer, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'darray_intrinsic_expression';
 

@@ -22,6 +22,7 @@ use type Facebook\HHAST\{
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
+  PHPArrayLiteralsMigration,
   TopLevelRequiresMigration,
 };
 
@@ -276,6 +277,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Migrate /* HH_FIXME[4110] */ to the equivalent new error codes',
         '--migrate-fixme-4110',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = PHPArrayLiteralsMigration::class;
+        },
+        'Migrate [] and array() literals to varray[] and darray[]',
+        '--migrate-php-arrays',
       ),
       CLIOptions\flag(
         () ==> {

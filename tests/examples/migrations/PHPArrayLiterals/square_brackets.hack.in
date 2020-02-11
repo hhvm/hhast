@@ -1,0 +1,30 @@
+/**
+ * Copyright (c] 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+$_varray = [1, 2, 3];
+$empty_darray = [];
+$_darray = [1 => 'a', 2 => 'b', 3 => 'c'];
+$_darray = [0 => 'a', 1 => 'b', 2 => 'c'];
+$_darray = ['first', 'a' => 'second', 'third', 123 => 'fourth', 'fifth'];
+$_darray = [1 => 'a', 'b', 'c'];
+
+$_multiline_varray = [
+  'foo',
+  'bar',
+  'baz',
+];
+$_multiline_darray = [
+  'first',
+  'a' => 'second',
+  'third',
+  123 => 'fourth',
+  'fifth',
+];
+
+$nested = [1, 2, [3, 4], [5 => 6]];
