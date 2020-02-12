@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use function Facebook\HHAST\TestLib\{Ref, expect};
+use function Facebook\HHAST\TestLib\expect;
 use function Facebook\HHAST\__Private\LSPImpl\read_message_async;
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
 use namespace Facebook\TypeAssert;
@@ -18,6 +18,7 @@ use namespace HH\Lib\Experimental\IO;
 use type Facebook\CLILib\Terminal;
 use type Facebook\HHAST\TestLib\TestLSPMessageResponseBehavior;
 use type Facebook\HackTest\DataProvider;
+use type HH\Lib\Ref;
 
 final class LSPServerTest extends TestCase {
   use LinterCLITestTrait;
@@ -113,7 +114,7 @@ final class LSPServerTest extends TestCase {
       new Terminal($inr, $outw, IO\request_error() as nonnull),
     );
 
-    $responses = Ref(vec[]);
+    $responses = new Ref(vec[]);
 
     $debug = (bool)\getenv('HHAST_LSP_DEBUG') ?? false;
 
@@ -140,7 +141,7 @@ final class LSPServerTest extends TestCase {
               if ($debug) {
                 \fprintf(\STDERR, "> %s\n", $raw);
               }
-              $responses->v[] = \json_decode(
+              $responses->value[] = \json_decode(
                 $raw,
                 /* assoc = */ true,
                 /* depth = */ 512,
@@ -155,7 +156,7 @@ final class LSPServerTest extends TestCase {
     }
 
     $output = \json_encode(
-      $responses->v,
+      $responses->value,
       \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES,
     ).
       "\n"
