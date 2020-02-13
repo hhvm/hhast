@@ -155,9 +155,10 @@ final class LintRunConfig {
   public function getConfigForFile(string $file_path): self::TFileConfig {
     $roots = Vec\map(
       $this->configFile['roots'],
-      $s ==> Str\strip_suffix($s, '/').'/',
+      $s ==> Str\strip_suffix($s, '/').'/' |> Str\strip_prefix($$, './'),
     );
-    $file_path = Str\strip_prefix($file_path, $this->projectRoot.'/');
+    $file_path = Str\strip_prefix($file_path, $this->projectRoot.'/')
+      |> Str\strip_prefix($$, './');
     if (
       $roots !== vec[] &&
       !C\any($roots, $root ==> Str\starts_with($file_path, $root))
