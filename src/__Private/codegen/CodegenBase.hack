@@ -172,6 +172,8 @@ abstract class CodegenBase {
       HHAST\IContainer::class => keyset[
         HHAST\IPHPArray::class,
         HHAST\IHackArray::class,
+        HHAST\DarrayIntrinsicExpression::class,
+        HHAST\VarrayIntrinsicExpression::class,
         HHAST\CollectionLiteralExpression::class,
       ],
       HHAST\IHasOperator::class => keyset[
@@ -227,7 +229,9 @@ abstract class CodegenBase {
       ],
       HHAST\IExpression::class => Keyset\union(
         keyset[
+          // Constants aren't here as they need to be wrapped in NameExpressions
           HHAST\AnonymousFunction::class,
+          HHAST\IHasOperator::class,
           HHAST\VariableToken::class,
           HHAST\XHPChildrenDeclaration::class,
           HHAST\XHPChildrenParenthesizedList::class,

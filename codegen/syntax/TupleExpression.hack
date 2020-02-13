@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4beb04155c0aec545d3f442c948e2ff1>>
+ * @generated SignedSource<<0c1b9ae09517fc406614728f01585e57>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -218,9 +218,9 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
 
   /**
    * @return NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<IContainer>> | NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
-   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CastExpression>> | NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
@@ -236,9 +236,9 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
 
   /**
    * @return NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<IContainer>> | NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
-   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CastExpression>> | NodeList<ListItem<IExpression>> |
+   * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |

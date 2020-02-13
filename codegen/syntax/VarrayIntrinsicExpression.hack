@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1e7713891cf144452e0e8068efc1110>>
+ * @generated SignedSource<<86b4cd692effb508e240fdcae21a9cec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,7 +10,7 @@ use namespace HH\Lib\Dict;
 <<__ConsistentConstruct>>
 final class VarrayIntrinsicExpression
   extends Node
-  implements ILambdaBody, IExpression {
+  implements IContainer, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'varray_intrinsic_expression';
 
@@ -281,8 +281,9 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
@@ -300,8 +301,9 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |

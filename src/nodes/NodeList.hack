@@ -41,8 +41,7 @@ final class NodeList<+Titem as Node> extends Node {
     return $this->_children;
   }
 
-  public function getChildrenOfItems<T>(
-  ): vec<T> where Titem as ListItem<T> {
+  public function getChildrenOfItems<T>(): vec<T> where Titem as ListItem<T> {
     return Vec\map($this->getChildren(), $child ==> $child->getItem());
   }
 
