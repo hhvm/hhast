@@ -273,17 +273,17 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          $this->migrations[] = PHPArrayLiteralsMigration::class;
+        },
+        'Migrate [] and array() literals to varray[] and darray[]',
+        '--php-arrays',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->migrations[] = Fixme4110Migration::class;
         },
         'Migrate /* HH_FIXME[4110] */ to the equivalent new error codes',
         '--migrate-fixme-4110',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          $this->migrations[] = PHPArrayLiteralsMigration::class;
-        },
-        'Migrate [] and array() literals to varray[] and darray[]',
-        '--migrate-php-arrays',
       ),
       CLIOptions\flag(
         () ==> {
