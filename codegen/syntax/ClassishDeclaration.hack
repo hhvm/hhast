@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d2014e76f7a9b91b2b31630796651f89>>
+ * @generated SignedSource<<f74cab8b2c080af76af44a54f7acf81a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,7 +10,7 @@ use namespace HH\Lib\Dict;
 <<__ConsistentConstruct>>
 abstract class ClassishDeclarationGeneratedBase
   extends Node
-  implements IHasAttributeSpec {
+  implements IDeclaration, IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'classish_declaration';
 

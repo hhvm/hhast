@@ -24,6 +24,7 @@ use type Facebook\HHAST\{
   OptionalShapeFieldsMigration,
   PHPArrayLiteralsMigration,
   TopLevelRequiresMigration,
+  XHPChildrenDeclarationMethodMigration,
 };
 
 use type Facebook\CLILib\{CLIWithRequiredArguments, ExitException};
@@ -277,6 +278,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Migrate [] and array() literals to varray[] and darray[]',
         '--php-arrays',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = XHPChildrenDeclarationMethodMigration::class;
+        },
+        'Add getChildrenDeclaration() method to XHP classes with a children declaration',
+        '--add-xhp-children-declaration-method',
       ),
       CLIOptions\flag(
         () ==> {
