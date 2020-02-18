@@ -14,6 +14,7 @@ use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\HHAST\{
   AddFixmesMigration,
   BaseMigration,
+  DemangleXHPMigration,
   DollarBraceEmbeddedVariableMigration,
   ExplicitPartialModeMigration,
   Fixme4110Migration,
@@ -277,6 +278,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Migrate [] and array() literals to varray[] and darray[]',
         '--php-arrays',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = DemangleXHPMigration::class;
+        },
+        'Replace "-" in XHP class names with "_"',
+        '--demangle-xhp-class-names',
       ),
       CLIOptions\flag(
         () ==> {
