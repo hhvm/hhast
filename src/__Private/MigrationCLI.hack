@@ -15,6 +15,7 @@ use type Facebook\HHAST\{
   AddFixmesMigration,
   AddXHPChildrenDeclarationMethodMigration,
   BaseMigration,
+  DemangleXHPMigration,
   DollarBraceEmbeddedVariableMigration,
   ExplicitPartialModeMigration,
   Fixme4110Migration,
@@ -285,6 +286,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Add getChildrenDeclaration() method to XHP classes with a children declaration',
         '--add-xhp-children-declaration-method',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = DemangleXHPMigration::class;
+        },
+        'Replace "-" in XHP class names with "_"',
+        '--demangle-xhp-class-names',
       ),
       CLIOptions\flag(
         () ==> {

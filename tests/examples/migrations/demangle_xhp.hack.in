@@ -1,0 +1,14 @@
+class :foo:bar-baz {}
+class :foo:bar-baz:herp-derp {}
+
+class :i-have-attribute {
+  attribute string foo-bar @required;
+}
+
+function example(): void {
+  $_ = :foo:bar-baz::class;
+  $_ = :foo:bar-baz:herp-derp::class;
+  $_ = <foo:bar-baz />;
+  $_ = <foo:bar-baz><foo:bar-baz:herp-derp /></foo:bar-baz>;
+  $_ = <i-have-attribute foo-bar="baz" />;
+}
