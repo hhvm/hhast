@@ -32,6 +32,18 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
     }
 
     $before = C\firstx($decls->getChildrenOfType(IDeclaration::class));
+    $t = $before->getFirstTokenx();
+    $use = self::getUseNamespace();
+    if ($t->getLeading() !== $t->getLeadingWhitespace()) {
+      $ut = $use->getFirstTokenx();
+      return $in->withDeclarations(
+        $in->getDeclarations()->insertBefore(
+          $before,
+          $use->replace($ut, $ut->withLeading($t->getLeading())),
+        ),
+      )
+        ->replace($t, $t->withLeading(null));
+    }
     return $in->withDeclarations(
       $decls->insertBefore($before, self::getUseNamespace()),
     );
@@ -91,7 +103,10 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
         ),
         null,
       )]),
-      new SemicolonToken(null, new NodeList(vec[new EndOfLine("\n")])),
+      new SemicolonToken(
+        null,
+        new NodeList(vec[new EndOfLine("\n"), new EndOfLine("\n")]),
+      ),
     );
   }
 
@@ -146,7 +161,9 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
     return new FunctionDeclarationHeader(
       new NodeList(vec[
         new ProtectedToken(
-          new NodeList(vec[new WhiteSpace($leading_whitespace)]),
+          new NodeList(
+            vec[new EndOfLine("\n"), new WhiteSpace($leading_whitespace)],
+          ),
           $s,
         ),
         new StaticToken(null, $s),
