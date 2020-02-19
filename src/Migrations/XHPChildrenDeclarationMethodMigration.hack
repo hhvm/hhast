@@ -110,6 +110,43 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
     );
   }
 
+  private static function addTrait(ClassishBody $in): ClassishBody {
+    $decl = $in->getElements()
+      ?->getChildrenOfType(XHPChildrenDeclaration::class) ??
+      vec[];
+    if (C\is_empty($decl)) {
+      return $in;
+    }
+    $decl = C\firstx($decl);
+
+    $indent = $decl->getFirstTokenx()->getLeadingWhitespace()?->getText() ?? '';
+    $use = new TraitUse(
+      new UseToken(
+        new NodeList(vec[new WhiteSpace($indent)]),
+        new NodeList(vec[new WhiteSpace(' ')]),
+      ),
+      new NodeList(vec[
+        new ListItem(
+          new SimpleTypeSpecifier(
+            new NameToken(
+              null,
+              null,
+              'XHPChildDeclarationConsistencyValidation',
+            ),
+          ),
+          null,
+        ),
+      ]),
+      new SemicolonToken(null, new NodeList(vec[new EndOfLine("\n")])),
+    );
+
+    return $in->withElements(
+      $in->getElementsx()
+        ->insertBefore(C\firstx($in->getElementsx()->toVec()), $use),
+    );
+  }
+
+
   private static function addChildrenDeclarationMethod(
     ClassishBody $in,
   ): ClassishBody {
@@ -122,8 +159,7 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
     $decl = C\firstx($decl);
 
 
-    $indent = $decl->getFirstTokenx()->getLeadingWhitespace()?->getText() ??
-      '  ';
+    $indent = $decl->getFirstTokenx()->getLeadingWhitespace()?->getText() ?? '';
     $s = new NodeList(vec[new WhiteSpace(' ')]);
     $meth = new MethodishDeclaration(
       null,
@@ -347,7 +383,12 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
         ClassishBody::class,
         $node ==> self::addChildrenDeclarationMethod($node),
       ),
-      // 4. add trait use
+      new TypedMigrationStep(
+        'Add `XHPChildDeclarationConsistencyValidation` trait',
+        ClassishBody::class,
+        ClassishBody::class,
+        $node ==> self::addTrait($node),
+      ),
     ];
   }
 }
