@@ -9,10 +9,19 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\{C, Str, Vec};
 
-final class AddXHPChildrenDeclarationMethodMigration extends StepBasedMigration {
+final class AddXHPChildrenDeclarationMethodMigration
+  extends StepBasedMigration {
   private static function scopeNeedsUseNamespace(NodeList<Node> $in): bool {
+    if (
+      Str\contains(
+        $in->getCode(),
+        "use namespace Facebook\\XHP\\ChildValidation as XHPChild;",
+      )
+    ) {
+      return false;
+    }
     $classes = $in->getChildrenOfType(ClassishDeclaration::class);
     return C\any(
       $classes,
@@ -110,6 +119,24 @@ final class AddXHPChildrenDeclarationMethodMigration extends StepBasedMigration 
     );
   }
 
+  private static function alreadyUsesTrait(ClassishBody $in): bool {
+    $uses = $in->getElementsx()->getChildrenOfType(TraitUse::class)
+      |> Vec\map($$, $use ==> $use->getNames()->getChildrenOfItems())
+      |> Vec\flatten($$);
+    foreach ($uses as $use) {
+      $name = $use ?as SimpleTypeSpecifier
+        |> $$?->getSpecifier() ?as NameToken
+        |> $$?->getText();
+      if (
+        $name === 'XHPChildValidation' ||
+        $name === 'XHPChildDeclarationConsistencyValidation'
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   private static function addTrait(ClassishBody $in): ClassishBody {
     $decl = $in->getElements()
       ?->getChildrenOfType(XHPChildrenDeclaration::class) ??
@@ -117,6 +144,10 @@ final class AddXHPChildrenDeclarationMethodMigration extends StepBasedMigration 
     if (C\is_empty($decl)) {
       return $in;
     }
+    if (self::alreadyUsesTrait($in)) {
+      return $in;
+    }
+
     $decl = C\firstx($decl);
 
     $indent = $decl->getFirstTokenx()->getLeadingWhitespace()?->getText() ?? '';
@@ -156,8 +187,18 @@ final class AddXHPChildrenDeclarationMethodMigration extends StepBasedMigration 
     if (C\is_empty($decl)) {
       return $in;
     }
+    foreach (
+      $in->getElementsx()->getChildrenOfType(MethodishDeclaration::class) as
+        $method
+    ) {
+      if (
+        $method->getFunctionDeclHeader()->getName()->getText() ===
+          'getChildrenDeclaration'
+      ) {
+        return $in;
+      }
+    }
     $decl = C\firstx($decl);
-
 
     $indent = $decl->getFirstTokenx()->getLeadingWhitespace()?->getText() ?? '';
     $s = new NodeList(vec[new WhiteSpace(' ')]);
@@ -331,8 +372,9 @@ final class AddXHPChildrenDeclarationMethodMigration extends StepBasedMigration 
     }
 
     invariant_violation(
-      "Unhandled XHP children expression: %s",
+      "Unhandled XHP children expression: %s (%s)",
       \get_class($in),
+      $in->getCode(),
     );
   }
 
