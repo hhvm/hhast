@@ -185,7 +185,6 @@ final class AddXHPChildrenDeclarationMethodMigration
     );
   }
 
-
   private static function addChildrenDeclarationMethod(
     ClassishBody $in,
   ): ClassishBody {
