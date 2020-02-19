@@ -344,9 +344,7 @@ final class AddXHPChildrenDeclarationMethodMigration
             new LessThanToken(null, null),
             new NodeList(vec[
               new ListItem(
-                new SimpleTypeSpecifier(
-                  $in is NameExpression ? $in->getWrappedNode() : $in,
-                ),
+                new SimpleTypeSpecifier(new NameToken(null, null, $name)),
                 null,
               ),
             ]),
