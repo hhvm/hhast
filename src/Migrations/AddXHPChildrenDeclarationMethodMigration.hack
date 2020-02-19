@@ -327,7 +327,7 @@ final class AddXHPChildrenDeclarationMethodMigration
       return self::makeCall('anyOf', null, $parts);
     }
 
-    if ($in is NameExpression || $in is EmptyToken) {
+    if ($in is NameExpression || $in is EmptyToken || $in is NameToken) {
       $name = $in is NameExpression ? $in->getWrappedNode() : $in;
       if (
         $name is NameToken || $name is EmptyToken || $name is XHPClassNameToken
