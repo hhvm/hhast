@@ -16,9 +16,12 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
     $classes = $in->getChildrenOfType(ClassishDeclaration::class);
     return C\any(
       $classes,
-      $class ==> $class->getBody()
-        ->getChildrenOfType(XHPChildrenDeclaration::class) !==
-        vec[],
+      $class ==> !C\is_empty(
+        $class->getBody()
+          ->getElements()
+          ?->getChildrenOfType(XHPChildrenDeclaration::class) ??
+          vec[],
+      ),
     );
   }
 
