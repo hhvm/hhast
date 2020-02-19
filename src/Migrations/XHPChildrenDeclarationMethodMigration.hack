@@ -266,6 +266,7 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
     }
 
     if ($in is BinaryExpression) {
+      // foo | bar | baz
       invariant(
         $in->getOperator() is BarToken,
         "Got an XHP child binary expression with unexpected operator '%s'",
@@ -279,7 +280,7 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
       }
       $parts[] = $next;
       $parts = Vec\reverse($parts)
-        |> Vec\map($parts, $part ==> self::convertChildrenExpression($part));
+        |> Vec\map($$, $part ==> self::convertChildrenExpression($part));
       return self::makeCall('anyOf', null, $parts);
     }
 
