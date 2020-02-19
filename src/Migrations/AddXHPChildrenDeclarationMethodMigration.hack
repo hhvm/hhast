@@ -75,11 +75,19 @@ final class AddXHPChildrenDeclarationMethodMigration
     if (!self::scopeNeedsUseNamespace($decls)) {
       return $in;
     }
+
+    $use = self::getUseNamespace();
+    $ws = $decls->getFirstTokenx()->getLeadingWhitespace();
+    if ($ws !== null) {
+      $t = $use->getFirstTokenx();
+      $use = $use->replace($t, $t->withLeading(new NodeList(vec[$ws])));
+    }
+
     return $in->withBody(
       $body->withDeclarations(
         $decls->insertBefore(
           C\firstx($decls->getChildrenOfType(IDeclaration::class)),
-          self::getUseNamespace(),
+          $use,
         ),
       ),
     );
