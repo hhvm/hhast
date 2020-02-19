@@ -242,11 +242,9 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
         $node ==> self::convertChildrenExpression($node),
       );
       return self::makeCall('sequence', null, $children);
-      // TODO: tuple
     }
 
     if ($in is PostfixUnaryExpression) {
-      // TODO: ?+*
       $op = $in->getOperator();
       if ($op is PlusToken) {
         $fun = 'atLeastOneOf';
