@@ -272,6 +272,8 @@ final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
         "Got an XHP child binary expression with unexpected operator '%s'",
         $in->getOperator()->getText(),
       );
+      // `foo | bar | baz` is `((foo | bar) | baz)` in the AST; flatten them out
+      // for readability
       $next = $in;
       $parts = vec[];
       while ($next is BinaryExpression && $next->getOperator() is BarToken) {
