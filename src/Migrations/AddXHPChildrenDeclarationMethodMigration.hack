@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Vec};
 
-final class XHPChildrenDeclarationMethodMigration extends StepBasedMigration {
+final class AddXHPChildrenDeclarationMethodMigration extends StepBasedMigration {
   private static function scopeNeedsUseNamespace(NodeList<Node> $in): bool {
     $classes = $in->getChildrenOfType(ClassishDeclaration::class);
     return C\any(
