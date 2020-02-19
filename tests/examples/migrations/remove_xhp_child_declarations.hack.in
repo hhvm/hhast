@@ -1,0 +1,28 @@
+class :no:children {
+}
+
+class :no-replacement {
+  children (pcdata);
+}
+
+class :with-validation-trait{
+  use XHPChildDeclarationConsistencyValidation;
+  children (pcdata);
+
+  protected function getChildrenDeclaration(): XHPChild\Constraint {}
+}
+
+class :without-trait{
+  children (pcdata);
+
+  // This is /probably/ nonsense, but can't be sure
+  protected function getChildrenDeclaration(): XHPChild\Constraint {}
+}
+
+class :with-comment {
+  // Blah blah
+  children (pcdata);
+
+  // This is /probably/ nonsense, but can't be sure
+  protected function getChildrenDeclaration(): XHPChild\Constraint {}
+}

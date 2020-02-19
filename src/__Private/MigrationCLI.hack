@@ -25,6 +25,7 @@ use type Facebook\HHAST\{
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
   PHPArrayLiteralsMigration,
+  RemoveXHPChildDeclarationsMigration,
   TopLevelRequiresMigration,
 };
 
@@ -293,6 +294,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Replace "-" in XHP class names with "_"',
         '--demangle-xhp-class-names',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = RemoveXHPChildDeclarationsMigration::class;
+        },
+        'Remove `children` declarations from XHP classes, and update validation traits',
+        '--remove-xhp-child-declarations',
       ),
       CLIOptions\flag(
         () ==> {
