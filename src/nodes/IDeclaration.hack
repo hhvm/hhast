@@ -9,6 +9,6 @@
 
 namespace Facebook\HHAST;
 
-interface IFunctionishDeclaration extends IHasFunctionBody, IDeclaration {
+interface IDeclaration {
   require extends Node;
 }

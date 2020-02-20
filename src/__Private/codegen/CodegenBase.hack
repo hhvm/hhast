@@ -142,6 +142,10 @@ abstract class CodegenBase {
         HHAST\SingleLineComment::class,
         HHAST\DelimitedComment::class,
       ],
+      HHAST\IDeclaration::class => keyset[
+        HHAST\ClassishDeclaration::class,
+        // IFunctionishDeclaration
+      ],
       HHAST\IFunctionishDeclaration::class => keyset[
         HHAST\FunctionDeclaration::class,
         HHAST\MethodishDeclaration::class,
