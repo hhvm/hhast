@@ -27,6 +27,7 @@ use type Facebook\HHAST\{
   PHPArrayLiteralsMigration,
   RemoveXHPChildDeclarationsMigration,
   TopLevelRequiresMigration,
+  XHPClassModifierMigration,
 };
 
 use type Facebook\CLILib\{CLIWithRequiredArguments, ExitException};
@@ -301,6 +302,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Remove `children` declarations from XHP classes, and update validation traits',
         '--remove-xhp-child-declarations',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = XHPClassModifierMigration::class;
+        },
+        'Migrate `class :foo:bar` to `xhp class foo:bar`',
+        '--xhp-class-modifier',
       ),
       CLIOptions\flag(
         () ==> {

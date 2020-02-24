@@ -1,0 +1,7 @@
+class :simple {}
+class :with:colon {}
+class :with-hyphen {}
+class :with-hyphen:and-colon {}
+
+abstract class :abstract-xhp-class {}
+abstract /* foo */ class :with-trivia {}
