@@ -54,6 +54,8 @@ function is_compatible_schema_version(string $other_version): bool {
       // Succeeding versions:
       // This one doesn't have square bracket array literals:
       $compatible_versions[] = '2020-02-03-0001';
+      // This one disallows using "namespace" as an identifier:
+      $compatible_versions[] = '2020-02-19-0001';
       break;
   }
 
