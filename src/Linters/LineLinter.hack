@@ -41,7 +41,7 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
         $ln - 1 >= 0 &&
         (
           $this->isLinterSuppressed($lines[$ln - 1]) ||
-          $this->isLinterSuppressed($lines[$ln])
+          $this->isLinterSuppressed($lines[$ln - 2])
         )
       ) {
         continue;
