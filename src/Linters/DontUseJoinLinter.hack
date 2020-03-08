@@ -13,7 +13,6 @@ use namespace HH\Lib\{C, Regex, Str, Vec};
 
 final class DontUseJoinLinter extends LineLinter<LineLintError> {
 
-  /** @var dict<file, hash> */
   private static keyset<string> $knownHashes = keyset[];
 
   <<__Override>>
