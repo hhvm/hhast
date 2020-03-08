@@ -20,12 +20,15 @@ final class DontUseJoinLinter extends LineLinter<LineLintError> {
     string $_line,
     int $line_number,
   ): Traversable<LineLintError> {
-    $hash = $this->getFile()->getHash();
-    if ($line_number === 0 && !C\contains_key(static::$knownHashes, $hash)) {
-      /*Update me!*/\HH\class_meth(static::class, 'getJoinsAsync');
-      \HH\clear_static_memoization(static::class, 'getJoinsAsync');
+    \var_dump($line_number);
+    if ($line_number === 0) {
+      $hash = $this->getFile()->getHash();
+      if (!C\contains_key(static::$knownHashes, $hash)) {
+        /*Update me!*/\HH\class_meth(static::class, 'getJoinsAsync');
+        \HH\clear_static_memoization(static::class, 'getJoinsAsync');
+      }
+      self::$knownHashes[] = $hash;
     }
-    self::$knownHashes[] = $hash;
 
     /*HHAST_FIXME[DontUseJoin]*/
     $errors = \HH\Asio\join(static::getJoinsAsync())
