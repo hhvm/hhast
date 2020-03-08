@@ -20,10 +20,8 @@ final class DontUseJoinLinter extends LineLinter<LineLintError> {
     string $_line,
     int $line_number,
   ): Traversable<LineLintError> {
-    $path = $this->getFile()->getPath();
     $hash = $this->getFile()->getHash();
     if ($line_number === 0 && !C\contains_key(static::$knownHashes, $hash)) {
-      echo Str\format("Cleared for %s\n", $path);
       /*Update me!*/\HH\class_meth(static::class, 'getJoinsAsync');
       \HH\clear_static_memoization(static::class, 'getJoinsAsync');
     }
