@@ -34,6 +34,7 @@ final class LSPServerTest extends TestCase {
       |> $this->messageToRPC($$)
       |> $in->appendToBuffer($$);
 
+    /*HHAST_FIXME[DontUseJoin]*/
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(1);
     expect($err->getBuffer())->toBeSame('');
@@ -59,6 +60,7 @@ final class LSPServerTest extends TestCase {
       |> $this->messageToRPC($$)
       |> $in->appendToBuffer($$);
 
+    /*HHAST_FIXME[DontUseJoin]*/
     $exit_code = \HH\Asio\join($cli->mainAsync());
     expect($exit_code)->toBeSame(0);
     expect($err->getBuffer())->toBeSame('');

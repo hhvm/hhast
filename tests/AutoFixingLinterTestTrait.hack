@@ -29,6 +29,7 @@ trait AutoFixingLinterTestTrait<Terror as LintError> {
     \copy($in, $out);
     $linter = $this->getLinter($out);
 
+    /*HHAST_FIXME[DontUseJoin]*/
     $all_errors = vec(\HH\Asio\join($linter->getLintErrorsAsync()));
     $code = $linter->getFixedFile($all_errors)->getContents();
     // Provide raw output for easier debugging
@@ -40,6 +41,7 @@ trait AutoFixingLinterTestTrait<Terror as LintError> {
     );
 
     $linter = $this->getLinter(__DIR__.'/examples/'.$example.'.autofix.expect');
+    /*HHAST_FIXME[DontUseJoin]*/
     $errors = \HH\Asio\join($linter->getLintErrorsAsync());
     $re_fixed = $linter->getFixedFile($errors)->getContents();
     expect($re_fixed)->toBeSame($code, "Not all fixable errors were fixed");

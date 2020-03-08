@@ -1,0 +1,6 @@
+<?hh
+
+function main(): void {
+  // The typechecker won't see this.
+  \HH\Asio\join(\HH\Asio\later());
+}

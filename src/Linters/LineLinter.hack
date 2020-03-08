@@ -37,7 +37,7 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
       }
 
       // We got an error. Let's check the previous line to see if it is marked as ignorable
-      if ($ln - 1 >= 0 && $this->isLinterSuppressed($lines[$ln - 1])) {
+      if ($ln - 1 >= 0 && $this->isLinterSuppressed($lines[$ln - 2])) {
         continue;
       }
 

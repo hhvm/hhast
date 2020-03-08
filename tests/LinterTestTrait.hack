@@ -85,6 +85,7 @@ trait LinterTestTrait {
 
     $linter = $this->getLinter(__DIR__.'/examples/'.$example.'.in');
 
+    /*HHAST_FIXME[DontUseJoin]*/
     $out = \HH\Asio\join($linter->getLintErrorsAsync())
       |> Vec\map($$, $error ==> self::getErrorAsShape($error))
       |> \json_encode($$, \JSON_PRETTY_PRINT)."\n";

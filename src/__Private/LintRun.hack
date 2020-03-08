@@ -9,9 +9,9 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{BaseLinter, File, LinterException};
+use type Facebook\HHAST\{BaseLinter, DontUseJoinLinter, File, LinterException};
 use type Facebook\CLILib\ExitException;
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class LintRun {
   private dict<string, File> $files = dict[];
@@ -146,6 +146,10 @@ final class LintRun {
         $files[] = $this->getFileForPath($info->getPathname());
       }
     }
+
+    DontUseJoinLinter::setKnownHashes(
+      Keyset\map($files, $file ==> $file->getHash()),
+    );
     $results = await Vec\map_async(
       $files,
       async $file ==> await $this->lintFileAsync($config, $file),
