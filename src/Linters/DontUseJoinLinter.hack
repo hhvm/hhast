@@ -20,7 +20,6 @@ final class DontUseJoinLinter extends LineLinter<LineLintError> {
     string $_line,
     int $line_number,
   ): Traversable<LineLintError> {
-    \var_dump($line_number);
     if ($line_number === 0) {
       $hash = $this->getFile()->getHash();
       if (!C\contains_key(static::$knownHashes, $hash)) {
@@ -37,7 +36,6 @@ final class DontUseJoinLinter extends LineLinter<LineLintError> {
     if ($errors is null || C\is_empty($errors)) {
       return vec[];
     }
-
     return Vec\map(
       $errors,
       $err ==> new LineLintError(
