@@ -28,15 +28,8 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    list(
-      $data_providers,
-      $reflection_class,
-      $reflection_methods,
-      $hhast_methods,
-    ) = tuple(
+    list($data_providers, $hhast_methods) = tuple(
       $info['data_providers'],
-      $info['reflection_class'],
-      $info['reflection_methods'],
       $info['hhast_methods'],
     );
 
@@ -53,6 +46,8 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     if ($err is nonnull) {
       return $err;
     }
+
+    // TODO: Write validation for assignability from dataprovider to test method here.
 
     return null;
   }
@@ -112,8 +107,6 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     this::TContext $context,
   ): ?shape(
     'data_providers' => this::TProviders,
-    'reflection_class' => \ReflectionClass,
-    'reflection_methods' => dict<string, \ReflectionMethod>,
     'hhast_methods' => dict<string, FunctionDeclarationHeader>,
   ) {
     $script = $this->getAST();
@@ -156,11 +149,6 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    $reflection_methods = Dict\from_values(
-      $reflection_methods,
-      $meth ==> $meth->getName(),
-    );
-
     $hhast_methods = $context->getDescendantsOfType(
       FunctionDeclarationHeader::class,
     )
@@ -169,8 +157,6 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
 
     return shape(
       'data_providers' => $data_providers,
-      'reflection_class' => $reflection_class,
-      'reflection_methods' => $reflection_methods,
       'hhast_methods' => $hhast_methods,
     );
   }
