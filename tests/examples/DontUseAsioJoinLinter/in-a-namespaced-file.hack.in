@@ -1,0 +1,23 @@
+namespace SomeNamespace;
+
+use namespace HH\Asio;
+use namespace HH\Asio as AsioAlias;
+use function HH\Asio\join;
+use function HH\Asio\join as join_alias;
+
+use namespace HH\Lib\Str;
+use namespace HH\Lib\Str as StrAlias;
+use function HH\Lib\Str\join as str_join_alias;
+
+function main(): void {
+  \HH\Asio\join(\HH\Asio\later());
+  Asio\join(\HH\Asio\later());
+  AsioAlias\join(\HH\Asio\later());
+  join(\HH\Asio\later());
+  join_alias(\HH\Asio\later());
+
+  \HH\Lib\Str\join(vec[], '');
+  Str\join(vec[], '');
+  StrAlias\join(vec[], '');
+  str_join_alias(vec[], '');
+}

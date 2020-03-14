@@ -1,0 +1,27 @@
+[
+    {
+        "blame": "  \\HH\\Asio\\join(\\HH\\Asio\\later())",
+        "blame_pretty": "  \\HH\\Asio\\join(\\HH\\Asio\\later())",
+        "description": "Don't use HH\\Asio\\join"
+    },
+    {
+        "blame": "  Asio\\join(\\HH\\Asio\\later())",
+        "blame_pretty": "  Asio\\join(\\HH\\Asio\\later())",
+        "description": "Don't use HH\\Asio\\join"
+    },
+    {
+        "blame": "  AsioAlias\\join(\\HH\\Asio\\later())",
+        "blame_pretty": "  AsioAlias\\join(\\HH\\Asio\\later())",
+        "description": "Don't use HH\\Asio\\join"
+    },
+    {
+        "blame": "  join(\\HH\\Asio\\later())",
+        "blame_pretty": "  join(\\HH\\Asio\\later())",
+        "description": "Don't use HH\\Asio\\join"
+    },
+    {
+        "blame": "  join_alias(\\HH\\Asio\\later())",
+        "blame_pretty": "  join_alias(\\HH\\Asio\\later())",
+        "description": "Don't use HH\\Asio\\join"
+    }
+]
