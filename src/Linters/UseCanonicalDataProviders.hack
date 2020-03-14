@@ -153,7 +153,12 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     $data_provider_attr = C\find(
       $attributes,
       $li ==> {
-        $name = $li->getItem()->getType()->getChildren()['specifier'];
+        // For attributes without arguments like `__Memoize`.
+        $name = $li->getItem()->getType()->getChildren()['specifier'] ?? null;
+        if ($name is null) {
+          return false;
+        }
+
         if ($name is NameToken) {
           $string_name = $name->getText();
         } else if ($name is QualifiedName) {

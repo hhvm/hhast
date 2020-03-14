@@ -4,6 +4,7 @@ use type Facebook\HackTest\{DataProvider, HackTest};
 use function Facebook\FBExpect\expect;
 
 final class ATestClass extends HackTest {
+  <<__Memoize>>
   public function provideAdditions(): vec<(int, int, int)> {
     return vec[
       tuple(1, 1, 2),
