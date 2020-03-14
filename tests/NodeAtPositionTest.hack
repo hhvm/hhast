@@ -14,8 +14,8 @@ use type Facebook\HackTest\DataProvider;
 
 final class NodeAtPositionTest extends TestCase {
   public function getExamples(
-  ): array<(string, (int, int), classname<Node>, string)> {
-    return varray[
+  ): vec<(string, (int, int), classname<Node>, string)> {
+    return vec[
       tuple(
         "<?hh\nreturn 123;\n",
         tuple(2, 1),

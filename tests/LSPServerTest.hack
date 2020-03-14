@@ -13,7 +13,7 @@ use function Facebook\HHAST\TestLib\expect;
 use function Facebook\HHAST\__Private\LSPImpl\read_message_async;
 use namespace Facebook\HHAST\__Private\{LSP, LSPImpl};
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{Dict, IO, Str};
+use namespace HH\Lib\{Dict, IO, Str, Vec};
 use type Facebook\CLILib\Terminal;
 use type Facebook\HHAST\TestLib\TestLSPMessageResponseBehavior;
 use type Facebook\HackTest\DataProvider;
@@ -70,12 +70,12 @@ final class LSPServerTest extends TestCase {
     return Str\format("Content-Length: %d\r\n\r\n%s", Str\length($json), $json);
   }
 
-  public function provideExampleExchanges(): array<varray<string>> {
-    return \array_map(
-      (string $file): varray<string> ==> {
-        return varray[\basename($file, '.json')];
-      },
+  public function provideExampleExchanges(): vec<(string)> {
+    return Vec\map(
       \glob(__DIR__.'/lsp/*.json'),
+      (string $file): (string) ==> {
+        return tuple(\basename($file, '.json'));
+      },
     );
   }
 
