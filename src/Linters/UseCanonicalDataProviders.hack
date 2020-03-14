@@ -41,7 +41,7 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
 
     $hhast_method = $hhast_methods[$method_name];
 
-    list($err, $tuple_type) = $this->jugdeReturnTypes($hhast_method, $node);
+    list($err, $_tuple_type) = $this->jugdeReturnTypes($hhast_method, $node);
 
     if ($err is nonnull) {
       return $err;
