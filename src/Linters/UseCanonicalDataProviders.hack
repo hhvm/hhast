@@ -129,10 +129,11 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    $hhast_methods = $context->getDescendantsOfType(
-      FunctionDeclarationHeader::class,
-    )
-      |> Dict\from_values($$, $meth ==> $meth->getNamex()->getText());
+    $hhast_methods = Dict\pull(
+      $methods,
+      $meth ==> $meth->getFunctionDeclHeader(),
+      $meth ==> $meth->getFunctionDeclHeader()->getNamex()->getText(),
+    );
 
 
     return shape(
