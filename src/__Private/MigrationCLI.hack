@@ -364,8 +364,10 @@ class MigrationCLI extends CLIWithRequiredArguments {
       );
     }
     try {
+      /*HHAST_FIXME[DontUseAsioJoin]*/
       $ast = \HH\Asio\join(HHAST\from_file_async(HHAST\File::fromPath($file)));
     } catch (\Facebook\HHAST\ASTError $e) {
+      /*HHAST_FIXME[DontUseAsioJoin]*/
       \HH\Asio\join($this->getStderr()->writeAsync($e->getMessage()));
       return;
     }

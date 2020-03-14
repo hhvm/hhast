@@ -29,6 +29,7 @@ final class CodegenRelations extends CodegenBase {
 
   <<__Override>>
   public function generate(): void {
+    /*HHAST_FIXME[DontUseAsioJoin]*/
     \HH\Asio\join($this->generateAsync());
   }
 

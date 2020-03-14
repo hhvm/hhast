@@ -190,6 +190,7 @@ final class HSLMigration extends BaseMigration {
       if (
         $argument_order !== null || ($replace_config['has_overrides'] ?? false)
       ) {
+        /*HHAST_FIXME[DontUseAsioJoin]*/
         list($new_node, $found_namespaces) = \HH\Asio\join(
           $this->maybeMutateArgumentsAsync(
             $root,
@@ -670,6 +671,7 @@ final class HSLMigration extends BaseMigration {
     string $code,
     classname<T> $expected,
   ): T {
+    /*HHAST_FIXME[DontUseAsioJoin]*/
     $script = \HH\Asio\join(
       from_file_async(File::fromPathAndContents('/dev/null', $code)),
     );
@@ -684,6 +686,7 @@ final class HSLMigration extends BaseMigration {
   }
 
   protected function expressionFromCode(string $code): IExpression {
+    /*HHAST_FIXME[DontUseAsioJoin]*/
     return \HH\Asio\join(self::expressionFromCodeAsync($code));
   }
 }

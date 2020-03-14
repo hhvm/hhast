@@ -15,6 +15,7 @@ use namespace HH\Lib\{C, Str, Vec};
 final class TopLevelRequiresMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(string $_path, Script $script): Script {
+    /*HHAST_FIXME[DontUseAsioJoin]*/
     return \HH\Asio\join($this->migrateFileAsync($script));
   }
 
@@ -95,7 +96,10 @@ final class TopLevelRequiresMigration extends BaseMigration {
 
     $body = $body->withStatements(
       new NodeList(
-        Vec\concat(vec[$lambda], $body->getStatements()?->getChildren() ?? varray[]),
+        Vec\concat(
+          vec[$lambda],
+          $body->getStatements()?->getChildren() ?? varray[],
+        ),
       ),
     );
 
