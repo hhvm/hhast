@@ -9,14 +9,15 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\HackTest\DataProvider;
-use namespace HH\Lib\{C, Dict, Vec};
+use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
   const type TContext = ClassishDeclaration;
   const type TNode = FunctionDeclarationHeader;
   // dict<provider, vec<(test, provider again)>>
   const type TProviders = dict<string, vec<(string, string)>>;
+
+  const string T_DATAPROVIDER = 'Facebook\\HackTest\\DataProvider';
 
   <<__Override>>
   public function getLintErrorForNode(
@@ -109,23 +110,14 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     'data_providers' => this::TProviders,
     'hhast_methods' => dict<string, FunctionDeclarationHeader>,
   ) {
-    $script = $this->getAST();
+    $methods = $context->getDescendantsOfType(MethodishDeclaration::class);
 
-    $classname = resolve_type(
-      $context->getName()->getText(),
-      $script,
-      $context->getName(),
-    )['name'];
-
-    $reflection_class = new \ReflectionClass($classname);
-    $reflection_methods = $reflection_class->getMethods();
-
-    $data_providers = $reflection_methods
+    $data_providers = $methods
       |> Vec\map(
         $$,
         $method ==> tuple(
-          $method->getName(),
-          $method->getAttributeClass(DataProvider::class)?->provider ??
+          $method->getFunctionDeclHeader()->getName()->getText(),
+          $this->getDataProviderName($method, $this->getAST()) ??
             '<no provider>',
         ),
       )
@@ -147,5 +139,47 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       'data_providers' => $data_providers,
       'hhast_methods' => $hhast_methods,
     );
+  }
+
+  private function getDataProviderName(
+    MethodishDeclaration $method,
+    Script $script,
+  ): ?string {
+    $attributes = $method->getAttributeSpec()?->getAttributes()?->toVec();
+    if ($attributes is null) {
+      return null;
+    }
+
+    $data_provider_attr = C\find(
+      $attributes,
+      $li ==> {
+        $name = $li->getItem()->getType()->getChildren()['specifier'];
+        if ($name is NameToken) {
+          $string_name = $name->getText();
+        } else if ($name is QualifiedName) {
+          $string_name = $name->getDescendantsOfType(NameToken::class)
+            |> Vec\map($$, $name ==> $name->getText())
+            |> Str\join($$, '\\');
+          if (qualified_name_is_fully_qualified($name)) {
+            $string_name = '\\'.$string_name;
+          }
+        } else {
+          invariant_violation('Unexpected type %s for name', \get_class($name));
+        }
+        return resolve_type($string_name, $script, $name)['name'] ===
+          static::T_DATAPROVIDER;
+      },
+    );
+
+    if ($data_provider_attr is null) {
+      return null;
+    }
+
+    return $data_provider_attr->getItem()
+      ->getArgumentListx()
+      ->toVec()[0]->getItem()
+      ->getFirstTokenx()
+      ->getText()
+      |> Str\trim($$, '"\'');
   }
 }
