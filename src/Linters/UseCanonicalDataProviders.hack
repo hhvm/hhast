@@ -28,10 +28,16 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    list($data_providers, $reflection_class, $reflection_methods) = tuple(
+    list(
+      $data_providers,
+      $reflection_class,
+      $reflection_methods,
+      $hhast_methods,
+    ) = tuple(
       $info['data_providers'],
       $info['reflection_class'],
       $info['reflection_methods'],
+      $info['hhast_methods'],
     );
 
     $method_name = $node->getName()->getText();
@@ -40,29 +46,65 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    $reflection_method = $reflection_methods[$method_name];
-    $return_type = $reflection_method->getReturnType();
+    $hhast_method = $hhast_methods[$method_name];
+
+    list($err, $tuple_type) = $this->jugdeReturnTypes($hhast_method, $node);
+
+    if ($err is nonnull) {
+      return $err;
+    }
+
+    return null;
+  }
+
+  private function jugdeReturnTypes(
+    FunctionDeclarationHeader $hhast_method,
+    this::TNode $node,
+  ): (?ASTLintError, ?TupleTypeSpecifier) {
+    $return_type = $hhast_method->getType();
 
     // Only in partial files
     if ($return_type is null) {
-      return new ASTLintError(
-        $this,
-        'Add a typehint to your dataprovider',
-        $node,
-        () ==> null,
+      return tuple(
+        new ASTLintError(
+          $this,
+          'Add a typehint to your dataprovider',
+          $node,
+          () ==> null,
+        ),
+        null,
       );
     }
 
-    echo Str\format(
-      "Method %s::%s is a dataprovider for [%s] and has a return type of %s\n",
-      $reflection_class->getName(),
-      $method_name,
-      Vec\map($data_providers[$method_name], $tuple ==> $tuple[0])
-        |> Str\join($$, ', '),
-      $return_type->__toString(),
-    );
+    if ($return_type is VectorTypeSpecifier) {
+      $inner_type = $return_type->getTypex();
+    } else if ($return_type is DictionaryTypeSpecifier) {
+      $inner_type = $return_type->getMembersx()->toVec()[1]->getItem();
+    } else {
+      return tuple(
+        new ASTLintError(
+          $this,
+          'Use vec<_> or dict<_, _> return types',
+          $node,
+          () ==> null,
+        ),
+        null,
+      );
+    }
 
-    return null;
+    if (!$inner_type is TupleTypeSpecifier) {
+      return tuple(
+        new ASTLintError(
+          $this,
+          'Use a tuple as the value type of your return type',
+          $node,
+          () ==> null,
+        ),
+        null,
+      );
+    }
+
+    return tuple(null, $inner_type);
   }
 
   <<__Memoize>>
@@ -72,6 +114,7 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     'data_providers' => this::TProviders,
     'reflection_class' => \ReflectionClass,
     'reflection_methods' => dict<string, \ReflectionMethod>,
+    'hhast_methods' => dict<string, FunctionDeclarationHeader>,
   ) {
     $script = $this->getAST();
     $namespaces = $script->getNamespaces()
@@ -118,10 +161,17 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       $meth ==> $meth->getName(),
     );
 
+    $hhast_methods = $context->getDescendantsOfType(
+      FunctionDeclarationHeader::class,
+    )
+      |> Dict\from_values($$, $meth ==> $meth->getNamex()->getText());
+
+
     return shape(
       'data_providers' => $data_providers,
       'reflection_class' => $reflection_class,
       'reflection_methods' => $reflection_methods,
+      'hhast_methods' => $hhast_methods,
     );
   }
 }
