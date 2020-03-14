@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 use type Facebook\HackTest\DataProvider;
-use namespace HH\Lib\{C, Dict, Str, Vec};
+use namespace HH\Lib\{C, Dict, Vec};
 
 final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
   const type TContext = ClassishDeclaration;
@@ -110,26 +110,14 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     'hhast_methods' => dict<string, FunctionDeclarationHeader>,
   ) {
     $script = $this->getAST();
-    $namespaces = $script->getNamespaces()
-      |> Vec\map($$, $ns ==> $ns['name'])
-      |> Vec\filter_nulls($$);
 
-    if (C\count($namespaces) > 1) {
-      \trigger_error(Str\format(
-        'Could not process "%s". I do not support multiple namespaces yet, got %d.',
-        $this->getFile()->getPath(),
-        C\count($namespaces),
-      ));
-    }
+    $classname = resolve_type(
+      $context->getName()->getText(),
+      $script,
+      $context->getName(),
+    )['name'];
 
-    if (C\is_empty($namespaces)) {
-      $reflection_class = new \ReflectionClass($context->getName()->getText());
-    } else {
-      $reflection_class = new \ReflectionClass(
-        $namespaces[0].'\\'.$context->getName()->getText(),
-      );
-    }
-
+    $reflection_class = new \ReflectionClass($classname);
     $reflection_methods = $reflection_class->getMethods();
 
     $data_providers = $reflection_methods
