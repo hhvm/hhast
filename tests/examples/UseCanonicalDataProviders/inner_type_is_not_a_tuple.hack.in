@@ -1,0 +1,15 @@
+use type Facebook\HackTest\{DataProvider, HackTest};
+use function Facebook\FBExpect\expect;
+
+final class ATestClass extends HackTest {
+  public function provideAdditions(): vec<array<mixed>> {
+    return vec[
+      varray[1, 1, 2],
+    ];
+  }
+
+  <<DataProvider('provideAdditions')>>
+  public function testAdder(int $a, int $b, int $expect): void {
+    expect($a + $b)->toEqual($expect);
+  }
+}
