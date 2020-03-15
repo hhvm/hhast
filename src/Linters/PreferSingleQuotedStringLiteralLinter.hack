@@ -25,6 +25,9 @@ final class PreferSingleQuotedStringLiteral extends AutoFixingASTLinter {
     this::TContext $_context,
     this::TNode $node,
   ): ?ASTLintError {
+    if ($this->isREString($node)) {
+      return null;
+    }
     $string_contents = $node->getText() |> Str\slice($$, 1, Str\length($$) - 2);
     if ($this->couldHaveBeenASingleQuotedString($string_contents)) {
       return new ASTLintError(
@@ -36,6 +39,12 @@ final class PreferSingleQuotedStringLiteral extends AutoFixingASTLinter {
     }
 
     return null;
+  }
+
+  private function isREString(this::TNode $node): bool {
+    $ast = $this->getAST();
+    return $ast->getParentOfDescendant($node)
+      |> $ast->getParentOfDescendant($$) is PrefixedStringExpression;
   }
 
   /**
