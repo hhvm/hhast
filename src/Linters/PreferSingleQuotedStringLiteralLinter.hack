@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Regex, Str};
 
-final class PreferSingleQuotedStringLiteral extends AutoFixingASTLinter {
+final class PreferSingleQuotedStringLiteralLinter extends AutoFixingASTLinter {
   const type TContext = Script;
   const type TNode = DoubleQuotedStringLiteralToken;
 

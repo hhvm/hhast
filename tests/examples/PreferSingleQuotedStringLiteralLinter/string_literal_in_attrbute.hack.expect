@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "\"herpDerp\"",
+        "blame_pretty": "\"herpDerp\"",
+        "description": "Prefer a string quoted string when possible"
+    }
+]
