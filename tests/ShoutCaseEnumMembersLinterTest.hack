@@ -18,7 +18,7 @@ final class ShoutCaseEnumMembersLinterTest extends TestCase {
 
   public function getCleanExamples(): vec<(string)> {
     return vec[
-      tuple("enum EmptyEnum: int {}"),
+      tuple('enum EmptyEnum: int {}'),
       tuple(<<<EXAMPLE
 enum FullShoutCase: int {
   WORD = 1;

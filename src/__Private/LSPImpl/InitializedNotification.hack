@@ -29,7 +29,7 @@ final class InitializedNotification
         shape(
           'registrations' => vec[
             shape(
-              'id' => "relint on watched file change",
+              'id' => 'relint on watched file change',
               'method' => LSPLib\DidChangeWatchedFilesNotification::METHOD,
               'registerOptions' => shape(
                 'watchers' => vec[

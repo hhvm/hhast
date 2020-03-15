@@ -307,12 +307,12 @@ abstract class CodegenBase {
         HHAST\XHPClassNameToken::class,
       ],
     ]
-      |> Dict\map_keys($$, $key ==> Str\strip_prefix($key, "Facebook\\HHAST\\"))
+      |> Dict\map_keys($$, $key ==> Str\strip_prefix($key, 'Facebook\\HHAST\\'))
       |> Dict\map(
         $$,
         $impls ==> Keyset\map(
           $impls,
-          $impl ==> Str\strip_prefix($impl, "Facebook\\HHAST\\"),
+          $impl ==> Str\strip_prefix($impl, 'Facebook\\HHAST\\'),
         ),
       );
 

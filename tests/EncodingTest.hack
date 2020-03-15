@@ -28,7 +28,7 @@ final class EncodingTest extends TestCase {
       |> $$[1];
     expect($second_line)->toNotBeSame(
       '日本語テキストとEnglish Text',
-      "Got UTF-8 string, expected EUC-JP",
+      'Got UTF-8 string, expected EUC-JP',
     );
 
     // Test the actual content

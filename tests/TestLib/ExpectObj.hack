@@ -75,7 +75,7 @@ final class ExpectObj<T> extends \Facebook\FBExpect\ExpectObj<T> {
       \stream_set_blocking(\STDERR, false);
 
       if (\posix_isatty(\STDIN) && \posix_isatty(\STDERR)) {
-        \fprintf(\STDERR, "Would you like to save this output? [y/N] ");
+        \fprintf(\STDERR, 'Would you like to save this output? [y/N] ');
         \stream_set_blocking(\STDIN, true);
         $response = Str\trim(\fgets(\STDIN));
         \stream_set_blocking(\STDIN, false);

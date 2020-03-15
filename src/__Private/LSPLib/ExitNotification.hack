@@ -28,13 +28,13 @@ abstract class ExitNotification<TState as ServerState>
     $old_status = $this->state->getStatus();
     $this->state->setStatus(ServerStatus::EXITING);
     if ($old_status === ServerStatus::SHUTTING_DOWN) {
-      await $this->exitImplAsync(0, "Requested by client");
+      await $this->exitImplAsync(0, 'Requested by client');
       return;
     }
 
     await $this->exitImplAsync(
       1,
-      "Exit requested by client when not already shutting down",
+      'Exit requested by client when not already shutting down',
     );
   }
 }

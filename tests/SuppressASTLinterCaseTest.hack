@@ -28,7 +28,7 @@ final class SuppressASTLinterCaseTest extends TestCase {
         'function CamelCasing() { return null; }',
       ),
       tuple(
-        "<?hh ".
+        '<?hh '.
         '/* HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions] */ '.
         'function CamelCasing() { return null; }',
       ),

@@ -50,7 +50,7 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     $end = LSPImpl\position_to_lsp($end);
 
     $source = \get_class($error->getLinter())
-      |> Str\split($$, "\\")
+      |> Str\split($$, '\\')
       |> C\lastx($$)
       |> Str\strip_suffix($$, 'Linter');
     return shape(
@@ -87,12 +87,12 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     if ($result === LintRunResult::NO_ERRORS) {
       invariant(
         C\is_empty($errors),
-        "Linter reports no errors, but we have errors",
+        'Linter reports no errors, but we have errors',
       );
     } else {
       invariant(
         !C\is_empty($errors),
-        "Linter reports errors, but we have none",
+        'Linter reports errors, but we have none',
       );
     }
 

@@ -16,9 +16,9 @@ trait AutoFixingLinterTrait<Terror as LintError>
   implements AutoFixingLinter<Terror> {
   protected function getTitleForFix(Terror $_error): string {
     return \get_class($this)
-      |> Str\split($$, "\\")
+      |> Str\split($$, '\\')
       |> C\lastx($$)
-      |> Str\strip_suffix($$, "Linter")
+      |> Str\strip_suffix($$, 'Linter')
       |> 'Fix '.$$.' Error';
   }
 

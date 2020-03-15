@@ -32,7 +32,7 @@ async function read_message_async(IO\ReadHandle $in): Awaitable<string> {
       |> Str\trim($$)
       |> Str\to_int($$);
   }
-  invariant($length !== null, "Expected a content-length header");
+  invariant($length !== null, 'Expected a content-length header');
 
   // read body
   $body = '';

@@ -47,7 +47,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     // evaluating an unused assignment.
     return new ASTLintError(
       $this,
-      "Variable is unused",
+      'Variable is unused',
       $node,
       () ==> $this->getFixedNode($node, $functionish),
     );
@@ -128,7 +128,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
 
     if ($body === null) {
       invariant_violation(
-        "Abstract methods cannot contain variable expressions",
+        'Abstract methods cannot contain variable expressions',
       );
     }
 
