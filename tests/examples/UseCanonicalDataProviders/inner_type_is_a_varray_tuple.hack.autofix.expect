@@ -1,0 +1,18 @@
+namespace Herp\Derp;
+
+use type Facebook\HackTest\{DataProvider, HackTest};
+use function Facebook\FBExpect\expect;
+
+final class ATestClass extends HackTest {
+  <<__Memoize>>
+  public function provideAdditions(): vec<(varray<int>)> {
+    return vec[
+      tuple(varray[1, 1, 2]),
+    ];
+  }
+
+  <<DataProvider('provideAdditions')>>
+  public function testAdder(varray<int> $ints): void {
+    expect($ints)->toEqual($ints);
+  }
+}
