@@ -9,12 +9,6 @@
 
 namespace Facebook\HHAST;
 
-/**
- * @reviewer I'd like to put this function on QualifiedName.
- *           Something like QualifiedName->isFullyQualified().
- *           The file is a SignedSource file.
- *           How would I do this?
- */
 function qualified_name_is_fully_qualified(QualifiedName $name): bool {
   return $name->getFirstTokenx()->getText() === '\\';
 }
