@@ -49,11 +49,6 @@ final class PreferSingleQuotedStringLiteralLinter extends AutoFixingASTLinter {
 
   /**
    * @see https://www.php.net/manual/en/language.types.string.php#language.types.string.syntax.double
-   *
-   * @license The inline definitions of the Regex patterns come from the PHP manual.
-   *          They fall under the license of the php.net website.
-   *          https://www.php.net/license/index.php
-   *          As of the time of writing, this is the https://creativecommons.org/licenses/by/3.0/legalcode
    */
   private function couldHaveBeenASingleQuotedString(string $contents): bool {
     if (Str\contains($contents, '\'') || Str\contains($contents, '"')) {
@@ -74,24 +69,9 @@ final class PreferSingleQuotedStringLiteralLinter extends AutoFixingASTLinter {
       return false;
     }
 
-    // the sequence of characters matching the regular expression is a character in octal notation,
-    // which silently overflows to fit in a byte (e.g. "\400" === "\000")
-    if (Regex\matches($contents, re"!\\\\[0-7]{1,3}!")) {
-      return false;
-    }
-
-    // the sequence of characters matching the regular expression is a character in hexadecimal notation
-    if (Regex\matches($contents, re"!\\\\x[0-9A-Fa-f]{1,2}!")) {
-      return false;
-    }
-
-    // the sequence of characters matching the regular expression is a Unicode codepoint,
-    // which will be output to the string as that codepoint's UTF-8 representation (added in PHP 7.0.0)
-    if (Regex\matches($contents, re"!\\\\u{[0-9A-Fa-f]+}!")) {
-      return false;
-    }
-
-    return true;
+    // "\<hexdigit>" "\x" and "\u{<digit>" are valid escape sequences.
+    // The regex overfits slightly.
+    return !Regex\matches($contents, re"!\\\\(u{)?[0-9a-fA-Fx]!");
   }
 
   private function toSingleQuotedString(
