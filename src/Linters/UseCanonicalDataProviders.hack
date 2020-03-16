@@ -42,13 +42,22 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
 
     $hhast_method = $hhast_methods[$method_name];
 
-    list($err, $_tuple_type) = $this->jugdeReturnTypes($hhast_method, $node);
+    list($err, $tuple_type) = $this->jugdeReturnTypes($hhast_method, $node);
 
     if ($err is nonnull) {
       return $err;
     }
 
-    // TODO: Write validation for assignability from dataprovider to test method here.
+    foreach ($data_providers[$method_name] as list($test, $_)) {
+      $err = $this->judgeTestTypes(
+        $node,
+        $tuple_type as nonnull,
+        $hhast_methods[$test],
+      );
+      if ($err is nonnull) {
+        return $err;
+      }
+    }
 
     return null;
   }
@@ -101,6 +110,70 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     }
 
     return tuple(null, $inner_type);
+  }
+
+  private function judgeTestTypes(
+    this::TNode $node,
+    TupleTypeSpecifier $data_provider_types,
+    FunctionDeclarationHeader $test,
+  ): ?ASTLintError {
+    $test_types_with_nulls = ($test->getParameterList()?->toVec() ?? vec[])
+      |> Vec\map($$, $li ==> $li->getItem()->getType());
+
+    $test_types = Vec\filter_nulls($test_types_with_nulls);
+
+    if (C\count($test_types_with_nulls) !== C\count($test_types)) {
+      return new ASTLintError(
+        $this,
+        'Add parameter typehints to your tests',
+        $node,
+        () ==> null,
+      );
+    }
+
+    $tuple_types = $data_provider_types->getTypes()->toVec()
+      |> Vec\map($$, $li ==> $li->getItem());
+
+    $tuple_arity = C\count($tuple_types);
+    $test_arity = C\count($test_types);
+
+    if ($tuple_arity !== $test_arity) {
+      return new ASTLintError(
+        $this,
+        Str\format(
+          'Potential typeerror: Arity of test is %d, but the DataProvider has an arity of %d',
+          $test_arity,
+          $tuple_arity,
+        ),
+        $node,
+        () ==> null,
+      );
+    }
+
+    // Vec\zip() ;)
+    for ($i = 0; $i < $tuple_arity; ++$i) {
+      $tuple_type = $tuple_types[$i];
+      $tuple_type_as_string = $tuple_type->getCode() |> Str\trim($$);
+      $test_type = $test_types[$i];
+      $test_type_as_string = $test_type->getCode() |> Str\trim($$);
+      // @TODO: Use something that actually inspects the types instead
+      if ($tuple_type_as_string !== $test_type_as_string) {
+        return new ASTLintError(
+          $this,
+          Str\format(
+            'Potential typeerror: Parameter %d on method %s has an %s typehint, but the DataProvider gives %s',
+            $i + 1,
+            $test->getName()->getText(),
+            $test_type_as_string,
+            $tuple_type_as_string,
+          ),
+          $node,
+          () ==> null,
+        );
+      }
+    }
+
+    return null;
   }
 
   <<__Memoize>>
