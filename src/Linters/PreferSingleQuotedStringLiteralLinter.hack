@@ -15,10 +15,8 @@ final class PreferSingleQuotedStringLiteralLinter extends AutoFixingASTLinter {
   const type TContext = Script;
   const type TNode = DoubleQuotedStringLiteralToken;
 
-  // hackfmt-ignore
-  const keyset<string> SINGLE_LETTER_ESCS = keyset[
-    '\\n', '\\r', '\\t', '\\v', '\\e', '\\f'
-  ];
+  const keyset<string> SINGLE_LETTER_ESCS =
+    keyset['\\n', '\\r', '\\t', '\\v', '\\e', '\\f'];
 
   <<__Override>>
   public function getLintErrorForNode(
@@ -32,7 +30,7 @@ final class PreferSingleQuotedStringLiteralLinter extends AutoFixingASTLinter {
     if ($this->couldHaveBeenASingleQuotedString($string_contents)) {
       return new ASTLintError(
         $this,
-        'Prefer a string quoted string when possible',
+        'Prefer a single-quoted string when possible',
         $node,
         () ==> $this->toSingleQuotedString($node),
       );

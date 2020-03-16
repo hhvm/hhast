@@ -2,16 +2,16 @@
     {
         "blame": "  \/\/ hackfmt-ignore\n  \/*1*\/\"Hello\"\/*2*\/",
         "blame_pretty": "  \/\/ hackfmt-ignore\n  \/*1*\/\"Hello\"\/*2*\/",
-        "description": "Prefer a string quoted string when possible"
+        "description": "Prefer a single-quoted string when possible"
     },
     {
         "blame": "\"there\" \/\/??\n",
         "blame_pretty": "\"there\" \/\/??\n",
-        "description": "Prefer a string quoted string when possible"
+        "description": "Prefer a single-quoted string when possible"
     },
     {
         "blame": "\"!\"",
         "blame_pretty": "\"!\"",
-        "description": "Prefer a string quoted string when possible"
+        "description": "Prefer a single-quoted string when possible"
     }
 ]
