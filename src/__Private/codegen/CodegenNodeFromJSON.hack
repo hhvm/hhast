@@ -64,13 +64,13 @@ final class CodegenNodeFromJSON extends CodegenBase {
               ->codegenHackBuilder()
               ->addAssignment(
                 '$kind',
-                '$json["kind"] as string',
+                '$json[\'kind\'] as string',
                 HackBuilderValues::literal(),
               )
-              ->startIfBlock('$kind === "missing"')
+              ->startIfBlock('$kind === \'missing\'')
               ->addReturn('null', HackBuilderValues::literal())
               ->endIfBlock()
-              ->startIfBlock('$kind === "token"')
+              ->startIfBlock('$kind === \'token\'')
               ->add('return ')
               ->addMultilineCall(
                 'HHAST\\Token::fromJSON',

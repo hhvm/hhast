@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aea5bf16886377a29ec0dc3f0abfb35a>>
+ * @generated SignedSource<<44b9ca6bc5000d0f58eae5d2ff825b8e>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -13,11 +13,11 @@ function node_from_json_unwrapped(
   string $source,
   string $type_hint,
 ): ?HHAST\Node {
-  $kind = $json["kind"] as string;
-  if ($kind === "missing") {
+  $kind = $json['kind'] as string;
+  if ($kind === 'missing') {
     return null;
   }
-  if ($kind === "token") {
+  if ($kind === 'token') {
     return HHAST\Token::fromJSON(
       /* HH_FIXME[4110] */ $json['token'],
       $file,
