@@ -1,0 +1,111 @@
+namespace Herp\Derp;
+
+/*HHAST_IGNORE_ALL[CamelCasedMethodsUnderscoredFunctions]*/
+
+use type Facebook\HackTest\{DataProvider, HackTest};
+use function Facebook\FBExpect\expect;
+
+final class ATestClass extends HackTest {
+  public function arg_1_mixed(): vec<(mixed)> { invariant_violation('no typechecker'); }
+  public function arg_1_string(): vec<(string)> { invariant_violation('no typechecker'); }
+  public function arg_1_int(): vec<(int)> { invariant_violation('no typechecker'); }
+  public function arg_1_arraykey(): vec<(arraykey)> { invariant_violation('no typechecker'); }
+  /** I can never be blamed for anything */
+  public function arg_1_nothing(): vec<(nothing)> { invariant_violation('no typechecker'); }
+  public function arg_1_iface(): vec<(IFace)> { invariant_violation('no typechecker'); }
+  public function arg_1_generic_mixed(): vec<(Generic<mixed>)> { invariant_violation('no typechecker'); }
+  public function arg_1_generic_t<T>(): vec<(Generic<T>)> { invariant_violation('no typechecker'); }
+  public function arg_1_generic_nothing(): vec<(Generic<nothing>)> { invariant_violation('no typechecker'); }
+  public function arg_1_generics_mixed_mixed(): vec<(Generics<mixed, mixed>)> { invariant_violation('no typechecker'); }
+  public function arg_1_generics_t1_t2<T1, T2>(): vec<(Generics<T1, T2>)> { invariant_violation('no typechecker'); }
+  public function arg_1_empty_shape(): vec<(shape())> { invariant_violation('no typechecker'); }
+  public function arg_1_shape_key_herp_value_string(): vec<(shape('herp' => string))> { invariant_violation('no typechecker'); }
+  public function arg_1_shape_key_herp_value_string_key_derp_value_bool(): vec<(shape('herp' => string, 'derp' => bool))> { invariant_violation('no typechecker'); }
+  public function arg_1_string_arg_2_string(): vec<(string, string)> { invariant_violation('no typechecker'); }
+  public function arg_1_t_arg_2_function_t_bool<T>(): vec<(T, (function(T): bool))> { invariant_violation('no typechecker'); }
+  public function arg_1_mixed_arg_2_function_nothing_bool<T>(): vec<(mixed, (function(nothing): bool))> { invariant_violation('no typechecker'); }
+
+  <<DataProvider('arg_1_mixed')>> // equal
+  public function test_mixed_1(mixed $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_mixed')>> // no idea of dynamic
+  public function test_dynamic_1(dynamic $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_string')>> // equal
+  public function test_string_1(string $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_string')>> // no subtyping
+  public function test_mixed_2(mixed $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_int')>> // int !== string
+  public function test_arraykey_1(string $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_arraykey')>> // arraykey !== int
+  public function test_string_2(int $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_nothing')>> // nothing can't cause a type error
+  public function test_int_1(int $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_nothing')>> // both nothing
+  public function test_nothing_1(nothing $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_nothing')>> // inner is nothing
+  public function test_vec_of_int(vec<int> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_iface')>> // equal
+  public function test_int_iface(IFace $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_iface')>> // no name resolution
+  public function test_fq_iface(\Herp\Derp\IFace $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generic_mixed')>> // missing generic
+  /*HH_IGNORE_ERROR[4101] Missing generic*/
+  public function test_generic_missing_t(Generic $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generic_t')>> // ignored generic
+  public function test_generic_mixed_1(Generic<mixed> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generic_t')>> // ignored generic
+  public function test_generic(Generic<mixed> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generic_nothing')>> // inner is nothing
+  public function test_generic_mixed_2(Generic<mixed> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generic_nothing')>> // equal
+  public function test_generic_nothing_1(Generic<nothing> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generic_nothing')>> // not a Generic
+  public function test_string_3(string $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generics_mixed_mixed')>> // equal
+  public function test_generics_mixed_mixed(Generics<mixed, mixed> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generics_mixed_mixed')>> // ignored generics
+  public function test_generic_t1_t2_1<T1, T2>(Generics<T1, T2> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generics_mixed_mixed')>> // ignored generics
+  public function test_generic_ta_tb_1<Ta, Tb>(Generics<Ta, Tb> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generics_mixed_mixed')>> // not a Generics
+  public function test_mixed_3<T1, T2>(mixed $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generics_t1_t2')>> // ignored generics
+  public function test_generic_t1_t2_2<T1, T2>(Generics<T1, T2> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generics_t1_t2')>> // ignored generics
+  public function test_generic_ta_tb_2<Ta, Tb>(Generics<Ta, Tb> $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generics_t1_t2')>> // No subtyping
+  public function test_mixed_4<Ta, Tb>(mixed $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_empty_shape')>> // equal
+  public function test_empty_shape_1(shape() $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_empty_shape')>> // no idea of `...`
+  public function test_the_root_shape(shape(...) $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_shape_key_herp_value_string')>> // equal
+  public function test_the_shape_key_herp_value_string(shape('herp' => string) $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_empty_shape')>> // wrong key
+  public function test_the_shape_key_nope_value_string(shape('nope' => string, ...) $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_shape_key_herp_value_string_key_derp_value_bool')>> // equal
+  public function test_the_shape_key_herp_value_string_key_derp_value_bool(shape('herp' => string, 'derp' => bool) $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_shape_key_herp_value_string_key_derp_value_bool')>> // no idea of order
+  public function test_the_shape_key_derp_value_bool_key_herp_value_string(shape('derp' => bool, 'herp' => string) $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_string_arg_2_string')>> // equals
+  public function test_string_string(string $_, string $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_string_arg_2_string')>> // ignored generic
+  public function test_string_t<T>(string $_, T $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_string_arg_2_string')>> // not enough args
+  public function test_string_4<T>(string $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_t_arg_2_function_t_bool')>> // equal
+  public function test_t_function_t_bool<T>(T $_, (function(T): bool) $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_t_arg_2_function_t_bool')>> // ignored generics
+  public function test_tk_function_tk_bool<Tk>(Tk $_, (function(Tk): bool) $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_t_arg_2_function_t_bool')>> // ignored generics
+  public function test_t_function_mixed_bool<T>(T $_, (function(mixed): bool) $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_t_arg_2_function_t_bool')>> // wrong order, but ignored generic ;(
+  public function test_function_tk_bool_tk<Tk>((function(Tk): bool) $_, Tk $_,): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_t_arg_2_function_t_bool')>> // wrong order
+  public function test_function_mixed_bool_mixed((function(mixed): bool) $_, mixed $_,): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_mixed_arg_2_function_nothing_bool')>> // equal
+  public function test_mixed_function_nothing_bool(mixed $_, (function(nothing): bool) $_): void { invariant_violation('no typechecker'); }
+}
+
+interface IFace extends Generic<mixed>{}
+interface Generic<+T> {}
+interface Generics<T1, T2> {}

@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Dict, Str, Vec};
+use namespace HH\Lib\{C, Dict, Math, Str, Vec};
 
 final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
   const type TContext = ClassishDeclaration;
@@ -18,6 +18,7 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
   const type TProviders = dict<string, vec<(string, string)>>;
 
   const string T_DATAPROVIDER = 'Facebook\\HackTest\\DataProvider';
+  const string T_NOTHING = 'nothing';
 
   <<__Override>>
   public function getLintErrorForNode(
@@ -141,7 +142,7 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       return new ASTLintError(
         $this,
         Str\format(
-          'Potential typeerror: Arity of test is %d, but the DataProvider has an arity of %d',
+          'Typeerror: Arity of test is %d, but the DataProvider has an arity of %d',
           $test_arity,
           $tuple_arity,
         ),
@@ -153,19 +154,16 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     // Vec\zip() ;)
     for ($i = 0; $i < $tuple_arity; ++$i) {
       $tuple_type = $tuple_types[$i];
-      $tuple_type_as_string = $tuple_type->getCode() |> Str\trim($$);
       $test_type = $test_types[$i];
-      $test_type_as_string = $test_type->getCode() |> Str\trim($$);
-      // @TODO: Use something that actually inspects the types instead
-      if ($tuple_type_as_string !== $test_type_as_string) {
+      if (!static::typesAreCompatible($tuple_type, $test_type)) {
         return new ASTLintError(
           $this,
           Str\format(
             'Potential typeerror: Parameter %d on method %s has an %s typehint, but the DataProvider gives %s',
             $i + 1,
             $test->getName()->getText(),
-            $test_type_as_string,
-            $tuple_type_as_string,
+            static::typeToString($test_type),
+            static::typeToString($tuple_type),
           ),
           $node,
           () ==> null,
@@ -260,5 +258,50 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       ->getFirstTokenx()
       ->getText()
       |> Str\trim($$, '"\'');
+  }
+
+  /**
+   * This function is extremely pedantic about what it means for types to be equal.
+   * It works well for simple types (scalars, interfaces, classes and Traversables of the afore mentioned).
+   * It does however fail hard on shapes (since their key order is not part of the type).
+   * This is mostly a best effort and tradeoff with performance.
+   * This function may need to be improved if there are too many false negatives.
+   */
+  private static function typesAreCompatible(
+    ITypeSpecifier $from,
+    ITypeSpecifier $to,
+  ): bool {
+    $from = static::shrinkType($from);
+    $to = static::shrinkType($to);
+
+    $count = Math\minva(C\count($from), C\count($to));
+
+    for ($i = 0; $i < $count; ++$i) {
+      $from_text = $from[$i];
+      if ($from_text !== self::T_NOTHING && !static::isGeneric($from_text)) {
+        $to_text = $to[$i];
+        if (!static::isGeneric($to_text)) {
+          if ($to_text !== $from_text) {
+            return false;
+          }
+        }
+      }
+    }
+
+    return true;
+  }
+
+  private static function shrinkType(ITypeSpecifier $type): vec<string> {
+    return Vec\filter($type->traverse(), $inner ==> $inner is Token)
+      |> Vec\map($$, $token ==> $token as Token->getText());
+  }
+
+  private static function typeToString(ITypeSpecifier $type): string {
+    return Str\join(static::shrinkType($type), '');
+  }
+
+  private static function isGeneric(string $string): bool {
+    return (Str\starts_with($string, 'T') || Str\starts_with($string, '?T')) &&
+      \ctype_alnum($string);
   }
 }
