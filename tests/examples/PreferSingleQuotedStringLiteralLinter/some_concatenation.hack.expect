@@ -1,7 +1,7 @@
 [
     {
-        "blame": "  \/\/ hackfmt-ignore\n  \/*1*\/\"Hello\"\/*2*\/",
-        "blame_pretty": "  \/\/ hackfmt-ignore\n  \/*1*\/\"Hello\"\/*2*\/",
+        "blame": "  \/*1*\/\"Hello\"\/*2*\/",
+        "blame_pretty": "  \/*1*\/\"Hello\"\/*2*\/",
         "description": "Prefer a single-quoted string when possible"
     },
     {
