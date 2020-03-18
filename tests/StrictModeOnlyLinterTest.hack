@@ -24,7 +24,7 @@ final class StrictModeOnlyLinterTest extends TestCase {
       tuple("<?hh\n"),
       tuple("<?hh\n/* foo */\n\nfunction bar() {}"),
       tuple("<?hh\n// foo;"),
-      tuple("<?php // hello, world;"),
+      tuple('<?php // hello, world;'),
     ];
   }
 }

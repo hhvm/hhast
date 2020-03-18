@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5137f6588cf4edd98448bee483c82980>>
+ * @generated SignedSource<<8bdc7e4d11b9430e0cf89c1a5ef6cd29>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -36,8 +36,8 @@ function trivia_from_json(
       return new HHAST\WhiteSpace($trivia_text, $source_ref);
     default:
       throw new HHAST\UnsupportedASTNodeError(
-        $source_ref["file"],
-        $source_ref["offset"],
+        $source_ref['file'],
+        $source_ref['offset'],
         $json['kind'] as string,
       );
   }

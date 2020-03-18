@@ -41,7 +41,7 @@ final class NoStringInterpolationLinter extends AutoFixingASTLinter {
 
   public function getFixedNode(LiteralExpression $root_expr): ?IExpression {
     $expr = $root_expr->getExpression();
-    invariant($expr is NodeList<_>, "Expected list, got %s", \get_class($expr));
+    invariant($expr is NodeList<_>, 'Expected list, got %s', \get_class($expr));
 
     $children = vec($expr->getChildren());
     $child_count = C\count($children);

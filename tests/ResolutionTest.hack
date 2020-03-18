@@ -36,17 +36,17 @@ final class ResolutionTest extends TestCase {
     $namespace_names = $ast->getDescendantsOfType(NamespaceDeclaration::class)
       |> Vec\map($$, $namespace ==> $namespace->getQualifiedNameAsString());
     expect($namespace_names)->toBeSame(vec[
-      "MyNS\\SubNS",
+      'MyNS\\SubNS',
     ]);
     $class_names = $ast->getDescendantsOfType(ClassishDeclaration::class)
       |> Vec\map($$, $class ==> {
         return Resolution\get_current_namespace($ast, $class).
-          "\\".
+          '\\'.
           ($class->getName() as Token)->getText();
       });
     expect($class_names)->toBeSame(vec[
-      "MyNS\\SubNS\\Foo",
-      "MyNS\\SubNS\\Bar",
+      'MyNS\\SubNS\\Foo',
+      'MyNS\\SubNS\\Bar',
     ]);
   }
 
@@ -161,7 +161,7 @@ final class ResolutionTest extends TestCase {
     list($root, $node) = await self::getRootAndNodeAsync($code);
     expect(Resolution\get_current_uses($root, $node))->toBeSame(
       $expected,
-      "Source: %s",
+      'Source: %s',
       $code,
     );
   }

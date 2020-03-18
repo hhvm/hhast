@@ -65,7 +65,7 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
           invariant(
             !($command && $edit),
             "Can't currently support both a command and an edit for editor ".
-            "compatibility",
+            'compatibility',
           );
 
           // If we're on a full-featured editor, return the code action
@@ -85,7 +85,7 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
           if ($command) {
             return $command;
           }
-          invariant($edit !== null, "Need a command or an edit");
+          invariant($edit !== null, 'Need a command or an edit');
           return shape(
             'title' => $ca['title'],
             'command' => ExecuteCommandCommand::HHAST_ApplyWorkspaceEdit,
@@ -104,7 +104,7 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
     $pos = position_from_lsp($diagnostic['range']['start']);
     foreach ($errors as $error) {
       $code = \get_class($error->getLinter())
-        |> Str\split($$, "\\")
+        |> Str\split($$, '\\')
         |> C\lastx($$)
         |> Str\strip_suffix($$, 'Linter');
       if ($code !== ($diagnostic['code'] ?? null)) {

@@ -20,7 +20,7 @@ final class EncodingTest extends TestCase {
     $ast = await from_file_async(
       File::fromPath(__DIR__.'/examples/eucjp2sjis.php'),
     );
-    $str = $ast->getDescendantsOfType(DoubleQuotedStringLiteralToken::class)[0];
+    $str = $ast->getDescendantsOfType(SingleQuotedStringLiteralToken::class)[0];
 
     // Make sure that we get the same binary string back, not converted...
     $second_line = $str->getText()
@@ -28,7 +28,7 @@ final class EncodingTest extends TestCase {
       |> $$[1];
     expect($second_line)->toNotBeSame(
       '日本語テキストとEnglish Text',
-      "Got UTF-8 string, expected EUC-JP",
+      'Got UTF-8 string, expected EUC-JP',
     );
 
     // Test the actual content

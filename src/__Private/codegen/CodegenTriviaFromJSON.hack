@@ -54,8 +54,8 @@ final class CodegenTriviaFromJSON extends CodegenBase {
               ->addMultilineCall(
                 'throw new HHAST\\UnsupportedASTNodeError',
                 vec[
-                  '$source_ref["file"]',
-                  '$source_ref["offset"]',
+                  '$source_ref[\'file\']',
+                  '$source_ref[\'offset\']',
                   '$json[\'kind\'] as string',
                 ],
               )

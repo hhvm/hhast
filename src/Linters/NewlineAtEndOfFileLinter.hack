@@ -38,7 +38,7 @@ final class NewlineAtEndOfFileLinter
     return (
       new BuiltLintError(
         $this,
-        "Files should end with a single trailing newline",
+        'Files should end with a single trailing newline',
       )
     )
       ->withPosition($lines, 0)
@@ -49,12 +49,12 @@ final class NewlineAtEndOfFileLinter
   protected function getTitleForFix(LintError $_): string {
     $contents = $this->getFile()->getContents();
     if (Str\ends_with($contents, "\n")) {
-      return "Remove extra trailing whitespace";
+      return 'Remove extra trailing whitespace';
     }
     if (Str\trim_right($contents) === $contents) {
-      return "Add trailing newline";
+      return 'Add trailing newline';
     }
-    return "Replace trailng whitespace with newline";
+    return 'Replace trailng whitespace with newline';
   }
 
   public function getFixedFile(Traversable<LintError> $_): File {

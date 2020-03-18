@@ -513,7 +513,7 @@ final class HSLMigration extends BaseMigration {
     vec<INamespaceUseDeclaration> $declarations,
   ): (vec<INamespaceUseDeclaration>, vec<HslNamespace>) {
 
-    $search = vec["HH", "Lib"];
+    $search = vec['HH', 'Lib'];
     $nodes = vec[];
     $suffixes = vec[];
     foreach ($declarations as $decl) {
@@ -606,7 +606,7 @@ final class HSLMigration extends BaseMigration {
   ): INamespaceUseDeclaration {
     if (C\count($suffixes) > 1) {
       // make a grouped use declaration
-      $ns = "{".Str\join($suffixes, ', ')."}";
+      $ns = '{'.Str\join($suffixes, ', ').'}';
     } else {
       // single namespace use declaration
       $ns = C\firstx($suffixes);

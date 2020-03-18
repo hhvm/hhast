@@ -45,7 +45,7 @@ final class ParserCache {
     $data = $cache['ast'];
     invariant(
       $data['version'] === \Facebook\HHAST\SCHEMA_VERSION,
-      "Expected schema version mismatch to be detected by hash - %s vs %s",
+      'Expected schema version mismatch to be detected by hash - %s vs %s',
       \Facebook\HHAST\SCHEMA_VERSION,
       $data['version'] ?? '<none>',
     );

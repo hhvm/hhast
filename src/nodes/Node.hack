@@ -243,7 +243,7 @@ abstract class Node implements IMemoizeParam {
       return vec[$this];
     }
 
-    invariant($this->isAncestorOf($node), "Node is not a descendant");
+    invariant($this->isAncestorOf($node), 'Node is not a descendant');
     foreach ($this->getChildren() as $child) {
       if ($child === $node) {
         return vec[$this, $node];
@@ -270,8 +270,8 @@ abstract class Node implements IMemoizeParam {
   }
 
   final public function getParentOfDescendant(Node $node): Node {
-    invariant($node !== $this, "Asked to find parent of self");
-    invariant($this->isAncestorOf($node), "Node is not a descendant");
+    invariant($node !== $this, 'Asked to find parent of self');
+    invariant($this->isAncestorOf($node), 'Node is not a descendant');
     foreach ($this->getChildren() as $child) {
       if ($child === $node) {
         return $this;

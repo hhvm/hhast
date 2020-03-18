@@ -63,7 +63,7 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
 
     return new ASTLintError(
       $this,
-      "Parameter is unused",
+      'Parameter is unused',
       $node,
       () ==> $this->getFixedNode($node),
     );

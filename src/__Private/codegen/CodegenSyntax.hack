@@ -675,7 +675,7 @@ final class CodegenSyntax extends CodegenBase {
     foreach ($wrappable_to_marker as $w => $m) {
       $impls = $this->getMarkerInterfacesByInterface()[Str\strip_prefix(
         $w,
-        "Facebook\\HHAST\\",
+        'Facebook\\HHAST\\',
       )];
       foreach ($impls as $impl) {
         $impls_to_interfaces[$impl] = Keyset\union(
@@ -698,7 +698,7 @@ final class CodegenSyntax extends CodegenBase {
     ]
       |> Keyset\map(
         $$,
-        $class ==> Str\strip_prefix($class, "Facebook\\HHAST\\"),
+        $class ==> Str\strip_prefix($class, 'Facebook\\HHAST\\'),
       );
   }
 

@@ -26,7 +26,7 @@ final class UseStatementWithAsLinter extends ASTLinter {
     return new ASTLintError(
       $this,
       "Don't use `as` in `use` statements: it makes code less readable and ".
-      "less greppable.",
+      'less greppable.',
       $node,
     );
   }

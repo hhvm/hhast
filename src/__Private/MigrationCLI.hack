@@ -69,7 +69,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
             ));
           }
         },
-        "Run the migration with the specified fully-qualified classname",
+        'Run the migration with the specified fully-qualified classname',
         '--migration-classname',
       ),
       CLIOptions\flag(
@@ -83,7 +83,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           throw new ExitException(
             1,
-            "Use HHAST 4.11.* or below for this migration",
+            'Use HHAST 4.11.* or below for this migration',
           );
         },
         'no longer supported',
@@ -122,7 +122,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           throw new ExitException(
             1,
-            "Use HHAST 4.8.* or below for this migration",
+            'Use HHAST 4.8.* or below for this migration',
           );
         },
         'no longer supported',
@@ -132,7 +132,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           throw new ExitException(
             1,
-            "Use HHAST 4.8.* or below for this migration",
+            'Use HHAST 4.8.* or below for this migration',
           );
         },
         'Apply all migrations for moving from 3.23 to 3.24',
@@ -142,7 +142,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           throw new ExitException(
             1,
-            "Use HHAST 4.2.* or below for this migration",
+            'Use HHAST 4.2.* or below for this migration',
           );
         },
         'no longer supported',
@@ -152,7 +152,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           throw new ExitException(
             1,
-            "Use HHAST 4.2.* or below for this migration",
+            'Use HHAST 4.2.* or below for this migration',
           );
         },
         'no longer supported',
@@ -162,7 +162,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           throw new ExitException(
             1,
-            "Use HHAST 4.2.* or below for this migration",
+            'Use HHAST 4.2.* or below for this migration',
           );
         },
         'no longer supported',
@@ -186,7 +186,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           throw new ExitException(
             1,
-            "Use HHAST 4.11.* or below for this migration",
+            'Use HHAST 4.11.* or below for this migration',
           );
         },
         'no longer supported',
@@ -196,7 +196,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         () ==> {
           throw new ExitException(
             1,
-            "Use HHAST 4.11.* or below for this migration",
+            'Use HHAST 4.11.* or below for this migration',
           );
         },
         'no longer supported',
@@ -228,14 +228,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
-          throw new ExitException(1, "Use HHAST 4.5.2 for this migration");
+          throw new ExitException(1, 'Use HHAST 4.5.2 for this migration');
         },
         'no longer supported',
         '--await-precedence',
       ),
       CLIOptions\flag(
         () ==> {
-          throw new ExitException(1, "Use HHAST 4.5.2 for this migration");
+          throw new ExitException(1, 'Use HHAST 4.5.2 for this migration');
         },
         'no longer supported',
         '--hhvm-4.5-to-4.6',
@@ -500,7 +500,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         if ($all_config_options[$option] !== $value) {
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] same as above */
           await $err->writeAsync(Str\format(
-            "Migration %s requires .hhconfig option %s=%s which conflicts ".
+            'Migration %s requires .hhconfig option %s=%s which conflicts '.
             "with another migration.\n",
             $migration,
             $option,

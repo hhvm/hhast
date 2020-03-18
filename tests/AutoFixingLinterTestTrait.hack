@@ -42,6 +42,6 @@ trait AutoFixingLinterTestTrait<Terror as LintError> {
     $linter = $this->getLinter(__DIR__.'/examples/'.$example.'.autofix.expect');
     $errors = \HH\Asio\join($linter->getLintErrorsAsync());
     $re_fixed = $linter->getFixedFile($errors)->getContents();
-    expect($re_fixed)->toBeSame($code, "Not all fixable errors were fixed");
+    expect($re_fixed)->toBeSame($code, 'Not all fixable errors were fixed');
   }
 }
