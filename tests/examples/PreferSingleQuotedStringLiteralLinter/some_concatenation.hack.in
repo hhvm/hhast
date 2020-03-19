@@ -1,0 +1,5 @@
+<<__EntryPoint>>
+function main(): void {
+  /*1*/"Hello"/*2*/."there" //??
+  ."!";
+}

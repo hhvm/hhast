@@ -42,7 +42,7 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
     }
     return new ASTLintError(
       $this,
-      "Leading backslashes on `use` statements do nothing",
+      'Leading backslashes on `use` statements do nothing',
       $node,
       () ==> $this->getFixedNode($node),
     );
@@ -78,7 +78,7 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
 
     invariant(
       $node is NamespaceGroupUseDeclaration,
-      "Got an unexpected INamespaceUseDeclaration subclass",
+      'Got an unexpected INamespaceUseDeclaration subclass',
     );
 
     $first = C\firstx($node->getPrefix()->getParts()->toVec());

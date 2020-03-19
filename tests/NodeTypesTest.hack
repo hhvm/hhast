@@ -39,7 +39,7 @@ final class NodeTypesTest extends TestCase {
   }
 
   public async function testNoreturnFunctionTypeIsWrapped(): Awaitable<void> {
-    $code = "<?hh function foo(): noreturn {}";
+    $code = '<?hh function foo(): noreturn {}';
     $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
     list($_markup, $func) = $ast->getDeclarations()->getChildren();
     $func = expect($func)->toBeInstanceOf(FunctionDeclaration::class);
@@ -90,7 +90,7 @@ final class NodeTypesTest extends TestCase {
       $qualified_name->getDescendantsOfType(Token::class)
         |> Vec\map($$, $t ==> $t->getText())
         |> Str\join($$, ''),
-    )->toBeSame("SOME\\NAMESPACED\\CONST");
+    )->toBeSame('SOME\\NAMESPACED\\CONST');
   }
 
   public async function testNameTokenWrappedInListOfItemsOfExpressions(
@@ -120,11 +120,11 @@ final class NodeTypesTest extends TestCase {
       $c2->getDescendantsOfType(Token::class)
         |> Vec\map($$, $t ==> $t->getText())
         |> Str\join($$, ''),
-    )->toBeSame("SOME\\NAMESPACED\\CONST");
+    )->toBeSame('SOME\\NAMESPACED\\CONST');
   }
 
   public async function testXHPClassNameAsNameExpression(): Awaitable<void> {
-    $code = "<?hh class :foo { children (pcdata | :bar+); }";
+    $code = '<?hh class :foo { children (pcdata | :bar+); }';
     $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
     list($_markup, $x) = $ast->getDeclarations()->getChildren();
     $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
@@ -145,7 +145,7 @@ final class NodeTypesTest extends TestCase {
   }
 
   public async function testXHPChildListAsExpression(): Awaitable<void> {
-    $code = "<?hh class :foo { children (pcdata)*; }";
+    $code = '<?hh class :foo { children (pcdata)*; }';
     $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
     list($_markup, $x) = $ast->getDeclarations()->getChildren();
     $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);

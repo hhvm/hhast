@@ -17,7 +17,7 @@ final class AddXHPChildrenDeclarationMethodMigration
     if (
       Str\contains(
         $in->getCode(),
-        "use namespace Facebook\\XHP\\ChildValidation as XHPChild;",
+        'use namespace Facebook\\XHP\\ChildValidation as XHPChild;',
       )
     ) {
       return false;
@@ -279,7 +279,7 @@ final class AddXHPChildrenDeclarationMethodMigration
   ): FunctionCallExpression {
     if ($in is XHPChildrenParenthesizedList) {
       $count = $in->getXhpChildren()->getCount();
-      invariant($count >= 1, "Got empty XHP children parenthesized list");
+      invariant($count >= 1, 'Got empty XHP children parenthesized list');
       if ($count === 1) {
         return self::convertChildrenExpression(
           C\onlyx($in->getXhpChildren()->getChildrenOfItems()),
@@ -371,13 +371,13 @@ final class AddXHPChildrenDeclarationMethodMigration
       }
 
       invariant_violation(
-        "Unhandled XHP child name type: %s",
+        'Unhandled XHP child name type: %s',
         \get_class($name),
       );
     }
 
     invariant_violation(
-      "Unhandled XHP children expression: %s (%s)",
+      'Unhandled XHP children expression: %s (%s)',
       \get_class($in),
       $in->getCode(),
     );

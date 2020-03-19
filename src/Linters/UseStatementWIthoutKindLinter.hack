@@ -26,7 +26,7 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
 
     return new ASTLintError(
       $this,
-      "Use `use type` or `use namespace`",
+      'Use `use type` or `use namespace`',
       $node,
       () ==> $this->getFixedNode($node),
     );
@@ -62,7 +62,7 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
         }
         invariant(
           $name is NameToken,
-          "Expected a Qualified or NameToken, got %s",
+          'Expected a Qualified or NameToken, got %s',
           \get_class($name),
         );
         return $name->getText();

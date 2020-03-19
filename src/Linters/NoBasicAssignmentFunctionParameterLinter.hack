@@ -39,7 +39,7 @@ class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
 
     return new ASTLintError(
       $this,
-      "Basic assignment is not allowed in function parameters because it is often".
+      'Basic assignment is not allowed in function parameters because it is often'.
       "\n\t1) unexpected that it sets a local variable in the containing scope".
       "\n\t2) wrongly assumed that the variables are named parameters",
       $node,

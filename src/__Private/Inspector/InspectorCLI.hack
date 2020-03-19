@@ -116,7 +116,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   }
 
   private static function getHTMLHeader(): string {
-    return "<html><head><style>".
+    return '<html><head><style>'.
       \file_get_contents(__DIR__.'/syntax.css').
       \file_get_contents(__DIR__.'/inspector.css').
       '</style></head><body>'.
@@ -139,7 +139,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
       list($node, $field) = $entry;
       return Str\format(
         '%s.%d.%s',
-        \get_class($node) |> Str\split($$, "\\") |> C\lastx($$),
+        \get_class($node) |> Str\split($$, '\\') |> C\lastx($$),
         $node->getUniqueID(),
         (string)$field,
       );
@@ -162,7 +162,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
     //   - (class, field)
     $trace = Vec\map($trace, $entry ==> {
       list($node, $field) = $entry;
-      $class = \get_class($node) |> Str\split($$, "\\") |> C\lastx($$);
+      $class = \get_class($node) |> Str\split($$, '\\') |> C\lastx($$);
       return Str\format(
         'hs-%s hs-%s-%s hs-id-%d hs-id-%d-%s',
         $class,
@@ -175,7 +175,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
     });
     $trace[] = Str\format(
       'hs-%s hs-id-%d',
-      \get_class($innermost) |> Str\split($$, "\\") |> C\lastx($$),
+      \get_class($innermost) |> Str\split($$, '\\') |> C\lastx($$),
       $innermost->getUniqueID(),
     );
     return Str\join($trace, ' ');
@@ -185,7 +185,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
     HHAST\Node $node,
     vec<(HHAST\Node, arraykey)> $trace = vec[],
   ): string {
-    $class = \get_class($node) |> Str\split($$, "\\") |> C\lastx($$);
+    $class = \get_class($node) |> Str\split($$, '\\') |> C\lastx($$);
     if ($node is HHAST\Trivia) {
       return Str\format(
         '<span id="hs-id-%d" data-kind="%s" data-trace="%s" class="%s">%s</span>',

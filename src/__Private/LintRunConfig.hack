@@ -86,6 +86,7 @@ final class LintRunConfig {
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
     HHAST\DontUseAsioJoinLinter::class,
+    HHAST\PreferSingleQuotedStringLiteralLinter::class,
     HHAST\NoStringInterpolationLinter::class,
     HHAST\ShoutCaseEnumMembersLinter::class,
     HHAST\StrictModeOnlyLinter::class,
@@ -241,9 +242,9 @@ final class LintRunConfig {
   }
 
   private function getFullyQualifiedLinterName(string $name): string {
-    if (Str\starts_with($name, "Facebook\\HHAST\\Linters")) {
-      $name = "Facebook\\HHAST".
-        Str\strip_prefix($name, "Facebook\\HHAST\\Linters");
+    if (Str\starts_with($name, 'Facebook\\HHAST\\Linters')) {
+      $name = 'Facebook\\HHAST'.
+        Str\strip_prefix($name, 'Facebook\\HHAST\\Linters');
     }
     $aliases = $this->configFile['namespaceAliases'] ?? dict[];
     if (C\is_empty($aliases)) {

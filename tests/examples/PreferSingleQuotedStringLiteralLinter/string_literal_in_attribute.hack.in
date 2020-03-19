@@ -1,0 +1,6 @@
+class TestClass {
+  <<DataProvider("herpDerp")>>
+  public function testSomething(): void {
+
+  }
+}

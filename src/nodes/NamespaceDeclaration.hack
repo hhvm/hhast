@@ -25,6 +25,6 @@ final class NamespaceDeclaration extends NamespaceDeclarationGeneratedBase {
 
     return $name->getDescendantsOfType(NameToken::class)
       |> Vec\map($$, $t ==> $t->getText())
-      |> Str\join($$, "\\");
+      |> Str\join($$, '\\');
   }
 }

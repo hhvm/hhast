@@ -108,7 +108,7 @@ final abstract class XHProf {
       $out .= Str\format(
         "node_%d [ label=\"%s\nInclusive: %.5fs\nExclusive: %.5fs\" penwidth=%.1f %s]\n",
         $this_id,
-        Str\replace($name, "\\", "\\\\"),
+        Str\replace($name, '\\', '\\\\'),
         $data['inclusive'] / $scale,
         $data['exclusive'] / $scale,
         Math\maxva(1.0, 5 * $data['inclusive'] / $max),
