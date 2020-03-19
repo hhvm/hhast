@@ -2,61 +2,61 @@
     {
         "blame": "  public function arg_1_mixed(): vec<(mixed)> ",
         "blame_pretty": "  public function arg_1_mixed(): vec<(mixed)> ",
-        "description": "Potential typeerror: Parameter 1 on method test_dynamic_1 has an dynamic typehint, but the DataProvider gives mixed"
+        "description": "Potential type error: Parameter 1 on method test_dynamic_1 is of type dynamic, but the DataProvider provides mixed"
     },
     {
         "blame": "  public function arg_1_string(): vec<(string)> ",
         "blame_pretty": "  public function arg_1_string(): vec<(string)> ",
-        "description": "Potential typeerror: Parameter 1 on method test_mixed_2 has an mixed typehint, but the DataProvider gives string"
+        "description": "Potential type error: Parameter 1 on method test_mixed_2 is of type mixed, but the DataProvider provides string"
     },
     {
         "blame": "  public function arg_1_int(): vec<(int)> ",
         "blame_pretty": "  public function arg_1_int(): vec<(int)> ",
-        "description": "Potential typeerror: Parameter 1 on method test_arraykey_1 has an string typehint, but the DataProvider gives int"
+        "description": "Potential type error: Parameter 1 on method test_arraykey_1 is of type string, but the DataProvider provides int"
     },
     {
         "blame": "  public function arg_1_arraykey(): vec<(arraykey)> ",
         "blame_pretty": "  public function arg_1_arraykey(): vec<(arraykey)> ",
-        "description": "Potential typeerror: Parameter 1 on method test_string_2 has an int typehint, but the DataProvider gives arraykey"
+        "description": "Potential type error: Parameter 1 on method test_string_2 is of type int, but the DataProvider provides arraykey"
     },
     {
         "blame": "  public function arg_1_iface(): vec<(IFace)> ",
         "blame_pretty": "  public function arg_1_iface(): vec<(IFace)> ",
-        "description": "Potential typeerror: Parameter 1 on method test_fq_iface has an \\Herp\\Derp\\IFace typehint, but the DataProvider gives IFace"
+        "description": "Potential type error: Parameter 1 on method test_fq_iface is of type \\Herp\\Derp\\IFace, but the DataProvider provides IFace"
     },
     {
         "blame": "  public function arg_1_generic_nothing(): vec<(Generic<nothing>)> ",
         "blame_pretty": "  public function arg_1_generic_nothing(): vec<(Generic<nothing>)> ",
-        "description": "Potential typeerror: Parameter 1 on method test_string_3 has an string typehint, but the DataProvider gives Generic<nothing>"
+        "description": "Potential type error: Parameter 1 on method test_string_3 is of type string, but the DataProvider provides Generic<nothing>"
     },
     {
         "blame": "  public function arg_1_generics_mixed_mixed(): vec<(Generics<mixed, mixed>)> ",
         "blame_pretty": "  public function arg_1_generics_mixed_mixed(): vec<(Generics<mixed, mixed>)> ",
-        "description": "Potential typeerror: Parameter 1 on method test_mixed_3 has an mixed typehint, but the DataProvider gives Generics<mixed,mixed>"
+        "description": "Potential type error: Parameter 1 on method test_mixed_3 is of type mixed, but the DataProvider provides Generics<mixed,mixed>"
     },
     {
         "blame": "  public function arg_1_generics_t1_t2<T1, T2>(): vec<(Generics<T1, T2>)> ",
         "blame_pretty": "  public function arg_1_generics_t1_t2<T1, T2>(): vec<(Generics<T1, T2>)> ",
-        "description": "Potential typeerror: Parameter 1 on method test_mixed_4 has an mixed typehint, but the DataProvider gives Generics<T1,T2>"
+        "description": "Potential type error: Parameter 1 on method test_mixed_4 is of type mixed, but the DataProvider provides Generics<T1,T2>"
     },
     {
         "blame": "  public function arg_1_empty_shape(): vec<(shape())> ",
         "blame_pretty": "  public function arg_1_empty_shape(): vec<(shape())> ",
-        "description": "Potential typeerror: Parameter 1 on method test_the_root_shape has an shape(...) typehint, but the DataProvider gives shape()"
+        "description": "Potential type error: Parameter 1 on method test_the_root_shape is of type shape(...), but the DataProvider provides shape()"
     },
     {
         "blame": "  public function arg_1_shape_key_herp_value_string_key_derp_value_bool(): vec<(shape('herp' => string, 'derp' => bool))> ",
         "blame_pretty": "  public function arg_1_shape_key_herp_value_string_key_derp_value_bool(): vec<(shape('herp' => string, 'derp' => bool))> ",
-        "description": "Potential typeerror: Parameter 1 on method test_the_shape_key_derp_value_bool_key_herp_value_string has an shape('derp'=>bool,'herp'=>string) typehint, but the DataProvider gives shape('herp'=>string,'derp'=>bool)"
+        "description": "Potential type error: Parameter 1 on method test_the_shape_key_derp_value_bool_key_herp_value_string is of type shape('derp'=>bool,'herp'=>string), but the DataProvider provides shape('herp'=>string,'derp'=>bool)"
     },
     {
         "blame": "  public function arg_1_string_arg_2_string(): vec<(string, string)> ",
         "blame_pretty": "  public function arg_1_string_arg_2_string(): vec<(string, string)> ",
-        "description": "Typeerror: Arity of test is 1, but the DataProvider has an arity of 2"
+        "description": "Type error: Test test_string_4 requires 1 parameter(s), but this dataprovider provides 2"
     },
     {
         "blame": "  public function arg_1_t_arg_2_function_t_bool<T>(): vec<(T, (function(T): bool))> ",
         "blame_pretty": "  public function arg_1_t_arg_2_function_t_bool<T>(): vec<(T, (function(T): bool))> ",
-        "description": "Potential typeerror: Parameter 2 on method test_function_mixed_bool_mixed has an mixed typehint, but the DataProvider gives (function(T):bool)"
+        "description": "Potential type error: Parameter 2 on method test_function_mixed_bool_mixed is of type mixed, but the DataProvider provides (function(T):bool)"
     }
 ]

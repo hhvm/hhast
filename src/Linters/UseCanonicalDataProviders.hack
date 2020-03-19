@@ -17,6 +17,10 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
   // dict<provider, vec<(test, provider again)>>
   const type TProviders = dict<string, vec<(string, string)>>;
 
+  /**
+   * We don't want to use DataProvider::class here,
+   * since this would require that you have HackTest installed when you wish to lint.
+   */
   const string T_DATAPROVIDER = 'Facebook\\HackTest\\DataProvider';
   const string T_NOTHING = 'nothing';
 
@@ -74,7 +78,7 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       return tuple(
         new ASTLintError(
           $this,
-          'Add a typehint to your dataprovider',
+          'Add a return type to your dataprovider',
           $node,
           () ==> null,
         ),
@@ -126,7 +130,7 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
     if (C\count($test_types_with_nulls) !== C\count($test_types)) {
       return new ASTLintError(
         $this,
-        'Add parameter typehints to your tests',
+        Str\format('Add parameter types to %s', $test->getName()->getText()),
         $node,
         () ==> null,
       );
@@ -142,7 +146,8 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
       return new ASTLintError(
         $this,
         Str\format(
-          'Typeerror: Arity of test is %d, but the DataProvider has an arity of %d',
+          'Type error: Test %s requires %d parameter(s), but this dataprovider provides %d',
+          $test->getName()->getText(),
           $test_arity,
           $tuple_arity,
         ),
@@ -159,7 +164,7 @@ final class UseCanonicalDataProvidersLinter extends AutoFixingASTLinter {
         return new ASTLintError(
           $this,
           Str\format(
-            'Potential typeerror: Parameter %d on method %s has an %s typehint, but the DataProvider gives %s',
+            'Potential type error: Parameter %d on method %s is of type %s, but the DataProvider provides %s',
             $i + 1,
             $test->getName()->getText(),
             static::typeToString($test_type),
