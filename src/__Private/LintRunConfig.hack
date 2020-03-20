@@ -85,6 +85,7 @@ final class LintRunConfig {
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
+    HHAST\DontUseAsioJoinLinter::class,
     HHAST\PreferSingleQuotedStringLiteralLinter::class,
     HHAST\NoStringInterpolationLinter::class,
     HHAST\ShoutCaseEnumMembersLinter::class,
