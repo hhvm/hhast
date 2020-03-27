@@ -9,8 +9,7 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use namespace HH\Lib\Str;
-use namespace HH\Lib\Experimental\IO;
+use namespace HH\Lib\{IO, Str};
 
 async function read_message_async(IO\ReadHandle $in): Awaitable<string> {
   $length = null;

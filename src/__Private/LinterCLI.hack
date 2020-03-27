@@ -79,9 +79,9 @@ final class LinterCLI extends CLIWithArguments {
       } else {
         $dot = XHProf::disableAndGenerateDot();
         await using (
-          $file = \HH\Lib\Experimental\File\open_write_only(
+          $file = \HH\Lib\File\open_write_only(
             $dotfile,
-            \HH\Lib\Experimental\File\WriteMode::TRUNCATE,
+            \HH\Lib\File\WriteMode::TRUNCATE,
           )
         ) {
           await $file->writeAsync($dot);
