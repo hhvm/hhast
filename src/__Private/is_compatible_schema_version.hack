@@ -56,6 +56,10 @@ function is_compatible_schema_version(string $other_version): bool {
       $compatible_versions[] = '2020-02-03-0001';
       // This one disallows using "namespace" as an identifier:
       $compatible_versions[] = '2020-02-19-0001';
+      // This one removes support for <?= (PHP echo tag):
+      $compatible_versions[] = '2020-03-24-0001';
+      // This one removes support for __halt_compiler():
+      $compatible_versions[] = '2020-03-31-0001';
       break;
   }
 
