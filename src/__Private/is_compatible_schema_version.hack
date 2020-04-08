@@ -60,6 +60,8 @@ function is_compatible_schema_version(string $other_version): bool {
       $compatible_versions[] = '2020-03-24-0001';
       // This one removes support for __halt_compiler():
       $compatible_versions[] = '2020-03-31-0001';
+      // This one removes support for ? > (PHP markup close tag)
+      $compatible_versions[] = '2020-04-01-0001';
       break;
   }
 
