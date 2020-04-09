@@ -9,6 +9,8 @@
 
 namespace Facebook\HHAST;
 
+/*HHAST_IGNORE_ERROR[FinalOrAbstractClass]
+  This class might very well be subclassed by other codebases*/
 class BuiltLintError extends LintError {
   private ?(int, int) $position = null;
 

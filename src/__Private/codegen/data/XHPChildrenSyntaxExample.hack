@@ -8,13 +8,13 @@
  */
 namespace Facebook\HHAST\__Private\SyntaxExamples;
 
-class :xhpchildren1 {
+final class :xhpchildren1 {
   children (pcdata);
 }
 
-class :xhpchildren2 {
+final class :xhpchildren2 {
   children (pcdata?, pcdata*, pcdata);
 }
-class :xhpchildren3 {
+final class :xhpchildren3 {
   children empty;
 }

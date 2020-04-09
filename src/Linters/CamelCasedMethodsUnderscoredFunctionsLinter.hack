@@ -12,9 +12,9 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\{FunctionDeclaration, MethodishDeclaration};
 use namespace HH\Lib\{C, Str};
 
-class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
+final class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   <<__Override>>
-  final public function getSuggestedNameForFunction(
+  public function getSuggestedNameForFunction(
     string $name,
     FunctionDeclaration $func,
   ): string {
@@ -44,7 +44,7 @@ class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   }
 
   <<__Override>>
-  final public function getSuggestedNameForInstanceMethod(
+  public function getSuggestedNameForInstanceMethod(
     string $name,
     MethodishDeclaration $_,
   ): string {
@@ -67,7 +67,7 @@ class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   }
 
   <<__Override>>
-  final public function getSuggestedNameForStaticMethod(
+  public function getSuggestedNameForStaticMethod(
     string $name,
     MethodishDeclaration $meth,
   ): string {

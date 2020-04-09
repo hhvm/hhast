@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-class LineLintError extends LintError {
+final class LineLintError extends LintError {
 
   public function __construct(
     private LineLinter<LineLintError> $linter,

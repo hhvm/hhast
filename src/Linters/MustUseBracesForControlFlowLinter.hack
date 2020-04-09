@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Str, Vec};
 
-class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
+final class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
   const type TNode = IControlFlowStatement;
   const type TContext = Script;
 

@@ -13,6 +13,8 @@ use type Facebook\HHAST\Node;
 use function Facebook\HHAST\find_position;
 use namespace HH\Lib\Str;
 
+/*HHAST_IGNORE_ERROR[FinalOrAbstractClass]
+  This class is instantiatable and has subclasses*/
 class ASTLintError extends LintError {
   <<__Override>>
   public function __construct(

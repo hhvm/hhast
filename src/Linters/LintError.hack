@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use type Facebook\HHAST\File;
 
-class LintError {
+abstract class LintError {
   public function __construct(
     private BaseLinter $linter,
     private string $description,
