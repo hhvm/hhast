@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3a7315971f412ded6f71e10ff416ba3>>
+ * @generated SignedSource<<c7fb77afa8065350f0a6e3301e5a3726>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SwitchFallthrough extends Node implements IStatement {
+final class SwitchFallthrough extends Node
+  implements
+    IStatement {
 
   const string SYNTAX_KIND = 'switch_fallthrough';
 
@@ -35,8 +37,7 @@ final class SwitchFallthrough extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['fallthrough_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['fallthrough_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -44,8 +45,7 @@ final class SwitchFallthrough extends Node implements IStatement {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['fallthrough_semicolon'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['fallthrough_semicolon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -70,8 +70,7 @@ final class SwitchFallthrough extends Node implements IStatement {
     return dict[
       'keyword' => $this->_keyword,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -80,13 +79,12 @@ final class SwitchFallthrough extends Node implements IStatement {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
-    $semicolon = $this->_semicolon === null
-      ? null
-      : $rewriter($this->_semicolon, $parents);
-    if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
+    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
+    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
+    if (
+      $keyword === $this->_keyword &&
+      $semicolon === $this->_semicolon
+    ) {
       return $this;
     }
     return new static(

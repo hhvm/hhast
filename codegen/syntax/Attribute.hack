@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4f9dc432f36a23028156e2b2a9499a73>>
+ * @generated SignedSource<<362022a612cd0667eb721f4d61d25dfe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -43,8 +43,7 @@ final class Attribute extends Node {
     );
     $offset += $at?->getWidth() ?? 0;
     $attribute_name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['attribute_attribute_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['attribute_attribute_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -69,8 +68,7 @@ final class Attribute extends Node {
     return dict[
       'at' => $this->_at,
       'attribute_name' => $this->_attribute_name,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -80,10 +78,11 @@ final class Attribute extends Node {
   ): this {
     $parents[] = $this;
     $at = $this->_at === null ? null : $rewriter($this->_at, $parents);
-    $attribute_name = $this->_attribute_name === null
-      ? null
-      : $rewriter($this->_attribute_name, $parents);
-    if ($at === $this->_at && $attribute_name === $this->_attribute_name) {
+    $attribute_name = $this->_attribute_name === null ? null : $rewriter($this->_attribute_name, $parents);
+    if (
+      $at === $this->_at &&
+      $attribute_name === $this->_attribute_name
+    ) {
       return $this;
     }
     return new static(

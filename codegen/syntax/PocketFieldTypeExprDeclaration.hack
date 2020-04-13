@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d84ea5abc315c87701e9d7d2ac2a67b>>
+ * @generated SignedSource<<a4e7ec8efd84ca4d02dd3668510f33fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $case = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_case'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_case'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -50,8 +49,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
     );
     $offset += $case?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_type'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -59,8 +57,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
     );
     $offset += $type?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +65,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_semicolon'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_expr_semicolon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +94,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
       'type' => $this->_type,
       'name' => $this->_name,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -111,9 +106,7 @@ final class PocketFieldTypeExprDeclaration extends Node {
     $case = $this->_case === null ? null : $rewriter($this->_case, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $semicolon = $this->_semicolon === null
-      ? null
-      : $rewriter($this->_semicolon, $parents);
+    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
     if (
       $case === $this->_case &&
       $type === $this->_type &&

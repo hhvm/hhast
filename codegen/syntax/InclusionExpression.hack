@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f367bb38593d8c89b34899e81b74c177>>
+ * @generated SignedSource<<1217498b2369b52ecd316671970db0fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class InclusionExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class InclusionExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'inclusion_expression';
 
@@ -72,8 +73,7 @@ final class InclusionExpression
     return dict[
       'require' => $this->_require,
       'filename' => $this->_filename,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -84,7 +84,10 @@ final class InclusionExpression
     $parents[] = $this;
     $require = $rewriter($this->_require, $parents);
     $filename = $rewriter($this->_filename, $parents);
-    if ($require === $this->_require && $filename === $this->_filename) {
+    if (
+      $require === $this->_require &&
+      $filename === $this->_filename
+    ) {
       return $this;
     }
     return new static(

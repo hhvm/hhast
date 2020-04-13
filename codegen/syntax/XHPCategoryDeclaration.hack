@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6705875e126fecf828146b8a74f4578>>
+ * @generated SignedSource<<b3a4cd14caf5f0a53ab4176fd656acc2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPCategoryDeclaration
-  extends Node
-  implements IClassBodyDeclaration {
+final class XHPCategoryDeclaration extends Node
+  implements
+    IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'xhp_category_declaration';
 
@@ -40,8 +40,7 @@ final class XHPCategoryDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['xhp_category_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -49,8 +48,7 @@ final class XHPCategoryDeclaration
     );
     $offset += $keyword?->getWidth() ?? 0;
     $categories = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_categories'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['xhp_category_categories'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -58,8 +56,7 @@ final class XHPCategoryDeclaration
     );
     $offset += $categories?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_semicolon'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['xhp_category_semicolon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -86,8 +83,7 @@ final class XHPCategoryDeclaration
       'keyword' => $this->_keyword,
       'categories' => $this->_categories,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,15 +92,9 @@ final class XHPCategoryDeclaration
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
-    $categories = $this->_categories === null
-      ? null
-      : $rewriter($this->_categories, $parents);
-    $semicolon = $this->_semicolon === null
-      ? null
-      : $rewriter($this->_semicolon, $parents);
+    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
+    $categories = $this->_categories === null ? null : $rewriter($this->_categories, $parents);
+    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $categories === $this->_categories &&

@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f289cd8d701276af3a0eb7072ebb1244>>
+ * @generated SignedSource<<ad6a3d08e8a6a1dff7d2a86303a233a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class LambdaSignature extends Node implements ILambdaSignature {
+final class LambdaSignature extends Node
+  implements
+    ILambdaSignature {
 
   const string SYNTAX_KIND = 'lambda_signature';
 
@@ -53,8 +55,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_parameters'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['lambda_parameters'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -110,8 +111,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       'right_paren' => $this->_right_paren,
       'colon' => $this->_colon,
       'type' => $this->_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -121,9 +121,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   ): this {
     $parents[] = $this;
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $parameters = $this->_parameters === null
-      ? null
-      : $rewriter($this->_parameters, $parents);
+    $parameters = $this->_parameters === null ? null : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);

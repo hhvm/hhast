@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b79f7688191d4e2c8d2bb992f7fbf99e>>
+ * @generated SignedSource<<dfaf671a01bb113377513deff09a7894>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ScopeResolutionExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class ScopeResolutionExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'scope_resolution_expression';
 
@@ -86,8 +87,7 @@ final class ScopeResolutionExpression
       'qualifier' => $this->_qualifier,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

@@ -1,16 +1,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ac039f69646965dcdae184720112eac>>
+ * @generated SignedSource<<9f77b17b0c331564dd1f035679c7437a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ArrayIntrinsicExpression
-  extends Node
-  implements IPHPArray, IContainer, ILambdaBody, IExpression {
+final class ArrayIntrinsicExpression extends Node
+  implements
+    IPHPArray,
+    IContainer,
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'array_intrinsic_expression';
 
@@ -61,8 +64,7 @@ final class ArrayIntrinsicExpression
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['array_intrinsic_members'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['array_intrinsic_members'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -100,8 +102,7 @@ final class ArrayIntrinsicExpression
       'left_paren' => $this->_left_paren,
       'members' => $this->_members,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -112,9 +113,7 @@ final class ArrayIntrinsicExpression
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $members = $this->_members === null
-      ? null
-      : $rewriter($this->_members, $parents);
+    $members = $this->_members === null ? null : $rewriter($this->_members, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -140,12 +139,7 @@ final class ArrayIntrinsicExpression
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_left_paren,
-      $this->_members,
-      $this->_right_paren,
-    );
+    return new static($value, $this->_left_paren, $this->_members, $this->_right_paren);
   }
 
   public function hasKeyword(): bool {
@@ -174,12 +168,7 @@ final class ArrayIntrinsicExpression
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_members,
-      $this->_right_paren,
-    );
+    return new static($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -208,12 +197,7 @@ final class ArrayIntrinsicExpression
     if ($value === $this->_members) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasMembers(): bool {
@@ -221,50 +205,16 @@ final class ArrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<AnonymousFunction>> |
-   * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<ArrayIntrinsicExpression>> | NodeList<ListItem<Node>> |
-   * NodeList<ListItem<AwaitableCreationExpression>> |
-   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
-   * NodeList<ListItem<CollectionLiteralExpression>> |
-   * NodeList<ListItem<ElementInitializer>> |
-   * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<LiteralExpression>> |
-   * NodeList<ListItem<MemberSelectionExpression>> |
-   * NodeList<ListItem<ObjectCreationExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
-   * NodeList<ListItem<QualifiedName>> |
-   * NodeList<ListItem<ScopeResolutionExpression>> |
-   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
-   * NodeList<ListItem<TupleExpression>> |
-   * NodeList<ListItem<VariableExpression>> |
-   * NodeList<ListItem<VectorIntrinsicExpression>> | null
+   * @return NodeList<ListItem<ElementInitializer>> |
+   * NodeList<ListItem<LiteralExpression>> | null
    */
   public function getMembers(): ?NodeList<ListItem<Node>> {
     return $this->_members;
   }
 
   /**
-   * @return NodeList<ListItem<AnonymousFunction>> |
-   * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<ArrayIntrinsicExpression>> | NodeList<ListItem<Node>> |
-   * NodeList<ListItem<AwaitableCreationExpression>> |
-   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
-   * NodeList<ListItem<CollectionLiteralExpression>> |
-   * NodeList<ListItem<ElementInitializer>> |
-   * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<LiteralExpression>> |
-   * NodeList<ListItem<MemberSelectionExpression>> |
-   * NodeList<ListItem<ObjectCreationExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
-   * NodeList<ListItem<QualifiedName>> |
-   * NodeList<ListItem<ScopeResolutionExpression>> |
-   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
-   * NodeList<ListItem<TupleExpression>> |
-   * NodeList<ListItem<VariableExpression>> |
-   * NodeList<ListItem<VectorIntrinsicExpression>>
+   * @return NodeList<ListItem<ElementInitializer>> |
+   * NodeList<ListItem<LiteralExpression>>
    */
   public function getMembersx(): NodeList<ListItem<Node>> {
     return TypeAssert\not_null($this->getMembers());
@@ -278,12 +228,7 @@ final class ArrayIntrinsicExpression
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $this->_members,
-      $value,
-    );
+    return new static($this->_keyword, $this->_left_paren, $this->_members, $value);
   }
 
   public function hasRightParen(): bool {

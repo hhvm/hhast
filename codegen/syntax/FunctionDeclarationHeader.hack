@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96d0788d644a70cc592417ac7e45430f>>
+ * @generated SignedSource<<06f0701c5409bc43c5e6d4ff3461cb90>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,7 +17,7 @@ final class FunctionDeclarationHeader extends Node {
   private Token $_name;
   private ?TypeParameters $_type_parameter_list;
   private LeftParenToken $_left_paren;
-  private ?NodeList<ListItem<ParameterDeclaration>> $_parameter_list;
+  private ?NodeList<ListItem<IParameter>> $_parameter_list;
   private RightParenToken $_right_paren;
   private ?ColonToken $_colon;
   private ?ITypeSpecifier $_type;
@@ -29,7 +29,7 @@ final class FunctionDeclarationHeader extends Node {
     Token $name,
     ?TypeParameters $type_parameter_list,
     LeftParenToken $left_paren,
-    ?NodeList<ListItem<ParameterDeclaration>> $parameter_list,
+    ?NodeList<ListItem<IParameter>> $parameter_list,
     RightParenToken $right_paren,
     ?ColonToken $colon,
     ?ITypeSpecifier $type,
@@ -59,8 +59,7 @@ final class FunctionDeclarationHeader extends Node {
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_modifiers'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_modifiers'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -86,8 +85,7 @@ final class FunctionDeclarationHeader extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameter_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_type_parameter_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_type_parameter_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -104,12 +102,11 @@ final class FunctionDeclarationHeader extends Node {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameter_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_parameter_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_parameter_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<ParameterDeclaration>>',
+      'NodeList<ListItem<IParameter>>',
     );
     $offset += $parameter_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
@@ -138,8 +135,7 @@ final class FunctionDeclarationHeader extends Node {
     );
     $offset += $type?->getWidth() ?? 0;
     $where_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_where_clause'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_where_clause'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -180,8 +176,7 @@ final class FunctionDeclarationHeader extends Node {
       'colon' => $this->_colon,
       'type' => $this->_type,
       'where_clause' => $this->_where_clause,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -190,24 +185,16 @@ final class FunctionDeclarationHeader extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $this->_modifiers === null
-      ? null
-      : $rewriter($this->_modifiers, $parents);
+    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $type_parameter_list = $this->_type_parameter_list === null
-      ? null
-      : $rewriter($this->_type_parameter_list, $parents);
+    $type_parameter_list = $this->_type_parameter_list === null ? null : $rewriter($this->_type_parameter_list, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $parameter_list = $this->_parameter_list === null
-      ? null
-      : $rewriter($this->_parameter_list, $parents);
+    $parameter_list = $this->_parameter_list === null ? null : $rewriter($this->_parameter_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
-    $where_clause = $this->_where_clause === null
-      ? null
-      : $rewriter($this->_where_clause, $parents);
+    $where_clause = $this->_where_clause === null ? null : $rewriter($this->_where_clause, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
@@ -445,7 +432,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function withParameterList(
-    ?NodeList<ListItem<ParameterDeclaration>> $value,
+    ?NodeList<ListItem<IParameter>> $value,
   ): this {
     if ($value === $this->_parameter_list) {
       return $this;
@@ -469,18 +456,18 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return NodeList<ListItem<ParameterDeclaration>> | null
+   * @return NodeList<ListItem<ParameterDeclaration>> |
+   * NodeList<ListItem<IParameter>> | null
    */
-  public function getParameterList(
-  ): ?NodeList<ListItem<ParameterDeclaration>> {
+  public function getParameterList(): ?NodeList<ListItem<IParameter>> {
     return $this->_parameter_list;
   }
 
   /**
-   * @return NodeList<ListItem<ParameterDeclaration>>
+   * @return NodeList<ListItem<ParameterDeclaration>> |
+   * NodeList<ListItem<IParameter>>
    */
-  public function getParameterListx(
-  ): NodeList<ListItem<ParameterDeclaration>> {
+  public function getParameterListx(): NodeList<ListItem<IParameter>> {
     return TypeAssert\not_null($this->getParameterList());
   }
 

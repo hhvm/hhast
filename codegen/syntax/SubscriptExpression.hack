@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b7721f931af36db681869b16d637676>>
+ * @generated SignedSource<<1ea118f953a0e752da424103dd7f14b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SubscriptExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class SubscriptExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'subscript_expression';
 
@@ -61,8 +62,7 @@ final class SubscriptExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $index = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['subscript_index'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['subscript_index'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -100,8 +100,7 @@ final class SubscriptExpression
       'left_bracket' => $this->_left_bracket,
       'index' => $this->_index,
       'right_bracket' => $this->_right_bracket,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -138,12 +137,7 @@ final class SubscriptExpression
     if ($value === $this->_receiver) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_left_bracket,
-      $this->_index,
-      $this->_right_bracket,
-    );
+    return new static($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
   }
 
   public function hasReceiver(): bool {
@@ -151,22 +145,22 @@ final class SubscriptExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * @return FunctionCallExpression | LiteralExpression |
+   * MemberSelectionExpression | ParenthesizedExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getReceiver(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_receiver);
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression
+   * @return FunctionCallExpression | LiteralExpression |
+   * MemberSelectionExpression | ParenthesizedExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getReceiverx(): IExpression {
     return $this->getReceiver();
@@ -180,12 +174,7 @@ final class SubscriptExpression
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new static(
-      $this->_receiver,
-      $value,
-      $this->_index,
-      $this->_right_bracket,
-    );
+    return new static($this->_receiver, $value, $this->_index, $this->_right_bracket);
   }
 
   public function hasLeftBracket(): bool {
@@ -196,10 +185,7 @@ final class SubscriptExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -258,12 +244,7 @@ final class SubscriptExpression
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new static(
-      $this->_receiver,
-      $this->_left_bracket,
-      $this->_index,
-      $value,
-    );
+    return new static($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 
   public function hasRightBracket(): bool {
@@ -274,10 +255,7 @@ final class SubscriptExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

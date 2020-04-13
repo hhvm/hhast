@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e8e5dbf2149904fdaf69382718ef837>>
+ * @generated SignedSource<<2c6dc04157d47ecf7f6b0d5dd1c96c83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,8 +84,7 @@ final class WhereConstraint extends Node {
       'left_type' => $this->_left_type,
       'operator' => $this->_operator,
       'right_type' => $this->_right_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

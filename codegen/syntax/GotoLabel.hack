@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddf11979fa158bd15a171b7511f6c70c>>
+ * @generated SignedSource<<ef957570e286e60372fac0335ae2511f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class GotoLabel extends Node implements IStatement {
+final class GotoLabel extends Node
+  implements
+    IStatement {
 
   const string SYNTAX_KIND = 'goto_label';
 
@@ -70,8 +72,7 @@ final class GotoLabel extends Node implements IStatement {
     return dict[
       'name' => $this->_name,
       'colon' => $this->_colon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,7 +83,10 @@ final class GotoLabel extends Node implements IStatement {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
     $colon = $rewriter($this->_colon, $parents);
-    if ($name === $this->_name && $colon === $this->_colon) {
+    if (
+      $name === $this->_name &&
+      $colon === $this->_colon
+    ) {
       return $this;
     }
     return new static(

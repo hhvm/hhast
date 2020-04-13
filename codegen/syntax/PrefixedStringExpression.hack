@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d226030395432cbddda6922f889283f>>
+ * @generated SignedSource<<4fbbfb316fa6909041bcce2c12833a15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PrefixedStringExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class PrefixedStringExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'prefixed_string_expression';
 
@@ -37,8 +38,7 @@ final class PrefixedStringExpression
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefixed_string_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['prefixed_string_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -46,8 +46,7 @@ final class PrefixedStringExpression
     );
     $offset += $name?->getWidth() ?? 0;
     $str = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefixed_string_str'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['prefixed_string_str'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -72,8 +71,7 @@ final class PrefixedStringExpression
     return dict[
       'name' => $this->_name,
       'str' => $this->_str,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -84,7 +82,10 @@ final class PrefixedStringExpression
     $parents[] = $this;
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $str = $this->_str === null ? null : $rewriter($this->_str, $parents);
-    if ($name === $this->_name && $str === $this->_str) {
+    if (
+      $name === $this->_name &&
+      $str === $this->_str
+    ) {
       return $this;
     }
     return new static(

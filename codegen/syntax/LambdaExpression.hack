@@ -1,16 +1,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ce72053fecc298c41c98a4800fa7a8d>>
+ * @generated SignedSource<<9c9aaa41139191396bc60ee3d54534a5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class LambdaExpression
-  extends Node
-  implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
+final class LambdaExpression extends Node
+  implements
+    IHasFunctionBody,
+    ILambdaBody,
+    IHasAttributeSpec,
+    IExpression {
 
   const string SYNTAX_KIND = 'lambda_expression';
 
@@ -49,8 +52,7 @@ final class LambdaExpression
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_attribute_spec'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['lambda_attribute_spec'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -66,8 +68,7 @@ final class LambdaExpression
     );
     $offset += $async?->getWidth() ?? 0;
     $coroutine = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_coroutine'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['lambda_coroutine'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -127,8 +128,7 @@ final class LambdaExpression
       'signature' => $this->_signature,
       'arrow' => $this->_arrow,
       'body' => $this->_body,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -137,13 +137,9 @@ final class LambdaExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null
-      ? null
-      : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
     $async = $this->_async === null ? null : $rewriter($this->_async, $parents);
-    $coroutine = $this->_coroutine === null
-      ? null
-      : $rewriter($this->_coroutine, $parents);
+    $coroutine = $this->_coroutine === null ? null : $rewriter($this->_coroutine, $parents);
     $signature = $rewriter($this->_signature, $parents);
     $arrow = $rewriter($this->_arrow, $parents);
     $body = $rewriter($this->_body, $parents);
@@ -337,10 +333,7 @@ final class LambdaExpression
    * @return EqualEqualGreaterThanToken
    */
   public function getArrow(): EqualEqualGreaterThanToken {
-    return TypeAssert\instance_of(
-      EqualEqualGreaterThanToken::class,
-      $this->_arrow,
-    );
+    return TypeAssert\instance_of(EqualEqualGreaterThanToken::class, $this->_arrow);
   }
 
   /**
@@ -373,26 +366,26 @@ final class LambdaExpression
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | AsExpression |
-   * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * CompoundStatement | ConditionalExpression | FunctionCallExpression |
-   * IsExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * @return AnonymousFunction | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | CompoundStatement |
+   * ConditionalExpression | FunctionCallExpression | IsExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | SubscriptExpression | VariableExpression
+   * | SubscriptExpression | VariableExpression | VarrayIntrinsicExpression
    */
   public function getBody(): ILambdaBody {
     return TypeAssert\instance_of(ILambdaBody::class, $this->_body);
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | AsExpression |
-   * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * CompoundStatement | ConditionalExpression | FunctionCallExpression |
-   * IsExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * @return AnonymousFunction | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | CompoundStatement |
+   * ConditionalExpression | FunctionCallExpression | IsExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | SubscriptExpression | VariableExpression
+   * | SubscriptExpression | VariableExpression | VarrayIntrinsicExpression
    */
   public function getBodyx(): ILambdaBody {
     return $this->getBody();

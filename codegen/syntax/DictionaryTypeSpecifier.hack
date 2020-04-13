@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6fd444ca29cafed58a9172461341b5be>>
+ * @generated SignedSource<<07211634f0a091b6bc3dbb34a2f73265>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
+final class DictionaryTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'dictionary_type_specifier';
 
@@ -98,8 +100,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       'left_angle' => $this->_left_angle,
       'members' => $this->_members,
       'right_angle' => $this->_right_angle,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -136,12 +137,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_left_angle,
-      $this->_members,
-      $this->_right_angle,
-    );
+    return new static($value, $this->_left_angle, $this->_members, $this->_right_angle);
   }
 
   public function hasKeyword(): bool {
@@ -170,12 +166,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_members,
-      $this->_right_angle,
-    );
+    return new static($this->_keyword, $value, $this->_members, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -204,12 +195,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_members) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_angle,
-      $value,
-      $this->_right_angle,
-    );
+    return new static($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasMembers(): bool {
@@ -240,12 +226,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_angle,
-      $this->_members,
-      $value,
-    );
+    return new static($this->_keyword, $this->_left_angle, $this->_members, $value);
   }
 
   public function hasRightAngle(): bool {

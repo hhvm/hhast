@@ -1,16 +1,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54613ee8ad83a759b16c9b9886e308e7>>
+ * @generated SignedSource<<8ee2ec4d7ee65bc5bb53640233fcb82c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VectorIntrinsicExpression
-  extends Node
-  implements IHackArray, IContainer, ILambdaBody, IExpression {
+final class VectorIntrinsicExpression extends Node
+  implements
+    IHackArray,
+    IContainer,
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'vector_intrinsic_expression';
 
@@ -55,8 +58,7 @@ final class VectorIntrinsicExpression
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['vector_intrinsic_explicit_type'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['vector_intrinsic_explicit_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -73,8 +75,7 @@ final class VectorIntrinsicExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['vector_intrinsic_members'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['vector_intrinsic_members'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,8 +115,7 @@ final class VectorIntrinsicExpression
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -125,13 +125,9 @@ final class VectorIntrinsicExpression
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $explicit_type = $this->_explicit_type === null
-      ? null
-      : $rewriter($this->_explicit_type, $parents);
+    $explicit_type = $this->_explicit_type === null ? null : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $this->_members === null
-      ? null
-      : $rewriter($this->_members, $parents);
+    $members = $this->_members === null ? null : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -246,10 +242,7 @@ final class VectorIntrinsicExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -281,11 +274,11 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<IContainer>> |
+   * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
-   * NodeList<ListItem<ConditionalExpression>> |
-   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
+   * | NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
@@ -295,6 +288,7 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<NameToken>> |
    * NodeList<ListItem<TupleExpression>> |
    * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>> |
    * NodeList<ListItem<XHPExpression>> | null
    */
@@ -303,11 +297,11 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<IContainer>> |
+   * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
-   * NodeList<ListItem<ConditionalExpression>> |
-   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
+   * | NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
@@ -317,6 +311,7 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<NameToken>> |
    * NodeList<ListItem<TupleExpression>> |
    * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>> |
    * NodeList<ListItem<XHPExpression>>
    */
@@ -349,10 +344,7 @@ final class VectorIntrinsicExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

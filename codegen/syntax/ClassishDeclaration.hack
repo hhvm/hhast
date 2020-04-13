@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f74cab8b2c080af76af44a54f7acf81a>>
+ * @generated SignedSource<<d50ab8f2232fba57075d0f32a7c1eee0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class ClassishDeclarationGeneratedBase
-  extends Node
-  implements IDeclaration, IHasAttributeSpec {
+abstract class ClassishDeclarationGeneratedBase extends Node
+  implements
+    IDeclaration,
+    IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'classish_declaration';
 
@@ -67,8 +68,7 @@ abstract class ClassishDeclarationGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_attribute'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_attribute'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -76,8 +76,7 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $attribute?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_modifiers'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_modifiers'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -111,8 +110,7 @@ abstract class ClassishDeclarationGeneratedBase
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_type_parameters'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_type_parameters'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -120,8 +118,7 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $type_parameters?->getWidth() ?? 0;
     $extends_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_extends_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_extends_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -129,8 +126,7 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $extends_keyword?->getWidth() ?? 0;
     $extends_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_extends_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_extends_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -138,8 +134,7 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $extends_list?->getWidth() ?? 0;
     $implements_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_implements_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_implements_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -147,8 +142,7 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $implements_keyword?->getWidth() ?? 0;
     $implements_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_implements_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_implements_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -156,8 +150,7 @@ abstract class ClassishDeclarationGeneratedBase
     );
     $offset += $implements_list?->getWidth() ?? 0;
     $where_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_where_clause'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_where_clause'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -211,8 +204,7 @@ abstract class ClassishDeclarationGeneratedBase
       'implements_list' => $this->_implements_list,
       'where_clause' => $this->_where_clause,
       'body' => $this->_body,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -221,33 +213,17 @@ abstract class ClassishDeclarationGeneratedBase
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute === null
-      ? null
-      : $rewriter($this->_attribute, $parents);
-    $modifiers = $this->_modifiers === null
-      ? null
-      : $rewriter($this->_modifiers, $parents);
+    $attribute = $this->_attribute === null ? null : $rewriter($this->_attribute, $parents);
+    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
     $xhp = $this->_xhp === null ? null : $rewriter($this->_xhp, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $type_parameters = $this->_type_parameters === null
-      ? null
-      : $rewriter($this->_type_parameters, $parents);
-    $extends_keyword = $this->_extends_keyword === null
-      ? null
-      : $rewriter($this->_extends_keyword, $parents);
-    $extends_list = $this->_extends_list === null
-      ? null
-      : $rewriter($this->_extends_list, $parents);
-    $implements_keyword = $this->_implements_keyword === null
-      ? null
-      : $rewriter($this->_implements_keyword, $parents);
-    $implements_list = $this->_implements_list === null
-      ? null
-      : $rewriter($this->_implements_list, $parents);
-    $where_clause = $this->_where_clause === null
-      ? null
-      : $rewriter($this->_where_clause, $parents);
+    $type_parameters = $this->_type_parameters === null ? null : $rewriter($this->_type_parameters, $parents);
+    $extends_keyword = $this->_extends_keyword === null ? null : $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $this->_extends_list === null ? null : $rewriter($this->_extends_list, $parents);
+    $implements_keyword = $this->_implements_keyword === null ? null : $rewriter($this->_implements_keyword, $parents);
+    $implements_list = $this->_implements_list === null ? null : $rewriter($this->_implements_list, $parents);
+    $where_clause = $this->_where_clause === null ? null : $rewriter($this->_where_clause, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
       $attribute === $this->_attribute &&

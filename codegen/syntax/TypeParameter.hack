@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d2cd98a289759ca81511ea53b3e1c42>>
+ * @generated SignedSource<<61080ae888d07b51ff0e7cfab10b74fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,8 +44,7 @@ final class TypeParameter extends Node {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_attribute_spec'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['type_attribute_spec'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -78,8 +77,7 @@ final class TypeParameter extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $constraints = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_constraints'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['type_constraints'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -110,8 +108,7 @@ final class TypeParameter extends Node {
       'variance' => $this->_variance,
       'name' => $this->_name,
       'constraints' => $this->_constraints,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -120,19 +117,11 @@ final class TypeParameter extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null
-      ? null
-      : $rewriter($this->_attribute_spec, $parents);
-    $reified = $this->_reified === null
-      ? null
-      : $rewriter($this->_reified, $parents);
-    $variance = $this->_variance === null
-      ? null
-      : $rewriter($this->_variance, $parents);
+    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
+    $reified = $this->_reified === null ? null : $rewriter($this->_reified, $parents);
+    $variance = $this->_variance === null ? null : $rewriter($this->_variance, $parents);
     $name = $rewriter($this->_name, $parents);
-    $constraints = $this->_constraints === null
-      ? null
-      : $rewriter($this->_constraints, $parents);
+    $constraints = $this->_constraints === null ? null : $rewriter($this->_constraints, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $reified === $this->_reified &&

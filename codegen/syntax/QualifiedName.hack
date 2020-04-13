@@ -1,23 +1,24 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c0c75552fb2187898dd2f2213f930c2>>
+ * @generated SignedSource<<b6033ca775520f5ab2bc28ba307d6d3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class QualifiedName
-  extends Node
-  implements INameishNode, __Private\IWrappableWithSimpleTypeSpecifier {
+final class QualifiedName extends Node
+  implements
+    INameishNode,
+    __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string SYNTAX_KIND = 'qualified_name';
 
-  private NodeList<ListItem<?NameToken>> $_parts;
+  private NodeList<ListItem<?Token>> $_parts;
 
   public function __construct(
-    NodeList<ListItem<?NameToken>> $parts,
+    NodeList<ListItem<?Token>> $parts,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_parts = $parts;
@@ -38,7 +39,7 @@ final class QualifiedName
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<?NameToken>>',
+      'NodeList<ListItem<?Token>>',
     );
     $parts = $parts as nonnull;
     $offset += $parts->getWidth();
@@ -55,8 +56,7 @@ final class QualifiedName
   public function getChildren(): dict<string, Node> {
     return dict[
       'parts' => $this->_parts,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -66,7 +66,9 @@ final class QualifiedName
   ): this {
     $parents[] = $this;
     $parts = $rewriter($this->_parts, $parents);
-    if ($parts === $this->_parts) {
+    if (
+      $parts === $this->_parts
+    ) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $parts);
@@ -76,7 +78,7 @@ final class QualifiedName
     return $this->_parts;
   }
 
-  public function withParts(NodeList<ListItem<?NameToken>> $value): this {
+  public function withParts(NodeList<ListItem<?Token>> $value): this {
     if ($value === $this->_parts) {
       return $this;
     }
@@ -88,16 +90,18 @@ final class QualifiedName
   }
 
   /**
-   * @return NodeList<ListItem<?NameToken>> | NodeList<ListItem<NameToken>>
+   * @return NodeList<ListItem<?NameToken>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<Token>>
    */
-  public function getParts(): NodeList<ListItem<?NameToken>> {
+  public function getParts(): NodeList<ListItem<?Token>> {
     return TypeAssert\instance_of(NodeList::class, $this->_parts);
   }
 
   /**
-   * @return NodeList<ListItem<?NameToken>> | NodeList<ListItem<NameToken>>
+   * @return NodeList<ListItem<?NameToken>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<Token>>
    */
-  public function getPartsx(): NodeList<ListItem<?NameToken>> {
+  public function getPartsx(): NodeList<ListItem<?Token>> {
     return $this->getParts();
   }
 }

@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04750aa019a4d36e986e1571ca01d0e8>>
+ * @generated SignedSource<<433161d0ad2bd1eea9323cca9c2860af>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PocketIdentifierExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class PocketIdentifierExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'pocket_identifier_expression';
 
@@ -46,8 +47,7 @@ final class PocketIdentifierExpression
   ): this {
     $offset = $initial_offset;
     $qualifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_qualifier'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_qualifier'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -55,8 +55,7 @@ final class PocketIdentifierExpression
     );
     $offset += $qualifier?->getWidth() ?? 0;
     $pu_operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_pu_operator'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_pu_operator'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -64,8 +63,7 @@ final class PocketIdentifierExpression
     );
     $offset += $pu_operator?->getWidth() ?? 0;
     $field = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_field'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_field'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -73,8 +71,7 @@ final class PocketIdentifierExpression
     );
     $offset += $field?->getWidth() ?? 0;
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_operator'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_operator'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -82,8 +79,7 @@ final class PocketIdentifierExpression
     );
     $offset += $operator?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_identifier_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_identifier_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,8 +110,7 @@ final class PocketIdentifierExpression
       'field' => $this->_field,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -124,16 +119,10 @@ final class PocketIdentifierExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $qualifier = $this->_qualifier === null
-      ? null
-      : $rewriter($this->_qualifier, $parents);
-    $pu_operator = $this->_pu_operator === null
-      ? null
-      : $rewriter($this->_pu_operator, $parents);
+    $qualifier = $this->_qualifier === null ? null : $rewriter($this->_qualifier, $parents);
+    $pu_operator = $this->_pu_operator === null ? null : $rewriter($this->_pu_operator, $parents);
     $field = $this->_field === null ? null : $rewriter($this->_field, $parents);
-    $operator = $this->_operator === null
-      ? null
-      : $rewriter($this->_operator, $parents);
+    $operator = $this->_operator === null ? null : $rewriter($this->_operator, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     if (
       $qualifier === $this->_qualifier &&

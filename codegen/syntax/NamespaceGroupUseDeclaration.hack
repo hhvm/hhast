@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47578eafb7dd512a37d62ee8e7a4e56d>>
+ * @generated SignedSource<<ce468cf13c4e6b4d51034752a319c660>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NamespaceGroupUseDeclaration
-  extends Node
-  implements INamespaceUseDeclaration {
+final class NamespaceGroupUseDeclaration extends Node
+  implements
+    INamespaceUseDeclaration {
 
   const string SYNTAX_KIND = 'namespace_group_use_declaration';
 
@@ -61,8 +61,7 @@ final class NamespaceGroupUseDeclaration
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_group_use_kind'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['namespace_group_use_kind'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -142,8 +141,7 @@ final class NamespaceGroupUseDeclaration
       'clauses' => $this->_clauses,
       'right_brace' => $this->_right_brace,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<73c9a5df7a7385574266f9c3d1b46cbc>>
+ * @generated SignedSource<<1610805c5b89d8f060ffc22eb205c0fa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
+final class TupleTypeExplicitSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'tuple_type_explicit_specifier';
 
@@ -41,8 +43,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['tuple_type_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -50,8 +51,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_left_angle'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['tuple_type_left_angle'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -59,8 +59,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $left_angle?->getWidth() ?? 0;
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_types'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['tuple_type_types'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +67,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_right_angle'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['tuple_type_right_angle'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +96,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       'left_angle' => $this->_left_angle,
       'types' => $this->_types,
       'right_angle' => $this->_right_angle,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,16 +105,10 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
-    $left_angle = $this->_left_angle === null
-      ? null
-      : $rewriter($this->_left_angle, $parents);
+    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
+    $left_angle = $this->_left_angle === null ? null : $rewriter($this->_left_angle, $parents);
     $types = $this->_types === null ? null : $rewriter($this->_types, $parents);
-    $right_angle = $this->_right_angle === null
-      ? null
-      : $rewriter($this->_right_angle, $parents);
+    $right_angle = $this->_right_angle === null ? null : $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
@@ -142,12 +133,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_left_angle,
-      $this->_types,
-      $this->_right_angle,
-    );
+    return new static($value, $this->_left_angle, $this->_types, $this->_right_angle);
   }
 
   public function hasKeyword(): bool {
@@ -176,12 +162,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_types,
-      $this->_right_angle,
-    );
+    return new static($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -210,12 +191,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_types) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_angle,
-      $value,
-      $this->_right_angle,
-    );
+    return new static($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasTypes(): bool {
@@ -244,12 +220,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_angle,
-      $this->_types,
-      $value,
-    );
+    return new static($this->_keyword, $this->_left_angle, $this->_types, $value);
   }
 
   public function hasRightAngle(): bool {

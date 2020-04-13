@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23712268c4dfc52326d0b3df6b7cfe3b>>
+ * @generated SignedSource<<bc324a097bde59f327dbacc83ff57097>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPClassAttribute extends Node implements IXHPAttribute {
+final class XHPClassAttribute extends Node
+  implements
+    IXHPAttribute {
 
   const string SYNTAX_KIND = 'xhp_class_attribute';
 
@@ -59,8 +61,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_initializer'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_initializer'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +69,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     );
     $offset += $initializer?->getWidth() ?? 0;
     $required = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_required'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_required'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +98,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
       'name' => $this->_name,
       'initializer' => $this->_initializer,
       'required' => $this->_required,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -110,12 +109,8 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
     $name = $rewriter($this->_name, $parents);
-    $initializer = $this->_initializer === null
-      ? null
-      : $rewriter($this->_initializer, $parents);
-    $required = $this->_required === null
-      ? null
-      : $rewriter($this->_required, $parents);
+    $initializer = $this->_initializer === null ? null : $rewriter($this->_initializer, $parents);
+    $required = $this->_required === null ? null : $rewriter($this->_required, $parents);
     if (
       $type === $this->_type &&
       $name === $this->_name &&
@@ -140,12 +135,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_name,
-      $this->_initializer,
-      $this->_required,
-    );
+    return new static($value, $this->_name, $this->_initializer, $this->_required);
   }
 
   public function hasType(): bool {
@@ -178,12 +168,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $this->_type,
-      $value,
-      $this->_initializer,
-      $this->_required,
-    );
+    return new static($this->_type, $value, $this->_initializer, $this->_required);
   }
 
   public function hasName(): bool {

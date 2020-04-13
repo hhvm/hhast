@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1eea2c629a247f51dbf2884fae24aab5>>
+ * @generated SignedSource<<e46c25c3b93e779514cdd2c6305226cf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
+final class NullableTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'nullable_type_specifier';
 
@@ -70,8 +72,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     return dict[
       'question' => $this->_question,
       'type' => $this->_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,7 +83,10 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     $parents[] = $this;
     $question = $rewriter($this->_question, $parents);
     $type = $rewriter($this->_type, $parents);
-    if ($question === $this->_question && $type === $this->_type) {
+    if (
+      $question === $this->_question &&
+      $type === $this->_type
+    ) {
       return $this;
     }
     return new static(

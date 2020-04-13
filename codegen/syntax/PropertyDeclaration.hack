@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32180c36f85c530afb912d5b5fcf97f3>>
+ * @generated SignedSource<<c03c3ce564939d5e8ef9629069026b42>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PropertyDeclaration
-  extends Node
-  implements IClassBodyDeclaration, IHasTypeHint, IHasAttributeSpec {
+final class PropertyDeclaration extends Node
+  implements
+    IClassBodyDeclaration,
+    IHasTypeHint,
+    IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'property_declaration';
 
@@ -46,8 +48,7 @@ final class PropertyDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_attribute_spec'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['property_attribute_spec'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -113,8 +114,7 @@ final class PropertyDeclaration
       'type' => $this->_type,
       'declarators' => $this->_declarators,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -123,9 +123,7 @@ final class PropertyDeclaration
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null
-      ? null
-      : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
     $modifiers = $rewriter($this->_modifiers, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $declarators = $rewriter($this->_declarators, $parents);
@@ -243,10 +241,10 @@ final class PropertyDeclaration
 
   /**
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
-   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
-   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier | null
+   * | NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -255,9 +253,9 @@ final class PropertyDeclaration
   /**
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
    * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
-   * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f511a4eea64570326ec2e666d8b7b5e>>
+ * @generated SignedSource<<a10516fd074a7a91e3ce3dc47889cd62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PipeVariableExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class PipeVariableExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'pipe_variable_expression';
 
@@ -34,8 +35,7 @@ final class PipeVariableExpression
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pipe_variable_expression'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pipe_variable_expression'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -55,8 +55,7 @@ final class PipeVariableExpression
   public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -65,10 +64,10 @@ final class PipeVariableExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $this->_expression === null
-      ? null
-      : $rewriter($this->_expression, $parents);
-    if ($expression === $this->_expression) {
+    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
+    if (
+      $expression === $this->_expression
+    ) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $expression);

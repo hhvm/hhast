@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc414de0df346aa86cbdb10e17eb6d8c>>
+ * @generated SignedSource<<f721141f733467b5c7fa7bff43cfbe6d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SwitchStatement
-  extends Node
-  implements IControlFlowStatement, IStatement {
+final class SwitchStatement extends Node
+  implements
+    IControlFlowStatement,
+    IStatement {
 
   const string SYNTAX_KIND = 'switch_statement';
 
@@ -19,7 +20,7 @@ final class SwitchStatement
   private IExpression $_expression;
   private RightParenToken $_right_paren;
   private LeftBraceToken $_left_brace;
-  private ?NodeList<SwitchSection> $_sections;
+  private NodeList<SwitchSection> $_sections;
   private RightBraceToken $_right_brace;
 
   public function __construct(
@@ -28,7 +29,7 @@ final class SwitchStatement
     IExpression $expression,
     RightParenToken $right_paren,
     LeftBraceToken $left_brace,
-    ?NodeList<SwitchSection> $sections,
+    NodeList<SwitchSection> $sections,
     RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -97,14 +98,14 @@ final class SwitchStatement
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $sections = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_sections'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['switch_sections'],
       $file,
       $offset,
       $source,
       'NodeList<SwitchSection>',
     );
-    $offset += $sections?->getWidth() ?? 0;
+    $sections = $sections as nonnull;
+    $offset += $sections->getWidth();
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['switch_right_brace'],
       $file,
@@ -142,8 +143,7 @@ final class SwitchStatement
       'left_brace' => $this->_left_brace,
       'sections' => $this->_sections,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -157,9 +157,7 @@ final class SwitchStatement
     $expression = $rewriter($this->_expression, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $sections = $this->_sections === null
-      ? null
-      : $rewriter($this->_sections, $parents);
+    $sections = $rewriter($this->_sections, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -282,8 +280,8 @@ final class SwitchStatement
 
   /**
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * MemberSelectionExpression | ObjectCreationExpression | SubscriptExpression
+   * | VariableExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
@@ -291,8 +289,8 @@ final class SwitchStatement
 
   /**
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * MemberSelectionExpression | ObjectCreationExpression | SubscriptExpression
+   * | VariableExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();
@@ -376,7 +374,7 @@ final class SwitchStatement
     return $this->_sections;
   }
 
-  public function withSections(?NodeList<SwitchSection> $value): this {
+  public function withSections(NodeList<SwitchSection> $value): this {
     if ($value === $this->_sections) {
       return $this;
     }
@@ -396,17 +394,17 @@ final class SwitchStatement
   }
 
   /**
-   * @return NodeList<SwitchSection> | null
+   * @return NodeList<SwitchSection>
    */
-  public function getSections(): ?NodeList<SwitchSection> {
-    return $this->_sections;
+  public function getSections(): NodeList<SwitchSection> {
+    return TypeAssert\instance_of(NodeList::class, $this->_sections);
   }
 
   /**
    * @return NodeList<SwitchSection>
    */
   public function getSectionsx(): NodeList<SwitchSection> {
-    return TypeAssert\not_null($this->getSections());
+    return $this->getSections();
   }
 
   public function getRightBraceUNTYPED(): ?Node {

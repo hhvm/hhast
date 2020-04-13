@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17893fdfcdbc75fb590628b9812deca7>>
+ * @generated SignedSource<<aa626e1ccc6c314600db590da798dbe0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ReturnStatement extends Node implements IStatement {
+final class ReturnStatement extends Node
+  implements
+    IStatement {
 
   const string SYNTAX_KIND = 'return_statement';
 
@@ -47,8 +49,7 @@ final class ReturnStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['return_expression'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['return_expression'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -84,8 +85,7 @@ final class ReturnStatement extends Node implements IStatement {
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,9 +95,7 @@ final class ReturnStatement extends Node implements IStatement {
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $expression = $this->_expression === null
-      ? null
-      : $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -158,8 +156,7 @@ final class ReturnStatement extends Node implements IStatement {
   }
 
   /**
-   * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
@@ -178,8 +175,7 @@ final class ReturnStatement extends Node implements IStatement {
   }
 
   /**
-   * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |

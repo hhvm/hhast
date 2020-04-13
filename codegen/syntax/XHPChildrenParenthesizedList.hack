@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ce7005d5b74500b993f53ec73c54f54>>
+ * @generated SignedSource<<7a8b3c2372e6bd83ec7fd4ad05d93164>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPChildrenParenthesizedList
-  extends Node
-  implements ILambdaBody, IExpression {
+final class XHPChildrenParenthesizedList extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'xhp_children_parenthesized_list';
 
@@ -86,8 +87,7 @@ final class XHPChildrenParenthesizedList
       'left_paren' => $this->_left_paren,
       'xhp_children' => $this->_xhp_children,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

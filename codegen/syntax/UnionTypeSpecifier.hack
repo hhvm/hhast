@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1426c9f14d4e106588c6b5435cd65576>>
+ * @generated SignedSource<<cb4040fcfb6852c24bdf1eb489b4ce1a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
+final class UnionTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'union_type_specifier';
 
@@ -84,8 +86,7 @@ final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
       'left_paren' => $this->_left_paren,
       'types' => $this->_types,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<872de38670b1a421a6582fcb80759822>>
+ * @generated SignedSource<<d01143fd75c25426bc956bdf721ac992>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
+final class DarrayTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'darray_type_specifier';
 
@@ -95,8 +97,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $value = $value as nonnull;
     $offset += $value->getWidth();
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_trailing_comma'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['darray_trailing_comma'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -140,8 +141,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       'value' => $this->_value,
       'trailing_comma' => $this->_trailing_comma,
       'right_angle' => $this->_right_angle,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -155,9 +155,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $key = $rewriter($this->_key, $parents);
     $comma = $rewriter($this->_comma, $parents);
     $value = $rewriter($this->_value, $parents);
-    $trailing_comma = $this->_trailing_comma === null
-      ? null
-      : $rewriter($this->_trailing_comma, $parents);
+    $trailing_comma = $this->_trailing_comma === null ? null : $rewriter($this->_trailing_comma, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -353,16 +351,16 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return DarrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
+   * | SimpleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getValue(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_value);
   }
 
   /**
-   * @return DarrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
+   * | SimpleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getValuex(): ITypeSpecifier {
     return $this->getValue();

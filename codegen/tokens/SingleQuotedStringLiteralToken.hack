@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69a8277fb9ff3a58957fbc7d73d7faa2>>
+ * @generated SignedSource<<0478bc8e43340045f0e8102e020c6aab>>
  */
 namespace Facebook\HHAST;
 
-final class SingleQuotedStringLiteralToken
-  extends TokenWithVariableText
-  implements IStringLiteral {
+final class SingleQuotedStringLiteralToken extends TokenWithVariableText
+  implements
+    IStringLiteral {
 
   const string KIND = 'single_quoted_string_literal';
 

@@ -1,14 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae1ff852d2d72c3f5642b4e1d1cf120f>>
+ * @generated SignedSource<<11e5136ca2c0b5f7fc3123f2be4f1212>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class LiteralExpression extends Node implements ILambdaBody, IExpression {
+final class LiteralExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'literal_expression';
 
@@ -32,8 +35,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['literal_expression'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['literal_expression'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -53,8 +55,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
   public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -63,10 +64,10 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $this->_expression === null
-      ? null
-      : $rewriter($this->_expression, $parents);
-    if ($expression === $this->_expression) {
+    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
+    if (
+      $expression === $this->_expression
+    ) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $expression);

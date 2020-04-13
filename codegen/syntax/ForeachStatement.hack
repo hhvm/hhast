@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25d35921b06c610d8f49acb47ac201ee>>
+ * @generated SignedSource<<e181410c2a880234982133c4b9f6e1ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ForeachStatement
-  extends Node
-  implements IControlFlowStatement, ILoopStatement, IStatement {
+final class ForeachStatement extends Node
+  implements
+    IControlFlowStatement,
+    ILoopStatement,
+    IStatement {
 
   const string SYNTAX_KIND = 'foreach_statement';
 
@@ -88,8 +90,7 @@ final class ForeachStatement
     $collection = $collection as nonnull;
     $offset += $collection->getWidth();
     $await_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_await_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['foreach_await_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -182,8 +183,7 @@ final class ForeachStatement
       'value' => $this->_value,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -195,9 +195,7 @@ final class ForeachStatement
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
     $collection = $rewriter($this->_collection, $parents);
-    $await_keyword = $this->_await_keyword === null
-      ? null
-      : $rewriter($this->_await_keyword, $parents);
+    $await_keyword = $this->_await_keyword === null ? null : $rewriter($this->_await_keyword, $parents);
     $as = $rewriter($this->_as, $parents);
     $key = $this->_key === null ? null : $rewriter($this->_key, $parents);
     $arrow = $this->_arrow === null ? null : $rewriter($this->_arrow, $parents);
@@ -339,11 +337,11 @@ final class ForeachStatement
   }
 
   /**
-   * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * @return AnonymousFunction | CastExpression | CollectionLiteralExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getCollection(): IExpression {
@@ -351,11 +349,11 @@ final class ForeachStatement
   }
 
   /**
-   * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * @return AnonymousFunction | CastExpression | CollectionLiteralExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getCollectionx(): IExpression {

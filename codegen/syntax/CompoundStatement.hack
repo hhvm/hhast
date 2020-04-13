@@ -1,14 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1998f818bef900008725c26b9dbf3f0d>>
+ * @generated SignedSource<<2aaeebd38be9c07537b14289cef9ee92>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class CompoundStatement extends Node implements ILambdaBody, IStatement {
+final class CompoundStatement extends Node
+  implements
+    ILambdaBody,
+    IStatement {
 
   const string SYNTAX_KIND = 'compound_statement';
 
@@ -47,8 +50,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $statements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['compound_statements'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['compound_statements'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -84,8 +86,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       'left_brace' => $this->_left_brace,
       'statements' => $this->_statements,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,9 +96,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $statements = $this->_statements === null
-      ? null
-      : $rewriter($this->_statements, $parents);
+    $statements = $this->_statements === null ? null : $rewriter($this->_statements, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&

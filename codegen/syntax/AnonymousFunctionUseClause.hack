@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b7d0d044b1285cfe2cd44bb2c014375>>
+ * @generated SignedSource<<0fb5c5be0898e781c4c32d395dc82ce7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,8 +59,7 @@ final class AnonymousFunctionUseClause extends Node {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $variables = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_variables'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_use_variables'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +97,7 @@ final class AnonymousFunctionUseClause extends Node {
       'left_paren' => $this->_left_paren,
       'variables' => $this->_variables,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -110,9 +108,7 @@ final class AnonymousFunctionUseClause extends Node {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $variables = $this->_variables === null
-      ? null
-      : $rewriter($this->_variables, $parents);
+    $variables = $this->_variables === null ? null : $rewriter($this->_variables, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -138,12 +134,7 @@ final class AnonymousFunctionUseClause extends Node {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_left_paren,
-      $this->_variables,
-      $this->_right_paren,
-    );
+    return new static($value, $this->_left_paren, $this->_variables, $this->_right_paren);
   }
 
   public function hasKeyword(): bool {
@@ -172,12 +163,7 @@ final class AnonymousFunctionUseClause extends Node {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_variables,
-      $this->_right_paren,
-    );
+    return new static($this->_keyword, $value, $this->_variables, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -208,12 +194,7 @@ final class AnonymousFunctionUseClause extends Node {
     if ($value === $this->_variables) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasVariables(): bool {
@@ -242,12 +223,7 @@ final class AnonymousFunctionUseClause extends Node {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $this->_variables,
-      $value,
-    );
+    return new static($this->_keyword, $this->_left_paren, $this->_variables, $value);
   }
 
   public function hasRightParen(): bool {

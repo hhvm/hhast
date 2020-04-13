@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2eca331dc4300c350fec82bfd9df5c17>>
+ * @generated SignedSource<<7899f7138a914e9f277ab6a0cc38c9a3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,8 +47,7 @@ final class SwitchSection extends Node {
     $labels = $labels as nonnull;
     $offset += $labels->getWidth();
     $statements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_section_statements'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['switch_section_statements'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -56,8 +55,7 @@ final class SwitchSection extends Node {
     );
     $offset += $statements?->getWidth() ?? 0;
     $fallthrough = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_section_fallthrough'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['switch_section_fallthrough'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -84,8 +82,7 @@ final class SwitchSection extends Node {
       'labels' => $this->_labels,
       'statements' => $this->_statements,
       'fallthrough' => $this->_fallthrough,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,12 +92,8 @@ final class SwitchSection extends Node {
   ): this {
     $parents[] = $this;
     $labels = $rewriter($this->_labels, $parents);
-    $statements = $this->_statements === null
-      ? null
-      : $rewriter($this->_statements, $parents);
-    $fallthrough = $this->_fallthrough === null
-      ? null
-      : $rewriter($this->_fallthrough, $parents);
+    $statements = $this->_statements === null ? null : $rewriter($this->_statements, $parents);
+    $fallthrough = $this->_fallthrough === null ? null : $rewriter($this->_fallthrough, $parents);
     if (
       $labels === $this->_labels &&
       $statements === $this->_statements &&

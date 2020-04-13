@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a943cbb18fdcd387b6745d51808add3f>>
+ * @generated SignedSource<<d98cf628197de06aaad90a2826d7a129>>
  */
 namespace Facebook\HHAST;
 
-final class NowdocStringLiteralToken
-  extends TokenWithVariableText
-  implements IStringLiteral {
+final class NowdocStringLiteralToken extends TokenWithVariableText
+  implements
+    IStringLiteral {
 
   const string KIND = 'nowdoc_string_literal';
 

@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8027ee5df38c0492f5bc50b293344342>>
+ * @generated SignedSource<<c75b6d7d5f7db1c95a7bcc41ed001720>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TryStatement extends Node implements IStatement {
+final class TryStatement extends Node
+  implements
+    IStatement {
 
   const string SYNTAX_KIND = 'try_statement';
 
@@ -59,8 +61,7 @@ final class TryStatement extends Node implements IStatement {
     $compound_statement = $compound_statement as nonnull;
     $offset += $compound_statement->getWidth();
     $catch_clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_catch_clauses'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['try_catch_clauses'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +69,7 @@ final class TryStatement extends Node implements IStatement {
     );
     $offset += $catch_clauses?->getWidth() ?? 0;
     $finally_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_finally_clause'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['try_finally_clause'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +98,7 @@ final class TryStatement extends Node implements IStatement {
       'compound_statement' => $this->_compound_statement,
       'catch_clauses' => $this->_catch_clauses,
       'finally_clause' => $this->_finally_clause,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -110,12 +109,8 @@ final class TryStatement extends Node implements IStatement {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $compound_statement = $rewriter($this->_compound_statement, $parents);
-    $catch_clauses = $this->_catch_clauses === null
-      ? null
-      : $rewriter($this->_catch_clauses, $parents);
-    $finally_clause = $this->_finally_clause === null
-      ? null
-      : $rewriter($this->_finally_clause, $parents);
+    $catch_clauses = $this->_catch_clauses === null ? null : $rewriter($this->_catch_clauses, $parents);
+    $finally_clause = $this->_finally_clause === null ? null : $rewriter($this->_finally_clause, $parents);
     if (
       $keyword === $this->_keyword &&
       $compound_statement === $this->_compound_statement &&
@@ -190,10 +185,7 @@ final class TryStatement extends Node implements IStatement {
    * @return CompoundStatement
    */
   public function getCompoundStatement(): CompoundStatement {
-    return TypeAssert\instance_of(
-      CompoundStatement::class,
-      $this->_compound_statement,
-    );
+    return TypeAssert\instance_of(CompoundStatement::class, $this->_compound_statement);
   }
 
   /**

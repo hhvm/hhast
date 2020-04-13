@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c7bf2240f5c5d1093d451bacc6a579d>>
+ * @generated SignedSource<<356c78a420d8e4f0c482973dfaf3e70a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,12 +13,12 @@ final class TypeArguments extends Node {
   const string SYNTAX_KIND = 'type_arguments';
 
   private LessThanToken $_left_angle;
-  private NodeList<ListItem<ITypeSpecifier>> $_types;
+  private ?NodeList<ListItem<ITypeSpecifier>> $_types;
   private GreaterThanToken $_right_angle;
 
   public function __construct(
     LessThanToken $left_angle,
-    NodeList<ListItem<ITypeSpecifier>> $types,
+    ?NodeList<ListItem<ITypeSpecifier>> $types,
     GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -47,14 +47,13 @@ final class TypeArguments extends Node {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_arguments_types'],
+      /* HH_FIXME[4110] */ $json['type_arguments_types'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
       'NodeList<ListItem<ITypeSpecifier>>',
     );
-    $types = $types as nonnull;
-    $offset += $types->getWidth();
+    $offset += $types?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_arguments_right_angle'],
       $file,
@@ -84,8 +83,7 @@ final class TypeArguments extends Node {
       'left_angle' => $this->_left_angle,
       'types' => $this->_types,
       'right_angle' => $this->_right_angle,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,7 +93,7 @@ final class TypeArguments extends Node {
   ): this {
     $parents[] = $this;
     $left_angle = $rewriter($this->_left_angle, $parents);
-    $types = $rewriter($this->_types, $parents);
+    $types = $this->_types === null ? null : $rewriter($this->_types, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $left_angle === $this->_left_angle &&
@@ -144,7 +142,7 @@ final class TypeArguments extends Node {
     return $this->_types;
   }
 
-  public function withTypes(NodeList<ListItem<ITypeSpecifier>> $value): this {
+  public function withTypes(?NodeList<ListItem<ITypeSpecifier>> $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -174,10 +172,10 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
    * | NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorArrayTypeSpecifier>> |
-   * NodeList<ListItem<VectorTypeSpecifier>>
+   * NodeList<ListItem<VectorTypeSpecifier>> | null
    */
-  public function getTypes(): NodeList<ListItem<ITypeSpecifier>> {
-    return TypeAssert\instance_of(NodeList::class, $this->_types);
+  public function getTypes(): ?NodeList<ListItem<ITypeSpecifier>> {
+    return $this->_types;
   }
 
   /**
@@ -202,7 +200,7 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
   public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {
-    return $this->getTypes();
+    return TypeAssert\not_null($this->getTypes());
   }
 
   public function getRightAngleUNTYPED(): ?Node {

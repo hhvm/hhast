@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c831d9f323d3b1bb38ba6c4c0403d4ef>>
+ * @generated SignedSource<<a706c6c66668c7c0c5d2080ee18e82f6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
+final class TraitUsePrecedenceItem extends Node
+  implements
+    ITraitUseItem {
 
   const string SYNTAX_KIND = 'trait_use_precedence_item';
 
@@ -84,8 +86,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       'name' => $this->_name,
       'keyword' => $this->_keyword,
       'removed_names' => $this->_removed_names,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -130,10 +131,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
    * @return ScopeResolutionExpression
    */
   public function getName(): ScopeResolutionExpression {
-    return TypeAssert\instance_of(
-      ScopeResolutionExpression::class,
-      $this->_name,
-    );
+    return TypeAssert\instance_of(ScopeResolutionExpression::class, $this->_name);
   }
 
   /**

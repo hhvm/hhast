@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e3899ccecc0b87eb43c86aa29206487>>
+ * @generated SignedSource<<c6d565a8ac7ec308bab3fff89b9ea949>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,8 +70,7 @@ final class MarkupSuffix extends Node {
     return dict[
       'less_than_question' => $this->_less_than_question,
       'name' => $this->_name,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -113,10 +112,7 @@ final class MarkupSuffix extends Node {
    * @return LessThanQuestionToken
    */
   public function getLessThanQuestion(): LessThanQuestionToken {
-    return TypeAssert\instance_of(
-      LessThanQuestionToken::class,
-      $this->_less_than_question,
-    );
+    return TypeAssert\instance_of(LessThanQuestionToken::class, $this->_less_than_question);
   }
 
   /**

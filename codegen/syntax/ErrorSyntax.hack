@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c0a751af0de2edf6cad8aba3f07694a>>
+ * @generated SignedSource<<9453544e79b2b3dc5d7495fe6a1b6b2a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -52,8 +52,7 @@ final class ErrorSyntax extends Node {
   public function getChildren(): dict<string, Node> {
     return dict[
       'error' => $this->_error,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -63,7 +62,9 @@ final class ErrorSyntax extends Node {
   ): this {
     $parents[] = $this;
     $error = $this->_error === null ? null : $rewriter($this->_error, $parents);
-    if ($error === $this->_error) {
+    if (
+      $error === $this->_error
+    ) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $error);

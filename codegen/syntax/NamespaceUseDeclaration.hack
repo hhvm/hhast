@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bfb72c85bfaa2dde8b5f05506021b70c>>
+ * @generated SignedSource<<39de5d2f5f9a22934578daf82abda691>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NamespaceUseDeclaration
-  extends Node
-  implements INamespaceUseDeclaration {
+final class NamespaceUseDeclaration extends Node
+  implements
+    INamespaceUseDeclaration {
 
   const string SYNTAX_KIND = 'namespace_use_declaration';
 
@@ -52,8 +52,7 @@ final class NamespaceUseDeclaration
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_kind'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['namespace_use_kind'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -100,8 +99,7 @@ final class NamespaceUseDeclaration
       'kind' => $this->_kind,
       'clauses' => $this->_clauses,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -167,12 +165,7 @@ final class NamespaceUseDeclaration
     if ($value === $this->_kind) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_clauses,
-      $this->_semicolon,
-    );
+    return new static($this->_keyword, $value, $this->_clauses, $this->_semicolon);
   }
 
   public function hasKind(): bool {

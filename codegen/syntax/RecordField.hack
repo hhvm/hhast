@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e68f4e3db924524fff85694b9b98ea9>>
+ * @generated SignedSource<<0a56d225e5aefb7883ede1901e95f3ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -98,8 +98,7 @@ final class RecordField extends Node {
       'name' => $this->_name,
       'init' => $this->_init,
       'semi' => $this->_semi,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

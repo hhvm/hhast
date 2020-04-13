@@ -1,30 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04266f712b921560483cee7aad4b47bf>>
+ * @generated SignedSource<<68a0625144943a5c3949c71986c1b9a6>>
  */
 namespace Facebook\HHAST;
 
-final class AfterHaltCompiler extends Trivia {
-
-  const string SYNTAX_KIND = 'after_halt_compiler';
-
-  public function __construct(
-    string $text,
-    ?__Private\SourceRef $source_ref = null,
-  ) {
-    parent::__construct($text, $source_ref);
-  }
-
-  public function withText(string $text): this {
-    if ($text === $this->getText()) {
-      return $this;
-    }
-    return new self($text);
-  }
-}
-
-final class DelimitedComment extends Trivia implements IComment {
+final class DelimitedComment extends Trivia
+  implements
+    IComment {
 
   const string SYNTAX_KIND = 'delimited_comment';
 
@@ -138,7 +121,9 @@ final class IgnoreError extends Trivia {
   }
 }
 
-final class SingleLineComment extends Trivia implements IComment {
+final class SingleLineComment extends Trivia
+  implements
+    IComment {
 
   const string SYNTAX_KIND = 'single_line_comment';
 

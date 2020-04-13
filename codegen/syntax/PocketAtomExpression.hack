@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f6534f758e83a86f43af422267dd72c>>
+ * @generated SignedSource<<bb8c4161ce0e7d408e51a7b2a0b8ee5d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PocketAtomExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class PocketAtomExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'pocket_atom_expression';
 
@@ -37,8 +38,7 @@ final class PocketAtomExpression
   ): this {
     $offset = $initial_offset;
     $glyph = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_glyph'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_glyph'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -46,8 +46,7 @@ final class PocketAtomExpression
     );
     $offset += $glyph?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_atom_expression'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_atom_expression'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -72,8 +71,7 @@ final class PocketAtomExpression
     return dict[
       'glyph' => $this->_glyph,
       'expression' => $this->_expression,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -83,10 +81,11 @@ final class PocketAtomExpression
   ): this {
     $parents[] = $this;
     $glyph = $this->_glyph === null ? null : $rewriter($this->_glyph, $parents);
-    $expression = $this->_expression === null
-      ? null
-      : $rewriter($this->_expression, $parents);
-    if ($glyph === $this->_glyph && $expression === $this->_expression) {
+    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
+    if (
+      $glyph === $this->_glyph &&
+      $expression === $this->_expression
+    ) {
       return $this;
     }
     return new static(
