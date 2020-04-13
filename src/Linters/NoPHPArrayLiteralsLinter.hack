@@ -52,33 +52,6 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
 
     $children = vec($expr->getChildren());
 
-    if ($expr is ArrayCreationExpression && C\count($children) === 3) {
-      list($left, $list, $right) = $children;
-      if (
-        $left is LeftBracketToken &&
-        $list->isList() &&
-        $right is RightBracketToken
-      ) {
-        if ($is_assoc) {
-          return new DictionaryIntrinsicExpression(
-            new DictToken($left->getLeading(), null),
-            null,
-            $left->withLeading(null),
-            /* HH_FIXME[4110] */ $list,
-            $right,
-          );
-        } else {
-          return new VectorIntrinsicExpression(
-            new VecToken($left->getLeading(), null),
-            null,
-            $left->withLeading(null),
-            /* HH_FIXME[4110] */ $list,
-            $right,
-          );
-        }
-      }
-    }
-
     if ($expr is ArrayIntrinsicExpression && C\count($children) === 4) {
       list($array, $left, $list, $right) = $children;
       if (
