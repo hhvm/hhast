@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92d8847ce24ab9802c601ea0fc1d538a>>
+ * @generated SignedSource<<5e88524b7e129d800b9a238e58e3c9ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
+final class ShapeTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'shape_type_specifier';
 
@@ -62,8 +64,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_fields'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['shape_type_fields'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -71,8 +72,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $fields?->getWidth() ?? 0;
     $ellipsis = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_ellipsis'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['shape_type_ellipsis'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -112,8 +112,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       'fields' => $this->_fields,
       'ellipsis' => $this->_ellipsis,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -124,12 +123,8 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $fields = $this->_fields === null
-      ? null
-      : $rewriter($this->_fields, $parents);
-    $ellipsis = $this->_ellipsis === null
-      ? null
-      : $rewriter($this->_ellipsis, $parents);
+    $fields = $this->_fields === null ? null : $rewriter($this->_fields, $parents);
+    $ellipsis = $this->_ellipsis === null ? null : $rewriter($this->_ellipsis, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&

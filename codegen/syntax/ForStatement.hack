@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed701c82b3dbf78747239c7ce0793086>>
+ * @generated SignedSource<<c0e04d4afe1daa1b566c39e6f691175d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ForStatement
-  extends Node
-  implements IControlFlowStatement, ILoopStatement, IStatement {
+final class ForStatement extends Node
+  implements
+    IControlFlowStatement,
+    ILoopStatement,
+    IStatement {
 
   const string SYNTAX_KIND = 'for_statement';
 
@@ -76,8 +78,7 @@ final class ForStatement
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_initializer'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['for_initializer'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -111,8 +112,7 @@ final class ForStatement
     $second_semicolon = $second_semicolon as nonnull;
     $offset += $second_semicolon->getWidth();
     $end_of_loop = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_end_of_loop'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['for_end_of_loop'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -169,8 +169,7 @@ final class ForStatement
       'end_of_loop' => $this->_end_of_loop,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -181,17 +180,11 @@ final class ForStatement
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $initializer = $this->_initializer === null
-      ? null
-      : $rewriter($this->_initializer, $parents);
+    $initializer = $this->_initializer === null ? null : $rewriter($this->_initializer, $parents);
     $first_semicolon = $rewriter($this->_first_semicolon, $parents);
-    $control = $this->_control === null
-      ? null
-      : $rewriter($this->_control, $parents);
+    $control = $this->_control === null ? null : $rewriter($this->_control, $parents);
     $second_semicolon = $rewriter($this->_second_semicolon, $parents);
-    $end_of_loop = $this->_end_of_loop === null
-      ? null
-      : $rewriter($this->_end_of_loop, $parents);
+    $end_of_loop = $this->_end_of_loop === null ? null : $rewriter($this->_end_of_loop, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
@@ -374,10 +367,7 @@ final class ForStatement
    * @return SemicolonToken
    */
   public function getFirstSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(
-      SemicolonToken::class,
-      $this->_first_semicolon,
-    );
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_first_semicolon);
   }
 
   /**
@@ -465,10 +455,7 @@ final class ForStatement
    * @return SemicolonToken
    */
   public function getSecondSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(
-      SemicolonToken::class,
-      $this->_second_semicolon,
-    );
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_second_semicolon);
   }
 
   /**

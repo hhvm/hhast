@@ -68,7 +68,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * Returns whether the given expression is empty.
    */
   private function isEmptyExpression(Node $expr): bool {
-    return $expr is ArrayCreationExpression ||
+    return
       $expr is ArrayIntrinsicExpression ||
       $expr is AnonymousFunction ||
       (

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c828e63d898fc9e5884b086584ad390>>
+ * @generated SignedSource<<a342dacdcd26e097ffb0c0790ed13a34>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -56,8 +56,7 @@ final class AnonymousClass extends Node {
   ): this {
     $offset = $initial_offset;
     $class_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_class_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_class_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,8 +64,7 @@ final class AnonymousClass extends Node {
     );
     $offset += $class_keyword?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_left_paren'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_left_paren'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -74,8 +72,7 @@ final class AnonymousClass extends Node {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_argument_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_argument_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -83,8 +80,7 @@ final class AnonymousClass extends Node {
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_right_paren'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_right_paren'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -92,8 +88,7 @@ final class AnonymousClass extends Node {
     );
     $offset += $right_paren?->getWidth() ?? 0;
     $extends_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_extends_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_extends_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -101,8 +96,7 @@ final class AnonymousClass extends Node {
     );
     $offset += $extends_keyword?->getWidth() ?? 0;
     $extends_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_extends_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_extends_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -110,8 +104,7 @@ final class AnonymousClass extends Node {
     );
     $offset += $extends_list?->getWidth() ?? 0;
     $implements_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_implements_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_implements_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -119,8 +112,7 @@ final class AnonymousClass extends Node {
     );
     $offset += $implements_keyword?->getWidth() ?? 0;
     $implements_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_implements_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_implements_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -128,8 +120,7 @@ final class AnonymousClass extends Node {
     );
     $offset += $implements_list?->getWidth() ?? 0;
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_body'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['anonymous_class_body'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -168,8 +159,7 @@ final class AnonymousClass extends Node {
       'implements_keyword' => $this->_implements_keyword,
       'implements_list' => $this->_implements_list,
       'body' => $this->_body,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -178,30 +168,14 @@ final class AnonymousClass extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $class_keyword = $this->_class_keyword === null
-      ? null
-      : $rewriter($this->_class_keyword, $parents);
-    $left_paren = $this->_left_paren === null
-      ? null
-      : $rewriter($this->_left_paren, $parents);
-    $argument_list = $this->_argument_list === null
-      ? null
-      : $rewriter($this->_argument_list, $parents);
-    $right_paren = $this->_right_paren === null
-      ? null
-      : $rewriter($this->_right_paren, $parents);
-    $extends_keyword = $this->_extends_keyword === null
-      ? null
-      : $rewriter($this->_extends_keyword, $parents);
-    $extends_list = $this->_extends_list === null
-      ? null
-      : $rewriter($this->_extends_list, $parents);
-    $implements_keyword = $this->_implements_keyword === null
-      ? null
-      : $rewriter($this->_implements_keyword, $parents);
-    $implements_list = $this->_implements_list === null
-      ? null
-      : $rewriter($this->_implements_list, $parents);
+    $class_keyword = $this->_class_keyword === null ? null : $rewriter($this->_class_keyword, $parents);
+    $left_paren = $this->_left_paren === null ? null : $rewriter($this->_left_paren, $parents);
+    $argument_list = $this->_argument_list === null ? null : $rewriter($this->_argument_list, $parents);
+    $right_paren = $this->_right_paren === null ? null : $rewriter($this->_right_paren, $parents);
+    $extends_keyword = $this->_extends_keyword === null ? null : $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $this->_extends_list === null ? null : $rewriter($this->_extends_list, $parents);
+    $implements_keyword = $this->_implements_keyword === null ? null : $rewriter($this->_implements_keyword, $parents);
+    $implements_list = $this->_implements_list === null ? null : $rewriter($this->_implements_list, $parents);
     $body = $this->_body === null ? null : $rewriter($this->_body, $parents);
     if (
       $class_keyword === $this->_class_keyword &&

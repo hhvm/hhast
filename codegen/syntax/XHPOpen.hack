@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<048176722bc15b3a5b5bb39b87acf52c>>
+ * @generated SignedSource<<2d804c46b89ee32ec0580c63041b8495>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,8 +59,7 @@ final class XHPOpen extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $attributes = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_open_attributes'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['xhp_open_attributes'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +97,7 @@ final class XHPOpen extends Node {
       'name' => $this->_name,
       'attributes' => $this->_attributes,
       'right_angle' => $this->_right_angle,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -110,9 +108,7 @@ final class XHPOpen extends Node {
     $parents[] = $this;
     $left_angle = $rewriter($this->_left_angle, $parents);
     $name = $rewriter($this->_name, $parents);
-    $attributes = $this->_attributes === null
-      ? null
-      : $rewriter($this->_attributes, $parents);
+    $attributes = $this->_attributes === null ? null : $rewriter($this->_attributes, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $left_angle === $this->_left_angle &&
@@ -138,12 +134,7 @@ final class XHPOpen extends Node {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_name,
-      $this->_attributes,
-      $this->_right_angle,
-    );
+    return new static($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -172,12 +163,7 @@ final class XHPOpen extends Node {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $value,
-      $this->_attributes,
-      $this->_right_angle,
-    );
+    return new static($this->_left_angle, $value, $this->_attributes, $this->_right_angle);
   }
 
   public function hasName(): bool {
@@ -206,12 +192,7 @@ final class XHPOpen extends Node {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $this->_name,
-      $value,
-      $this->_right_angle,
-    );
+    return new static($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
   public function hasAttributes(): bool {
@@ -242,12 +223,7 @@ final class XHPOpen extends Node {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $this->_name,
-      $this->_attributes,
-      $value,
-    );
+    return new static($this->_left_angle, $this->_name, $this->_attributes, $value);
   }
 
   public function hasRightAngle(): bool {

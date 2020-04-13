@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3462ef6cbb50c239582cdb4322561787>>
+ * @generated SignedSource<<89553f73ee372db2a990a1e50db1af48>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,8 +53,7 @@ final class EndOfFile extends Node {
   public function getChildren(): dict<string, Node> {
     return dict[
       'token' => $this->_token,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -64,7 +63,9 @@ final class EndOfFile extends Node {
   ): this {
     $parents[] = $this;
     $token = $rewriter($this->_token, $parents);
-    if ($token === $this->_token) {
+    if (
+      $token === $this->_token
+    ) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $token);

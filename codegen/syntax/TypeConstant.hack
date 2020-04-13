@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da380a3559a97a464f979b5ce730d953>>
+ * @generated SignedSource<<94220beeff974a024ed5272462e74d79>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TypeConstant extends Node implements ITypeSpecifier {
+final class TypeConstant extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'type_constant';
 
@@ -84,8 +86,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       'left_type' => $this->_left_type,
       'separator' => $this->_separator,
       'right_type' => $this->_right_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

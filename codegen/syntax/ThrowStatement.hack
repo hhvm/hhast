@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d3ed0f2d7c91ad7b276758978d14325>>
+ * @generated SignedSource<<960d89683ab2cd114c02fb8dc8c518ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ThrowStatement extends Node implements IStatement {
+final class ThrowStatement extends Node
+  implements
+    IStatement {
 
   const string SYNTAX_KIND = 'throw_statement';
 
@@ -84,8 +86,7 @@ final class ThrowStatement extends Node implements IStatement {
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

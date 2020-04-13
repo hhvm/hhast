@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<62864e4295c23fbee1936f831f90f1d0>>
+ * @generated SignedSource<<62a153bc0ebb969e3ae5f8a8461181ad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ConditionalExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class ConditionalExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'conditional_expression';
 
@@ -114,8 +115,7 @@ final class ConditionalExpression
       'consequence' => $this->_consequence,
       'colon' => $this->_colon,
       'alternative' => $this->_alternative,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -247,10 +247,10 @@ final class ConditionalExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression
@@ -260,10 +260,10 @@ final class ConditionalExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression
@@ -329,8 +329,7 @@ final class ConditionalExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * @return BinaryExpression | CastExpression | CollectionLiteralExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
@@ -343,8 +342,7 @@ final class ConditionalExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression |
-   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * @return BinaryExpression | CastExpression | CollectionLiteralExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |

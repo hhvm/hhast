@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbeb7e58f875d8600056857af66d0c35>>
+ * @generated SignedSource<<a12a859accea5fcf6ed29d1a29d6d48c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TraitUse extends Node implements IClassBodyDeclaration {
+final class TraitUse extends Node
+  implements
+    IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'trait_use';
 
@@ -84,8 +86,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       'keyword' => $this->_keyword,
       'names' => $this->_names,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

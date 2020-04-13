@@ -1,15 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23dcc4f541bca03830f3c25a8d2d4a04>>
+ * @generated SignedSource<<b1f5a33b36afe1b968571649d26eb7a5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class MethodishDeclarationGeneratedBase
-  extends Node
+abstract class MethodishDeclarationGeneratedBase extends Node
   implements
     IClassBodyDeclaration,
     IFunctionishDeclaration,
@@ -47,8 +46,7 @@ abstract class MethodishDeclarationGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_attribute'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['methodish_attribute'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,8 +63,7 @@ abstract class MethodishDeclarationGeneratedBase
     $function_decl_header = $function_decl_header as nonnull;
     $offset += $function_decl_header->getWidth();
     $function_body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_function_body'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['methodish_function_body'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -74,8 +71,7 @@ abstract class MethodishDeclarationGeneratedBase
     );
     $offset += $function_body?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_semicolon'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['methodish_semicolon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -104,8 +100,7 @@ abstract class MethodishDeclarationGeneratedBase
       'function_decl_header' => $this->_function_decl_header,
       'function_body' => $this->_function_body,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -114,16 +109,10 @@ abstract class MethodishDeclarationGeneratedBase
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute === null
-      ? null
-      : $rewriter($this->_attribute, $parents);
+    $attribute = $this->_attribute === null ? null : $rewriter($this->_attribute, $parents);
     $function_decl_header = $rewriter($this->_function_decl_header, $parents);
-    $function_body = $this->_function_body === null
-      ? null
-      : $rewriter($this->_function_body, $parents);
-    $semicolon = $this->_semicolon === null
-      ? null
-      : $rewriter($this->_semicolon, $parents);
+    $function_body = $this->_function_body === null ? null : $rewriter($this->_function_body, $parents);
+    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
     if (
       $attribute === $this->_attribute &&
       $function_decl_header === $this->_function_decl_header &&
@@ -184,12 +173,7 @@ abstract class MethodishDeclarationGeneratedBase
     if ($value === $this->_function_decl_header) {
       return $this;
     }
-    return new static(
-      $this->_attribute,
-      $value,
-      $this->_function_body,
-      $this->_semicolon,
-    );
+    return new static($this->_attribute, $value, $this->_function_body, $this->_semicolon);
   }
 
   public function hasFunctionDeclHeader(): bool {
@@ -200,10 +184,7 @@ abstract class MethodishDeclarationGeneratedBase
    * @return FunctionDeclarationHeader
    */
   public function getFunctionDeclHeader(): FunctionDeclarationHeader {
-    return TypeAssert\instance_of(
-      FunctionDeclarationHeader::class,
-      $this->_function_decl_header,
-    );
+    return TypeAssert\instance_of(FunctionDeclarationHeader::class, $this->_function_decl_header);
   }
 
   /**

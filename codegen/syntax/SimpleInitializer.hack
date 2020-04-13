@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60b5c6e4ffbb3b2030c345a4c877f81b>>
+ * @generated SignedSource<<8e0681b17e332c3875458581122b4f0e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,8 +70,7 @@ final class SimpleInitializer extends Node {
     return dict[
       'equal' => $this->_equal,
       'value' => $this->_value,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,7 +81,10 @@ final class SimpleInitializer extends Node {
     $parents[] = $this;
     $equal = $rewriter($this->_equal, $parents);
     $value = $rewriter($this->_value, $parents);
-    if ($equal === $this->_equal && $value === $this->_value) {
+    if (
+      $equal === $this->_equal &&
+      $value === $this->_value
+    ) {
       return $this;
     }
     return new static(
@@ -136,8 +138,8 @@ final class SimpleInitializer extends Node {
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression | AsExpression
-   * | BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
+   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | ParenthesizedExpression | PrefixUnaryExpression |
@@ -150,8 +152,8 @@ final class SimpleInitializer extends Node {
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression | AsExpression
-   * | BinaryExpression | CollectionLiteralExpression | ConditionalExpression |
+   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
+   * CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | ParenthesizedExpression | PrefixUnaryExpression |

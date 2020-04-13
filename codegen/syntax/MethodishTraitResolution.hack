@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc199c8abf3e027ff1ee80fce305cafe>>
+ * @generated SignedSource<<5f8dfd66b5a5e7df506af0c097375e51>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class MethodishTraitResolution
-  extends Node
-  implements IClassBodyDeclaration {
+final class MethodishTraitResolution extends Node
+  implements
+    IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'methodish_trait_resolution';
 
@@ -46,8 +46,7 @@ final class MethodishTraitResolution
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_attribute'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_attribute'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,8 +113,7 @@ final class MethodishTraitResolution
       'equal' => $this->_equal,
       'name' => $this->_name,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -124,9 +122,7 @@ final class MethodishTraitResolution
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute === null
-      ? null
-      : $rewriter($this->_attribute, $parents);
+    $attribute = $this->_attribute === null ? null : $rewriter($this->_attribute, $parents);
     $function_decl_header = $rewriter($this->_function_decl_header, $parents);
     $equal = $rewriter($this->_equal, $parents);
     $name = $rewriter($this->_name, $parents);
@@ -211,10 +207,7 @@ final class MethodishTraitResolution
    * @return FunctionDeclarationHeader
    */
   public function getFunctionDeclHeader(): FunctionDeclarationHeader {
-    return TypeAssert\instance_of(
-      FunctionDeclarationHeader::class,
-      $this->_function_decl_header,
-    );
+    return TypeAssert\instance_of(FunctionDeclarationHeader::class, $this->_function_decl_header);
   }
 
   /**
@@ -284,10 +277,7 @@ final class MethodishTraitResolution
    * @return ScopeResolutionExpression
    */
   public function getName(): ScopeResolutionExpression {
-    return TypeAssert\instance_of(
-      ScopeResolutionExpression::class,
-      $this->_name,
-    );
+    return TypeAssert\instance_of(ScopeResolutionExpression::class, $this->_name);
   }
 
   /**

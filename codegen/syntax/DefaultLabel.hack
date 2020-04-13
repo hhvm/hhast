@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<debe6bcf1ec67c1dc3497f2a7cdcb67f>>
+ * @generated SignedSource<<d7308bf2ff15bc479950bca0656d8df9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DefaultLabel extends Node implements ISwitchLabel {
+final class DefaultLabel extends Node
+  implements
+    ISwitchLabel {
 
   const string SYNTAX_KIND = 'default_label';
 
@@ -70,8 +72,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     return dict[
       'keyword' => $this->_keyword,
       'colon' => $this->_colon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,7 +83,10 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $colon = $rewriter($this->_colon, $parents);
-    if ($keyword === $this->_keyword && $colon === $this->_colon) {
+    if (
+      $keyword === $this->_keyword &&
+      $colon === $this->_colon
+    ) {
       return $this;
     }
     return new static(

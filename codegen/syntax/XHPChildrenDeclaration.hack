@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b09c7dcf5ba973ed788ec5469d0b986>>
+ * @generated SignedSource<<b1740a9db67808929245e156bedf2731>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPChildrenDeclaration
-  extends Node
-  implements IClassBodyDeclaration, ILambdaBody, IExpression {
+final class XHPChildrenDeclaration extends Node
+  implements
+    IClassBodyDeclaration,
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'xhp_children_declaration';
 
@@ -86,8 +88,7 @@ final class XHPChildrenDeclaration
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

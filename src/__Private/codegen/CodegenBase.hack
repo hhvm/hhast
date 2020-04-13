@@ -165,7 +165,6 @@ abstract class CodegenBase {
         HHAST\PropertyDeclaration::class,
       ],
       HHAST\IPHPArray::class => keyset[
-        HHAST\ArrayCreationExpression::class,
         HHAST\ArrayIntrinsicExpression::class,
       ],
       HHAST\IHackArray::class => keyset[

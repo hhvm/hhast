@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<14d34349c14cb65b71185ee65d25c372>>
+ * @generated SignedSource<<762ae6df80de01a7c2b2f13de85e6be2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,8 +32,7 @@ final class AttributeSpecification extends Node {
   ): this {
     $offset = $initial_offset;
     $attributes = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['attribute_specification_attributes'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['attribute_specification_attributes'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -53,8 +52,7 @@ final class AttributeSpecification extends Node {
   public function getChildren(): dict<string, Node> {
     return dict[
       'attributes' => $this->_attributes,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -63,10 +61,10 @@ final class AttributeSpecification extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attributes = $this->_attributes === null
-      ? null
-      : $rewriter($this->_attributes, $parents);
-    if ($attributes === $this->_attributes) {
+    $attributes = $this->_attributes === null ? null : $rewriter($this->_attributes, $parents);
+    if (
+      $attributes === $this->_attributes
+    ) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $attributes);

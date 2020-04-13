@@ -1,6 +1,6 @@
 { "description" :
   "@generated JSON schema of the Hack Full Fidelity Parser AST",
-  "version" : "2020-01-22-0001",
+  "version" : "2020-04-06-0001",
   "trivia" : [
     { "trivia_kind_name" : "WhiteSpace",
       "trivia_type_name" : "whitespace" },
@@ -17,9 +17,7 @@
     { "trivia_kind_name" : "FallThrough",
       "trivia_type_name" : "fall_through" },
     { "trivia_kind_name" : "ExtraTokenError",
-      "trivia_type_name" : "extra_token_error" },
-    { "trivia_kind_name" : "AfterHaltCompiler",
-      "trivia_type_name" : "after_halt_compiler" } ],
+      "trivia_type_name" : "extra_token_error" } ],
   "tokens" : [
     { "token_kind" : "Abstract",
       "token_text" : "abstract" },
@@ -127,8 +125,6 @@
       "token_text" : "concurrent" },
     { "token_kind" : "Goto",
       "token_text" : "goto" },
-    { "token_kind" : "HaltCompiler",
-      "token_text" : "__halt_compiler" },
     { "token_kind" : "If",
       "token_text" : "if" },
     { "token_kind" : "Implements",
@@ -383,8 +379,6 @@
       "token_text" : "</" },
     { "token_kind" : "LessThanQuestion",
       "token_text" : "<?" },
-    { "token_kind" : "QuestionGreaterThan",
-      "token_text" : "?>" },
     { "token_kind" : "ColonAt",
       "token_text" : ":@" },
     { "token_kind" : "XHP",
@@ -600,9 +594,16 @@
       "description" : "namespace_declaration",
       "prefix" : "namespace",
       "fields" : [
-        { "field_name" : "keyword" },
-        { "field_name" : "name" },
+        { "field_name" : "header" },
         { "field_name" : "body" }
+      ] },
+    { "kind_name" : "NamespaceDeclarationHeader",
+      "type_name" : "namespace_declaration_header",
+      "description" : "namespace_declaration_header",
+      "prefix" : "namespace",
+      "fields" : [
+        { "field_name" : "keyword" },
+        { "field_name" : "name" }
       ] },
     { "kind_name" : "NamespaceBody",
       "type_name" : "namespace_body",
@@ -918,10 +919,8 @@
       "description" : "markup_section",
       "prefix" : "markup",
       "fields" : [
-        { "field_name" : "prefix" },
         { "field_name" : "text" },
-        { "field_name" : "suffix" },
-        { "field_name" : "expression" }
+        { "field_name" : "suffix" }
       ] },
     { "kind_name" : "MarkupSuffix",
       "type_name" : "markup_suffix",
@@ -1416,16 +1415,6 @@
         { "field_name" : "argument_list" },
         { "field_name" : "right_paren" }
       ] },
-    { "kind_name" : "HaltCompilerExpression",
-      "type_name" : "halt_compiler_expression",
-      "description" : "halt_compiler_expression",
-      "prefix" : "halt_compiler",
-      "fields" : [
-        { "field_name" : "keyword" },
-        { "field_name" : "left_paren" },
-        { "field_name" : "argument_list" },
-        { "field_name" : "right_paren" }
-      ] },
     { "kind_name" : "IssetExpression",
       "type_name" : "isset_expression",
       "description" : "isset_expression",
@@ -1527,15 +1516,6 @@
       "fields" : [
         { "field_name" : "type" },
         { "field_name" : "array_token" },
-        { "field_name" : "left_bracket" },
-        { "field_name" : "members" },
-        { "field_name" : "right_bracket" }
-      ] },
-    { "kind_name" : "ArrayCreationExpression",
-      "type_name" : "array_creation_expression",
-      "description" : "array_creation_expression",
-      "prefix" : "array_creation",
-      "fields" : [
         { "field_name" : "left_bracket" },
         { "field_name" : "members" },
         { "field_name" : "right_bracket" }

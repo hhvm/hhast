@@ -1,14 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87011e45f5d8477117a49a7407f5a966>>
+ * @generated SignedSource<<10739ffc6399edf1e7983c13064c14ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class BracedExpression extends Node implements ILambdaBody, IExpression {
+final class BracedExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'braced_expression';
 
@@ -84,8 +87,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       'left_brace' => $this->_left_brace,
       'expression' => $this->_expression,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -156,20 +158,20 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression |
-   * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * PrefixUnaryExpression | NameToken | VariableExpression
+   * @return BinaryExpression | CollectionLiteralExpression |
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
-   * @return ArrayIntrinsicExpression | BinaryExpression |
-   * CollectionLiteralExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * PrefixUnaryExpression | NameToken | VariableExpression
+   * @return BinaryExpression | CollectionLiteralExpression |
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();

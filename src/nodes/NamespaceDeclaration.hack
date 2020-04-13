@@ -12,6 +12,15 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{Str, Vec};
 
 final class NamespaceDeclaration extends NamespaceDeclarationGeneratedBase {
+
+  public function getName(): ?INameishNode {
+    return $this->getHeader()->getName();
+  }
+
+  public function hasName(): bool {
+    return $this->getHeader()->hasName();
+  }
+
   <<__Memoize>>
   public function getQualifiedNameAsString(): string {
     $name = $this->getName();

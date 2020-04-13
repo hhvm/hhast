@@ -1,16 +1,19 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e91d0ffa565e280024b383b3616eea1>>
+ * @generated SignedSource<<244c9b277460212bfba211e467a8ac90>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DictionaryIntrinsicExpression
-  extends Node
-  implements IHackArray, IContainer, ILambdaBody, IExpression {
+final class DictionaryIntrinsicExpression extends Node
+  implements
+    IHackArray,
+    IContainer,
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'dictionary_intrinsic_expression';
 
@@ -55,8 +58,7 @@ final class DictionaryIntrinsicExpression
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_explicit_type'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_explicit_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -73,8 +75,7 @@ final class DictionaryIntrinsicExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_members'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['dictionary_intrinsic_members'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,8 +115,7 @@ final class DictionaryIntrinsicExpression
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -125,13 +125,9 @@ final class DictionaryIntrinsicExpression
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $explicit_type = $this->_explicit_type === null
-      ? null
-      : $rewriter($this->_explicit_type, $parents);
+    $explicit_type = $this->_explicit_type === null ? null : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $this->_members === null
-      ? null
-      : $rewriter($this->_members, $parents);
+    $members = $this->_members === null ? null : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -246,10 +242,7 @@ final class DictionaryIntrinsicExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -321,10 +314,7 @@ final class DictionaryIntrinsicExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

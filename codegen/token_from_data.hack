@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45dd6e0b55b1a1c87d4d0023127bdce9>>
+ * @generated SignedSource<<b1ff31e7cef2229cd8e0a9b9a9e5a3f7>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -13,15 +13,7 @@ function token_from_data(
   HHAST\NodeList<HHAST\Trivia> $trailing,
   string $token_text,
 ): HHAST\Token {
-  $cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;
-  if ($cls !== null) {
-    return new $cls($leading, $trailing, $source_ref);
-  }
-  $cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;
-  if ($cls !== null) {
-    return new $cls($leading, $trailing, $token_text, $source_ref);
-  }
-  throw new HHAST\UnsupportedTokenError(
+  $cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;if ($cls !== null) { return new $cls($leading, $trailing, $source_ref ); }$cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;if ($cls !== null) { return new $cls($leading, $trailing, $token_text, $source_ref ); }throw new HHAST\UnsupportedTokenError(
     $source_ref['file'],
     $source_ref['offset'],
     $token_kind,
@@ -83,7 +75,6 @@ class TokenClassMap {
     'function' => HHAST\FunctionToken::class,
     'global' => HHAST\GlobalToken::class,
     'goto' => HHAST\GotoToken::class,
-    '__halt_compiler' => HHAST\HaltCompilerToken::class,
     'if' => HHAST\IfToken::class,
     'implements' => HHAST\ImplementsToken::class,
     'include' => HHAST\IncludeToken::class,
@@ -231,7 +222,6 @@ class TokenClassMap {
     '++' => HHAST\PlusPlusToken::class,
     '?' => HHAST\QuestionToken::class,
     '?:' => HHAST\QuestionColonToken::class,
-    '?>' => HHAST\QuestionGreaterThanToken::class,
     '?->' => HHAST\QuestionMinusGreaterThanToken::class,
     '??' => HHAST\QuestionQuestionToken::class,
     '??=' => HHAST\QuestionQuestionEqualToken::class,

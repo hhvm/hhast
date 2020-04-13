@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36afd56cf04bfcc1e954b24402738f1e>>
+ * @generated SignedSource<<d8bdd89279a99a34c90f371c402aa4bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class RecordCreationExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class RecordCreationExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'record_creation_expression';
 
@@ -55,8 +56,7 @@ final class RecordCreationExpression
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $array_token = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_creation_array_token'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['record_creation_array_token'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,8 +114,7 @@ final class RecordCreationExpression
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -125,9 +124,7 @@ final class RecordCreationExpression
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
-    $array_token = $this->_array_token === null
-      ? null
-      : $rewriter($this->_array_token, $parents);
+    $array_token = $this->_array_token === null ? null : $rewriter($this->_array_token, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
     $members = $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
@@ -244,10 +241,7 @@ final class RecordCreationExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -319,10 +313,7 @@ final class RecordCreationExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

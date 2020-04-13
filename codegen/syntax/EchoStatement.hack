@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9eca28f3c3cc429f204f334aa522b957>>
+ * @generated SignedSource<<8ca37a28b2ca79deb8b0f480bf84f3d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EchoStatement extends Node implements IStatement {
+final class EchoStatement extends Node
+  implements
+    IStatement {
 
   const string SYNTAX_KIND = 'echo_statement';
 
@@ -84,8 +86,7 @@ final class EchoStatement extends Node implements IStatement {
       'keyword' => $this->_keyword,
       'expressions' => $this->_expressions,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -158,9 +159,9 @@ final class EchoStatement extends Node implements IStatement {
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
-   * | NodeList<ListItem<ConditionalExpression>> |
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<IExpression>> | NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
@@ -177,9 +178,9 @@ final class EchoStatement extends Node implements IStatement {
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
-   * | NodeList<ListItem<ConditionalExpression>> |
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<IExpression>> | NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |

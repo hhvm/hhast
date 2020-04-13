@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50e1599f6152c2e73ef6a58dde2dc9bb>>
+ * @generated SignedSource<<348b6d32e95611fbdb47e9e97298c3d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ObjectCreationExpression
-  extends Node
-  implements IFunctionCallishExpression, ILambdaBody, IExpression {
+final class ObjectCreationExpression extends Node
+  implements
+    IFunctionCallishExpression,
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'object_creation_expression';
 
@@ -72,8 +74,7 @@ final class ObjectCreationExpression
     return dict[
       'new_keyword' => $this->_new_keyword,
       'object' => $this->_object,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -84,7 +85,10 @@ final class ObjectCreationExpression
     $parents[] = $this;
     $new_keyword = $rewriter($this->_new_keyword, $parents);
     $object = $rewriter($this->_object, $parents);
-    if ($new_keyword === $this->_new_keyword && $object === $this->_object) {
+    if (
+      $new_keyword === $this->_new_keyword &&
+      $object === $this->_object
+    ) {
       return $this;
     }
     return new static(

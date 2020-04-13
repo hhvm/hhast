@@ -1,13 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f91cc9b0eb7b319df6d8118854d35af>>
+ * @generated SignedSource<<80ee651db4cb42eee34521f904f10476>>
  */
 namespace Facebook\HHAST;
 
-final class NameToken
-  extends TokenWithVariableText
-  implements INameishNode, __Private\IWrappableWithSimpleTypeSpecifier {
+final class NameToken extends TokenWithVariableText
+  implements
+    INameishNode,
+    __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string KIND = 'name';
 

@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c6263f9944632860899c9e01570f70b8>>
+ * @generated SignedSource<<fad377e2631a053321865821e82e35a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
+final class TypeConstDeclaration extends Node
+  implements
+    IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'type_const_declaration';
 
@@ -59,8 +61,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_attribute_spec'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['type_const_attribute_spec'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +69,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_modifiers'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['type_const_modifiers'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -104,8 +104,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_type_parameters'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['type_const_type_parameters'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -113,8 +112,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $type_parameters?->getWidth() ?? 0;
     $type_constraint = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_type_constraint'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['type_const_type_constraint'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -122,8 +120,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $type_constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_equal'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['type_const_equal'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -131,8 +128,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $equal?->getWidth() ?? 0;
     $type_specifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_type_specifier'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['type_const_type_specifier'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -182,8 +178,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       'equal' => $this->_equal,
       'type_specifier' => $this->_type_specifier,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -192,25 +187,15 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null
-      ? null
-      : $rewriter($this->_attribute_spec, $parents);
-    $modifiers = $this->_modifiers === null
-      ? null
-      : $rewriter($this->_modifiers, $parents);
+    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
+    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $type_keyword = $rewriter($this->_type_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $type_parameters = $this->_type_parameters === null
-      ? null
-      : $rewriter($this->_type_parameters, $parents);
-    $type_constraint = $this->_type_constraint === null
-      ? null
-      : $rewriter($this->_type_constraint, $parents);
+    $type_parameters = $this->_type_parameters === null ? null : $rewriter($this->_type_parameters, $parents);
+    $type_constraint = $this->_type_constraint === null ? null : $rewriter($this->_type_constraint, $parents);
     $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
-    $type_specifier = $this->_type_specifier === null
-      ? null
-      : $rewriter($this->_type_specifier, $parents);
+    $type_specifier = $this->_type_specifier === null ? null : $rewriter($this->_type_specifier, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -587,22 +572,22 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   /**
-   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
-   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
-   * LikeTypeSpecifier | null | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorTypeSpecifier
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | LikeTypeSpecifier | null | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypeSpecifier(): ?ITypeSpecifier {
     return $this->_type_specifier;
   }
 
   /**
-   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
-   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
-   * LikeTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorTypeSpecifier
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * KeysetTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypeSpecifierx(): ITypeSpecifier {
     return TypeAssert\not_null($this->getTypeSpecifier());

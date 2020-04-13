@@ -1,29 +1,27 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83fbd6f323033050ecf0f6b9ecbb11b0>>
+ * @generated SignedSource<<15ff317f0c8fe06b036ea3d138fcf7e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ConcurrentStatement extends Node
-  implements
-    IStatement {
+final class NamespaceDeclarationHeader extends Node {
 
-  const string SYNTAX_KIND = 'concurrent_statement';
+  const string SYNTAX_KIND = 'namespace_declaration_header';
 
-  private ConcurrentToken $_keyword;
-  private CompoundStatement $_statement;
+  private NamespaceToken $_keyword;
+  private ?INameishNode $_name;
 
   public function __construct(
-    ConcurrentToken $keyword,
-    CompoundStatement $statement,
+    NamespaceToken $keyword,
+    ?INameishNode $name,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
-    $this->_statement = $statement;
+    $this->_name = $name;
     parent::__construct($source_ref);
   }
 
@@ -37,23 +35,22 @@ final class ConcurrentStatement extends Node
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['concurrent_keyword'],
+      /* HH_FIXME[4110] */ $json['namespace_keyword'],
       $file,
       $offset,
       $source,
-      'ConcurrentToken',
+      'NamespaceToken',
     );
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
-    $statement = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['concurrent_statement'],
+    $name = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['namespace_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'CompoundStatement',
+      'INameishNode',
     );
-    $statement = $statement as nonnull;
-    $offset += $statement->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -62,7 +59,7 @@ final class ConcurrentStatement extends Node
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $statement,
+      /* HH_IGNORE_ERROR[4110] */ $name,
       $source_ref,
     );
   }
@@ -71,7 +68,7 @@ final class ConcurrentStatement extends Node
   public function getChildren(): dict<string, Node> {
     return dict[
       'keyword' => $this->_keyword,
-      'statement' => $this->_statement,
+      'name' => $this->_name,
     ] |> Dict\filter_nulls($$);
   }
 
@@ -82,16 +79,16 @@ final class ConcurrentStatement extends Node
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $statement = $rewriter($this->_statement, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     if (
       $keyword === $this->_keyword &&
-      $statement === $this->_statement
+      $name === $this->_name
     ) {
       return $this;
     }
     return new static(
       /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $statement,
+      /* HH_FIXME[4110] use `as` */ $name,
     );
   }
 
@@ -99,11 +96,11 @@ final class ConcurrentStatement extends Node
     return $this->_keyword;
   }
 
-  public function withKeyword(ConcurrentToken $value): this {
+  public function withKeyword(NamespaceToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_statement);
+    return new static($value, $this->_name);
   }
 
   public function hasKeyword(): bool {
@@ -111,45 +108,45 @@ final class ConcurrentStatement extends Node
   }
 
   /**
-   * @return ConcurrentToken
+   * @return NamespaceToken
    */
-  public function getKeyword(): ConcurrentToken {
-    return TypeAssert\instance_of(ConcurrentToken::class, $this->_keyword);
+  public function getKeyword(): NamespaceToken {
+    return TypeAssert\instance_of(NamespaceToken::class, $this->_keyword);
   }
 
   /**
-   * @return ConcurrentToken
+   * @return NamespaceToken
    */
-  public function getKeywordx(): ConcurrentToken {
+  public function getKeywordx(): NamespaceToken {
     return $this->getKeyword();
   }
 
-  public function getStatementUNTYPED(): ?Node {
-    return $this->_statement;
+  public function getNameUNTYPED(): ?Node {
+    return $this->_name;
   }
 
-  public function withStatement(CompoundStatement $value): this {
-    if ($value === $this->_statement) {
+  public function withName(?INameishNode $value): this {
+    if ($value === $this->_name) {
       return $this;
     }
     return new static($this->_keyword, $value);
   }
 
-  public function hasStatement(): bool {
-    return $this->_statement !== null;
+  public function hasName(): bool {
+    return $this->_name !== null;
   }
 
   /**
-   * @return CompoundStatement
+   * @return null | QualifiedName | NameToken
    */
-  public function getStatement(): CompoundStatement {
-    return TypeAssert\instance_of(CompoundStatement::class, $this->_statement);
+  public function getName(): ?INameishNode {
+    return $this->_name;
   }
 
   /**
-   * @return CompoundStatement
+   * @return QualifiedName | NameToken
    */
-  public function getStatementx(): CompoundStatement {
-    return $this->getStatement();
+  public function getNamex(): INameishNode {
+    return TypeAssert\not_null($this->getName());
   }
 }

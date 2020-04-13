@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e7e9fdc5c7b2b97c5138b4e2f390e2d>>
+ * @generated SignedSource<<6a006cbd1950821eb4b5349621f253be>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,8 +47,7 @@ final class PocketEnumDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_enum_modifiers'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_modifiers'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -56,8 +55,7 @@ final class PocketEnumDeclaration extends Node {
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $enum = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_enum_enum'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_enum'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -65,8 +63,7 @@ final class PocketEnumDeclaration extends Node {
     );
     $offset += $enum?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_enum_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -74,8 +71,7 @@ final class PocketEnumDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_enum_left_brace'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_left_brace'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -83,8 +79,7 @@ final class PocketEnumDeclaration extends Node {
     );
     $offset += $left_brace?->getWidth() ?? 0;
     $fields = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_enum_fields'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_fields'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -92,8 +87,7 @@ final class PocketEnumDeclaration extends Node {
     );
     $offset += $fields?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_enum_right_brace'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_enum_right_brace'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -126,8 +120,7 @@ final class PocketEnumDeclaration extends Node {
       'left_brace' => $this->_left_brace,
       'fields' => $this->_fields,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -136,20 +129,12 @@ final class PocketEnumDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $this->_modifiers === null
-      ? null
-      : $rewriter($this->_modifiers, $parents);
+    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
     $enum = $this->_enum === null ? null : $rewriter($this->_enum, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $left_brace = $this->_left_brace === null
-      ? null
-      : $rewriter($this->_left_brace, $parents);
-    $fields = $this->_fields === null
-      ? null
-      : $rewriter($this->_fields, $parents);
-    $right_brace = $this->_right_brace === null
-      ? null
-      : $rewriter($this->_right_brace, $parents);
+    $left_brace = $this->_left_brace === null ? null : $rewriter($this->_left_brace, $parents);
+    $fields = $this->_fields === null ? null : $rewriter($this->_fields, $parents);
+    $right_brace = $this->_right_brace === null ? null : $rewriter($this->_right_brace, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $enum === $this->_enum &&

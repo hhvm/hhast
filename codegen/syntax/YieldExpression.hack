@@ -1,14 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b30e03e6056cbb999206710b8693ebdb>>
+ * @generated SignedSource<<65aefecdeb62ef3ae53ad98bfba19033>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class YieldExpression extends Node implements ILambdaBody, IExpression {
+final class YieldExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'yield_expression';
 
@@ -69,8 +72,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     return dict[
       'keyword' => $this->_keyword,
       'operand' => $this->_operand,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -80,10 +82,11 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $operand = $this->_operand === null
-      ? null
-      : $rewriter($this->_operand, $parents);
-    if ($keyword === $this->_keyword && $operand === $this->_operand) {
+    $operand = $this->_operand === null ? null : $rewriter($this->_operand, $parents);
+    if (
+      $keyword === $this->_keyword &&
+      $operand === $this->_operand
+    ) {
       return $this;
     }
     return new static(

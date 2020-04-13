@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ca0a2f809928cba5d59a30da21297750>>
+ * @generated SignedSource<<cc3618bbc2c95bc4ab0d142628d6b0f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NamespaceBody extends Node implements INamespaceBody {
+final class NamespaceBody extends Node
+  implements
+    INamespaceBody {
 
   const string SYNTAX_KIND = 'namespace_body';
 
@@ -47,8 +49,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $declarations = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_declarations'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['namespace_declarations'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -84,8 +85,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
       'left_brace' => $this->_left_brace,
       'declarations' => $this->_declarations,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,9 +95,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $declarations = $this->_declarations === null
-      ? null
-      : $rewriter($this->_declarations, $parents);
+    $declarations = $this->_declarations === null ? null : $rewriter($this->_declarations, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&

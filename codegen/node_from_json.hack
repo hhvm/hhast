@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44b9ca6bc5000d0f58eae5d2ff825b8e>>
+ * @generated SignedSource<<4523d343cab62bee333f4b3c6a43e98a>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -29,7 +29,6 @@ function node_from_json_unwrapped(
   $kind_to_class = dict[
     'list' => HHAST\NodeList::class,
     'list_item' => HHAST\ListItem::class,
-    'after_halt_compiler' => HHAST\AfterHaltCompiler::class,
     'delimited_comment' => HHAST\DelimitedComment::class,
     'end_of_line' => HHAST\EndOfLine::class,
     'extra_token_error' => HHAST\ExtraTokenError::class,
@@ -42,7 +41,6 @@ function node_from_json_unwrapped(
     'anonymous_class' => HHAST\AnonymousClass::class,
     'anonymous_function' => HHAST\AnonymousFunction::class,
     'anonymous_function_use_clause' => HHAST\AnonymousFunctionUseClause::class,
-    'array_creation_expression' => HHAST\ArrayCreationExpression::class,
     'array_intrinsic_expression' => HHAST\ArrayIntrinsicExpression::class,
     'as_expression' => HHAST\AsExpression::class,
     'attribute' => HHAST\Attribute::class,
@@ -105,7 +103,6 @@ function node_from_json_unwrapped(
     'generic_type_specifier' => HHAST\GenericTypeSpecifier::class,
     'goto_label' => HHAST\GotoLabel::class,
     'goto_statement' => HHAST\GotoStatement::class,
-    'halt_compiler_expression' => HHAST\HaltCompilerExpression::class,
     'if_statement' => HHAST\IfStatement::class,
     'inclusion_directive' => HHAST\InclusionDirective::class,
     'inclusion_expression' => HHAST\InclusionExpression::class,
@@ -127,6 +124,7 @@ function node_from_json_unwrapped(
     'methodish_trait_resolution' => HHAST\MethodishTraitResolution::class,
     'namespace_body' => HHAST\NamespaceBody::class,
     'namespace_declaration' => HHAST\NamespaceDeclaration::class,
+    'namespace_declaration_header' => HHAST\NamespaceDeclarationHeader::class,
     'namespace_empty_body' => HHAST\NamespaceEmptyBody::class,
     'namespace_group_use_declaration' =>
       HHAST\NamespaceGroupUseDeclaration::class,
@@ -231,6 +229,6 @@ function node_from_json_unwrapped(
   throw new HHAST\UnsupportedASTNodeError(
     $file,
     $offset,
-    (string)$json['kind'],
+    (string) $json['kind'],
   );
 }

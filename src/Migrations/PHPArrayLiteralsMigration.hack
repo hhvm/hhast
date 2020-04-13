@@ -101,29 +101,9 @@ final class PHPArrayLiteralsMigration extends StepBasedMigration {
     );
   }
 
-  /** [123] => array(123) */
-  private function convertArrayCreationToIntrinsic(
-    ArrayCreationExpression $in,
-  ): ArrayIntrinsicExpression {
-    $lb = $in->getLeftBracket();
-    $rb = $in->getRightBracket();
-    return new ArrayIntrinsicExpression(
-      new ArrayToken($lb->getLeading(), null),
-      new LeftParenToken(null, $lb->getTrailing()),
-      $in->getMembers(),
-      new RightParenToken($rb->getLeading(), $rb->getTrailing()),
-    );
-  }
-
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
     return vec[
-      new TypedMigrationStep(
-        'replace [] literals with array() literals',
-        ArrayCreationExpression::class,
-        ArrayIntrinsicExpression::class,
-        $node ==> $this->convertArrayCreationToIntrinsic($node),
-      ),
       new TypedMigrationStep(
         'convert non-empty unkeyed arrays to varrays',
         ArrayIntrinsicExpression::class,

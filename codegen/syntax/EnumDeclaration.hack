@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3d148f8f0253408c0d8b1e5eafb9231>>
+ * @generated SignedSource<<4aa5c6d06f02085108e4e36ab4117706>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EnumDeclaration extends Node implements IHasAttributeSpec {
+final class EnumDeclaration extends Node
+  implements
+    IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'enum_declaration';
 
@@ -56,8 +58,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_attribute_spec'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_attribute_spec'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -118,8 +119,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $enumerators = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_enumerators'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_enumerators'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -167,8 +167,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       'left_brace' => $this->_left_brace,
       'enumerators' => $this->_enumerators,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -177,18 +176,14 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null
-      ? null
-      : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
     $colon = $rewriter($this->_colon, $parents);
     $base = $rewriter($this->_base, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $enumerators = $this->_enumerators === null
-      ? null
-      : $rewriter($this->_enumerators, $parents);
+    $enumerators = $this->_enumerators === null ? null : $rewriter($this->_enumerators, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&

@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8ec82c3389cef7a70bcbb96fbed17e8>>
+ * @generated SignedSource<<ba46ab6b7d26a2fd04cbd43776020a69>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TraitUseConflictResolution
-  extends Node
-  implements IClassBodyDeclaration {
+final class TraitUseConflictResolution extends Node
+  implements
+    IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'trait_use_conflict_resolution';
 
@@ -73,8 +73,7 @@ final class TraitUseConflictResolution
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_clauses'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_clauses'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,8 +113,7 @@ final class TraitUseConflictResolution
       'left_brace' => $this->_left_brace,
       'clauses' => $this->_clauses,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -127,9 +125,7 @@ final class TraitUseConflictResolution
     $keyword = $rewriter($this->_keyword, $parents);
     $names = $rewriter($this->_names, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $clauses = $this->_clauses === null
-      ? null
-      : $rewriter($this->_clauses, $parents);
+    $clauses = $this->_clauses === null ? null : $rewriter($this->_clauses, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $keyword === $this->_keyword &&

@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f33f0b355dedc9354d427e40d95e56b>>
+ * @generated SignedSource<<516f57a72516e9bc716da75f2ad6a87e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class FieldSpecifier extends Node implements ITypeSpecifier {
+final class FieldSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'field_specifier';
 
@@ -97,8 +99,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
       'name' => $this->_name,
       'arrow' => $this->_arrow,
       'type' => $this->_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -107,9 +108,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $question = $this->_question === null
-      ? null
-      : $rewriter($this->_question, $parents);
+    $question = $this->_question === null ? null : $rewriter($this->_question, $parents);
     $name = $rewriter($this->_name, $parents);
     $arrow = $rewriter($this->_arrow, $parents);
     $type = $rewriter($this->_type, $parents);

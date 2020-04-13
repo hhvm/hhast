@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<deb38dae579c38eb1f34b4642e225143>>
+ * @generated SignedSource<<072381c2dfba70f3380146b7a7990df9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,8 +35,7 @@ final class PocketMappingIdDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_id_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_id_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -44,8 +43,7 @@ final class PocketMappingIdDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_id_initializer'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_id_initializer'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -70,8 +68,7 @@ final class PocketMappingIdDeclaration extends Node {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +78,11 @@ final class PocketMappingIdDeclaration extends Node {
   ): this {
     $parents[] = $this;
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $initializer = $this->_initializer === null
-      ? null
-      : $rewriter($this->_initializer, $parents);
-    if ($name === $this->_name && $initializer === $this->_initializer) {
+    $initializer = $this->_initializer === null ? null : $rewriter($this->_initializer, $parents);
+    if (
+      $name === $this->_name &&
+      $initializer === $this->_initializer
+    ) {
       return $this;
     }
     return new static(

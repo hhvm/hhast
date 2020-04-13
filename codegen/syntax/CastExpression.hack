@@ -1,14 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ed5918745d1f7d99369a9ae7d242c93>>
+ * @generated SignedSource<<99ba8a21c7759c71d7c0fa40babb2abf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class CastExpression extends Node implements ILambdaBody, IExpression {
+final class CastExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'cast_expression';
 
@@ -98,8 +101,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       'type' => $this->_type,
       'right_paren' => $this->_right_paren,
       'operand' => $this->_operand,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -136,12 +138,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_type,
-      $this->_right_paren,
-      $this->_operand,
-    );
+    return new static($value, $this->_type, $this->_right_paren, $this->_operand);
   }
 
   public function hasLeftParen(): bool {
@@ -170,12 +167,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-      $this->_operand,
-    );
+    return new static($this->_left_paren, $value, $this->_right_paren, $this->_operand);
   }
 
   public function hasType(): bool {
@@ -204,12 +196,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $this->_type,
-      $value,
-      $this->_operand,
-    );
+    return new static($this->_left_paren, $this->_type, $value, $this->_operand);
   }
 
   public function hasRightParen(): bool {
@@ -238,12 +225,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $this->_type,
-      $this->_right_paren,
-      $value,
-    );
+    return new static($this->_left_paren, $this->_type, $this->_right_paren, $value);
   }
 
   public function hasOperand(): bool {
@@ -251,7 +233,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | CollectionLiteralExpression |
+   * @return CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression |
    * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
    * | ObjectCreationExpression | ParenthesizedExpression |
@@ -263,7 +245,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | CollectionLiteralExpression |
+   * @return CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression |
    * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
    * | ObjectCreationExpression | ParenthesizedExpression |

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5111977e72bf1accfa6ab8d750578e8>>
+ * @generated SignedSource<<b43f86f433fb8c883e8c66a474534c0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,8 +50,7 @@ final class ConstructorCall extends Node {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_left_paren'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['constructor_call_left_paren'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -59,8 +58,7 @@ final class ConstructorCall extends Node {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_argument_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['constructor_call_argument_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +66,7 @@ final class ConstructorCall extends Node {
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_right_paren'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['constructor_call_right_paren'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +95,7 @@ final class ConstructorCall extends Node {
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -109,15 +105,9 @@ final class ConstructorCall extends Node {
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
-    $left_paren = $this->_left_paren === null
-      ? null
-      : $rewriter($this->_left_paren, $parents);
-    $argument_list = $this->_argument_list === null
-      ? null
-      : $rewriter($this->_argument_list, $parents);
-    $right_paren = $this->_right_paren === null
-      ? null
-      : $rewriter($this->_right_paren, $parents);
+    $left_paren = $this->_left_paren === null ? null : $rewriter($this->_left_paren, $parents);
+    $argument_list = $this->_argument_list === null ? null : $rewriter($this->_argument_list, $parents);
+    $right_paren = $this->_right_paren === null ? null : $rewriter($this->_right_paren, $parents);
     if (
       $type === $this->_type &&
       $left_paren === $this->_left_paren &&
@@ -182,12 +172,7 @@ final class ConstructorCall extends Node {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $this->_type,
-      $value,
-      $this->_argument_list,
-      $this->_right_paren,
-    );
+    return new static($this->_type, $value, $this->_argument_list, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -218,12 +203,7 @@ final class ConstructorCall extends Node {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new static(
-      $this->_type,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new static($this->_type, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasArgumentList(): bool {
@@ -232,11 +212,9 @@ final class ConstructorCall extends Node {
 
   /**
    * @return NodeList<ListItem<AnonymousFunction>> |
-   * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<ArrayIntrinsicExpression>> |
-   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
-   * | NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<IExpression>> | NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
@@ -263,11 +241,9 @@ final class ConstructorCall extends Node {
 
   /**
    * @return NodeList<ListItem<AnonymousFunction>> |
-   * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<ArrayIntrinsicExpression>> |
-   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<CastExpression>>
-   * | NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<IExpression>> | NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CastExpression>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
@@ -300,12 +276,7 @@ final class ConstructorCall extends Node {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_type,
-      $this->_left_paren,
-      $this->_argument_list,
-      $value,
-    );
+    return new static($this->_type, $this->_left_paren, $this->_argument_list, $value);
   }
 
   public function hasRightParen(): bool {

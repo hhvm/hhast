@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e832ae4d7686ee40a755ddcfcc51e36d>>
+ * @generated SignedSource<<79ddc0c85652bc4b468c94c398f37a2e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EmbeddedBracedExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class EmbeddedBracedExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'embedded_braced_expression';
 
@@ -40,8 +41,7 @@ final class EmbeddedBracedExpression
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_braced_expression_left_brace'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['embedded_braced_expression_left_brace'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -49,8 +49,7 @@ final class EmbeddedBracedExpression
     );
     $offset += $left_brace?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_braced_expression_expression'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['embedded_braced_expression_expression'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -58,8 +57,7 @@ final class EmbeddedBracedExpression
     );
     $offset += $expression?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_braced_expression_right_brace'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['embedded_braced_expression_right_brace'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -86,8 +84,7 @@ final class EmbeddedBracedExpression
       'left_brace' => $this->_left_brace,
       'expression' => $this->_expression,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,15 +93,9 @@ final class EmbeddedBracedExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_brace = $this->_left_brace === null
-      ? null
-      : $rewriter($this->_left_brace, $parents);
-    $expression = $this->_expression === null
-      ? null
-      : $rewriter($this->_expression, $parents);
-    $right_brace = $this->_right_brace === null
-      ? null
-      : $rewriter($this->_right_brace, $parents);
+    $left_brace = $this->_left_brace === null ? null : $rewriter($this->_left_brace, $parents);
+    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
+    $right_brace = $this->_right_brace === null ? null : $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&
       $expression === $this->_expression &&
