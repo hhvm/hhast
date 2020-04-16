@@ -63,6 +63,16 @@ function is_compatible_schema_version(string $other_version): bool {
       // This one removes support for ? > (PHP markup close tag)
       $compatible_versions[] = '2020-04-01-0001';
       break;
+
+    case '2020-04-14-0002': // is a superset of:
+      // Preceding versions:
+      // This one doesn't support Pocket Universe enum attributes:
+      $compatible_versions[] = '2020-04-14-0001';
+      // This one doesn't support more than one Pocket Universe enum modifier
+      // (actually doesn't matter for HHAST, so identical to 2020-04-14-0001 as
+      // far as HHAST is concerned):
+      $compatible_versions[] = '2020-04-06-0001';
+      break;
   }
 
   return C\contains($compatible_versions, $other_version);

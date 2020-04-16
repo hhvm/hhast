@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a006cbd1950821eb4b5349621f253be>>
+ * @generated SignedSource<<69aa67a8cfa64ec7bf3b97d1729c9b97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,6 +12,7 @@ final class PocketEnumDeclaration extends Node {
 
   const string SYNTAX_KIND = 'pocket_enum_declaration';
 
+  private ?Node $_attributes;
   private ?Node $_modifiers;
   private ?Node $_enum;
   private ?Node $_name;
@@ -20,6 +21,7 @@ final class PocketEnumDeclaration extends Node {
   private ?Node $_right_brace;
 
   public function __construct(
+    ?Node $attributes,
     ?Node $modifiers,
     ?Node $enum,
     ?Node $name,
@@ -28,6 +30,7 @@ final class PocketEnumDeclaration extends Node {
     ?Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
+    $this->_attributes = $attributes;
     $this->_modifiers = $modifiers;
     $this->_enum = $enum;
     $this->_name = $name;
@@ -46,6 +49,14 @@ final class PocketEnumDeclaration extends Node {
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
+    $attributes = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['pocket_enum_attributes'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $attributes?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['pocket_enum_modifiers'] ?? dict['kind' => 'missing'],
       $file,
@@ -101,6 +112,7 @@ final class PocketEnumDeclaration extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
+      /* HH_IGNORE_ERROR[4110] */ $attributes,
       /* HH_IGNORE_ERROR[4110] */ $modifiers,
       /* HH_IGNORE_ERROR[4110] */ $enum,
       /* HH_IGNORE_ERROR[4110] */ $name,
@@ -114,6 +126,7 @@ final class PocketEnumDeclaration extends Node {
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
+      'attributes' => $this->_attributes,
       'modifiers' => $this->_modifiers,
       'enum' => $this->_enum,
       'name' => $this->_name,
@@ -129,6 +142,7 @@ final class PocketEnumDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
+    $attributes = $this->_attributes === null ? null : $rewriter($this->_attributes, $parents);
     $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
     $enum = $this->_enum === null ? null : $rewriter($this->_enum, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
@@ -136,6 +150,7 @@ final class PocketEnumDeclaration extends Node {
     $fields = $this->_fields === null ? null : $rewriter($this->_fields, $parents);
     $right_brace = $this->_right_brace === null ? null : $rewriter($this->_right_brace, $parents);
     if (
+      $attributes === $this->_attributes &&
       $modifiers === $this->_modifiers &&
       $enum === $this->_enum &&
       $name === $this->_name &&
@@ -146,6 +161,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
+      /* HH_FIXME[4110] use `as` */ $attributes,
       /* HH_FIXME[4110] use `as` */ $modifiers,
       /* HH_FIXME[4110] use `as` */ $enum,
       /* HH_FIXME[4110] use `as` */ $name,
@@ -153,6 +169,43 @@ final class PocketEnumDeclaration extends Node {
       /* HH_FIXME[4110] use `as` */ $fields,
       /* HH_FIXME[4110] use `as` */ $right_brace,
     );
+  }
+
+  public function getAttributesUNTYPED(): ?Node {
+    return $this->_attributes;
+  }
+
+  public function withAttributes(?Node $value): this {
+    if ($value === $this->_attributes) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_modifiers,
+      $this->_enum,
+      $this->_name,
+      $this->_left_brace,
+      $this->_fields,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasAttributes(): bool {
+    return $this->_attributes !== null;
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getAttributes(): ?Node {
+    return $this->_attributes;
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getAttributesx(): Node {
+    return TypeAssert\not_null($this->getAttributes());
   }
 
   public function getModifiersUNTYPED(): ?Node {
@@ -164,6 +217,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
+      $this->_attributes,
       $value,
       $this->_enum,
       $this->_name,
@@ -200,6 +254,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
+      $this->_attributes,
       $this->_modifiers,
       $value,
       $this->_name,
@@ -236,6 +291,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
+      $this->_attributes,
       $this->_modifiers,
       $this->_enum,
       $value,
@@ -272,6 +328,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
+      $this->_attributes,
       $this->_modifiers,
       $this->_enum,
       $this->_name,
@@ -308,6 +365,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
+      $this->_attributes,
       $this->_modifiers,
       $this->_enum,
       $this->_name,
@@ -344,6 +402,7 @@ final class PocketEnumDeclaration extends Node {
       return $this;
     }
     return new static(
+      $this->_attributes,
       $this->_modifiers,
       $this->_enum,
       $this->_name,

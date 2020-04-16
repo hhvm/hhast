@@ -17,6 +17,10 @@ final class NamespaceDeclaration extends NamespaceDeclarationGeneratedBase {
     return $this->getHeader()->getName();
   }
 
+  public function getNamex(): INameishNode {
+    return $this->getHeader()->getNamex();
+  }
+
   public function hasName(): bool {
     return $this->getHeader()->hasName();
   }
