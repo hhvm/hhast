@@ -33,6 +33,11 @@ final class CodegenVersion extends CodegenBase {
           ->setType('int')
           ->setValue(\HHVM_VERSION_ID, HackBuilderValues::export()),
       )
+      ->addConstant(
+        $cg->codegenConstant('HHVM_VERSION')
+          ->setType('string')
+          ->setValue(\HHVM_VERSION, HackBuilderValues::export()),
+      )
       ->save();
   }
 }
