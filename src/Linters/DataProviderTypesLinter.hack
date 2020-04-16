@@ -106,7 +106,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
       return tuple(
         new ASTLintError(
           $this,
-          'Use a tuple as the value type of your return type',
+          'Use a tuple as the contained-value type of your return type',
           $node,
           () ==> null,
         ),
@@ -186,8 +186,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
     'data_providers' => this::TProviders,
     'hhast_methods' => dict<string, FunctionDeclarationHeader>,
   ) {
-    $cls_name = $context->getNamex()->getText();
-    if (!Str\ends_with_ci($cls_name, 'Test')) {
+    if (!Str\ends_with_ci($context->getNamex()->getText(), 'Test')) {
       return null;
     }
 
