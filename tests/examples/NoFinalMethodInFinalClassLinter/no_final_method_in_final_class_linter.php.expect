@@ -2,21 +2,21 @@
     {
         "blame": "  final public function badMethod(): void {}\n",
         "blame_pretty": "  final public function badMethod(): void {}\n",
-        "description": "Method FinalClass is final in the class badMethod, which is also final. This is redundant."
+        "description": "Method badMethod is final in the class FinalClass, which is also final. This is redundant."
     },
     {
         "blame": "\n  \/**\n   * @param int $_int\n   *\/\n  final public function withDocBlock(int $_int): void {}\n",
         "blame_pretty": "\n  \/**\n   * @param int $_int\n   *\/\n  final public function withDocBlock(int $_int): void {}\n",
-        "description": "Method FinalClass is final in the class withDocBlock, which is also final. This is redundant."
+        "description": "Method withDocBlock is final in the class FinalClass, which is also final. This is redundant."
     },
     {
         "blame": "\n  final \/*HH_FIXME[4110] A bad place to put a fixme*\/public function hhFixmeBad(\n    int $int,\n  ): void {\n    return $int;\n  }\n",
         "blame_pretty": "\n  final \/*HH_FIXME[4110] A bad place to put a fixme*\/public function hhFixmeBad(\n    int $int,\n  ): void {\n    return $int;\n  }\n",
-        "description": "Method FinalClass is final in the class hhFixmeBad, which is also final. This is redundant."
+        "description": "Method hhFixmeBad is final in the class FinalClass, which is also final. This is redundant."
     },
     {
         "blame": "\n  \/*HH_FIXME[4110] A good place to put a fixme*\/\n  final public function hhFixmeGood(int $int): void {\n    return $int;\n  }\n",
         "blame_pretty": "\n  \/*HH_FIXME[4110] A good place to put a fixme*\/\n  final public function hhFixmeGood(int $int): void {\n    return $int;\n  }\n",
-        "description": "Method FinalClass is final in the class hhFixmeGood, which is also final. This is redundant."
+        "description": "Method hhFixmeGood is final in the class FinalClass, which is also final. This is redundant."
     }
 ]
