@@ -10,11 +10,11 @@
 
 namespace Facebook\HHAST;
 
-final class UseCanonicalDataProvidersTest extends TestCase {
+final class DataProviderTypesLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
-  protected function getLinter(string $file): UseCanonicalDataProvidersLinter {
-    return UseCanonicalDataProvidersLinter::fromPath($file);
+  protected function getLinter(string $file): DataProviderTypesLinter {
+    return DataProviderTypesLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

@@ -19,7 +19,7 @@
     {
       "patterns": ["tests/*"],
       "extraLinters": [
-        "Facebook\\HHAST\\UseCanonicalDataProvidersLinter"
+        "Facebook\\HHAST\\DataProviderTypesLinter"
       ]
     }
   ]
