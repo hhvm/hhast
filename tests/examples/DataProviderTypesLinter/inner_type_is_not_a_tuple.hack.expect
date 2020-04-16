@@ -2,6 +2,6 @@
     {
         "blame": "  public function provideAdditions(): vec<array<mixed>> ",
         "blame_pretty": "  public function provideAdditions(): vec<array<mixed>> ",
-        "description": "Use a tuple as the value type of your return type"
+        "description": "Use a tuple as the contained-value type of your return type"
     }
 ]
