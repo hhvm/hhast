@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d7f4902d1ce553ef85f5e5a7eaf7404>>
+ * @generated SignedSource<<c328d68a853f5ca3e38ec1c347387a78>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ElseClause extends Node implements IControlFlowStatement {
+final class ElseClause extends Node
+  implements
+    IControlFlowStatement {
 
   const string SYNTAX_KIND = 'else_clause';
 
@@ -70,8 +72,7 @@ final class ElseClause extends Node implements IControlFlowStatement {
     return dict[
       'keyword' => $this->_keyword,
       'statement' => $this->_statement,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,7 +83,10 @@ final class ElseClause extends Node implements IControlFlowStatement {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $statement = $rewriter($this->_statement, $parents);
-    if ($keyword === $this->_keyword && $statement === $this->_statement) {
+    if (
+      $keyword === $this->_keyword &&
+      $statement === $this->_statement
+    ) {
       return $this;
     }
     return new static(

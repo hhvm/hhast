@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a51daa0f2dc9fad068377bd34d8889cc>>
+ * @generated SignedSource<<a7cc89c7b57e5e50052624a39cc949cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ConstDeclaration extends Node implements IClassBodyDeclaration {
+final class ConstDeclaration extends Node
+  implements
+    IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'const_declaration';
 
@@ -44,8 +46,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_modifiers'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['const_modifiers'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -62,8 +63,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $type_specifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_type_specifier'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['const_type_specifier'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -112,8 +112,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       'type_specifier' => $this->_type_specifier,
       'declarators' => $this->_declarators,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -122,13 +121,9 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $this->_modifiers === null
-      ? null
-      : $rewriter($this->_modifiers, $parents);
+    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
-    $type_specifier = $this->_type_specifier === null
-      ? null
-      : $rewriter($this->_type_specifier, $parents);
+    $type_specifier = $this->_type_specifier === null ? null : $rewriter($this->_type_specifier, $parents);
     $declarators = $rewriter($this->_declarators, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (

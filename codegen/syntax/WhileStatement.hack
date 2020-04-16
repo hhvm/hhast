@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<803837c5d5708254b448f8aeaa0e3c1c>>
+ * @generated SignedSource<<c6bc5a36a37c5617f588ac97bd4ab1ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class WhileStatement
-  extends Node
-  implements IControlFlowStatement, ILoopStatement, IStatement {
+final class WhileStatement extends Node
+  implements
+    IControlFlowStatement,
+    ILoopStatement,
+    IStatement {
 
   const string SYNTAX_KIND = 'while_statement';
 
@@ -114,8 +116,7 @@ final class WhileStatement
       'condition' => $this->_condition,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

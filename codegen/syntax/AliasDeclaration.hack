@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c8e0ba757c4c5b67f6506b82f76356e>>
+ * @generated SignedSource<<298aa50f072bc275f293b80a03f2f3fb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class AliasDeclaration extends Node implements IHasAttributeSpec {
+final class AliasDeclaration extends Node
+  implements
+    IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'alias_declaration';
 
@@ -53,8 +55,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_attribute_spec'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['alias_attribute_spec'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -80,8 +81,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $generic_parameter = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_generic_parameter'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['alias_generic_parameter'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -89,8 +89,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $generic_parameter?->getWidth() ?? 0;
     $constraint = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_constraint'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['alias_constraint'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -154,8 +153,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       'equal' => $this->_equal,
       'type' => $this->_type,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -164,17 +162,11 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null
-      ? null
-      : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $generic_parameter = $this->_generic_parameter === null
-      ? null
-      : $rewriter($this->_generic_parameter, $parents);
-    $constraint = $this->_constraint === null
-      ? null
-      : $rewriter($this->_constraint, $parents);
+    $generic_parameter = $this->_generic_parameter === null ? null : $rewriter($this->_generic_parameter, $parents);
+    $constraint = $this->_constraint === null ? null : $rewriter($this->_constraint, $parents);
     $equal = $rewriter($this->_equal, $parents);
     $type = $rewriter($this->_type, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc8db4fd6347ba873cc6fa833e1ccf14>>
+ * @generated SignedSource<<35ebd7f868bc2dc51d4a5e73a0102747>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class NamespaceUseClause extends Node {
   ): this {
     $offset = $initial_offset;
     $clause_kind = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_clause_kind'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['namespace_use_clause_kind'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -59,8 +58,7 @@ final class NamespaceUseClause extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $as = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_as'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['namespace_use_as'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +66,7 @@ final class NamespaceUseClause extends Node {
     );
     $offset += $as?->getWidth() ?? 0;
     $alias = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_alias'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['namespace_use_alias'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +95,7 @@ final class NamespaceUseClause extends Node {
       'name' => $this->_name,
       'as' => $this->_as,
       'alias' => $this->_alias,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,9 +104,7 @@ final class NamespaceUseClause extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $clause_kind = $this->_clause_kind === null
-      ? null
-      : $rewriter($this->_clause_kind, $parents);
+    $clause_kind = $this->_clause_kind === null ? null : $rewriter($this->_clause_kind, $parents);
     $name = $rewriter($this->_name, $parents);
     $as = $this->_as === null ? null : $rewriter($this->_as, $parents);
     $alias = $this->_alias === null ? null : $rewriter($this->_alias, $parents);

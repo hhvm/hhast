@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<925a1a07aa4f6b669b35e1acb8227cc2>>
+ * @generated SignedSource<<c8a1afa9d1a5ac674dab98b3cc5c6c20>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TraitUseAliasItem extends Node implements ITraitUseItem {
+final class TraitUseAliasItem extends Node
+  implements
+    ITraitUseItem {
 
   const string SYNTAX_KIND = 'trait_use_alias_item';
 
@@ -59,8 +61,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_alias_item_modifiers'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['trait_use_alias_item_modifiers'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +69,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $aliased_name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliased_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliased_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +98,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       'keyword' => $this->_keyword,
       'modifiers' => $this->_modifiers,
       'aliased_name' => $this->_aliased_name,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -110,12 +109,8 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     $parents[] = $this;
     $aliasing_name = $rewriter($this->_aliasing_name, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
-    $modifiers = $this->_modifiers === null
-      ? null
-      : $rewriter($this->_modifiers, $parents);
-    $aliased_name = $this->_aliased_name === null
-      ? null
-      : $rewriter($this->_aliased_name, $parents);
+    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
+    $aliased_name = $this->_aliased_name === null ? null : $rewriter($this->_aliased_name, $parents);
     if (
       $aliasing_name === $this->_aliasing_name &&
       $keyword === $this->_keyword &&
@@ -140,12 +135,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     if ($value === $this->_aliasing_name) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_keyword,
-      $this->_modifiers,
-      $this->_aliased_name,
-    );
+    return new static($value, $this->_keyword, $this->_modifiers, $this->_aliased_name);
   }
 
   public function hasAliasingName(): bool {
@@ -244,12 +234,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     if ($value === $this->_aliased_name) {
       return $this;
     }
-    return new static(
-      $this->_aliasing_name,
-      $this->_keyword,
-      $this->_modifiers,
-      $value,
-    );
+    return new static($this->_aliasing_name, $this->_keyword, $this->_modifiers, $value);
   }
 
   public function hasAliasedName(): bool {

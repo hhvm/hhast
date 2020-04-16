@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0cb0490a13e72e3728f1dbaefb79cc16>>
+ * @generated SignedSource<<020c642172de2f6dbb06203ff8433b35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
+final class VectorArrayTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'vector_array_type_specifier';
 
@@ -98,8 +100,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
       'left_angle' => $this->_left_angle,
       'type' => $this->_type,
       'right_angle' => $this->_right_angle,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -136,12 +137,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_left_angle,
-      $this->_type,
-      $this->_right_angle,
-    );
+    return new static($value, $this->_left_angle, $this->_type, $this->_right_angle);
   }
 
   public function hasKeyword(): bool {
@@ -170,12 +166,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_type,
-      $this->_right_angle,
-    );
+    return new static($this->_keyword, $value, $this->_type, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -204,12 +195,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_angle,
-      $value,
-      $this->_right_angle,
-    );
+    return new static($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
   }
 
   public function hasType(): bool {
@@ -218,8 +204,8 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return DarrayTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier
-   * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
@@ -227,8 +213,8 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return DarrayTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier
-   * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();
@@ -242,12 +228,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_angle,
-      $this->_type,
-      $value,
-    );
+    return new static($this->_keyword, $this->_left_angle, $this->_type, $value);
   }
 
   public function hasRightAngle(): bool {

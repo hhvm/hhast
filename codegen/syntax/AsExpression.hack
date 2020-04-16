@@ -1,14 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa7d14fb5512863ca35286e7bad5e2e3>>
+ * @generated SignedSource<<d7fb8c9b45d012eaa304c9401d9d3cf2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class AsExpression extends Node implements ILambdaBody, IExpression {
+final class AsExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'as_expression';
 
@@ -84,8 +87,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
       'left_operand' => $this->_left_operand,
       'operator' => $this->_operator,
       'right_operand' => $this->_right_operand,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -129,7 +131,8 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | TupleExpression | VariableExpression
+   * PrefixUnaryExpression | SubscriptExpression | TupleExpression |
+   * VariableExpression
    */
   public function getLeftOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
@@ -138,7 +141,8 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
   /**
    * @return FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | TupleExpression | VariableExpression
+   * PrefixUnaryExpression | SubscriptExpression | TupleExpression |
+   * VariableExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();

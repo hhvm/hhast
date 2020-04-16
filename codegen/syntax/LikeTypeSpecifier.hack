@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb9795d8379edaad55785578178da62a>>
+ * @generated SignedSource<<b6fa215ed23ce3fea6232f61a394a057>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
+final class LikeTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'like_type_specifier';
 
@@ -70,8 +72,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     return dict[
       'tilde' => $this->_tilde,
       'type' => $this->_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,7 +83,10 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     $parents[] = $this;
     $tilde = $rewriter($this->_tilde, $parents);
     $type = $rewriter($this->_type, $parents);
-    if ($tilde === $this->_tilde && $type === $this->_type) {
+    if (
+      $tilde === $this->_tilde &&
+      $type === $this->_type
+    ) {
       return $this;
     }
     return new static(
@@ -136,18 +140,20 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | LikeTypeSpecifier | SimpleTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * SimpleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | LikeTypeSpecifier | SimpleTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * SimpleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

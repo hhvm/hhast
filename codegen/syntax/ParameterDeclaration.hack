@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a43a46fa033b34961ea421e2f525ac3c>>
+ * @generated SignedSource<<cc747c55eddb8547da2ee7ce56730f05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class ParameterDeclarationGeneratedBase
-  extends Node
-  implements IHasTypeHint, IHasAttributeSpec, IParameter {
+abstract class ParameterDeclarationGeneratedBase extends Node
+  implements
+    IHasTypeHint,
+    IHasAttributeSpec,
+    IParameter {
 
   const string SYNTAX_KIND = 'parameter_declaration';
 
@@ -49,8 +51,7 @@ abstract class ParameterDeclarationGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_attribute'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['parameter_attribute'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -58,8 +59,7 @@ abstract class ParameterDeclarationGeneratedBase
     );
     $offset += $attribute?->getWidth() ?? 0;
     $visibility = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_visibility'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['parameter_visibility'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -67,8 +67,7 @@ abstract class ParameterDeclarationGeneratedBase
     );
     $offset += $visibility?->getWidth() ?? 0;
     $call_convention = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_call_convention'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['parameter_call_convention'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -93,8 +92,7 @@ abstract class ParameterDeclarationGeneratedBase
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $default_value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_default_value'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['parameter_default_value'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -127,8 +125,7 @@ abstract class ParameterDeclarationGeneratedBase
       'type' => $this->_type,
       'name' => $this->_name,
       'default_value' => $this->_default_value,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -137,20 +134,12 @@ abstract class ParameterDeclarationGeneratedBase
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute === null
-      ? null
-      : $rewriter($this->_attribute, $parents);
-    $visibility = $this->_visibility === null
-      ? null
-      : $rewriter($this->_visibility, $parents);
-    $call_convention = $this->_call_convention === null
-      ? null
-      : $rewriter($this->_call_convention, $parents);
+    $attribute = $this->_attribute === null ? null : $rewriter($this->_attribute, $parents);
+    $visibility = $this->_visibility === null ? null : $rewriter($this->_visibility, $parents);
+    $call_convention = $this->_call_convention === null ? null : $rewriter($this->_call_convention, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $name = $rewriter($this->_name, $parents);
-    $default_value = $this->_default_value === null
-      ? null
-      : $rewriter($this->_default_value, $parents);
+    $default_value = $this->_default_value === null ? null : $rewriter($this->_default_value, $parents);
     if (
       $attribute === $this->_attribute &&
       $visibility === $this->_visibility &&

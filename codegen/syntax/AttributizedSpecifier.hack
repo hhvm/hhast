@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d74ff72b0718b801723da58233b1cf9f>>
+ * @generated SignedSource<<a3b2b31c570f2a01018b7ab99f8c0f83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class AttributizedSpecifier extends Node implements ITypeSpecifier {
+final class AttributizedSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'attributized_specifier';
 
@@ -70,8 +72,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'type' => $this->_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,7 +83,10 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
     $type = $rewriter($this->_type, $parents);
-    if ($attribute_spec === $this->_attribute_spec && $type === $this->_type) {
+    if (
+      $attribute_spec === $this->_attribute_spec &&
+      $type === $this->_type
+    ) {
       return $this;
     }
     return new static(
@@ -110,10 +114,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
    * @return OldAttributeSpecification
    */
   public function getAttributeSpec(): OldAttributeSpecification {
-    return TypeAssert\instance_of(
-      OldAttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+    return TypeAssert\instance_of(OldAttributeSpecification::class, $this->_attribute_spec);
   }
 
   /**
@@ -142,10 +143,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getType(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(
-      ISimpleCreationSpecifier::class,
-      $this->_type,
-    );
+    return TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_type);
   }
 
   /**

@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97e4946744462156fd55ea1823f8cb2e>>
+ * @generated SignedSource<<52716a8595a2ea78507935ab62cc6c24>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class IfStatement
-  extends Node
-  implements IControlFlowStatement, IStatement {
+final class IfStatement extends Node
+  implements
+    IControlFlowStatement,
+    IStatement {
 
   const string SYNTAX_KIND = 'if_statement';
 
@@ -97,8 +98,7 @@ final class IfStatement
     $statement = $statement as nonnull;
     $offset += $statement->getWidth();
     $elseif_clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_elseif_clauses'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['if_elseif_clauses'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -141,8 +141,7 @@ final class IfStatement
       'statement' => $this->_statement,
       'elseif_clauses' => $this->_elseif_clauses,
       'else_clause' => $this->_else_clause,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -156,12 +155,8 @@ final class IfStatement
     $condition = $rewriter($this->_condition, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $statement = $rewriter($this->_statement, $parents);
-    $elseif_clauses = $this->_elseif_clauses === null
-      ? null
-      : $rewriter($this->_elseif_clauses, $parents);
-    $else_clause = $this->_else_clause === null
-      ? null
-      : $rewriter($this->_else_clause, $parents);
+    $elseif_clauses = $this->_elseif_clauses === null ? null : $rewriter($this->_elseif_clauses, $parents);
+    $else_clause = $this->_else_clause === null ? null : $rewriter($this->_else_clause, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -282,22 +277,24 @@ final class IfStatement
   }
 
   /**
-   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | IsExpression | IssetExpression |
+   * @return AsExpression | BinaryExpression | CastExpression |
+   * FunctionCallExpression | IsExpression | IssetExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getCondition(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**
-   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | IsExpression | IssetExpression |
+   * @return AsExpression | BinaryExpression | CastExpression |
+   * FunctionCallExpression | IsExpression | IssetExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getConditionx(): IExpression {
     return $this->getCondition();

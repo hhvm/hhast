@@ -1,14 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99aa89c604ae4d94578266fdb267f7cc>>
+ * @generated SignedSource<<a45bf5f9fa49bdd563e5bb1abda2a0b3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ShapeExpression extends Node implements ILambdaBody, IExpression {
+final class ShapeExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'shape_expression';
 
@@ -59,8 +62,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_expression_fields'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['shape_expression_fields'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +100,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
       'left_paren' => $this->_left_paren,
       'fields' => $this->_fields,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -110,9 +111,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $fields = $this->_fields === null
-      ? null
-      : $rewriter($this->_fields, $parents);
+    $fields = $this->_fields === null ? null : $rewriter($this->_fields, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -138,12 +137,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_left_paren,
-      $this->_fields,
-      $this->_right_paren,
-    );
+    return new static($value, $this->_left_paren, $this->_fields, $this->_right_paren);
   }
 
   public function hasKeyword(): bool {
@@ -172,12 +166,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_fields,
-      $this->_right_paren,
-    );
+    return new static($this->_keyword, $value, $this->_fields, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -208,12 +197,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_fields) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasFields(): bool {
@@ -242,12 +226,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $this->_fields,
-      $value,
-    );
+    return new static($this->_keyword, $this->_left_paren, $this->_fields, $value);
   }
 
   public function hasRightParen(): bool {

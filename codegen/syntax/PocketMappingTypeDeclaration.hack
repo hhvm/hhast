@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<658df95db16708a2d8106464b11e8a78>>
+ * @generated SignedSource<<74e63d9e55de35b1bcbd1fb02444dbcf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,8 +41,7 @@ final class PocketMappingTypeDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_type_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -50,8 +49,7 @@ final class PocketMappingTypeDeclaration extends Node {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_type_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -59,8 +57,7 @@ final class PocketMappingTypeDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_type_equal'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_equal'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -68,8 +65,7 @@ final class PocketMappingTypeDeclaration extends Node {
     );
     $offset += $equal?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_mapping_type_type'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_mapping_type_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +94,7 @@ final class PocketMappingTypeDeclaration extends Node {
       'name' => $this->_name,
       'equal' => $this->_equal,
       'type' => $this->_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,9 +103,7 @@ final class PocketMappingTypeDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
+    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);

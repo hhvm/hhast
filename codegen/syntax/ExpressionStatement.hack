@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84c910ef32b12dbf41da2d1d2d32b86a>>
+ * @generated SignedSource<<d2a2993033ea77445b46dc3fd46e189f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ExpressionStatement extends Node implements IStatement {
+final class ExpressionStatement extends Node
+  implements
+    IStatement {
 
   const string SYNTAX_KIND = 'expression_statement';
 
@@ -35,8 +37,7 @@ final class ExpressionStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['expression_statement_expression'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['expression_statement_expression'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -70,8 +71,7 @@ final class ExpressionStatement extends Node implements IStatement {
     return dict[
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -80,12 +80,11 @@ final class ExpressionStatement extends Node implements IStatement {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $this->_expression === null
-      ? null
-      : $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
-      $expression === $this->_expression && $semicolon === $this->_semicolon
+      $expression === $this->_expression &&
+      $semicolon === $this->_semicolon
     ) {
       return $this;
     }
@@ -111,13 +110,14 @@ final class ExpressionStatement extends Node implements IStatement {
   }
 
   /**
-   * @return AnonymousFunction | AsExpression | BinaryExpression |
-   * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | IsExpression | IssetExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | null |
-   * ObjectCreationExpression | PostfixUnaryExpression | PrefixUnaryExpression
-   * | SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * @return AnonymousFunction | ArrayIntrinsicExpression | AsExpression |
+   * BinaryExpression | CastExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
+   * | FunctionCallExpression | InclusionExpression | IsExpression |
+   * IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | null | ObjectCreationExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression |
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression |
    * YieldFromExpression
@@ -127,11 +127,12 @@ final class ExpressionStatement extends Node implements IStatement {
   }
 
   /**
-   * @return AnonymousFunction | AsExpression | BinaryExpression |
-   * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | IsExpression | IssetExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AnonymousFunction | ArrayIntrinsicExpression | AsExpression |
+   * BinaryExpression | CastExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
+   * | FunctionCallExpression | InclusionExpression | IsExpression |
+   * IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |

@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9450f4ede1ead827cc2a3b53aa1729b>>
+ * @generated SignedSource<<857072e569604e357302b4b5f1f292fe>>
  */
 namespace Facebook\HHAST;
 
-final class NoreturnToken
-  extends TokenWithVariableText
-  implements __Private\IWrappableWithSimpleTypeSpecifier {
+final class NoreturnToken extends TokenWithVariableText
+  implements
+    __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string KIND = 'noreturn';
 

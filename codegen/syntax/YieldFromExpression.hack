@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef5ccdfefe5e16fd99ad61cb896d30fd>>
+ * @generated SignedSource<<84377afaeaa741b65e1023d463d0858e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class YieldFromExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class YieldFromExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'yield_from_expression';
 
@@ -86,8 +87,7 @@ final class YieldFromExpression
       'yield_keyword' => $this->_yield_keyword,
       'from_keyword' => $this->_from_keyword,
       'operand' => $this->_operand,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -187,16 +187,16 @@ final class YieldFromExpression
   }
 
   /**
-   * @return ArrayCreationExpression | FunctionCallExpression |
-   * LiteralExpression | ParenthesizedExpression | VariableExpression
+   * @return FunctionCallExpression | LiteralExpression |
+   * ParenthesizedExpression | VariableExpression | VarrayIntrinsicExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
   }
 
   /**
-   * @return ArrayCreationExpression | FunctionCallExpression |
-   * LiteralExpression | ParenthesizedExpression | VariableExpression
+   * @return FunctionCallExpression | LiteralExpression |
+   * ParenthesizedExpression | VariableExpression | VarrayIntrinsicExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

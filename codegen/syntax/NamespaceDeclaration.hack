@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b81fa86737cf30d895fe0cac5cad839d>>
+ * @generated SignedSource<<78e7358fb2fb19af915c577163c68a67>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,18 +12,15 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
 
   const string SYNTAX_KIND = 'namespace_declaration';
 
-  private NamespaceToken $_keyword;
-  private ?INameishNode $_name;
+  private NamespaceDeclarationHeader $_header;
   private INamespaceBody $_body;
 
   public function __construct(
-    NamespaceToken $keyword,
-    ?INameishNode $name,
+    NamespaceDeclarationHeader $header,
     INamespaceBody $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    $this->_keyword = $keyword;
-    $this->_name = $name;
+    $this->_header = $header;
     $this->_body = $body;
     parent::__construct($source_ref);
   }
@@ -37,23 +34,15 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
-    $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_keyword'],
+    $header = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['namespace_header'],
       $file,
       $offset,
       $source,
-      'NamespaceToken',
+      'NamespaceDeclarationHeader',
     );
-    $keyword = $keyword as nonnull;
-    $offset += $keyword->getWidth();
-    $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_name'] ?? dict['kind' => 'missing'],
-      $file,
-      $offset,
-      $source,
-      'INameishNode',
-    );
-    $offset += $name?->getWidth() ?? 0;
+    $header = $header as nonnull;
+    $offset += $header->getWidth();
     $body = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['namespace_body'],
       $file,
@@ -70,8 +59,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $header,
       /* HH_IGNORE_ERROR[4110] */ $body,
       $source_ref,
     );
@@ -80,11 +68,9 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
-      'keyword' => $this->_keyword,
-      'name' => $this->_name,
+      'header' => $this->_header,
       'body' => $this->_body,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -93,79 +79,47 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $rewriter($this->_keyword, $parents);
-    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
+    $header = $rewriter($this->_header, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
-      $keyword === $this->_keyword &&
-      $name === $this->_name &&
+      $header === $this->_header &&
       $body === $this->_body
     ) {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $header,
       /* HH_FIXME[4110] use `as` */ $body,
     );
   }
 
-  public function getKeywordUNTYPED(): ?Node {
-    return $this->_keyword;
+  public function getHeaderUNTYPED(): ?Node {
+    return $this->_header;
   }
 
-  public function withKeyword(NamespaceToken $value): this {
-    if ($value === $this->_keyword) {
+  public function withHeader(NamespaceDeclarationHeader $value): this {
+    if ($value === $this->_header) {
       return $this;
     }
-    return new static($value, $this->_name, $this->_body);
+    return new static($value, $this->_body);
   }
 
-  public function hasKeyword(): bool {
-    return $this->_keyword !== null;
-  }
-
-  /**
-   * @return NamespaceToken
-   */
-  public function getKeyword(): NamespaceToken {
-    return TypeAssert\instance_of(NamespaceToken::class, $this->_keyword);
+  public function hasHeader(): bool {
+    return $this->_header !== null;
   }
 
   /**
-   * @return NamespaceToken
+   * @return NamespaceDeclarationHeader
    */
-  public function getKeywordx(): NamespaceToken {
-    return $this->getKeyword();
-  }
-
-  public function getNameUNTYPED(): ?Node {
-    return $this->_name;
-  }
-
-  public function withName(?INameishNode $value): this {
-    if ($value === $this->_name) {
-      return $this;
-    }
-    return new static($this->_keyword, $value, $this->_body);
-  }
-
-  public function hasName(): bool {
-    return $this->_name !== null;
+  public function getHeader(): NamespaceDeclarationHeader {
+    return TypeAssert\instance_of(NamespaceDeclarationHeader::class, $this->_header);
   }
 
   /**
-   * @return null | QualifiedName | NameToken
+   * @return NamespaceDeclarationHeader
    */
-  public function getName(): ?INameishNode {
-    return $this->_name;
-  }
-
-  /**
-   * @return QualifiedName | NameToken
-   */
-  public function getNamex(): INameishNode {
-    return TypeAssert\not_null($this->getName());
+  public function getHeaderx(): NamespaceDeclarationHeader {
+    return $this->getHeader();
   }
 
   public function getBodyUNTYPED(): ?Node {
@@ -176,7 +130,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     if ($value === $this->_body) {
       return $this;
     }
-    return new static($this->_keyword, $this->_name, $value);
+    return new static($this->_header, $value);
   }
 
   public function hasBody(): bool {

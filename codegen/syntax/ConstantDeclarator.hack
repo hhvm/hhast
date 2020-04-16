@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac9842b85a1e23b0ecdb815bbc6ad9ec>>
+ * @generated SignedSource<<a30438fd635c6e59f77dac84196def72>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,8 +44,7 @@ final class ConstantDeclarator extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constant_declarator_initializer'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['constant_declarator_initializer'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -70,8 +69,7 @@ final class ConstantDeclarator extends Node {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +79,11 @@ final class ConstantDeclarator extends Node {
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
-    $initializer = $this->_initializer === null
-      ? null
-      : $rewriter($this->_initializer, $parents);
-    if ($name === $this->_name && $initializer === $this->_initializer) {
+    $initializer = $this->_initializer === null ? null : $rewriter($this->_initializer, $parents);
+    if (
+      $name === $this->_name &&
+      $initializer === $this->_initializer
+    ) {
       return $this;
     }
     return new static(

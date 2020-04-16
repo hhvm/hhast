@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<86b4cd692effb508e240fdcae21a9cec>>
+ * @generated SignedSource<<6a483ec48a24c612c4410262bdd3cc12>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VarrayIntrinsicExpression
-  extends Node
-  implements IContainer, ILambdaBody, IExpression {
+final class VarrayIntrinsicExpression extends Node
+  implements
+    IContainer,
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'varray_intrinsic_expression';
 
@@ -55,8 +57,7 @@ final class VarrayIntrinsicExpression
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['varray_intrinsic_explicit_type'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['varray_intrinsic_explicit_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -73,8 +74,7 @@ final class VarrayIntrinsicExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['varray_intrinsic_members'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['varray_intrinsic_members'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,8 +114,7 @@ final class VarrayIntrinsicExpression
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -125,13 +124,9 @@ final class VarrayIntrinsicExpression
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $explicit_type = $this->_explicit_type === null
-      ? null
-      : $rewriter($this->_explicit_type, $parents);
+    $explicit_type = $this->_explicit_type === null ? null : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $this->_members === null
-      ? null
-      : $rewriter($this->_members, $parents);
+    $members = $this->_members === null ? null : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -246,10 +241,7 @@ final class VarrayIntrinsicExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -281,17 +273,25 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IContainer>> |
-   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * @return NodeList<ListItem<AnonymousFunction>> |
    * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ConditionalExpression>> |
-   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<AwaitableCreationExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
+   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<QualifiedName>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
    * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>> | null
@@ -301,17 +301,25 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IContainer>> |
-   * NodeList<ListItem<ArrayIntrinsicExpression>> |
+   * @return NodeList<ListItem<AnonymousFunction>> |
    * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ConditionalExpression>> |
-   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<AwaitableCreationExpression>> |
+   * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
+   * NodeList<ListItem<CollectionLiteralExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
+   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
+   * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
+   * NodeList<ListItem<QualifiedName>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
+   * NodeList<ListItem<TupleExpression>> |
    * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>>
@@ -345,10 +353,7 @@ final class VarrayIntrinsicExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b672b30826f7bb4e0cfa332dcb98f6eb>>
+ * @generated SignedSource<<abbb7aa1bf479227f2f1c0d8debabc51>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,8 +47,7 @@ final class ClassishBody extends Node {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $elements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_body_elements'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classish_body_elements'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -84,8 +83,7 @@ final class ClassishBody extends Node {
       'left_brace' => $this->_left_brace,
       'elements' => $this->_elements,
       'right_brace' => $this->_right_brace,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,9 +93,7 @@ final class ClassishBody extends Node {
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $elements = $this->_elements === null
-      ? null
-      : $rewriter($this->_elements, $parents);
+    $elements = $this->_elements === null ? null : $rewriter($this->_elements, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&

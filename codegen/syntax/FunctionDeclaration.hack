@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e53b6be0b8b928db98699c5db6b3704>>
+ * @generated SignedSource<<7b1c5e46e4591299a7b9aec6f801ce9b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class FunctionDeclaration
-  extends Node
-  implements IFunctionishDeclaration, IHasFunctionBody, IHasAttributeSpec {
+final class FunctionDeclaration extends Node
+  implements
+    IFunctionishDeclaration,
+    IHasFunctionBody,
+    IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'function_declaration';
 
@@ -40,8 +42,7 @@ final class FunctionDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_attribute_spec'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_attribute_spec'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -86,8 +87,7 @@ final class FunctionDeclaration
       'attribute_spec' => $this->_attribute_spec,
       'declaration_header' => $this->_declaration_header,
       'body' => $this->_body,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -96,9 +96,7 @@ final class FunctionDeclaration
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null
-      ? null
-      : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
     $declaration_header = $rewriter($this->_declaration_header, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
@@ -165,10 +163,7 @@ final class FunctionDeclaration
    * @return FunctionDeclarationHeader
    */
   public function getDeclarationHeader(): FunctionDeclarationHeader {
-    return TypeAssert\instance_of(
-      FunctionDeclarationHeader::class,
-      $this->_declaration_header,
-    );
+    return TypeAssert\instance_of(FunctionDeclarationHeader::class, $this->_declaration_header);
   }
 
   /**
@@ -186,11 +181,7 @@ final class FunctionDeclaration
     if ($value === $this->_body) {
       return $this;
     }
-    return new static(
-      $this->_attribute_spec,
-      $this->_declaration_header,
-      $value,
-    );
+    return new static($this->_attribute_spec, $this->_declaration_header, $value);
   }
 
   public function hasBody(): bool {

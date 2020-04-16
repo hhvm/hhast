@@ -1,16 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99ed6ac7ce06bd029ce229a8f91ea8ff>>
+ * @generated SignedSource<<a3f58e3d1a78d32a06e0f5a80bfb1d1c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ParenthesizedExpression
-  extends Node
-  implements ILambdaBody, IExpression {
+final class ParenthesizedExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'parenthesized_expression';
 
@@ -86,8 +87,7 @@ final class ParenthesizedExpression
       'left_paren' => $this->_left_paren,
       'expression' => $this->_expression,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -158,30 +158,30 @@ final class ParenthesizedExpression
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * FunctionCallExpression | InclusionExpression | IsExpression |
-   * IssetExpression | LambdaExpression | LiteralExpression |
+   * @return AnonymousFunction | BinaryExpression | CastExpression |
+   * CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression | InclusionExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VectorIntrinsicExpression | XHPExpression
-   * | YieldExpression
+   * NameToken | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression | XHPExpression | YieldExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * FunctionCallExpression | InclusionExpression | IsExpression |
-   * IssetExpression | LambdaExpression | LiteralExpression |
+   * @return AnonymousFunction | BinaryExpression | CastExpression |
+   * CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression | InclusionExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VectorIntrinsicExpression | XHPExpression
-   * | YieldExpression
+   * NameToken | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression | XHPExpression | YieldExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();

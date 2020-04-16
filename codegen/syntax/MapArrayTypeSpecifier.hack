@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<58c41cdd75c86c08acd05a3cc813a735>>
+ * @generated SignedSource<<5197cd1a503c9da706c86df145325a51>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
+final class MapArrayTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'map_array_type_specifier';
 
@@ -83,8 +85,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     $comma = $comma as nonnull;
     $offset += $comma->getWidth();
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['map_array_value'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['map_array_value'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -126,8 +127,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       'comma' => $this->_comma,
       'value' => $this->_value,
       'right_angle' => $this->_right_angle,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

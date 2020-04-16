@@ -1,14 +1,17 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c1b9ae09517fc406614728f01585e57>>
+ * @generated SignedSource<<2f2bddc23dbef44f717ad805ba6c0c22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TupleExpression extends Node implements ILambdaBody, IExpression {
+final class TupleExpression extends Node
+  implements
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'tuple_expression';
 
@@ -59,8 +62,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $items = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_items'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['tuple_expression_items'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +100,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       'left_paren' => $this->_left_paren,
       'items' => $this->_items,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -136,12 +137,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_left_paren,
-      $this->_items,
-      $this->_right_paren,
-    );
+    return new static($value, $this->_left_paren, $this->_items, $this->_right_paren);
   }
 
   public function hasKeyword(): bool {
@@ -170,12 +166,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_items,
-      $this->_right_paren,
-    );
+    return new static($this->_keyword, $value, $this->_items, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -204,12 +195,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_items) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasItems(): bool {
@@ -217,14 +203,15 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<IContainer>> | NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<CastExpression>> | NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CastExpression>> | NodeList<ListItem<IContainer>> |
+   * NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
@@ -235,14 +222,15 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<IContainer>> | NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<CastExpression>> | NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CastExpression>> | NodeList<ListItem<IContainer>> |
+   * NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
@@ -260,12 +248,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $this->_items,
-      $value,
-    );
+    return new static($this->_keyword, $this->_left_paren, $this->_items, $value);
   }
 
   public function hasRightParen(): bool {

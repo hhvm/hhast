@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6de428d6215177bd5ecea39ffbffe8b4>>
+ * @generated SignedSource<<0ce35c05d3824fa2637b12ffa6119896>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
+final class ClassnameTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'classname_type_specifier';
 
@@ -53,8 +55,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_left_angle'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classname_left_angle'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -70,8 +71,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $type?->getWidth() ?? 0;
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_trailing_comma'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classname_trailing_comma'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -79,8 +79,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_right_angle'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['classname_right_angle'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -111,8 +110,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
       'type' => $this->_type,
       'trailing_comma' => $this->_trailing_comma,
       'right_angle' => $this->_right_angle,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -122,16 +120,10 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $left_angle = $this->_left_angle === null
-      ? null
-      : $rewriter($this->_left_angle, $parents);
+    $left_angle = $this->_left_angle === null ? null : $rewriter($this->_left_angle, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
-    $trailing_comma = $this->_trailing_comma === null
-      ? null
-      : $rewriter($this->_trailing_comma, $parents);
-    $right_angle = $this->_right_angle === null
-      ? null
-      : $rewriter($this->_right_angle, $parents);
+    $trailing_comma = $this->_trailing_comma === null ? null : $rewriter($this->_trailing_comma, $parents);
+    $right_angle = $this->_right_angle === null ? null : $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&

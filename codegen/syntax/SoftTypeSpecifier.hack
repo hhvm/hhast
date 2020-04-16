@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ad0c323c15f82424947348cf76a65ca>>
+ * @generated SignedSource<<79015409acc7b4adbd6deb2548e0bd00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
+final class SoftTypeSpecifier extends Node
+  implements
+    ITypeSpecifier {
 
   const string SYNTAX_KIND = 'soft_type_specifier';
 
@@ -70,8 +72,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     return dict[
       'at' => $this->_at,
       'type' => $this->_type,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -82,7 +83,10 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     $parents[] = $this;
     $at = $rewriter($this->_at, $parents);
     $type = $rewriter($this->_type, $parents);
-    if ($at === $this->_at && $type === $this->_type) {
+    if (
+      $at === $this->_at &&
+      $type === $this->_type
+    ) {
       return $this;
     }
     return new static(
@@ -136,18 +140,16 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
-   * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
+   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
-   * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
+   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4604857a6aac4d84a59161ff604864aa>>
+ * @generated SignedSource<<fd777ab1b4f0f884da7165d6ec4a55ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class UsingStatementFunctionScoped extends Node implements IStatement {
+final class UsingStatementFunctionScoped extends Node
+  implements
+    IStatement {
 
   const string SYNTAX_KIND = 'using_statement_function_scoped';
 
@@ -41,8 +43,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $await_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_function_await_keyword'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['using_function_await_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -98,8 +99,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       'using_keyword' => $this->_using_keyword,
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -108,9 +108,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $await_keyword = $this->_await_keyword === null
-      ? null
-      : $rewriter($this->_await_keyword, $parents);
+    $await_keyword = $this->_await_keyword === null ? null : $rewriter($this->_await_keyword, $parents);
     $using_keyword = $rewriter($this->_using_keyword, $parents);
     $expression = $rewriter($this->_expression, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);

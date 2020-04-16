@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d50b36297f1fce73049e532add08fbda>>
+ * @generated SignedSource<<ddd2e4a40230ddab0cf68d851779ca86>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class RequireClause extends Node implements IClassBodyDeclaration {
+final class RequireClause extends Node
+  implements
+    IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'require_clause';
 
@@ -98,8 +100,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       'kind' => $this->_kind,
       'name' => $this->_name,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -205,10 +206,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getName(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(
-      ISimpleCreationSpecifier::class,
-      $this->_name,
-    );
+    return TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_name);
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a556d399d346b361d68254f9f5267f30>>
+ * @generated SignedSource<<7ecac366e784a044e2b30e921d15bd3f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,8 +44,7 @@ final class PocketFieldTypeDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $case = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_case'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_case'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -53,8 +52,7 @@ final class PocketFieldTypeDeclaration extends Node {
     );
     $offset += $case?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_type'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -62,8 +60,7 @@ final class PocketFieldTypeDeclaration extends Node {
     );
     $offset += $type?->getWidth() ?? 0;
     $reified = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_reified'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_reified'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -71,8 +68,7 @@ final class PocketFieldTypeDeclaration extends Node {
     );
     $offset += $reified?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_name'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -80,8 +76,7 @@ final class PocketFieldTypeDeclaration extends Node {
     );
     $offset += $name?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pocket_field_type_semicolon'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['pocket_field_type_semicolon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -112,8 +107,7 @@ final class PocketFieldTypeDeclaration extends Node {
       'reified' => $this->_reified,
       'name' => $this->_name,
       'semicolon' => $this->_semicolon,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -124,13 +118,9 @@ final class PocketFieldTypeDeclaration extends Node {
     $parents[] = $this;
     $case = $this->_case === null ? null : $rewriter($this->_case, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
-    $reified = $this->_reified === null
-      ? null
-      : $rewriter($this->_reified, $parents);
+    $reified = $this->_reified === null ? null : $rewriter($this->_reified, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $semicolon = $this->_semicolon === null
-      ? null
-      : $rewriter($this->_semicolon, $parents);
+    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
     if (
       $case === $this->_case &&
       $type === $this->_type &&
@@ -227,13 +217,7 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_reified) {
       return $this;
     }
-    return new static(
-      $this->_case,
-      $this->_type,
-      $value,
-      $this->_name,
-      $this->_semicolon,
-    );
+    return new static($this->_case, $this->_type, $value, $this->_name, $this->_semicolon);
   }
 
   public function hasReified(): bool {
@@ -297,13 +281,7 @@ final class PocketFieldTypeDeclaration extends Node {
     if ($value === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      $this->_case,
-      $this->_type,
-      $this->_reified,
-      $this->_name,
-      $value,
-    );
+    return new static($this->_case, $this->_type, $this->_reified, $this->_name, $value);
   }
 
   public function hasSemicolon(): bool {

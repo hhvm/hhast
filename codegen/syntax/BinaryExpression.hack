@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edda522f672cc55db93f4bf56d2afc89>>
+ * @generated SignedSource<<9d4fa54de93596d9a8aea509dc332d8a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class BinaryExpression
-  extends Node
-  implements IHasOperator, ILambdaBody, IExpression {
+final class BinaryExpression extends Node
+  implements
+    IHasOperator,
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'binary_expression';
 
@@ -86,8 +88,7 @@ final class BinaryExpression
       'left_operand' => $this->_left_operand,
       'operator' => $this->_operator,
       'right_operand' => $this->_right_operand,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -129,9 +130,8 @@ final class BinaryExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression | AsExpression
-   * | AwaitableCreationExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | DarrayIntrinsicExpression |
+   * @return AsExpression | AwaitableCreationExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | ListExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
@@ -145,9 +145,8 @@ final class BinaryExpression
   }
 
   /**
-   * @return ArrayCreationExpression | ArrayIntrinsicExpression | AsExpression
-   * | AwaitableCreationExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | DarrayIntrinsicExpression |
+   * @return AsExpression | AwaitableCreationExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | ListExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
@@ -227,8 +226,7 @@ final class BinaryExpression
   }
 
   /**
-   * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
@@ -248,8 +246,7 @@ final class BinaryExpression
   }
 
   /**
-   * @return AnonymousFunction | ArrayCreationExpression |
-   * ArrayIntrinsicExpression | AsExpression | AwaitableCreationExpression |
+   * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |

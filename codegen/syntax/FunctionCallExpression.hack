@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a3c155e5416f077ce6454e3d726e575>>
+ * @generated SignedSource<<bf1beac596e499947dfb9a832f59ff35>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class FunctionCallExpression
-  extends Node
-  implements IFunctionCallishExpression, ILambdaBody, IExpression {
+final class FunctionCallExpression extends Node
+  implements
+    IFunctionCallishExpression,
+    ILambdaBody,
+    IExpression {
 
   const string SYNTAX_KIND = 'function_call_expression';
 
@@ -55,8 +57,7 @@ final class FunctionCallExpression
     $receiver = $receiver as nonnull;
     $offset += $receiver->getWidth();
     $type_args = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_type_args'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_call_type_args'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -73,8 +74,7 @@ final class FunctionCallExpression
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_argument_list'] ??
-        dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_call_argument_list'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -114,8 +114,7 @@ final class FunctionCallExpression
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ]
-      |> Dict\filter_nulls($$);
+    ] |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -125,13 +124,9 @@ final class FunctionCallExpression
   ): this {
     $parents[] = $this;
     $receiver = $rewriter($this->_receiver, $parents);
-    $type_args = $this->_type_args === null
-      ? null
-      : $rewriter($this->_type_args, $parents);
+    $type_args = $this->_type_args === null ? null : $rewriter($this->_type_args, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $argument_list = $this->_argument_list === null
-      ? null
-      : $rewriter($this->_argument_list, $parents);
+    $argument_list = $this->_argument_list === null ? null : $rewriter($this->_argument_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $receiver === $this->_receiver &&
@@ -288,16 +283,14 @@ final class FunctionCallExpression
   /**
    * @return NodeList<ListItem<AnonymousFunction>> |
    * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<ArrayIntrinsicExpression>> |
    * NodeList<ListItem<AsExpression>> |
    * NodeList<ListItem<AwaitableCreationExpression>> |
    * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
    * NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
-   * NodeList<ListItem<ConditionalExpression>> |
-   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
+   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> | NodeList<ListItem<EvalExpression>> |
@@ -331,16 +324,14 @@ final class FunctionCallExpression
   /**
    * @return NodeList<ListItem<AnonymousFunction>> |
    * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ArrayCreationExpression>> |
-   * NodeList<ListItem<IContainer>> |
    * NodeList<ListItem<ArrayIntrinsicExpression>> |
    * NodeList<ListItem<AsExpression>> |
    * NodeList<ListItem<AwaitableCreationExpression>> |
    * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
    * NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
-   * NodeList<ListItem<ConditionalExpression>> |
-   * NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
+   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> | NodeList<ListItem<EvalExpression>> |
