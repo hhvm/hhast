@@ -13,7 +13,7 @@ use namespace HH\Lib\Str;
 
 final class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   <<__Override>>
-  final public function getSuggestedNameForFunction(
+  public function getSuggestedNameForFunction(
     string $name,
     FunctionDeclaration $func,
   ): string {
@@ -35,7 +35,7 @@ final class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   }
 
   <<__Override>>
-  final public function getSuggestedNameForInstanceMethod(
+  public function getSuggestedNameForInstanceMethod(
     string $name,
     MethodishDeclaration $meth,
   ): string {
@@ -57,7 +57,7 @@ final class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   }
 
   <<__Override>>
-  final public function getSuggestedNameForStaticMethod(
+  public function getSuggestedNameForStaticMethod(
     string $name,
     MethodishDeclaration $meth,
   ): string {

@@ -47,7 +47,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
   private bool $xhprof = false;
 
   <<__Override>>
-  final public static function getHelpTextForRequiredArguments(): vec<string> {
+  public static function getHelpTextForRequiredArguments(): vec<string> {
     return vec['PATH'];
   }
 
@@ -347,7 +347,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
     return $options;
   }
 
-  final private function migrateFile(
+  private function migrateFile(
     vec<BaseMigration> $migrations,
     string $file,
   ): void {
@@ -382,7 +382,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
     }
   }
 
-  final private function migrateDirectory(
+  private function migrateDirectory(
     vec<BaseMigration> $migrations,
     string $directory,
   ): void {
@@ -410,7 +410,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
     }
   }
 
-  final private function migrateDirectoryByRecursing(
+  private function migrateDirectoryByRecursing(
     vec<BaseMigration> $migrations,
     string $directory,
   ): void {
