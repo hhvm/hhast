@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST;
 
+/*HHAST_IGNORE_ERROR[FinalOrAbstractClass] External codebases might subclass this*/
 class LineLintError extends LintError {
 
   public function __construct(

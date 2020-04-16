@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-class AsyncQueue {
+final class AsyncQueue {
   private ?Awaitable<mixed> $queue;
 
   public async function enqueueAndWaitForAsync<T>(

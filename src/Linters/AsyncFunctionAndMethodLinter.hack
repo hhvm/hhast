@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 
-class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
+final class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   <<__Override>>
   final public function getSuggestedNameForFunction(
     string $name,

@@ -11,6 +11,7 @@ namespace Facebook\HHAST;
 
 use type Facebook\HHAST\File;
 
+/*HHAST_IGNORE_ERROR[FinalOrAbstractClass] External codebases might instantiate this directly*/
 class LintError {
   public function __construct(
     private BaseLinter $linter,

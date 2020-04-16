@@ -33,7 +33,7 @@ use type Facebook\HHAST\{
 use type Facebook\CLILib\{CLIWithRequiredArguments, ExitException};
 use namespace Facebook\CLILib\CLIOptions;
 
-class MigrationCLI extends CLIWithRequiredArguments {
+final class MigrationCLI extends CLIWithRequiredArguments {
   use CLIWithVerbosityTrait;
 
   const VERBOSE_SKIP_BECAUSE_GIT = 2;

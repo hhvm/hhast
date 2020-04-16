@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\C;
 
-class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
+final class NoBasicAssignmentFunctionParameterLinter extends AutoFixingASTLinter {
   const type TNode = FunctionCallExpression;
   const type TContext = Script;
 

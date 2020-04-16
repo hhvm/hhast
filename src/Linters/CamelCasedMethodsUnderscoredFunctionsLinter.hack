@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\{FunctionDeclaration, MethodishDeclaration};
 use namespace HH\Lib\{C, Str};
 
-class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
+final class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   <<__Override>>
   final public function getSuggestedNameForFunction(
     string $name,

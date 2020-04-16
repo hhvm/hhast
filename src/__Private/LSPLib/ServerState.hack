@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 use namespace Facebook\HHAST\__Private\LSP;
 use namespace HH\Lib\C;
 
-class ServerState {
+abstract class ServerState {
   private ServerStatus $status = ServerStatus::PRE_INIT;
   private ?LSP\ClientCapabilities $clientCapabilities = null;
 
