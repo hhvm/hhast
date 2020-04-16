@@ -34,8 +34,8 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
       $this,
       Str\format(
         'Method %s is final in the class %s, which is also final. This is redundant.',
-        Str\trim($class->getName()->getCode()),
         Str\trim($method->getFunctionDeclHeader()->getName()->getCode()),
+        Str\trim($class->getName()->getCode()),
       ),
       $method,
       () ==> $this->getFixedNode($method),
