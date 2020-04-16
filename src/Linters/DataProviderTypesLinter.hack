@@ -80,7 +80,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
           $this,
           'Add a return type to your dataprovider',
           $node,
-          () ==> null,
+          null,
         ),
         null,
       );
@@ -96,7 +96,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
           $this,
           'Use vec<_> or dict<_, _> return types',
           $node,
-          () ==> null,
+          null,
         ),
         null,
       );
@@ -108,7 +108,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
           $this,
           'Use a tuple as the contained-value type of your return type',
           $node,
-          () ==> null,
+          null,
         ),
         null,
       );
@@ -132,7 +132,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
         $this,
         Str\format('Add parameter types to %s', $test->getName()->getText()),
         $node,
-        () ==> null,
+        null,
       );
     }
 
@@ -152,7 +152,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
           $tuple_arity,
         ),
         $node,
-        () ==> null,
+        null,
       );
     }
 
@@ -171,7 +171,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
             static::typeToString($tuple_type),
           ),
           $node,
-          () ==> null,
+          null,
         );
       }
     }
