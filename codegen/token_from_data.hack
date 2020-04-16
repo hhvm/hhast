@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1ff31e7cef2229cd8e0a9b9a9e5a3f7>>
+ * @generated SignedSource<<f36b0ea6c666f946ed0e5e0456b0269e>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -20,7 +20,7 @@ function token_from_data(
   );
 }
 
-class TokenClassMap {
+final class TokenClassMap {
 
   const dict<string, classname<HHAST\TokenWithVariableText>> WITH_TEXT = dict[
     'abstract' => HHAST\AbstractToken::class,

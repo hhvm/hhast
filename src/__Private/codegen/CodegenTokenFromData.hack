@@ -64,6 +64,7 @@ final class CodegenTokenFromData extends CodegenBase {
       ->addClass(
         $cg
           ->codegenClass('TokenClassMap')
+          ->setIsFinal(true)
           ->addConstant(
             $cg
               ->codegenClassConstant('WITH_TEXT')
