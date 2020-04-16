@@ -5,7 +5,7 @@ namespace Herp\Derp;
 use type Facebook\HackTest\{DataProvider, HackTest};
 use function Facebook\FBExpect\expect;
 
-final class ATestClass extends HackTest {
+final class SomeTest extends HackTest {
   public function arg_1_mixed(): vec<(mixed)> { invariant_violation('no typechecker'); }
   public function arg_1_string(): vec<(string)> { invariant_violation('no typechecker'); }
   public function arg_1_int(): vec<(int)> { invariant_violation('no typechecker'); }

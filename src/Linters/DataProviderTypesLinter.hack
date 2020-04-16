@@ -186,6 +186,14 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
     'data_providers' => this::TProviders,
     'hhast_methods' => dict<string, FunctionDeclarationHeader>,
   ) {
+    $cls_name = $context->getNamex()->getText();
+    if (
+      !Str\ends_with_ci($cls_name, 'Test') ||
+      $context->getExtendsKeyword() is null
+    ) {
+      return null;
+    }
+
     $methods = $context->getDescendantsOfType(MethodishDeclaration::class);
 
     $data_providers = $methods

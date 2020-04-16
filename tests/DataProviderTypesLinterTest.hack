@@ -23,7 +23,7 @@ final class DataProviderTypesLinterTest extends TestCase {
 use type Facebook\HackTest\{DataProvider, HackTest};
 use function Facebook\FBExpect\expect;
 
-final class ATestClass extends HackTest {
+final class SomeTest extends HackTest {
   public function provideAdditions(): vec<(int, int, int)> {
     return vec[
       tuple(1, 1, 2),
