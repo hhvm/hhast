@@ -187,10 +187,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
     'hhast_methods' => dict<string, FunctionDeclarationHeader>,
   ) {
     $cls_name = $context->getNamex()->getText();
-    if (
-      !Str\ends_with_ci($cls_name, 'Test') ||
-      $context->getExtendsKeyword() is null
-    ) {
+    if (!Str\ends_with_ci($cls_name, 'Test')) {
       return null;
     }
 
