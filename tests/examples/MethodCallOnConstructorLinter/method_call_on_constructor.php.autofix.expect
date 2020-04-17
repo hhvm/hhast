@@ -1,4 +1,0 @@
-<?hh
-
-(new Foo())->bar();
-(new Foo())->bar();

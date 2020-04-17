@@ -65,7 +65,6 @@ final class LintRunConfig {
     HHAST\LicenseHeaderLinter::class,
     HHAST\NewlineAtEndOfFileLinter::class,
     HHAST\NoBasicAssignmentFunctionParameterLinter::class,
-    HHAST\MethodCallOnConstructorLinter::class,
     HHAST\MustUseBracesForControlFlowLinter::class,
     HHAST\MustUseOverrideAttributeLinter::class,
     HHAST\NoElseifLinter::class,
