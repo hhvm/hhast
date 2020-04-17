@@ -20,7 +20,7 @@ trait LinterTestTrait {
   abstract protected function getLinter(string $file): BaseLinter;
 
   abstract public function getCleanExamples(): vec<(string)>;
-  final public function getDirtyFixtures(): vec<array<string>> {
+  final public function getDirtyFixtures(): vec<(string)> {
     return static::class
       |> \explode('\\', $$)
       |> C\lastx($$)
@@ -29,7 +29,7 @@ trait LinterTestTrait {
       |> Vec\map($$, $path ==> \basename($path, '.in'))
       |> Vec\map($$, $path ==> Str\strip_suffix($path, '.php'))
       |> Vec\map($$, $path ==> Str\strip_suffix($path, '.hack'))
-      |> Vec\map($$, $arg ==> varray[$arg]);
+      |> Vec\map($$, $arg ==> tuple($arg));
   }
 
   final protected function getFullFixtureName(string $name): string {

@@ -13,8 +13,8 @@ use function Facebook\FBExpect\expect;
 use type Facebook\HackTest\DataProvider;
 
 final class OffsetFromPositionTest extends TestCase {
-  public function getExamples(): array<(string, (int, int), int)> {
-    return varray[
+  public function getExamples(): vec<(string, (int, int), int)> {
+    return vec[
       tuple("<?hh // strict \n", tuple(1, 1), 0),
       tuple("<?hh // strict \n", tuple(1, 3), 2),
       tuple("<?hh\nbar();\n", tuple(2, 1), 5),

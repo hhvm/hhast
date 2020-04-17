@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "  public function provideAdditions(): varray<varray<int>> ",
+        "blame_pretty": "  public function provideAdditions(): varray<varray<int>> ",
+        "description": "Use vec<_> or dict<_, _> return types"
+    }
+]

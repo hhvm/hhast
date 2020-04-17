@@ -74,7 +74,7 @@ final class ResolutionTest extends TestCase {
   }
 
   public function getUseStatementExamples(
-  ): array<(
+  ): vec<(
     string,
     shape(
       'namespaces' => dict<string, string>,
@@ -82,7 +82,7 @@ final class ResolutionTest extends TestCase {
       'functions' => dict<string, string>,
     ),
   )> {
-    return varray[
+    return vec[
       tuple(
         '<?hh use Foo; use Bar, Baz; class Target {}',
         shape(
@@ -156,6 +156,7 @@ final class ResolutionTest extends TestCase {
     shape(
       'namespaces' => dict<string, string>,
       'types' => dict<string, string>,
+      'functions' => dict<string, string>,
     ) $expected,
   ): Awaitable<void> {
     list($root, $node) = await self::getRootAndNodeAsync($code);
