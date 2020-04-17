@@ -23,4 +23,9 @@ final class MethodCallOnConstructorLinter extends AutoFixingASTLinter {
   ): ?ASTLintError {
     return null;
   }
+
+  <<__Override>>
+  public static function shouldLintFile(mixed ...$_): bool {
+    return false;
+  }
 }
