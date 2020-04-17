@@ -15,12 +15,6 @@
       "disabledLinters": [
         "Facebook\\HHAST\\CamelCasedMethodsUnderscoredFunctionsLinter"
       ]
-    },
-    {
-      "patterns": ["tests/*"],
-      "extraLinters": [
-        "Facebook\\HHAST\\DataProviderTypesLinter"
-      ]
     }
   ]
 }
