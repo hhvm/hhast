@@ -9,11 +9,14 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\{C, Str};
+
 final class File {
   private function __construct(
     private string $path,
     private string $contents,
     private bool $isDirty,
+    private string $extension,
   ) {
   }
 
@@ -25,6 +28,26 @@ final class File {
     return $this->path;
   }
 
+  public function isHackFile(): bool {
+    if ($this->extension === 'hack') {
+      return true;
+    }
+
+    $prefix = Str\slice($this->contents, 0, 4);
+    if ($prefix === '<?hh') {
+      return true;
+    }
+
+    if (!Str\starts_with($prefix, '#!')) {
+      return false;
+    }
+
+    $prefix = Str\search($this->contents, "\n") ?? 0
+      |> Str\slice($this->contents, $$ + 1, 4);
+
+    return $prefix === '<?hh';
+  }
+
   public function getContents(): string {
     return $this->contents;
   }
@@ -33,18 +56,33 @@ final class File {
     if ($contents === $this->contents) {
       return $this;
     }
-    return new self($this->path, $contents, /* dirty = */ true);
+    return new self(
+      $this->path,
+      $contents, /* dirty = */
+      true,
+      $this->extension,
+    );
   }
 
   public static function fromPath(string $path): this {
-    return new File($path, \file_get_contents($path), /* dirty = */ false);
+    return new File(
+      $path,
+      \file_get_contents($path), /* dirty = */
+      false,
+      \pathinfo($path, \PATHINFO_EXTENSION),
+    );
   }
 
   public static function fromPathAndContents(
     string $path,
     string $contents,
   ): this {
-    return new File($path, $contents, /* dirty = */ true);
+    return new File(
+      $path,
+      $contents, /* dirty = */
+      true,
+      \pathinfo($path, \PATHINFO_EXTENSION),
+    );
   }
 
   <<__Memoize>>

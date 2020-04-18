@@ -1,0 +1,6 @@
+<?hh
+
+<<__EntryPoint>>
+function fasjliuwefhnkjgbalefkngsqoeuerhfarkbfiawlenfasfqwaeiur(): void {
+  echo 'Hello, World!';
+}

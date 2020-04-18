@@ -1,3 +1,4 @@
+ignored_paths = [ "tests/examples/NonHackFileTest/php_files/*" ]
 assume_php=false
 enable_experimental_tc_features = no_fallback_in_namespaces, unpacking_check_arity, disallow_refs_in_array, disallow_untyped_lambda_as_non_function_type
 safe_array = true
