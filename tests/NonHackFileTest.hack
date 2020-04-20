@@ -17,10 +17,10 @@ use function Facebook\FBExpect\expect;
 final class NonHackFileTest extends HackTest {
   public function provideNonHackFiles(): vec<(File)> {
     return vec[
-      'php_files/empty_file.php',
-      'php_files/html_file.php',
-      'php_files/templated_html_file.php',
-      'php_files/real_php_file.php',
+      'php_files/empty_file.php.unparsable',
+      'php_files/html_file.php.unparsable',
+      'php_files/templated_html_file.php.unparsable',
+      'php_files/real_php_file.php.unparsable',
     ]
       |> static::filePathsTheFiles($$)
       |> Vec\map($$, $file ==> tuple($file));
