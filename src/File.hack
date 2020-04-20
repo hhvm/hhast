@@ -9,13 +9,14 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\Str;
+
 final class File {
   private function __construct(
     private string $path,
     private string $contents,
     private bool $isDirty,
-  ) {
-  }
+  ) {}
 
   public function isDirty(): bool {
     return $this->isDirty;
@@ -23,6 +24,26 @@ final class File {
 
   public function getPath(): string {
     return $this->path;
+  }
+
+  public function isHackFile(): bool {
+    if (\pathinfo($this->path, \PATHINFO_EXTENSION) === 'hack') {
+      return true;
+    }
+
+    $prefix = Str\slice($this->contents, 0, 4);
+    if ($prefix === '<?hh') {
+      return true;
+    }
+
+    if (!Str\starts_with($prefix, '#!')) {
+      return false;
+    }
+
+    $prefix = Str\search($this->contents, "\n") ?? 0
+      |> Str\slice($this->contents, $$ + 1, 4);
+
+    return $prefix === '<?hh';
   }
 
   public function getContents(): string {
@@ -37,7 +58,11 @@ final class File {
   }
 
   public static function fromPath(string $path): this {
-    return new File($path, \file_get_contents($path), /* dirty = */ false);
+    return new File(
+      $path,
+      \file_get_contents($path), /* dirty = */
+      false,
+    );
   }
 
   public static function fromPathAndContents(
