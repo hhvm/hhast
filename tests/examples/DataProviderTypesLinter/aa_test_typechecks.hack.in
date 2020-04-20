@@ -24,6 +24,7 @@ final class SomeTest extends HackTest {
   public function arg_1_string_arg_2_string(): vec<(string, string)> { invariant_violation('no typechecker'); }
   public function arg_1_t_arg_2_function_t_bool<T>(): vec<(T, (function(T): bool))> { invariant_violation('no typechecker'); }
   public function arg_1_mixed_arg_2_function_nothing_bool<T>(): vec<(mixed, (function(nothing): bool))> { invariant_violation('no typechecker'); }
+  public function arg_1_mixed_2(): vec<(mixed)> { invariant_violation('no typechecker'); }
 
   <<DataProvider('arg_1_mixed')>> // equal
   public function test_mixed_1(mixed $_): void { invariant_violation('no typechecker'); }
@@ -104,6 +105,14 @@ final class SomeTest extends HackTest {
   public function test_function_mixed_bool_mixed((function(mixed): bool) $_, mixed $_,): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_mixed_arg_2_function_nothing_bool')>> // equal
   public function test_mixed_function_nothing_bool(mixed $_, (function(nothing): bool) $_): void { invariant_violation('no typechecker'); }
+  // This is a false positive because of the way the nodes are being matched.
+  // Matching of types happens on a token level, not a type level.
+  // Ideally, `?T` would be treated like a wildcard, just like other generics.
+  // What actually happens is this:
+  // `?T` splits into two tokens, `?` and `T`.
+  // `mixed` is compared to `?` and `mixed` is not assignable to a question mark.
+  <<DataProvider('arg_1_mixed_2')>>
+  public function test_nullable_t<T>(?T $_): void { invariant_violation('no typechecker'); }
 }
 
 interface IFace extends Generic<mixed>{}
