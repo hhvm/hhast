@@ -1,7 +1,0 @@
-[
-    {
-        "blame": "\nnew Foo()->bar",
-        "blame_pretty": "\nnew Foo()->bar",
-        "description": "Parenthesize method and member access on object creation expressions"
-    }
-]

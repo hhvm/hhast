@@ -9,50 +9,23 @@
 
 namespace Facebook\HHAST;
 
-
+/**
+ * This linter is dead and may be removed in the next breaking release.
+ */
 final class MethodCallOnConstructorLinter extends AutoFixingASTLinter {
-  const type TNode = MemberSelectionExpression;
+  const type TNode = Script;
   const type TContext = Script;
 
   <<__Override>>
   public function getLintErrorForNode(
-    Script $_context,
-    MemberSelectionExpression $node,
+    this::TContext $_context,
+    this::TNode $_node,
   ): ?ASTLintError {
-    $obj = $node->getObject();
-    if (!$obj is ObjectCreationExpression) {
-      return null;
-    }
-
-    return new ASTLintError(
-      $this,
-      'Parenthesize method and member access on object creation expressions',
-      $node,
-      () ==> $this->getFixedNode($node),
-    );
+    return null;
   }
 
   <<__Override>>
-  public function getTitleForFix(LintError $_): string {
-    return 'Add parentheses';
-  }
-
-  public function getFixedNode(
-    MemberSelectionExpression $node,
-  ): MemberSelectionExpression {
-    $obj = $node->getObject();
-    return $node->withObject(new ParenthesizedExpression(
-      new LeftParenToken($obj->getFirstTokenx()->getLeading(), null),
-      $obj
-        ->replace(
-          $obj->getFirstTokenx(),
-          $obj->getFirstTokenx()->withLeading(null),
-        )
-        ->replace(
-          $obj->getLastTokenx(),
-          $obj->getLastTokenx()->withTrailing(null),
-        ),
-      new RightParenToken(null, $obj->getLastTokenx()->getTrailing()),
-    ));
+  public static function shouldLintFile(mixed ...$_): bool {
+    return false;
   }
 }
