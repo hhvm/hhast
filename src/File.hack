@@ -9,16 +9,14 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\Str;
 
 final class File {
   private function __construct(
     private string $path,
     private string $contents,
     private bool $isDirty,
-    private string $extension,
-  ) {
-  }
+  ) {}
 
   public function isDirty(): bool {
     return $this->isDirty;
@@ -29,7 +27,7 @@ final class File {
   }
 
   public function isHackFile(): bool {
-    if ($this->extension === 'hack') {
+    if (\pathinfo($this->path, \PATHINFO_EXTENSION) === 'hack') {
       return true;
     }
 
@@ -56,12 +54,7 @@ final class File {
     if ($contents === $this->contents) {
       return $this;
     }
-    return new self(
-      $this->path,
-      $contents, /* dirty = */
-      true,
-      $this->extension,
-    );
+    return new self($this->path, $contents, /* dirty = */ true);
   }
 
   public static function fromPath(string $path): this {
@@ -69,7 +62,6 @@ final class File {
       $path,
       \file_get_contents($path), /* dirty = */
       false,
-      \pathinfo($path, \PATHINFO_EXTENSION),
     );
   }
 
@@ -77,12 +69,7 @@ final class File {
     string $path,
     string $contents,
   ): this {
-    return new File(
-      $path,
-      $contents, /* dirty = */
-      true,
-      \pathinfo($path, \PATHINFO_EXTENSION),
-    );
+    return new File($path, $contents, /* dirty = */ true);
   }
 
   <<__Memoize>>
