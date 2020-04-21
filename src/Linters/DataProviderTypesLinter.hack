@@ -287,28 +287,45 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
 
     for ($i = 0; $i < $count; ++$i) {
       $from_text = $from[$i];
-      if ($from_text !== self::T_NOTHING && !static::isGeneric($from_text)) {
-        $to_text = $to[$i];
-        if (!static::isGeneric($to_text)) {
-          if ($to_text !== $from_text) {
-            // This is a special case which is very common in the hsl code.
-            // `mixed` assign to `?T` happens all the time.
-            // This way we skip over this typecheck.
-            // This will not allow things like this:
-            // `KeyedTraversable<mixed, mixed>` assign to `KeyedTraversable<?T, mixed>
-            // Since `?T` is one token longer than `mixed`.
-            // I also don't want to invert short circuit to true here,
-            // since `KeyedTraversable<mixed, mixed>` assign to `KeyedTraversable<?int, mixed>`
-            // should still report an error here.
-            if ($from_text !== 'mixed' || $to_text !== '?') {
-              return false;
-            }
-          }
-        }
+      $to_text = $to[$i];
+      if (
+        !static::isSafeAssignment($from_text, $to_text) &&
+        !static::isSafeMixedAssignment($from, $to, $i)
+      ) {
+        return false;
       }
     }
 
     return true;
+  }
+
+  private static function isSafeAssignment(
+    string $from_text,
+    string $to_text,
+  ): bool {
+    return $from_text === $to_text ||
+      $from_text === self::T_NOTHING ||
+      static::isGeneric($from_text) ||
+      static::isGeneric($to_text);
+  }
+
+  /**
+   * The following situation is super common in hsl code.
+   * `mixed` assign to `?T`, which fails under the current rules.
+   * However, we could make this pass, since `mixed` assign to `T` is already safe.
+   * This exception will only work at the top-level type.
+   * Embedded types like KeyedTraversable<mixed, mixed> assign to `KeyedTraversable<?T, mixed>`
+   * still fail, because `mixed` is one syllable shorter than `?T`, which desyncs the node streams.
+   */
+  private static function isSafeMixedAssignment(
+    vec<string> $from,
+    vec<string> $to,
+    int $i,
+  ): bool {
+    $to_text = $to[$i];
+    $from_text = $from[$i];
+    return $to_text === '?' &&
+      static::isSafeAssignment($from_text, $to[$i + 1] ?? $from_text);
   }
 
   private static function shrinkType(ITypeSpecifier $type): vec<string> {

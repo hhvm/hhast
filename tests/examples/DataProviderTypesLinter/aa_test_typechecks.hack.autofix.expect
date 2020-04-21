@@ -33,6 +33,8 @@ final class SomeTest extends HackTest {
   public function test_dynamic_1(dynamic $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_mixed_copy')>> // Special case where `mixed` assigns to `?` and no other type tokens are needed.
   public function test_nullable_t_1<T>(?T $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_mixed_copy')>> // Even though `mixed` can assign to `?`, we look one token ahead and conclude that `mixed` does not assign to `int`.
+  public function test_nullable_int_1(?int $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_string')>> // equal
   public function test_string_1(string $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_string')>> // no subtyping
