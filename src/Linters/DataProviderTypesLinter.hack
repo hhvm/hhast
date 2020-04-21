@@ -310,7 +310,6 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
   }
 
   private static function isGeneric(string $string): bool {
-    return (Str\starts_with($string, 'T') || Str\starts_with($string, '?T')) &&
-      \ctype_alnum($string);
+    return (Str\starts_with($string, 'T')) && \ctype_alnum($string);
   }
 }

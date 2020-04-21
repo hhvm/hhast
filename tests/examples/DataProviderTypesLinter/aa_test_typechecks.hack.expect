@@ -58,5 +58,10 @@
         "blame": "  public function arg_1_t_arg_2_function_t_bool<T>(): vec<(T, (function(T): bool))> ",
         "blame_pretty": "  public function arg_1_t_arg_2_function_t_bool<T>(): vec<(T, (function(T): bool))> ",
         "description": "Potential type error: Parameter 2 on method test_function_mixed_bool_mixed is of type mixed, but the DataProvider provides (function(T):bool)"
+    },
+    {
+        "blame": "  public function arg_1_mixed_2(): vec<(mixed)> ",
+        "blame_pretty": "  public function arg_1_mixed_2(): vec<(mixed)> ",
+        "description": "Potential type error: Parameter 1 on method test_nullable_t is of type ?T, but the DataProvider provides mixed"
     }
 ]
