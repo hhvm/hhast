@@ -291,7 +291,18 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
         $to_text = $to[$i];
         if (!static::isGeneric($to_text)) {
           if ($to_text !== $from_text) {
-            return false;
+            // This is a special case which is very common in the hsl code.
+            // `mixed` assign to `?T` happens all the time.
+            // This way we skip over this typecheck.
+            // This will not allow things like this:
+            // `KeyedTraversable<mixed, mixed>` assign to `KeyedTraversable<?T, mixed>
+            // Since `?T` is one token longer than `mixed`.
+            // I also don't want to invert short circuit to true here,
+            // since `KeyedTraversable<mixed, mixed>` assign to `KeyedTraversable<?int, mixed>`
+            // should still report an error here.
+            if ($from_text !== 'mixed' || $to_text !== '?') {
+              return false;
+            }
           }
         }
       }

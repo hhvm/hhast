@@ -32,7 +32,12 @@
     {
         "blame": "  public function arg_1_generics_mixed_mixed(): vec<(Generics<mixed, mixed>)> ",
         "blame_pretty": "  public function arg_1_generics_mixed_mixed(): vec<(Generics<mixed, mixed>)> ",
-        "description": "Potential type error: Parameter 1 on method test_mixed_3 is of type mixed, but the DataProvider provides Generics<mixed,mixed>"
+        "description": "Potential type error: Parameter 1 on method test_mixed_3 is of type Generics<?T,int>, but the DataProvider provides Generics<mixed,mixed>"
+    },
+    {
+        "blame": "  public function arg_1_generics_mixed_string(): vec<(Generics<mixed, string>)> ",
+        "blame_pretty": "  public function arg_1_generics_mixed_string(): vec<(Generics<mixed, string>)> ",
+        "description": "Potential type error: Parameter 1 on method test_mixed_3 is of type Generics<?T,int>, but the DataProvider provides Generics<mixed,string>"
     },
     {
         "blame": "  public function arg_1_generics_t1_t2<T1, T2>(): vec<(Generics<T1, T2>)> ",

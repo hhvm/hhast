@@ -7,6 +7,7 @@ use function Facebook\FBExpect\expect;
 
 final class SomeTest extends HackTest {
   public function arg_1_mixed(): vec<(mixed)> { invariant_violation('no typechecker'); }
+  public function arg_1_mixed_copy(): vec<(mixed)> { invariant_violation('no typechecker'); }
   public function arg_1_string(): vec<(string)> { invariant_violation('no typechecker'); }
   public function arg_1_int(): vec<(int)> { invariant_violation('no typechecker'); }
   public function arg_1_arraykey(): vec<(arraykey)> { invariant_violation('no typechecker'); }
@@ -17,6 +18,7 @@ final class SomeTest extends HackTest {
   public function arg_1_generic_t<T>(): vec<(Generic<T>)> { invariant_violation('no typechecker'); }
   public function arg_1_generic_nothing(): vec<(Generic<nothing>)> { invariant_violation('no typechecker'); }
   public function arg_1_generics_mixed_mixed(): vec<(Generics<mixed, mixed>)> { invariant_violation('no typechecker'); }
+  public function arg_1_generics_mixed_string(): vec<(Generics<mixed, string>)> { invariant_violation('no typechecker'); }
   public function arg_1_generics_t1_t2<T1, T2>(): vec<(Generics<T1, T2>)> { invariant_violation('no typechecker'); }
   public function arg_1_empty_shape(): vec<(shape())> { invariant_violation('no typechecker'); }
   public function arg_1_shape_key_herp_value_string(): vec<(shape('herp' => string))> { invariant_violation('no typechecker'); }
@@ -29,6 +31,8 @@ final class SomeTest extends HackTest {
   public function test_mixed_1(mixed $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_mixed')>> // no idea of dynamic
   public function test_dynamic_1(dynamic $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_mixed_copy')>> // Special case where `mixed` assigns to `?` and no other type tokens are needed.
+  public function test_nullable_t_1<T>(?T $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_string')>> // equal
   public function test_string_1(string $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_string')>> // no subtyping
@@ -68,6 +72,8 @@ final class SomeTest extends HackTest {
   public function test_generic_ta_tb_1<Ta, Tb>(Generics<Ta, Tb> $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_generics_mixed_mixed')>> // not a Generics
   public function test_mixed_3<T1, T2>(mixed $_): void { invariant_violation('no typechecker'); }
+  <<DataProvider('arg_1_generics_mixed_string')>> // Even though `mixed` is allowed to match `?`, the compare should continue.
+  public function test_mixed_3<T>(Generics<?T, int> $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_generics_t1_t2')>> // ignored generics
   public function test_generic_t1_t2_2<T1, T2>(Generics<T1, T2> $_): void { invariant_violation('no typechecker'); }
   <<DataProvider('arg_1_generics_t1_t2')>> // ignored generics
