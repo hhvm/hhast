@@ -100,7 +100,7 @@ final class LintRun {
     classname<BaseLinter> $linter,
     File $file,
   ): Awaitable<LintRunResult> {
-    if (!$linter::shouldLintFile($file)) {
+    if (!$file->isHackFile() || !$linter::shouldLintFile($file)) {
       return LintRunResult::NO_ERRORS;
     }
 
