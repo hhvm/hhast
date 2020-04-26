@@ -5,3 +5,4 @@ tests/ export-ignore
 codegen/**/* linguist-generated
 .hhconfig export-ignore
 *.hack linguist-language=Hack
+.vscode/** export-ignore
