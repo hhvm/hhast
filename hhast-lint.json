@@ -1,5 +1,5 @@
 {
-  "roots": [ ".vscode/", "src/", "codegen/", "tests/" ],
+  "roots": [ "src/", "codegen/", "tests/", "test-data/" ],
   "builtinLinters": "all",
   "overrides": [
     {
