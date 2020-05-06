@@ -16,8 +16,10 @@ use namespace HH\Lib\{C, Str, Vec};
 
 final class LintRunCLIEventHandler implements LintRunEventHandler {
   private AsyncQueue $interactivityQueue;
+  private BufferedReader $input;
 
   public function __construct(private ITerminal $terminal) {
+    $this->input = new BufferedReader($terminal->getStdin());
     $this->interactivityQueue = new AsyncQueue();
   }
 
@@ -184,7 +186,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
           "  \e[37m[y]es/[n]o/yes to [a]ll/n[o] to all:\e[0m ",
         );
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-      $response = await $this->terminal->getStdin()->readLineAsync();
+      $response = await $this->input->readLineAsync();
       $response = Str\trim($response);
       switch ($response) {
         case 'a':

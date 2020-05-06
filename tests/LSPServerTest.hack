@@ -110,6 +110,7 @@ final class LSPServerTest extends TestCase {
 
     list($inr, $inw) = IO\pipe_nd();
     list($outr, $outw) = IO\pipe_nd();
+    $outr = new __Private\BufferedReader($outr);
     $cli = new __Private\LinterCLI(
       vec[__FILE__, '--mode', 'lsp'],
       new Terminal($inr, $outw, IO\request_error() as nonnull),

@@ -9,9 +9,10 @@
 
 namespace Facebook\HHAST\__Private\LSPImpl;
 
-use namespace HH\Lib\{IO, Str};
+use namespace HH\Lib\Str;
+use type Facebook\HHAST\__Private\BufferedReader;
 
-async function read_message_async(IO\ReadHandle $in): Awaitable<string> {
+async function read_message_async(BufferedReader $in): Awaitable<string> {
   $length = null;
   $line = '';
 
@@ -33,15 +34,5 @@ async function read_message_async(IO\ReadHandle $in): Awaitable<string> {
   }
   invariant($length !== null, 'Expected a content-length header');
 
-  // read body
-  $body = '';
-  while ($length > 0 && !$in->isEndOfFile()) {
-    /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-    $part = await $in->readAsync($length);
-    $body .= $part;
-    $length -= Str\length($part);
-    invariant($length >= 0, 'negative bytes remaining');
-  }
-
-  return $body;
+  return await $in->readFixedSizeAsync($length);
 }

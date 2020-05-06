@@ -10,6 +10,7 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
+  BufferedReader,
   LintRun,
   LintRunLSPPublishDiagnosticsEventHandler,
 };
@@ -18,7 +19,9 @@ use type Facebook\CLILib\{ExitException, ITerminal};
 use namespace HH\Lib\{Async, Str};
 
 final class Server extends LSPLib\Server<ServerState> {
+  private BufferedReader $input;
   public function __construct(private ITerminal $terminal) {
+    $this->input = new BufferedReader($terminal->getStdin());
     // The default behavior is to write to STDOUT; as we're talking JSON-RPC
     // on STDIN/OUT, we can't do that. We could directly write to STDERR,
     // but lets make all errors/notices/warnings etc go through the same
@@ -97,14 +100,13 @@ final class Server extends LSPLib\Server<ServerState> {
   }
 
   private async function mainLoopAsync(): Awaitable<void> {
-    $stdin = $this->terminal->getStdin();
     $poll = Async\Poll::create();
     $poll->add($this->lintProjectAsync());
     $debug = (bool)\getenv('HHAST_LSP_DEBUG') ?? false;
     $verbose = $debug ? $this->terminal->getStderr() : null;
     $poll->add(
       async {
-        while (!$stdin->isEndOfFile()) {
+        while (!$this->input->isEndOfFile()) {
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
           await $verbose?->writeAsync("< [waiting]\n");
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
@@ -149,6 +151,6 @@ final class Server extends LSPLib\Server<ServerState> {
   }
 
   private async function readMessageAsync(): Awaitable<string> {
-    return await read_message_async($this->terminal->getStdin());
+    return await read_message_async($this->input);
   }
 }
