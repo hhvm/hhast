@@ -14,4 +14,4 @@ The gunk after `__halt_compiler()` will throw off the parser and throw an except
 This file has no purpose, other than to explode when you lint or --migrate it.
 WHAT;
 __halt_compiler();
-;-34wmit0;cme04imgw-e;migwe-rm0gi'we[0imgwe;mrig0w-ergim;perigsm['0dimg=ei-[']]
+[[[[ // This can not be parsed by hhvm, but php thinks this is binary text.

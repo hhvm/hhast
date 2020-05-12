@@ -1,5 +1,5 @@
 {
-  "roots": [ "src/", "codegen/", "tests/", "test-data/" ],
+  "roots": [ "src/", "codegen/", "tests/" ],
   "builtinLinters": "all",
   "overrides": [
     {
