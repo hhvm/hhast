@@ -92,11 +92,20 @@ abstract class FixmeCodeMigration extends BaseMigration {
     // offsets are no longer valid.
     $token_at_offset = Dict\from_keys(
       Keyset\keys($errors_by_offset),
-      $offset ==> find_node_at_offset($root, $offset)->getFirstTokenx(),
-    );
+      $offset ==> {
+        $node = find_node_at_offset($root, $offset);
+        if ($node is Trivia) {
+          return null;
+        }
+        return $node->getFirstTokenx();
+      },
+    ) |> Dict\filter_nulls($$);
 
     foreach ($errors_by_offset as $offset => $errors) {
-      $token = $token_at_offset[$offset];
+      $token = $token_at_offset[$offset] ?? null;
+      if ($token is null) {
+        continue;
+      }
 
       // Avoid inserting the same FIXME multiple times (it could happen if there
       // are multiple errors on the same line).
@@ -157,6 +166,9 @@ abstract class FixmeCodeMigration extends BaseMigration {
         if (!C\contains_key($existing_fixme_codes, $error['code'])) {
           $new_fixmes[] = self::migrateFixMe($old_trivia[$idx], $error['code']);
         }
+      }
+      if (C\is_empty($new_fixmes)) {
+        continue;
       }
 
       // We duplicate the old FIXME along with any whitespace following it, so
