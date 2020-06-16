@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f2bd30e14ec33dc64b9076ceb0ba10e9>>
+ * @generated SignedSource<<ee9817ae02f34601d3b74e80a3a52481>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class XHPExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'xhp_expression';
 
@@ -85,7 +82,8 @@ final class XHPExpression extends Node
       'open' => $this->_open,
       'body' => $this->_body,
       'close' => $this->_close,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

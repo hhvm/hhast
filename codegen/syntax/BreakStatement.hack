@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3623b0833d78c17c8a0291b013dddb1>>
+ * @generated SignedSource<<abbf53a9823e00b185b15b002694b293>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class BreakStatement extends Node
-  implements
-    IStatement {
+final class BreakStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'break_statement';
 
@@ -72,7 +70,8 @@ final class BreakStatement extends Node
     return dict[
       'keyword' => $this->_keyword,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -83,10 +82,7 @@ final class BreakStatement extends Node
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $semicolon === $this->_semicolon
-    ) {
+    if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }
     return new static(

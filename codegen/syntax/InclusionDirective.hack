@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7d2d83c8348c39fe711554070362be0>>
+ * @generated SignedSource<<43acf0e27b6549e2765714132075686e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class InclusionDirective extends Node
-  implements
-    IStatement {
+final class InclusionDirective extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'inclusion_directive';
 
@@ -72,7 +70,8 @@ final class InclusionDirective extends Node
     return dict[
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -84,8 +83,7 @@ final class InclusionDirective extends Node
     $expression = $rewriter($this->_expression, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
-      $expression === $this->_expression &&
-      $semicolon === $this->_semicolon
+      $expression === $this->_expression && $semicolon === $this->_semicolon
     ) {
       return $this;
     }
@@ -114,7 +112,10 @@ final class InclusionDirective extends Node
    * @return InclusionExpression
    */
   public function getExpression(): InclusionExpression {
-    return TypeAssert\instance_of(InclusionExpression::class, $this->_expression);
+    return TypeAssert\instance_of(
+      InclusionExpression::class,
+      $this->_expression,
+    );
   }
 
   /**

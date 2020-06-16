@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f095da4876c03d0a1a295d4d855250b>>
+ * @generated SignedSource<<2117ff71e6f1a77bf50280af2df90c2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class CollectionLiteralExpression extends Node
-  implements
-    IContainer,
-    ILambdaBody,
-    IExpression {
+final class CollectionLiteralExpression
+  extends Node
+  implements IContainer, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'collection_literal_expression';
 
@@ -101,7 +99,8 @@ final class CollectionLiteralExpression extends Node
       'left_brace' => $this->_left_brace,
       'initializers' => $this->_initializers,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -112,7 +111,9 @@ final class CollectionLiteralExpression extends Node
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $initializers = $this->_initializers === null ? null : $rewriter($this->_initializers, $parents);
+    $initializers = $this->_initializers === null
+      ? null
+      : $rewriter($this->_initializers, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $name === $this->_name &&
@@ -154,7 +155,10 @@ final class CollectionLiteralExpression extends Node
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getName(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_name);
+    return TypeAssert\instance_of(
+      ISimpleCreationSpecifier::class,
+      $this->_name,
+    );
   }
 
   /**
@@ -172,7 +176,12 @@ final class CollectionLiteralExpression extends Node
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static($this->_name, $value, $this->_initializers, $this->_right_brace);
+    return new static(
+      $this->_name,
+      $value,
+      $this->_initializers,
+      $this->_right_brace,
+    );
   }
 
   public function hasLeftBrace(): bool {
@@ -201,7 +210,12 @@ final class CollectionLiteralExpression extends Node
     if ($value === $this->_initializers) {
       return $this;
     }
-    return new static($this->_name, $this->_left_brace, $value, $this->_right_brace);
+    return new static(
+      $this->_name,
+      $this->_left_brace,
+      $value,
+      $this->_right_brace,
+    );
   }
 
   public function hasInitializers(): bool {
@@ -260,7 +274,12 @@ final class CollectionLiteralExpression extends Node
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static($this->_name, $this->_left_brace, $this->_initializers, $value);
+    return new static(
+      $this->_name,
+      $this->_left_brace,
+      $this->_initializers,
+      $value,
+    );
   }
 
   public function hasRightBrace(): bool {

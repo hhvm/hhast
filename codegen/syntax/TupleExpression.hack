@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f2bddc23dbef44f717ad805ba6c0c22>>
+ * @generated SignedSource<<06d2ce7ae93fc0ef540ea2cb6971b1ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TupleExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class TupleExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'tuple_expression';
 
@@ -100,7 +97,8 @@ final class TupleExpression extends Node
       'left_paren' => $this->_left_paren,
       'items' => $this->_items,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -137,7 +135,12 @@ final class TupleExpression extends Node
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_left_paren, $this->_items, $this->_right_paren);
+    return new static(
+      $value,
+      $this->_left_paren,
+      $this->_items,
+      $this->_right_paren,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -166,7 +169,12 @@ final class TupleExpression extends Node
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_items, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_items,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -195,7 +203,12 @@ final class TupleExpression extends Node
     if ($value === $this->_items) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasItems(): bool {
@@ -248,7 +261,12 @@ final class TupleExpression extends Node
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $this->_items, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_items,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

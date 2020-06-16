@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a30438fd635c6e59f77dac84196def72>>
+ * @generated SignedSource<<494718cbcbf4862c3c3409151aad7ac4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -69,7 +69,8 @@ final class ConstantDeclarator extends Node {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,11 +80,10 @@ final class ConstantDeclarator extends Node {
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
-    $initializer = $this->_initializer === null ? null : $rewriter($this->_initializer, $parents);
-    if (
-      $name === $this->_name &&
-      $initializer === $this->_initializer
-    ) {
+    $initializer = $this->_initializer === null
+      ? null
+      : $rewriter($this->_initializer, $parents);
+    if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
     return new static(

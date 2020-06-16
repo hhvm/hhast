@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0082c64f5d1bb0d3533784c4e42c3f3>>
+ * @generated SignedSource<<3ae32052e5431560b9ee889285a6b2e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SimpleTypeSpecifier extends Node
-  implements
-    ISimpleCreationSpecifier,
-    ITypeSpecifier {
+final class SimpleTypeSpecifier
+  extends Node
+  implements ISimpleCreationSpecifier, ITypeSpecifier {
 
   const string SYNTAX_KIND = 'simple_type_specifier';
 
@@ -56,7 +55,8 @@ final class SimpleTypeSpecifier extends Node
   public function getChildren(): dict<string, Node> {
     return dict[
       'specifier' => $this->_specifier,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -66,9 +66,7 @@ final class SimpleTypeSpecifier extends Node
   ): this {
     $parents[] = $this;
     $specifier = $rewriter($this->_specifier, $parents);
-    if (
-      $specifier === $this->_specifier
-    ) {
+    if ($specifier === $this->_specifier) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $specifier);

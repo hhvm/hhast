@@ -1,14 +1,15 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1f5a33b36afe1b968571649d26eb7a5>>
+ * @generated SignedSource<<7bbddee9558a4e2145cb3f04da69bb0c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class MethodishDeclarationGeneratedBase extends Node
+abstract class MethodishDeclarationGeneratedBase
+  extends Node
   implements
     IClassBodyDeclaration,
     IFunctionishDeclaration,
@@ -100,7 +101,8 @@ abstract class MethodishDeclarationGeneratedBase extends Node
       'function_decl_header' => $this->_function_decl_header,
       'function_body' => $this->_function_body,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -109,10 +111,16 @@ abstract class MethodishDeclarationGeneratedBase extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute === null ? null : $rewriter($this->_attribute, $parents);
+    $attribute = $this->_attribute === null
+      ? null
+      : $rewriter($this->_attribute, $parents);
     $function_decl_header = $rewriter($this->_function_decl_header, $parents);
-    $function_body = $this->_function_body === null ? null : $rewriter($this->_function_body, $parents);
-    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
+    $function_body = $this->_function_body === null
+      ? null
+      : $rewriter($this->_function_body, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
     if (
       $attribute === $this->_attribute &&
       $function_decl_header === $this->_function_decl_header &&
@@ -173,7 +181,12 @@ abstract class MethodishDeclarationGeneratedBase extends Node
     if ($value === $this->_function_decl_header) {
       return $this;
     }
-    return new static($this->_attribute, $value, $this->_function_body, $this->_semicolon);
+    return new static(
+      $this->_attribute,
+      $value,
+      $this->_function_body,
+      $this->_semicolon,
+    );
   }
 
   public function hasFunctionDeclHeader(): bool {
@@ -184,7 +197,10 @@ abstract class MethodishDeclarationGeneratedBase extends Node
    * @return FunctionDeclarationHeader
    */
   public function getFunctionDeclHeader(): FunctionDeclarationHeader {
-    return TypeAssert\instance_of(FunctionDeclarationHeader::class, $this->_function_decl_header);
+    return TypeAssert\instance_of(
+      FunctionDeclarationHeader::class,
+      $this->_function_decl_header,
+    );
   }
 
   /**

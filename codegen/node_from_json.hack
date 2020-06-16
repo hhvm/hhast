@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4523d343cab62bee333f4b3c6a43e98a>>
+ * @generated SignedSource<<b21f8dd9eee468c368c2e5109d2f3de5>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -229,6 +229,6 @@ function node_from_json_unwrapped(
   throw new HHAST\UnsupportedASTNodeError(
     $file,
     $offset,
-    (string) $json['kind'],
+    (string)$json['kind'],
   );
 }

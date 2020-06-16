@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f4878a35a398f7f226d3485346d1e6f7>>
+ * @generated SignedSource<<e3be7897ca2362d63fab567f890f3831>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,7 +120,8 @@ final class PocketAtomMappingDeclaration extends Node {
       'mappings' => $this->_mappings,
       'right_paren' => $this->_right_paren,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -131,10 +132,18 @@ final class PocketAtomMappingDeclaration extends Node {
     $parents[] = $this;
     $glyph = $this->_glyph === null ? null : $rewriter($this->_glyph, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $left_paren = $this->_left_paren === null ? null : $rewriter($this->_left_paren, $parents);
-    $mappings = $this->_mappings === null ? null : $rewriter($this->_mappings, $parents);
-    $right_paren = $this->_right_paren === null ? null : $rewriter($this->_right_paren, $parents);
-    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $mappings = $this->_mappings === null
+      ? null
+      : $rewriter($this->_mappings, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
     if (
       $glyph === $this->_glyph &&
       $name === $this->_name &&

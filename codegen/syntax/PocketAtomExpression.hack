@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bb8c4161ce0e7d408e51a7b2a0b8ee5d>>
+ * @generated SignedSource<<f7e83c65b5e15766166d74b0e112ab37>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PocketAtomExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class PocketAtomExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'pocket_atom_expression';
 
@@ -71,7 +70,8 @@ final class PocketAtomExpression extends Node
     return dict[
       'glyph' => $this->_glyph,
       'expression' => $this->_expression,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,11 +81,10 @@ final class PocketAtomExpression extends Node
   ): this {
     $parents[] = $this;
     $glyph = $this->_glyph === null ? null : $rewriter($this->_glyph, $parents);
-    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
-    if (
-      $glyph === $this->_glyph &&
-      $expression === $this->_expression
-    ) {
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
+    if ($glyph === $this->_glyph && $expression === $this->_expression) {
       return $this;
     }
     return new static(

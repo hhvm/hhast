@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89b0d3e186b3175e043fc081253bb848>>
+ * @generated SignedSource<<848cec49e8aeb3fdc5f4c4e81f834eb5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class GotoStatement extends Node
-  implements
-    IStatement {
+final class GotoStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'goto_statement';
 
@@ -86,7 +84,8 @@ final class GotoStatement extends Node
       'keyword' => $this->_keyword,
       'label_name' => $this->_label_name,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

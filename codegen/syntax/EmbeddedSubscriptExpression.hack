@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a590f8024607870b1786818f2264da1>>
+ * @generated SignedSource<<8f6d5f987186bc1456642a0a93525a76>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EmbeddedSubscriptExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class EmbeddedSubscriptExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'embedded_subscript_expression';
 
@@ -97,7 +96,8 @@ final class EmbeddedSubscriptExpression extends Node
       'left_bracket' => $this->_left_bracket,
       'index' => $this->_index,
       'right_bracket' => $this->_right_bracket,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -106,10 +106,16 @@ final class EmbeddedSubscriptExpression extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $receiver = $this->_receiver === null ? null : $rewriter($this->_receiver, $parents);
-    $left_bracket = $this->_left_bracket === null ? null : $rewriter($this->_left_bracket, $parents);
+    $receiver = $this->_receiver === null
+      ? null
+      : $rewriter($this->_receiver, $parents);
+    $left_bracket = $this->_left_bracket === null
+      ? null
+      : $rewriter($this->_left_bracket, $parents);
     $index = $this->_index === null ? null : $rewriter($this->_index, $parents);
-    $right_bracket = $this->_right_bracket === null ? null : $rewriter($this->_right_bracket, $parents);
+    $right_bracket = $this->_right_bracket === null
+      ? null
+      : $rewriter($this->_right_bracket, $parents);
     if (
       $receiver === $this->_receiver &&
       $left_bracket === $this->_left_bracket &&
@@ -134,7 +140,12 @@ final class EmbeddedSubscriptExpression extends Node
     if ($value === $this->_receiver) {
       return $this;
     }
-    return new static($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
+    return new static(
+      $value,
+      $this->_left_bracket,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function hasReceiver(): bool {
@@ -163,7 +174,12 @@ final class EmbeddedSubscriptExpression extends Node
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new static($this->_receiver, $value, $this->_index, $this->_right_bracket);
+    return new static(
+      $this->_receiver,
+      $value,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function hasLeftBracket(): bool {
@@ -226,7 +242,12 @@ final class EmbeddedSubscriptExpression extends Node
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new static($this->_receiver, $this->_left_bracket, $this->_index, $value);
+    return new static(
+      $this->_receiver,
+      $this->_left_bracket,
+      $this->_index,
+      $value,
+    );
   }
 
   public function hasRightBracket(): bool {

@@ -1,25 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3b2b31c570f2a01018b7ab99f8c0f83>>
+ * @generated SignedSource<<c3a58dee134ce5cec98af1bfce2c835b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class AttributizedSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class AttributizedSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'attributized_specifier';
 
   private OldAttributeSpecification $_attribute_spec;
-  private ISimpleCreationSpecifier $_type;
+  private ITypeSpecifier $_type;
 
   public function __construct(
     OldAttributeSpecification $attribute_spec,
-    ISimpleCreationSpecifier $type,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -50,7 +48,7 @@ final class AttributizedSpecifier extends Node
       $file,
       $offset,
       $source,
-      'ISimpleCreationSpecifier',
+      'ITypeSpecifier',
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
@@ -72,7 +70,8 @@ final class AttributizedSpecifier extends Node
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -83,10 +82,7 @@ final class AttributizedSpecifier extends Node
     $parents[] = $this;
     $attribute_spec = $rewriter($this->_attribute_spec, $parents);
     $type = $rewriter($this->_type, $parents);
-    if (
-      $attribute_spec === $this->_attribute_spec &&
-      $type === $this->_type
-    ) {
+    if ($attribute_spec === $this->_attribute_spec && $type === $this->_type) {
       return $this;
     }
     return new static(
@@ -114,7 +110,10 @@ final class AttributizedSpecifier extends Node
    * @return OldAttributeSpecification
    */
   public function getAttributeSpec(): OldAttributeSpecification {
-    return TypeAssert\instance_of(OldAttributeSpecification::class, $this->_attribute_spec);
+    return TypeAssert\instance_of(
+      OldAttributeSpecification::class,
+      $this->_attribute_spec,
+    );
   }
 
   /**
@@ -128,7 +127,7 @@ final class AttributizedSpecifier extends Node
     return $this->_type;
   }
 
-  public function withType(ISimpleCreationSpecifier $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -140,16 +139,18 @@ final class AttributizedSpecifier extends Node
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
+   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
-  public function getType(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_type);
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
+   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
-  public function getTypex(): ISimpleCreationSpecifier {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 }

@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db5e6f8b3038bfda9ba7c1c97b3a8386>>
+ * @generated SignedSource<<109dda21548b507fcd862b6c9099b72e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EvalExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class EvalExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'eval_expression';
 
@@ -101,7 +98,8 @@ final class EvalExpression extends Node
       'left_paren' => $this->_left_paren,
       'argument' => $this->_argument,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -138,7 +136,12 @@ final class EvalExpression extends Node
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_left_paren, $this->_argument, $this->_right_paren);
+    return new static(
+      $value,
+      $this->_left_paren,
+      $this->_argument,
+      $this->_right_paren,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -167,7 +170,12 @@ final class EvalExpression extends Node
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_argument, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_argument,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -196,7 +204,12 @@ final class EvalExpression extends Node
     if ($value === $this->_argument) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasArgument(): bool {
@@ -227,7 +240,12 @@ final class EvalExpression extends Node
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $this->_argument, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_argument,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

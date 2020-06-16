@@ -1,25 +1,23 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79015409acc7b4adbd6deb2548e0bd00>>
+ * @generated SignedSource<<bbe4268eba035466c57a147efb37fde4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SoftTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'soft_type_specifier';
 
-  private AtToken $_at;
-  private ITypeSpecifier $_type;
+  private ?Node $_at;
+  private ?Node $_type;
 
   public function __construct(
-    AtToken $at,
-    ITypeSpecifier $type,
+    ?Node $at,
+    ?Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_at = $at;
@@ -37,23 +35,21 @@ final class SoftTypeSpecifier extends Node
   ): this {
     $offset = $initial_offset;
     $at = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['soft_at'],
+      /* HH_FIXME[4110] */ $json['soft_at'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'AtToken',
+      'Node',
     );
-    $at = $at as nonnull;
-    $offset += $at->getWidth();
+    $offset += $at?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['soft_type'],
+      /* HH_FIXME[4110] */ $json['soft_type'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'ITypeSpecifier',
+      'Node',
     );
-    $type = $type as nonnull;
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -72,7 +68,8 @@ final class SoftTypeSpecifier extends Node
     return dict[
       'at' => $this->_at,
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,12 +78,9 @@ final class SoftTypeSpecifier extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $at = $rewriter($this->_at, $parents);
-    $type = $rewriter($this->_type, $parents);
-    if (
-      $at === $this->_at &&
-      $type === $this->_type
-    ) {
+    $at = $this->_at === null ? null : $rewriter($this->_at, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
+    if ($at === $this->_at && $type === $this->_type) {
       return $this;
     }
     return new static(
@@ -99,7 +93,7 @@ final class SoftTypeSpecifier extends Node
     return $this->_at;
   }
 
-  public function withAt(AtToken $value): this {
+  public function withAt(?Node $value): this {
     if ($value === $this->_at) {
       return $this;
     }
@@ -111,24 +105,24 @@ final class SoftTypeSpecifier extends Node
   }
 
   /**
-   * @return AtToken
+   * @return unknown
    */
-  public function getAt(): AtToken {
-    return TypeAssert\instance_of(AtToken::class, $this->_at);
+  public function getAt(): ?Node {
+    return $this->_at;
   }
 
   /**
-   * @return AtToken
+   * @return unknown
    */
-  public function getAtx(): AtToken {
-    return $this->getAt();
+  public function getAtx(): Node {
+    return TypeAssert\not_null($this->getAt());
   }
 
   public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
-  public function withType(ITypeSpecifier $value): this {
+  public function withType(?Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -140,18 +134,16 @@ final class SoftTypeSpecifier extends Node
   }
 
   /**
-   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
-   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
+   * @return unknown
    */
-  public function getType(): ITypeSpecifier {
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+  public function getType(): ?Node {
+    return $this->_type;
   }
 
   /**
-   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
-   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
+   * @return unknown
    */
-  public function getTypex(): ITypeSpecifier {
-    return $this->getType();
+  public function getTypex(): Node {
+    return TypeAssert\not_null($this->getType());
   }
 }

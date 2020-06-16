@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d80d984b1c6182099d1ee6e1bf994d7c>>
+ * @generated SignedSource<<16265c681c6a82f02c5683ff7c829395>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ListExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class ListExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'list_expression';
 
@@ -100,7 +97,8 @@ final class ListExpression extends Node
       'left_paren' => $this->_left_paren,
       'members' => $this->_members,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -111,7 +109,9 @@ final class ListExpression extends Node
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $members = $this->_members === null ? null : $rewriter($this->_members, $parents);
+    $members = $this->_members === null
+      ? null
+      : $rewriter($this->_members, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -137,7 +137,12 @@ final class ListExpression extends Node
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_left_paren, $this->_members, $this->_right_paren);
+    return new static(
+      $value,
+      $this->_left_paren,
+      $this->_members,
+      $this->_right_paren,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -166,7 +171,12 @@ final class ListExpression extends Node
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_members, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_members,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -195,7 +205,12 @@ final class ListExpression extends Node
     if ($value === $this->_members) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasMembers(): bool {
@@ -234,7 +249,12 @@ final class ListExpression extends Node
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $this->_members, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_members,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

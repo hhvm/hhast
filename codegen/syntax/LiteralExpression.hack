@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<11e5136ca2c0b5f7fc3123f2be4f1212>>
+ * @generated SignedSource<<1a9d146f36b980d6c4b1dca54ccb579b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class LiteralExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class LiteralExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'literal_expression';
 
@@ -55,7 +52,8 @@ final class LiteralExpression extends Node
   public function getChildren(): dict<string, Node> {
     return dict[
       'expression' => $this->_expression,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -64,10 +62,10 @@ final class LiteralExpression extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
-    if (
-      $expression === $this->_expression
-    ) {
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
+    if ($expression === $this->_expression) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $expression);

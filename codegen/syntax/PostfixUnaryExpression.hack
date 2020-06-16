@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a5f2f9590764025d3c0311da713d4b3>>
+ * @generated SignedSource<<a4073bb8c2f541f1e6bcc8d2f04853d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PostfixUnaryExpression extends Node
-  implements
-    IHasOperator,
-    ILambdaBody,
-    IExpression {
+final class PostfixUnaryExpression
+  extends Node
+  implements IHasOperator, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'postfix_unary_expression';
 
@@ -74,7 +72,8 @@ final class PostfixUnaryExpression extends Node
     return dict[
       'operand' => $this->_operand,
       'operator' => $this->_operator,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,10 +84,7 @@ final class PostfixUnaryExpression extends Node
     $parents[] = $this;
     $operand = $rewriter($this->_operand, $parents);
     $operator = $rewriter($this->_operator, $parents);
-    if (
-      $operand === $this->_operand &&
-      $operator === $this->_operator
-    ) {
+    if ($operand === $this->_operand && $operator === $this->_operator) {
       return $this;
     }
     return new static(

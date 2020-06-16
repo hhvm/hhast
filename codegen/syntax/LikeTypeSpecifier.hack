@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6fa215ed23ce3fea6232f61a394a057>>
+ * @generated SignedSource<<16db13c51805cd02efe9300803ececc8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class LikeTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'like_type_specifier';
 
@@ -72,7 +70,8 @@ final class LikeTypeSpecifier extends Node
     return dict[
       'tilde' => $this->_tilde,
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -83,10 +82,7 @@ final class LikeTypeSpecifier extends Node
     $parents[] = $this;
     $tilde = $rewriter($this->_tilde, $parents);
     $type = $rewriter($this->_type, $parents);
-    if (
-      $tilde === $this->_tilde &&
-      $type === $this->_type
-    ) {
+    if ($tilde === $this->_tilde && $type === $this->_type) {
       return $this;
     }
     return new static(

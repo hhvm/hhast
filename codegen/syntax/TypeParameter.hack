@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<61080ae888d07b51ff0e7cfab10b74fe>>
+ * @generated SignedSource<<ec77229619eb10adfde1eb44deb145ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,7 +108,8 @@ final class TypeParameter extends Node {
       'variance' => $this->_variance,
       'name' => $this->_name,
       'constraints' => $this->_constraints,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -117,11 +118,19 @@ final class TypeParameter extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
-    $reified = $this->_reified === null ? null : $rewriter($this->_reified, $parents);
-    $variance = $this->_variance === null ? null : $rewriter($this->_variance, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
+    $reified = $this->_reified === null
+      ? null
+      : $rewriter($this->_reified, $parents);
+    $variance = $this->_variance === null
+      ? null
+      : $rewriter($this->_variance, $parents);
     $name = $rewriter($this->_name, $parents);
-    $constraints = $this->_constraints === null ? null : $rewriter($this->_constraints, $parents);
+    $constraints = $this->_constraints === null
+      ? null
+      : $rewriter($this->_constraints, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $reified === $this->_reified &&

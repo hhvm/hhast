@@ -1,30 +1,28 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df702385da856d51beabc22a40a3e97e>>
+ * @generated SignedSource<<b1481076f09b7bbef3cdbf1e5f1a5656>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VarrayTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'varray_type_specifier';
 
   private VarrayToken $_keyword;
   private LessThanToken $_left_angle;
   private ITypeSpecifier $_type;
-  private ?Node $_trailing_comma;
+  private ?CommaToken $_trailing_comma;
   private GreaterThanToken $_right_angle;
 
   public function __construct(
     VarrayToken $keyword,
     LessThanToken $left_angle,
     ITypeSpecifier $type,
-    ?Node $trailing_comma,
+    ?CommaToken $trailing_comma,
     GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -77,7 +75,7 @@ final class VarrayTypeSpecifier extends Node
       $file,
       $offset,
       $source,
-      'Node',
+      'CommaToken',
     );
     $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
@@ -113,7 +111,8 @@ final class VarrayTypeSpecifier extends Node
       'type' => $this->_type,
       'trailing_comma' => $this->_trailing_comma,
       'right_angle' => $this->_right_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -125,7 +124,9 @@ final class VarrayTypeSpecifier extends Node
     $keyword = $rewriter($this->_keyword, $parents);
     $left_angle = $rewriter($this->_left_angle, $parents);
     $type = $rewriter($this->_type, $parents);
-    $trailing_comma = $this->_trailing_comma === null ? null : $rewriter($this->_trailing_comma, $parents);
+    $trailing_comma = $this->_trailing_comma === null
+      ? null
+      : $rewriter($this->_trailing_comma, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -258,7 +259,7 @@ final class VarrayTypeSpecifier extends Node
     return $this->_trailing_comma;
   }
 
-  public function withTrailingComma(?Node $value): this {
+  public function withTrailingComma(?CommaToken $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -276,16 +277,16 @@ final class VarrayTypeSpecifier extends Node
   }
 
   /**
-   * @return null
+   * @return null | CommaToken
    */
-  public function getTrailingComma(): ?Node {
+  public function getTrailingComma(): ?CommaToken {
     return $this->_trailing_comma;
   }
 
   /**
-   * @return
+   * @return CommaToken
    */
-  public function getTrailingCommax(): Node {
+  public function getTrailingCommax(): CommaToken {
     return TypeAssert\not_null($this->getTrailingComma());
   }
 

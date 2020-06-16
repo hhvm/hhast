@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06f0701c5409bc43c5e6d4ff3461cb90>>
+ * @generated SignedSource<<6083aac8221ef8ab36808059861b198d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -176,7 +176,8 @@ final class FunctionDeclarationHeader extends Node {
       'colon' => $this->_colon,
       'type' => $this->_type,
       'where_clause' => $this->_where_clause,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -185,16 +186,24 @@ final class FunctionDeclarationHeader extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $type_parameter_list = $this->_type_parameter_list === null ? null : $rewriter($this->_type_parameter_list, $parents);
+    $type_parameter_list = $this->_type_parameter_list === null
+      ? null
+      : $rewriter($this->_type_parameter_list, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $parameter_list = $this->_parameter_list === null ? null : $rewriter($this->_parameter_list, $parents);
+    $parameter_list = $this->_parameter_list === null
+      ? null
+      : $rewriter($this->_parameter_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
-    $where_clause = $this->_where_clause === null ? null : $rewriter($this->_where_clause, $parents);
+    $where_clause = $this->_where_clause === null
+      ? null
+      : $rewriter($this->_where_clause, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
@@ -582,9 +591,9 @@ final class FunctionDeclarationHeader extends Node {
    * ClosureTypeSpecifier | DarrayTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
    * MapArrayTypeSpecifier | null | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | SimpleTypeSpecifier | SoftTypeSpecifier | NoreturnToken |
-   * TupleTypeSpecifier | TypeConstant | UnionTypeSpecifier |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * | SimpleTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant
+   * | UnionTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -595,9 +604,9 @@ final class FunctionDeclarationHeader extends Node {
    * ClosureTypeSpecifier | DarrayTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
    * MapArrayTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | SoftTypeSpecifier | NoreturnToken |
-   * TupleTypeSpecifier | TypeConstant | UnionTypeSpecifier |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * SimpleTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
+   * UnionTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

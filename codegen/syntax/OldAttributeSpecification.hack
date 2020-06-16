@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0a615c91e9c9e5cbb345af010990e81e>>
+ * @generated SignedSource<<4e24dd9ff58de0c7ea046c35438dd4dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,7 +84,8 @@ final class OldAttributeSpecification extends Node {
       'left_double_angle' => $this->_left_double_angle,
       'attributes' => $this->_attributes,
       'right_double_angle' => $this->_right_double_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -129,7 +130,10 @@ final class OldAttributeSpecification extends Node {
    * @return LessThanLessThanToken
    */
   public function getLeftDoubleAngle(): LessThanLessThanToken {
-    return TypeAssert\instance_of(LessThanLessThanToken::class, $this->_left_double_angle);
+    return TypeAssert\instance_of(
+      LessThanLessThanToken::class,
+      $this->_left_double_angle,
+    );
   }
 
   /**
@@ -149,7 +153,11 @@ final class OldAttributeSpecification extends Node {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new static($this->_left_double_angle, $value, $this->_right_double_angle);
+    return new static(
+      $this->_left_double_angle,
+      $value,
+      $this->_right_double_angle,
+    );
   }
 
   public function hasAttributes(): bool {
@@ -191,7 +199,10 @@ final class OldAttributeSpecification extends Node {
    * @return GreaterThanGreaterThanToken
    */
   public function getRightDoubleAngle(): GreaterThanGreaterThanToken {
-    return TypeAssert\instance_of(GreaterThanGreaterThanToken::class, $this->_right_double_angle);
+    return TypeAssert\instance_of(
+      GreaterThanGreaterThanToken::class,
+      $this->_right_double_angle,
+    );
   }
 
   /**

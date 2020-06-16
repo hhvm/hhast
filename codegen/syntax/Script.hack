@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6cec738127c5297315c7215cfd7515a>>
+ * @generated SignedSource<<2d59bd3c0bc907955ddea4538b5ba6a5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,7 +53,8 @@ abstract class ScriptGeneratedBase extends Node {
   public function getChildren(): dict<string, Node> {
     return dict[
       'declarations' => $this->_declarations,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -63,9 +64,7 @@ abstract class ScriptGeneratedBase extends Node {
   ): this {
     $parents[] = $this;
     $declarations = $rewriter($this->_declarations, $parents);
-    if (
-      $declarations === $this->_declarations
-    ) {
+    if ($declarations === $this->_declarations) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $declarations);

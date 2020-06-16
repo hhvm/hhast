@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d634ad7417cf840c054d70697bac393>>
+ * @generated SignedSource<<29362d550571fffc19ae025baad52e8f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,7 +70,8 @@ final class FinallyClause extends Node {
     return dict[
       'keyword' => $this->_keyword,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +82,7 @@ final class FinallyClause extends Node {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $body = $rewriter($this->_body, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $body === $this->_body
-    ) {
+    if ($keyword === $this->_keyword && $body === $this->_body) {
       return $this;
     }
     return new static(

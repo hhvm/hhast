@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e181410c2a880234982133c4b9f6e1ed>>
+ * @generated SignedSource<<8c1d5d97c6b53b82cab87deea018bbc0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ForeachStatement extends Node
-  implements
-    IControlFlowStatement,
-    ILoopStatement,
-    IStatement {
+final class ForeachStatement
+  extends Node
+  implements IControlFlowStatement, ILoopStatement, IStatement {
 
   const string SYNTAX_KIND = 'foreach_statement';
 
@@ -183,7 +181,8 @@ final class ForeachStatement extends Node
       'value' => $this->_value,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -195,7 +194,9 @@ final class ForeachStatement extends Node
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
     $collection = $rewriter($this->_collection, $parents);
-    $await_keyword = $this->_await_keyword === null ? null : $rewriter($this->_await_keyword, $parents);
+    $await_keyword = $this->_await_keyword === null
+      ? null
+      : $rewriter($this->_await_keyword, $parents);
     $as = $rewriter($this->_as, $parents);
     $key = $this->_key === null ? null : $rewriter($this->_key, $parents);
     $arrow = $this->_arrow === null ? null : $rewriter($this->_arrow, $parents);

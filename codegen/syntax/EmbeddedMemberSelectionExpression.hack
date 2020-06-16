@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<972f3d0d51862575391437d3dc5bf521>>
+ * @generated SignedSource<<bd1d49c80dfceb2b22fe3484afb37644>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EmbeddedMemberSelectionExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class EmbeddedMemberSelectionExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'embedded_member_selection_expression';
 
@@ -84,7 +83,8 @@ final class EmbeddedMemberSelectionExpression extends Node
       'object' => $this->_object,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -93,8 +93,12 @@ final class EmbeddedMemberSelectionExpression extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $object = $this->_object === null ? null : $rewriter($this->_object, $parents);
-    $operator = $this->_operator === null ? null : $rewriter($this->_operator, $parents);
+    $object = $this->_object === null
+      ? null
+      : $rewriter($this->_object, $parents);
+    $operator = $this->_operator === null
+      ? null
+      : $rewriter($this->_operator, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     if (
       $object === $this->_object &&

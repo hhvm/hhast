@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35ebd7f868bc2dc51d4a5e73a0102747>>
+ * @generated SignedSource<<560abb853931bc26b1ca13fc444446dc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -95,7 +95,8 @@ final class NamespaceUseClause extends Node {
       'name' => $this->_name,
       'as' => $this->_as,
       'alias' => $this->_alias,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -104,7 +105,9 @@ final class NamespaceUseClause extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $clause_kind = $this->_clause_kind === null ? null : $rewriter($this->_clause_kind, $parents);
+    $clause_kind = $this->_clause_kind === null
+      ? null
+      : $rewriter($this->_clause_kind, $parents);
     $name = $rewriter($this->_name, $parents);
     $as = $this->_as === null ? null : $rewriter($this->_as, $parents);
     $alias = $this->_alias === null ? null : $rewriter($this->_alias, $parents);

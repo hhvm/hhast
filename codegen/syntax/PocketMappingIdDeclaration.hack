@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<072381c2dfba70f3380146b7a7990df9>>
+ * @generated SignedSource<<f2c4f7b6b53ef8f0a861470c80921b08>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -68,7 +68,8 @@ final class PocketMappingIdDeclaration extends Node {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -78,11 +79,10 @@ final class PocketMappingIdDeclaration extends Node {
   ): this {
     $parents[] = $this;
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $initializer = $this->_initializer === null ? null : $rewriter($this->_initializer, $parents);
-    if (
-      $name === $this->_name &&
-      $initializer === $this->_initializer
-    ) {
+    $initializer = $this->_initializer === null
+      ? null
+      : $rewriter($this->_initializer, $parents);
+    if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
     return new static(

@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e46c25c3b93e779514cdd2c6305226cf>>
+ * @generated SignedSource<<4bacc25801a27242ff003f3c43bc7030>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NullableTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'nullable_type_specifier';
 
@@ -72,7 +70,8 @@ final class NullableTypeSpecifier extends Node
     return dict[
       'question' => $this->_question,
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -83,10 +82,7 @@ final class NullableTypeSpecifier extends Node
     $parents[] = $this;
     $question = $rewriter($this->_question, $parents);
     $type = $rewriter($this->_type, $parents);
-    if (
-      $question === $this->_question &&
-      $type === $this->_type
-    ) {
+    if ($question === $this->_question && $type === $this->_type) {
       return $this;
     }
     return new static(
@@ -142,9 +138,8 @@ final class NullableTypeSpecifier extends Node
   /**
    * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | LikeTypeSpecifier | MapArrayTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
@@ -153,9 +148,8 @@ final class NullableTypeSpecifier extends Node
   /**
    * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | LikeTypeSpecifier | MapArrayTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

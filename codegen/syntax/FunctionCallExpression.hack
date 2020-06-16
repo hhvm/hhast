@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf1beac596e499947dfb9a832f59ff35>>
+ * @generated SignedSource<<32364f16fe1fc1f7abb7844ec2616c2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class FunctionCallExpression extends Node
-  implements
-    IFunctionCallishExpression,
-    ILambdaBody,
-    IExpression {
+final class FunctionCallExpression
+  extends Node
+  implements IFunctionCallishExpression, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'function_call_expression';
 
@@ -114,7 +112,8 @@ final class FunctionCallExpression extends Node
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -124,9 +123,13 @@ final class FunctionCallExpression extends Node
   ): this {
     $parents[] = $this;
     $receiver = $rewriter($this->_receiver, $parents);
-    $type_args = $this->_type_args === null ? null : $rewriter($this->_type_args, $parents);
+    $type_args = $this->_type_args === null
+      ? null
+      : $rewriter($this->_type_args, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $argument_list = $this->_argument_list === null ? null : $rewriter($this->_argument_list, $parents);
+    $argument_list = $this->_argument_list === null
+      ? null
+      : $rewriter($this->_argument_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $receiver === $this->_receiver &&
@@ -293,7 +296,7 @@ final class FunctionCallExpression extends Node
    * | NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
-   * NodeList<ListItem<IHackArray>> | NodeList<ListItem<EvalExpression>> |
+   * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<IFunctionCallishExpression>> |
    * NodeList<ListItem<IsExpression>> | NodeList<ListItem<IssetExpression>> |
@@ -334,7 +337,7 @@ final class FunctionCallExpression extends Node
    * | NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
-   * NodeList<ListItem<IHackArray>> | NodeList<ListItem<EvalExpression>> |
+   * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<IFunctionCallishExpression>> |
    * NodeList<ListItem<IsExpression>> | NodeList<ListItem<IssetExpression>> |

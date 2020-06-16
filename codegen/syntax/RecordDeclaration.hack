@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4c830ae26bcaa4102826c068c299f089>>
+ * @generated SignedSource<<b699ccfe0e4251a30f5ba7ed8d362b21>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,7 +168,8 @@ final class RecordDeclaration extends Node {
       'left_brace' => $this->_left_brace,
       'fields' => $this->_fields,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

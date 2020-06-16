@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24e4748dcf349f3151e3b070ec5d7987>>
+ * @generated SignedSource<<5b17cf12fe82fbdcb29e763cb0dd228f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,7 +53,8 @@ final class XHPSimpleClassAttribute extends Node {
   public function getChildren(): dict<string, Node> {
     return dict[
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -63,9 +64,7 @@ final class XHPSimpleClassAttribute extends Node {
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
-    if (
-      $type === $this->_type
-    ) {
+    if ($type === $this->_type) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $type);

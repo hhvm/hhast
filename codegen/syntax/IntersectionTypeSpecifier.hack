@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ec811ff3f3257f55585d5d08c7bc7cc>>
+ * @generated SignedSource<<1122141bd9416c9931c8de21497cf2b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class IntersectionTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'intersection_type_specifier';
 
@@ -86,7 +84,8 @@ final class IntersectionTypeSpecifier extends Node
       'left_paren' => $this->_left_paren,
       'types' => $this->_types,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

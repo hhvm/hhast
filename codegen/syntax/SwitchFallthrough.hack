@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c7fb77afa8065350f0a6e3301e5a3726>>
+ * @generated SignedSource<<d1ad8073a456828243f22cfb7575a893>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SwitchFallthrough extends Node
-  implements
-    IStatement {
+final class SwitchFallthrough extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'switch_fallthrough';
 
@@ -70,7 +68,8 @@ final class SwitchFallthrough extends Node
     return dict[
       'keyword' => $this->_keyword,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,12 +78,13 @@ final class SwitchFallthrough extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
-    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $semicolon === $this->_semicolon
-    ) {
+    $keyword = $this->_keyword === null
+      ? null
+      : $rewriter($this->_keyword, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
+    if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }
     return new static(

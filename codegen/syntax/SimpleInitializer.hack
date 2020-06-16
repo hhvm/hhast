@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e0681b17e332c3875458581122b4f0e>>
+ * @generated SignedSource<<9dadc5c75641394b3bc41c1aa87f5da7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,7 +70,8 @@ final class SimpleInitializer extends Node {
     return dict[
       'equal' => $this->_equal,
       'value' => $this->_value,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +82,7 @@ final class SimpleInitializer extends Node {
     $parents[] = $this;
     $equal = $rewriter($this->_equal, $parents);
     $value = $rewriter($this->_value, $parents);
-    if (
-      $equal === $this->_equal &&
-      $value === $this->_value
-    ) {
+    if ($equal === $this->_equal && $value === $this->_value) {
       return $this;
     }
     return new static(

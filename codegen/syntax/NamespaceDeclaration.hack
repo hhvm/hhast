@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78e7358fb2fb19af915c577163c68a67>>
+ * @generated SignedSource<<99fe0821bf7ad1c9ec153cdffef27f5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,7 +70,8 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     return dict[
       'header' => $this->_header,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +82,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     $parents[] = $this;
     $header = $rewriter($this->_header, $parents);
     $body = $rewriter($this->_body, $parents);
-    if (
-      $header === $this->_header &&
-      $body === $this->_body
-    ) {
+    if ($header === $this->_header && $body === $this->_body) {
       return $this;
     }
     return new static(
@@ -112,7 +110,10 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
    * @return NamespaceDeclarationHeader
    */
   public function getHeader(): NamespaceDeclarationHeader {
-    return TypeAssert\instance_of(NamespaceDeclarationHeader::class, $this->_header);
+    return TypeAssert\instance_of(
+      NamespaceDeclarationHeader::class,
+      $this->_header,
+    );
   }
 
   /**

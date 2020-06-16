@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<25b0d1e9fa946f438078d79c482118fa>>
+ * @generated SignedSource<<1640f2a5b3428d825e302463902a01ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class FunctionPointerExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class FunctionPointerExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'function_pointer_expression';
 
@@ -71,7 +70,8 @@ final class FunctionPointerExpression extends Node
     return dict[
       'receiver' => $this->_receiver,
       'type_args' => $this->_type_args,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -80,12 +80,13 @@ final class FunctionPointerExpression extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $receiver = $this->_receiver === null ? null : $rewriter($this->_receiver, $parents);
-    $type_args = $this->_type_args === null ? null : $rewriter($this->_type_args, $parents);
-    if (
-      $receiver === $this->_receiver &&
-      $type_args === $this->_type_args
-    ) {
+    $receiver = $this->_receiver === null
+      ? null
+      : $rewriter($this->_receiver, $parents);
+    $type_args = $this->_type_args === null
+      ? null
+      : $rewriter($this->_type_args, $parents);
+    if ($receiver === $this->_receiver && $type_args === $this->_type_args) {
       return $this;
     }
     return new static(

@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3f58e3d1a78d32a06e0f5a80bfb1d1c>>
+ * @generated SignedSource<<076fcde7ff616450d6a28b7131223cf5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ParenthesizedExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class ParenthesizedExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'parenthesized_expression';
 
@@ -87,7 +86,8 @@ final class ParenthesizedExpression extends Node
       'left_paren' => $this->_left_paren,
       'expression' => $this->_expression,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -158,10 +158,10 @@ final class ParenthesizedExpression extends Node
   }
 
   /**
-   * @return AnonymousFunction | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
+   * @return AnonymousFunction | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | FunctionCallExpression | InclusionExpression |
-   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * IsExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
@@ -173,10 +173,10 @@ final class ParenthesizedExpression extends Node
   }
 
   /**
-   * @return AnonymousFunction | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
+   * @return AnonymousFunction | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | FunctionCallExpression | InclusionExpression |
-   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * IsExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |

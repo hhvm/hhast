@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d50ab8f2232fba57075d0f32a7c1eee0>>
+ * @generated SignedSource<<2549c50226cb4f6d26c8cc323c3ca247>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class ClassishDeclarationGeneratedBase extends Node
-  implements
-    IDeclaration,
-    IHasAttributeSpec {
+abstract class ClassishDeclarationGeneratedBase
+  extends Node
+  implements IDeclaration, IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'classish_declaration';
 
@@ -204,7 +203,8 @@ abstract class ClassishDeclarationGeneratedBase extends Node
       'implements_list' => $this->_implements_list,
       'where_clause' => $this->_where_clause,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -213,17 +213,33 @@ abstract class ClassishDeclarationGeneratedBase extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute === null ? null : $rewriter($this->_attribute, $parents);
-    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
+    $attribute = $this->_attribute === null
+      ? null
+      : $rewriter($this->_attribute, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $xhp = $this->_xhp === null ? null : $rewriter($this->_xhp, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $type_parameters = $this->_type_parameters === null ? null : $rewriter($this->_type_parameters, $parents);
-    $extends_keyword = $this->_extends_keyword === null ? null : $rewriter($this->_extends_keyword, $parents);
-    $extends_list = $this->_extends_list === null ? null : $rewriter($this->_extends_list, $parents);
-    $implements_keyword = $this->_implements_keyword === null ? null : $rewriter($this->_implements_keyword, $parents);
-    $implements_list = $this->_implements_list === null ? null : $rewriter($this->_implements_list, $parents);
-    $where_clause = $this->_where_clause === null ? null : $rewriter($this->_where_clause, $parents);
+    $type_parameters = $this->_type_parameters === null
+      ? null
+      : $rewriter($this->_type_parameters, $parents);
+    $extends_keyword = $this->_extends_keyword === null
+      ? null
+      : $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $this->_extends_list === null
+      ? null
+      : $rewriter($this->_extends_list, $parents);
+    $implements_keyword = $this->_implements_keyword === null
+      ? null
+      : $rewriter($this->_implements_keyword, $parents);
+    $implements_list = $this->_implements_list === null
+      ? null
+      : $rewriter($this->_implements_list, $parents);
+    $where_clause = $this->_where_clause === null
+      ? null
+      : $rewriter($this->_where_clause, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
       $attribute === $this->_attribute &&

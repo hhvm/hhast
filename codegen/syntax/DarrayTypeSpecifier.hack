@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d01143fd75c25426bc956bdf721ac992>>
+ * @generated SignedSource<<54f4a34189872189c67426b4c80223a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DarrayTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'darray_type_specifier';
 
@@ -141,7 +139,8 @@ final class DarrayTypeSpecifier extends Node
       'value' => $this->_value,
       'trailing_comma' => $this->_trailing_comma,
       'right_angle' => $this->_right_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -155,7 +154,9 @@ final class DarrayTypeSpecifier extends Node
     $key = $rewriter($this->_key, $parents);
     $comma = $rewriter($this->_comma, $parents);
     $value = $rewriter($this->_value, $parents);
-    $trailing_comma = $this->_trailing_comma === null ? null : $rewriter($this->_trailing_comma, $parents);
+    $trailing_comma = $this->_trailing_comma === null
+      ? null
+      : $rewriter($this->_trailing_comma, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&

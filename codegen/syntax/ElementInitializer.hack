@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3a525465ad07c831d239fa624bad267f>>
+ * @generated SignedSource<<239b8d47620a0845df37092476a18f4b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,7 +84,8 @@ final class ElementInitializer extends Node {
       'key' => $this->_key,
       'arrow' => $this->_arrow,
       'value' => $this->_value,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

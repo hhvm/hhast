@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ea118f953a0e752da424103dd7f14b4>>
+ * @generated SignedSource<<63095347295063ac2853022527be4ef9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SubscriptExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class SubscriptExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'subscript_expression';
 
@@ -100,7 +99,8 @@ final class SubscriptExpression extends Node
       'left_bracket' => $this->_left_bracket,
       'index' => $this->_index,
       'right_bracket' => $this->_right_bracket,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -137,7 +137,12 @@ final class SubscriptExpression extends Node
     if ($value === $this->_receiver) {
       return $this;
     }
-    return new static($value, $this->_left_bracket, $this->_index, $this->_right_bracket);
+    return new static(
+      $value,
+      $this->_left_bracket,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function hasReceiver(): bool {
@@ -174,7 +179,12 @@ final class SubscriptExpression extends Node
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new static($this->_receiver, $value, $this->_index, $this->_right_bracket);
+    return new static(
+      $this->_receiver,
+      $value,
+      $this->_index,
+      $this->_right_bracket,
+    );
   }
 
   public function hasLeftBracket(): bool {
@@ -185,7 +195,10 @@ final class SubscriptExpression extends Node
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
+    return TypeAssert\instance_of(
+      LeftBracketToken::class,
+      $this->_left_bracket,
+    );
   }
 
   /**
@@ -244,7 +257,12 @@ final class SubscriptExpression extends Node
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new static($this->_receiver, $this->_left_bracket, $this->_index, $value);
+    return new static(
+      $this->_receiver,
+      $this->_left_bracket,
+      $this->_index,
+      $value,
+    );
   }
 
   public function hasRightBracket(): bool {
@@ -255,7 +273,10 @@ final class SubscriptExpression extends Node
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 
   /**

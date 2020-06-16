@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<990cf3546e3c6b8919f58e242a075812>>
+ * @generated SignedSource<<9e491d253ebc710bc5a17115de48d6ac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ClosureParameterTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class ClosureParameterTypeSpecifier
+  extends Node
+  implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'closure_parameter_type_specifier';
 
@@ -71,7 +71,8 @@ final class ClosureParameterTypeSpecifier extends Node
     return dict[
       'call_convention' => $this->_call_convention,
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -80,11 +81,12 @@ final class ClosureParameterTypeSpecifier extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $call_convention = $this->_call_convention === null ? null : $rewriter($this->_call_convention, $parents);
+    $call_convention = $this->_call_convention === null
+      ? null
+      : $rewriter($this->_call_convention, $parents);
     $type = $rewriter($this->_type, $parents);
     if (
-      $call_convention === $this->_call_convention &&
-      $type === $this->_type
+      $call_convention === $this->_call_convention && $type === $this->_type
     ) {
       return $this;
     }
@@ -139,8 +141,8 @@ final class ClosureParameterTypeSpecifier extends Node
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * @return AttributizedSpecifier | ClosureTypeSpecifier |
+   * GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant
    */
   public function getType(): ITypeSpecifier {
@@ -148,8 +150,8 @@ final class ClosureParameterTypeSpecifier extends Node
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
+   * @return AttributizedSpecifier | ClosureTypeSpecifier |
+   * GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier | TypeConstant
    */
   public function getTypex(): ITypeSpecifier {

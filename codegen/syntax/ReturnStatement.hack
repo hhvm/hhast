@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa626e1ccc6c314600db590da798dbe0>>
+ * @generated SignedSource<<b194e6633085a7b2be552d59980d8aa5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ReturnStatement extends Node
-  implements
-    IStatement {
+final class ReturnStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'return_statement';
 
@@ -85,7 +83,8 @@ final class ReturnStatement extends Node
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,7 +94,9 @@ final class ReturnStatement extends Node
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&

@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a483ec48a24c612c4410262bdd3cc12>>
+ * @generated SignedSource<<cd562a08e4b1025b09528e4d07ab8c2b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VarrayIntrinsicExpression extends Node
-  implements
-    IContainer,
-    ILambdaBody,
-    IExpression {
+final class VarrayIntrinsicExpression
+  extends Node
+  implements IContainer, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'varray_intrinsic_expression';
 
@@ -114,7 +112,8 @@ final class VarrayIntrinsicExpression extends Node
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -124,9 +123,13 @@ final class VarrayIntrinsicExpression extends Node
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $explicit_type = $this->_explicit_type === null ? null : $rewriter($this->_explicit_type, $parents);
+    $explicit_type = $this->_explicit_type === null
+      ? null
+      : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $this->_members === null ? null : $rewriter($this->_members, $parents);
+    $members = $this->_members === null
+      ? null
+      : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -241,7 +244,10 @@ final class VarrayIntrinsicExpression extends Node
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
+    return TypeAssert\instance_of(
+      LeftBracketToken::class,
+      $this->_left_bracket,
+    );
   }
 
   /**
@@ -353,7 +359,10 @@ final class VarrayIntrinsicExpression extends Node
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 
   /**

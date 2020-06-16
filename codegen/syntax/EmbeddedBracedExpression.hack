@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79ddc0c85652bc4b468c94c398f37a2e>>
+ * @generated SignedSource<<a14b2c0b8ae23861b087052f20a703f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EmbeddedBracedExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class EmbeddedBracedExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'embedded_braced_expression';
 
@@ -84,7 +83,8 @@ final class EmbeddedBracedExpression extends Node
       'left_brace' => $this->_left_brace,
       'expression' => $this->_expression,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -93,9 +93,15 @@ final class EmbeddedBracedExpression extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_brace = $this->_left_brace === null ? null : $rewriter($this->_left_brace, $parents);
-    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
-    $right_brace = $this->_right_brace === null ? null : $rewriter($this->_right_brace, $parents);
+    $left_brace = $this->_left_brace === null
+      ? null
+      : $rewriter($this->_left_brace, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
+    $right_brace = $this->_right_brace === null
+      ? null
+      : $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&
       $expression === $this->_expression &&

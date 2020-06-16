@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<59dc1c86a418247bc1b059bba5e8141e>>
+ * @generated SignedSource<<40514c292bd82c796d76f11b87d0b581>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -81,7 +81,8 @@ final class PUAccess extends Node {
       'left_type' => $this->_left_type,
       'separator' => $this->_separator,
       'right_type' => $this->_right_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -90,9 +91,15 @@ final class PUAccess extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_type = $this->_left_type === null ? null : $rewriter($this->_left_type, $parents);
-    $separator = $this->_separator === null ? null : $rewriter($this->_separator, $parents);
-    $right_type = $this->_right_type === null ? null : $rewriter($this->_right_type, $parents);
+    $left_type = $this->_left_type === null
+      ? null
+      : $rewriter($this->_left_type, $parents);
+    $separator = $this->_separator === null
+      ? null
+      : $rewriter($this->_separator, $parents);
+    $right_type = $this->_right_type === null
+      ? null
+      : $rewriter($this->_right_type, $parents);
     if (
       $left_type === $this->_left_type &&
       $separator === $this->_separator &&

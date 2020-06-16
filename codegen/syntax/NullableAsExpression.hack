@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa98588ab88a99fa6a5ab32065160236>>
+ * @generated SignedSource<<bf598b138bee78ac85338e970f649dfd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NullableAsExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class NullableAsExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'nullable_as_expression';
 
@@ -87,7 +86,8 @@ final class NullableAsExpression extends Node
       'left_operand' => $this->_left_operand,
       'operator' => $this->_operator,
       'right_operand' => $this->_right_operand,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

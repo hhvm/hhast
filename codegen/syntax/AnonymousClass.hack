@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a342dacdcd26e097ffb0c0790ed13a34>>
+ * @generated SignedSource<<65d5fdbdd9d742562d96f74622dd9adb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -159,7 +159,8 @@ final class AnonymousClass extends Node {
       'implements_keyword' => $this->_implements_keyword,
       'implements_list' => $this->_implements_list,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -168,14 +169,30 @@ final class AnonymousClass extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $class_keyword = $this->_class_keyword === null ? null : $rewriter($this->_class_keyword, $parents);
-    $left_paren = $this->_left_paren === null ? null : $rewriter($this->_left_paren, $parents);
-    $argument_list = $this->_argument_list === null ? null : $rewriter($this->_argument_list, $parents);
-    $right_paren = $this->_right_paren === null ? null : $rewriter($this->_right_paren, $parents);
-    $extends_keyword = $this->_extends_keyword === null ? null : $rewriter($this->_extends_keyword, $parents);
-    $extends_list = $this->_extends_list === null ? null : $rewriter($this->_extends_list, $parents);
-    $implements_keyword = $this->_implements_keyword === null ? null : $rewriter($this->_implements_keyword, $parents);
-    $implements_list = $this->_implements_list === null ? null : $rewriter($this->_implements_list, $parents);
+    $class_keyword = $this->_class_keyword === null
+      ? null
+      : $rewriter($this->_class_keyword, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $argument_list = $this->_argument_list === null
+      ? null
+      : $rewriter($this->_argument_list, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
+    $extends_keyword = $this->_extends_keyword === null
+      ? null
+      : $rewriter($this->_extends_keyword, $parents);
+    $extends_list = $this->_extends_list === null
+      ? null
+      : $rewriter($this->_extends_list, $parents);
+    $implements_keyword = $this->_implements_keyword === null
+      ? null
+      : $rewriter($this->_implements_keyword, $parents);
+    $implements_list = $this->_implements_list === null
+      ? null
+      : $rewriter($this->_implements_list, $parents);
     $body = $this->_body === null ? null : $rewriter($this->_body, $parents);
     if (
       $class_keyword === $this->_class_keyword &&

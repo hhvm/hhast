@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<433161d0ad2bd1eea9323cca9c2860af>>
+ * @generated SignedSource<<6b9fdbbe0424248012e4a13b5e7d9162>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PocketIdentifierExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class PocketIdentifierExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'pocket_identifier_expression';
 
@@ -110,7 +109,8 @@ final class PocketIdentifierExpression extends Node
       'field' => $this->_field,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -119,10 +119,16 @@ final class PocketIdentifierExpression extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $qualifier = $this->_qualifier === null ? null : $rewriter($this->_qualifier, $parents);
-    $pu_operator = $this->_pu_operator === null ? null : $rewriter($this->_pu_operator, $parents);
+    $qualifier = $this->_qualifier === null
+      ? null
+      : $rewriter($this->_qualifier, $parents);
+    $pu_operator = $this->_pu_operator === null
+      ? null
+      : $rewriter($this->_pu_operator, $parents);
     $field = $this->_field === null ? null : $rewriter($this->_field, $parents);
-    $operator = $this->_operator === null ? null : $rewriter($this->_operator, $parents);
+    $operator = $this->_operator === null
+      ? null
+      : $rewriter($this->_operator, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     if (
       $qualifier === $this->_qualifier &&

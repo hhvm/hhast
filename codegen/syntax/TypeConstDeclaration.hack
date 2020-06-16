@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fad377e2631a053321865821e82e35a6>>
+ * @generated SignedSource<<53ded28c9b01a08239e3e28a17360be3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TypeConstDeclaration extends Node
-  implements
-    IClassBodyDeclaration {
+final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'type_const_declaration';
 
@@ -178,7 +176,8 @@ final class TypeConstDeclaration extends Node
       'equal' => $this->_equal,
       'type_specifier' => $this->_type_specifier,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -187,15 +186,25 @@ final class TypeConstDeclaration extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
-    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $type_keyword = $rewriter($this->_type_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
-    $type_parameters = $this->_type_parameters === null ? null : $rewriter($this->_type_parameters, $parents);
-    $type_constraint = $this->_type_constraint === null ? null : $rewriter($this->_type_constraint, $parents);
+    $type_parameters = $this->_type_parameters === null
+      ? null
+      : $rewriter($this->_type_parameters, $parents);
+    $type_constraint = $this->_type_constraint === null
+      ? null
+      : $rewriter($this->_type_constraint, $parents);
     $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
-    $type_specifier = $this->_type_specifier === null ? null : $rewriter($this->_type_specifier, $parents);
+    $type_specifier = $this->_type_specifier === null
+      ? null
+      : $rewriter($this->_type_specifier, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&

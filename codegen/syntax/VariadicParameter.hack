@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dfcdc114eb341d8e3197c1542c004c47>>
+ * @generated SignedSource<<31548ed0cbd5823c1aa1f727b8f939c6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VariadicParameter extends Node
-  implements
-    IHasTypeHint,
-    IParameter,
-    ITypeSpecifier {
+final class VariadicParameter
+  extends Node
+  implements IHasTypeHint, IParameter, ITypeSpecifier {
 
   const string SYNTAX_KIND = 'variadic_parameter';
 
@@ -86,7 +84,8 @@ final class VariadicParameter extends Node
       'call_convention' => $this->_call_convention,
       'type' => $this->_type,
       'ellipsis' => $this->_ellipsis,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,7 +94,9 @@ final class VariadicParameter extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $call_convention = $this->_call_convention === null ? null : $rewriter($this->_call_convention, $parents);
+    $call_convention = $this->_call_convention === null
+      ? null
+      : $rewriter($this->_call_convention, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $ellipsis = $rewriter($this->_ellipsis, $parents);
     if (

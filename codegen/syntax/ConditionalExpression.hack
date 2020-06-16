@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<62a153bc0ebb969e3ae5f8a8461181ad>>
+ * @generated SignedSource<<9b1d4994de55b414b723cc9f7306dade>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ConditionalExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class ConditionalExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'conditional_expression';
 
@@ -115,7 +114,8 @@ final class ConditionalExpression extends Node
       'consequence' => $this->_consequence,
       'colon' => $this->_colon,
       'alternative' => $this->_alternative,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -335,7 +335,7 @@ final class ConditionalExpression extends Node
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getAlternative(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_alternative);
@@ -348,7 +348,7 @@ final class ConditionalExpression extends Node
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getAlternativex(): IExpression {
     return $this->getAlternative();

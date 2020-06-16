@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4e7ec8efd84ca4d02dd3668510f33fd>>
+ * @generated SignedSource<<248b2a4d141e97d22aca4ea043618ab6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -94,7 +94,8 @@ final class PocketFieldTypeExprDeclaration extends Node {
       'type' => $this->_type,
       'name' => $this->_name,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -106,7 +107,9 @@ final class PocketFieldTypeExprDeclaration extends Node {
     $case = $this->_case === null ? null : $rewriter($this->_case, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
     if (
       $case === $this->_case &&
       $type === $this->_type &&

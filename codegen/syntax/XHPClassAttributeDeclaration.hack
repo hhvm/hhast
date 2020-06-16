@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d69107abaeb9d2d726b5d3b498009fc>>
+ * @generated SignedSource<<a0e85d5f288e393488e5a6d6cce18655>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPClassAttributeDeclaration extends Node
-  implements
-    IClassBodyDeclaration {
+final class XHPClassAttributeDeclaration
+  extends Node
+  implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'xhp_class_attribute_declaration';
 
@@ -86,7 +86,8 @@ final class XHPClassAttributeDeclaration extends Node
       'keyword' => $this->_keyword,
       'attributes' => $this->_attributes,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

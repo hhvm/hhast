@@ -1,19 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba16a2ec0a51d0beee6ee86238925041>>
+ * @generated SignedSource<<4d28edb189c4f5089d3893297275d023>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class KeysetIntrinsicExpression extends Node
-  implements
-    IHackArray,
-    IContainer,
-    ILambdaBody,
-    IExpression {
+final class KeysetIntrinsicExpression
+  extends Node
+  implements IHackArray, IContainer, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'keyset_intrinsic_expression';
 
@@ -115,7 +112,8 @@ final class KeysetIntrinsicExpression extends Node
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -125,9 +123,13 @@ final class KeysetIntrinsicExpression extends Node
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $explicit_type = $this->_explicit_type === null ? null : $rewriter($this->_explicit_type, $parents);
+    $explicit_type = $this->_explicit_type === null
+      ? null
+      : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $this->_members === null ? null : $rewriter($this->_members, $parents);
+    $members = $this->_members === null
+      ? null
+      : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -242,7 +244,10 @@ final class KeysetIntrinsicExpression extends Node
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
+    return TypeAssert\instance_of(
+      LeftBracketToken::class,
+      $this->_left_bracket,
+    );
   }
 
   /**
@@ -324,7 +329,10 @@ final class KeysetIntrinsicExpression extends Node
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
+    return TypeAssert\instance_of(
+      RightBracketToken::class,
+      $this->_right_bracket,
+    );
   }
 
   /**

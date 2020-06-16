@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49059b0f94ca6970cf6681c86a6da815>>
+ * @generated SignedSource<<184e0182a1ce32c7e1b46cd9ad2cc966>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PrefixUnaryExpression extends Node
-  implements
-    IHasOperator,
-    ILambdaBody,
-    IExpression {
+final class PrefixUnaryExpression
+  extends Node
+  implements IHasOperator, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'prefix_unary_expression';
 
@@ -74,7 +72,8 @@ final class PrefixUnaryExpression extends Node
     return dict[
       'operator' => $this->_operator,
       'operand' => $this->_operand,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,10 +84,7 @@ final class PrefixUnaryExpression extends Node
     $parents[] = $this;
     $operator = $rewriter($this->_operator, $parents);
     $operand = $rewriter($this->_operand, $parents);
-    if (
-      $operator === $this->_operator &&
-      $operand === $this->_operand
-    ) {
+    if ($operator === $this->_operator && $operand === $this->_operand) {
       return $this;
     }
     return new static(
@@ -148,9 +144,8 @@ final class PrefixUnaryExpression extends Node
   /**
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
    * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * EvalExpression | FunctionCallExpression | InclusionExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression
@@ -162,9 +157,8 @@ final class PrefixUnaryExpression extends Node
   /**
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
    * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * EvalExpression | FunctionCallExpression | InclusionExpression |
-   * IsExpression | IssetExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression

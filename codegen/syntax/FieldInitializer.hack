@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<933265e9cb676530f0ebf129f555e41b>>
+ * @generated SignedSource<<a47adf15c1c76ba0cdf3aa57aa6945dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,7 +84,8 @@ final class FieldInitializer extends Node {
       'name' => $this->_name,
       'arrow' => $this->_arrow,
       'value' => $this->_value,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -184,18 +185,20 @@ final class FieldInitializer extends Node {
   }
 
   /**
-   * @return BinaryExpression | DarrayIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
-   * SubscriptExpression | VariableExpression | VarrayIntrinsicExpression
+   * @return BinaryExpression | DarrayIntrinsicExpression |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
+   * | VariableExpression | VarrayIntrinsicExpression
    */
   public function getValue(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**
-   * @return BinaryExpression | DarrayIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
-   * SubscriptExpression | VariableExpression | VarrayIntrinsicExpression
+   * @return BinaryExpression | DarrayIntrinsicExpression |
+   * FunctionCallExpression | LambdaExpression | LiteralExpression |
+   * ObjectCreationExpression | ScopeResolutionExpression | SubscriptExpression
+   * | VariableExpression | VarrayIntrinsicExpression
    */
   public function getValuex(): IExpression {
     return $this->getValue();

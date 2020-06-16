@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4b642e5081ec3a209395a3ccc3bf0b0>>
+ * @generated SignedSource<<70e1af07db5479b8347c1b04cbd42f99>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ElseifClause extends Node
-  implements
-    IControlFlowStatement {
+final class ElseifClause extends Node implements IControlFlowStatement {
 
   const string SYNTAX_KIND = 'elseif_clause';
 
@@ -114,7 +112,8 @@ final class ElseifClause extends Node
       'condition' => $this->_condition,
       'right_paren' => $this->_right_paren,
       'statement' => $this->_statement,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

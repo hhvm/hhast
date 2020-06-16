@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<695549bcb697b645f0ac126de8fab00a>>
+ * @generated SignedSource<<65c2ee31cc9aa30e0988cfca291f41b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DefineExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class DefineExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'define_expression';
 
@@ -97,7 +94,8 @@ final class DefineExpression extends Node
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -106,10 +104,18 @@ final class DefineExpression extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
-    $left_paren = $this->_left_paren === null ? null : $rewriter($this->_left_paren, $parents);
-    $argument_list = $this->_argument_list === null ? null : $rewriter($this->_argument_list, $parents);
-    $right_paren = $this->_right_paren === null ? null : $rewriter($this->_right_paren, $parents);
+    $keyword = $this->_keyword === null
+      ? null
+      : $rewriter($this->_keyword, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $argument_list = $this->_argument_list === null
+      ? null
+      : $rewriter($this->_argument_list, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&
@@ -168,7 +174,12 @@ final class DefineExpression extends Node
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -197,7 +208,12 @@ final class DefineExpression extends Node
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasArgumentList(): bool {
@@ -226,7 +242,12 @@ final class DefineExpression extends Node
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_argument_list,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

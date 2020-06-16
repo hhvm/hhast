@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<74e63d9e55de35b1bcbd1fb02444dbcf>>
+ * @generated SignedSource<<32b21b8fc7d731f1d41dc20cc2669256>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -94,7 +94,8 @@ final class PocketMappingTypeDeclaration extends Node {
       'name' => $this->_name,
       'equal' => $this->_equal,
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -103,7 +104,9 @@ final class PocketMappingTypeDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
+    $keyword = $this->_keyword === null
+      ? null
+      : $rewriter($this->_keyword, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);

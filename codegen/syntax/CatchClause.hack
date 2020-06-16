@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4386cb79012eefe71390433a1a5abe47>>
+ * @generated SignedSource<<a932a1f84f2d68fc4702aa770b3277a8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -126,7 +126,8 @@ final class CatchClause extends Node {
       'variable' => $this->_variable,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

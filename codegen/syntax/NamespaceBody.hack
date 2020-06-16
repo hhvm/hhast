@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc3618bbc2c95bc4ab0d142628d6b0f8>>
+ * @generated SignedSource<<e818f1842ec9d6a4463adc50d1422a82>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NamespaceBody extends Node
-  implements
-    INamespaceBody {
+final class NamespaceBody extends Node implements INamespaceBody {
 
   const string SYNTAX_KIND = 'namespace_body';
 
@@ -85,7 +83,8 @@ final class NamespaceBody extends Node
       'left_brace' => $this->_left_brace,
       'declarations' => $this->_declarations,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -95,7 +94,9 @@ final class NamespaceBody extends Node
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $declarations = $this->_declarations === null ? null : $rewriter($this->_declarations, $parents);
+    $declarations = $this->_declarations === null
+      ? null
+      : $rewriter($this->_declarations, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&
@@ -158,10 +159,9 @@ final class NamespaceBody extends Node
   /**
    * @return NodeList<AliasDeclaration> | NodeList<Node> |
    * NodeList<IHasAttributeSpec> | NodeList<ClassishDeclaration> |
-   * NodeList<ConstDeclaration> | NodeList<EchoStatement> |
-   * NodeList<IStatement> | NodeList<EnumDeclaration> |
-   * NodeList<ExpressionStatement> | NodeList<FunctionDeclaration> |
-   * NodeList<InclusionDirective> | NodeList<NamespaceGroupUseDeclaration> |
+   * NodeList<ConstDeclaration> | NodeList<EnumDeclaration> |
+   * NodeList<FunctionDeclaration> | NodeList<InclusionDirective> |
+   * NodeList<NamespaceGroupUseDeclaration> |
    * NodeList<INamespaceUseDeclaration> | NodeList<NamespaceUseDeclaration> |
    * null
    */
@@ -172,10 +172,9 @@ final class NamespaceBody extends Node
   /**
    * @return NodeList<AliasDeclaration> | NodeList<Node> |
    * NodeList<IHasAttributeSpec> | NodeList<ClassishDeclaration> |
-   * NodeList<ConstDeclaration> | NodeList<EchoStatement> |
-   * NodeList<IStatement> | NodeList<EnumDeclaration> |
-   * NodeList<ExpressionStatement> | NodeList<FunctionDeclaration> |
-   * NodeList<InclusionDirective> | NodeList<NamespaceGroupUseDeclaration> |
+   * NodeList<ConstDeclaration> | NodeList<EnumDeclaration> |
+   * NodeList<FunctionDeclaration> | NodeList<InclusionDirective> |
+   * NodeList<NamespaceGroupUseDeclaration> |
    * NodeList<INamespaceUseDeclaration> | NodeList<NamespaceUseDeclaration>
    */
   public function getDeclarationsx(): NodeList<Node> {

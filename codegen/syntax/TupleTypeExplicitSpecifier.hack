@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1610805c5b89d8f060ffc22eb205c0fa>>
+ * @generated SignedSource<<05d019e560b037d890c4af8ae500fccc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TupleTypeExplicitSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'tuple_type_explicit_specifier';
 
@@ -96,7 +94,8 @@ final class TupleTypeExplicitSpecifier extends Node
       'left_angle' => $this->_left_angle,
       'types' => $this->_types,
       'right_angle' => $this->_right_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -105,10 +104,16 @@ final class TupleTypeExplicitSpecifier extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
-    $left_angle = $this->_left_angle === null ? null : $rewriter($this->_left_angle, $parents);
+    $keyword = $this->_keyword === null
+      ? null
+      : $rewriter($this->_keyword, $parents);
+    $left_angle = $this->_left_angle === null
+      ? null
+      : $rewriter($this->_left_angle, $parents);
     $types = $this->_types === null ? null : $rewriter($this->_types, $parents);
-    $right_angle = $this->_right_angle === null ? null : $rewriter($this->_right_angle, $parents);
+    $right_angle = $this->_right_angle === null
+      ? null
+      : $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
@@ -133,7 +138,12 @@ final class TupleTypeExplicitSpecifier extends Node
     if ($value === $this->_keyword) {
       return $this;
     }
-    return new static($value, $this->_left_angle, $this->_types, $this->_right_angle);
+    return new static(
+      $value,
+      $this->_left_angle,
+      $this->_types,
+      $this->_right_angle,
+    );
   }
 
   public function hasKeyword(): bool {
@@ -162,7 +172,12 @@ final class TupleTypeExplicitSpecifier extends Node
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_types, $this->_right_angle);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_types,
+      $this->_right_angle,
+    );
   }
 
   public function hasLeftAngle(): bool {
@@ -191,7 +206,12 @@ final class TupleTypeExplicitSpecifier extends Node
     if ($value === $this->_types) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_angle, $value, $this->_right_angle);
+    return new static(
+      $this->_keyword,
+      $this->_left_angle,
+      $value,
+      $this->_right_angle,
+    );
   }
 
   public function hasTypes(): bool {
@@ -220,7 +240,12 @@ final class TupleTypeExplicitSpecifier extends Node
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_angle, $this->_types, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_angle,
+      $this->_types,
+      $value,
+    );
   }
 
   public function hasRightAngle(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7899f7138a914e9f277ab6a0cc38c9a3>>
+ * @generated SignedSource<<5332b1a0ec124e2084c8c4f28f86d3e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,7 +82,8 @@ final class SwitchSection extends Node {
       'labels' => $this->_labels,
       'statements' => $this->_statements,
       'fallthrough' => $this->_fallthrough,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -92,8 +93,12 @@ final class SwitchSection extends Node {
   ): this {
     $parents[] = $this;
     $labels = $rewriter($this->_labels, $parents);
-    $statements = $this->_statements === null ? null : $rewriter($this->_statements, $parents);
-    $fallthrough = $this->_fallthrough === null ? null : $rewriter($this->_fallthrough, $parents);
+    $statements = $this->_statements === null
+      ? null
+      : $rewriter($this->_statements, $parents);
+    $fallthrough = $this->_fallthrough === null
+      ? null
+      : $rewriter($this->_fallthrough, $parents);
     if (
       $labels === $this->_labels &&
       $statements === $this->_statements &&

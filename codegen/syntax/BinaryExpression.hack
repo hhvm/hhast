@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d4fa54de93596d9a8aea509dc332d8a>>
+ * @generated SignedSource<<80cee7c6b207dbecc300530028eb2d1a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class BinaryExpression extends Node
-  implements
-    IHasOperator,
-    ILambdaBody,
-    IExpression {
+final class BinaryExpression
+  extends Node
+  implements IHasOperator, ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'binary_expression';
 
@@ -88,7 +86,8 @@ final class BinaryExpression extends Node
       'left_operand' => $this->_left_operand,
       'operator' => $this->_operator,
       'right_operand' => $this->_right_operand,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

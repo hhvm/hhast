@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a2aaeab8c87a1027da779fcbc4765f65>>
+ * @generated SignedSource<<94c7aeea8f2eb41d2dcde94a6e9b6485>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class CaseLabel extends Node
-  implements
-    ISwitchLabel {
+final class CaseLabel extends Node implements ISwitchLabel {
 
   const string SYNTAX_KIND = 'case_label';
 
@@ -86,7 +84,8 @@ final class CaseLabel extends Node
       'keyword' => $this->_keyword,
       'expression' => $this->_expression,
       'colon' => $this->_colon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

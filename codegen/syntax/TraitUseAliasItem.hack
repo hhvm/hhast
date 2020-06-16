@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8a1afa9d1a5ac674dab98b3cc5c6c20>>
+ * @generated SignedSource<<24b0793fddc1bcfd10f10bec32eb12d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TraitUseAliasItem extends Node
-  implements
-    ITraitUseItem {
+final class TraitUseAliasItem extends Node implements ITraitUseItem {
 
   const string SYNTAX_KIND = 'trait_use_alias_item';
 
@@ -98,7 +96,8 @@ final class TraitUseAliasItem extends Node
       'keyword' => $this->_keyword,
       'modifiers' => $this->_modifiers,
       'aliased_name' => $this->_aliased_name,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -109,8 +108,12 @@ final class TraitUseAliasItem extends Node
     $parents[] = $this;
     $aliasing_name = $rewriter($this->_aliasing_name, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
-    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
-    $aliased_name = $this->_aliased_name === null ? null : $rewriter($this->_aliased_name, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
+    $aliased_name = $this->_aliased_name === null
+      ? null
+      : $rewriter($this->_aliased_name, $parents);
     if (
       $aliasing_name === $this->_aliasing_name &&
       $keyword === $this->_keyword &&
@@ -135,7 +138,12 @@ final class TraitUseAliasItem extends Node
     if ($value === $this->_aliasing_name) {
       return $this;
     }
-    return new static($value, $this->_keyword, $this->_modifiers, $this->_aliased_name);
+    return new static(
+      $value,
+      $this->_keyword,
+      $this->_modifiers,
+      $this->_aliased_name,
+    );
   }
 
   public function hasAliasingName(): bool {
@@ -234,7 +242,12 @@ final class TraitUseAliasItem extends Node
     if ($value === $this->_aliased_name) {
       return $this;
     }
-    return new static($this->_aliasing_name, $this->_keyword, $this->_modifiers, $value);
+    return new static(
+      $this->_aliasing_name,
+      $this->_keyword,
+      $this->_modifiers,
+      $value,
+    );
   }
 
   public function hasAliasedName(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<356c78a420d8e4f0c482973dfaf3e70a>>
+ * @generated SignedSource<<dc9186b1e4188d01aa9114c0977fdfa9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,7 +83,8 @@ final class TypeArguments extends Node {
       'left_angle' => $this->_left_angle,
       'types' => $this->_types,
       'right_angle' => $this->_right_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -155,8 +156,8 @@ final class TypeArguments extends Node {
 
   /**
    * @return NodeList<ListItem<AttributizedSpecifier>> |
-   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ClosureTypeSpecifier>> |
    * NodeList<ListItem<DarrayTypeSpecifier>> |
    * NodeList<ListItem<DictionaryTypeSpecifier>> |
@@ -168,7 +169,6 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<NullableTypeSpecifier>> |
    * NodeList<ListItem<ShapeTypeSpecifier>> |
    * NodeList<ListItem<SimpleTypeSpecifier>> |
-   * NodeList<ListItem<SoftTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
    * | NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorArrayTypeSpecifier>> |
@@ -180,8 +180,8 @@ final class TypeArguments extends Node {
 
   /**
    * @return NodeList<ListItem<AttributizedSpecifier>> |
-   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ClosureTypeSpecifier>> |
    * NodeList<ListItem<DarrayTypeSpecifier>> |
    * NodeList<ListItem<DictionaryTypeSpecifier>> |
@@ -193,7 +193,6 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<NullableTypeSpecifier>> |
    * NodeList<ListItem<ShapeTypeSpecifier>> |
    * NodeList<ListItem<SimpleTypeSpecifier>> |
-   * NodeList<ListItem<SoftTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
    * | NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorArrayTypeSpecifier>> |

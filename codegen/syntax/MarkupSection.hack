@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01bc7aa5f49fd68330e6719ba1c41238>>
+ * @generated SignedSource<<aca3236bc0c11deaa7ff3522e8b7c4fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,7 +70,8 @@ final class MarkupSection extends Node {
     return dict[
       'text' => $this->_text,
       'suffix' => $this->_suffix,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +82,7 @@ final class MarkupSection extends Node {
     $parents[] = $this;
     $text = $rewriter($this->_text, $parents);
     $suffix = $rewriter($this->_suffix, $parents);
-    if (
-      $text === $this->_text &&
-      $suffix === $this->_suffix
-    ) {
+    if ($text === $this->_text && $suffix === $this->_suffix) {
       return $this;
     }
     return new static(

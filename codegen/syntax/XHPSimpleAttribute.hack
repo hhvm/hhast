@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<677fa4f6cf0d532dbb8f0a5dfb143f1b>>
+ * @generated SignedSource<<44f88d87e78cc9ec66a1dc2aa3053e3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPSimpleAttribute extends Node
-  implements
-    IXHPAttribute {
+final class XHPSimpleAttribute extends Node implements IXHPAttribute {
 
   const string SYNTAX_KIND = 'xhp_simple_attribute';
 
@@ -86,7 +84,8 @@ final class XHPSimpleAttribute extends Node
       'name' => $this->_name,
       'equal' => $this->_equal,
       'expression' => $this->_expression,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

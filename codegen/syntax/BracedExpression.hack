@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10739ffc6399edf1e7983c13064c14ce>>
+ * @generated SignedSource<<fbbff32ad9371962a60697e02dddb6c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class BracedExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class BracedExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'braced_expression';
 
@@ -87,7 +84,8 @@ final class BracedExpression extends Node
       'left_brace' => $this->_left_brace,
       'expression' => $this->_expression,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

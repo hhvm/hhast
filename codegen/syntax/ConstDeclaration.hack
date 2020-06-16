@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a7cc89c7b57e5e50052624a39cc949cc>>
+ * @generated SignedSource<<19239b09abe9fb90fa935aedd7fde3c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ConstDeclaration extends Node
-  implements
-    IClassBodyDeclaration {
+final class ConstDeclaration extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'const_declaration';
 
@@ -112,7 +110,8 @@ final class ConstDeclaration extends Node
       'type_specifier' => $this->_type_specifier,
       'declarators' => $this->_declarators,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -121,9 +120,13 @@ final class ConstDeclaration extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
-    $type_specifier = $this->_type_specifier === null ? null : $rewriter($this->_type_specifier, $parents);
+    $type_specifier = $this->_type_specifier === null
+      ? null
+      : $rewriter($this->_type_specifier, $parents);
     $declarators = $rewriter($this->_declarators, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (

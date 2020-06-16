@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f721141f733467b5c7fa7bff43cfbe6d>>
+ * @generated SignedSource<<e63768633a43328b7671f0016e59f733>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SwitchStatement extends Node
-  implements
-    IControlFlowStatement,
-    IStatement {
+final class SwitchStatement
+  extends Node
+  implements IControlFlowStatement, IStatement {
 
   const string SYNTAX_KIND = 'switch_statement';
 
@@ -143,7 +142,8 @@ final class SwitchStatement extends Node
       'left_brace' => $this->_left_brace,
       'sections' => $this->_sections,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f982476c05d4ddc2ce8319171fdaf07>>
+ * @generated SignedSource<<1b7a46747b4e718e1f59f558ce30067d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class UnsetStatement extends Node
-  implements
-    IStatement {
+final class UnsetStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'unset_statement';
 
@@ -114,7 +112,8 @@ final class UnsetStatement extends Node
       'variables' => $this->_variables,
       'right_paren' => $this->_right_paren,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

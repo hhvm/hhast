@@ -1,19 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0258f38ef1aaa5a0eb618d3b32381c0>>
+ * @generated SignedSource<<d6a65f42775b4b26ac1607ee6f7e0c83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class AwaitableCreationExpressionGeneratedBase extends Node
-  implements
-    IHasFunctionBody,
-    ILambdaBody,
-    IHasAttributeSpec,
-    IExpression {
+abstract class AwaitableCreationExpressionGeneratedBase
+  extends Node
+  implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
   const string SYNTAX_KIND = 'awaitable_creation_expression';
 
@@ -101,7 +98,8 @@ abstract class AwaitableCreationExpressionGeneratedBase extends Node
       'async' => $this->_async,
       'coroutine' => $this->_coroutine,
       'compound_statement' => $this->_compound_statement,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -110,9 +108,13 @@ abstract class AwaitableCreationExpressionGeneratedBase extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $async = $rewriter($this->_async, $parents);
-    $coroutine = $this->_coroutine === null ? null : $rewriter($this->_coroutine, $parents);
+    $coroutine = $this->_coroutine === null
+      ? null
+      : $rewriter($this->_coroutine, $parents);
     $compound_statement = $rewriter($this->_compound_statement, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -240,7 +242,12 @@ abstract class AwaitableCreationExpressionGeneratedBase extends Node
     if ($value === $this->_compound_statement) {
       return $this;
     }
-    return new static($this->_attribute_spec, $this->_async, $this->_coroutine, $value);
+    return new static(
+      $this->_attribute_spec,
+      $this->_async,
+      $this->_coroutine,
+      $value,
+    );
   }
 
   public function hasCompoundStatement(): bool {
@@ -251,7 +258,10 @@ abstract class AwaitableCreationExpressionGeneratedBase extends Node
    * @return CompoundStatement
    */
   public function getCompoundStatement(): CompoundStatement {
-    return TypeAssert\instance_of(CompoundStatement::class, $this->_compound_statement);
+    return TypeAssert\instance_of(
+      CompoundStatement::class,
+      $this->_compound_statement,
+    );
   }
 
   /**

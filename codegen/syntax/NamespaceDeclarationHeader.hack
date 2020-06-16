@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<15ff317f0c8fe06b036ea3d138fcf7e3>>
+ * @generated SignedSource<<47c2e79b62905f7b728fa628a41fe6a6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -69,7 +69,8 @@ final class NamespaceDeclarationHeader extends Node {
     return dict[
       'keyword' => $this->_keyword,
       'name' => $this->_name,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -80,10 +81,7 @@ final class NamespaceDeclarationHeader extends Node {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $name === $this->_name
-    ) {
+    if ($keyword === $this->_keyword && $name === $this->_name) {
       return $this;
     }
     return new static(

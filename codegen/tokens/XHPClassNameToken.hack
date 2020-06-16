@@ -1,14 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7ce439e253e9ba4c67683f00ee08f2d>>
+ * @generated SignedSource<<11034ac617ad47c19676b34318d64edb>>
  */
 namespace Facebook\HHAST;
 
-final class XHPClassNameToken extends TokenWithVariableText
-  implements
-    INameishNode,
-    __Private\IWrappableWithSimpleTypeSpecifier {
+final class XHPClassNameToken
+  extends TokenWithVariableText
+  implements INameishNode, __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string KIND = 'XHP_class_name';
 

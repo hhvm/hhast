@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8fe8c339faab40415f8fd4b255333eb1>>
+ * @generated SignedSource<<ed3691e39bf9a11f88dc833d5054fc7f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,7 +70,8 @@ final class XHPLateinit extends Node {
     return dict[
       'at' => $this->_at,
       'keyword' => $this->_keyword,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +82,7 @@ final class XHPLateinit extends Node {
     $parents[] = $this;
     $at = $rewriter($this->_at, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
-    if (
-      $at === $this->_at &&
-      $keyword === $this->_keyword
-    ) {
+    if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }
     return new static(

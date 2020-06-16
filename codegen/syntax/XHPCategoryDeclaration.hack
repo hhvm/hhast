@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3a4cd14caf5f0a53ab4176fd656acc2>>
+ * @generated SignedSource<<52b0f5c743b7a39edfdb525ce062aeec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPCategoryDeclaration extends Node
-  implements
-    IClassBodyDeclaration {
+final class XHPCategoryDeclaration
+  extends Node
+  implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'xhp_category_declaration';
 
@@ -83,7 +83,8 @@ final class XHPCategoryDeclaration extends Node
       'keyword' => $this->_keyword,
       'categories' => $this->_categories,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -92,9 +93,15 @@ final class XHPCategoryDeclaration extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
-    $categories = $this->_categories === null ? null : $rewriter($this->_categories, $parents);
-    $semicolon = $this->_semicolon === null ? null : $rewriter($this->_semicolon, $parents);
+    $keyword = $this->_keyword === null
+      ? null
+      : $rewriter($this->_keyword, $parents);
+    $categories = $this->_categories === null
+      ? null
+      : $rewriter($this->_categories, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $categories === $this->_categories &&

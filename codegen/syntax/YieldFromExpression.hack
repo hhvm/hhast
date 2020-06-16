@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84377afaeaa741b65e1023d463d0858e>>
+ * @generated SignedSource<<729d0a75d928185f528bbac71887e18c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class YieldFromExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class YieldFromExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'yield_from_expression';
 
@@ -87,7 +86,8 @@ final class YieldFromExpression extends Node
       'yield_keyword' => $this->_yield_keyword,
       'from_keyword' => $this->_from_keyword,
       'operand' => $this->_operand,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

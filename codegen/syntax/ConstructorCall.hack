@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b43f86f433fb8c883e8c66a474534c0a>>
+ * @generated SignedSource<<c53f3e9286c94daf2bc9d599b780c318>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -95,7 +95,8 @@ final class ConstructorCall extends Node {
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -105,9 +106,15 @@ final class ConstructorCall extends Node {
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
-    $left_paren = $this->_left_paren === null ? null : $rewriter($this->_left_paren, $parents);
-    $argument_list = $this->_argument_list === null ? null : $rewriter($this->_argument_list, $parents);
-    $right_paren = $this->_right_paren === null ? null : $rewriter($this->_right_paren, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $argument_list = $this->_argument_list === null
+      ? null
+      : $rewriter($this->_argument_list, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
     if (
       $type === $this->_type &&
       $left_paren === $this->_left_paren &&
@@ -172,7 +179,12 @@ final class ConstructorCall extends Node {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($this->_type, $value, $this->_argument_list, $this->_right_paren);
+    return new static(
+      $this->_type,
+      $value,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -203,7 +215,12 @@ final class ConstructorCall extends Node {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new static($this->_type, $this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_type,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasArgumentList(): bool {
@@ -220,6 +237,7 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
@@ -249,6 +267,7 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
@@ -276,7 +295,12 @@ final class ConstructorCall extends Node {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_type, $this->_left_paren, $this->_argument_list, $value);
+    return new static(
+      $this->_type,
+      $this->_left_paren,
+      $this->_argument_list,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

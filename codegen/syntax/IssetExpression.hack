@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d288baaf295bdbadd13d89a937f1c35c>>
+ * @generated SignedSource<<1ba699d566a8031021c1b4917141a89b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class IssetExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class IssetExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'isset_expression';
 
@@ -101,7 +98,8 @@ final class IssetExpression extends Node
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -172,7 +170,12 @@ final class IssetExpression extends Node
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_argument_list, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
   }
 
   public function hasLeftParen(): bool {
@@ -203,7 +206,12 @@ final class IssetExpression extends Node
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $value, $this->_right_paren);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $value,
+      $this->_right_paren,
+    );
   }
 
   public function hasArgumentList(): bool {
@@ -242,7 +250,12 @@ final class IssetExpression extends Node
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static($this->_keyword, $this->_left_paren, $this->_argument_list, $value);
+    return new static(
+      $this->_keyword,
+      $this->_left_paren,
+      $this->_argument_list,
+      $value,
+    );
   }
 
   public function hasRightParen(): bool {

@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f080961a1b62cab91206830a0d3d7fe>>
+ * @generated SignedSource<<00d5d2eed9fc63e982508618460ef1c6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPEnumType extends Node
-  implements
-    ITypeSpecifier {
+final class XHPEnumType extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'xhp_enum_type';
 
@@ -113,7 +111,8 @@ final class XHPEnumType extends Node
       'left_brace' => $this->_left_brace,
       'values' => $this->_values,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -122,7 +121,9 @@ final class XHPEnumType extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $optional = $this->_optional === null ? null : $rewriter($this->_optional, $parents);
+    $optional = $this->_optional === null
+      ? null
+      : $rewriter($this->_optional, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
     $values = $rewriter($this->_values, $parents);

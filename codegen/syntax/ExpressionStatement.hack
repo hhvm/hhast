@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d2a2993033ea77445b46dc3fd46e189f>>
+ * @generated SignedSource<<84f1aceabeabfb7d5543f6d8c625389f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ExpressionStatement extends Node
-  implements
-    IStatement {
+final class ExpressionStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'expression_statement';
 
@@ -71,7 +69,8 @@ final class ExpressionStatement extends Node
     return dict[
       'expression' => $this->_expression,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -80,11 +79,12 @@ final class ExpressionStatement extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $expression = $this->_expression === null ? null : $rewriter($this->_expression, $parents);
+    $expression = $this->_expression === null
+      ? null
+      : $rewriter($this->_expression, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
-      $expression === $this->_expression &&
-      $semicolon === $this->_semicolon
+      $expression === $this->_expression && $semicolon === $this->_semicolon
     ) {
       return $this;
     }

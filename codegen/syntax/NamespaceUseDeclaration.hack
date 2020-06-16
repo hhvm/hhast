@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39de5d2f5f9a22934578daf82abda691>>
+ * @generated SignedSource<<697a7ca6d7a52e8680b21efa76c30adb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NamespaceUseDeclaration extends Node
-  implements
-    INamespaceUseDeclaration {
+final class NamespaceUseDeclaration
+  extends Node
+  implements INamespaceUseDeclaration {
 
   const string SYNTAX_KIND = 'namespace_use_declaration';
 
@@ -99,7 +99,8 @@ final class NamespaceUseDeclaration extends Node
       'kind' => $this->_kind,
       'clauses' => $this->_clauses,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -165,7 +166,12 @@ final class NamespaceUseDeclaration extends Node
     if ($value === $this->_kind) {
       return $this;
     }
-    return new static($this->_keyword, $value, $this->_clauses, $this->_semicolon);
+    return new static(
+      $this->_keyword,
+      $value,
+      $this->_clauses,
+      $this->_semicolon,
+    );
   }
 
   public function hasKind(): bool {

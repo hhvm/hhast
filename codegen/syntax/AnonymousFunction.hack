@@ -1,19 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e4dcaa0d522f068ff150aed26ab634db>>
+ * @generated SignedSource<<6a7d800fef9cf28fc9366eeaa939ffb3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class AnonymousFunction extends Node
-  implements
-    IHasFunctionBody,
-    ILambdaBody,
-    IHasAttributeSpec,
-    IExpression {
+final class AnonymousFunction
+  extends Node
+  implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
   const string SYNTAX_KIND = 'anonymous_function';
 
@@ -207,7 +204,8 @@ final class AnonymousFunction extends Node
       'type' => $this->_type,
       'use' => $this->_use,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -216,13 +214,23 @@ final class AnonymousFunction extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
-    $static_keyword = $this->_static_keyword === null ? null : $rewriter($this->_static_keyword, $parents);
-    $async_keyword = $this->_async_keyword === null ? null : $rewriter($this->_async_keyword, $parents);
-    $coroutine_keyword = $this->_coroutine_keyword === null ? null : $rewriter($this->_coroutine_keyword, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
+    $static_keyword = $this->_static_keyword === null
+      ? null
+      : $rewriter($this->_static_keyword, $parents);
+    $async_keyword = $this->_async_keyword === null
+      ? null
+      : $rewriter($this->_async_keyword, $parents);
+    $coroutine_keyword = $this->_coroutine_keyword === null
+      ? null
+      : $rewriter($this->_coroutine_keyword, $parents);
     $function_keyword = $rewriter($this->_function_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $parameters = $this->_parameters === null ? null : $rewriter($this->_parameters, $parents);
+    $parameters = $this->_parameters === null
+      ? null
+      : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
@@ -460,7 +468,10 @@ final class AnonymousFunction extends Node
    * @return FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
-    return TypeAssert\instance_of(FunctionToken::class, $this->_function_keyword);
+    return TypeAssert\instance_of(
+      FunctionToken::class,
+      $this->_function_keyword,
+    );
   }
 
   /**
@@ -669,18 +680,18 @@ final class AnonymousFunction extends Node
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
-   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | SoftTypeSpecifier | TupleTypeSpecifier
+   * @return AttributizedSpecifier | ClosureTypeSpecifier |
+   * GenericTypeSpecifier | MapArrayTypeSpecifier | null |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
   /**
-   * @return ClosureTypeSpecifier | GenericTypeSpecifier |
-   * MapArrayTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
-   * SoftTypeSpecifier | TupleTypeSpecifier
+   * @return AttributizedSpecifier | ClosureTypeSpecifier |
+   * GenericTypeSpecifier | MapArrayTypeSpecifier | NullableTypeSpecifier |
+   * SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

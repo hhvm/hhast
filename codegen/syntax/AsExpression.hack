@@ -1,17 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7fb8c9b45d012eaa304c9401d9d3cf2>>
+ * @generated SignedSource<<d3455de7d3cc717f9d7bcb9c6c4a88d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class AsExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class AsExpression extends Node implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'as_expression';
 
@@ -87,7 +84,8 @@ final class AsExpression extends Node
       'left_operand' => $this->_left_operand,
       'operator' => $this->_operator,
       'right_operand' => $this->_right_operand,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

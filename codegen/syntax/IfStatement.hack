@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52716a8595a2ea78507935ab62cc6c24>>
+ * @generated SignedSource<<503a91220535cc10241412bc8768fca6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class IfStatement extends Node
-  implements
-    IControlFlowStatement,
-    IStatement {
+final class IfStatement
+  extends Node
+  implements IControlFlowStatement, IStatement {
 
   const string SYNTAX_KIND = 'if_statement';
 
@@ -141,7 +140,8 @@ final class IfStatement extends Node
       'statement' => $this->_statement,
       'elseif_clauses' => $this->_elseif_clauses,
       'else_clause' => $this->_else_clause,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -155,8 +155,12 @@ final class IfStatement extends Node
     $condition = $rewriter($this->_condition, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     $statement = $rewriter($this->_statement, $parents);
-    $elseif_clauses = $this->_elseif_clauses === null ? null : $rewriter($this->_elseif_clauses, $parents);
-    $else_clause = $this->_else_clause === null ? null : $rewriter($this->_else_clause, $parents);
+    $elseif_clauses = $this->_elseif_clauses === null
+      ? null
+      : $rewriter($this->_elseif_clauses, $parents);
+    $else_clause = $this->_else_clause === null
+      ? null
+      : $rewriter($this->_else_clause, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_paren === $this->_left_paren &&

@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce468cf13c4e6b4d51034752a319c660>>
+ * @generated SignedSource<<eef01e9cf856acfce4de528ffa1c1a0e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NamespaceGroupUseDeclaration extends Node
-  implements
-    INamespaceUseDeclaration {
+final class NamespaceGroupUseDeclaration
+  extends Node
+  implements INamespaceUseDeclaration {
 
   const string SYNTAX_KIND = 'namespace_group_use_declaration';
 
@@ -141,7 +141,8 @@ final class NamespaceGroupUseDeclaration extends Node
       'clauses' => $this->_clauses,
       'right_brace' => $this->_right_brace,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

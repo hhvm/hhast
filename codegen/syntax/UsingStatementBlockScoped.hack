@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3cc71ce98c0400e8aee632cfb3f2e0ff>>
+ * @generated SignedSource<<49c1d4f48a162bcd8d7b10a5a1ca6fa0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class UsingStatementBlockScoped extends Node
-  implements
-    IStatement {
+final class UsingStatementBlockScoped extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'using_statement_block_scoped';
 
@@ -127,7 +125,8 @@ final class UsingStatementBlockScoped extends Node
       'expressions' => $this->_expressions,
       'right_paren' => $this->_right_paren,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -136,7 +135,9 @@ final class UsingStatementBlockScoped extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $await_keyword = $this->_await_keyword === null ? null : $rewriter($this->_await_keyword, $parents);
+    $await_keyword = $this->_await_keyword === null
+      ? null
+      : $rewriter($this->_await_keyword, $parents);
     $using_keyword = $rewriter($this->_using_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
     $expressions = $rewriter($this->_expressions, $parents);

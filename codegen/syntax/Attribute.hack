@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<362022a612cd0667eb721f4d61d25dfe>>
+ * @generated SignedSource<<a93ed36086e6c979c8feb97e1948e6c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -68,7 +68,8 @@ final class Attribute extends Node {
     return dict[
       'at' => $this->_at,
       'attribute_name' => $this->_attribute_name,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -78,11 +79,10 @@ final class Attribute extends Node {
   ): this {
     $parents[] = $this;
     $at = $this->_at === null ? null : $rewriter($this->_at, $parents);
-    $attribute_name = $this->_attribute_name === null ? null : $rewriter($this->_attribute_name, $parents);
-    if (
-      $at === $this->_at &&
-      $attribute_name === $this->_attribute_name
-    ) {
+    $attribute_name = $this->_attribute_name === null
+      ? null
+      : $rewriter($this->_attribute_name, $parents);
+    if ($at === $this->_at && $attribute_name === $this->_attribute_name) {
       return $this;
     }
     return new static(

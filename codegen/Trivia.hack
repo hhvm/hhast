@@ -1,13 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68a0625144943a5c3949c71986c1b9a6>>
+ * @generated SignedSource<<de086f4b1e2edad58d783942ae977ea4>>
  */
 namespace Facebook\HHAST;
 
-final class DelimitedComment extends Trivia
-  implements
-    IComment {
+final class DelimitedComment extends Trivia implements IComment {
 
   const string SYNTAX_KIND = 'delimited_comment';
 
@@ -121,9 +119,7 @@ final class IgnoreError extends Trivia {
   }
 }
 
-final class SingleLineComment extends Trivia
-  implements
-    IComment {
+final class SingleLineComment extends Trivia implements IComment {
 
   const string SYNTAX_KIND = 'single_line_comment';
 

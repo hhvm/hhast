@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b6033ca775520f5ab2bc28ba307d6d3f>>
+ * @generated SignedSource<<ee739ad4d0d8cfcde190762d8f6e33d8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class QualifiedName extends Node
-  implements
-    INameishNode,
-    __Private\IWrappableWithSimpleTypeSpecifier {
+final class QualifiedName
+  extends Node
+  implements INameishNode, __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string SYNTAX_KIND = 'qualified_name';
 
@@ -56,7 +55,8 @@ final class QualifiedName extends Node
   public function getChildren(): dict<string, Node> {
     return dict[
       'parts' => $this->_parts,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -66,9 +66,7 @@ final class QualifiedName extends Node
   ): this {
     $parents[] = $this;
     $parts = $rewriter($this->_parts, $parents);
-    if (
-      $parts === $this->_parts
-    ) {
+    if ($parts === $this->_parts) {
       return $this;
     }
     return new static(/* HH_FIXME[4110] use `as` */ $parts);

@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4aa5c6d06f02085108e4e36ab4117706>>
+ * @generated SignedSource<<d51d28be084adfbbfc3d2f1a7c5cb7b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EnumDeclaration extends Node
-  implements
-    IHasAttributeSpec {
+final class EnumDeclaration extends Node implements IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'enum_declaration';
 
@@ -167,7 +165,8 @@ final class EnumDeclaration extends Node
       'left_brace' => $this->_left_brace,
       'enumerators' => $this->_enumerators,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -176,14 +175,18 @@ final class EnumDeclaration extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
     $colon = $rewriter($this->_colon, $parents);
     $base = $rewriter($this->_base, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $enumerators = $this->_enumerators === null ? null : $rewriter($this->_enumerators, $parents);
+    $enumerators = $this->_enumerators === null
+      ? null
+      : $rewriter($this->_enumerators, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&

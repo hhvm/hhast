@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c03c3ce564939d5e8ef9629069026b42>>
+ * @generated SignedSource<<73eaebaefc1316503520b78761febb85>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class PropertyDeclaration extends Node
-  implements
-    IClassBodyDeclaration,
-    IHasTypeHint,
-    IHasAttributeSpec {
+final class PropertyDeclaration
+  extends Node
+  implements IClassBodyDeclaration, IHasTypeHint, IHasAttributeSpec {
 
   const string SYNTAX_KIND = 'property_declaration';
 
@@ -114,7 +112,8 @@ final class PropertyDeclaration extends Node
       'type' => $this->_type,
       'declarators' => $this->_declarators,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -123,7 +122,9 @@ final class PropertyDeclaration extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $modifiers = $rewriter($this->_modifiers, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $declarators = $rewriter($this->_declarators, $parents);
@@ -242,9 +243,9 @@ final class PropertyDeclaration extends Node
   /**
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
    * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier | null
-   * | NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -253,9 +254,9 @@ final class PropertyDeclaration extends Node
   /**
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
    * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | SoftTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

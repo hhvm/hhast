@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3fa8174c946be49ac0eafffaea5f6337>>
+ * @generated SignedSource<<eba70dfa26c2ca9337f042e5b56978c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DecoratedExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class DecoratedExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'decorated_expression';
 
@@ -73,7 +72,8 @@ final class DecoratedExpression extends Node
     return dict[
       'decorator' => $this->_decorator,
       'expression' => $this->_expression,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -85,8 +85,7 @@ final class DecoratedExpression extends Node
     $decorator = $rewriter($this->_decorator, $parents);
     $expression = $rewriter($this->_expression, $parents);
     if (
-      $decorator === $this->_decorator &&
-      $expression === $this->_expression
+      $decorator === $this->_decorator && $expression === $this->_expression
     ) {
       return $this;
     }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f9122ab22d24669285bf7e9717c406d>>
+ * @generated SignedSource<<883e1e11a4eeb3c4ecbd6c009c05a893>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -112,7 +112,8 @@ final class FileAttributeSpecification extends Node {
       'colon' => $this->_colon,
       'attributes' => $this->_attributes,
       'right_double_angle' => $this->_right_double_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -169,7 +170,10 @@ final class FileAttributeSpecification extends Node {
    * @return LessThanLessThanToken
    */
   public function getLeftDoubleAngle(): LessThanLessThanToken {
-    return TypeAssert\instance_of(LessThanLessThanToken::class, $this->_left_double_angle);
+    return TypeAssert\instance_of(
+      LessThanLessThanToken::class,
+      $this->_left_double_angle,
+    );
   }
 
   /**
@@ -313,7 +317,10 @@ final class FileAttributeSpecification extends Node {
    * @return GreaterThanGreaterThanToken
    */
   public function getRightDoubleAngle(): GreaterThanGreaterThanToken {
-    return TypeAssert\instance_of(GreaterThanGreaterThanToken::class, $this->_right_double_angle);
+    return TypeAssert\instance_of(
+      GreaterThanGreaterThanToken::class,
+      $this->_right_double_angle,
+    );
   }
 
   /**

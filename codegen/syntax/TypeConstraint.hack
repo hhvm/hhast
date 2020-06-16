@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad4edb44b913f10c77c2e01cb31673af>>
+ * @generated SignedSource<<1468fce2cc9469fda2c1192f8d28f405>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,7 +70,8 @@ final class TypeConstraint extends Node {
     return dict[
       'keyword' => $this->_keyword,
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -81,10 +82,7 @@ final class TypeConstraint extends Node {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $type = $rewriter($this->_type, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $type === $this->_type
-    ) {
+    if ($keyword === $this->_keyword && $type === $this->_type) {
       return $this;
     }
     return new static(

@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc747c55eddb8547da2ee7ce56730f05>>
+ * @generated SignedSource<<ae093e9d531b428574d10bccc0812d2f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class ParameterDeclarationGeneratedBase extends Node
-  implements
-    IHasTypeHint,
-    IHasAttributeSpec,
-    IParameter {
+abstract class ParameterDeclarationGeneratedBase
+  extends Node
+  implements IHasTypeHint, IHasAttributeSpec, IParameter {
 
   const string SYNTAX_KIND = 'parameter_declaration';
 
@@ -125,7 +123,8 @@ abstract class ParameterDeclarationGeneratedBase extends Node
       'type' => $this->_type,
       'name' => $this->_name,
       'default_value' => $this->_default_value,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -134,12 +133,20 @@ abstract class ParameterDeclarationGeneratedBase extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute = $this->_attribute === null ? null : $rewriter($this->_attribute, $parents);
-    $visibility = $this->_visibility === null ? null : $rewriter($this->_visibility, $parents);
-    $call_convention = $this->_call_convention === null ? null : $rewriter($this->_call_convention, $parents);
+    $attribute = $this->_attribute === null
+      ? null
+      : $rewriter($this->_attribute, $parents);
+    $visibility = $this->_visibility === null
+      ? null
+      : $rewriter($this->_visibility, $parents);
+    $call_convention = $this->_call_convention === null
+      ? null
+      : $rewriter($this->_call_convention, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $name = $rewriter($this->_name, $parents);
-    $default_value = $this->_default_value === null ? null : $rewriter($this->_default_value, $parents);
+    $default_value = $this->_default_value === null
+      ? null
+      : $rewriter($this->_default_value, $parents);
     if (
       $attribute === $this->_attribute &&
       $visibility === $this->_visibility &&
@@ -295,9 +302,8 @@ abstract class ParameterDeclarationGeneratedBase extends Node
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
    * IntersectionTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
    * MapArrayTypeSpecifier | null | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -308,9 +314,8 @@ abstract class ParameterDeclarationGeneratedBase extends Node
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
    * IntersectionTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
    * MapArrayTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | SoftTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
+   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

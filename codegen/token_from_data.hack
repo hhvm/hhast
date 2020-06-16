@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1ff31e7cef2229cd8e0a9b9a9e5a3f7>>
+ * @generated SignedSource<<80386a85b78303b33066485bccb7ed3b>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -13,7 +13,15 @@ function token_from_data(
   HHAST\NodeList<HHAST\Trivia> $trailing,
   string $token_text,
 ): HHAST\Token {
-  $cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;if ($cls !== null) { return new $cls($leading, $trailing, $source_ref ); }$cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;if ($cls !== null) { return new $cls($leading, $trailing, $token_text, $source_ref ); }throw new HHAST\UnsupportedTokenError(
+  $cls = TokenClassMap::WITHOUT_TEXT[$token_kind] ?? null;
+  if ($cls !== null) {
+    return new $cls($leading, $trailing, $source_ref);
+  }
+  $cls = TokenClassMap::WITH_TEXT[$token_kind] ?? null;
+  if ($cls !== null) {
+    return new $cls($leading, $trailing, $token_text, $source_ref);
+  }
+  throw new HHAST\UnsupportedTokenError(
     $source_ref['file'],
     $source_ref['offset'],
     $token_kind,

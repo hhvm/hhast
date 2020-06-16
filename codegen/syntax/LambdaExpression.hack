@@ -1,19 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c9aaa41139191396bc60ee3d54534a5>>
+ * @generated SignedSource<<884e3c4a355073b50ef438b97e98623e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class LambdaExpression extends Node
-  implements
-    IHasFunctionBody,
-    ILambdaBody,
-    IHasAttributeSpec,
-    IExpression {
+final class LambdaExpression
+  extends Node
+  implements IHasFunctionBody, ILambdaBody, IHasAttributeSpec, IExpression {
 
   const string SYNTAX_KIND = 'lambda_expression';
 
@@ -128,7 +125,8 @@ final class LambdaExpression extends Node
       'signature' => $this->_signature,
       'arrow' => $this->_arrow,
       'body' => $this->_body,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -137,9 +135,13 @@ final class LambdaExpression extends Node
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $this->_attribute_spec === null ? null : $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $async = $this->_async === null ? null : $rewriter($this->_async, $parents);
-    $coroutine = $this->_coroutine === null ? null : $rewriter($this->_coroutine, $parents);
+    $coroutine = $this->_coroutine === null
+      ? null
+      : $rewriter($this->_coroutine, $parents);
     $signature = $rewriter($this->_signature, $parents);
     $arrow = $rewriter($this->_arrow, $parents);
     $body = $rewriter($this->_body, $parents);
@@ -333,7 +335,10 @@ final class LambdaExpression extends Node
    * @return EqualEqualGreaterThanToken
    */
   public function getArrow(): EqualEqualGreaterThanToken {
-    return TypeAssert\instance_of(EqualEqualGreaterThanToken::class, $this->_arrow);
+    return TypeAssert\instance_of(
+      EqualEqualGreaterThanToken::class,
+      $this->_arrow,
+    );
   }
 
   /**

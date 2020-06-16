@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ba2b376bf1dce879a0fd3a703e06642>>
+ * @generated SignedSource<<39c51bb03d107b2a32c4e197c50f39ab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -98,7 +98,8 @@ final class Enumerator extends Node {
       'equal' => $this->_equal,
       'value' => $this->_value,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

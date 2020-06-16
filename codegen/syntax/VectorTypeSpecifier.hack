@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8dfd35f2ffd6bec8a91bd16f3a674aef>>
+ * @generated SignedSource<<832b8f863b0c10ea5d6e495cc6c04d25>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VectorTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'vector_type_specifier';
 
@@ -113,7 +111,8 @@ final class VectorTypeSpecifier extends Node
       'type' => $this->_type,
       'trailing_comma' => $this->_trailing_comma,
       'right_angle' => $this->_right_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -125,7 +124,9 @@ final class VectorTypeSpecifier extends Node
     $keyword = $rewriter($this->_keyword, $parents);
     $left_angle = $rewriter($this->_left_angle, $parents);
     $type = $rewriter($this->_type, $parents);
-    $trailing_comma = $this->_trailing_comma === null ? null : $rewriter($this->_trailing_comma, $parents);
+    $trailing_comma = $this->_trailing_comma === null
+      ? null
+      : $rewriter($this->_trailing_comma, $parents);
     $right_angle = $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&

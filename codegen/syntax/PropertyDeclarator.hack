@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5e6c70c1b0876888cef61ca70d636539>>
+ * @generated SignedSource<<995fd82a1323739abaf94ee2532ad61b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -69,7 +69,8 @@ final class PropertyDeclarator extends Node {
     return dict[
       'name' => $this->_name,
       'initializer' => $this->_initializer,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -79,11 +80,10 @@ final class PropertyDeclarator extends Node {
   ): this {
     $parents[] = $this;
     $name = $rewriter($this->_name, $parents);
-    $initializer = $this->_initializer === null ? null : $rewriter($this->_initializer, $parents);
-    if (
-      $name === $this->_name &&
-      $initializer === $this->_initializer
-    ) {
+    $initializer = $this->_initializer === null
+      ? null
+      : $rewriter($this->_initializer, $parents);
+    if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
     return new static(

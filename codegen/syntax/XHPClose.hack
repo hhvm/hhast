@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05f122ed2ee333eef7738f0269fe9d1e>>
+ * @generated SignedSource<<be7c21cc10293ab2c02a21e280046c54>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,7 +84,8 @@ final class XHPClose extends Node {
       'left_angle' => $this->_left_angle,
       'name' => $this->_name,
       'right_angle' => $this->_right_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -129,7 +130,10 @@ final class XHPClose extends Node {
    * @return LessThanSlashToken
    */
   public function getLeftAngle(): LessThanSlashToken {
-    return TypeAssert\instance_of(LessThanSlashToken::class, $this->_left_angle);
+    return TypeAssert\instance_of(
+      LessThanSlashToken::class,
+      $this->_left_angle,
+    );
   }
 
   /**

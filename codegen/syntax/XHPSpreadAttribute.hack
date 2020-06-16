@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddb1e5e0d3f81519dd33aab11d49a956>>
+ * @generated SignedSource<<84dee9c17e33fa01c780f5135be6dce1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -98,7 +98,8 @@ final class XHPSpreadAttribute extends Node {
       'spread_operator' => $this->_spread_operator,
       'expression' => $this->_expression,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -169,7 +170,12 @@ final class XHPSpreadAttribute extends Node {
     if ($value === $this->_spread_operator) {
       return $this;
     }
-    return new static($this->_left_brace, $value, $this->_expression, $this->_right_brace);
+    return new static(
+      $this->_left_brace,
+      $value,
+      $this->_expression,
+      $this->_right_brace,
+    );
   }
 
   public function hasSpreadOperator(): bool {
@@ -180,7 +186,10 @@ final class XHPSpreadAttribute extends Node {
    * @return DotDotDotToken
    */
   public function getSpreadOperator(): DotDotDotToken {
-    return TypeAssert\instance_of(DotDotDotToken::class, $this->_spread_operator);
+    return TypeAssert\instance_of(
+      DotDotDotToken::class,
+      $this->_spread_operator,
+    );
   }
 
   /**

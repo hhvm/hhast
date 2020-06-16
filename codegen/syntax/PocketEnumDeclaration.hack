@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<69aa67a8cfa64ec7bf3b97d1729c9b97>>
+ * @generated SignedSource<<3d18a51a66d18403af72627b9eb3d711>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -133,7 +133,8 @@ final class PocketEnumDeclaration extends Node {
       'left_brace' => $this->_left_brace,
       'fields' => $this->_fields,
       'right_brace' => $this->_right_brace,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -142,13 +143,23 @@ final class PocketEnumDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attributes = $this->_attributes === null ? null : $rewriter($this->_attributes, $parents);
-    $modifiers = $this->_modifiers === null ? null : $rewriter($this->_modifiers, $parents);
+    $attributes = $this->_attributes === null
+      ? null
+      : $rewriter($this->_attributes, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $enum = $this->_enum === null ? null : $rewriter($this->_enum, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $left_brace = $this->_left_brace === null ? null : $rewriter($this->_left_brace, $parents);
-    $fields = $this->_fields === null ? null : $rewriter($this->_fields, $parents);
-    $right_brace = $this->_right_brace === null ? null : $rewriter($this->_right_brace, $parents);
+    $left_brace = $this->_left_brace === null
+      ? null
+      : $rewriter($this->_left_brace, $parents);
+    $fields = $this->_fields === null
+      ? null
+      : $rewriter($this->_fields, $parents);
+    $right_brace = $this->_right_brace === null
+      ? null
+      : $rewriter($this->_right_brace, $parents);
     if (
       $attributes === $this->_attributes &&
       $modifiers === $this->_modifiers &&

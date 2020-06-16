@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c3b49c32f7643f34364a0e6b7bf9f3c>>
+ * @generated SignedSource<<42d277ac7e59a1c27b368cc62f7475f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class MemberSelectionExpression extends Node
-  implements
-    ILambdaBody,
-    IExpression {
+final class MemberSelectionExpression
+  extends Node
+  implements ILambdaBody, IExpression {
 
   const string SYNTAX_KIND = 'member_selection_expression';
 
@@ -87,7 +86,8 @@ final class MemberSelectionExpression extends Node
       'object' => $this->_object,
       'operator' => $this->_operator,
       'name' => $this->_name,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -167,7 +167,10 @@ final class MemberSelectionExpression extends Node
    * @return MinusGreaterThanToken
    */
   public function getOperator(): MinusGreaterThanToken {
-    return TypeAssert\instance_of(MinusGreaterThanToken::class, $this->_operator);
+    return TypeAssert\instance_of(
+      MinusGreaterThanToken::class,
+      $this->_operator,
+    );
   }
 
   /**

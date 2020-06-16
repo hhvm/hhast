@@ -21,7 +21,7 @@
         "hhvm/hacktest": "^2.0"
     },
     "require": {
-        "hhvm": "^4.53",
+        "hhvm": "^4.61",
         "hhvm/hsl": "^4.25",
         "hhvm/hsl-experimental": "^4.50",
         "hhvm/hhvm-autoload": "^2.0.4|^3.0",

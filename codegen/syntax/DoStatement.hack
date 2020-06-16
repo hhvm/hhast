@@ -1,18 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d6a0b11ac301be084f9fc3019e3468a>>
+ * @generated SignedSource<<7f61a524d6e3573bae77348c6cb71da7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DoStatement extends Node
-  implements
-    IControlFlowStatement,
-    ILoopStatement,
-    IStatement {
+final class DoStatement
+  extends Node
+  implements IControlFlowStatement, ILoopStatement, IStatement {
 
   const string SYNTAX_KIND = 'do_statement';
 
@@ -144,7 +142,8 @@ final class DoStatement extends Node
       'condition' => $this->_condition,
       'right_paren' => $this->_right_paren,
       'semicolon' => $this->_semicolon,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

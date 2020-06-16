@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83fbd6f323033050ecf0f6b9ecbb11b0>>
+ * @generated SignedSource<<5b95f2867843e864fd0ed3263c8cf034>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ConcurrentStatement extends Node
-  implements
-    IStatement {
+final class ConcurrentStatement extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'concurrent_statement';
 
@@ -72,7 +70,8 @@ final class ConcurrentStatement extends Node
     return dict[
       'keyword' => $this->_keyword,
       'statement' => $this->_statement,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -83,10 +82,7 @@ final class ConcurrentStatement extends Node
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $statement = $rewriter($this->_statement, $parents);
-    if (
-      $keyword === $this->_keyword &&
-      $statement === $this->_statement
-    ) {
+    if ($keyword === $this->_keyword && $statement === $this->_statement) {
       return $this;
     }
     return new static(

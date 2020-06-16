@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f1a49ff60c7b9c4be60112063ffe4d2>>
+ * @generated SignedSource<<6d1ed53ce97533a091fef3e88aacbba5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ReifiedTypeArgument extends Node
-  implements
-    ITypeSpecifier {
+final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'reified_type_argument';
 
@@ -72,7 +70,8 @@ final class ReifiedTypeArgument extends Node
     return dict[
       'reified' => $this->_reified,
       'type' => $this->_type,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -83,10 +82,7 @@ final class ReifiedTypeArgument extends Node
     $parents[] = $this;
     $reified = $rewriter($this->_reified, $parents);
     $type = $rewriter($this->_type, $parents);
-    if (
-      $reified === $this->_reified &&
-      $type === $this->_type
-    ) {
+    if ($reified === $this->_reified && $type === $this->_type) {
       return $this;
     }
     return new static(

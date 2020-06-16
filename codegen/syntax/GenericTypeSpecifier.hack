@@ -1,17 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e714fc2443c5deadb694afdb7fa904c>>
+ * @generated SignedSource<<498bbf8a7694f59cbba5d0abe623a1b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class GenericTypeSpecifier extends Node
-  implements
-    ISimpleCreationSpecifier,
-    ITypeSpecifier {
+final class GenericTypeSpecifier
+  extends Node
+  implements ISimpleCreationSpecifier, ITypeSpecifier {
 
   const string SYNTAX_KIND = 'generic_type_specifier';
 
@@ -73,7 +72,8 @@ final class GenericTypeSpecifier extends Node
     return dict[
       'class_type' => $this->_class_type,
       'argument_list' => $this->_argument_list,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>

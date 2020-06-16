@@ -1,16 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ce35c05d3824fa2637b12ffa6119896>>
+ * @generated SignedSource<<e55e9cf133d18ec6cd707fe40a18bc15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ClassnameTypeSpecifier extends Node
-  implements
-    ITypeSpecifier {
+final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'classname_type_specifier';
 
@@ -110,7 +108,8 @@ final class ClassnameTypeSpecifier extends Node
       'type' => $this->_type,
       'trailing_comma' => $this->_trailing_comma,
       'right_angle' => $this->_right_angle,
-    ] |> Dict\filter_nulls($$);
+    ]
+      |> Dict\filter_nulls($$);
   }
 
   <<__Override>>
@@ -120,10 +119,16 @@ final class ClassnameTypeSpecifier extends Node
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $left_angle = $this->_left_angle === null ? null : $rewriter($this->_left_angle, $parents);
+    $left_angle = $this->_left_angle === null
+      ? null
+      : $rewriter($this->_left_angle, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
-    $trailing_comma = $this->_trailing_comma === null ? null : $rewriter($this->_trailing_comma, $parents);
-    $right_angle = $this->_right_angle === null ? null : $rewriter($this->_right_angle, $parents);
+    $trailing_comma = $this->_trailing_comma === null
+      ? null
+      : $rewriter($this->_trailing_comma, $parents);
+    $right_angle = $this->_right_angle === null
+      ? null
+      : $rewriter($this->_right_angle, $parents);
     if (
       $keyword === $this->_keyword &&
       $left_angle === $this->_left_angle &&
