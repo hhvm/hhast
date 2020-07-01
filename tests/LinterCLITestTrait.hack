@@ -10,20 +10,19 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\CLILib\TestLib\{StringInput, StringOutput};
 use type Facebook\CLILib\Terminal;
-use namespace HH\Lib\Vec;
+use namespace HH\Lib\{IO, Vec};
 
 trait LinterCLITestTrait {
   require extends TestCase;
 
   protected function getCLI(
     string ...$argv
-  ): (__Private\LinterCLI, StringInput, StringOutput, StringOutput) {
+  ): (__Private\LinterCLI, IO\MemoryHandle, IO\MemoryHandle, IO\MemoryHandle) {
     $argv = Vec\concat(vec[__FILE__], $argv);
-    $stdin = new StringInput();
-    $stdout = new StringOutput();
-    $stderr = new StringOutput();
+    $stdin = new IO\MemoryHandle();
+    $stdout = new IO\MemoryHandle();
+    $stderr = new IO\MemoryHandle();
     $term = new Terminal($stdin, $stdout, $stderr);
     return tuple(
       new __Private\LinterCLI($argv, $term),

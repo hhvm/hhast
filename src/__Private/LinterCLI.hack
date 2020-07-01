@@ -78,14 +78,12 @@ final class LinterCLI extends CLIWithArguments {
         XHProf::disableAndDump(\STDERR);
       } else {
         $dot = XHProf::disableAndGenerateDot();
-        await using (
-          $file = \HH\Lib\File\open_write_only(
-            $dotfile,
-            \HH\Lib\File\WriteMode::TRUNCATE,
-          )
-        ) {
-          await $file->writeAsync($dot);
-        }
+        $file = \HH\Lib\File\open_write_only(
+          $dotfile,
+          \HH\Lib\File\WriteMode::TRUNCATE,
+        );
+        await $file->writeAsync($dot);
+        $file->close();
         await $this->getStderr()
           ->writeAsync(Str\format("Wrote XHProf data to %s\n", $dotfile));
       }
