@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST\__Private;
 
-use namespace HH\Lib\C;
 use const Facebook\HHAST\SCHEMA_VERSION;
 
 /**
@@ -21,59 +20,21 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  * Facebook\HHAST\SCHEMA_VERSION.
  */
 function is_compatible_schema_version(string $other_version): bool {
+  invariant(
+    SCHEMA_VERSION === '2020-06-02-0001',
+    '%s needs updating',
+    __FILE__,
+  );
   if ($other_version === SCHEMA_VERSION) {
     return true;
   }
 
-  // Superset => subsets.
-  $compatible_versions = keyset[];
+  // Return true if $other_superset is a superset of SCHEMA_VERSION
 
-  switch (SCHEMA_VERSION) {
-    case '2019-05-20-0001': // is a superset of:
-      // Succeeding versions:
-      $compatible_versions[] = '2019-07-23-0001';
-      break;
-
-    case '2019-10-03-0001': // is a superset of:
-      // Preceding versions:
-      // This one doesn't have union/intersection typehints:
-      $compatible_versions[] = '2019-08-22-0001';
-      // Succeeding versions:
-      // This one doesn't have `break/continue <num>`:
-      $compatible_versions[] = '2019-10-08-0001';
-      // This one doesn't have `let` statement (unused experimental feature):
-      $compatible_versions[] = '2019-11-15-0001';
-      break;
-
-    case '2020-01-22-0001': // is a superset of:
-      // Preceding versions:
-      // This one doesn't have XHP token, function pointer syntax:
-      $compatible_versions[] = '2019-11-29-0001';
-      // This one also doesn't have Pocket Universe `reify` syntax:
-      $compatible_versions[] = '2019-11-15-0001';
-      // Succeeding versions:
-      // This one doesn't have square bracket array literals:
-      $compatible_versions[] = '2020-02-03-0001';
-      // This one disallows using "namespace" as an identifier:
-      $compatible_versions[] = '2020-02-19-0001';
-      // This one removes support for <?= (PHP echo tag):
-      $compatible_versions[] = '2020-03-24-0001';
-      // This one removes support for __halt_compiler():
-      $compatible_versions[] = '2020-03-31-0001';
-      // This one removes support for ? > (PHP markup close tag)
-      $compatible_versions[] = '2020-04-01-0001';
-      break;
-
-    case '2020-04-14-0002': // is a superset of:
-      // Preceding versions:
-      // This one doesn't support Pocket Universe enum attributes:
-      $compatible_versions[] = '2020-04-14-0001';
-      // This one doesn't support more than one Pocket Universe enum modifier
-      // (actually doesn't matter for HHAST, so identical to 2020-04-14-0001 as
-      // far as HHAST is concerned):
-      $compatible_versions[] = '2020-04-06-0001';
-      break;
+  if ($other_version === '2020-06-23-0001') {
+    // removal of array literals
+    return true;
   }
 
-  return C\contains($compatible_versions, $other_version);
+  return false;
 }

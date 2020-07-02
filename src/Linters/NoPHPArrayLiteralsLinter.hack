@@ -16,6 +16,13 @@ final class NoPHPArrayLiteralsLinter extends AutoFixingASTLinter {
   const type TContext = Script;
 
   <<__Override>>
+  public static function shouldLintFile(File $_): bool {
+    // array literals are no longer in the parser
+    return \HHVM_VERSION_ID < 406500;
+  }
+
+
+  <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
     IPHPArray $expr,

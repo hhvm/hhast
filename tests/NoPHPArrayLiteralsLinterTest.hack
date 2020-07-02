@@ -13,6 +13,11 @@ final class NoPHPArrayLiteralsLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
   protected function getLinter(string $file): NoPHPArrayLiteralsLinter {
+    if (\HHVM_VERSION_ID >= 406500) {
+      self::markTestSkipped(
+        'PHP array literals are not supported in this version',
+      );
+    }
     return NoPHPArrayLiteralsLinter::fromPath($file);
   }
 
