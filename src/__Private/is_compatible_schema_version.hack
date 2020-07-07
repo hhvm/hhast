@@ -35,6 +35,10 @@ function is_compatible_schema_version(string $other_version): bool {
     // removal of array literals
     return true;
   }
+  if ($other_version === '2020-06-30-0000') {
+    // removal of `yield from`
+    return true;
+  }
 
   return false;
 }
