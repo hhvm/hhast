@@ -3,7 +3,7 @@
 <<__EntryPoint>>
 function hsl_migration_main(): void {
   require(__DIR__.'/../../../vendor/autoload.hack');
-  Facebook\AutoloadMap\Initialize();
+  Facebook\AutoloadMap\initialize();
 
   echo "\nucwords: ".ucwords('hello world');
   echo "\nucfirst: ".ucfirst("hello");
