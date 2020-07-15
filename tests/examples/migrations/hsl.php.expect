@@ -5,7 +5,7 @@ use namespace HH\Lib\{Str, Dict, Math, C};
 <<__EntryPoint>>
 function hsl_migration_main(): void {
   require(__DIR__.'/../../../vendor/autoload.hack');
-  Facebook\AutoloadMap\Initialize();
+  Facebook\AutoloadMap\initialize();
 
   echo "\nucwords: ".Str\capitalize_words('hello world');
   echo "\nucfirst: ".Str\capitalize("hello");
