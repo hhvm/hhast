@@ -162,4 +162,21 @@ final class NodeTypesTest extends TestCase {
     $rhs = $bin_expr->getOperator();
     expect($rhs)->toBeInstanceOf(StarToken::class);
   }
+
+  public async function testOldStyleXHPClassNodes(): Awaitable<void> {
+    $code = '<?hh class :foo { children (pcdata)*; }';
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
+    list($_markup, $x) = $ast->getDeclarations()->getChildren();
+    $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
+    expect($class->getName()->getText())->toEqual(':foo');
+  }
+
+  public async function testNewStyleXHPClassNodes(): Awaitable<void> {
+    $code = '<?hh xhp class foo { };';
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
+    list($_markup, $x) = $ast->getDeclarations()->getChildren();
+    $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
+    expect($class->getName()->getText())->toEqual('foo');
+    expect($class->getXhp())->toBeInstanceOf(XHPToken::class);
+  }
 }
