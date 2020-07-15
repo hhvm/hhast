@@ -26,6 +26,7 @@ final class UnusedUseClauseLinterTest extends TestCase {
       tuple("<?hh\nuse type Foo; new Foo();"),
       tuple("<?hh\nuse type Foo; function bar(Foo \$in): void {}"),
       tuple("<?hh\nuse type Foo; function bar(): Foo {}"),
+      tuple("<?hh\nuse type foo; function bar(): void { \$_ = <foo />; }"),
       tuple("<?hh\nuse namespace Foo; Foo\bar();"),
       tuple("<?hh\nuse namespace Foo; new Foo\Bar();"),
       tuple("<?hh\nuse Foo; new Foo();"),
