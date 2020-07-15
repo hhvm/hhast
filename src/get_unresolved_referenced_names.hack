@@ -79,7 +79,7 @@ function get_unresolved_referenced_names(
     }
 
     if (
-      $node is XHPElementNameToken &&
+      ($node is XHPElementNameToken || $node is XHPOpen) &&
       \ini_get('hhvm.hack.lang.disable_xhp_element_mangling')
     ) {
       $parts = Str\split($node->getText(), ':');
