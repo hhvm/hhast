@@ -2,9 +2,10 @@
 
 use namespace HH\Lib\{Str, Dict, Math, C};
 
-require(__DIR__.'/../../../vendor/hh_autoload.php');
-
+<<__EntryPoint>>
 function hsl_migration_main(): void {
+  require(__DIR__.'/../../../vendor/autoload.hack');
+  Facebook\AutoloadMap\Initialize();
 
   echo "\nucwords: ".Str\capitalize_words('hello world');
   echo "\nucfirst: ".Str\capitalize("hello");
@@ -128,6 +129,3 @@ function hsl_migration_main(): void {
 
   echo "\ncount: " .C\count(varray[1, 2, 3]);
 }
-
-hsl_migration_main();
-
