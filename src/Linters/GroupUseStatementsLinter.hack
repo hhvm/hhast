@@ -324,7 +324,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
     if ($error) {
       return new ASTLintError(
         $this,
-        'Use statements should be groupped',
+        'Use statements should be grouped',
         $script,
         () ==> $this->getFixedNode($script, Dict\map($result, (
           $result_kind,
