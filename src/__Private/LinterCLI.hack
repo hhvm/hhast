@@ -82,10 +82,10 @@ final class LinterCLI extends CLIWithArguments {
           $dotfile,
           \HH\Lib\File\WriteMode::TRUNCATE,
         );
-        await $file->writeAsync($dot);
+        await $file->writeAllAsync($dot);
         $file->close();
         await $this->getStderr()
-          ->writeAsync(Str\format("Wrote XHProf data to %s\n", $dotfile));
+          ->writeAllAsync(Str\format("Wrote XHProf data to %s\n", $dotfile));
       }
     }
 
@@ -105,7 +105,7 @@ final class LinterCLI extends CLIWithArguments {
       $config = LintRunConfig::getForPath(\getcwd());
       $roots = $config->getRoots();
       if (C\is_empty($roots)) {
-        await $err->writeAsync(
+        await $err->writeAllAsync(
           'You must either specify PATH arguments, or provide a configuration'.
           "file.\n",
         );
@@ -118,7 +118,7 @@ final class LinterCLI extends CLIWithArguments {
           $config_file = $path.'/hhast-lint.json';
           if (\file_exists($config_file)) {
             /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-            await $err->writeAsync(
+            await $err->writeAllAsync(
               'Warning: PATH arguments contain a hhast-lint.json, '.
               'which modifies the linters used and customizes behavior. '.
               "Consider 'cd ".
@@ -150,7 +150,7 @@ final class LinterCLI extends CLIWithArguments {
       $orig = $e->getPrevious() ?? $e;
       $err = $terminal->getStderr();
       $pos = $e->getPosition();
-      await $err->writeAsync(Str\format(
+      await $err->writeAllAsync(Str\format(
         "A linter threw an exception:\n  Linter: %s\n  File: %s%s\n",
         $e->getLinterClass(),
         \realpath($e->getFileBeingLinted()),
@@ -166,15 +166,15 @@ final class LinterCLI extends CLIWithArguments {
           |> Vec\map($$, $line ==> '    > '.$line)
           |> Str\join($$, "\n")
           |> Str\format("%s\n      %s^ HERE\n", $$, Str\repeat(' ', $column))
-          |> $err->writeAsync($$)
+          |> $err->writeAllAsync($$)
         );
       }
-      await $err->writeAsync(Str\format(
+      await $err->writeAllAsync(Str\format(
         "  Exception: %s\n"."  Message: %s\n",
         \get_class($orig),
         $orig->getMessage(),
       ));
-      await $err->writeAsync(
+      await $err->writeAllAsync(
         $orig->getTraceAsString()
           |> Str\split($$, "\n")
           |> Vec\map($$, $line ==> '    '.$line)

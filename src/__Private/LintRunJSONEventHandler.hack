@@ -61,7 +61,7 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
   public async function finishedRunAsync(LintRunResult $_): Awaitable<void> {
     await $this->terminal
       ->getStdout()
-      ->writeAsync(\json_encode($this->getOutput()));
+      ->writeAllAsync(\json_encode($this->getOutput()));
   }
 
   private function getOutput(): self::TOutput {

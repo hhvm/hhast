@@ -93,7 +93,7 @@ final class Server extends LSPLib\Server<ServerState> {
       }
       await $this->terminal
         ->getStderr()
-        ->writeAsync($message);
+        ->writeAllAsync($message);
       throw $e;
     }
     return 0;
@@ -108,15 +108,15 @@ final class Server extends LSPLib\Server<ServerState> {
       async {
         while (!$this->input->isEndOfFile()) {
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-          await $verbose?->writeAsync("< [waiting]\n");
+          await $verbose?->writeAllAsync("< [waiting]\n");
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
           $body = await $this->readMessageAsync();
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-          await $verbose?->writeAsync("> [dispatch]\n");
+          await $verbose?->writeAllAsync("> [dispatch]\n");
           $poll->add(async {
-            await $verbose?->writeAsync("> [start]\n");
+            await $verbose?->writeAllAsync("> [start]\n");
             await $this->handleMessageAsync($body);
-            await $verbose?->writeAsync("> [done]\n");
+            await $verbose?->writeAllAsync("> [done]\n");
           });
         }
       },

@@ -55,7 +55,7 @@ final class CodegenCLI extends CLIBase {
     if ($rebuild_relationships) {
       $hhvm = $this->hhvmPath;
       if ($hhvm === null) {
-        await $this->getStderr()->writeAsync(
+        await $this->getStderr()->writeAllAsync(
           "--hhvm-path is required when rebuilding relationships.\n",
         );
         return 1;

@@ -29,7 +29,7 @@ final class Client extends LSPLib\Client {
       await $tail;
       await $this->terminal
         ->getStdout()
-        ->writeAsync(
+        ->writeAllAsync(
           Str\format("Content-Length: %d\r\n\r\n%s", Str\length($json), $json),
         );
     };

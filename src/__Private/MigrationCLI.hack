@@ -368,7 +368,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
       $ast = \HH\Asio\join(HHAST\from_file_async(HHAST\File::fromPath($file)));
     } catch (\Facebook\HHAST\ASTError $e) {
       /*HHAST_FIXME[DontUseAsioJoin]*/
-      \HH\Asio\join($this->getStderr()->writeAsync($e->getMessage()));
+      \HH\Asio\join($this->getStderr()->writeAllAsync($e->getMessage()));
       return;
     }
     foreach ($migrations as $migration) {
@@ -468,14 +468,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
   private async function mainImplAsync(): Awaitable<int> {
     $err = $this->getStderr();
     if (C\is_empty($this->migrations)) {
-      await $err->writeAsync("You must specify at least one migration!\n\n");
+      await $err->writeAllAsync("You must specify at least one migration!\n\n");
       $this->displayHelp($err);
       return 1;
     }
 
     $args = $this->getArguments();
     if (C\is_empty($args)) {
-      await $err->writeAsync("You must specify at least one path!\n\n");
+      await $err->writeAllAsync("You must specify at least one path!\n\n");
       $this->displayHelp($err);
       return 1;
     }
@@ -488,7 +488,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         \version_compare(\HHVM_VERSION, $min_version, '<')
       ) {
         /* HHAST_IGNORE_ERROR[DontAwaitInALoop] we quit after doing this once */
-        await $err->writeAsync(Str\format(
+        await $err->writeAllAsync(Str\format(
           "Migration %s requires HHVM version %s or newer.\n",
           $migration,
           $min_version,
@@ -501,7 +501,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
       foreach ($config_options as $option => $value) {
         if ($all_config_options[$option] !== $value) {
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] same as above */
-          await $err->writeAsync(Str\format(
+          await $err->writeAllAsync(Str\format(
             'Migration %s requires .hhconfig option %s=%s which conflicts '.
             "with another migration.\n",
             $migration,
@@ -544,7 +544,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         }
 
         /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
-        await $err->writeAsync(
+        await $err->writeAllAsync(
           Str\format("Don't know how to process path: %s\n", $path),
         );
         return 1;

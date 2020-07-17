@@ -49,13 +49,13 @@ final class InspectorCLI extends CLIWithRequiredArguments {
   public async function mainAsync(): Awaitable<int> {
     $err = $this->getStderr();
     if (C\count($this->getArguments()) !== 1) {
-      await $err->writeAsync("Provide exactly one file name\n");
+      await $err->writeAllAsync("Provide exactly one file name\n");
       return 1;
     }
 
     $input = C\onlyx($this->getArguments());
     if (!\is_file($input)) {
-      await $err->writeAsync("Provided path is not a file.\n");
+      await $err->writeAllAsync("Provided path is not a file.\n");
       return 1;
     }
 
@@ -78,7 +78,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
 
     if ($this->open) {
       if (!self::openFileInBrowser($output)) {
-        await $err->writeAsync("We failed to open your browser.\n");
+        await $err->writeAllAsync("We failed to open your browser.\n");
       }
     }
 

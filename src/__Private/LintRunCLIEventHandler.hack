@@ -64,7 +64,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       await $this->terminal
         ->getStdout()
-        ->writeAsync(Str\format(
+        ->writeAllAsync(Str\format(
           "%s%s%s\n"."  %sLinter: %s%s\n"."  Location: %s\n",
           $colors ? "\e[1;31m" : '',
           $error->getDescription(),
@@ -119,7 +119,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     LintRunResult $result,
   ): Awaitable<void> {
     if ($result === LintRunResult::NO_ERRORS) {
-      await $this->terminal->getStdout()->writeAsync("No errors.\n");
+      await $this->terminal->getStdout()->writeAllAsync("No errors.\n");
     }
   }
 
@@ -153,11 +153,11 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     if ($this->terminal->supportsColors()) {
       await $this->terminal
         ->getStdout()
-        ->writeAsync(CLIColoredUnifiedDiff::create($old, $new));
+        ->writeAllAsync(CLIColoredUnifiedDiff::create($old, $new));
     } else {
       await $this->terminal
         ->getStdout()
-        ->writeAsync(StringDiff::lines($old, $new)->getUnifiedDiff());
+        ->writeAllAsync(StringDiff::lines($old, $new)->getUnifiedDiff());
     }
 
     if (!$this->terminal->isInteractive()) {
@@ -169,7 +169,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       $should_fix = $this->userResponseCache[$cache_key];
       await $this->terminal
         ->getStdout()
-        ->writeAsync(Str\format(
+        ->writeAllAsync(Str\format(
           "Would you like to apply this fix?\n  <%s to all>\n",
           $should_fix ? 'yes' : 'no',
         ));
@@ -181,7 +181,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       await $this->terminal
         ->getStdout()
-        ->writeAsync(
+        ->writeAllAsync(
           "\e[94mWould you like to apply this fix?\e[0m\n".
           "  \e[37m[y]es/[n]o/yes to [a]ll/n[o] to all:\e[0m ",
         );
@@ -204,7 +204,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
           await $this->terminal
             ->getStderr()
-            ->writeAsync(
+            ->writeAllAsync(
               Str\format("'%s' is not a valid response.\n", $response),
             );
           $response = null;
@@ -224,7 +224,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     $colors = $this->terminal->supportsColors();
     await $this->terminal
       ->getStdout()
-      ->writeAsync(Str\format(
+      ->writeAllAsync(Str\format(
         "  Code:\n%s%s%s\n",
         $colors ? "\e[33m" : '',
         Str\split($blame, "\n")
