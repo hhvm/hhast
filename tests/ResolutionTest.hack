@@ -167,8 +167,8 @@ final class ResolutionTest extends TestCase {
     );
   }
 
-  public function getTypeResolutionExamples(): array<(string, string, string)> {
-    return varray[
+  public function getTypeResolutionExamples(): vec<(string, string, string)> {
+    return vec[
       tuple('<?hh class Target {}', 'Foo', 'Foo'),
       tuple('<?hh use Foo\\Bar; class Target {}', 'Bar', 'Foo\\Bar'),
       tuple('<?hh use Foo as Bar; class Target {}', 'Bar', 'Foo'),
