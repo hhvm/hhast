@@ -1,0 +1,39 @@
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
+
+function foo(
+  varray_or_darray<int> $a,
+  varray_or_darray<string, bool> $b,
+  varray_or_darray<float> $already_soft,
+  <<Foo, >> varray_or_darray<int> $foo,
+  <<Foo, Bar, >> varray_or_darray<int> $foo_bar,
+  <<
+    Foo,
+  >> varray_or_darray<int> $foo2,
+  <<
+    Foo,
+    Bar,
+  >> varray_or_darray<int> $foo_bar2,
+  <<
+    Foo,
+    Bar,
+  >> varray_or_darray<int> $foo_bar3,
+  /* 1 */ varray_or_darray<bool> /* 2 */ $x, // 3
+  /* 1 */  /* 2 */ varray_or_darray<bool> /* 3 */ $y, // 4
+  /* 1 */ << /* 2 */ Foo, /* 3 */ Bar, /* 4 */ >> /* 5 */ varray_or_darray<int> $z, // 5
+  /* 1 */ << // 2
+    /* 3 */ Foo, // 4
+    /* 5 */ Bar, // 6
+  /* 7 */ >> // 8
+  /* 9 */ varray_or_darray<int, varray_or_darray<varray_or_darray<string, bool>>> /* 10 */ $analbumcover, // 11
+): varray_or_darray<string, varray_or_darray<bool>> {
+  return darray[];
+}
+
+function untyped($foo) {}

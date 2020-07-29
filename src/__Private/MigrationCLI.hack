@@ -284,6 +284,38 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          $this->migrations[] = HHAST\PHPArrayTypehintsMigrationSoft::class;
+        },
+        'Migrate array typehints to <<__Soft>> varray_or_darray (safe)',
+        '--php-array-typehints-soft',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = HHAST\PHPArrayTypehintsMigrationHard::class;
+        },
+        'Migrate array typehints to varray_or_darray (safe only in HHVM 4.68+)',
+        '--php-array-typehints-hard',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] =
+            HHAST\HardenVarrayOrDarrayTypehintsMigration::class;
+        },
+        'Remove <<__Soft>> from varray_or_darray typehints (recommended after '.
+        'migrating to HHVM 4.68+)',
+        '--harden-varray-or-darray-typehints',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] =
+            HHAST\PHPArrayTypehintsMigrationBestGuess::class;
+        },
+        'Migrate array typehints to <<__Soft>> varray or <<__Soft>> darray '.
+        '(likely to cause runtime warnings)',
+        '--php-array-typehints-best-guess',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->migrations[] = AddXHPChildrenDeclarationMethodMigration::class;
         },
         'Add getChildrenDeclaration() method to XHP classes with a children declaration',
