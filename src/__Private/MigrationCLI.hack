@@ -270,6 +270,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          $this->migrations[] = HHAST\TopLevelCodeMigration::class;
+        },
+        'Migrate all top-level statements to <<__EntryPoint>> functions '.
+        '(RISKY! manual review and testing required)',
+        '--top-level-code',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->migrations[] = AddFixmesMigration::class;
         },
         'Add /* HH_FIXME[] */ comments where needed',
