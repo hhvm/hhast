@@ -1,0 +1,93 @@
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the 'hack' directory of this source tree.
+ *
+ */
+
+function zero_to_one(): void {}
+function zero_to_two(): void {}
+function one_to_two(int $a): void {}
+function one_to_three(int $a): void {}
+function two_to_three(int $a, int $b): void {}
+function two_to_four(int $a, int $b): void {}
+
+function multiline_zero_to_one(
+): void {}
+function multiline_zero_to_two(
+): void {}
+function multiline_one_to_two(
+  int $a,
+): void {}
+function multiline_one_to_three(
+  int $a,
+): void {}
+function multiline_two_to_three(
+  int $a,
+  int $b,
+): void {}
+function multiline_two_to_four(
+  int $a,
+  int $b,
+): void {}
+
+function no_trailing_comma_one(
+  int $a
+): void {}
+function no_trailing_comma_two(
+  int $a,
+  int $b
+): void {}
+
+function with_comments1(/* a */ int $a, /* b */ int $b): void {}
+function with_comments2(/* a */ int $a, /* b */ int $b /* c */): void {}
+function with_comments3(/* a */ int $a, /* b */ int $b, /* c */): void {}
+function with_comments4(
+  // a
+  int $a,
+  // b
+  int $b,
+  // c
+): void {}
+function with_comments5(
+  // a
+  int $a,
+  // b
+  int $b
+  // c
+): void {}
+function with_comments6(
+  // a
+  int $a,
+  // b
+  /* foo */ int $b /* bar */
+  // c
+): void {}
+function with_comments7(
+  int $a, // a
+  int $b, // b
+): void {}
+function with_comments8(
+  int $a, // a
+  int $b // b
+): void {}
+function with_comments9(/* a */ int $a): void {}
+function with_comments10(/* a */ int $a /* b */): void {}
+function with_comments11(
+  int $a // a
+): void {}
+function with_comments12(
+  int $a, // a
+): void {}
+function with_comments13(
+  // a
+  int $a
+  // b
+): void {}
+function with_comments14(
+  // a
+  /* foo */ int $a, /* bar */
+  // b
+): void {}

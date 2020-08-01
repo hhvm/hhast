@@ -1,0 +1,121 @@
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the 'hack' directory of this source tree.
+ *
+ */
+
+function zero_to_one(int $foo): void {}
+function zero_to_two(int $foo, int $bar): void {}
+function one_to_two(int $a, int $foo): void {}
+function one_to_three(int $a, int $foo, int $bar): void {}
+function two_to_three(int $a, int $b, int $foo): void {}
+function two_to_four(int $a, int $b, int $foo, int $bar): void {}
+
+function multiline_zero_to_one(
+int $foo): void {}
+function multiline_zero_to_two(
+int $foo, int $bar): void {}
+function multiline_one_to_two(
+  int $a,
+  int $foo,
+): void {}
+function multiline_one_to_three(
+  int $a,
+  int $foo,
+  int $bar,
+): void {}
+function multiline_two_to_three(
+  int $a,
+  int $b,
+  int $foo,
+): void {}
+function multiline_two_to_four(
+  int $a,
+  int $b,
+  int $foo,
+  int $bar,
+): void {}
+
+function no_trailing_comma_one(
+  int $a,
+  int $foo,
+  int $bar
+): void {}
+function no_trailing_comma_two(
+  int $a,
+  int $b,
+  int $foo,
+  int $bar
+): void {}
+
+function with_comments1(/* a */ int $a, /* b */ int $b, int $foo, int $bar): void {}
+function with_comments2(/* a */ int $a, /* b */ int $b, /* c */ int $foo, int $bar): void {}
+function with_comments3(/* a */ int $a, /* b */ int $b, /* c */ int $foo, int $bar,): void {}
+function with_comments4(
+  // a
+  int $a,
+  // b
+  int $b,
+  int $foo,
+  int $bar,
+  // c
+): void {}
+function with_comments5(
+  // a
+  int $a,
+  // b
+  int $b,
+  int $foo,
+  int $bar
+  // c
+): void {}
+function with_comments6(
+  // a
+  int $a,
+  // b
+  /* foo */ int $b, /* bar */
+  int $foo,
+  int $bar
+  // c
+): void {}
+function with_comments7(
+  int $a, // a
+  int $b, // b
+  int $foo,
+  int $bar,
+): void {}
+function with_comments8(
+  int $a, // a
+  int $b, // b
+  int $foo,
+  int $bar
+): void {}
+function with_comments9(/* a */ int $a, int $foo, int $bar): void {}
+function with_comments10(/* a */ int $a, /* b */ int $foo, int $bar): void {}
+function with_comments11(
+  int $a, // a
+  int $foo,
+  int $bar
+): void {}
+function with_comments12(
+  int $a, // a
+  int $foo,
+  int $bar,
+): void {}
+function with_comments13(
+  // a
+  int $a,
+  int $foo,
+  int $bar
+  // b
+): void {}
+function with_comments14(
+  // a
+  /* foo */ int $a, /* bar */
+  int $foo,
+  int $bar,
+  // b
+): void {}

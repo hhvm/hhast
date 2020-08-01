@@ -77,11 +77,11 @@ function prepend_statements(
 
   // Put an autodetected (via whitespace_from_nodelist) amount of whitespace
   // between each pair of statements.
-  $whitespace = whitespace_from_nodelist($root, $parent_block);
+  $whitespace_between = whitespace_from_nodelist($parent_block);
   foreach ($new as $idx => $statement) {
     $new[$idx] = $statement->replace(
       $statement->getLastTokenx(),
-      $statement->getLastTokenx()->withTrailing($whitespace['between']),
+      $statement->getLastTokenx()->withTrailing($whitespace_between),
     );
   }
 

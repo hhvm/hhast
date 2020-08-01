@@ -70,7 +70,7 @@ For more complicated scenarios (not replacing a single node with a single new
 node), you may need to manually implement an appropriate way to handle all the
 trivia, but there are some helper functions for common operations:
 
-- [`add_arguments()`](https://github.com/hhvm/hhast/blob/master/src/Migrations/add_arguments.hack#L15)
+- [`append_to_nodelist()`](https://github.com/hhvm/hhast/blob/master/src/Migrations/append_to_nodelist.hack#L15)
 - [`prepend_statements()`](https://github.com/hhvm/hhast/blob/master/src/Migrations/prepend_statements.hack#L15)
 - [`whitespace_from_nodelist()`](https://github.com/hhvm/hhast/blob/master/src/__Private/whitespace_from_nodelist.hack#L15)
   is completely general (it can help with adding nodes to any `NodeList`) but
