@@ -17,16 +17,22 @@ final class HardenVarrayOrDarrayTypehintsMigration extends StepBasedMigration {
   public function getSteps(): Traversable<IMigrationStep> {
     return vec[
       new TypedMigrationStep(
-        'Migrate varray_or_array parameters',
+        'Migrate varray_or_darray parameters',
         ParameterDeclaration::class,
         ParameterDeclaration::class,
         $node ==> self::migrateParameter($node),
       ),
       new TypedMigrationStep(
-        'Migrate varray_or_array return types',
+        'Migrate varray_or_darray return types',
         FunctionDeclarationHeader::class,
         FunctionDeclarationHeader::class,
         $node ==> $node->withType(self::migrateReturnType($node->getType())),
+      ),
+      new TypedMigrationStep(
+        'Migrate varray_or_darray return types in lambda functions',
+        LambdaSignature::class,
+        LambdaSignature::class,
+        $node ==> $node->withType(static::migrateReturnType($node->getType())),
       ),
     ];
   }

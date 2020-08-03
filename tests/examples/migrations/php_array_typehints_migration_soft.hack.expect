@@ -41,6 +41,13 @@ function foo(
   /* 7 */ >> // 8
   /* 9 */ varray_or_darray<int, varray_or_darray<varray_or_darray<string, bool>>> /* 10 */ $analbumcover, // 11
 ): <<__Soft>> varray_or_darray<string, varray_or_darray<bool>> {
+  $lambda =
+    (<<__Soft>> varray_or_darray<int> $a, <<__Soft>> varray_or_darray<string, bool> $b): <<__Soft>> varray_or_darray<float> ==>
+    varray[42.0];
+  $soft_lambda = (): <<__Soft>> varray_or_darray<int> ==> {
+    echo 'hi';
+    return varray[1, 1, 2, 3, 5, 8, 14];
+  };
   return darray[];
 }
 

@@ -26,6 +26,12 @@ abstract class PHPArrayTypehintsMigrationBase extends StepBasedMigration {
         FunctionDeclarationHeader::class,
         $node ==> $node->withType(static::migrateReturnType($node->getType())),
       ),
+      new TypedMigrationStep(
+        'Migrate array return types in lambda functions',
+        LambdaSignature::class,
+        LambdaSignature::class,
+        $node ==> $node->withType(static::migrateReturnType($node->getType())),
+      ),
     ];
   }
 
