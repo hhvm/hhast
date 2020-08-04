@@ -1,0 +1,22 @@
+[
+    {
+        "blame": "use namespace Example\\{ns1, ns2, ns3};\n",
+        "blame_pretty": "use namespace Example\\{ns1, ns2, ns3};\n",
+        "description": "`ns2` is not used"
+    },
+    {
+        "blame": "use namespace Example2\\ns4;\n",
+        "blame_pretty": "use namespace Example2\\ns4;\n",
+        "description": "`ns4` is not used"
+    },
+    {
+        "blame": "\nuse type Example\\{tag1, tag2, tag3};\n",
+        "blame_pretty": "\nuse type Example\\{tag1, tag2, tag3};\n",
+        "description": "`tag1`, `tag3` are not used"
+    },
+    {
+        "blame": "use type Example2\\tag4;\n",
+        "blame_pretty": "use type Example2\\tag4;\n",
+        "description": "`tag4` is not used"
+    }
+]

@@ -1,0 +1,11 @@
+use namespace Example\{ns1, ns2, ns3};
+use namespace Example2\ns4;
+
+use type Example\{tag1, tag2, tag3};
+use type Example2\tag4;
+
+function xhp_examples(): void {
+  <ns1:foo:bar />;
+  <tag2 />;
+  <ns3:foo>analbumcover</ns3:foo>;
+}
