@@ -20,6 +20,35 @@ use type Facebook\HHAST\{
 };
 use type Facebook\HHAST\__Private\LintRunConfig;
 
+abstract class EmptyBaseLinter extends BaseLinter {
+  <<__Override>>
+  final public async function getLintErrorsAsync(): Awaitable<vec<LintError>> {
+    return vec[];
+  }
+  final public function getConfigPublic(): ?this::TConfig {
+    return $this->getConfig();
+  }
+}
+
+final class ValidConfigForLinter extends EmptyBaseLinter {
+  const type TConfig = shape(
+    'the answer' => int,
+    'a structure' => shape('with keys' => vec<vec<string>>),
+  );
+}
+
+final class InvalidConfigForLinter extends EmptyBaseLinter {
+  const type TConfig = shape(
+    'i should have only one key' => null,
+  );
+}
+
+final class ConfigNotSuppliedLinter extends EmptyBaseLinter {
+  const type TConfig = shape(
+    'configs are optional' => null,
+  );
+}
+
 final class ConfigTypeIsNotSupportedByTypeAssertLinter extends EmptyBaseLinter {
   // TypeAssert doesn't support vec<nothing>
   // If it does in the future, please update this test to a different
@@ -105,34 +134,4 @@ final class LinterConfigTest extends HackTest {
       'specified an unsupported config type',
     );
   }
-}
-
-
-abstract class EmptyBaseLinter extends BaseLinter {
-  <<__Override>>
-  final public async function getLintErrorsAsync(): Awaitable<vec<LintError>> {
-    return vec[];
-  }
-  final public function getConfigPublic(): ?this::TConfig {
-    return $this->getConfig();
-  }
-}
-
-final class ValidConfigForLinter extends EmptyBaseLinter {
-  const type TConfig = shape(
-    'the answer' => int,
-    'a structure' => shape('with keys' => vec<vec<string>>),
-  );
-}
-
-final class InvalidConfigForLinter extends EmptyBaseLinter {
-  const type TConfig = shape(
-    'i should have only one key' => null,
-  );
-}
-
-final class ConfigNotSuppliedLinter extends EmptyBaseLinter {
-  const type TConfig = shape(
-    'configs are optional' => null,
-  );
 }
