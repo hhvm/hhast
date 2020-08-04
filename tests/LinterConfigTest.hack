@@ -10,8 +10,7 @@
 
 namespace Facebook\HHAST\Tests;
 
-use namespace HH\Lib\Vec;
-use type Facebook\HackTest\{DataProvider, HackTest};
+use type Facebook\HackTest\HackTest;
 use function Facebook\FBExpect\expect;
 use type Facebook\HHAST\{
   BaseLinter,
@@ -41,11 +40,11 @@ final class LinterConfigTest extends HackTest {
 
     expect($config)->toNotBeNull('Config could not be fetched');
     expect($config)->toEqual(shape(
-      "the answer" => 42,
-      "a structure" => shape(
-        "with keys" => vec[
+      'the answer' => 42,
+      'a structure' => shape(
+        'with keys' => vec[
           vec[
-            "and lists of lists",
+            'and lists of lists',
           ],
         ],
       ),
@@ -58,7 +57,7 @@ final class LinterConfigTest extends HackTest {
       () ==> $lrc->getLinterConfigForLinter<InvalidConfigForLinter, _>(
         InvalidConfigForLinter::class,
       ),
-    )->toThrow(\Exception::class, "is not of the correct type");
+    )->toThrow(\Exception::class, 'is not of the correct type');
   }
 
   public function testLinterWithoutATConfigAndNoConfigSupplied(): void {
@@ -121,19 +120,19 @@ abstract class EmptyBaseLinter extends BaseLinter {
 
 final class ValidConfigForLinter extends EmptyBaseLinter {
   const type TConfig = shape(
-    "the answer" => int,
-    "a structure" => shape("with keys" => vec<vec<string>>),
+    'the answer' => int,
+    'a structure' => shape('with keys' => vec<vec<string>>),
   );
 }
 
 final class InvalidConfigForLinter extends EmptyBaseLinter {
   const type TConfig = shape(
-    "i should have only one key" => null,
+    'i should have only one key' => null,
   );
 }
 
 final class ConfigNotSuppliedLinter extends EmptyBaseLinter {
   const type TConfig = shape(
-    "configs are optional" => null,
+    'configs are optional' => null,
   );
 }
