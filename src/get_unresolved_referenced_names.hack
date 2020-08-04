@@ -77,6 +77,18 @@ function get_unresolved_referenced_names(
         $ret['types'][] = $name->getText();
       }
     }
+
+    if (
+      $node is XHPElementNameToken &&
+      \ini_get('hhvm.hack.lang.disable_xhp_element_mangling')
+    ) {
+      $parts = Str\split($node->getText(), ':');
+      if (C\count($parts) === 1) {
+        $ret['types'][] = C\onlyx($parts);
+      } else {
+        $ret['namespaces'][] = C\firstx($parts);
+      }
+    }
   }
 
   return $ret;
