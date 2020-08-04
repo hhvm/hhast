@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\C;
+use namespace HH\Lib\{C, Str};
 
 /** Given a tree, provide a list of names that are referenced by the code.
  *
@@ -75,6 +75,18 @@ function get_unresolved_referenced_names(
       $name = $node->getType() ?as NameToken;
       if ($name !== null) {
         $ret['types'][] = $name->getText();
+      }
+    }
+
+    if (
+      $node is XHPElementNameToken &&
+      \ini_get('hhvm.hack.lang.disable_xhp_element_mangling')
+    ) {
+      $parts = Str\split($node->getText(), ':');
+      if (C\count($parts) === 1) {
+        $ret['types'][] = C\onlyx($parts);
+      } else {
+        $ret['namespaces'][] = C\firstx($parts);
       }
     }
   }
