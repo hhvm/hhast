@@ -51,6 +51,9 @@ final class LintRunConfig {
         ?'disableAllLinters' => bool,
       )
     >,
+    // Each linter may specify a type for itself.
+    // The type of this key if effectively `dict<classname<T1 ... Tn>, Tx>`
+    ?'linterConfigs' => dict<string, mixed>,
   );
 
   const type TFileConfig = shape(
@@ -240,6 +243,37 @@ final class LintRunConfig {
       'linters' => $linters,
       'autoFixBlacklist' => $autofix_blacklist,
     );
+  }
+
+  <<__Memoize>>
+  public function getLinterConfigForLinter<TLinter as BaseLinter, TConfig>(
+    classname<TLinter> $classname,
+  ): ?TConfig where TConfig = TLinter::TConfig {
+    $config = idx(Shapes::idx($this->configFile, 'linterConfigs'), $classname);
+
+    if ($config is null) {
+      // Test for TypeAssert unsupported types, even when no config is supplied.
+      // This makes it impossible to accidentally ship a linter with a TypeAssert
+      // type that is not supported (if never tested with a config).
+      try {
+        $classname::typeAssertConfig(null);
+      } catch (TypeAssert\IncorrectTypeException $_) {
+      }
+      return null;
+    }
+
+    try {
+      return $classname::typeAssertConfig($config);
+    } catch (TypeAssert\IncorrectTypeException $e) {
+      throw new \Exception(
+        Str\format(
+          'Configuration for %s is not of the correct type. See previous exception:',
+          $classname,
+        ),
+        $e->getCode(),
+        $e,
+      );
+    }
   }
 
   private function getFullyQualifiedLinterName(string $name): string {

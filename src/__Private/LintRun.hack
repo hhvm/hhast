@@ -68,15 +68,16 @@ final class LintRun {
     LintRunConfig $config,
     File $file,
   ): Awaitable<LintRunResult> {
-    $config = $config->getConfigForFile($file->getPath());
+    $file_config = $config->getConfigForFile($file->getPath());
     $result = new Ref(LintRunResult::NO_ERRORS);
 
-    await Vec\map_async($config['linters'], async $class ==> {
+    await Vec\map_async($file_config['linters'], async $class ==> {
       try {
         $this_result = await $this->runLinterOnFileImplAsync(
-          $config,
+          $file_config,
           $class,
           $file,
+          $config->getLinterConfigForLinter($class),
         );
         $result->v = self::worstResult($result->v, $this_result);
       } catch (LinterException $e) {
@@ -95,16 +96,21 @@ final class LintRun {
     return $result->v;
   }
 
-  private async function runLinterOnFileImplAsync(
+  private async function runLinterOnFileImplAsync<
+    TLinter as BaseLinter,
+    TLinterConfig,
+  >(
     LintRunConfig::TFileConfig $config,
-    classname<BaseLinter> $linter,
+    classname<TLinter> $linter,
     File $file,
-  ): Awaitable<LintRunResult> {
+    ?TLinterConfig $linter_config,
+  ): Awaitable<LintRunResult> where TLinterConfig = TLinter::TConfig {
     if (!$file->isHackFile() || !$linter::shouldLintFile($file)) {
       return LintRunResult::NO_ERRORS;
     }
 
     $linter = new $linter($file);
+    $linter->setConfig($linter_config);
 
     if ($linter->isLinterSuppressedForFile()) {
       return LintRunResult::NO_ERRORS;
