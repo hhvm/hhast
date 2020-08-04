@@ -1,0 +1,12 @@
+[
+    {
+        "blame": "function CRLF(): string {\r",
+        "blame_pretty": "function CRLF(): string {\r",
+        "description": "Expected just a \\n, got \\r\\n"
+    },
+    {
+        "blame": "  return \"WINDOWS style\";\r",
+        "blame_pretty": "  return \"WINDOWS style\";\r",
+        "description": "Expected just a \\n, got \\r\\n"
+    }
+]
