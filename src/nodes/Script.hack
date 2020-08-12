@@ -66,7 +66,9 @@ final class Script extends ScriptGeneratedBase {
       $namespace = $all_declarations[$idx];
       $idx++;
       if (!$namespace is NamespaceDeclaration) {
-        $global_declarations[] = $namespace;
+        if (!$namespace is EndOfFile) {
+          $global_declarations[] = $namespace;
+        }
         continue;
       }
 
@@ -100,10 +102,12 @@ final class Script extends ScriptGeneratedBase {
     $global_nodelist = NodeList::createMaybeEmptyList($global_declarations);
 
     // Add-in the global namespace.
-    $namespaces[] = shape(
-      'name' => null,
-      'children' => $global_nodelist,
-    );
+    if (!$global_nodelist->isEmpty()) {
+      $namespaces[] = shape(
+        'name' => null,
+        'children' => $global_nodelist,
+      );
+    }
 
     // Normalize name and calculate `use`s for each namespace.
 

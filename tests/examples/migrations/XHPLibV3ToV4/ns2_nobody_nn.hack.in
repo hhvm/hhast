@@ -1,0 +1,5 @@
+namespace Foo;
+function foo(\XHPRoot $node): void {}
+
+namespace Bar;
+function foo(\XHPUnsafeRenderable $ur) {}

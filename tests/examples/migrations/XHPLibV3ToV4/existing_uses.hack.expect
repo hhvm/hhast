@@ -1,0 +1,36 @@
+use namespace Facebook\XHP\{Core, HTML as h};
+use namespace Facebook\XHP\ChildValidation as not;
+
+// These are actually ignored, we always migrate to NS\Name:
+use type Facebook\XHP\{ChildValidation\Validation, UnsafeRenderable as Safe};
+use type Facebook\XHP\HTML\div as script;  // XSS protection
+
+// We'll add a conflicting `use type`, which will need to be resolved manually.
+use type Blue\Red as br;
+use namespace Facebook\XHP;
+use type Facebook\XHP\HTML\br;
+
+function foo(
+  Core\node $node,
+  Core\element $element,
+  XHP\UnsafeRenderable $ur,
+  XHP\AlwaysValidChild $awc,
+  h\br $br,
+  h\div $div,
+): void {
+  $classname = Core\node::class;
+  $children = h\div::__xhpReflectionChildrenDeclaration();
+  $xhp = <div>Hello<br />world!</div>;
+}
+
+class :my_element extends Core\element {
+  use not\Validation;
+
+  protected static function getChildrenDeclaration(): not\Constraint {
+    return not\of_type<h\div>();
+  }
+
+  protected async function renderAsync(): Awaitable<h\div> {
+    return <div>hi</div>;
+  }
+}
