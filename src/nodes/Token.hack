@@ -106,9 +106,9 @@ abstract class Token extends Node {
       $this->getTrailing()->getCode();
   }
 
-  public abstract function withLeading(?NodeList<Trivia> $leading): Token;
+  public abstract function withLeading(?NodeList<Trivia> $leading): this;
 
-  public abstract function withTrailing(?NodeList<Trivia> $trailing): Token;
+  public abstract function withTrailing(?NodeList<Trivia> $trailing): this;
 
   <<__Override>>
   final public static function fromJSON(

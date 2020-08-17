@@ -344,6 +344,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          $this->migrations[] = HHAST\XHPLibV3ToV4Migration::class;
+        },
+        'Migrate class/function names changed in xhp-lib v4, add necessary '.
+        '`use` clauses (incl. HTML tags)',
+        '--xhp-lib-v3-to-v4',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->migrations[] = Fixme4110Migration::class;
         },
         'Migrate /* HH_FIXME[4110] */ to the equivalent new error codes',

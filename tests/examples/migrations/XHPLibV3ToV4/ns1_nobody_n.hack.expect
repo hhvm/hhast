@@ -1,0 +1,4 @@
+namespace Foo;
+use namespace Facebook\XHP\Core as x;
+
+function foo(x\node $node): void {}

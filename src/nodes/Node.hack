@@ -209,10 +209,29 @@ abstract class Node implements IMemoizeParam {
   }
 
   public function getLastToken(): ?Token {
-    foreach (Vec\reverse($this->getChildren()) as $child) {
-      return $child->getLastToken();
-    }
-    return null;
+    return C\last($this->getChildren())?->getLastToken();
+  }
+
+  final public function withFirstTokenLeading(
+    ?NodeList<Trivia> $leading,
+  ): this {
+    return $this is Token
+      ? $this->withLeading($leading)
+      : $this->replaceDescendant(
+          $this->getFirstTokenx(),
+          $this->getFirstTokenx()->withLeading($leading),
+        );
+  }
+
+  final public function withLastTokenTrailing(
+    ?NodeList<Trivia> $trailing,
+  ): this {
+    return $this is Token
+      ? $this->withTrailing($trailing)
+      : $this->replaceDescendant(
+          $this->getLastTokenx(),
+          $this->getLastTokenx()->withTrailing($trailing),
+        );
   }
 
   final public function rewriteDescendants<Tret as ?Node>(
