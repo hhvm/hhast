@@ -70,11 +70,6 @@
         "description": "This statement includes an expression that has no effect"
     },
     {
-        "blame": "  array(1, 2, 3);\n",
-        "blame_pretty": "  array(1, 2, 3);\n",
-        "description": "This statement includes an expression that has no effect"
-    },
-    {
         "blame": "  vec[1, 2, 3];\n",
         "blame_pretty": "  vec[1, 2, 3];\n",
         "description": "This statement includes an expression that has no effect"

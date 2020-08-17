@@ -32,7 +32,6 @@ function empty_exprs($a, $b, $dict, $key): void {
   $a.$b;
   $a && $b;
   $dict[$key];
-  array(1, 2, 3);
   vec[1, 2, 3];
   dict['a' => 1, 'b' => 2];
   keyset[1, 2, 3];
