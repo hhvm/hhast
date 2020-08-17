@@ -27,8 +27,6 @@ final class LicenseHeaderLinterTest extends TestCase {
       tuple("<?hh\n".$header),
       tuple("<?hh // strict\n".$header),
       tuple("<?hh // partial\n".$header),
-      tuple("<?php\n".$header),
-      tuple("<?php\n".$header."\nfoo();\n"),
       // .hack
       tuple($header),
       tuple(

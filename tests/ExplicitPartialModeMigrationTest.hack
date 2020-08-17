@@ -20,7 +20,6 @@ final class ExplicitPartialModeMigrationTest extends MigrationTest {
       tuple('migrations/ExplicitPartialMode/eof.php'),
       tuple('migrations/ExplicitPartialMode/none.hack'),
       tuple('migrations/ExplicitPartialMode/missing.php'),
-      tuple('migrations/ExplicitPartialMode/php.php'),
       tuple('migrations/ExplicitPartialMode/extra_comments.php'),
     ];
   }

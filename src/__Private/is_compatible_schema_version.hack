@@ -29,16 +29,15 @@ function is_compatible_schema_version(string $other_version): bool {
     return true;
   }
 
-  // Return true if $other_superset is a superset of SCHEMA_VERSION
+  // Return true if $other_version is a subset of SCHEMA_VERSION
 
-  if ($other_version === '2020-06-23-0001') {
-    // removal of array literals
-    return true;
+  switch ($other_version) {
+    case '2020-06-23-0001': // removal of [...] array literals
+    case '2020-06-30-0000': // removal of `yield from`
+    case '2020-08-13-0000': // removal of array(...) literals
+    case '2020-08-14-0000': // removal of `coroutine` token
+      return true;
+    default:
+      return false;
   }
-  if ($other_version === '2020-06-30-0000') {
-    // removal of `yield from`
-    return true;
-  }
-
-  return false;
 }

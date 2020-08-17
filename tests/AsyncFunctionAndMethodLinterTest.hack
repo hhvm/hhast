@@ -37,7 +37,7 @@ final class AsyncFunctionAndMethodLinterTest extends TestCase {
       tuple('<?hh function foo_bar_async_UNTYPED(): Awaitable<int> {}'),
       tuple('<?hh function foo_bar_DEPRECATED(): void {}'),
       tuple(
-        '<?php class Foo { function defaultVisibilityIsPublic(): string {} }',
+        '<?hh class Foo { function defaultVisibilityIsPublic(): string {} }',
       ),
       // functions that start with 'test':
       tuple(

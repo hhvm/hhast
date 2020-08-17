@@ -16,6 +16,10 @@ final class PHPArrayLiteralsMigrationTest extends StepBasedMigrationTest {
 
   <<__Override>>
   public function getExamples(): vec<(string)> {
+    if (\HHVM_VERSION_ID >= 407000) {
+      // 4.70 was skipped but this condition also needs to cover 4.70-dev
+      self::markTestSkipped('Array literals were removed in HHVM 4.71');
+    }
     $examples = \glob(__DIR__.'/examples/migrations/PHPArrayLiterals/*.hack.in')
       |> Vec\map(
         $$,
