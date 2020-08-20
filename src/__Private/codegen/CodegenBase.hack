@@ -164,16 +164,12 @@ abstract class CodegenBase {
         HHAST\IParameter::class,
         HHAST\PropertyDeclaration::class,
       ],
-      HHAST\IPHPArray::class => keyset[
-        HHAST\ArrayIntrinsicExpression::class,
-      ],
       HHAST\IHackArray::class => keyset[
         HHAST\DictionaryIntrinsicExpression::class,
         HHAST\KeysetIntrinsicExpression::class,
         HHAST\VectorIntrinsicExpression::class,
       ],
       HHAST\IContainer::class => keyset[
-        HHAST\IPHPArray::class,
         HHAST\IHackArray::class,
         HHAST\DarrayIntrinsicExpression::class,
         HHAST\VarrayIntrinsicExpression::class,

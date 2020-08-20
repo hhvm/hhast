@@ -24,7 +24,6 @@ use type Facebook\HHAST\{
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
-  PHPArrayLiteralsMigration,
   RemoveXHPChildDeclarationsMigration,
   TopLevelRequiresMigration,
   XHPClassModifierMigration,
@@ -79,16 +78,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Convert PHP standard library calls to HSL',
         '--hsl',
       ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST 4.11.* or below for this migration',
-          );
-        },
-        'no longer supported',
-        '--assert-to-expect',
-      ),
+      self::removed('--assert-to-expect', '4.11.* or below'),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = ImplicitShapeSubtypesMigration::class;
@@ -118,56 +108,11 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Apply all migrations for moving from 3.22 to 3.23',
         '--hhvm-3.22-to-3.23',
       ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST 4.8.* or below for this migration',
-          );
-        },
-        'no longer supported',
-        '--ctpbr',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST 4.8.* or below for this migration',
-          );
-        },
-        'Apply all migrations for moving from 3.23 to 3.24',
-        '--hhvm-3.23-to-3.24',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST 4.2.* or below for this migration',
-          );
-        },
-        'no longer supported',
-        '--hhvm-4.2-to-4.3',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST 4.2.* or below for this migration',
-          );
-        },
-        'no longer supported',
-        '--ltgt-to-ne',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST 4.2.* or below for this migration',
-          );
-        },
-        'no longer supported',
-        '--hhvm-3.28-to-3.29',
-      ),
+      self::removed('--ctpbr', '4.8.* or below'),
+      self::removed('--hhvm-3.23-to-3.24', '4.8.* or below'),
+      self::removed('--hhvm-4.2-to-4.3', '4.2.* or below'),
+      self::removed('--ltgt-to-ne', '4.2.* or below'),
+      self::removed('--hhvm-3.28-to-3.29', '4.2.* or below'),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = IsRefinementMigration::class;
@@ -182,26 +127,8 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Apply all migrations for moving from 3.29 to 3.30',
         '--hhvm-3.29-to-3.30',
       ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST 4.11.* or below for this migration',
-          );
-        },
-        'no longer supported',
-        '--no-namespace-fallback',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST 4.11.* or below for this migration',
-          );
-        },
-        'no longer supported',
-        '--phpunit-to-hacktest',
-      ),
+      self::removed('--no-namespace-fallback', '4.11.* or below'),
+      self::removed('--phpunit-to-hacktest', '4.11.* or below'),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = ExplicitPartialModeMigration::class;
@@ -209,58 +136,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         "Add `// partial` to files that don't specify a mode",
         '--explicit-partial-mode',
       ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'use HHAST 4.11.* or below for this migration',
-          );
-        },
-        'no longer supported',
-        '--hhvm-4.0-to-4.1',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(1, 'Use HHAST 4.11 for this migration');
-        },
-        'no longer supported',
-        '--hhast-4.5-linter-to-4.6',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(1, 'Use HHAST 4.5.2 for this migration');
-        },
-        'no longer supported',
-        '--await-precedence',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(1, 'Use HHAST 4.5.2 for this migration');
-        },
-        'no longer supported',
-        '--hhvm-4.5-to-4.6',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(1, 'Use HHAST 4.6.1 for this migration');
-        },
-        'no longer supported',
-        '--empty-expression',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(1, 'Use HHAST 4.6.1 for this migration');
-        },
-        'no longer supported',
-        '--hhvm-4.6-to-4.7',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(1, 'Use HHAST 4.14.* for this migration');
-        },
-        'no longer supported',
-        '--instanceof-is',
-      ),
+      self::removed('--hhvm-4.0-to-4.1', '4.11.* or below'),
+      self::removed('--hhast-4.5-linter-to-4.6', '4.11'),
+      self::removed('--await-precedence', '4.5.2'),
+      self::removed('--hhvm-4.5-to-4.6', '4.5.2'),
+      self::removed('--empty-expression', '4.6.1'),
+      self::removed('--hhvm-4.6-to-4.7', '4.6.1'),
+      self::removed('--instanceof-is', '4.14.*'),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = TopLevelRequiresMigration::class;
@@ -275,27 +157,9 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Add /* HH_FIXME[] */ comments where needed',
         '--add-fixmes',
       ),
-      CLIOptions\flag(
-        () ==> {
-          $this->migrations[] = PHPArrayLiteralsMigration::class;
-        },
-        'Migrate [] and array() literals to varray[] and darray[]',
-        '--php-arrays',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          $this->migrations[] = HHAST\PHPArrayTypehintsMigrationSoft::class;
-        },
-        'Migrate array typehints to <<__Soft>> varray_or_darray (safe)',
-        '--php-array-typehints-soft',
-      ),
-      CLIOptions\flag(
-        () ==> {
-          $this->migrations[] = HHAST\PHPArrayTypehintsMigrationHard::class;
-        },
-        'Migrate array typehints to varray_or_darray (safe only in HHVM 4.68+)',
-        '--php-array-typehints-hard',
-      ),
+      self::removed('--php-arrays', '4.33.6 to 4.41.2'),
+      self::removed('--php-array-typehints-soft', '4.64.4 to 4.64.6'),
+      self::removed('--php-array-typehints-hard', '4.64.4 to 4.64.6'),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] =
@@ -305,15 +169,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'migrating to HHVM 4.68+)',
         '--harden-varray-or-darray-typehints',
       ),
-      CLIOptions\flag(
-        () ==> {
-          $this->migrations[] =
-            HHAST\PHPArrayTypehintsMigrationBestGuess::class;
-        },
-        'Migrate array typehints to <<__Soft>> varray or <<__Soft>> darray '.
-        '(likely to cause runtime warnings)',
-        '--php-array-typehints-best-guess',
-      ),
+      self::removed('--php-array-typehints-best-guess', '4.64.4 to 4.64.6'),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = AddXHPChildrenDeclarationMethodMigration::class;
@@ -357,16 +213,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Migrate /* HH_FIXME[4110] */ to the equivalent new error codes',
         '--migrate-fixme-4110',
       ),
-      CLIOptions\flag(
-        () ==> {
-          throw new ExitException(
-            1,
-            'Use HHAST >=4.21.7 <4.29 for this migration',
-          );
-        },
-        'no longer supported',
-        '--ref-to-inout',
-      ),
+      self::removed('--ref-to-inout', '>=4.21.7 <4.29'),
       CLIOptions\flag(
         () ==> {
           $this->includeVendor = true;
@@ -385,6 +232,25 @@ class MigrationCLI extends CLIWithRequiredArguments {
 
     $options[] = $this->getVerbosityOption();
     return $options;
+  }
+
+  /**
+   * All previously supported migrations should use this template.
+   */
+  private static function removed(
+    string $flag,
+    string $supported_versions,
+  ): CLIOptions\CLIOption {
+    return CLIOptions\flag(
+      () ==> {
+        throw new ExitException(
+          1,
+          'Use HHAST '.$supported_versions.' for this migration',
+        );
+      },
+      'no longer supported (use HHAST '.$supported_versions.')',
+      $flag,
+    );
   }
 
   final private function migrateFile(
