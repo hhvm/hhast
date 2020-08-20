@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b194e6633085a7b2be552d59980d8aa5>>
+ * @generated SignedSource<<be839bb77e79f445e6ddee6dd19c49b2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,8 +168,7 @@ final class ReturnStatement extends Node implements IStatement {
    * RecordCreationExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldFromExpression
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
    */
   public function getExpression(): ?IExpression {
     return $this->_expression;
@@ -187,8 +186,7 @@ final class ReturnStatement extends Node implements IStatement {
    * RecordCreationExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
-   * YieldFromExpression
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
    */
   public function getExpressionx(): IExpression {
     return TypeAssert\not_null($this->getExpression());

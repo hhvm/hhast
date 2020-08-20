@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c12eb17866ab73e638026e9244796f8>>
+ * @generated SignedSource<<397c97c4c69bfe3041f4955c2db33d5b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,20 +12,20 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'map_array_type_specifier';
 
-  private ArrayToken $_keyword;
-  private LessThanToken $_left_angle;
-  private ITypeSpecifier $_key;
-  private CommaToken $_comma;
-  private ITypeSpecifier $_value;
-  private GreaterThanToken $_right_angle;
+  private Node $_keyword;
+  private Node $_left_angle;
+  private Node $_key;
+  private Node $_comma;
+  private Node $_value;
+  private Node $_right_angle;
 
   public function __construct(
-    ArrayToken $keyword,
-    LessThanToken $left_angle,
-    ITypeSpecifier $key,
-    CommaToken $comma,
-    ITypeSpecifier $value,
-    GreaterThanToken $right_angle,
+    Node $keyword,
+    Node $left_angle,
+    Node $key,
+    Node $comma,
+    Node $value,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -51,7 +51,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'ArrayToken',
+      'Node',
     );
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
@@ -60,7 +60,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'LessThanToken',
+      'Node',
     );
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
@@ -69,7 +69,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'ITypeSpecifier',
+      'Node',
     );
     $key = $key as nonnull;
     $offset += $key->getWidth();
@@ -78,7 +78,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'CommaToken',
+      'Node',
     );
     $comma = $comma as nonnull;
     $offset += $comma->getWidth();
@@ -87,7 +87,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'ITypeSpecifier',
+      'Node',
     );
     $value = $value as nonnull;
     $offset += $value->getWidth();
@@ -96,7 +96,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'GreaterThanToken',
+      'Node',
     );
     $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
@@ -166,7 +166,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_keyword;
   }
 
-  public function withKeyword(ArrayToken $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -185,16 +185,16 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return ArrayToken
+   * @return
    */
-  public function getKeyword(): ArrayToken {
-    return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
+  public function getKeyword(): Node {
+    return $this->_keyword;
   }
 
   /**
-   * @return ArrayToken
+   * @return
    */
-  public function getKeywordx(): ArrayToken {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
@@ -202,7 +202,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(LessThanToken $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -221,16 +221,16 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return LessThanToken
+   * @return
    */
-  public function getLeftAngle(): LessThanToken {
-    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
+  public function getLeftAngle(): Node {
+    return $this->_left_angle;
   }
 
   /**
-   * @return LessThanToken
+   * @return
    */
-  public function getLeftAnglex(): LessThanToken {
+  public function getLeftAnglex(): Node {
     return $this->getLeftAngle();
   }
 
@@ -238,7 +238,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_key;
   }
 
-  public function withKey(ITypeSpecifier $value): this {
+  public function withKey(Node $value): this {
     if ($value === $this->_key) {
       return $this;
     }
@@ -257,16 +257,16 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
+   * @return
    */
-  public function getKey(): ITypeSpecifier {
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_key);
+  public function getKey(): Node {
+    return $this->_key;
   }
 
   /**
-   * @return ClassnameTypeSpecifier | SimpleTypeSpecifier
+   * @return
    */
-  public function getKeyx(): ITypeSpecifier {
+  public function getKeyx(): Node {
     return $this->getKey();
   }
 
@@ -274,7 +274,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_comma;
   }
 
-  public function withComma(CommaToken $value): this {
+  public function withComma(Node $value): this {
     if ($value === $this->_comma) {
       return $this;
     }
@@ -293,16 +293,16 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return CommaToken
+   * @return
    */
-  public function getComma(): CommaToken {
-    return TypeAssert\instance_of(CommaToken::class, $this->_comma);
+  public function getComma(): Node {
+    return $this->_comma;
   }
 
   /**
-   * @return CommaToken
+   * @return
    */
-  public function getCommax(): CommaToken {
+  public function getCommax(): Node {
     return $this->getComma();
   }
 
@@ -310,7 +310,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_value;
   }
 
-  public function withValue(ITypeSpecifier $value): this {
+  public function withValue(Node $value): this {
     if ($value === $this->_value) {
       return $this;
     }
@@ -329,18 +329,16 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return AttributizedSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier
+   * @return
    */
-  public function getValue(): ITypeSpecifier {
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_value);
+  public function getValue(): Node {
+    return $this->_value;
   }
 
   /**
-   * @return AttributizedSpecifier | GenericTypeSpecifier |
-   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier
+   * @return
    */
-  public function getValuex(): ITypeSpecifier {
+  public function getValuex(): Node {
     return $this->getValue();
   }
 
@@ -348,7 +346,7 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(GreaterThanToken $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -367,16 +365,16 @@ final class MapArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return GreaterThanToken
+   * @return
    */
-  public function getRightAngle(): GreaterThanToken {
-    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+  public function getRightAngle(): Node {
+    return $this->_right_angle;
   }
 
   /**
-   * @return GreaterThanToken
+   * @return
    */
-  public function getRightAnglex(): GreaterThanToken {
+  public function getRightAnglex(): Node {
     return $this->getRightAngle();
   }
 }

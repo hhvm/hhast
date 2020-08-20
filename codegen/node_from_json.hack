@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b21f8dd9eee468c368c2e5109d2f3de5>>
+ * @generated SignedSource<<eb1779beeae706ede6f73b0f933308b0>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -41,7 +41,6 @@ function node_from_json_unwrapped(
     'anonymous_class' => HHAST\AnonymousClass::class,
     'anonymous_function' => HHAST\AnonymousFunction::class,
     'anonymous_function_use_clause' => HHAST\AnonymousFunctionUseClause::class,
-    'array_intrinsic_expression' => HHAST\ArrayIntrinsicExpression::class,
     'as_expression' => HHAST\AsExpression::class,
     'attribute' => HHAST\Attribute::class,
     'attribute_specification' => HHAST\AttributeSpecification::class,
@@ -150,6 +149,7 @@ function node_from_json_unwrapped(
       HHAST\PocketMappingTypeDeclaration::class,
     'postfix_unary_expression' => HHAST\PostfixUnaryExpression::class,
     'prefix_unary_expression' => HHAST\PrefixUnaryExpression::class,
+    'prefixed_code' => HHAST\PrefixedCodeExpression::class,
     'prefixed_string' => HHAST\PrefixedStringExpression::class,
     'property_declaration' => HHAST\PropertyDeclaration::class,
     'property_declarator' => HHAST\PropertyDeclarator::class,
@@ -220,7 +220,6 @@ function node_from_json_unwrapped(
     'xhp_simple_class_attribute' => HHAST\XHPSimpleClassAttribute::class,
     'xhp_spread_attribute' => HHAST\XHPSpreadAttribute::class,
     'yield_expression' => HHAST\YieldExpression::class,
-    'yield_from_expression' => HHAST\YieldFromExpression::class,
   ];
   $class = $kind_to_class[$kind] ?? null;
   if ($class is nonnull) {

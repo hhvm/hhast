@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<884e3c4a355073b50ef438b97e98623e>>
+ * @generated SignedSource<<f1bc165324a444d5c88705ef6acd4edb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,7 +16,6 @@ final class LambdaExpression
 
   private ?OldAttributeSpecification $_attribute_spec;
   private ?AsyncToken $_async;
-  private ?Node $_coroutine;
   private Node $_signature;
   private EqualEqualGreaterThanToken $_arrow;
   private ILambdaBody $_body;
@@ -24,7 +23,6 @@ final class LambdaExpression
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
     ?AsyncToken $async,
-    ?Node $coroutine,
     Node $signature,
     EqualEqualGreaterThanToken $arrow,
     ILambdaBody $body,
@@ -32,7 +30,6 @@ final class LambdaExpression
   ) {
     $this->_attribute_spec = $attribute_spec;
     $this->_async = $async;
-    $this->_coroutine = $coroutine;
     $this->_signature = $signature;
     $this->_arrow = $arrow;
     $this->_body = $body;
@@ -64,14 +61,6 @@ final class LambdaExpression
       'AsyncToken',
     );
     $offset += $async?->getWidth() ?? 0;
-    $coroutine = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_coroutine'] ?? dict['kind' => 'missing'],
-      $file,
-      $offset,
-      $source,
-      'Node',
-    );
-    $offset += $coroutine?->getWidth() ?? 0;
     $signature = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_signature'],
       $file,
@@ -108,7 +97,6 @@ final class LambdaExpression
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
       /* HH_IGNORE_ERROR[4110] */ $async,
-      /* HH_IGNORE_ERROR[4110] */ $coroutine,
       /* HH_IGNORE_ERROR[4110] */ $signature,
       /* HH_IGNORE_ERROR[4110] */ $arrow,
       /* HH_IGNORE_ERROR[4110] */ $body,
@@ -121,7 +109,6 @@ final class LambdaExpression
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'async' => $this->_async,
-      'coroutine' => $this->_coroutine,
       'signature' => $this->_signature,
       'arrow' => $this->_arrow,
       'body' => $this->_body,
@@ -139,16 +126,12 @@ final class LambdaExpression
       ? null
       : $rewriter($this->_attribute_spec, $parents);
     $async = $this->_async === null ? null : $rewriter($this->_async, $parents);
-    $coroutine = $this->_coroutine === null
-      ? null
-      : $rewriter($this->_coroutine, $parents);
     $signature = $rewriter($this->_signature, $parents);
     $arrow = $rewriter($this->_arrow, $parents);
     $body = $rewriter($this->_body, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $async === $this->_async &&
-      $coroutine === $this->_coroutine &&
       $signature === $this->_signature &&
       $arrow === $this->_arrow &&
       $body === $this->_body
@@ -158,7 +141,6 @@ final class LambdaExpression
     return new static(
       /* HH_FIXME[4110] use `as` */ $attribute_spec,
       /* HH_FIXME[4110] use `as` */ $async,
-      /* HH_FIXME[4110] use `as` */ $coroutine,
       /* HH_FIXME[4110] use `as` */ $signature,
       /* HH_FIXME[4110] use `as` */ $arrow,
       /* HH_FIXME[4110] use `as` */ $body,
@@ -176,7 +158,6 @@ final class LambdaExpression
     return new static(
       $value,
       $this->_async,
-      $this->_coroutine,
       $this->_signature,
       $this->_arrow,
       $this->_body,
@@ -212,7 +193,6 @@ final class LambdaExpression
     return new static(
       $this->_attribute_spec,
       $value,
-      $this->_coroutine,
       $this->_signature,
       $this->_arrow,
       $this->_body,
@@ -237,42 +217,6 @@ final class LambdaExpression
     return TypeAssert\not_null($this->getAsync());
   }
 
-  public function getCoroutineUNTYPED(): ?Node {
-    return $this->_coroutine;
-  }
-
-  public function withCoroutine(?Node $value): this {
-    if ($value === $this->_coroutine) {
-      return $this;
-    }
-    return new static(
-      $this->_attribute_spec,
-      $this->_async,
-      $value,
-      $this->_signature,
-      $this->_arrow,
-      $this->_body,
-    );
-  }
-
-  public function hasCoroutine(): bool {
-    return $this->_coroutine !== null;
-  }
-
-  /**
-   * @return null
-   */
-  public function getCoroutine(): ?Node {
-    return $this->_coroutine;
-  }
-
-  /**
-   * @return
-   */
-  public function getCoroutinex(): Node {
-    return TypeAssert\not_null($this->getCoroutine());
-  }
-
   public function getSignatureUNTYPED(): ?Node {
     return $this->_signature;
   }
@@ -284,7 +228,6 @@ final class LambdaExpression
     return new static(
       $this->_attribute_spec,
       $this->_async,
-      $this->_coroutine,
       $value,
       $this->_arrow,
       $this->_body,
@@ -320,7 +263,6 @@ final class LambdaExpression
     return new static(
       $this->_attribute_spec,
       $this->_async,
-      $this->_coroutine,
       $this->_signature,
       $value,
       $this->_body,
@@ -359,7 +301,6 @@ final class LambdaExpression
     return new static(
       $this->_attribute_spec,
       $this->_async,
-      $this->_coroutine,
       $this->_signature,
       $this->_arrow,
       $value,

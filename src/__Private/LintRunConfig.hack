@@ -90,7 +90,6 @@ final class LintRunConfig {
     HHAST\ShoutCaseEnumMembersLinter::class,
     HHAST\StrictModeOnlyLinter::class,
     HHAST\UseStatementWithAsLinter::class,
-    HHAST\NoPHPArrayLiteralsLinter::class,
     HHAST\NoFinalMethodInFinalClassLinter::class,
   ];
 

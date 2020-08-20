@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<803837c5d5708254b448f8aeaa0e3c1c>>
+ * @generated SignedSource<<08359e94b079066b60eaa1fc0b4e43ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -240,9 +240,8 @@ final class WhileStatement
 
   /**
    * @return BinaryExpression | FunctionCallExpression | IsExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * VariableExpression
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
    */
   public function getCondition(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_condition);
@@ -250,9 +249,8 @@ final class WhileStatement
 
   /**
    * @return BinaryExpression | FunctionCallExpression | IsExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * VariableExpression
+   * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | VariableExpression
    */
   public function getConditionx(): IExpression {
     return $this->getCondition();
@@ -315,16 +313,14 @@ final class WhileStatement
   }
 
   /**
-   * @return CompoundStatement | ContinueStatement | EchoStatement |
-   * ExpressionStatement
+   * @return CompoundStatement | ContinueStatement | ExpressionStatement
    */
   public function getBody(): IStatement {
     return TypeAssert\instance_of(IStatement::class, $this->_body);
   }
 
   /**
-   * @return CompoundStatement | ContinueStatement | EchoStatement |
-   * ExpressionStatement
+   * @return CompoundStatement | ContinueStatement | ExpressionStatement
    */
   public function getBodyx(): IStatement {
     return $this->getBody();

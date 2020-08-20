@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f61a524d6e3573bae77348c6cb71da7>>
+ * @generated SignedSource<<c15d4704b7e5b26a5519772c0ff91878>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -353,16 +353,16 @@ final class DoStatement
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * SubscriptExpression | VariableExpression
+   * @return BinaryExpression | LiteralExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getCondition(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_condition);
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * SubscriptExpression | VariableExpression
+   * @return BinaryExpression | LiteralExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getConditionx(): IExpression {
     return $this->getCondition();

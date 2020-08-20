@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c1d5d97c6b53b82cab87deea018bbc0>>
+ * @generated SignedSource<<072a8bb9fbc1e972c36031d857c89475>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -338,7 +338,7 @@ final class ForeachStatement
   }
 
   /**
-   * @return AnonymousFunction | CastExpression | CollectionLiteralExpression |
+   * @return AnonymousFunction | CollectionLiteralExpression |
    * DarrayIntrinsicExpression | FunctionCallExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
@@ -350,7 +350,7 @@ final class ForeachStatement
   }
 
   /**
-   * @return AnonymousFunction | CastExpression | CollectionLiteralExpression |
+   * @return AnonymousFunction | CollectionLiteralExpression |
    * DarrayIntrinsicExpression | FunctionCallExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |

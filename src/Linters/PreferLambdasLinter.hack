@@ -49,7 +49,6 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
   public function getFixedNode(AnonymousFunction $node): ?Node {
     $attribute_spec = $node->getAttributeSpec();
     $async = $node->getAsyncKeyword();
-    $coroutine = $node->getCoroutineKeyword();
     $parameters = $node->getParameters();
     $left_paren = new LeftParenToken(
       $node->getFunctionKeyword()->getLeading(),
@@ -76,7 +75,6 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
     return new LambdaExpression(
       $attribute_spec,
       $async,
-      $coroutine,
       $signature,
       $arrow,
       $body,

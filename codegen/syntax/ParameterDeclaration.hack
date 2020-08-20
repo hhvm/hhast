@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae093e9d531b428574d10bccc0812d2f>>
+ * @generated SignedSource<<79dcf3cb1a427be69ba2f437877f0026>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -300,10 +300,9 @@ abstract class ParameterDeclarationGeneratedBase
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * IntersectionTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
-   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * KeysetTypeSpecifier | LikeTypeSpecifier | null | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -312,10 +311,9 @@ abstract class ParameterDeclarationGeneratedBase
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * DarrayTypeSpecifier | DictionaryTypeSpecifier | GenericTypeSpecifier |
-   * IntersectionTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
-   * MapArrayTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier | VectorTypeSpecifier
+   * KeysetTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

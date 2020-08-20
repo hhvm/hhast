@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ae32052e5431560b9ee889285a6b2e8>>
+ * @generated SignedSource<<157e28daaab5b13bee2f79c2840f2bad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -88,22 +88,22 @@ final class SimpleTypeSpecifier
   }
 
   /**
-   * @return QualifiedName | XHPClassNameToken | ArrayToken | ArraykeyToken |
-   * BoolToken | DarrayToken | DictToken | FloatToken | IntToken | KeysetToken
-   * | MixedToken | NameToken | NoreturnToken | NullLiteralToken | NumToken |
-   * ObjectToken | ParentToken | ResourceToken | SelfToken | StringToken |
-   * ThisToken | VarToken | VarrayToken | VecToken | VoidToken | XHPToken
+   * @return QualifiedName | XHPClassNameToken | ArraykeyToken | BoolToken |
+   * DarrayToken | DictToken | FloatToken | IntToken | KeysetToken | MixedToken
+   * | NameToken | NoreturnToken | NullLiteralToken | NumToken | ObjectToken |
+   * ParentToken | ResourceToken | SelfToken | StringToken | ThisToken |
+   * VarToken | VarrayToken | VecToken | VoidToken | XHPToken
    */
   public function getSpecifier(): Node {
     return $this->_specifier;
   }
 
   /**
-   * @return QualifiedName | XHPClassNameToken | ArrayToken | ArraykeyToken |
-   * BoolToken | DarrayToken | DictToken | FloatToken | IntToken | KeysetToken
-   * | MixedToken | NameToken | NoreturnToken | NullLiteralToken | NumToken |
-   * ObjectToken | ParentToken | ResourceToken | SelfToken | StringToken |
-   * ThisToken | VarToken | VarrayToken | VecToken | VoidToken | XHPToken
+   * @return QualifiedName | XHPClassNameToken | ArraykeyToken | BoolToken |
+   * DarrayToken | DictToken | FloatToken | IntToken | KeysetToken | MixedToken
+   * | NameToken | NoreturnToken | NullLiteralToken | NumToken | ObjectToken |
+   * ParentToken | ResourceToken | SelfToken | StringToken | ThisToken |
+   * VarToken | VarrayToken | VecToken | VoidToken | XHPToken
    */
   public function getSpecifierx(): Node {
     return $this->getSpecifier();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89def4181063508d843c9c1e2fe358c9>>
+ * @generated SignedSource<<c9bea2e7d7f41cad227177aca623c9b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,14 +183,14 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return ArrayToken | BoolToken | FloatToken | IntToken | StringToken
+   * @return BoolToken | FloatToken | IntToken | StringToken
    */
   public function getType(): Token {
     return TypeAssert\instance_of(Token::class, $this->_type);
   }
 
   /**
-   * @return ArrayToken | BoolToken | FloatToken | IntToken | StringToken
+   * @return BoolToken | FloatToken | IntToken | StringToken
    */
   public function getTypex(): Token {
     return $this->getType();
@@ -252,11 +252,10 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
 
   /**
    * @return CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression |
-   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
-   * | ObjectCreationExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | XHPExpression
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | XHPExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
@@ -264,11 +263,10 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
 
   /**
    * @return CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression |
-   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
-   * | ObjectCreationExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | XHPExpression
+   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | XHPExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6a65f42775b4b26ac1607ee6f7e0c83>>
+ * @generated SignedSource<<ccb8c868e0868c18bfa2a0639479b876>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,19 +16,16 @@ abstract class AwaitableCreationExpressionGeneratedBase
 
   private ?OldAttributeSpecification $_attribute_spec;
   private AsyncToken $_async;
-  private ?Node $_coroutine;
   private CompoundStatement $_compound_statement;
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
     AsyncToken $async,
-    ?Node $coroutine,
     CompoundStatement $compound_statement,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
     $this->_async = $async;
-    $this->_coroutine = $coroutine;
     $this->_compound_statement = $compound_statement;
     parent::__construct($source_ref);
   }
@@ -59,14 +56,6 @@ abstract class AwaitableCreationExpressionGeneratedBase
     );
     $async = $async as nonnull;
     $offset += $async->getWidth();
-    $coroutine = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['awaitable_coroutine'] ?? dict['kind' => 'missing'],
-      $file,
-      $offset,
-      $source,
-      'Node',
-    );
-    $offset += $coroutine?->getWidth() ?? 0;
     $compound_statement = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['awaitable_compound_statement'],
       $file,
@@ -85,7 +74,6 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
       /* HH_IGNORE_ERROR[4110] */ $async,
-      /* HH_IGNORE_ERROR[4110] */ $coroutine,
       /* HH_IGNORE_ERROR[4110] */ $compound_statement,
       $source_ref,
     );
@@ -96,7 +84,6 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return dict[
       'attribute_spec' => $this->_attribute_spec,
       'async' => $this->_async,
-      'coroutine' => $this->_coroutine,
       'compound_statement' => $this->_compound_statement,
     ]
       |> Dict\filter_nulls($$);
@@ -112,14 +99,10 @@ abstract class AwaitableCreationExpressionGeneratedBase
       ? null
       : $rewriter($this->_attribute_spec, $parents);
     $async = $rewriter($this->_async, $parents);
-    $coroutine = $this->_coroutine === null
-      ? null
-      : $rewriter($this->_coroutine, $parents);
     $compound_statement = $rewriter($this->_compound_statement, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $async === $this->_async &&
-      $coroutine === $this->_coroutine &&
       $compound_statement === $this->_compound_statement
     ) {
       return $this;
@@ -127,7 +110,6 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return new static(
       /* HH_FIXME[4110] use `as` */ $attribute_spec,
       /* HH_FIXME[4110] use `as` */ $async,
-      /* HH_FIXME[4110] use `as` */ $coroutine,
       /* HH_FIXME[4110] use `as` */ $compound_statement,
     );
   }
@@ -140,12 +122,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
     if ($value === $this->_attribute_spec) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_async,
-      $this->_coroutine,
-      $this->_compound_statement,
-    );
+    return new static($value, $this->_async, $this->_compound_statement);
   }
 
   public function hasAttributeSpec(): bool {
@@ -177,7 +154,6 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return new static(
       $this->_attribute_spec,
       $value,
-      $this->_coroutine,
       $this->_compound_statement,
     );
   }
@@ -200,40 +176,6 @@ abstract class AwaitableCreationExpressionGeneratedBase
     return $this->getAsync();
   }
 
-  public function getCoroutineUNTYPED(): ?Node {
-    return $this->_coroutine;
-  }
-
-  public function withCoroutine(?Node $value): this {
-    if ($value === $this->_coroutine) {
-      return $this;
-    }
-    return new static(
-      $this->_attribute_spec,
-      $this->_async,
-      $value,
-      $this->_compound_statement,
-    );
-  }
-
-  public function hasCoroutine(): bool {
-    return $this->_coroutine !== null;
-  }
-
-  /**
-   * @return null
-   */
-  public function getCoroutine(): ?Node {
-    return $this->_coroutine;
-  }
-
-  /**
-   * @return
-   */
-  public function getCoroutinex(): Node {
-    return TypeAssert\not_null($this->getCoroutine());
-  }
-
   public function getCompoundStatementUNTYPED(): ?Node {
     return $this->_compound_statement;
   }
@@ -242,12 +184,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
     if ($value === $this->_compound_statement) {
       return $this;
     }
-    return new static(
-      $this->_attribute_spec,
-      $this->_async,
-      $this->_coroutine,
-      $value,
-    );
+    return new static($this->_attribute_spec, $this->_async, $value);
   }
 
   public function hasCompoundStatement(): bool {

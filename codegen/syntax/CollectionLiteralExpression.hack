@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2117ff71e6f1a77bf50280af2df90c2c>>
+ * @generated SignedSource<<d50458505bbe0c27c89f557b55a10527>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -234,10 +234,8 @@ final class CollectionLiteralExpression
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
-   * NodeList<ListItem<ShapeExpression>> |
-   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
-   * NodeList<ListItem<TupleExpression>> |
-   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<TupleExpression>>
+   * | NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> | null
    */
   public function getInitializers(): ?NodeList<ListItem<Node>> {
@@ -256,10 +254,8 @@ final class CollectionLiteralExpression
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
-   * NodeList<ListItem<ShapeExpression>> |
-   * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
-   * NodeList<ListItem<TupleExpression>> |
-   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<TupleExpression>>
+   * | NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>>
    */
   public function getInitializersx(): NodeList<ListItem<Node>> {

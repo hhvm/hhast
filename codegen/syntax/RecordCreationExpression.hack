@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<277ee64b1d5ba77474ae6ff3e9898c6c>>
+ * @generated SignedSource<<ec86378fa1132b43a78daaef34dc26ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,21 +15,18 @@ final class RecordCreationExpression
   const string SYNTAX_KIND = 'record_creation_expression';
 
   private NameToken $_type;
-  private ?Node $_array_token;
   private LeftBracketToken $_left_bracket;
   private NodeList<ListItem<ElementInitializer>> $_members;
   private RightBracketToken $_right_bracket;
 
   public function __construct(
     NameToken $type,
-    ?Node $array_token,
     LeftBracketToken $left_bracket,
     NodeList<ListItem<ElementInitializer>> $members,
     RightBracketToken $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
-    $this->_array_token = $array_token;
     $this->_left_bracket = $left_bracket;
     $this->_members = $members;
     $this->_right_bracket = $right_bracket;
@@ -54,14 +51,6 @@ final class RecordCreationExpression
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
-    $array_token = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_creation_array_token'] ?? dict['kind' => 'missing'],
-      $file,
-      $offset,
-      $source,
-      'Node',
-    );
-    $offset += $array_token?->getWidth() ?? 0;
     $left_bracket = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['record_creation_left_bracket'],
       $file,
@@ -97,7 +86,6 @@ final class RecordCreationExpression
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $array_token,
       /* HH_IGNORE_ERROR[4110] */ $left_bracket,
       /* HH_IGNORE_ERROR[4110] */ $members,
       /* HH_IGNORE_ERROR[4110] */ $right_bracket,
@@ -109,7 +97,6 @@ final class RecordCreationExpression
   public function getChildren(): dict<string, Node> {
     return dict[
       'type' => $this->_type,
-      'array_token' => $this->_array_token,
       'left_bracket' => $this->_left_bracket,
       'members' => $this->_members,
       'right_bracket' => $this->_right_bracket,
@@ -124,15 +111,11 @@ final class RecordCreationExpression
   ): this {
     $parents[] = $this;
     $type = $rewriter($this->_type, $parents);
-    $array_token = $this->_array_token === null
-      ? null
-      : $rewriter($this->_array_token, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
     $members = $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $type === $this->_type &&
-      $array_token === $this->_array_token &&
       $left_bracket === $this->_left_bracket &&
       $members === $this->_members &&
       $right_bracket === $this->_right_bracket
@@ -141,7 +124,6 @@ final class RecordCreationExpression
     }
     return new static(
       /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $array_token,
       /* HH_FIXME[4110] use `as` */ $left_bracket,
       /* HH_FIXME[4110] use `as` */ $members,
       /* HH_FIXME[4110] use `as` */ $right_bracket,
@@ -158,7 +140,6 @@ final class RecordCreationExpression
     }
     return new static(
       $value,
-      $this->_array_token,
       $this->_left_bracket,
       $this->_members,
       $this->_right_bracket,
@@ -183,41 +164,6 @@ final class RecordCreationExpression
     return $this->getType();
   }
 
-  public function getArrayTokenUNTYPED(): ?Node {
-    return $this->_array_token;
-  }
-
-  public function withArrayToken(?Node $value): this {
-    if ($value === $this->_array_token) {
-      return $this;
-    }
-    return new static(
-      $this->_type,
-      $value,
-      $this->_left_bracket,
-      $this->_members,
-      $this->_right_bracket,
-    );
-  }
-
-  public function hasArrayToken(): bool {
-    return $this->_array_token !== null;
-  }
-
-  /**
-   * @return null
-   */
-  public function getArrayToken(): ?Node {
-    return $this->_array_token;
-  }
-
-  /**
-   * @return
-   */
-  public function getArrayTokenx(): Node {
-    return TypeAssert\not_null($this->getArrayToken());
-  }
-
   public function getLeftBracketUNTYPED(): ?Node {
     return $this->_left_bracket;
   }
@@ -228,7 +174,6 @@ final class RecordCreationExpression
     }
     return new static(
       $this->_type,
-      $this->_array_token,
       $value,
       $this->_members,
       $this->_right_bracket,
@@ -268,7 +213,6 @@ final class RecordCreationExpression
     }
     return new static(
       $this->_type,
-      $this->_array_token,
       $this->_left_bracket,
       $value,
       $this->_right_bracket,
@@ -303,7 +247,6 @@ final class RecordCreationExpression
     }
     return new static(
       $this->_type,
-      $this->_array_token,
       $this->_left_bracket,
       $this->_members,
       $value,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80cee7c6b207dbecc300530028eb2d1a>>
+ * @generated SignedSource<<b2bd73423ed4ffd420e91eeeb38d202b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -238,7 +238,7 @@ final class BinaryExpression
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldExpression | YieldFromExpression
+   * | XHPExpression | YieldExpression
    */
   public function getRightOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_right_operand);
@@ -258,7 +258,7 @@ final class BinaryExpression
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldExpression | YieldFromExpression
+   * | XHPExpression | YieldExpression
    */
   public function getRightOperandx(): IExpression {
     return $this->getRightOperand();

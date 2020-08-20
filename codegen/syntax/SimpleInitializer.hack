@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9dadc5c75641394b3bc41c1aa87f5da7>>
+ * @generated SignedSource<<636f5992c18ea617d373d92cce9ffd08>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,28 +136,28 @@ final class SimpleInitializer extends Node {
   }
 
   /**
-   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | ParenthesizedExpression | PrefixUnaryExpression |
-   * QualifiedName | ScopeResolutionExpression | ShapeExpression | NameToken |
-   * TupleExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression |
-   * XHPExpression
+   * @return AsExpression | BinaryExpression | CollectionLiteralExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | NameToken | TupleExpression
+   * | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression | XHPExpression
    */
   public function getValue(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**
-   * @return ArrayIntrinsicExpression | AsExpression | BinaryExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | ParenthesizedExpression | PrefixUnaryExpression |
-   * QualifiedName | ScopeResolutionExpression | ShapeExpression | NameToken |
-   * TupleExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression |
-   * XHPExpression
+   * @return AsExpression | BinaryExpression | CollectionLiteralExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | NameToken | TupleExpression
+   * | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression | XHPExpression
    */
   public function getValuex(): IExpression {
     return $this->getValue();

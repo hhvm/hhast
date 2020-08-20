@@ -1,6 +1,6 @@
 { "description" :
   "@generated JSON schema of the Hack Full Fidelity Parser AST",
-  "version" : "2020-06-02-0001",
+  "version" : "2020-08-17-0000",
   "trivia" : [
     { "trivia_kind_name" : "WhiteSpace",
       "trivia_type_name" : "whitespace" },
@@ -63,8 +63,6 @@
       "token_text" : "__construct" },
     { "token_kind" : "Continue",
       "token_text" : "continue" },
-    { "token_kind" : "Coroutine",
-      "token_text" : "coroutine" },
     { "token_kind" : "Darray",
       "token_text" : "darray" },
     { "token_kind" : "Default",
@@ -381,6 +379,8 @@
       "token_text" : "<?" },
     { "token_kind" : "ColonAt",
       "token_text" : ":@" },
+    { "token_kind" : "Backtick",
+      "token_text" : "`" },
     { "token_kind" : "XHP",
       "token_text" : "xhp" },
 
@@ -480,6 +480,16 @@
       "fields" : [
         { "field_name" : "name" },
         { "field_name" : "str" }
+      ] },
+    { "kind_name" : "PrefixedCodeExpression",
+      "type_name" : "prefixed_code_expression",
+      "description" : "prefixed_code",
+      "prefix" : "prefixed_code",
+      "fields" : [
+        { "field_name" : "prefix" },
+        { "field_name" : "left_backtick" },
+        { "field_name" : "expression" },
+        { "field_name" : "right_backtick" }
       ] },
     { "kind_name" : "VariableExpression",
       "type_name" : "variable_expression",
@@ -1226,7 +1236,6 @@
         { "field_name" : "attribute_spec" },
         { "field_name" : "static_keyword" },
         { "field_name" : "async_keyword" },
-        { "field_name" : "coroutine_keyword" },
         { "field_name" : "function_keyword" },
         { "field_name" : "left_paren" },
         { "field_name" : "parameters" },
@@ -1253,7 +1262,6 @@
       "fields" : [
         { "field_name" : "attribute_spec" },
         { "field_name" : "async" },
-        { "field_name" : "coroutine" },
         { "field_name" : "signature" },
         { "field_name" : "arrow" },
         { "field_name" : "body" }
@@ -1321,15 +1329,6 @@
       "prefix" : "yield",
       "fields" : [
         { "field_name" : "keyword" },
-        { "field_name" : "operand" }
-      ] },
-    { "kind_name" : "YieldFromExpression",
-      "type_name" : "yield_from_expression",
-      "description" : "yield_from_expression",
-      "prefix" : "yield_from",
-      "fields" : [
-        { "field_name" : "yield_keyword" },
-        { "field_name" : "from_keyword" },
         { "field_name" : "operand" }
       ] },
     { "kind_name" : "PrefixUnaryExpression",
@@ -1515,20 +1514,9 @@
       "prefix" : "record_creation",
       "fields" : [
         { "field_name" : "type" },
-        { "field_name" : "array_token" },
         { "field_name" : "left_bracket" },
         { "field_name" : "members" },
         { "field_name" : "right_bracket" }
-      ] },
-    { "kind_name" : "ArrayIntrinsicExpression",
-      "type_name" : "array_intrinsic_expression",
-      "description" : "array_intrinsic_expression",
-      "prefix" : "array_intrinsic",
-      "fields" : [
-        { "field_name" : "keyword" },
-        { "field_name" : "left_paren" },
-        { "field_name" : "members" },
-        { "field_name" : "right_paren" }
       ] },
     { "kind_name" : "DarrayIntrinsicExpression",
       "type_name" : "darray_intrinsic_expression",
@@ -1621,7 +1609,6 @@
       "fields" : [
         { "field_name" : "attribute_spec" },
         { "field_name" : "async" },
-        { "field_name" : "coroutine" },
         { "field_name" : "compound_statement" }
       ] },
     { "kind_name" : "XHPChildrenDeclaration",
@@ -1831,6 +1818,7 @@
         { "field_name" : "reified" },
         { "field_name" : "variance" },
         { "field_name" : "name" },
+        { "field_name" : "param_params" },
         { "field_name" : "constraints" }
       ] },
     { "kind_name" : "TypeConstraint",
@@ -1882,7 +1870,6 @@
       "prefix" : "closure",
       "fields" : [
         { "field_name" : "outer_left_paren" },
-        { "field_name" : "coroutine" },
         { "field_name" : "function_keyword" },
         { "field_name" : "inner_left_paren" },
         { "field_name" : "parameter_list" },

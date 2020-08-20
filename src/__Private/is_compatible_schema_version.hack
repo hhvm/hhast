@@ -21,7 +21,7 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2020-06-02-0001',
+    SCHEMA_VERSION === '2020-08-17-0000',
     '%s needs updating',
     __FILE__,
   );
@@ -32,10 +32,7 @@ function is_compatible_schema_version(string $other_version): bool {
   // Return true if $other_version is a subset of SCHEMA_VERSION
 
   switch ($other_version) {
-    case '2020-06-23-0001': // removal of [...] array literals
-    case '2020-06-30-0000': // removal of `yield from`
-    case '2020-08-13-0000': // removal of array(...) literals
-    case '2020-08-14-0000': // removal of `coroutine` token
+    case '2020-08-14-0000': // missing PrefixedCodeExpression, BacktickToken
       return true;
     default:
       return false;

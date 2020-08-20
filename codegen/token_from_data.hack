@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<80386a85b78303b33066485bccb7ed3b>>
+ * @generated SignedSource<<de23fe74da7262cd941c96da49d92b53>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -53,7 +53,6 @@ class TokenClassMap {
     'const' => HHAST\ConstToken::class,
     '__construct' => HHAST\ConstructToken::class,
     'continue' => HHAST\ContinueToken::class,
-    'coroutine' => HHAST\CoroutineToken::class,
     'darray' => HHAST\DarrayToken::class,
     'default' => HHAST\DefaultToken::class,
     'define' => HHAST\DefineToken::class,
@@ -182,6 +181,7 @@ class TokenClassMap {
     '&=' => HHAST\AmpersandEqualToken::class,
     '@' => HHAST\AtToken::class,
     '\\' => HHAST\BackslashToken::class,
+    '`' => HHAST\BacktickToken::class,
     '|' => HHAST\BarToken::class,
     '||' => HHAST\BarBarToken::class,
     '|=' => HHAST\BarEqualToken::class,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1122141bd9416c9931c8de21497cf2b0>>
+ * @generated SignedSource<<3f126dbd53ae7b7ea7e384d733ad3090>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,14 +12,14 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'intersection_type_specifier';
 
-  private LeftParenToken $_left_paren;
-  private NodeList<ListItem<SimpleTypeSpecifier>> $_types;
-  private RightParenToken $_right_paren;
+  private ?Node $_left_paren;
+  private ?Node $_types;
+  private ?Node $_right_paren;
 
   public function __construct(
-    LeftParenToken $left_paren,
-    NodeList<ListItem<SimpleTypeSpecifier>> $types,
-    RightParenToken $right_paren,
+    ?Node $left_paren,
+    ?Node $types,
+    ?Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -38,32 +38,29 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['intersection_left_paren'],
+      /* HH_FIXME[4110] */ $json['intersection_left_paren'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'LeftParenToken',
+      'Node',
     );
-    $left_paren = $left_paren as nonnull;
-    $offset += $left_paren->getWidth();
+    $offset += $left_paren?->getWidth() ?? 0;
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['intersection_types'],
+      /* HH_FIXME[4110] */ $json['intersection_types'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<SimpleTypeSpecifier>>',
+      'Node',
     );
-    $types = $types as nonnull;
-    $offset += $types->getWidth();
+    $offset += $types?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['intersection_right_paren'],
+      /* HH_FIXME[4110] */ $json['intersection_right_paren'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'RightParenToken',
+      'Node',
     );
-    $right_paren = $right_paren as nonnull;
-    $offset += $right_paren->getWidth();
+    $offset += $right_paren?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -94,9 +91,13 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_paren = $rewriter($this->_left_paren, $parents);
-    $types = $rewriter($this->_types, $parents);
-    $right_paren = $rewriter($this->_right_paren, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $types = $this->_types === null ? null : $rewriter($this->_types, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $types === $this->_types &&
@@ -115,7 +116,7 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_left_paren;
   }
 
-  public function withLeftParen(LeftParenToken $value): this {
+  public function withLeftParen(?Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -127,26 +128,24 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParen(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  public function getLeftParen(): ?Node {
+    return $this->_left_paren;
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
+  public function getLeftParenx(): Node {
+    return TypeAssert\not_null($this->getLeftParen());
   }
 
   public function getTypesUNTYPED(): ?Node {
     return $this->_types;
   }
 
-  public function withTypes(
-    NodeList<ListItem<SimpleTypeSpecifier>> $value,
-  ): this {
+  public function withTypes(?Node $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -158,24 +157,24 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<ListItem<SimpleTypeSpecifier>>
+   * @return unknown
    */
-  public function getTypes(): NodeList<ListItem<SimpleTypeSpecifier>> {
-    return TypeAssert\instance_of(NodeList::class, $this->_types);
+  public function getTypes(): ?Node {
+    return $this->_types;
   }
 
   /**
-   * @return NodeList<ListItem<SimpleTypeSpecifier>>
+   * @return unknown
    */
-  public function getTypesx(): NodeList<ListItem<SimpleTypeSpecifier>> {
-    return $this->getTypes();
+  public function getTypesx(): Node {
+    return TypeAssert\not_null($this->getTypes());
   }
 
   public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(RightParenToken $value): this {
+  public function withRightParen(?Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -187,16 +186,16 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParen(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  public function getRightParen(): ?Node {
+    return $this->_right_paren;
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
+  public function getRightParenx(): Node {
+    return TypeAssert\not_null($this->getRightParen());
   }
 }
