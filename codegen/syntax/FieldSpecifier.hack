@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d72a4a7e82c308a24b877cab1d03381d>>
+ * @generated SignedSource<<98db6cea5b41b77d7cd2f5379305e9d9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -233,9 +233,9 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return AttributizedSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VectorTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
@@ -243,9 +243,9 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return AttributizedSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant |
-   * VectorTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

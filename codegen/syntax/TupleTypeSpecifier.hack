@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d94fa72a352a5940133bd250ca4cd48>>
+ * @generated SignedSource<<ea31d1f2d2171b37d6c1c63f6ed39010>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
    * NodeList<ListItem<ISimpleCreationSpecifier>> |
    * NodeList<ListItem<SimpleTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> |
-   * NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
   public function getTypes(): NodeList<ListItem<ITypeSpecifier>> {
@@ -174,7 +174,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
    * NodeList<ListItem<ISimpleCreationSpecifier>> |
    * NodeList<ListItem<SimpleTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> |
-   * NodeList<ListItem<VectorArrayTypeSpecifier>> |
+   * NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
   public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {

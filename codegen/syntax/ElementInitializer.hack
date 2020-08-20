@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<239b8d47620a0845df37092476a18f4b>>
+ * @generated SignedSource<<e128b65f2f73ae9e8683bffe1856252a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,22 +127,22 @@ final class ElementInitializer extends Node {
   }
 
   /**
-   * @return AnonymousFunction | AsExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | LiteralExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression
+   * @return AsExpression | BinaryExpression | CastExpression |
+   * FunctionCallExpression | LiteralExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getKey(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_key);
   }
 
   /**
-   * @return AnonymousFunction | AsExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | LiteralExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression
+   * @return AsExpression | BinaryExpression | CastExpression |
+   * FunctionCallExpression | LiteralExpression | ParenthesizedExpression |
+   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getKeyx(): IExpression {
     return $this->getKey();
@@ -193,9 +193,8 @@ final class ElementInitializer extends Node {
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression |
-   * AwaitableCreationExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
+   * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
+   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
@@ -209,9 +208,8 @@ final class ElementInitializer extends Node {
   }
 
   /**
-   * @return AnonymousFunction | ArrayIntrinsicExpression |
-   * AwaitableCreationExpression | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
+   * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
+   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
    * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |

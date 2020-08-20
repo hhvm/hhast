@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43acf0e27b6549e2765714132075686e>>
+ * @generated SignedSource<<d614f4c599c70c2d0050438193714d5c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,12 +12,12 @@ final class InclusionDirective extends Node implements IStatement {
 
   const string SYNTAX_KIND = 'inclusion_directive';
 
-  private InclusionExpression $_expression;
-  private SemicolonToken $_semicolon;
+  private Node $_expression;
+  private Node $_semicolon;
 
   public function __construct(
-    InclusionExpression $expression,
-    SemicolonToken $semicolon,
+    Node $expression,
+    Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_expression = $expression;
@@ -39,7 +39,7 @@ final class InclusionDirective extends Node implements IStatement {
       $file,
       $offset,
       $source,
-      'InclusionExpression',
+      'Node',
     );
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
@@ -48,7 +48,7 @@ final class InclusionDirective extends Node implements IStatement {
       $file,
       $offset,
       $source,
-      'SemicolonToken',
+      'Node',
     );
     $semicolon = $semicolon as nonnull;
     $offset += $semicolon->getWidth();
@@ -97,7 +97,7 @@ final class InclusionDirective extends Node implements IStatement {
     return $this->_expression;
   }
 
-  public function withExpression(InclusionExpression $value): this {
+  public function withExpression(Node $value): this {
     if ($value === $this->_expression) {
       return $this;
     }
@@ -109,19 +109,16 @@ final class InclusionDirective extends Node implements IStatement {
   }
 
   /**
-   * @return InclusionExpression
+   * @return
    */
-  public function getExpression(): InclusionExpression {
-    return TypeAssert\instance_of(
-      InclusionExpression::class,
-      $this->_expression,
-    );
+  public function getExpression(): Node {
+    return $this->_expression;
   }
 
   /**
-   * @return InclusionExpression
+   * @return
    */
-  public function getExpressionx(): InclusionExpression {
+  public function getExpressionx(): Node {
     return $this->getExpression();
   }
 
@@ -129,7 +126,7 @@ final class InclusionDirective extends Node implements IStatement {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(SemicolonToken $value): this {
+  public function withSemicolon(Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -141,16 +138,16 @@ final class InclusionDirective extends Node implements IStatement {
   }
 
   /**
-   * @return SemicolonToken
+   * @return
    */
-  public function getSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  public function getSemicolon(): Node {
+    return $this->_semicolon;
   }
 
   /**
-   * @return SemicolonToken
+   * @return
    */
-  public function getSemicolonx(): SemicolonToken {
+  public function getSemicolonx(): Node {
     return $this->getSemicolon();
   }
 }

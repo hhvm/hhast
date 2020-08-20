@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39c31ab544fcfbedbc8b2b762baf28e7>>
+ * @generated SignedSource<<03488083d4aadf200f9b261519b3fa00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,16 +12,16 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'vector_array_type_specifier';
 
-  private ArrayToken $_keyword;
-  private LessThanToken $_left_angle;
-  private ITypeSpecifier $_type;
-  private GreaterThanToken $_right_angle;
+  private Node $_keyword;
+  private Node $_left_angle;
+  private Node $_type;
+  private Node $_right_angle;
 
   public function __construct(
-    ArrayToken $keyword,
-    LessThanToken $left_angle,
-    ITypeSpecifier $type,
-    GreaterThanToken $right_angle,
+    Node $keyword,
+    Node $left_angle,
+    Node $type,
+    Node $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -45,7 +45,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'ArrayToken',
+      'Node',
     );
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
@@ -54,7 +54,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'LessThanToken',
+      'Node',
     );
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
@@ -63,7 +63,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'ITypeSpecifier',
+      'Node',
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
@@ -72,7 +72,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'GreaterThanToken',
+      'Node',
     );
     $right_angle = $right_angle as nonnull;
     $offset += $right_angle->getWidth();
@@ -132,7 +132,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_keyword;
   }
 
-  public function withKeyword(ArrayToken $value): this {
+  public function withKeyword(Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -149,16 +149,16 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return ArrayToken
+   * @return
    */
-  public function getKeyword(): ArrayToken {
-    return TypeAssert\instance_of(ArrayToken::class, $this->_keyword);
+  public function getKeyword(): Node {
+    return $this->_keyword;
   }
 
   /**
-   * @return ArrayToken
+   * @return
    */
-  public function getKeywordx(): ArrayToken {
+  public function getKeywordx(): Node {
     return $this->getKeyword();
   }
 
@@ -166,7 +166,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_left_angle;
   }
 
-  public function withLeftAngle(LessThanToken $value): this {
+  public function withLeftAngle(Node $value): this {
     if ($value === $this->_left_angle) {
       return $this;
     }
@@ -183,16 +183,16 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return LessThanToken
+   * @return
    */
-  public function getLeftAngle(): LessThanToken {
-    return TypeAssert\instance_of(LessThanToken::class, $this->_left_angle);
+  public function getLeftAngle(): Node {
+    return $this->_left_angle;
   }
 
   /**
-   * @return LessThanToken
+   * @return
    */
-  public function getLeftAnglex(): LessThanToken {
+  public function getLeftAnglex(): Node {
     return $this->getLeftAngle();
   }
 
@@ -200,7 +200,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(ITypeSpecifier $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -217,20 +217,16 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return DarrayTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier
-   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @return
    */
-  public function getType(): ITypeSpecifier {
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+  public function getType(): Node {
+    return $this->_type;
   }
 
   /**
-   * @return DarrayTypeSpecifier | GenericTypeSpecifier | MapArrayTypeSpecifier
-   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * VarrayTypeSpecifier | VectorArrayTypeSpecifier
+   * @return
    */
-  public function getTypex(): ITypeSpecifier {
+  public function getTypex(): Node {
     return $this->getType();
   }
 
@@ -238,7 +234,7 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_right_angle;
   }
 
-  public function withRightAngle(GreaterThanToken $value): this {
+  public function withRightAngle(Node $value): this {
     if ($value === $this->_right_angle) {
       return $this;
     }
@@ -255,16 +251,16 @@ final class VectorArrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return GreaterThanToken
+   * @return
    */
-  public function getRightAngle(): GreaterThanToken {
-    return TypeAssert\instance_of(GreaterThanToken::class, $this->_right_angle);
+  public function getRightAngle(): Node {
+    return $this->_right_angle;
   }
 
   /**
-   * @return GreaterThanToken
+   * @return
    */
-  public function getRightAnglex(): GreaterThanToken {
+  public function getRightAnglex(): Node {
     return $this->getRightAngle();
   }
 }

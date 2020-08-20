@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a7d800fef9cf28fc9366eeaa939ffb3>>
+ * @generated SignedSource<<fd83b9400f3ab32f8a1fcee125fb5c8c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,7 +17,6 @@ final class AnonymousFunction
   private ?OldAttributeSpecification $_attribute_spec;
   private ?StaticToken $_static_keyword;
   private ?AsyncToken $_async_keyword;
-  private ?Node $_coroutine_keyword;
   private FunctionToken $_function_keyword;
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<ParameterDeclaration>> $_parameters;
@@ -31,7 +30,6 @@ final class AnonymousFunction
     ?OldAttributeSpecification $attribute_spec,
     ?StaticToken $static_keyword,
     ?AsyncToken $async_keyword,
-    ?Node $coroutine_keyword,
     FunctionToken $function_keyword,
     LeftParenToken $left_paren,
     ?NodeList<ListItem<ParameterDeclaration>> $parameters,
@@ -45,7 +43,6 @@ final class AnonymousFunction
     $this->_attribute_spec = $attribute_spec;
     $this->_static_keyword = $static_keyword;
     $this->_async_keyword = $async_keyword;
-    $this->_coroutine_keyword = $coroutine_keyword;
     $this->_function_keyword = $function_keyword;
     $this->_left_paren = $left_paren;
     $this->_parameters = $parameters;
@@ -90,14 +87,6 @@ final class AnonymousFunction
       'AsyncToken',
     );
     $offset += $async_keyword?->getWidth() ?? 0;
-    $coroutine_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_coroutine_keyword'] ?? dict['kind' => 'missing'],
-      $file,
-      $offset,
-      $source,
-      'Node',
-    );
-    $offset += $coroutine_keyword?->getWidth() ?? 0;
     $function_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_function_keyword'],
       $file,
@@ -176,7 +165,6 @@ final class AnonymousFunction
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
       /* HH_IGNORE_ERROR[4110] */ $static_keyword,
       /* HH_IGNORE_ERROR[4110] */ $async_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $coroutine_keyword,
       /* HH_IGNORE_ERROR[4110] */ $function_keyword,
       /* HH_IGNORE_ERROR[4110] */ $left_paren,
       /* HH_IGNORE_ERROR[4110] */ $parameters,
@@ -195,7 +183,6 @@ final class AnonymousFunction
       'attribute_spec' => $this->_attribute_spec,
       'static_keyword' => $this->_static_keyword,
       'async_keyword' => $this->_async_keyword,
-      'coroutine_keyword' => $this->_coroutine_keyword,
       'function_keyword' => $this->_function_keyword,
       'left_paren' => $this->_left_paren,
       'parameters' => $this->_parameters,
@@ -223,9 +210,6 @@ final class AnonymousFunction
     $async_keyword = $this->_async_keyword === null
       ? null
       : $rewriter($this->_async_keyword, $parents);
-    $coroutine_keyword = $this->_coroutine_keyword === null
-      ? null
-      : $rewriter($this->_coroutine_keyword, $parents);
     $function_keyword = $rewriter($this->_function_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
     $parameters = $this->_parameters === null
@@ -240,7 +224,6 @@ final class AnonymousFunction
       $attribute_spec === $this->_attribute_spec &&
       $static_keyword === $this->_static_keyword &&
       $async_keyword === $this->_async_keyword &&
-      $coroutine_keyword === $this->_coroutine_keyword &&
       $function_keyword === $this->_function_keyword &&
       $left_paren === $this->_left_paren &&
       $parameters === $this->_parameters &&
@@ -256,7 +239,6 @@ final class AnonymousFunction
       /* HH_FIXME[4110] use `as` */ $attribute_spec,
       /* HH_FIXME[4110] use `as` */ $static_keyword,
       /* HH_FIXME[4110] use `as` */ $async_keyword,
-      /* HH_FIXME[4110] use `as` */ $coroutine_keyword,
       /* HH_FIXME[4110] use `as` */ $function_keyword,
       /* HH_FIXME[4110] use `as` */ $left_paren,
       /* HH_FIXME[4110] use `as` */ $parameters,
@@ -280,7 +262,6 @@ final class AnonymousFunction
       $value,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -322,7 +303,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $value,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -364,7 +344,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $value,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -394,48 +373,6 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getAsyncKeyword());
   }
 
-  public function getCoroutineKeywordUNTYPED(): ?Node {
-    return $this->_coroutine_keyword;
-  }
-
-  public function withCoroutineKeyword(?Node $value): this {
-    if ($value === $this->_coroutine_keyword) {
-      return $this;
-    }
-    return new static(
-      $this->_attribute_spec,
-      $this->_static_keyword,
-      $this->_async_keyword,
-      $value,
-      $this->_function_keyword,
-      $this->_left_paren,
-      $this->_parameters,
-      $this->_right_paren,
-      $this->_colon,
-      $this->_type,
-      $this->_use,
-      $this->_body,
-    );
-  }
-
-  public function hasCoroutineKeyword(): bool {
-    return $this->_coroutine_keyword !== null;
-  }
-
-  /**
-   * @return null
-   */
-  public function getCoroutineKeyword(): ?Node {
-    return $this->_coroutine_keyword;
-  }
-
-  /**
-   * @return
-   */
-  public function getCoroutineKeywordx(): Node {
-    return TypeAssert\not_null($this->getCoroutineKeyword());
-  }
-
   public function getFunctionKeywordUNTYPED(): ?Node {
     return $this->_function_keyword;
   }
@@ -448,7 +385,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $value,
       $this->_left_paren,
       $this->_parameters,
@@ -493,7 +429,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $value,
       $this->_parameters,
@@ -537,7 +472,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $value,
@@ -579,7 +513,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -621,7 +554,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -663,7 +595,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -681,8 +612,8 @@ final class AnonymousFunction
 
   /**
    * @return AttributizedSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | MapArrayTypeSpecifier | null |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
+   * GenericTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | TupleTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -690,8 +621,8 @@ final class AnonymousFunction
 
   /**
    * @return AttributizedSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | MapArrayTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier
+   * GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
@@ -709,7 +640,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,
@@ -751,7 +681,6 @@ final class AnonymousFunction
       $this->_attribute_spec,
       $this->_static_keyword,
       $this->_async_keyword,
-      $this->_coroutine_keyword,
       $this->_function_keyword,
       $this->_left_paren,
       $this->_parameters,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c483f023e35377664afa84f640c74aa9>>
+ * @generated SignedSource<<57855f613a23603e873de9e618013677>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -325,9 +325,7 @@ final class ForStatement
 
   /**
    * @return NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<LiteralExpression>> | null
+   * NodeList<ListItem<FunctionCallExpression>> | null
    */
   public function getInitializer(): ?NodeList<ListItem<IExpression>> {
     return $this->_initializer;
@@ -335,9 +333,7 @@ final class ForStatement
 
   /**
    * @return NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<LiteralExpression>>
+   * NodeList<ListItem<FunctionCallExpression>>
    */
   public function getInitializerx(): NodeList<ListItem<IExpression>> {
     return TypeAssert\not_null($this->getInitializer());

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec77229619eb10adfde1eb44deb145ee>>
+ * @generated SignedSource<<2d8d65931db58c9f4476d4e4dcf7c6c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,6 +16,7 @@ final class TypeParameter extends Node {
   private ?ReifyToken $_reified;
   private ?Token $_variance;
   private NameToken $_name;
+  private ?TypeParameters $_param_params;
   private ?NodeList<TypeConstraint> $_constraints;
 
   public function __construct(
@@ -23,6 +24,7 @@ final class TypeParameter extends Node {
     ?ReifyToken $reified,
     ?Token $variance,
     NameToken $name,
+    ?TypeParameters $param_params,
     ?NodeList<TypeConstraint> $constraints,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -30,6 +32,7 @@ final class TypeParameter extends Node {
     $this->_reified = $reified;
     $this->_variance = $variance;
     $this->_name = $name;
+    $this->_param_params = $param_params;
     $this->_constraints = $constraints;
     parent::__construct($source_ref);
   }
@@ -76,6 +79,14 @@ final class TypeParameter extends Node {
     );
     $name = $name as nonnull;
     $offset += $name->getWidth();
+    $param_params = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['type_param_params'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'TypeParameters',
+    );
+    $offset += $param_params?->getWidth() ?? 0;
     $constraints = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['type_constraints'] ?? dict['kind' => 'missing'],
       $file,
@@ -95,6 +106,7 @@ final class TypeParameter extends Node {
       /* HH_IGNORE_ERROR[4110] */ $reified,
       /* HH_IGNORE_ERROR[4110] */ $variance,
       /* HH_IGNORE_ERROR[4110] */ $name,
+      /* HH_IGNORE_ERROR[4110] */ $param_params,
       /* HH_IGNORE_ERROR[4110] */ $constraints,
       $source_ref,
     );
@@ -107,6 +119,7 @@ final class TypeParameter extends Node {
       'reified' => $this->_reified,
       'variance' => $this->_variance,
       'name' => $this->_name,
+      'param_params' => $this->_param_params,
       'constraints' => $this->_constraints,
     ]
       |> Dict\filter_nulls($$);
@@ -128,6 +141,9 @@ final class TypeParameter extends Node {
       ? null
       : $rewriter($this->_variance, $parents);
     $name = $rewriter($this->_name, $parents);
+    $param_params = $this->_param_params === null
+      ? null
+      : $rewriter($this->_param_params, $parents);
     $constraints = $this->_constraints === null
       ? null
       : $rewriter($this->_constraints, $parents);
@@ -136,6 +152,7 @@ final class TypeParameter extends Node {
       $reified === $this->_reified &&
       $variance === $this->_variance &&
       $name === $this->_name &&
+      $param_params === $this->_param_params &&
       $constraints === $this->_constraints
     ) {
       return $this;
@@ -145,6 +162,7 @@ final class TypeParameter extends Node {
       /* HH_FIXME[4110] use `as` */ $reified,
       /* HH_FIXME[4110] use `as` */ $variance,
       /* HH_FIXME[4110] use `as` */ $name,
+      /* HH_FIXME[4110] use `as` */ $param_params,
       /* HH_FIXME[4110] use `as` */ $constraints,
     );
   }
@@ -162,6 +180,7 @@ final class TypeParameter extends Node {
       $this->_reified,
       $this->_variance,
       $this->_name,
+      $this->_param_params,
       $this->_constraints,
     );
   }
@@ -197,6 +216,7 @@ final class TypeParameter extends Node {
       $value,
       $this->_variance,
       $this->_name,
+      $this->_param_params,
       $this->_constraints,
     );
   }
@@ -232,6 +252,7 @@ final class TypeParameter extends Node {
       $this->_reified,
       $value,
       $this->_name,
+      $this->_param_params,
       $this->_constraints,
     );
   }
@@ -267,6 +288,7 @@ final class TypeParameter extends Node {
       $this->_reified,
       $this->_variance,
       $value,
+      $this->_param_params,
       $this->_constraints,
     );
   }
@@ -289,6 +311,42 @@ final class TypeParameter extends Node {
     return $this->getName();
   }
 
+  public function getParamParamsUNTYPED(): ?Node {
+    return $this->_param_params;
+  }
+
+  public function withParamParams(?TypeParameters $value): this {
+    if ($value === $this->_param_params) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_reified,
+      $this->_variance,
+      $this->_name,
+      $value,
+      $this->_constraints,
+    );
+  }
+
+  public function hasParamParams(): bool {
+    return $this->_param_params !== null;
+  }
+
+  /**
+   * @return null | TypeParameters
+   */
+  public function getParamParams(): ?TypeParameters {
+    return $this->_param_params;
+  }
+
+  /**
+   * @return TypeParameters
+   */
+  public function getParamParamsx(): TypeParameters {
+    return TypeAssert\not_null($this->getParamParams());
+  }
+
   public function getConstraintsUNTYPED(): ?Node {
     return $this->_constraints;
   }
@@ -302,6 +360,7 @@ final class TypeParameter extends Node {
       $this->_reified,
       $this->_variance,
       $this->_name,
+      $this->_param_params,
       $value,
     );
   }

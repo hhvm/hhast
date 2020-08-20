@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6083aac8221ef8ab36808059861b198d>>
+ * @generated SignedSource<<4f9d98e1f1148bcb6fd27263ccd65a9b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -589,10 +589,9 @@ final class FunctionDeclarationHeader extends Node {
   /**
    * @return AttributizedSpecifier | ClassnameTypeSpecifier |
    * ClosureTypeSpecifier | DarrayTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
-   * MapArrayTypeSpecifier | null | NullableTypeSpecifier | ShapeTypeSpecifier
-   * | SimpleTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant
-   * | UnionTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier | null |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * NoreturnToken | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
    * VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
@@ -603,9 +602,8 @@ final class FunctionDeclarationHeader extends Node {
    * @return AttributizedSpecifier | ClassnameTypeSpecifier |
    * ClosureTypeSpecifier | DarrayTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
-   * MapArrayTypeSpecifier | NullableTypeSpecifier | ShapeTypeSpecifier |
-   * SimpleTypeSpecifier | NoreturnToken | TupleTypeSpecifier | TypeConstant |
-   * UnionTypeSpecifier | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * NoreturnToken | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
    * VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {

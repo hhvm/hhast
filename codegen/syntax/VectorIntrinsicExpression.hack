@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6129f04e155cca20c8bc32790ddaf172>>
+ * @generated SignedSource<<92d368e8319a249b170df40940575291>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -283,7 +283,8 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
-   * | NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
@@ -306,7 +307,8 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
-   * | NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |

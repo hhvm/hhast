@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<73eaebaefc1316503520b78761febb85>>
+ * @generated SignedSource<<21a99c3796cce11f1184dea97d1d5881>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -244,8 +244,7 @@ final class PropertyDeclaration
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
    * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier | null
    * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -255,8 +254,7 @@ final class PropertyDeclaration
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
    * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
    * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * TypeConstant | VarrayTypeSpecifier | VectorArrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * TypeConstant | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
