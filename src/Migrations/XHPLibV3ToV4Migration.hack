@@ -25,6 +25,8 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
     'XHPUnsafeRenderable' => 'Facebook\\XHP\\UnsafeRenderable',
     'XHPAlwaysValidChild' => 'Facebook\\XHP\\AlwaysValidChild',
     'XHPChildValidation' => 'Facebook\\XHP\\ChildValidation\\Validation',
+    'XHPUnsafeAttributeValue' =>
+      'Facebook\\XHP\\UnsafeAttributeValue_DEPRECATED',
   ];
 
   const dict<string, string> RENAMED_FUNCTIONS = dict[

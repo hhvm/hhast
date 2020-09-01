@@ -15,6 +15,7 @@ function foo(
   XHP\AlwaysValidChild $awc,  // 3
   <<__Soft>> HTML\br $br,
   vec<HTML\h1> $h1,
+  XHP\UnsafeAttributeValue_DEPRECATED $uav,
 ): <<__Soft>> dict<string, (?x\node, x\element)> {
   $classname = x\node::class;
   $children = HTML\form::__xhpReflectionChildrenDeclaration();

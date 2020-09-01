@@ -12,6 +12,7 @@ function foo(
   XHPAlwaysValidChild $awc,  // 3
   <<__Soft>> :br $br,
   vec<:h1> $h1,
+  XHPUnsafeAttributeValue $uav,
 ): <<__Soft>> dict<string, (?XHPRoot, :x:element)> {
   $classname = XHPRoot::class;
   $children = :form::__xhpReflectionChildrenDeclaration();
