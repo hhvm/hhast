@@ -9,8 +9,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\Vec;
-
 final class UnusedUseClauseLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
@@ -19,14 +17,13 @@ final class UnusedUseClauseLinterTest extends TestCase {
   }
 
   public function getCleanExamples(): vec<(string)> {
-    $base = vec[
+    $examples = vec[
       tuple("<?hh\nuse type Foo; Foo::bar();"),
       tuple("<?hh\nuse type Foo; function bar<T as Foo>(): void {}"),
       tuple("<?hh\nuse type Foo; class Bar<T as Foo>{}"),
       tuple("<?hh\nuse type Foo; new Foo();"),
       tuple("<?hh\nuse type Foo; function bar(Foo \$in): void {}"),
       tuple("<?hh\nuse type Foo; function bar(): Foo {}"),
-      tuple("<?hh\nuse type foo; function bar(): void { \$_ = <foo />; }"),
       tuple("<?hh\nuse namespace Foo; Foo\bar();"),
       tuple("<?hh\nuse namespace Foo; new Foo\Bar();"),
       tuple("<?hh\nuse Foo; new Foo();"),
@@ -35,11 +32,15 @@ final class UnusedUseClauseLinterTest extends TestCase {
       tuple("<?hh\nuse const FOO; var_dump(FOO);"),
     ];
 
-    if (\HHVM_VERSION_ID >= 41700) {
-      return $base;
+    if (\HHVM_VERSION_ID < 41700) {
+      $examples[] = tuple("<?hh\nuse type Foo; \$x instanceof Foo;");
     }
-    return Vec\concat($base, vec[
-      tuple("<?hh\nuse type Foo; \$x instanceof Foo;"),
-    ]);
+
+    if (\ini_get('hhvm.hack.lang.disable_xhp_element_mangling')) {
+      $examples[] =
+        tuple("<?hh\nuse type foo; function bar(): void { \$_ = <foo />; }");
+    }
+
+    return $examples;
   }
 }
