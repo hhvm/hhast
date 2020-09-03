@@ -41,11 +41,12 @@ final class NodeList<+Titem as Node> extends Node {
     return $this->_children;
   }
 
-  public function getChildrenOfItems<T>(): vec<T> where Titem as ListItem<T> {
+  public function getChildrenOfItems<T as ?Node>(
+  ): vec<T> where Titem as ListItem<T> {
     return Vec\map($this->getChildren(), $child ==> $child->getItem());
   }
 
-  public function getChildrenOfItemsOfType<T>(
+  public function getChildrenOfItemsOfType<T as ?Node>(
     classname<T> $what,
   ): vec<T> where Titem as ListItem<T> {
     $out = vec[];
@@ -217,7 +218,7 @@ final class NodeList<+Titem as Node> extends Node {
     return new NodeList($new);
   }
 
-  public function withoutItemWithChild<Tinner super Node>(
+  public function withoutItemWithChild<Tinner as Node>(
     Tinner $inner,
   ): this where Titem as ListItem<Tinner> {
     $new = Vec\filter($this->_children, $c ==> $c->getItem() !== $inner);
