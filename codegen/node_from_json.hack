@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb1779beeae706ede6f73b0f933308b0>>
+ * @generated SignedSource<<3c08938f7e11c6b7e01bb5c9f8d7155e>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -49,6 +49,7 @@ function node_from_json_unwrapped(
     'binary_expression' => HHAST\BinaryExpression::class,
     'braced_expression' => HHAST\BracedExpression::class,
     'break_statement' => HHAST\BreakStatement::class,
+    'capability_provisional' => HHAST\CapabilityProvisional::class,
     'case_label' => HHAST\CaseLabel::class,
     'cast_expression' => HHAST\CastExpression::class,
     'catch_clause' => HHAST\CatchClause::class,

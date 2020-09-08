@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb7f3d4baf04fda1f589166bf5837a60>>
+ * @generated SignedSource<<d72aab49f53a0b80507d89c1beaac25a>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -349,7 +349,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<const_declaration|property_declaration>',
     'list<const_declaration|type_const_declaration>',
     'list<methodish_declaration>',
-    'list<methodish_declaration|methodish_trait_resolution|trait_use>',
     'list<methodish_declaration|property_declaration>',
     'list<methodish_declaration|property_declaration|require_clause>',
     'list<methodish_declaration|property_declaration|trait_use>',
@@ -361,7 +360,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<methodish_declaration|type_const_declaration>',
     'list<methodish_declaration|xhp_children_declaration|xhp_class_attribute_declaration>',
     'list<methodish_declaration|xhp_class_attribute_declaration>',
-    'list<methodish_trait_resolution|trait_use>',
     'list<property_declaration>',
     'list<property_declaration|trait_use>',
     'list<property_declaration|type_const_declaration>',
@@ -1239,6 +1237,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<enumerator>',
     'missing',
   ],
+  'enum_declaration.enum_includes_keyword' => keyset[
+    'missing',
+  ],
+  'enum_declaration.enum_includes_list' => keyset[
+    'missing',
+  ],
   'enum_declaration.enum_keyword' => keyset[
     'token:enum',
   ],
@@ -1679,7 +1683,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_call_expression>|list_item<literal>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<literal>|list_item<varray_intrinsic_expression>>',
     'list<list_item<function_call_expression>|list_item<member_selection_expression>>',
-    'list<list_item<function_call_expression>|list_item<member_selection_expression>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<object_creation_expression>>',
     'list<list_item<function_call_expression>|list_item<object_creation_expression>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<parenthesized_expression>>',
@@ -1783,6 +1786,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<literal>|list_item<vector_intrinsic_expression>>',
     'list<list_item<member_selection_expression>>',
     'list<list_item<member_selection_expression>|list_item<subscript_expression>>',
+    'list<list_item<member_selection_expression>|list_item<subscript_expression>|list_item<variable>>',
     'list<list_item<member_selection_expression>|list_item<variable>>',
     'list<list_item<member_selection_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<object_creation_expression>>',
@@ -1867,6 +1871,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'function_declaration.function_declaration_header' => keyset[
     'function_declaration_header',
+  ],
+  'function_declaration_header.function_capability_provisional' => keyset[
+    'missing',
   ],
   'function_declaration_header.function_colon' => keyset[
     'missing',
@@ -2346,21 +2353,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
     'token:;',
   ],
-  'methodish_trait_resolution.methodish_trait_attribute' => keyset[
-    'missing',
-  ],
-  'methodish_trait_resolution.methodish_trait_equal' => keyset[
-    'token:=',
-  ],
-  'methodish_trait_resolution.methodish_trait_function_decl_header' => keyset[
-    'function_declaration_header',
-  ],
-  'methodish_trait_resolution.methodish_trait_name' => keyset[
-    'scope_resolution_expression',
-  ],
-  'methodish_trait_resolution.methodish_trait_semicolon' => keyset[
-    'token:;',
-  ],
   'namespace_body.namespace_declarations' => keyset[
     'list<alias_declaration>',
     'list<alias_declaration|enum_declaration|function_declaration|namespace_declaration|namespace_use_declaration>',
@@ -2587,14 +2579,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'member_selection_expression',
     'scope_resolution_expression',
     'subscript_expression',
-    'token:name',
     'variable',
   ],
   'postfix_unary_expression.postfix_unary_operator' => keyset[
-    'token:*',
     'token:++',
     'token:--',
-    'token:?',
   ],
   'prefix_unary_expression.prefix_unary_operand' => keyset[
     'anonymous_function',
@@ -2821,7 +2810,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration|namespace_use_declaration>',
     'list<classish_declaration|end_of_file|function_declaration|markup_section|namespace_use_declaration>',
     'list<classish_declaration|end_of_file|markup_section>',
-    'list<classish_declaration|end_of_file|namespace_declaration>',
     'list<classish_declaration|end_of_file|namespace_declaration|namespace_group_use_declaration|namespace_use_declaration>',
     'list<const_declaration|end_of_file|function_declaration|markup_section>',
     'list<const_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
@@ -3494,7 +3482,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<literal>|list_item<object_creation_expression>|list_item<variable>>',
     'list<list_item<literal>|list_item<object_creation_expression>|list_item<variable>|list_item<varray_intrinsic_expression>>',
     'list<list_item<literal>|list_item<object_creation_expression>|list_item<varray_intrinsic_expression>>',
-    'list<list_item<literal>|list_item<parenthesized_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<scope_resolution_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<token:name>>',
@@ -3703,23 +3690,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'xhp_children_declaration.xhp_children_expression' => keyset[
     'token:empty',
-    'xhp_children_parenthesized_list',
   ],
   'xhp_children_declaration.xhp_children_keyword' => keyset[
     'token:children',
   ],
   'xhp_children_declaration.xhp_children_semicolon' => keyset[
     'token:;',
-  ],
-  'xhp_children_parenthesized_list.xhp_children_list_left_paren' => keyset[
-    'token:(',
-  ],
-  'xhp_children_parenthesized_list.xhp_children_list_right_paren' => keyset[
-    'token:)',
-  ],
-  'xhp_children_parenthesized_list.xhp_children_list_xhp_children' => keyset[
-    'list<list_item<postfix_unary_expression>|list_item<token:name>>',
-    'list<list_item<token:name>>',
   ],
   'xhp_class_attribute.xhp_attribute_decl_initializer' => keyset[
     'missing',

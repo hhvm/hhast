@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ce7005d5b74500b993f53ec73c54f54>>
+ * @generated SignedSource<<aa03e936634cb1364015b005a062dcf0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,14 +14,14 @@ final class XHPChildrenParenthesizedList
 
   const string SYNTAX_KIND = 'xhp_children_parenthesized_list';
 
-  private LeftParenToken $_left_paren;
-  private NodeList<ListItem<IExpression>> $_xhp_children;
-  private RightParenToken $_right_paren;
+  private ?Node $_left_paren;
+  private ?Node $_xhp_children;
+  private ?Node $_right_paren;
 
   public function __construct(
-    LeftParenToken $left_paren,
-    NodeList<ListItem<IExpression>> $xhp_children,
-    RightParenToken $right_paren,
+    ?Node $left_paren,
+    ?Node $xhp_children,
+    ?Node $right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_paren = $left_paren;
@@ -40,32 +40,29 @@ final class XHPChildrenParenthesizedList
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_list_left_paren'],
+      /* HH_FIXME[4110] */ $json['xhp_children_list_left_paren'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'LeftParenToken',
+      'Node',
     );
-    $left_paren = $left_paren as nonnull;
-    $offset += $left_paren->getWidth();
+    $offset += $left_paren?->getWidth() ?? 0;
     $xhp_children = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_list_xhp_children'],
+      /* HH_FIXME[4110] */ $json['xhp_children_list_xhp_children'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<IExpression>>',
+      'Node',
     );
-    $xhp_children = $xhp_children as nonnull;
-    $offset += $xhp_children->getWidth();
+    $offset += $xhp_children?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_list_right_paren'],
+      /* HH_FIXME[4110] */ $json['xhp_children_list_right_paren'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'RightParenToken',
+      'Node',
     );
-    $right_paren = $right_paren as nonnull;
-    $offset += $right_paren->getWidth();
+    $offset += $right_paren?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -96,9 +93,15 @@ final class XHPChildrenParenthesizedList
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_paren = $rewriter($this->_left_paren, $parents);
-    $xhp_children = $rewriter($this->_xhp_children, $parents);
-    $right_paren = $rewriter($this->_right_paren, $parents);
+    $left_paren = $this->_left_paren === null
+      ? null
+      : $rewriter($this->_left_paren, $parents);
+    $xhp_children = $this->_xhp_children === null
+      ? null
+      : $rewriter($this->_xhp_children, $parents);
+    $right_paren = $this->_right_paren === null
+      ? null
+      : $rewriter($this->_right_paren, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $xhp_children === $this->_xhp_children &&
@@ -117,7 +120,7 @@ final class XHPChildrenParenthesizedList
     return $this->_left_paren;
   }
 
-  public function withLeftParen(LeftParenToken $value): this {
+  public function withLeftParen(?Node $value): this {
     if ($value === $this->_left_paren) {
       return $this;
     }
@@ -129,26 +132,24 @@ final class XHPChildrenParenthesizedList
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParen(): LeftParenToken {
-    return TypeAssert\instance_of(LeftParenToken::class, $this->_left_paren);
+  public function getLeftParen(): ?Node {
+    return $this->_left_paren;
   }
 
   /**
-   * @return LeftParenToken
+   * @return unknown
    */
-  public function getLeftParenx(): LeftParenToken {
-    return $this->getLeftParen();
+  public function getLeftParenx(): Node {
+    return TypeAssert\not_null($this->getLeftParen());
   }
 
   public function getXhpChildrenUNTYPED(): ?Node {
     return $this->_xhp_children;
   }
 
-  public function withXhpChildren(
-    NodeList<ListItem<IExpression>> $value,
-  ): this {
+  public function withXhpChildren(?Node $value): this {
     if ($value === $this->_xhp_children) {
       return $this;
     }
@@ -160,24 +161,24 @@ final class XHPChildrenParenthesizedList
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<NameToken>>
+   * @return unknown
    */
-  public function getXhpChildren(): NodeList<ListItem<IExpression>> {
-    return TypeAssert\instance_of(NodeList::class, $this->_xhp_children);
+  public function getXhpChildren(): ?Node {
+    return $this->_xhp_children;
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> | NodeList<ListItem<NameToken>>
+   * @return unknown
    */
-  public function getXhpChildrenx(): NodeList<ListItem<IExpression>> {
-    return $this->getXhpChildren();
+  public function getXhpChildrenx(): Node {
+    return TypeAssert\not_null($this->getXhpChildren());
   }
 
   public function getRightParenUNTYPED(): ?Node {
     return $this->_right_paren;
   }
 
-  public function withRightParen(RightParenToken $value): this {
+  public function withRightParen(?Node $value): this {
     if ($value === $this->_right_paren) {
       return $this;
     }
@@ -189,16 +190,16 @@ final class XHPChildrenParenthesizedList
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParen(): RightParenToken {
-    return TypeAssert\instance_of(RightParenToken::class, $this->_right_paren);
+  public function getRightParen(): ?Node {
+    return $this->_right_paren;
   }
 
   /**
-   * @return RightParenToken
+   * @return unknown
    */
-  public function getRightParenx(): RightParenToken {
-    return $this->getRightParen();
+  public function getRightParenx(): Node {
+    return TypeAssert\not_null($this->getRightParen());
   }
 }
