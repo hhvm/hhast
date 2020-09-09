@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de23fe74da7262cd941c96da49d92b53>>
+ * @generated SignedSource<<f779db022df57660dee85a72a0bcddd8>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -86,6 +86,7 @@ class TokenClassMap {
     'implements' => HHAST\ImplementsToken::class,
     'include' => HHAST\IncludeToken::class,
     'include_once' => HHAST\Include_onceToken::class,
+    'includes' => HHAST\IncludesToken::class,
     'inout' => HHAST\InoutToken::class,
     'instanceof' => HHAST\InstanceofToken::class,
     'insteadof' => HHAST\InsteadofToken::class,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2492c8a3674d2ab129904f521bfa18ab>>
+ * @generated SignedSource<<a6c7ace6be4736542a333baf9dd0f20e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,17 +15,17 @@ final class MethodishTraitResolution
   const string SYNTAX_KIND = 'methodish_trait_resolution';
 
   private ?Node $_attribute;
-  private FunctionDeclarationHeader $_function_decl_header;
-  private EqualToken $_equal;
-  private ScopeResolutionExpression $_name;
-  private SemicolonToken $_semicolon;
+  private ?Node $_function_decl_header;
+  private ?Node $_equal;
+  private ?Node $_name;
+  private ?Node $_semicolon;
 
   public function __construct(
     ?Node $attribute,
-    FunctionDeclarationHeader $function_decl_header,
-    EqualToken $equal,
-    ScopeResolutionExpression $name,
-    SemicolonToken $semicolon,
+    ?Node $function_decl_header,
+    ?Node $equal,
+    ?Node $name,
+    ?Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute = $attribute;
@@ -54,41 +54,37 @@ final class MethodishTraitResolution
     );
     $offset += $attribute?->getWidth() ?? 0;
     $function_decl_header = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_function_decl_header'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_function_decl_header'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'FunctionDeclarationHeader',
+      'Node',
     );
-    $function_decl_header = $function_decl_header as nonnull;
-    $offset += $function_decl_header->getWidth();
+    $offset += $function_decl_header?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_equal'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_equal'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'EqualToken',
+      'Node',
     );
-    $equal = $equal as nonnull;
-    $offset += $equal->getWidth();
+    $offset += $equal?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_name'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'ScopeResolutionExpression',
+      'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_semicolon'],
+      /* HH_FIXME[4110] */ $json['methodish_trait_semicolon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'SemicolonToken',
+      'Node',
     );
-    $semicolon = $semicolon as nonnull;
-    $offset += $semicolon->getWidth();
+    $offset += $semicolon?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -126,10 +122,14 @@ final class MethodishTraitResolution
     $attribute = $this->_attribute === null
       ? null
       : $rewriter($this->_attribute, $parents);
-    $function_decl_header = $rewriter($this->_function_decl_header, $parents);
-    $equal = $rewriter($this->_equal, $parents);
-    $name = $rewriter($this->_name, $parents);
-    $semicolon = $rewriter($this->_semicolon, $parents);
+    $function_decl_header = $this->_function_decl_header === null
+      ? null
+      : $rewriter($this->_function_decl_header, $parents);
+    $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
     if (
       $attribute === $this->_attribute &&
       $function_decl_header === $this->_function_decl_header &&
@@ -170,14 +170,14 @@ final class MethodishTraitResolution
   }
 
   /**
-   * @return null
+   * @return unknown
    */
   public function getAttribute(): ?Node {
     return $this->_attribute;
   }
 
   /**
-   * @return
+   * @return unknown
    */
   public function getAttributex(): Node {
     return TypeAssert\not_null($this->getAttribute());
@@ -187,9 +187,7 @@ final class MethodishTraitResolution
     return $this->_function_decl_header;
   }
 
-  public function withFunctionDeclHeader(
-    FunctionDeclarationHeader $value,
-  ): this {
+  public function withFunctionDeclHeader(?Node $value): this {
     if ($value === $this->_function_decl_header) {
       return $this;
     }
@@ -207,27 +205,24 @@ final class MethodishTraitResolution
   }
 
   /**
-   * @return FunctionDeclarationHeader
+   * @return unknown
    */
-  public function getFunctionDeclHeader(): FunctionDeclarationHeader {
-    return TypeAssert\instance_of(
-      FunctionDeclarationHeader::class,
-      $this->_function_decl_header,
-    );
+  public function getFunctionDeclHeader(): ?Node {
+    return $this->_function_decl_header;
   }
 
   /**
-   * @return FunctionDeclarationHeader
+   * @return unknown
    */
-  public function getFunctionDeclHeaderx(): FunctionDeclarationHeader {
-    return $this->getFunctionDeclHeader();
+  public function getFunctionDeclHeaderx(): Node {
+    return TypeAssert\not_null($this->getFunctionDeclHeader());
   }
 
   public function getEqualUNTYPED(): ?Node {
     return $this->_equal;
   }
 
-  public function withEqual(EqualToken $value): this {
+  public function withEqual(?Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -245,24 +240,24 @@ final class MethodishTraitResolution
   }
 
   /**
-   * @return EqualToken
+   * @return unknown
    */
-  public function getEqual(): EqualToken {
-    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
+  public function getEqual(): ?Node {
+    return $this->_equal;
   }
 
   /**
-   * @return EqualToken
+   * @return unknown
    */
-  public function getEqualx(): EqualToken {
-    return $this->getEqual();
+  public function getEqualx(): Node {
+    return TypeAssert\not_null($this->getEqual());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(ScopeResolutionExpression $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -280,27 +275,24 @@ final class MethodishTraitResolution
   }
 
   /**
-   * @return ScopeResolutionExpression
+   * @return unknown
    */
-  public function getName(): ScopeResolutionExpression {
-    return TypeAssert\instance_of(
-      ScopeResolutionExpression::class,
-      $this->_name,
-    );
+  public function getName(): ?Node {
+    return $this->_name;
   }
 
   /**
-   * @return ScopeResolutionExpression
+   * @return unknown
    */
-  public function getNamex(): ScopeResolutionExpression {
-    return $this->getName();
+  public function getNamex(): Node {
+    return TypeAssert\not_null($this->getName());
   }
 
   public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(SemicolonToken $value): this {
+  public function withSemicolon(?Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -318,16 +310,16 @@ final class MethodishTraitResolution
   }
 
   /**
-   * @return SemicolonToken
+   * @return unknown
    */
-  public function getSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  public function getSemicolon(): ?Node {
+    return $this->_semicolon;
   }
 
   /**
-   * @return SemicolonToken
+   * @return unknown
    */
-  public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
+  public function getSemicolonx(): Node {
+    return TypeAssert\not_null($this->getSemicolon());
   }
 }

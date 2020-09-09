@@ -170,7 +170,11 @@ final class Script extends ScriptGeneratedBase {
       // whatever this is
       Vec\map(
         $root->getDescendantsOfType(MethodishTraitResolution::class),
-        $n ==> tuple($n, $n->getFunctionDeclHeader()->getTypeParameterList()),
+        $n ==> tuple(
+          $n,
+          $n->getFunctionDeclHeader() as FunctionDeclarationHeader
+            ->getTypeParameterList(),
+        ),
       ),
     );
 
