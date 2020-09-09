@@ -123,8 +123,8 @@ final class NodeTypesTest extends TestCase {
     )->toBeSame('SOME\\NAMESPACED\\CONST');
   }
 
-  public async function testOldStyleXHPClassNodes(): Awaitable<void> {
-    $code = '<?hh class :foo { }';
+  public async function testFullyQualifiedXHPClassNodes(): Awaitable<void> {
+    $code = '<?hh class :foo { attribute enum {yes, no} bar @required; }';
     $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
     list($_markup, $x) = $ast->getDeclarations()->getChildren();
     $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
@@ -132,7 +132,7 @@ final class NodeTypesTest extends TestCase {
   }
 
   public async function testNewStyleXHPClassNodes(): Awaitable<void> {
-    $code = '<?hh xhp class foo { };';
+    $code = '<?hh xhp class foo { attribute enum {yes, no} bar @required; };';
     $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
     list($_markup, $x) = $ast->getDeclarations()->getChildren();
     $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
