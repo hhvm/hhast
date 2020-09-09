@@ -1,6 +1,7 @@
 bin/update-* export-ignore
 src/__Private/codegen/ export-ignore
 src/__Private/CodegenCLI.hack export-ignore
+src/codegen/data/ export-ignore
 tests/ export-ignore
 codegen/**/* linguist-generated
 .hhconfig export-ignore

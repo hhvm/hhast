@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d72aab49f53a0b80507d89c1beaac25a>>
+ * @generated SignedSource<<73568419576595204a545a143b64317b>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2579,11 +2579,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'member_selection_expression',
     'scope_resolution_expression',
     'subscript_expression',
+    'token:name',
     'variable',
   ],
   'postfix_unary_expression.postfix_unary_operator' => keyset[
+    'token:*',
     'token:++',
     'token:--',
+    'token:?',
   ],
   'prefix_unary_expression.prefix_unary_operand' => keyset[
     'anonymous_function',
@@ -2810,6 +2813,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration|namespace_use_declaration>',
     'list<classish_declaration|end_of_file|function_declaration|markup_section|namespace_use_declaration>',
     'list<classish_declaration|end_of_file|markup_section>',
+    'list<classish_declaration|end_of_file|namespace_declaration>',
     'list<classish_declaration|end_of_file|namespace_declaration|namespace_group_use_declaration|namespace_use_declaration>',
     'list<const_declaration|end_of_file|function_declaration|markup_section>',
     'list<const_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
@@ -3690,12 +3694,23 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'xhp_children_declaration.xhp_children_expression' => keyset[
     'token:empty',
+    'xhp_children_parenthesized_list',
   ],
   'xhp_children_declaration.xhp_children_keyword' => keyset[
     'token:children',
   ],
   'xhp_children_declaration.xhp_children_semicolon' => keyset[
     'token:;',
+  ],
+  'xhp_children_parenthesized_list.xhp_children_list_left_paren' => keyset[
+    'token:(',
+  ],
+  'xhp_children_parenthesized_list.xhp_children_list_right_paren' => keyset[
+    'token:)',
+  ],
+  'xhp_children_parenthesized_list.xhp_children_list_xhp_children' => keyset[
+    'list<list_item<postfix_unary_expression>|list_item<token:name>>',
+    'list<list_item<token:name>>',
   ],
   'xhp_class_attribute.xhp_attribute_decl_initializer' => keyset[
     'missing',

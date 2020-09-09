@@ -13,6 +13,7 @@ use namespace Facebook\{HHAST, TypeAssert};
 use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\HHAST\{
   AddFixmesMigration,
+  AddXHPChildrenDeclarationMethodMigration,
   BaseMigration,
   DemangleXHPMigration,
   DollarBraceEmbeddedVariableMigration,
@@ -23,6 +24,7 @@ use type Facebook\HHAST\{
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
   OptionalShapeFieldsMigration,
+  RemoveXHPChildDeclarationsMigration,
   TopLevelRequiresMigration,
   XHPClassModifierMigration,
 };
@@ -168,7 +170,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         '--harden-varray-or-darray-typehints',
       ),
       self::removed('--php-array-typehints-best-guess', '4.64.4 to 4.64.6'),
-      self::removed('--add-xhp-children-declaration-method', '4.33.7 to 4.72'),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = AddXHPChildrenDeclarationMethodMigration::class;
+        },
+        'Add getChildrenDeclaration() method to XHP classes with a children declaration',
+        '--add-xhp-children-declaration-method',
+      ),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = DemangleXHPMigration::class;
@@ -176,7 +184,13 @@ class MigrationCLI extends CLIWithRequiredArguments {
         'Replace "-" in XHP class names with "_"',
         '--demangle-xhp-class-names',
       ),
-      self::removed('--remove-xhp-child-declarations', '4.33.7 to 4.72'),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] = RemoveXHPChildDeclarationsMigration::class;
+        },
+        'Remove `children` declarations from XHP classes, and update validation traits',
+        '--remove-xhp-child-declarations',
+      ),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = XHPClassModifierMigration::class;

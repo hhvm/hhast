@@ -1,0 +1,26 @@
+namespace Foo {
+  // XHP not currently supported here
+}
+
+namespace { 
+  class :herp {
+  }
+}
+
+namespace Bar {
+  // XHP not currently supported here
+}
+
+namespace { 
+  use namespace Facebook\XHP\ChildValidation as XHPChild;
+
+  class :derp {
+    use XHPChildDeclarationConsistencyValidation;
+    children (foo);
+
+    protected static function getChildrenDeclaration(): XHPChild\Constraint {
+        return XHPChild\ofType<foo>();
+    }
+
+  }
+}

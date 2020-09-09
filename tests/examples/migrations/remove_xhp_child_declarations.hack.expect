@@ -1,0 +1,23 @@
+class :no:children {
+}
+
+class :no-replacement {
+}
+
+class :with-validation-trait{
+  use XHPChildValidation;
+
+  protected function getChildrenDeclaration(): XHPChild\Constraint {}
+}
+
+class :without-trait{
+
+  // This is /probably/ nonsense, but can't be sure
+  protected function getChildrenDeclaration(): XHPChild\Constraint {}
+}
+
+class :with-comment {
+  // Blah blah
+  // This is /probably/ nonsense, but can't be sure
+  protected function getChildrenDeclaration(): XHPChild\Constraint {}
+}
