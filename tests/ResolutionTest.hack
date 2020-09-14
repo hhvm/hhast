@@ -224,4 +224,15 @@ final class ResolutionTest extends TestCase {
       ),
     ];
   }
+
+  <<DataProvider('getTypeResolutionExamples')>>
+  public async function testTypeResolution(
+    string $code,
+    string $type,
+    string $expected,
+  ): Awaitable<void> {
+    list($root, $node) = await self::getRootAndNodeAsync($code);
+    expect(resolve_type($type, $root, $node)['name'])
+      ->toBeSame($expected);
+  }
 }
