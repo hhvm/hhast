@@ -32,9 +32,12 @@ function is_compatible_schema_version(string $other_version): bool {
   // Return true if $other_version is a subset of SCHEMA_VERSION
 
   switch ($other_version) {
+    // preceding versions:
     case '2020-09-04-0000': // identical to 2020-09-08-0000
     case '2020-08-17-0000': // missing `enum Foo includes Bar, Baz` syntax
     case '2020-08-14-0000': // missing PrefixedCodeExpression, BacktickToken
+    // succeeding versions:
+    case '2020-09-14-0000': // no longer allows ? in ?enum XHP attribute type
       return true;
     default:
       return false;
