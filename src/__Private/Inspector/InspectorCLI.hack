@@ -15,6 +15,20 @@ use type Facebook\CLILib\CLIWithRequiredArguments;
 use type HH\Lib\_Private\PHPWarningSuppressor;
 use namespace Facebook\CLILib\CLIOptions;
 
+use namespace /* HHAST_IGNORE_ERROR[UseStatementWithAs] */ Facebook\XHP\Core as x
+;
+use type Facebook\XHP\HTML\{
+  body,
+  code,
+  div,
+  head,
+  html,
+  pre,
+  script,
+  span,
+  style,
+};
+
 final class InspectorCLI extends CLIWithRequiredArguments {
   private ?string $outputPath = null;
   private bool $open = false;
@@ -71,7 +85,7 @@ final class InspectorCLI extends CLIWithRequiredArguments {
 
     \file_put_contents(
       $output,
-      self::getHTMLHeader().$this->getHTMLForNode($ast).self::getHTMLFooter(),
+      await $this->getXHPDocument($ast)->toStringAsync(),
     );
 
     print $output."\n";
@@ -115,21 +129,26 @@ final class InspectorCLI extends CLIWithRequiredArguments {
     return $result;
   }
 
-  private static function getHTMLHeader(): string {
-    return '<html><head><style>'.
-      \file_get_contents(__DIR__.'/syntax.css').
-      \file_get_contents(__DIR__.'/inspector.css').
-      '</style></head><body>'.
-      '<div class="info">Click on some code to get started.</div>'.
-      '<pre><code class="language-hack">';
-  }
-
-  private static function getHTMLFooter(): string {
-    return '</code></pre>'.
-      '<script>'.
-      \file_get_contents(__DIR__.'/inspector.js').
-      '</script>'.
-      "</body></html>\n";
+  private function getXHPDocument(HHAST\Node $node): x\node {
+    return (
+      <html>
+        <head>
+          <style>
+            {\file_get_contents(__DIR__.'/syntax.css')}
+            {\file_get_contents(__DIR__.'/inspector.css')}
+          </style>
+        </head>
+        <body>
+          <div class="info">Click on some code to get started.</div>
+          <pre>
+            <code class="language-hack">
+              {$this->getXHPForNode($node)}
+            </code>
+          </pre>
+          <script>{\file_get_contents(__DIR__.'/inspector.js')}</script>
+        </body>
+      </html>
+    );
   }
 
   private function getDataForTrace(vec<(HHAST\Node, arraykey)> $trace): string {
@@ -181,49 +200,55 @@ final class InspectorCLI extends CLIWithRequiredArguments {
     return Str\join($trace, ' ');
   }
 
-  private function getHTMLForNode(
+  private function getXHPForNode(
     HHAST\Node $node,
     vec<(HHAST\Node, arraykey)> $trace = vec[],
-  ): string {
+  ): x\node {
     $class = \get_class($node) |> Str\split($$, '\\') |> C\lastx($$);
     if ($node is HHAST\Trivia) {
-      return Str\format(
-        '<span id="hs-id-%d" data-kind="%s" data-trace="%s" class="%s">%s</span>',
-        $node->getUniqueID(),
-        $class,
-        $this->getDataForTrace($trace),
-        $this->getCSSClassesForTrace($trace, $node),
-        \htmlspecialchars($node->getCode()),
-      );
+      return
+        <span
+          id={'hs-id-'.$node->getUniqueID()}
+          class={$this->getCSSClassesForTrace($trace, $node)}
+          data-kind={$class}
+          data-trace={$this->getDataForTrace($trace)}>
+          {$node->getCode()}
+        </span>;
     }
 
     if ($node is HHAST\Token) {
-      return Str\format(
-        '%s<span id="hs-id-%d" data-kind="%s" data-trace="%s" class="%s">%s</span>%s',
-        $this->getHTMLForNode(
-          $node->getLeading(),
-          Vec\concat($trace, vec[tuple($node, 'leading')]),
-        ),
-        $node->getUniqueID(),
-        $class,
-        $this->getDataForTrace($trace),
-        $this->getCSSClassesForTrace($trace, $node),
-        \htmlspecialchars($node->getText()),
-        $this->getHTMLForNode(
-          $node->getTrailing(),
-          Vec\concat($trace, vec[tuple($node, 'trailing')]),
-        ),
-      );
+      return
+        <x:frag>
+          {
+            $this->getXHPForNode(
+              $node->getLeading(),
+              Vec\concat($trace, vec[tuple($node, 'leading')]),
+            )
+          }
+          <span
+            id={'hs-id-'.$node->getUniqueID()}
+            class={$this->getCSSClassesForTrace($trace, $node)}
+            data-kind={$class}
+            data-trace={$this->getDataForTrace($trace)}>
+            {$node->getText()}
+          </span>
+          {
+            $this->getXHPForNode(
+              $node->getTrailing(),
+              Vec\concat($trace, vec[tuple($node, 'trailing')]),
+            )
+          }
+        </x:frag>;
     }
 
     return $node->getChildren()
       |> Dict\map_with_key(
         $$,
-        ($key, $child) ==> $this->getHTMLForNode(
+        ($key, $child) ==> $this->getXHPForNode(
           $child,
           Vec\concat($trace, vec[tuple($node, $key)]),
         ),
       )
-      |> Str\join($$, '');
+      |> <x:frag>{$$}</x:frag>;
   }
 }

@@ -28,6 +28,7 @@
         "hhvm/hhvm-autoload": "^2.0.4|^3.0",
         "hhvm/type-assert": "^3.0|^4.0",
         "facebook/hh-clilib": "^2.5.0rc1",
-        "facebook/difflib": "^1.0.0"
+        "facebook/difflib": "^1.0.0",
+        "facebook/xhp-lib": "^4.0"
     }
 }
