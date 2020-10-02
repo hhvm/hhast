@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "\t\\SomeNamespace\\__Private\\SomeEnumName",
+        "blame_pretty": "\t\\SomeNamespace\\__Private\\SomeEnumName",
+        "description": "Package private artifacts can only be used within the top level parent package"
+    }
+]

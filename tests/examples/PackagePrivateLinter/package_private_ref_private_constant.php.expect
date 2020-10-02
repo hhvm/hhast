@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "\\SomeNamespace\\__Private\\SOME_CONST",
+        "blame_pretty": "\\SomeNamespace\\__Private\\SOME_CONST",
+        "description": "Package private artifacts can only be used within the top level parent package"
+    }
+]

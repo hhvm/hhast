@@ -1,0 +1,27 @@
+<?hh // strict
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
+// Call method in a private namespace within same top level namespace.
+
+namespace Something\__Private {
+  class TestingWithPrivateNamespace {
+	public static function iAmBanned(): void {}
+  }
+}
+
+namespace Something;
+class TestSomething {
+  function fn(): void {
+	\Something\__Private\TestingWithPrivateNamespace::iAmBanned();
+  }
+}
+function test_fn(): void {
+  __Private\TestingWithPrivateNamespace::iAmBanned();
+}
+

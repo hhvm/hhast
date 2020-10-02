@@ -82,6 +82,7 @@ final class LintRunConfig {
     HHAST\PocketEnumDeclarationLinter::class,
     HHAST\PreferRequireOnceLinter::class,
     HHAST\ConsistentLineEndingsLinter::class,
+    HHAST\PackagePrivateLinter::class,
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
