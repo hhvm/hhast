@@ -84,7 +84,7 @@ final class PackagePrivateLinter extends ASTLinter {
           $current_namespace_for_file,
         );
         /**
-         * In some cases, the current namespace is also a qualified name, 
+         * In some cases, the current namespace is also a qualified name,
          * so it gets filtered into a qualified name token in our for each loop.
          * We do not want to check for private keyword in that case.
          */
@@ -92,7 +92,6 @@ final class PackagePrivateLinter extends ASTLinter {
           $qualified_name_parts === $current_namespace_for_file) {
           continue;
         }
-      
         if (!$this->isPrivateNamespacePathAllowed(
           $qualified_name_parts,
           $current_namespace_for_file,
@@ -124,8 +123,9 @@ final class PackagePrivateLinter extends ASTLinter {
        * If current namespace is empty, do not allow to use private artifacts.
        * Additionally, if the top level namespace does not match, we do not care for rest of the qualified path.
        */
-      if (C\is_empty($current_namespace_for_file) || $current_namespace_for_file[0] !== $namepath_parts[0])
+      if (C\is_empty($current_namespace_for_file) || $current_namespace_for_file[0] !== $namepath_parts[0]) {
         return false;
+      }
     }
     return true;
   }
@@ -282,18 +282,19 @@ final class PackagePrivateLinter extends ASTLinter {
           $absolute_path = true;
         }
         $item = $qualified_name_parts->getItem();
-        if ($item is nonnull)
+        if ($item is nonnull) {
           $parts[] = $item->getText();
+        }
       }
 
       if (!$absolute_path && C\count($parts) > 0) {
         /**
-         * get the absolute path by checking the following: 
+         * get the absolute path by checking the following:
          * 1. Is the path mentioned in qualified name relative to one of the namespace in use namespace statement(s).
          * 2. Is the path mentioned in qualified name relative to the namespace of the current file.
          */
         $path_found = false;
-        foreach ($use_namespace_definitions_for_file as $key => $use_definition_parts_value) {
+        foreach ($use_namespace_definitions_for_file as $key => $_use_definition_parts_value) {
           if ($key === $parts[0]) {
             $path_found = true;
             // add use_definition_parts_value[parts] to The $parts.
