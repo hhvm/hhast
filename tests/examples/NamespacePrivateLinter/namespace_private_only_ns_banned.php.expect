@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "<?hh \/\/ strict\n\/*\n *  Copyright (c) 2017-present, Facebook, Inc.\n *  All rights reserved.\n *\n *  This source code is licensed under the MIT license found in the\n *  LICENSE file in the root directory of this source tree.\n *\n *\/\nnamespace Blergh;\nuse type \\Something\\__Private\\TestingWithPrivateNamespace;\nuse type TeamJoins\\__Private;\n",
+        "blame_pretty": "<?hh \/\/ strict\n\/*\n *  Copyright (c) 2017-present, Facebook, Inc.\n *  All rights reserved.\n *\n *  This source code is licensed under the MIT license found in the\n *  LICENSE file in the root directory of this source tree.\n *\n *\/\nnamespace Blergh;\nuse type \\Something\\__Private\\TestingWithPrivateNamespace;\nuse type TeamJoins\\__Private;\n",
+        "description": "Artifacts belonging to a namespace are private to the parent namespace"
+    }
+]

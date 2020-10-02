@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "\\Blah\\__Private\\some_private_type_t",
+        "blame_pretty": "\\Blah\\__Private\\some_private_type_t",
+        "description": "Artifacts belonging to a namespace are private to the parent namespace"
+    }
+]
