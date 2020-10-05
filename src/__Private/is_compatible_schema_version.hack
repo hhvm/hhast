@@ -32,11 +32,13 @@ function is_compatible_schema_version(string $other_version): bool {
   // Return true if $other_version is a subset of SCHEMA_VERSION
 
   switch ($other_version) {
+    /*
     // preceding versions:
-    case '2020-09-14-0000': // doesn't have [coeffect] syntax
+    case 'version-number': // missing ...
     // succeeding versions:
-    // none yet
+    case 'version-number': // missing ...
       return true;
+    */
     default:
       return false;
   }
