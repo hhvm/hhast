@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00d5d2eed9fc63e982508618460ef1c6>>
+ * @generated SignedSource<<81303ab619706ed3e89a98a53d47d370>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,21 +12,18 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'xhp_enum_type';
 
-  private ?Node $_optional;
   private EnumToken $_keyword;
   private LeftBraceToken $_left_brace;
   private NodeList<ListItem<LiteralExpression>> $_values;
   private RightBraceToken $_right_brace;
 
   public function __construct(
-    ?Node $optional,
     EnumToken $keyword,
     LeftBraceToken $left_brace,
     NodeList<ListItem<LiteralExpression>> $values,
     RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    $this->_optional = $optional;
     $this->_keyword = $keyword;
     $this->_left_brace = $left_brace;
     $this->_values = $values;
@@ -43,14 +40,6 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
-    $optional = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_enum_optional'] ?? dict['kind' => 'missing'],
-      $file,
-      $offset,
-      $source,
-      'Node',
-    );
-    $offset += $optional?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['xhp_enum_keyword'],
       $file,
@@ -94,7 +83,6 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $optional,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $left_brace,
       /* HH_IGNORE_ERROR[4110] */ $values,
@@ -106,7 +94,6 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
-      'optional' => $this->_optional,
       'keyword' => $this->_keyword,
       'left_brace' => $this->_left_brace,
       'values' => $this->_values,
@@ -121,15 +108,11 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $optional = $this->_optional === null
-      ? null
-      : $rewriter($this->_optional, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
     $values = $rewriter($this->_values, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
-      $optional === $this->_optional &&
       $keyword === $this->_keyword &&
       $left_brace === $this->_left_brace &&
       $values === $this->_values &&
@@ -138,47 +121,11 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $optional,
       /* HH_FIXME[4110] use `as` */ $keyword,
       /* HH_FIXME[4110] use `as` */ $left_brace,
       /* HH_FIXME[4110] use `as` */ $values,
       /* HH_FIXME[4110] use `as` */ $right_brace,
     );
-  }
-
-  public function getOptionalUNTYPED(): ?Node {
-    return $this->_optional;
-  }
-
-  public function withOptional(?Node $value): this {
-    if ($value === $this->_optional) {
-      return $this;
-    }
-    return new static(
-      $value,
-      $this->_keyword,
-      $this->_left_brace,
-      $this->_values,
-      $this->_right_brace,
-    );
-  }
-
-  public function hasOptional(): bool {
-    return $this->_optional !== null;
-  }
-
-  /**
-   * @return null
-   */
-  public function getOptional(): ?Node {
-    return $this->_optional;
-  }
-
-  /**
-   * @return
-   */
-  public function getOptionalx(): Node {
-    return TypeAssert\not_null($this->getOptional());
   }
 
   public function getKeywordUNTYPED(): ?Node {
@@ -190,7 +137,6 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $this->_optional,
       $value,
       $this->_left_brace,
       $this->_values,
@@ -225,7 +171,6 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $this->_optional,
       $this->_keyword,
       $value,
       $this->_values,
@@ -262,7 +207,6 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $this->_optional,
       $this->_keyword,
       $this->_left_brace,
       $value,
@@ -297,7 +241,6 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $this->_optional,
       $this->_keyword,
       $this->_left_brace,
       $this->_values,

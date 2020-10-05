@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d6a81c573dd54d6f4dc7b912ff6216a0>>
+ * @generated SignedSource<<6af852091b835ea4326944f40e4f04ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,6 +19,7 @@ final class FunctionDeclarationHeader extends Node {
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<IParameter>> $_parameter_list;
   private RightParenToken $_right_paren;
+  private ?Node $_capability;
   private ?Node $_capability_provisional;
   private ?ColonToken $_colon;
   private ?ITypeSpecifier $_type;
@@ -32,6 +33,7 @@ final class FunctionDeclarationHeader extends Node {
     LeftParenToken $left_paren,
     ?NodeList<ListItem<IParameter>> $parameter_list,
     RightParenToken $right_paren,
+    ?Node $capability,
     ?Node $capability_provisional,
     ?ColonToken $colon,
     ?ITypeSpecifier $type,
@@ -45,6 +47,7 @@ final class FunctionDeclarationHeader extends Node {
     $this->_left_paren = $left_paren;
     $this->_parameter_list = $parameter_list;
     $this->_right_paren = $right_paren;
+    $this->_capability = $capability;
     $this->_capability_provisional = $capability_provisional;
     $this->_colon = $colon;
     $this->_type = $type;
@@ -121,6 +124,14 @@ final class FunctionDeclarationHeader extends Node {
     );
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
+    $capability = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['function_capability'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $capability?->getWidth() ?? 0;
     $capability_provisional = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_capability_provisional'] ?? dict['kind' => 'missing'],
       $file,
@@ -167,6 +178,7 @@ final class FunctionDeclarationHeader extends Node {
       /* HH_IGNORE_ERROR[4110] */ $left_paren,
       /* HH_IGNORE_ERROR[4110] */ $parameter_list,
       /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $capability,
       /* HH_IGNORE_ERROR[4110] */ $capability_provisional,
       /* HH_IGNORE_ERROR[4110] */ $colon,
       /* HH_IGNORE_ERROR[4110] */ $type,
@@ -185,6 +197,7 @@ final class FunctionDeclarationHeader extends Node {
       'left_paren' => $this->_left_paren,
       'parameter_list' => $this->_parameter_list,
       'right_paren' => $this->_right_paren,
+      'capability' => $this->_capability,
       'capability_provisional' => $this->_capability_provisional,
       'colon' => $this->_colon,
       'type' => $this->_type,
@@ -212,6 +225,9 @@ final class FunctionDeclarationHeader extends Node {
       ? null
       : $rewriter($this->_parameter_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
+    $capability = $this->_capability === null
+      ? null
+      : $rewriter($this->_capability, $parents);
     $capability_provisional = $this->_capability_provisional === null
       ? null
       : $rewriter($this->_capability_provisional, $parents);
@@ -228,6 +244,7 @@ final class FunctionDeclarationHeader extends Node {
       $left_paren === $this->_left_paren &&
       $parameter_list === $this->_parameter_list &&
       $right_paren === $this->_right_paren &&
+      $capability === $this->_capability &&
       $capability_provisional === $this->_capability_provisional &&
       $colon === $this->_colon &&
       $type === $this->_type &&
@@ -243,6 +260,7 @@ final class FunctionDeclarationHeader extends Node {
       /* HH_FIXME[4110] use `as` */ $left_paren,
       /* HH_FIXME[4110] use `as` */ $parameter_list,
       /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $capability,
       /* HH_FIXME[4110] use `as` */ $capability_provisional,
       /* HH_FIXME[4110] use `as` */ $colon,
       /* HH_FIXME[4110] use `as` */ $type,
@@ -266,6 +284,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $this->_type,
@@ -311,6 +330,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $this->_type,
@@ -352,6 +372,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $this->_type,
@@ -393,6 +414,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $this->_type,
@@ -434,6 +456,7 @@ final class FunctionDeclarationHeader extends Node {
       $value,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $this->_type,
@@ -477,6 +500,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $value,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $this->_type,
@@ -520,6 +544,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $value,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $this->_type,
@@ -545,6 +570,48 @@ final class FunctionDeclarationHeader extends Node {
     return $this->getRightParen();
   }
 
+  public function getCapabilityUNTYPED(): ?Node {
+    return $this->_capability;
+  }
+
+  public function withCapability(?Node $value): this {
+    if ($value === $this->_capability) {
+      return $this;
+    }
+    return new static(
+      $this->_modifiers,
+      $this->_keyword,
+      $this->_name,
+      $this->_type_parameter_list,
+      $this->_left_paren,
+      $this->_parameter_list,
+      $this->_right_paren,
+      $value,
+      $this->_capability_provisional,
+      $this->_colon,
+      $this->_type,
+      $this->_where_clause,
+    );
+  }
+
+  public function hasCapability(): bool {
+    return $this->_capability !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getCapability(): ?Node {
+    return $this->_capability;
+  }
+
+  /**
+   * @return
+   */
+  public function getCapabilityx(): Node {
+    return TypeAssert\not_null($this->getCapability());
+  }
+
   public function getCapabilityProvisionalUNTYPED(): ?Node {
     return $this->_capability_provisional;
   }
@@ -561,6 +628,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $value,
       $this->_colon,
       $this->_type,
@@ -602,6 +670,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $value,
       $this->_type,
@@ -643,6 +712,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $value,
@@ -694,6 +764,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_left_paren,
       $this->_parameter_list,
       $this->_right_paren,
+      $this->_capability,
       $this->_capability_provisional,
       $this->_colon,
       $this->_type,

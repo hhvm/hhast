@@ -258,8 +258,9 @@ final class AddXHPChildrenDeclarationMethodMigration
       new LeftParenToken(null, null),
       null,
       new RightParenToken(null, null),
-      new ColonToken(null, $s),
       null,
+      null,
+      new ColonToken(null, $s),
       new SimpleTypeSpecifier(
         new QualifiedName(
           new NodeList(vec[

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<727aa3024e36766c505ed27d39ccc231>>
+ * @generated SignedSource<<a3dc2af55f2ce04434eba8bd4f871f52>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,6 +17,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   private LeftParenToken $_inner_left_paren;
   private ?NodeList<ListItem<ITypeSpecifier>> $_parameter_list;
   private RightParenToken $_inner_right_paren;
+  private ?Node $_capability;
   private ColonToken $_colon;
   private ITypeSpecifier $_return_type;
   private RightParenToken $_outer_right_paren;
@@ -27,6 +28,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     LeftParenToken $inner_left_paren,
     ?NodeList<ListItem<ITypeSpecifier>> $parameter_list,
     RightParenToken $inner_right_paren,
+    ?Node $capability,
     ColonToken $colon,
     ITypeSpecifier $return_type,
     RightParenToken $outer_right_paren,
@@ -37,6 +39,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $this->_inner_left_paren = $inner_left_paren;
     $this->_parameter_list = $parameter_list;
     $this->_inner_right_paren = $inner_right_paren;
+    $this->_capability = $capability;
     $this->_colon = $colon;
     $this->_return_type = $return_type;
     $this->_outer_right_paren = $outer_right_paren;
@@ -96,6 +99,14 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $inner_right_paren = $inner_right_paren as nonnull;
     $offset += $inner_right_paren->getWidth();
+    $capability = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['closure_capability'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $capability?->getWidth() ?? 0;
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_colon'],
       $file,
@@ -135,6 +146,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       /* HH_IGNORE_ERROR[4110] */ $inner_left_paren,
       /* HH_IGNORE_ERROR[4110] */ $parameter_list,
       /* HH_IGNORE_ERROR[4110] */ $inner_right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $capability,
       /* HH_IGNORE_ERROR[4110] */ $colon,
       /* HH_IGNORE_ERROR[4110] */ $return_type,
       /* HH_IGNORE_ERROR[4110] */ $outer_right_paren,
@@ -150,6 +162,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       'inner_left_paren' => $this->_inner_left_paren,
       'parameter_list' => $this->_parameter_list,
       'inner_right_paren' => $this->_inner_right_paren,
+      'capability' => $this->_capability,
       'colon' => $this->_colon,
       'return_type' => $this->_return_type,
       'outer_right_paren' => $this->_outer_right_paren,
@@ -170,6 +183,9 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       ? null
       : $rewriter($this->_parameter_list, $parents);
     $inner_right_paren = $rewriter($this->_inner_right_paren, $parents);
+    $capability = $this->_capability === null
+      ? null
+      : $rewriter($this->_capability, $parents);
     $colon = $rewriter($this->_colon, $parents);
     $return_type = $rewriter($this->_return_type, $parents);
     $outer_right_paren = $rewriter($this->_outer_right_paren, $parents);
@@ -179,6 +195,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $inner_left_paren === $this->_inner_left_paren &&
       $parameter_list === $this->_parameter_list &&
       $inner_right_paren === $this->_inner_right_paren &&
+      $capability === $this->_capability &&
       $colon === $this->_colon &&
       $return_type === $this->_return_type &&
       $outer_right_paren === $this->_outer_right_paren
@@ -191,6 +208,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       /* HH_FIXME[4110] use `as` */ $inner_left_paren,
       /* HH_FIXME[4110] use `as` */ $parameter_list,
       /* HH_FIXME[4110] use `as` */ $inner_right_paren,
+      /* HH_FIXME[4110] use `as` */ $capability,
       /* HH_FIXME[4110] use `as` */ $colon,
       /* HH_FIXME[4110] use `as` */ $return_type,
       /* HH_FIXME[4110] use `as` */ $outer_right_paren,
@@ -211,6 +229,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_left_paren,
       $this->_parameter_list,
       $this->_inner_right_paren,
+      $this->_capability,
       $this->_colon,
       $this->_return_type,
       $this->_outer_right_paren,
@@ -252,6 +271,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_left_paren,
       $this->_parameter_list,
       $this->_inner_right_paren,
+      $this->_capability,
       $this->_colon,
       $this->_return_type,
       $this->_outer_right_paren,
@@ -293,6 +313,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $value,
       $this->_parameter_list,
       $this->_inner_right_paren,
+      $this->_capability,
       $this->_colon,
       $this->_return_type,
       $this->_outer_right_paren,
@@ -336,6 +357,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_left_paren,
       $value,
       $this->_inner_right_paren,
+      $this->_capability,
       $this->_colon,
       $this->_return_type,
       $this->_outer_right_paren,
@@ -377,6 +399,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_left_paren,
       $this->_parameter_list,
       $value,
+      $this->_capability,
       $this->_colon,
       $this->_return_type,
       $this->_outer_right_paren,
@@ -404,6 +427,45 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getInnerRightParen();
   }
 
+  public function getCapabilityUNTYPED(): ?Node {
+    return $this->_capability;
+  }
+
+  public function withCapability(?Node $value): this {
+    if ($value === $this->_capability) {
+      return $this;
+    }
+    return new static(
+      $this->_outer_left_paren,
+      $this->_function_keyword,
+      $this->_inner_left_paren,
+      $this->_parameter_list,
+      $this->_inner_right_paren,
+      $value,
+      $this->_colon,
+      $this->_return_type,
+      $this->_outer_right_paren,
+    );
+  }
+
+  public function hasCapability(): bool {
+    return $this->_capability !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getCapability(): ?Node {
+    return $this->_capability;
+  }
+
+  /**
+   * @return
+   */
+  public function getCapabilityx(): Node {
+    return TypeAssert\not_null($this->getCapability());
+  }
+
   public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
@@ -418,6 +480,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_left_paren,
       $this->_parameter_list,
       $this->_inner_right_paren,
+      $this->_capability,
       $value,
       $this->_return_type,
       $this->_outer_right_paren,
@@ -456,6 +519,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_left_paren,
       $this->_parameter_list,
       $this->_inner_right_paren,
+      $this->_capability,
       $this->_colon,
       $value,
       $this->_outer_right_paren,
@@ -496,6 +560,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $this->_inner_left_paren,
       $this->_parameter_list,
       $this->_inner_right_paren,
+      $this->_capability,
       $this->_colon,
       $this->_return_type,
       $value,

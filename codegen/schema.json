@@ -1,6 +1,6 @@
 { "description" :
   "@generated JSON schema of the Hack Full Fidelity Parser AST",
-  "version" : "2020-09-08-0000",
+  "version" : "2020-10-01-0000",
   "trivia" : [
     { "trivia_kind_name" : "WhiteSpace",
       "trivia_type_name" : "whitespace" },
@@ -21,8 +21,6 @@
   "tokens" : [
     { "token_kind" : "Abstract",
       "token_text" : "abstract" },
-    { "token_kind" : "Array",
-      "token_text" : "array" },
     { "token_kind" : "Arraykey",
       "token_text" : "arraykey" },
     { "token_kind" : "As",
@@ -689,10 +687,20 @@
         { "field_name" : "left_paren" },
         { "field_name" : "parameter_list" },
         { "field_name" : "right_paren" },
+        { "field_name" : "capability" },
         { "field_name" : "capability_provisional" },
         { "field_name" : "colon" },
         { "field_name" : "type" },
         { "field_name" : "where_clause" }
+      ] },
+    { "kind_name" : "Capability",
+      "type_name" : "capability",
+      "description" : "capability",
+      "prefix" : "capability",
+      "fields" : [
+        { "field_name" : "left_bracket" },
+        { "field_name" : "types" },
+        { "field_name" : "right_bracket" }
       ] },
     { "kind_name" : "CapabilityProvisional",
       "type_name" : "capability_provisional",
@@ -1660,7 +1668,6 @@
       "description" : "xhp_enum_type",
       "prefix" : "xhp_enum",
       "fields" : [
-        { "field_name" : "optional" },
         { "field_name" : "keyword" },
         { "field_name" : "left_brace" },
         { "field_name" : "values" },
@@ -1816,16 +1823,6 @@
         { "field_name" : "trailing_comma" },
         { "field_name" : "right_angle" }
       ] },
-    { "kind_name" : "VectorArrayTypeSpecifier",
-      "type_name" : "vector_array_type_specifier",
-      "description" : "vector_array_type_specifier",
-      "prefix" : "vector_array",
-      "fields" : [
-        { "field_name" : "keyword" },
-        { "field_name" : "left_angle" },
-        { "field_name" : "type" },
-        { "field_name" : "right_angle" }
-      ] },
     { "kind_name" : "TypeParameter",
       "type_name" : "type_parameter",
       "description" : "type_parameter",
@@ -1859,18 +1856,6 @@
         { "field_name" : "trailing_comma" },
         { "field_name" : "right_angle" }
       ] },
-    { "kind_name" : "MapArrayTypeSpecifier",
-      "type_name" : "map_array_type_specifier",
-      "description" : "map_array_type_specifier",
-      "prefix" : "map_array",
-      "fields" : [
-        { "field_name" : "keyword" },
-        { "field_name" : "left_angle" },
-        { "field_name" : "key" },
-        { "field_name" : "comma" },
-        { "field_name" : "value" },
-        { "field_name" : "right_angle" }
-      ] },
     { "kind_name" : "DictionaryTypeSpecifier",
       "type_name" : "dictionary_type_specifier",
       "description" : "dictionary_type_specifier",
@@ -1891,6 +1876,7 @@
         { "field_name" : "inner_left_paren" },
         { "field_name" : "parameter_list" },
         { "field_name" : "inner_right_paren" },
+        { "field_name" : "capability" },
         { "field_name" : "colon" },
         { "field_name" : "return_type" },
         { "field_name" : "outer_right_paren" }

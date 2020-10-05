@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c08938f7e11c6b7e01bb5c9f8d7155e>>
+ * @generated SignedSource<<c5bdb2587faa83b83f7626b45f5dda15>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -49,6 +49,7 @@ function node_from_json_unwrapped(
     'binary_expression' => HHAST\BinaryExpression::class,
     'braced_expression' => HHAST\BracedExpression::class,
     'break_statement' => HHAST\BreakStatement::class,
+    'capability' => HHAST\Capability::class,
     'capability_provisional' => HHAST\CapabilityProvisional::class,
     'case_label' => HHAST\CaseLabel::class,
     'cast_expression' => HHAST\CastExpression::class,
@@ -116,7 +117,6 @@ function node_from_json_unwrapped(
     'like_type_specifier' => HHAST\LikeTypeSpecifier::class,
     'list_expression' => HHAST\ListExpression::class,
     'literal' => HHAST\LiteralExpression::class,
-    'map_array_type_specifier' => HHAST\MapArrayTypeSpecifier::class,
     'markup_section' => HHAST\MarkupSection::class,
     'markup_suffix' => HHAST\MarkupSuffix::class,
     'member_selection_expression' => HHAST\MemberSelectionExpression::class,
@@ -198,7 +198,6 @@ function node_from_json_unwrapped(
     'variadic_parameter' => HHAST\VariadicParameter::class,
     'varray_intrinsic_expression' => HHAST\VarrayIntrinsicExpression::class,
     'varray_type_specifier' => HHAST\VarrayTypeSpecifier::class,
-    'vector_array_type_specifier' => HHAST\VectorArrayTypeSpecifier::class,
     'vector_intrinsic_expression' => HHAST\VectorIntrinsicExpression::class,
     'vector_type_specifier' => HHAST\VectorTypeSpecifier::class,
     'where_clause' => HHAST\WhereClause::class,
