@@ -62,6 +62,8 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
       $left_paren,
       $parameters,
       $right_paren,
+      // capabilities are not supported by anonymous functions
+      /* capability = */ null,
       $colon,
       $type,
     );
