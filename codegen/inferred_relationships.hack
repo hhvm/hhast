@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<00f328fa860417dba208452df0076065>>
+ * @generated SignedSource<<b32d47e34cf6219700d4766065f91aab>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2177,6 +2177,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'lambda_expression.lambda_signature' => keyset[
     'lambda_signature',
     'token:variable',
+  ],
+  'lambda_signature.lambda_capability' => keyset[
+    'missing',
   ],
   'lambda_signature.lambda_colon' => keyset[
     'missing',
