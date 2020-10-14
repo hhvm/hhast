@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b32d47e34cf6219700d4766065f91aab>>
+ * @generated SignedSource<<b22d6993e007b7e2fe9601c6aada6646>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -229,6 +229,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'dictionary_intrinsic_expression',
     'eval_expression',
     'function_call_expression',
+    'function_pointer_expression',
     'inclusion_expression',
     'is_expression',
     'isset_expression',
@@ -513,6 +514,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<collection_literal_expression>|list_item<variable>>',
     'list<list_item<collection_literal_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<darray_intrinsic_expression>>',
+    'list<list_item<dictionary_intrinsic_expression>>',
     'list<list_item<element_initializer>>',
     'list<list_item<function_call_expression>>',
     'list<list_item<function_call_expression>|list_item<literal>>',
@@ -1177,6 +1179,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'darray_intrinsic_expression',
     'dictionary_intrinsic_expression',
     'function_call_expression',
+    'function_pointer_expression',
     'isset_expression',
     'keyset_intrinsic_expression',
     'lambda_expression',
@@ -1305,6 +1308,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'dictionary_intrinsic_expression',
     'eval_expression',
     'function_call_expression',
+    'function_pointer_expression',
     'inclusion_expression',
     'is_expression',
     'isset_expression',
@@ -1675,6 +1679,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<dictionary_intrinsic_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<function_call_expression>>',
+    'list<list_item<function_call_expression>|list_item<function_pointer_expression>>',
+    'list<list_item<function_call_expression>|list_item<function_pointer_expression>|list_item<literal>>',
     'list<list_item<function_call_expression>|list_item<keyset_intrinsic_expression>>',
     'list<list_item<function_call_expression>|list_item<lambda_expression>>',
     'list<list_item<function_call_expression>|list_item<lambda_expression>|list_item<literal>>',
@@ -1708,6 +1714,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_call_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<function_call_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<function_call_expression>|list_item<xhp_expression>>',
+    'list<list_item<function_pointer_expression>>',
+    'list<list_item<function_pointer_expression>|list_item<literal>>',
+    'list<list_item<function_pointer_expression>|list_item<literal>|list_item<vector_intrinsic_expression>>',
+    'list<list_item<function_pointer_expression>|list_item<variable>>',
+    'list<list_item<function_pointer_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<is_expression>>',
     'list<list_item<is_expression>|list_item<literal>>',
     'list<list_item<is_expression>|list_item<literal>|list_item<scope_resolution_expression>>',
@@ -1833,6 +1844,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<subscript_expression>|list_item<token:name>>',
     'list<list_item<subscript_expression>|list_item<token:name>|list_item<variable>>',
     'list<list_item<subscript_expression>|list_item<variable>>',
+    'list<list_item<subscript_expression>|list_item<variable>|list_item<vector_intrinsic_expression>>',
     'list<list_item<subscript_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<token:name>>',
     'list<list_item<token:name>|list_item<variable>>',
@@ -1967,6 +1979,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'function_declaration_header.function_where_clause' => keyset[
     'missing',
     'where_clause',
+  ],
+  'function_pointer_expression.function_pointer_receiver' => keyset[
+    'scope_resolution_expression',
+    'token:name',
+  ],
+  'function_pointer_expression.function_pointer_type_args' => keyset[
+    'type_arguments',
   ],
   'generic_type_specifier.generic_argument_list' => keyset[
     'type_arguments',
@@ -2264,6 +2283,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'field_initializer',
     'field_specifier',
     'function_call_expression',
+    'function_pointer_expression',
     'generic_type_specifier',
     'is_expression',
     'isset_expression',
@@ -2733,6 +2753,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'darray_intrinsic_expression',
     'dictionary_intrinsic_expression',
     'function_call_expression',
+    'function_pointer_expression',
     'is_expression',
     'isset_expression',
     'keyset_intrinsic_expression',

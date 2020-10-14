@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be839bb77e79f445e6ddee6dd19c49b2>>
+ * @generated SignedSource<<7b69f27bc9bf2c8b458d6b5ddf5efcf4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,11 +160,12 @@ final class ReturnStatement extends Node implements IStatement {
    * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | null |
-   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
-   * | PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * FunctionPointerExpression | IsExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | null | NullableAsExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * RecordCreationExpression | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
@@ -178,9 +179,10 @@ final class ReturnStatement extends Node implements IStatement {
    * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * FunctionPointerExpression | IsExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
    * RecordCreationExpression | SafeMemberSelectionExpression |

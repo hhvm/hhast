@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5bdb2587faa83b83f7626b45f5dda15>>
+ * @generated SignedSource<<226e3cf5c27b24aa5d0412f84933db9d>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -86,6 +86,8 @@ function node_from_json_unwrapped(
       HHAST\EmbeddedMemberSelectionExpression::class,
     'embedded_subscript_expression' => HHAST\EmbeddedSubscriptExpression::class,
     'end_of_file' => HHAST\EndOfFile::class,
+    'enum_class_declaration' => HHAST\EnumClassDeclaration::class,
+    'enum_class_enumerator' => HHAST\EnumClassEnumerator::class,
     'enum_declaration' => HHAST\EnumDeclaration::class,
     'enumerator' => HHAST\Enumerator::class,
     'error' => HHAST\ErrorSyntax::class,

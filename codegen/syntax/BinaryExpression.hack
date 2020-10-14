@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b2bd73423ed4ffd420e91eeeb38d202b>>
+ * @generated SignedSource<<512ee4d9e3d0e90798a36d084d5fdcb9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -229,9 +229,9 @@ final class BinaryExpression
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | NullableAsExpression |
+   * FunctionPointerExpression | InclusionExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * PrefixedStringExpression | QualifiedName | RecordCreationExpression |
@@ -249,9 +249,9 @@ final class BinaryExpression
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * InclusionExpression | IsExpression | IssetExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | NullableAsExpression |
+   * FunctionPointerExpression | InclusionExpression | IsExpression |
+   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * PrefixedStringExpression | QualifiedName | RecordCreationExpression |

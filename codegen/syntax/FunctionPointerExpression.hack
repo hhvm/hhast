@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1640f2a5b3428d825e302463902a01ae>>
+ * @generated SignedSource<<05cd9039dc3c219f88926c44a154db29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,12 +14,12 @@ final class FunctionPointerExpression
 
   const string SYNTAX_KIND = 'function_pointer_expression';
 
-  private ?Node $_receiver;
-  private ?Node $_type_args;
+  private IExpression $_receiver;
+  private TypeArguments $_type_args;
 
   public function __construct(
-    ?Node $receiver,
-    ?Node $type_args,
+    IExpression $receiver,
+    TypeArguments $type_args,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_receiver = $receiver;
@@ -37,21 +37,23 @@ final class FunctionPointerExpression
   ): this {
     $offset = $initial_offset;
     $receiver = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_pointer_receiver'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_pointer_receiver'],
       $file,
       $offset,
       $source,
-      'Node',
+      'IExpression',
     );
-    $offset += $receiver?->getWidth() ?? 0;
+    $receiver = $receiver as nonnull;
+    $offset += $receiver->getWidth();
     $type_args = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_pointer_type_args'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_pointer_type_args'],
       $file,
       $offset,
       $source,
-      'Node',
+      'TypeArguments',
     );
-    $offset += $type_args?->getWidth() ?? 0;
+    $type_args = $type_args as nonnull;
+    $offset += $type_args->getWidth();
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -80,12 +82,8 @@ final class FunctionPointerExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $receiver = $this->_receiver === null
-      ? null
-      : $rewriter($this->_receiver, $parents);
-    $type_args = $this->_type_args === null
-      ? null
-      : $rewriter($this->_type_args, $parents);
+    $receiver = $rewriter($this->_receiver, $parents);
+    $type_args = $rewriter($this->_type_args, $parents);
     if ($receiver === $this->_receiver && $type_args === $this->_type_args) {
       return $this;
     }
@@ -99,7 +97,7 @@ final class FunctionPointerExpression
     return $this->_receiver;
   }
 
-  public function withReceiver(?Node $value): this {
+  public function withReceiver(IExpression $value): this {
     if ($value === $this->_receiver) {
       return $this;
     }
@@ -111,24 +109,24 @@ final class FunctionPointerExpression
   }
 
   /**
-   * @return unknown
+   * @return ScopeResolutionExpression | NameToken
    */
-  public function getReceiver(): ?Node {
-    return $this->_receiver;
+  public function getReceiver(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_receiver);
   }
 
   /**
-   * @return unknown
+   * @return ScopeResolutionExpression | NameToken
    */
-  public function getReceiverx(): Node {
-    return TypeAssert\not_null($this->getReceiver());
+  public function getReceiverx(): IExpression {
+    return $this->getReceiver();
   }
 
   public function getTypeArgsUNTYPED(): ?Node {
     return $this->_type_args;
   }
 
-  public function withTypeArgs(?Node $value): this {
+  public function withTypeArgs(TypeArguments $value): this {
     if ($value === $this->_type_args) {
       return $this;
     }
@@ -140,16 +138,16 @@ final class FunctionPointerExpression
   }
 
   /**
-   * @return unknown
+   * @return TypeArguments
    */
-  public function getTypeArgs(): ?Node {
-    return $this->_type_args;
+  public function getTypeArgs(): TypeArguments {
+    return TypeAssert\instance_of(TypeArguments::class, $this->_type_args);
   }
 
   /**
-   * @return unknown
+   * @return TypeArguments
    */
-  public function getTypeArgsx(): Node {
-    return TypeAssert\not_null($this->getTypeArgs());
+  public function getTypeArgsx(): TypeArguments {
+    return $this->getTypeArgs();
   }
 }

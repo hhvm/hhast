@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e128b65f2f73ae9e8683bffe1856252a>>
+ * @generated SignedSource<<6d53a0f8bb95709ee236d60527ed41a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -196,11 +196,12 @@ final class ElementInitializer extends Node {
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
    * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | ShapeExpression |
-   * SubscriptExpression | NameToken | TupleExpression | VariableExpression |
+   * FunctionCallExpression | FunctionPointerExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValue(): IExpression {
@@ -211,11 +212,12 @@ final class ElementInitializer extends Node {
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
    * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | IssetExpression | KeysetIntrinsicExpression |
-   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | QualifiedName | ScopeResolutionExpression | ShapeExpression |
-   * SubscriptExpression | NameToken | TupleExpression | VariableExpression |
+   * FunctionCallExpression | FunctionPointerExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValuex(): IExpression {
