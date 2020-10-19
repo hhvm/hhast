@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b22d6993e007b7e2fe9601c6aada6646>>
+ * @generated SignedSource<<5282f75e48f65d8be4d609d99d2c5b8c>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -1407,18 +1407,15 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'unset_statement',
   ],
   'for_statement.for_control' => keyset[
-    'list<list_item<binary_expression>>',
-    'list<list_item<binary_expression>|list_item<postfix_unary_expression>>',
-    'list<list_item<binary_expression>|list_item<prefix_unary_expression>>',
-    'list<list_item<conditional_expression>>',
-    'list<list_item<function_call_expression>>',
-    'list<list_item<prefix_unary_expression>>',
-    'list<list_item<variable>>',
+    'binary_expression',
+    'conditional_expression',
+    'function_call_expression',
     'missing',
+    'prefix_unary_expression',
+    'variable',
   ],
   'for_statement.for_end_of_loop' => keyset[
     'list<list_item<binary_expression>>',
-    'list<list_item<binary_expression>|list_item<prefix_unary_expression>>',
     'list<list_item<function_call_expression>>',
     'list<list_item<postfix_unary_expression>>',
     'list<list_item<prefix_unary_expression>>',
@@ -2337,11 +2334,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:;',
     'token:\\',
   ],
+  'markup_section.markup_hashbang' => keyset[
+    'token:hashbang',
+  ],
   'markup_section.markup_suffix' => keyset[
     'markup_suffix',
-  ],
-  'markup_section.markup_text' => keyset[
-    'token:markup',
   ],
   'markup_suffix.markup_suffix_less_than_question' => keyset[
     'token:<?',

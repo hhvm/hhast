@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf85844436c478578a3888292909c495>>
+ * @generated SignedSource<<2a3d54962108983a525569eaf3d76d3c>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -155,11 +155,11 @@ class TokenClassMap {
       HHAST\DoubleQuotedStringLiteralTailToken::class,
     'error_token' => HHAST\ErrorTokenToken::class,
     'floating_literal' => HHAST\FloatingLiteralToken::class,
+    'hashbang' => HHAST\HashbangToken::class,
     'heredoc_string_literal' => HHAST\HeredocStringLiteralToken::class,
     'heredoc_string_literal_head' => HHAST\HeredocStringLiteralHeadToken::class,
     'heredoc_string_literal_tail' => HHAST\HeredocStringLiteralTailToken::class,
     'hexadecimal_literal' => HHAST\HexadecimalLiteralToken::class,
-    'markup' => HHAST\MarkupToken::class,
     'name' => HHAST\NameToken::class,
     'nowdoc_string_literal' => HHAST\NowdocStringLiteralToken::class,
     'octal_literal' => HHAST\OctalLiteralToken::class,

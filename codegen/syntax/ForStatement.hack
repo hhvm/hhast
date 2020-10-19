@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<57855f613a23603e873de9e618013677>>
+ * @generated SignedSource<<7666729a1ceed3bc551fb22df8ecb2e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -18,7 +18,7 @@ final class ForStatement
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<IExpression>> $_initializer;
   private SemicolonToken $_first_semicolon;
-  private ?NodeList<ListItem<IExpression>> $_control;
+  private ?IExpression $_control;
   private SemicolonToken $_second_semicolon;
   private ?NodeList<ListItem<IExpression>> $_end_of_loop;
   private RightParenToken $_right_paren;
@@ -29,7 +29,7 @@ final class ForStatement
     LeftParenToken $left_paren,
     ?NodeList<ListItem<IExpression>> $initializer,
     SemicolonToken $first_semicolon,
-    ?NodeList<ListItem<IExpression>> $control,
+    ?IExpression $control,
     SemicolonToken $second_semicolon,
     ?NodeList<ListItem<IExpression>> $end_of_loop,
     RightParenToken $right_paren,
@@ -97,7 +97,7 @@ final class ForStatement
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<IExpression>>',
+      'IExpression',
     );
     $offset += $control?->getWidth() ?? 0;
     $second_semicolon = Node::fromJSON(
@@ -385,7 +385,7 @@ final class ForStatement
     return $this->_control;
   }
 
-  public function withControl(?NodeList<ListItem<IExpression>> $value): this {
+  public function withControl(?IExpression $value): this {
     if ($value === $this->_control) {
       return $this;
     }
@@ -407,26 +407,18 @@ final class ForStatement
   }
 
   /**
-   * @return NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<IHasOperator>> |
-   * NodeList<ListItem<ConditionalExpression>> |
-   * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
-   * NodeList<ListItem<VariableExpression>> | null
+   * @return BinaryExpression | ConditionalExpression | FunctionCallExpression
+   * | null | PrefixUnaryExpression | VariableExpression
    */
-  public function getControl(): ?NodeList<ListItem<IExpression>> {
+  public function getControl(): ?IExpression {
     return $this->_control;
   }
 
   /**
-   * @return NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<IHasOperator>> |
-   * NodeList<ListItem<ConditionalExpression>> |
-   * NodeList<ListItem<FunctionCallExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
-   * NodeList<ListItem<VariableExpression>>
+   * @return BinaryExpression | ConditionalExpression | FunctionCallExpression
+   * | PrefixUnaryExpression | VariableExpression
    */
-  public function getControlx(): NodeList<ListItem<IExpression>> {
+  public function getControlx(): IExpression {
     return TypeAssert\not_null($this->getControl());
   }
 
@@ -499,7 +491,6 @@ final class ForStatement
 
   /**
    * @return NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<IHasOperator>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<PostfixUnaryExpression>> |
    * NodeList<ListItem<PrefixUnaryExpression>> | null
@@ -510,7 +501,6 @@ final class ForStatement
 
   /**
    * @return NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<IHasOperator>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<PostfixUnaryExpression>> |
    * NodeList<ListItem<PrefixUnaryExpression>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aca3236bc0c11deaa7ff3522e8b7c4fe>>
+ * @generated SignedSource<<a71d76bae319f0b116e394ac05a3f0d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,15 +12,15 @@ final class MarkupSection extends Node {
 
   const string SYNTAX_KIND = 'markup_section';
 
-  private MarkupToken $_text;
+  private HashbangToken $_hashbang;
   private MarkupSuffix $_suffix;
 
   public function __construct(
-    MarkupToken $text,
+    HashbangToken $hashbang,
     MarkupSuffix $suffix,
     ?__Private\SourceRef $source_ref = null,
   ) {
-    $this->_text = $text;
+    $this->_hashbang = $hashbang;
     $this->_suffix = $suffix;
     parent::__construct($source_ref);
   }
@@ -34,15 +34,15 @@ final class MarkupSection extends Node {
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
-    $text = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['markup_text'],
+    $hashbang = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['markup_hashbang'],
       $file,
       $offset,
       $source,
-      'MarkupToken',
+      'HashbangToken',
     );
-    $text = $text as nonnull;
-    $offset += $text->getWidth();
+    $hashbang = $hashbang as nonnull;
+    $offset += $hashbang->getWidth();
     $suffix = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['markup_suffix'],
       $file,
@@ -59,7 +59,7 @@ final class MarkupSection extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $text,
+      /* HH_IGNORE_ERROR[4110] */ $hashbang,
       /* HH_IGNORE_ERROR[4110] */ $suffix,
       $source_ref,
     );
@@ -68,7 +68,7 @@ final class MarkupSection extends Node {
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
-      'text' => $this->_text,
+      'hashbang' => $this->_hashbang,
       'suffix' => $this->_suffix,
     ]
       |> Dict\filter_nulls($$);
@@ -80,44 +80,44 @@ final class MarkupSection extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $text = $rewriter($this->_text, $parents);
+    $hashbang = $rewriter($this->_hashbang, $parents);
     $suffix = $rewriter($this->_suffix, $parents);
-    if ($text === $this->_text && $suffix === $this->_suffix) {
+    if ($hashbang === $this->_hashbang && $suffix === $this->_suffix) {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $text,
+      /* HH_FIXME[4110] use `as` */ $hashbang,
       /* HH_FIXME[4110] use `as` */ $suffix,
     );
   }
 
-  public function getTextUNTYPED(): ?Node {
-    return $this->_text;
+  public function getHashbangUNTYPED(): ?Node {
+    return $this->_hashbang;
   }
 
-  public function withText(MarkupToken $value): this {
-    if ($value === $this->_text) {
+  public function withHashbang(HashbangToken $value): this {
+    if ($value === $this->_hashbang) {
       return $this;
     }
     return new static($value, $this->_suffix);
   }
 
-  public function hasText(): bool {
-    return $this->_text !== null;
+  public function hasHashbang(): bool {
+    return $this->_hashbang !== null;
   }
 
   /**
-   * @return MarkupToken
+   * @return HashbangToken
    */
-  public function getText(): MarkupToken {
-    return TypeAssert\instance_of(MarkupToken::class, $this->_text);
+  public function getHashbang(): HashbangToken {
+    return TypeAssert\instance_of(HashbangToken::class, $this->_hashbang);
   }
 
   /**
-   * @return MarkupToken
+   * @return HashbangToken
    */
-  public function getTextx(): MarkupToken {
-    return $this->getText();
+  public function getHashbangx(): HashbangToken {
+    return $this->getHashbang();
   }
 
   public function getSuffixUNTYPED(): ?Node {
@@ -128,7 +128,7 @@ final class MarkupSection extends Node {
     if ($value === $this->_suffix) {
       return $this;
     }
-    return new static($this->_text, $value);
+    return new static($this->_hashbang, $value);
   }
 
   public function hasSuffix(): bool {
