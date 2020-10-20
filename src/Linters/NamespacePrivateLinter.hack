@@ -8,7 +8,7 @@
  */
 
 namespace Facebook\HHAST;
-use namespace HH\Lib\{Vec, C, Str};
+use namespace HH\Lib\{C, Str, Vec};
 final class NamespacePrivateLinter extends ASTLinter {
 	const type TContext = Script;
 	const type TNode = Script;
@@ -63,7 +63,7 @@ final class NamespacePrivateLinter extends ASTLinter {
 
 					$parent_node = $context->getParentOfDescendant($qualified_name_token);
 					if ($parent_node is ScopeResolutionExpression || $parent_node is NameExpression) {
-						$fully_qualified_name_for_current_token = $this->resolve_scope(
+						$fully_qualified_name_for_current_token = $this->resolveScope(
 							$name_token_key,
 							$ns['uses']['namespaces'],
 							$current_namespace
@@ -107,7 +107,7 @@ final class NamespacePrivateLinter extends ASTLinter {
    	 * namespace statements in file to resolve the full path. If the path is not found in the dictionary,
    	 * then add the current namespace to the name token.
 	 */
-	private function resolve_scope(string $name_token_key, dict<string, string> $namespaces, string $current_namespace): string {
+	private function resolveScope(string $name_token_key, dict<string, string> $namespaces, string $current_namespace): string {
 		if (Str\search($name_token_key, '\\') === 0) {
 			return Str\slice($name_token_key, 1);
 		}
