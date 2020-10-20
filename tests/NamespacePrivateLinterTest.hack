@@ -9,11 +9,11 @@
 
 namespace Facebook\HHAST;
 
-final class PackagePrivateLinterTest extends TestCase {
+final class NamespacePrivateLinterTest extends TestCase {
   use LinterTestTrait;
 
   protected function getLinter(string $file): BaseLinter {
-    return PackagePrivateLinter::fromPath($file);
+    return NamespacePrivateLinter::fromPath($file);
   }
 
   public function getCleanExamples(): vec<(string)> {

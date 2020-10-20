@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "<?hh \/\/ strict\n\nnamespace Blergh;\nuse type \\Something\\__Private\\TestingWithPrivateNamespace;\nuse type TeamJoins\\__Private;\n",
+        "blame_pretty": "<?hh \/\/ strict\n\nnamespace Blergh;\nuse type \\Something\\__Private\\TestingWithPrivateNamespace;\nuse type TeamJoins\\__Private;\n",
+        "description": "Artifacts belonging to a namespace are private to the parent namespace"
+    }
+]

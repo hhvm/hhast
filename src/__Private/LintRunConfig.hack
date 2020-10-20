@@ -82,7 +82,6 @@ final class LintRunConfig {
     HHAST\PocketEnumDeclarationLinter::class,
     HHAST\PreferRequireOnceLinter::class,
     HHAST\ConsistentLineEndingsLinter::class,
-    HHAST\PackagePrivateLinter::class,
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
@@ -93,6 +92,7 @@ final class LintRunConfig {
     HHAST\StrictModeOnlyLinter::class,
     HHAST\UseStatementWithAsLinter::class,
     HHAST\NoFinalMethodInFinalClassLinter::class,
+    HHAST\NamespacePrivateLinter::class,
   ];
 
   private static function getNamedLinterGroup(
