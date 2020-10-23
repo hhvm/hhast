@@ -9,7 +9,7 @@ jobs:
       matrix:
         os: [ ubuntu , macos ]
         hhvm:
-          - 4.80
+          - '4.80'
           - latest
           - nightly
     runs-on: ${{matrix.os}}-latest
