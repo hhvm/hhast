@@ -10,6 +10,6 @@
 namespace SomeNamespace;
 class Testing {
   public static function testMe() {
-	$value = Invite\__Private\SOME_CONST;
+    $value = Invite\__Private\SOME_CONST;
   }
 }

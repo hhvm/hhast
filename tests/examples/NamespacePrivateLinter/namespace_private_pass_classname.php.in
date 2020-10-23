@@ -10,6 +10,6 @@ namespace Something;
 
 class Test {
   public function testMe() {
-	wants_classname(\SomeNamespace\__Private\SomeClass::class);
+    wants_classname(\SomeNamespace\__Private\SomeClass::class);
   }
 }

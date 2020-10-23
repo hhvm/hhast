@@ -8,6 +8,6 @@
  */
 final class Test {
   private static function testThis() {
-	$some_value as SomeNamespace\__Private\SomeEnumName;
+    $some_value as SomeNamespace\__Private\SomeEnumName;
   }
 }

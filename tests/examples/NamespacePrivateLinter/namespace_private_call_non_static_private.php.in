@@ -10,8 +10,8 @@ namespace NewTesting;
 
 class NewTesting {
 
-  public static function iAmBanned() : void {
-	$obj = new \Something\__Private\TestingWithPrivateNamespace();
-	$obj->testing();
+  public static function iAmBanned(): void {
+    $obj = new \Something\__Private\TestingWithPrivateNamespace();
+    $obj->testing();
   }
 }

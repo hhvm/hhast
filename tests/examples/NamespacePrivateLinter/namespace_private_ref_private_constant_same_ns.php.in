@@ -11,7 +11,7 @@ namespace SomeNamespace;
 
 class Testing {
   public static function testMe() {
-	$value = \SomeNamespace\__Private\SOME_CONST;
-	$new_value = __Private\SOME_CONST;
+    $value = \SomeNamespace\__Private\SOME_CONST;
+    $new_value = __Private\SOME_CONST;
   }
 }

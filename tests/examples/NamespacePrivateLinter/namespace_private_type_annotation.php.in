@@ -11,9 +11,9 @@ namespace BlahNew;
 final class Test {
   # using private type as type annotations
   function anotherTest<T as \Blah\__Private\some_private_type_t>(
-	\Blah\__Private\TestClass $cls, 
-	classname<\Blah\__Private\TestClass> $classname,
+    \Blah\__Private\TestClass $cls,
+    classname<\Blah\__Private\TestClass> $classname,
   ): T {
-	return null;
+    return null;
   }
 }

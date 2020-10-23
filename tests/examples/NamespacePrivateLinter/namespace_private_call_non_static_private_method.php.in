@@ -11,6 +11,6 @@
 
 class Testing {
   public static function iAmBanned(): void {
-	(new \Something\__Private\TestingWithPrivateNamespace())->testing();
+    (new \Something\__Private\TestingWithPrivateNamespace())->testing();
   }
 }

@@ -12,10 +12,10 @@ use namespace TeamJoins\Invite;
 
 final class Test {
   public function testMe() {
-	$some_value as \SomeNamespace\__Private\SomeEnumName;
-	\SomeNamespace\__Private\SomeEnumName::SOME_VALUE;
-	Invite::SOME_VALUE;
-	Invite\MyInvite::SOME_VALUE;
-	wants_classname(__Private\SomeClass::class);
+    $some_value as \SomeNamespace\__Private\SomeEnumName;
+    \SomeNamespace\__Private\SomeEnumName::SOME_VALUE;
+    Invite::SOME_VALUE;
+    Invite\MyInvite::SOME_VALUE;
+    wants_classname(__Private\SomeClass::class);
   }
 }

@@ -11,17 +11,16 @@
 
 namespace Something\__Private {
   class TestingWithPrivateNamespace {
-	public static function iAmBanned(): void {}
+    public static function iAmBanned(): void {}
   }
 }
 
 namespace Something;
 class TestSomething {
   function fn(): void {
-	\Something\__Private\TestingWithPrivateNamespace::iAmBanned();
+    \Something\__Private\TestingWithPrivateNamespace::iAmBanned();
   }
 }
 function test_fn(): void {
   __Private\TestingWithPrivateNamespace::iAmBanned();
 }
-
