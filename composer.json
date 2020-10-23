@@ -4,8 +4,6 @@
     "bin": [
       "bin/hhast-lint",
       "bin/hhast-lint.hack",
-      "bin/hhast-inspect",
-      "bin/hhast-inspect.hack",
       "bin/hhast-migrate",
       "bin/hhast-migrate.hack"
     ],
