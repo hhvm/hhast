@@ -117,7 +117,7 @@ final class LinterConfigTest extends HackTest {
     );
 
     expect($config)->toEqual(
-      shape("I can supply a config" => "even if the linter doesn't need one"),
+      shape('I can supply a config' => "even if the linter doesn't need one"),
     );
   }
 

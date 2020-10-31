@@ -12,7 +12,6 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset, Str, Vec};
 use type Facebook\HackTest\{DataProvider, HackTest};
 use function Facebook\FBExpect\expect;
-use namespace Facebook\TypeSpec;
 
 final class ConfigurationRestrictionsTest extends HackTest {
   /**
