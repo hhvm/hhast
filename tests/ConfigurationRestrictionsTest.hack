@@ -59,7 +59,7 @@ final class ConfigurationRestrictionsTest extends HackTest {
         case \HH\TypeStructureKind::OF_NUM:
         case \HH\TypeStructureKind::OF_ARRAYKEY:
         case \HH\TypeStructureKind::OF_NULL:
-        // debatable, but not real reason to forbid enums
+        // debatable, but no real reason to forbid enums
         case \HH\TypeStructureKind::OF_ENUM:
         // These must be manually refined, again debatable
         case \HH\TypeStructureKind::OF_NONNULL:
