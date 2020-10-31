@@ -252,13 +252,6 @@ final class LintRunConfig {
     $config = idx(Shapes::idx($this->configFile, 'linterConfigs'), $classname);
 
     if ($config is null) {
-      // Test for TypeAssert unsupported types, even when no config is supplied.
-      // This makes it impossible to accidentally ship a linter with a TypeAssert
-      // type that is not supported (if never tested with a config).
-      try {
-        $classname::typeAssertConfig(null);
-      } catch (TypeAssert\IncorrectTypeException $_) {
-      }
       return null;
     }
 
