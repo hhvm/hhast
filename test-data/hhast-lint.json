@@ -17,6 +17,9 @@
     },
     "Facebook\\HHAST\\FinalOrAbstractClassLinter": {
       "I can supply a config": "even if the linter doesn't need one"
+    },
+    "Facebook\\HHAST\\Tests\\ConfigTypeIsNotSupportedByTypeAssertLinter": {
+      "impossible": []
     }
   }
 }
