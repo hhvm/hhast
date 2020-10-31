@@ -109,8 +109,7 @@ final class LintRun {
       return LintRunResult::NO_ERRORS;
     }
 
-    $linter = new $linter($file);
-    $linter->setConfig($linter_config);
+    $linter = new $linter($file, $linter_config);
 
     if ($linter->isLinterSuppressedForFile()) {
       return LintRunResult::NO_ERRORS;

@@ -16,8 +16,7 @@ use namespace HH\Lib\{C, Str};
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
   <<__Reifiable>>
-  const type TConfig as mixed = mixed;
-  private ?this::TConfig $config;
+  const type TConfig as shape(...) = shape(...);
 
   abstract public function getLintErrorsAsync(): Awaitable<vec<LintError>>;
 
@@ -25,11 +24,10 @@ abstract class BaseLinter {
     return true;
   }
 
-  public function __construct(private File $file) {
-  }
-
-  public function setConfig(?this::TConfig $config): void {
-    $this->config = $config;
+  public function __construct(
+    private File $file,
+    private ?this::TConfig $config,
+  ) {
   }
 
   protected function getConfig(): ?this::TConfig {
@@ -52,7 +50,14 @@ abstract class BaseLinter {
   }
 
   final public static function fromPath(string $path): this {
-    return new static(File::fromPath($path));
+    return static::fromPathWithConfig($path, null);
+  }
+
+  final public static function fromPathWithConfig(
+    string $path,
+    ?this::TConfig $config,
+  ): this {
+    return new static(File::fromPath($path), $config);
   }
 
   final public function getFile(): File {

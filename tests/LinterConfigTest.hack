@@ -53,7 +53,7 @@ final class ConfigTypeIsNotSupportedByTypeAssertLinter extends EmptyBaseLinter {
   // TypeAssert doesn't support vec<nothing>
   // If it does in the future, please update this test to a different
   // type that TypeAssert does not support.
-  const type TConfig = vec<nothing>;
+  const type TConfig = shape('impossible' => vec<nothing>);
 }
 
 final class LinterConfigTest extends HackTest {
@@ -117,7 +117,7 @@ final class LinterConfigTest extends HackTest {
     );
 
     expect($config)->toEqual(
-      "I can supply a config, even if the linter doesn't need one",
+      shape("I can supply a config" => "even if the linter doesn't need one"),
     );
   }
 
