@@ -32,100 +32,91 @@ final class ConfigurationRestrictionsTest extends HackTest {
     classname<BaseLinter> $classname,
   ): void {
     $type_structure = \HH\type_structure($classname, 'TConfig');
-    expect($this->throwOnNonValueTypeRecursive($type_structure))->toBeTrue(
-      "Your type is not covered by this test:\n".
-      TypeSpec\__Private\from_type_structure($type_structure)->toString(),
-    );
+    $this->throwOnBannedTypeRecursive($type_structure);
   }
 
   /**
-   * @return false on a failure which could not be indentified.
-   * @throws X when the reason for the failure could be identified.
+   * @throws BadTypeException for illegal types.
    * @throws any other exception when the type annotation does not typecheck.
    */
-  private function throwOnNonValueTypeRecursive<T>(
+  private function throwOnBannedTypeRecursive<T>(
     \HH\TypeStructure<T> $ts,
-  ): bool {
-    if (Shapes::keyExists($ts, 'kind')) {
-      $kind = $ts['kind'];
-      switch ($kind) {
-        ////////////////
-        // ALLOW LIST //
-        ////////////////
-        case \HH\TypeStructureKind::OF_INT:
-        case \HH\TypeStructureKind::OF_BOOL:
-        case \HH\TypeStructureKind::OF_FLOAT:
-        case \HH\TypeStructureKind::OF_STRING:
-        case \HH\TypeStructureKind::OF_NUM:
-        case \HH\TypeStructureKind::OF_ARRAYKEY:
-        case \HH\TypeStructureKind::OF_NULL:
-        // debatable, but no real reason to forbid enums
-        case \HH\TypeStructureKind::OF_ENUM:
-        // These must be manually refined, again debatable
-        case \HH\TypeStructureKind::OF_NONNULL:
-        case \HH\TypeStructureKind::OF_MIXED:
-          return true;
+  ): void {
+    $kind = $ts['kind'];
+    switch ($kind) {
+      ////////////////
+      // ALLOW LIST //
+      ////////////////
+      case \HH\TypeStructureKind::OF_INT:
+      case \HH\TypeStructureKind::OF_BOOL:
+      case \HH\TypeStructureKind::OF_FLOAT:
+      case \HH\TypeStructureKind::OF_STRING:
+      case \HH\TypeStructureKind::OF_NUM:
+      case \HH\TypeStructureKind::OF_ARRAYKEY:
+      case \HH\TypeStructureKind::OF_NULL:
+      // debatable, but no real reason to forbid enums
+      case \HH\TypeStructureKind::OF_ENUM:
+      // These must be manually refined, again debatable
+      case \HH\TypeStructureKind::OF_NONNULL:
+      case \HH\TypeStructureKind::OF_MIXED:
+        return;
 
-        ////////////////
-        // BLOCK LIST //
-        ////////////////
-        // Use a modern Hack array instead
-        case \HH\TypeStructureKind::OF_VEC_OR_DICT:
-        case \HH\TypeStructureKind::OF_DARRAY:
-        case \HH\TypeStructureKind::OF_ARRAY:
-        case \HH\TypeStructureKind::OF_VARRAY:
-        case \HH\TypeStructureKind::OF_VARRAY_OR_DARRAY:
-        // Ask for a vec<T> an keyset($vec) it instead.
-        case \HH\TypeStructureKind::OF_KEYSET:
-        // Non json serializable types
-        case \HH\TypeStructureKind::OF_CLASS:
-        case \HH\TypeStructureKind::OF_FUNCTION:
-        case \HH\TypeStructureKind::OF_RESOURCE:
-        case \HH\TypeStructureKind::OF_NORETURN:
-        case \HH\TypeStructureKind::OF_INTERFACE:
-        case \HH\TypeStructureKind::OF_TRAIT:
-        case \HH\TypeStructureKind::OF_NOTHING:
-        case \HH\TypeStructureKind::OF_XHP:
-        case \HH\TypeStructureKind::OF_VOID:
-        case \HH\TypeStructureKind::OF_GENERIC:
-        case \HH\TypeStructureKind::OF_DYNAMIC:
-        case \HH\TypeStructureKind::OF_UNRESOLVED:
-          throw new BadTypeException(
-            'You cannot declare the type '.
-            Str\lowercase(
-              Str\strip_prefix(\HH\TypeStructureKind::getNames()[$kind], 'OF_'),
-            ).
-            ' for a config',
-          );
+      ////////////////
+      // BLOCK LIST //
+      ////////////////
+      // Use a modern Hack array instead
+      case \HH\TypeStructureKind::OF_VEC_OR_DICT:
+      case \HH\TypeStructureKind::OF_DARRAY:
+      case \HH\TypeStructureKind::OF_ARRAY:
+      case \HH\TypeStructureKind::OF_VARRAY:
+      case \HH\TypeStructureKind::OF_VARRAY_OR_DARRAY:
+      // Ask for a vec<T> an keyset($vec) it instead.
+      case \HH\TypeStructureKind::OF_KEYSET:
+      // Non json serializable types
+      case \HH\TypeStructureKind::OF_CLASS:
+      case \HH\TypeStructureKind::OF_FUNCTION:
+      case \HH\TypeStructureKind::OF_RESOURCE:
+      case \HH\TypeStructureKind::OF_NORETURN:
+      case \HH\TypeStructureKind::OF_INTERFACE:
+      case \HH\TypeStructureKind::OF_TRAIT:
+      case \HH\TypeStructureKind::OF_NOTHING:
+      case \HH\TypeStructureKind::OF_XHP:
+      case \HH\TypeStructureKind::OF_VOID:
+      case \HH\TypeStructureKind::OF_GENERIC:
+      case \HH\TypeStructureKind::OF_DYNAMIC:
+      case \HH\TypeStructureKind::OF_UNRESOLVED:
+        throw new BadTypeException(
+          'You cannot declare the type '.
+          Str\lowercase(
+            Str\strip_prefix(\HH\TypeStructureKind::getNames()[$kind], 'OF_'),
+          ).
+          ' for a config',
+        );
 
-        //////////////////
-        // RECURSE LIST //
-        //////////////////
-        case \HH\TypeStructureKind::OF_VEC:
-          return $this->throwOnNonValueTypeRecursive(
-            C\onlyx(Shapes::at($ts, 'generic_types') as nonnull),
-          );
-        case \HH\TypeStructureKind::OF_TUPLE:
-          return Shapes::at($ts, 'elem_types')
-            |> C\every(
-              $$ as nonnull,
-              $e ==> $this->throwOnNonValueTypeRecursive($e),
-            );
-        case \HH\TypeStructureKind::OF_DICT:
-          // No need to check the Tk, since it must be arraykey-ish.
-          return $this->throwOnNonValueTypeRecursive(
-            Shapes::at($ts, 'generic_types') as nonnull[1],
-          );
-        case \HH\TypeStructureKind::OF_SHAPE:
-          return Shapes::at($ts, 'fields')
-            |> C\every(
-              $$ as nonnull,
-              $e ==> $this->throwOnNonValueTypeRecursive($e),
-            );
-      }
+      //////////////////
+      // RECURSE LIST //
+      //////////////////
+      case \HH\TypeStructureKind::OF_VEC:
+        $this->throwOnBannedTypeRecursive(
+          C\onlyx(Shapes::at($ts, 'generic_types') as nonnull),
+        );
+        break;
+      case \HH\TypeStructureKind::OF_TUPLE:
+        foreach ((Shapes::at($ts, 'elem_types') as nonnull) as $elem) {
+          $this->throwOnBannedTypeRecursive($elem);
+        }
+        break;
+      case \HH\TypeStructureKind::OF_DICT:
+        // No need to check the Tk, since it must be arraykey-ish.
+        $this->throwOnBannedTypeRecursive(
+          Shapes::at($ts, 'generic_types') as nonnull[1],
+        );
+        break;
+      case \HH\TypeStructureKind::OF_SHAPE:
+        foreach ((Shapes::at($ts, 'fields') as nonnull) as $field) {
+          $this->throwOnBannedTypeRecursive($field);
+        }
     }
-
-    return false;
   }
 
   public function provideGoodTypeStructures(): vec<(\HH\TypeStructure<mixed>)> {
@@ -167,13 +158,11 @@ final class ConfigurationRestrictionsTest extends HackTest {
   }
 
   <<DataProvider('provideGoodTypeStructures')>>
-  public function testThrowOnNonValueTypeRecursiveReturnsTrueForGoodTypes<T>(
+  public function testThrowOnBannedTypeRecursiveDoesNotThrowForGoodTypes<T>(
     \HH\TypeStructure<T> $type_structure,
   ): void {
-    expect($this->throwOnNonValueTypeRecursive($type_structure))->toBeTrue(
-      "The following type did not return true:\n%s",
-      TypeSpec\__Private\from_type_structure($type_structure)->toString(),
-    );
+    expect(() ==> $this->throwOnBannedTypeRecursive($type_structure))
+      ->notToThrow();
   }
 
   public function provideBadTypeStructures(): vec<(\HH\TypeStructure<mixed>)> {
@@ -189,10 +178,10 @@ final class ConfigurationRestrictionsTest extends HackTest {
   }
 
   <<DataProvider('provideBadTypeStructures')>>
-  public function testThrowOnNonValueTypeRecursiveThrowsForGoodTypes<T>(
+  public function testThrowOnBannedTypeRecursiveThrowsForBadTypes<T>(
     \HH\TypeStructure<T> $type_structure,
   ): void {
-    expect(() ==> $this->throwOnNonValueTypeRecursive($type_structure))
+    expect(() ==> $this->throwOnBannedTypeRecursive($type_structure))
       ->toThrow(BadTypeException::class, 'You cannot declare');
   }
 
