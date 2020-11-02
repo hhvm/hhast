@@ -52,7 +52,7 @@ final class LintRunConfig {
       )
     >,
     // Each linter may specify a type for itself.
-    // The type of this key if effectively `dict<classname<T1 ... Tn>, Tx>`
+    // The type of this key is effectively `dict<classname<T1 ... Tn>, Tx>`
     ?'linterConfigs' => dict<string, BaseLinter::TConfig>,
   );
 
