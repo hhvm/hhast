@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a3d54962108983a525569eaf3d76d3c>>
+ * @generated SignedSource<<6a301547c5e0f63f2fbdae567c256bb9>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -209,6 +209,7 @@ class TokenClassMap {
     '>=' => HHAST\GreaterThanEqualToken::class,
     '>>' => HHAST\GreaterThanGreaterThanToken::class,
     '>>=' => HHAST\GreaterThanGreaterThanEqualToken::class,
+    '#' => HHAST\HashToken::class,
     '{' => HHAST\LeftBraceToken::class,
     '[' => HHAST\LeftBracketToken::class,
     '(' => HHAST\LeftParenToken::class,

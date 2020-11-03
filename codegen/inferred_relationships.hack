@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5282f75e48f65d8be4d609d99d2c5b8c>>
+ * @generated SignedSource<<198d9068133ef2e781ad183c58353e2d>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -1714,6 +1714,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_pointer_expression>>',
     'list<list_item<function_pointer_expression>|list_item<literal>>',
     'list<list_item<function_pointer_expression>|list_item<literal>|list_item<vector_intrinsic_expression>>',
+    'list<list_item<function_pointer_expression>|list_item<token:name>>',
     'list<list_item<function_pointer_expression>|list_item<variable>>',
     'list<list_item<function_pointer_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<is_expression>>',
@@ -3625,6 +3626,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_call_expression>|list_item<keyset_intrinsic_expression>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<literal>>',
     'list<list_item<function_call_expression>|list_item<object_creation_expression>|list_item<variable>>',
+    'list<list_item<function_call_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<function_call_expression>|list_item<varray_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<keyset_intrinsic_expression>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<literal>>',
@@ -3674,6 +3676,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'shape_type_specifier',
     'simple_type_specifier',
     'tuple_type_specifier',
+    'type_constant',
     'vector_type_specifier',
   ],
   'where_clause.where_clause_constraints' => keyset[

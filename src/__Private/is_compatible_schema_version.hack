@@ -21,7 +21,7 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2020-10-15-0001',
+    SCHEMA_VERSION === '2020-10-29-0001',
     '%s needs updating',
     __FILE__,
   );
@@ -32,10 +32,10 @@ function is_compatible_schema_version(string $other_version): bool {
   // Return true if $other_version is a subset of SCHEMA_VERSION
 
   switch ($other_version) {
-    /*
     // preceding versions:
-    case 'version-number': // missing ...
+    case '2020-10-15-0001':
       return true;
+    /*
     // succeeding versions:
     case 'version-number': // missing ...
       return true;
