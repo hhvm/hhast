@@ -15,9 +15,9 @@ function get_current_uses(
   Script $root,
   Node $node,
 ): shape(
-  'namespaces' => dict<string, string>,
-  'types' => dict<string, string>,
-  'functions' => dict<string, string>,
+  'namespaces' => dict<string, Script::TAliasedNamespace>,
+  'types' => dict<string, Script::TAliasedNamespace>,
+  'functions' => dict<string, Script::TAliasedNamespace>,
 ) {
   foreach ($root->getNamespaces() as $ns) {
     if ($ns['children']->isAncestorOf($node)) {

@@ -13,7 +13,7 @@ namespace Facebook\HHAST;
 use function Facebook\FBExpect\expect;
 use namespace Facebook\HHAST\__Private\Resolution;
 use type Facebook\HackTest\DataProvider;
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\{C, Dict, Vec};
 
 final class ResolutionTest extends TestCase {
   private static async function getRootAndNodeAsync(
@@ -160,7 +160,14 @@ final class ResolutionTest extends TestCase {
     ) $expected,
   ): Awaitable<void> {
     list($root, $node) = await self::getRootAndNodeAsync($code);
-    expect(Resolution\get_current_uses($root, $node))->toBeSame(
+    $uses = Resolution\get_current_uses($root, $node);
+    // Discard blame node for comparison
+    $actual = shape(
+      'namespaces' => Dict\map($uses['namespaces'], $v ==> $v['name']),
+      'types' => Dict\map($uses['types'], $v ==> $v['name']),
+      'functions' => Dict\map($uses['functions'], $v ==> $v['name']),
+    );
+    expect($actual)->toBeSame(
       $expected,
       'Source: %s',
       $code,

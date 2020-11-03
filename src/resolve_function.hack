@@ -28,14 +28,19 @@ use namespace Facebook\HHAST\__Private\Resolution;
  *              This will be a NameToken or QualifiedName in the common case.
  *
  * @return      The returned string is the fully qualified name of the given $node
- *              without the leading `\`.
+ *              without the leading `\`. If a `use` clause affected the resolution,
+ *              it is also returned.
  *
  * @example     $name_token of the name `join`.
  *              $my_script as a `use function HH\Asio\join` at the top.
  *              `resolve_function($name_token->getText(), $my_script, $name_token);`
  *              Expected return "HH\Asio\join".
  */
-function resolve_function(string $name, Script $root, Node $node): string {
+function resolve_function(
+  string $name,
+  Script $root,
+  Node $node,
+): shape('name' => string, 'use_clause' => ?NamespaceUseClause) {
   $uses = Resolution\get_current_uses($root, $node);
 
   if (C\contains_key($uses['functions'], $name)) {

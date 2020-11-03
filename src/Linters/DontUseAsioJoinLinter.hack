@@ -38,7 +38,7 @@ final class DontUseAsioJoinLinter extends AutoFixingASTLinter {
 
     // Performance won't suffer from resolving a fully qualified name.
     // This is handled very efficiently in resolve_function().
-    $resolved_name = resolve_function($string_name, $context, $node);
+    $resolved_name = resolve_function($string_name, $context, $node)['name'];
 
     if ($resolved_name !== self::F_JOIN) {
       return null;

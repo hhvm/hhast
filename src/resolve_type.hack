@@ -16,13 +16,14 @@ function resolve_type(
   string $type,
   Script $root,
   Node $node,
-): shape('kind' => ResolvedTypeKind, 'name' => string) {
+): shape('kind' => ResolvedTypeKind, 'name' => string, 'use_clause' => ?NamespaceUseClause) {
   if ($type === 'callable') {
     // Super special case. It's not a legal type anymore but still supported by
     // runtime.
     return shape(
       'kind' => ResolvedTypeKind::CALLABLE,
       'name' => 'callable',
+      'use_clause' => null,
     );
   }
 
@@ -73,6 +74,7 @@ function resolve_type(
     return shape(
       'kind' => ResolvedTypeKind::QUALIFIED_AUTOIMPORTED_TYPE,
       'name' => 'HH\\'.$type,
+      'use_clause' => null,
     );
   }
 
@@ -81,20 +83,25 @@ function resolve_type(
     return shape(
       'kind' => ResolvedTypeKind::GENERIC_PARAMETER,
       'name' => $type,
+      'use_clause' => null,
     );
   }
 
   $uses = Resolution\get_current_uses($root, $node);
 
   if (C\contains_key($uses['types'], $type)) {
+    $used = $uses['types'][$type];
     return shape(
       'kind' => ResolvedTypeKind::QUALIFIED_TYPE,
-      'name' => $uses['types'][$type],
+      'name' => $used['name'],
+      'use_clause' => $used['use_clause'],
     );
   }
 
+  $resolved = Resolution\resolve_name($type, $root, $node, $uses['namespaces']);
   return shape(
     'kind' => ResolvedTypeKind::QUALIFIED_TYPE,
-    'name' => Resolution\resolve_name($type, $root, $node, $uses['namespaces']),
+    'name' => $resolved['name'],
+    'use_clause' => $resolved['use_clause'],
   );
 }

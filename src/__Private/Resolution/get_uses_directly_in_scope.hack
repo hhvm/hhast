@@ -17,16 +17,15 @@ use type Facebook\HHAST\{
   NamespaceUseDeclaration,
   Node,
   NodeList,
+  Script,
   TypeToken,
 };
 use namespace HH\Lib\{C, Str};
 
-function get_uses_directly_in_scope(
-  ?NodeList<Node> $scope,
-): shape(
-  'namespaces' => dict<string, string>,
-  'types' => dict<string, string>,
-  'functions' => dict<string, string>,
+function get_uses_directly_in_scope(?NodeList<Node> $scope): shape(
+  'namespaces' => dict<string, Script::TAliasedNamespace>,
+  'types' => dict<string, Script::TAliasedNamespace>,
+  'functions' => dict<string, Script::TAliasedNamespace>,
 ) {
   if ($scope === null) {
     return shape(
@@ -46,6 +45,7 @@ function get_uses_directly_in_scope(
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
+        $clause,
         Str\trim($clause->getNameUNTYPED()?->getCode() ?? ''),
         $clause->getAlias(),
       );
@@ -64,6 +64,7 @@ function get_uses_directly_in_scope(
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
+        $clause,
         $prefix.Str\trim($clause->getNameUNTYPED()?->getCode() ?? ''),
         $clause->getAlias(),
       );
@@ -74,7 +75,7 @@ function get_uses_directly_in_scope(
   $types = dict[];
   $functions = dict[];
   foreach ($uses as $use) {
-    list($kind, $name, $alias) = $use;
+    list($kind, $clause, $name, $alias) = $use;
     // Leading "\" in "use" declarations does nothing.
     $name = Str\strip_prefix($name, '\\');
     $alias = $alias === null
@@ -84,16 +85,17 @@ function get_uses_directly_in_scope(
       : $alias->getCode()
       |> Str\trim($$)
       |> Str\strip_prefix($$, '\\');
+    $target = shape('name' => $name, 'use_clause' => $clause);
     if ($kind === null) {
-      $namespaces[$alias] ??= $name;
-      $types[$alias] ??= $name;
-      $functions[$alias] ??= $name;
+      $namespaces[$alias] ??= $target;
+      $types[$alias] ??= $target;
+      $functions[$alias] ??= $target;
     } else if ($kind is NamespaceToken) {
-      $namespaces[$alias] = $name;
+      $namespaces[$alias] = $target;
     } else if ($kind is TypeToken) {
-      $types[$alias] = $name;
+      $types[$alias] = $target;
     } else if ($kind is FunctionToken) {
-      $functions[$alias] = $name;
+      $functions[$alias] = $target;
     }
   }
 

@@ -103,7 +103,7 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
    */
   private function migrateNode(
     Script $ast,
-    Script::TNamespace $ns,
+    Script::TNamespaceScope $ns,
     Node $node,
   ): Node {
     if ($node is SimpleTypeSpecifier && $node->getSpecifier() is INameishNode) {
@@ -135,7 +135,7 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
           $ns,
           $node->getReceiver() as INameishNode,
           self::RENAMED_FUNCTIONS,
-          ($name, $node) ==> resolve_function($name, $ast, $node),
+          ($name, $node) ==> resolve_function($name, $ast, $node)['name'],
         ),
       );
     } else if ($node is XHPOpen || $node is XHPClose) {
@@ -150,9 +150,13 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
           $node,
           Dict\merge(
             $ns['uses']['namespaces'],
-            Dict\flip($this->newNamespaces),
+            Dict\pull_with_key(
+              $this->newNamespaces,
+              ($k, $_v) ==> shape('name' => $k, 'use_clause' => null),
+              ($_k, $v) ==> $v,
+            ),
           ),
-        ),
+        )['name'],
       );
     } else {
       return $node;
@@ -176,7 +180,7 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
    * Otherwise, add a `use` clause according to self::DEFAULT_NS_ALIASES.
    */
   private function migrateName(
-    Script::TNamespace $ns,
+    Script::TNamespaceScope $ns,
     INameishNode $old_name_node,
     dict<string, string> $old_to_new,
     (function(string, Node): string) $resolver,
@@ -190,7 +194,10 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
     list($new_ns, $new_name) = self::split($new_name);
     $new_ns as nonnull;
 
-    $alias = C\find_key($ns['uses']['namespaces'], $val ==> $val === $new_ns);
+    $alias = C\find_key(
+      $ns['uses']['namespaces'],
+      $val ==> $val['name'] === $new_ns,
+    );
     if ($alias is null) {
       $alias = idx(self::DEFAULT_NS_ALIASES, $new_ns) ??
         self::split($new_ns)[1];
@@ -205,7 +212,7 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
    * clauses.
    */
   private function useHTMLTag(
-    Script::TNamespace $ns,
+    Script::TNamespaceScope $ns,
     XHPElementNameToken $name_node,
   ): void {
     $name = self::withoutTrivia($name_node);
@@ -214,7 +221,7 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
     }
 
     $qualified = self::HTML_NS.'\\'.$name;
-    if (C\contains($ns['uses']['types'], $qualified)) {
+    if (C\any($ns['uses']['types'], $v ==> $v['name'] === $qualified)) {
       // Nothing to do if the type is already `use`d. We ignore the case when
       // it's `use`d with an alias, since something unexpected is happening that
       // likely needs manual migration.

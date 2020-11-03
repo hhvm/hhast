@@ -39,13 +39,18 @@ final class Script extends ScriptGeneratedBase {
     return $this->getTokens()[$idx + 1] ?? null;
   }
 
-  const type TNamespace = shape(
+  const type TAliasedNamespace = shape(
+    'name' => string,
+    'use_clause' => NamespaceUseClause,
+  );
+
+  const type TNamespaceScope = shape(
     'name' => ?string,
     'children' => NodeList<Node>,
     'uses' => shape(
-      'namespaces' => dict<string, string>,
-      'types' => dict<string, string>,
-      'functions' => dict<string, string>,
+      'namespaces' => dict<string, self::TAliasedNamespace>,
+      'types' => dict<string, self::TAliasedNamespace>,
+      'functions' => dict<string, self::TAliasedNamespace>,
     ),
   );
 
@@ -56,7 +61,7 @@ final class Script extends ScriptGeneratedBase {
    * with and without a body.
    */
   <<__Memoize>>
-  public function getNamespaces(): vec<this::TNamespace> {
+  public function getNamespaces(): vec<this::TNamespaceScope> {
     $all_declarations = $this->getDeclarationsx()->getChildren();
     $global_declarations = vec[];
     $namespaces = vec[];

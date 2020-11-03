@@ -27,17 +27,17 @@ final class NamespacePrivateLinter extends ASTLinter {
       $namespace_uses = Shapes::toArray($namespace_detail_shape['uses']);
 
       foreach ($namespace_uses as $namespace_use_dict) {
-        foreach ($namespace_use_dict as $namespace_path) {
+        foreach ($namespace_use_dict as $aliased_ns) {
           if (
             !$this->isPrivateNamespacePathAllowed(
-              $namespace_path,
+              $aliased_ns['name'],
               $current_namespace,
             )
           ) {
             return new ASTLintError(
               $this,
               'Artifacts belonging to a namespace are private to the parent namespace',
-              $node,
+              $aliased_ns['use_clause'],
             );
           }
         }
@@ -94,7 +94,7 @@ final class NamespacePrivateLinter extends ASTLinter {
               $name_token_key,
               $context,
               $qualified_name_token,
-            );
+            )['name'];
           } else if ($parent_node is SimpleTypeSpecifier) {
             $fully_qualified_name_for_current_token = resolve_type(
               $name_token_key,
@@ -135,19 +135,19 @@ final class NamespacePrivateLinter extends ASTLinter {
    */
   private function resolveScope(
     string $name_token_key,
-    dict<string, string> $namespaces,
+    dict<string, Script::TAliasedNamespace> $namespaces,
     string $current_namespace,
   ): string {
     if (Str\search($name_token_key, '\\') === 0) {
       return Str\slice($name_token_key, 1);
     }
     $name_token_key_parts = Str\split($name_token_key, '\\');
-    foreach ($namespaces as $namespace_key => $namespace_full_path) {
+    foreach ($namespaces as $namespace_key => $aliased_ns) {
       if (
         $namespace_key ===
           $name_token_key_parts[C\count($name_token_key_parts) - 1]
       ) {
-        return $namespace_full_path;
+        return $aliased_ns['name'];
       }
     }
     return $current_namespace.'\\'.$name_token_key;
