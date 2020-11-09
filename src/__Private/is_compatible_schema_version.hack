@@ -33,13 +33,11 @@ function is_compatible_schema_version(string $other_version): bool {
 
   switch ($other_version) {
     // preceding versions:
-    case '2020-10-15-0001':
+    case '2020-10-15-0001': // missing enum-dependent type syntax
       return true;
-    /*
     // succeeding versions:
-    case 'version-number': // missing ...
+    case '2020-11-02-0001': // removes Pocket Universe syntax
       return true;
-    */
     default:
       return false;
   }

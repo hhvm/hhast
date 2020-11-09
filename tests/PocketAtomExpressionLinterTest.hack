@@ -13,10 +13,8 @@ final class PocketAtomExpressionLinterTest extends TestCase {
   use LinterTestTrait;
 
   protected function getLinter(string $file): PocketAtomExpressionLinter {
-    if (\version_compare(\HHVM_VERSION, '4.23.0') < 0) {
-      self::markTestSkipped(
-        'Pocket Universe tests are only relevant on HHVM 4.23+',
-      );
+    if (\HHVM_VERSION_ID >= 408300) {
+      self::markTestSkipped('Pocket Universe syntax was removed in HHVM 4.83');
     }
     return PocketAtomExpressionLinter::fromPath($file);
   }

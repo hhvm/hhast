@@ -15,10 +15,8 @@ final class PocketIdentifierExpressionLinterTest extends TestCase {
   protected function getLinter(
     string $file,
   ): PocketIdentifierExpressionLinter {
-    if (\version_compare(\HHVM_VERSION, '4.23.0') < 0) {
-      self::markTestSkipped(
-        'Pocket Universe tests are only relevant on HHVM 4.23+',
-      );
+    if (\HHVM_VERSION_ID >= 408300) {
+      self::markTestSkipped('Pocket Universe syntax was removed in HHVM 4.83');
     }
     return PocketIdentifierExpressionLinter::fromPath($file);
   }
