@@ -1,0 +1,25 @@
+{
+  "roots": [],
+  "linterConfigs": {
+    "Facebook\\HHAST\\Tests\\ValidConfigForLinter": {
+      "the answer": 42,
+      "a structure": {
+        "with keys": [
+          [
+            "and lists of lists"
+          ]
+        ]
+      }
+    },
+    "Facebook\\HHAST\\Tests\\InvalidConfigForLinter": {
+      "i should have only one key": null,
+      "but the config specifies two": null
+    },
+    "Facebook\\HHAST\\FinalOrAbstractClassLinter": {
+      "I can supply a config": "even if the linter doesn't need one"
+    },
+    "Facebook\\HHAST\\Tests\\ConfigTypeIsNotSupportedByTypeAssertLinter": {
+      "impossible": []
+    }
+  }
+}
