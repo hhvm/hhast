@@ -314,8 +314,12 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
   private static function asyncifyType(ITypeSpecifier $type): ITypeSpecifier {
     if ($type is AttributizedSpecifier) {
       // Try saying 10 times very quickly:
-      return $type->withType(self::asyncifyType($type->getType()));
+      return $type->withType(self::wrapType($type->getType()));
     }
+    return self::wrapType($type);
+  }
+
+  private static function wrapType(ITypeSpecifier $type): GenericTypeSpecifier {
     return new GenericTypeSpecifier(
       new NameToken($type->getFirstTokenx()->getLeading(), null, 'Awaitable'),
       new TypeArguments(

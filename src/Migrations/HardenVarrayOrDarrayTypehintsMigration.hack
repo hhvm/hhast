@@ -58,7 +58,7 @@ final class HardenVarrayOrDarrayTypehintsMigration extends StepBasedMigration {
     list($attr, $type) = static::migrate($wrapper?->getAttributeSpec(), $type);
     return $wrapper is null || $attr is null || $type is null
       ? $type
-      : $wrapper->withAttributeSpec($attr)->withType($type);
+      : $wrapper->withAttributeSpec($attr)->withType($type as ISimpleCreationSpecifier);
   }
 
   /**

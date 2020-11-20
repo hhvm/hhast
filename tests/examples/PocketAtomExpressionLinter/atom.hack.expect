@@ -1,7 +1,0 @@
-[
-    {
-        "blame": ":@bar",
-        "blame_pretty": ":@bar",
-        "description": "This is a reserved syntax for the Pocket Universes prototype.\\nOnly use it if you know  what you are doing.\\nWe advise you to remove it."
-    }
-]

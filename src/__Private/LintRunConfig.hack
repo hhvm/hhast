@@ -80,9 +80,6 @@ final class LintRunConfig {
     HHAST\GroupUseStatementsLinter::class,
     HHAST\GroupUseStatementAlphabetizationLinter::class,
     HHAST\NoWhitespaceAtEndOfLineLinter::class,
-    HHAST\PocketAtomExpressionLinter::class,
-    HHAST\PocketIdentifierExpressionLinter::class,
-    HHAST\PocketEnumDeclarationLinter::class,
     HHAST\PreferRequireOnceLinter::class,
     HHAST\ConsistentLineEndingsLinter::class,
   ];
