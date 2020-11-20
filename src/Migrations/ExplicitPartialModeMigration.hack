@@ -65,6 +65,9 @@ final class ExplicitPartialModeMigration extends BaseMigration {
       return $ast;
     }
     $suffix = $markup->getSuffix();
+    if ($suffix is null) {
+      return $ast;
+    }
     return $ast->replace($suffix, self::addPartialModeIfNoneSpecified($suffix));
   }
 }

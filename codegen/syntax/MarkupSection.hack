@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a71d76bae319f0b116e394ac05a3f0d5>>
+ * @generated SignedSource<<ee5c4f225cf5b2765a40725abeb6bb49>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,11 +13,11 @@ final class MarkupSection extends Node {
   const string SYNTAX_KIND = 'markup_section';
 
   private HashbangToken $_hashbang;
-  private MarkupSuffix $_suffix;
+  private ?MarkupSuffix $_suffix;
 
   public function __construct(
     HashbangToken $hashbang,
-    MarkupSuffix $suffix,
+    ?MarkupSuffix $suffix,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_hashbang = $hashbang;
@@ -44,14 +44,13 @@ final class MarkupSection extends Node {
     $hashbang = $hashbang as nonnull;
     $offset += $hashbang->getWidth();
     $suffix = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['markup_suffix'],
+      /* HH_FIXME[4110] */ $json['markup_suffix'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
       'MarkupSuffix',
     );
-    $suffix = $suffix as nonnull;
-    $offset += $suffix->getWidth();
+    $offset += $suffix?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -81,7 +80,9 @@ final class MarkupSection extends Node {
   ): this {
     $parents[] = $this;
     $hashbang = $rewriter($this->_hashbang, $parents);
-    $suffix = $rewriter($this->_suffix, $parents);
+    $suffix = $this->_suffix === null
+      ? null
+      : $rewriter($this->_suffix, $parents);
     if ($hashbang === $this->_hashbang && $suffix === $this->_suffix) {
       return $this;
     }
@@ -124,7 +125,7 @@ final class MarkupSection extends Node {
     return $this->_suffix;
   }
 
-  public function withSuffix(MarkupSuffix $value): this {
+  public function withSuffix(?MarkupSuffix $value): this {
     if ($value === $this->_suffix) {
       return $this;
     }
@@ -136,16 +137,16 @@ final class MarkupSection extends Node {
   }
 
   /**
-   * @return MarkupSuffix
+   * @return MarkupSuffix | null
    */
-  public function getSuffix(): MarkupSuffix {
-    return TypeAssert\instance_of(MarkupSuffix::class, $this->_suffix);
+  public function getSuffix(): ?MarkupSuffix {
+    return $this->_suffix;
   }
 
   /**
    * @return MarkupSuffix
    */
   public function getSuffixx(): MarkupSuffix {
-    return $this->getSuffix();
+    return TypeAssert\not_null($this->getSuffix());
   }
 }

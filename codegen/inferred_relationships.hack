@@ -2340,6 +2340,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'markup_section.markup_suffix' => keyset[
     'markup_suffix',
+    'missing',
   ],
   'markup_suffix.markup_suffix_less_than_question' => keyset[
     'token:<?',
