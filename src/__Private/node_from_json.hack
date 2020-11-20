@@ -38,7 +38,7 @@ function node_from_json(
     return $node;
   } catch (\Facebook\HHAST\ASTError $e) {
     throw $e;
-  } catch (\Throwable $t) {
+  } catch (\Exception $t) {
     throw new \Facebook\HHAST\ASTDeserializationError(
       $file,
       $offset,

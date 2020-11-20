@@ -16,7 +16,7 @@ final class ASTDeserializationError extends ASTError {
     string $file,
     int $offset,
     string $source,
-    \Throwable $previous,
+    \Exception $previous,
   ) {
     $pre = Str\slice($source, 0, $offset) |> Str\split($$, "\n");
     $eol = Str\search($source, "\n", $offset);
@@ -49,6 +49,6 @@ final class ASTDeserializationError extends ASTError {
       $offset,
       'Failed to deserialize AST: '.$previous->getMessage()."\n".$source,
     );
-    $this->setPrevious(/* HH_FIXME[4110] bad HHI wants Exception */ $previous);
+    $this->setPrevious( $previous);
   }
 }
