@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d28edb189c4f5089d3893297275d023>>
+ * @generated SignedSource<<d67c68886d9b46c6cea4965bdced8c7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -279,8 +279,7 @@ final class KeysetIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
@@ -292,8 +291,7 @@ final class KeysetIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<BinaryExpression>> |
-   * NodeList<ListItem<IExpression>> |
+   * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |

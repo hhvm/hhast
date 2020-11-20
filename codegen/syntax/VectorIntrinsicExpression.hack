@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<92d368e8319a249b170df40940575291>>
+ * @generated SignedSource<<72e7f36cfae513a3fe6ccf4be7d380c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -279,11 +279,10 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<BinaryExpression>> |
+   * @return NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
-   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * | NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
@@ -294,7 +293,6 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<NameToken>> |
    * NodeList<ListItem<TupleExpression>> |
    * NodeList<ListItem<VariableExpression>> |
-   * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>> |
    * NodeList<ListItem<XHPExpression>> | null
    */
@@ -303,11 +301,10 @@ final class VectorIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<BinaryExpression>> |
+   * @return NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
-   * | NodeList<ListItem<DarrayIntrinsicExpression>> |
+   * | NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
    * NodeList<ListItem<FunctionCallExpression>> |
@@ -318,7 +315,6 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<NameToken>> |
    * NodeList<ListItem<TupleExpression>> |
    * NodeList<ListItem<VariableExpression>> |
-   * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>> |
    * NodeList<ListItem<XHPExpression>>
    */

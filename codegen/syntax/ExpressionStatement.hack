@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e357d53332140719efa5d3a4872821b>>
+ * @generated SignedSource<<f5fb760cb9145f340a0bff31e14861c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -113,11 +113,10 @@ final class ExpressionStatement extends Node implements IStatement {
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * FunctionPointerExpression | InclusionExpression | IsExpression |
-   * IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | null | ObjectCreationExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * InclusionExpression | IsExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | null |
+   * ObjectCreationExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |
    * VarrayIntrinsicExpression | XHPExpression | YieldExpression
    */
@@ -129,9 +128,8 @@ final class ExpressionStatement extends Node implements IStatement {
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
    * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * FunctionPointerExpression | InclusionExpression | IsExpression |
-   * IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * InclusionExpression | IsExpression | IssetExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
    * SubscriptExpression | NameToken | VariableExpression |

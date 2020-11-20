@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ed66332280c43e9419956d413b2b7d7>>
+ * @generated SignedSource<<1ba699d566a8031021c1b4917141a89b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -222,7 +222,6 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
    * @return NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ParenthesizedExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>>
@@ -235,7 +234,6 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
    * @return NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<ParenthesizedExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>>

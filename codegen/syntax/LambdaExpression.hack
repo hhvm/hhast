@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1bc165324a444d5c88705ef6acd4edb>>
+ * @generated SignedSource<<a35066d4c052cb4c43665c41b2dcfb5c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -314,11 +314,11 @@ final class LambdaExpression
   /**
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | CompoundStatement |
-   * ConditionalExpression | FunctionCallExpression | IsExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | NullableAsExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | SubscriptExpression | VariableExpression | VarrayIntrinsicExpression
+   * ConditionalExpression | FunctionCallExpression | KeysetIntrinsicExpression
+   * | LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | PrefixUnaryExpression | SubscriptExpression | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getBody(): ILambdaBody {
     return TypeAssert\instance_of(ILambdaBody::class, $this->_body);
@@ -327,11 +327,11 @@ final class LambdaExpression
   /**
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | CompoundStatement |
-   * ConditionalExpression | FunctionCallExpression | IsExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | NullableAsExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | SubscriptExpression | VariableExpression | VarrayIntrinsicExpression
+   * ConditionalExpression | FunctionCallExpression | KeysetIntrinsicExpression
+   * | LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | PrefixUnaryExpression | SubscriptExpression | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getBodyx(): ILambdaBody {
     return $this->getBody();

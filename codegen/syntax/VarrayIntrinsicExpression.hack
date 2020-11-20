@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd562a08e4b1025b09528e4d07ab8c2b>>
+ * @generated SignedSource<<6518fbedf4227072181975a4c6b48319>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -279,9 +279,7 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<AnonymousFunction>> |
-   * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<AwaitableCreationExpression>> |
+   * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
@@ -297,7 +295,6 @@ final class VarrayIntrinsicExpression
    * NodeList<ListItem<QualifiedName>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
-   * NodeList<ListItem<TupleExpression>> |
    * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>> | null
@@ -307,9 +304,7 @@ final class VarrayIntrinsicExpression
   }
 
   /**
-   * @return NodeList<ListItem<AnonymousFunction>> |
-   * NodeList<ListItem<IExpression>> |
-   * NodeList<ListItem<AwaitableCreationExpression>> |
+   * @return NodeList<ListItem<IExpression>> |
    * NodeList<ListItem<BinaryExpression>> | NodeList<ListItem<IHasOperator>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<IContainer>> | NodeList<ListItem<ConditionalExpression>>
@@ -325,7 +320,6 @@ final class VarrayIntrinsicExpression
    * NodeList<ListItem<QualifiedName>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
-   * NodeList<ListItem<TupleExpression>> |
    * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
    * NodeList<ListItem<VectorIntrinsicExpression>>

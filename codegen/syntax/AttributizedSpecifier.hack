@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3a58dee134ce5cec98af1bfce2c835b>>
+ * @generated SignedSource<<d74ff72b0718b801723da58233b1cf9f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,11 +13,11 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
   const string SYNTAX_KIND = 'attributized_specifier';
 
   private OldAttributeSpecification $_attribute_spec;
-  private ITypeSpecifier $_type;
+  private ISimpleCreationSpecifier $_type;
 
   public function __construct(
     OldAttributeSpecification $attribute_spec,
-    ITypeSpecifier $type,
+    ISimpleCreationSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -48,7 +48,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'ITypeSpecifier',
+      'ISimpleCreationSpecifier',
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
@@ -127,7 +127,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(ITypeSpecifier $value): this {
+  public function withType(ISimpleCreationSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -139,18 +139,19 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
-   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getType(): ITypeSpecifier {
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+  public function getType(): ISimpleCreationSpecifier {
+    return TypeAssert\instance_of(
+      ISimpleCreationSpecifier::class,
+      $this->_type,
+    );
   }
 
   /**
-   * @return ClosureTypeSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
-   * | NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getTypex(): ITypeSpecifier {
+  public function getTypex(): ISimpleCreationSpecifier {
     return $this->getType();
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eba70dfa26c2ca9337f042e5b56978c9>>
+ * @generated SignedSource<<e66fe53570204a33f220d8bbc5de88cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,18 +140,16 @@ final class DecoratedExpression
   }
 
   /**
-   * @return FunctionCallExpression | ScopeResolutionExpression |
-   * SubscriptExpression | VariableToken | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * @return FunctionCallExpression | SubscriptExpression | VariableToken |
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
-   * @return FunctionCallExpression | ScopeResolutionExpression |
-   * SubscriptExpression | VariableToken | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * @return FunctionCallExpression | SubscriptExpression | VariableToken |
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();

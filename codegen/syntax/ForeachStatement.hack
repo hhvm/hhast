@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<072a8bb9fbc1e972c36031d857c89475>>
+ * @generated SignedSource<<69404c03ee33d521690d85b34415621b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -339,10 +339,9 @@ final class ForeachStatement
 
   /**
    * @return AnonymousFunction | CollectionLiteralExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * FunctionCallExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getCollection(): IExpression {
@@ -351,10 +350,9 @@ final class ForeachStatement
 
   /**
    * @return AnonymousFunction | CollectionLiteralExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * FunctionCallExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getCollectionx(): IExpression {
@@ -550,16 +548,16 @@ final class ForeachStatement
   }
 
   /**
-   * @return ListExpression | MemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * @return ListExpression | MemberSelectionExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getValue(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_value);
   }
 
   /**
-   * @return ListExpression | MemberSelectionExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * @return ListExpression | MemberSelectionExpression | SubscriptExpression |
+   * VariableExpression
    */
   public function getValuex(): IExpression {
     return $this->getValue();

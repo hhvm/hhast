@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a301547c5e0f63f2fbdae567c256bb9>>
+ * @generated SignedSource<<ee5bbeb90df7d0d3fb0f2971cc513ab8>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -189,7 +189,6 @@ class TokenClassMap {
     '^' => HHAST\CaratToken::class,
     '^=' => HHAST\CaratEqualToken::class,
     ':' => HHAST\ColonToken::class,
-    ':@' => HHAST\ColonAtToken::class,
     '::' => HHAST\ColonColonToken::class,
     ',' => HHAST\CommaToken::class,
     '$' => HHAST\DollarToken::class,

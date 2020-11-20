@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9b1d4994de55b414b723cc9f7306dade>>
+ * @generated SignedSource<<ef5f9d6cca203d2df0aef5b51d54c72c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -248,9 +248,8 @@ final class ConditionalExpression
 
   /**
    * @return BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression
@@ -261,9 +260,8 @@ final class ConditionalExpression
 
   /**
    * @return BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression |
-   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
+   * FunctionCallExpression | KeysetIntrinsicExpression | LambdaExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression
@@ -335,7 +333,7 @@ final class ConditionalExpression
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getAlternative(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_alternative);
@@ -348,7 +346,7 @@ final class ConditionalExpression
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getAlternativex(): IExpression {
     return $this->getAlternative();

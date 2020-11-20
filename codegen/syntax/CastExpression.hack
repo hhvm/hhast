@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9bea2e7d7f41cad227177aca623c9b7>>
+ * @generated SignedSource<<8e5123ba0f628c3a815112310d868b8b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -251,10 +251,10 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * @return CollectionLiteralExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | XHPExpression
    */
   public function getOperand(): IExpression {
@@ -262,10 +262,10 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * FunctionCallExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
-   * | ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * @return CollectionLiteralExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
    * VariableExpression | XHPExpression
    */
   public function getOperandx(): IExpression {

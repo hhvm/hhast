@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<faed773895e7681bf57a4b3507e90412>>
+ * @generated SignedSource<<91cccc14b2b6fa8b3c31de97d82ebd2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,16 +151,16 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
   }
 
   /**
-   * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
-   * | SimpleTypeSpecifier | VarrayTypeSpecifier | XHPEnumType
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | XHPEnumType
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
-   * | SimpleTypeSpecifier | VarrayTypeSpecifier | XHPEnumType
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | XHPEnumType
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

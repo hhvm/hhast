@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0a1fd0b4071b8eed6fe5a7848d9f553>>
+ * @generated SignedSource<<e0613df712420ce8ba4cf08f33f15aa9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -226,19 +226,14 @@ final class CollectionLiteralExpression
    * @return NodeList<ListItem<AnonymousFunction>> |
    * NodeList<ListItem<IExpression>> | NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
-   * NodeList<ListItem<IContainer>> |
-   * NodeList<ListItem<DarrayIntrinsicExpression>> |
-   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<ElementInitializer>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
-   * NodeList<ListItem<ShapeExpression>> |
-   * NodeList<ListItem<SubscriptExpression>> |
-   * NodeList<ListItem<TupleExpression>> |
-   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<TupleExpression>>
+   * | NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> | null
    */
   public function getInitializers(): ?NodeList<ListItem<Node>> {
@@ -249,19 +244,14 @@ final class CollectionLiteralExpression
    * @return NodeList<ListItem<AnonymousFunction>> |
    * NodeList<ListItem<IExpression>> | NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
-   * NodeList<ListItem<IContainer>> |
-   * NodeList<ListItem<DarrayIntrinsicExpression>> |
-   * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<ElementInitializer>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
-   * NodeList<ListItem<ShapeExpression>> |
-   * NodeList<ListItem<SubscriptExpression>> |
-   * NodeList<ListItem<TupleExpression>> |
-   * NodeList<ListItem<VariableExpression>> |
+   * NodeList<ListItem<ShapeExpression>> | NodeList<ListItem<TupleExpression>>
+   * | NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>>
    */
   public function getInitializersx(): NodeList<ListItem<Node>> {

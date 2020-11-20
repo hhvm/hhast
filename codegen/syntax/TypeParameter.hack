@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d8d65931db58c9f4476d4e4dcf7c6c8>>
+ * @generated SignedSource<<6c30008d1ff6e8f9e90ca2be8785fe97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,7 +16,7 @@ final class TypeParameter extends Node {
   private ?ReifyToken $_reified;
   private ?Token $_variance;
   private NameToken $_name;
-  private ?TypeParameters $_param_params;
+  private ?Node $_param_params;
   private ?NodeList<TypeConstraint> $_constraints;
 
   public function __construct(
@@ -24,7 +24,7 @@ final class TypeParameter extends Node {
     ?ReifyToken $reified,
     ?Token $variance,
     NameToken $name,
-    ?TypeParameters $param_params,
+    ?Node $param_params,
     ?NodeList<TypeConstraint> $constraints,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -84,7 +84,7 @@ final class TypeParameter extends Node {
       $file,
       $offset,
       $source,
-      'TypeParameters',
+      'Node',
     );
     $offset += $param_params?->getWidth() ?? 0;
     $constraints = Node::fromJSON(
@@ -315,7 +315,7 @@ final class TypeParameter extends Node {
     return $this->_param_params;
   }
 
-  public function withParamParams(?TypeParameters $value): this {
+  public function withParamParams(?Node $value): this {
     if ($value === $this->_param_params) {
       return $this;
     }
@@ -334,16 +334,16 @@ final class TypeParameter extends Node {
   }
 
   /**
-   * @return null | TypeParameters
+   * @return null
    */
-  public function getParamParams(): ?TypeParameters {
+  public function getParamParams(): ?Node {
     return $this->_param_params;
   }
 
   /**
-   * @return TypeParameters
+   * @return
    */
-  public function getParamParamsx(): TypeParameters {
+  public function getParamParamsx(): Node {
     return TypeAssert\not_null($this->getParamParams());
   }
 

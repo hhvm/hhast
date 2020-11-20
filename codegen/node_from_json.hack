@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<362d5127a139ca80857f15705c91f5ca>>
+ * @generated SignedSource<<e114000e4ce69d59dda0b6f54bf40365>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -137,20 +137,9 @@ function node_from_json_unwrapped(
     'nullable_type_specifier' => HHAST\NullableTypeSpecifier::class,
     'object_creation_expression' => HHAST\ObjectCreationExpression::class,
     'old_attribute_specification' => HHAST\OldAttributeSpecification::class,
-    'pu_access' => HHAST\PUAccess::class,
     'parameter_declaration' => HHAST\ParameterDeclaration::class,
     'parenthesized_expression' => HHAST\ParenthesizedExpression::class,
     'pipe_variable' => HHAST\PipeVariableExpression::class,
-    'pocket_atom' => HHAST\PocketAtomExpression::class,
-    'pocket_atom_mapping' => HHAST\PocketAtomMappingDeclaration::class,
-    'pocket_enum_declaration' => HHAST\PocketEnumDeclaration::class,
-    'pocket_field_type_declaration' => HHAST\PocketFieldTypeDeclaration::class,
-    'pocket_field_type_expr_declaration' =>
-      HHAST\PocketFieldTypeExprDeclaration::class,
-    'pocket_identifier' => HHAST\PocketIdentifierExpression::class,
-    'pocket_mapping_id_declaration' => HHAST\PocketMappingIdDeclaration::class,
-    'pocket_mapping_type_declaration' =>
-      HHAST\PocketMappingTypeDeclaration::class,
     'postfix_unary_expression' => HHAST\PostfixUnaryExpression::class,
     'prefix_unary_expression' => HHAST\PrefixUnaryExpression::class,
     'prefixed_code' => HHAST\PrefixedCodeExpression::class,

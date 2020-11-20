@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8bdaea6c97352e110691dbe6e7930cc>>
+ * @generated SignedSource<<e3fa13f48227d42eb6693f635d0c1f0a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -352,18 +352,16 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return AttributizedSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
-   * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * VarrayTypeSpecifier
+   * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
+   * | SimpleTypeSpecifier | VarrayTypeSpecifier
    */
   public function getValue(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_value);
   }
 
   /**
-   * @return AttributizedSpecifier | DarrayTypeSpecifier | GenericTypeSpecifier
-   * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * VarrayTypeSpecifier
+   * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
+   * | SimpleTypeSpecifier | VarrayTypeSpecifier
    */
   public function getValuex(): ITypeSpecifier {
     return $this->getValue();
