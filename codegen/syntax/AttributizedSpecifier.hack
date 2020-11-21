@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d74ff72b0718b801723da58233b1cf9f>>
+ * @generated SignedSource<<1c8a507c4e4b1c7afc83dd7ecd17cdf9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,11 +13,11 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
   const string SYNTAX_KIND = 'attributized_specifier';
 
   private OldAttributeSpecification $_attribute_spec;
-  private ISimpleCreationSpecifier $_type;
+  private ITypeSpecifier $_type;
 
   public function __construct(
     OldAttributeSpecification $attribute_spec,
-    ISimpleCreationSpecifier $type,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -48,7 +48,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'ISimpleCreationSpecifier',
+      'ITypeSpecifier',
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
@@ -127,7 +127,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(ISimpleCreationSpecifier $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -139,19 +139,18 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * SimpleTypeSpecifier
    */
-  public function getType(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(
-      ISimpleCreationSpecifier::class,
-      $this->_type,
-    );
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return DictionaryTypeSpecifier | GenericTypeSpecifier |
+   * SimpleTypeSpecifier
    */
-  public function getTypex(): ISimpleCreationSpecifier {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 }
