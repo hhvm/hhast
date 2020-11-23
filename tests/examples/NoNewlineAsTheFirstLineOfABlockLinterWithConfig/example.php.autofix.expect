@@ -1,0 +1,16 @@
+<?hh
+
+/**
+ * This test demonstrates a bug.
+ *
+ * In the config of the test, we permit a newline after a `==>`.
+ * We are walking from the `{` and find `)` `)` `(` `)` `true` `==>`.
+ * We therefore assume that the `{` belongs to the lambda.
+ * This creates a false negative in this case.
+ */
+function this_while_be_a_lint_error_but_it_is_not(): void {
+  while ((() ==> true)()) {
+
+    $newline = 1;
+  }
+}

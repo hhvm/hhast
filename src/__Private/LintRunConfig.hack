@@ -96,6 +96,7 @@ final class LintRunConfig {
     HHAST\UseStatementWithAsLinter::class,
     HHAST\NoFinalMethodInFinalClassLinter::class,
     HHAST\NamespacePrivateLinter::class,
+    HHAST\NoNewlineAsTheFirstLineOfABlockLinter::class,
   ];
 
   private static function getNamedLinterGroup(

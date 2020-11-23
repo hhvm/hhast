@@ -34,9 +34,31 @@ final class Script extends ScriptGeneratedBase {
     return $this->getTokens()[$idx - 1];
   }
 
+  public function getPreviousTokenWhere(
+    Token $start,
+    (function(Token): bool) $predicate,
+  ): ?Token {
+    $previous_token = $start;
+    do {
+      $previous_token = $this->getPreviousToken($previous_token);
+    } while ($previous_token is nonnull && !$predicate($previous_token));
+    return $previous_token;
+  }
+
   public function getNextToken(Token $token): ?Token {
     $idx = $this->getTokenIndices()[$token->getUniqueID()];
     return $this->getTokens()[$idx + 1] ?? null;
+  }
+
+  public function getNextTokenWhere(
+    Token $start,
+    (function(Token): bool) $predicate,
+  ): ?Token {
+    $next_token = $start;
+    do {
+      $next_token = $this->getNextToken($next_token);
+    } while ($next_token is nonnull && !$predicate($next_token));
+    return $next_token;
   }
 
   const type TAliasedNamespace = shape(
@@ -125,8 +147,9 @@ final class Script extends ScriptGeneratedBase {
         if ($ns['name'] === '') {
           $ns['name'] = null;
         }
-        $inner =
-          __Private\Resolution\get_uses_directly_in_scope($ns['children']);
+        $inner = __Private\Resolution\get_uses_directly_in_scope(
+          $ns['children'],
+        );
         $ns['uses'] = shape(
           'namespaces' =>
             Dict\merge($outer['namespaces'], $inner['namespaces']),

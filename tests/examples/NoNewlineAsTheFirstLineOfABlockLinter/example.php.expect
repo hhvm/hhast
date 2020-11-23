@@ -1,0 +1,52 @@
+[
+    {
+        "blame": "\n  echo ",
+        "blame_pretty": "\n  echo ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n\n  echo ",
+        "blame_pretty": "\n\n  echo ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n\n  \/\/ Comment\n  echo ",
+        "blame_pretty": "\n\n  \/\/ Comment\n  echo ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n  public ",
+        "blame_pretty": "\n  public ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n  \/**\n   * Why say the return type once if you can say it twice\n   * and get inconsitent later? \/sarcasm\/\n   * @return void\n   *\/\n  public ",
+        "blame_pretty": "\n  \/**\n   * Why say the return type once if you can say it twice\n   * and get inconsitent later? \/sarcasm\/\n   * @return void\n   *\/\n  public ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n  public ",
+        "blame_pretty": "\n  public ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n    foreach ",
+        "blame_pretty": "\n    foreach ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n      if ",
+        "blame_pretty": "\n      if ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n        switch ",
+        "blame_pretty": "\n        switch ",
+        "description": "Do not start a codeblock with a blank line."
+    },
+    {
+        "blame": "\n                \/*HH_FIXME[0000] Testing*\/\n                invariant_violation",
+        "blame_pretty": "\n                \/*HH_FIXME[0000] Testing*\/\n                invariant_violation",
+        "description": "Do not start a codeblock with a blank line."
+    }
+]

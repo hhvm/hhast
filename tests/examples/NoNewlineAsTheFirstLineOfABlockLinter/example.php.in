@@ -1,0 +1,80 @@
+<?hh
+
+function clean_empty(): void {}
+
+function clean_empty_but_ugly(): void {
+}
+
+function clean(): void {
+  echo 'Hello, World!';
+}
+
+function extra_newline(): void {
+
+  echo 'Hello, World!';
+}
+
+function many_newlines(): void {
+
+
+  echo 'Hello, World';
+}
+
+// Won't drag `// Comment` closer to `echo`
+function comment(): void {
+  // Comment
+
+  echo 'Hello, World!';
+}
+
+function comment_at_end_of_newlines(): void {
+
+
+  // Comment
+  echo 'Hello, World';
+}
+
+final class CleanEmpty {}
+
+final class CleanEmptyButUgly {
+}
+
+final class ExtraNewline {
+
+  public function method(): void {}
+}
+
+final class WithDocBlock {
+
+  /**
+   * Why say the return type once if you can say it twice
+   * and get inconsitent later? /sarcasm/
+   * @return void
+   */
+  public function method(): void {}
+}
+
+final class TheMasterOfWhitespace {
+
+  public function method(): void {
+
+    foreach (vec[] as $nothing) {
+
+      if ($nothing is nothing) {
+
+        switch ($nothing) {
+          /*HH_FIXME[0000] Testing*/
+
+          default:
+            (
+              () ==> {
+
+                /*HH_FIXME[0000] Testing*/
+                invariant_violation('nothing!');
+              }
+            )();
+        }
+      }
+    }
+  }
+}
