@@ -22,5 +22,14 @@
         "Facebook\\HHAST\\DataProviderTypesLinter"
       ]
     }
-  ]
+  ],
+  "linterConfigs": {
+    "Facebook\\HHAST\\NoNewlineAsTheFirstLineOfABlockLinter": {
+      "permit_newlines_after": [
+        "class",
+        "interface",
+        "trait"
+      ]
+    }
+  }
 }

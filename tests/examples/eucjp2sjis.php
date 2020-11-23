@@ -4,7 +4,6 @@
 
 <<__EntryPoint>>
 function eucjp2sjis(): void {
-
 $str = '
 日本語テキストとEnglish Text
 日本語テキストとEnglish Text

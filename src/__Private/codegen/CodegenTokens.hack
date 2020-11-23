@@ -140,7 +140,6 @@ final class CodegenTokens extends CodegenBase {
   }
 
   public function generateExtends(self::TTokenSpec $token): string {
-
     $cls = 'TokenWithFixedText';
     $text = $token['text'];
     if ($text !== null && (Str\uppercase($text) !== Str\lowercase($text))) {

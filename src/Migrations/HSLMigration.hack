@@ -513,7 +513,6 @@ final class HSLMigration extends BaseMigration {
   protected function findUseDeclarations(
     vec<INamespaceUseDeclaration> $declarations,
   ): (vec<INamespaceUseDeclaration>, vec<HslNamespace>) {
-
     $search = vec['HH', 'Lib'];
     $nodes = vec[];
     $suffixes = vec[];
@@ -571,7 +570,6 @@ final class HSLMigration extends BaseMigration {
 
         $clauses = $decl->getClauses()->getChildrenOfItems();
         foreach ($clauses as $clause) {
-
           $name = $clause->getName();
           if ($name is QualifiedName) {
             $parts = $name->getParts()

@@ -27,7 +27,6 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
     Script $_context,
     ExpressionStatement $stmt,
   ): ?ASTLintError {
-
     $expr = $stmt->getExpression();
     if ($expr === null) {
       return new ASTLintError(

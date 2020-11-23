@@ -20,7 +20,6 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     IFunctionishDeclaration $functionish,
     VariableExpression $node,
   ): ?ASTLintError {
-
     $var = $node->getExpression();
     if (!$var is VariableToken) {
       return null;

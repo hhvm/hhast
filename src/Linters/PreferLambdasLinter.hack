@@ -25,7 +25,6 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
     Script $_context,
     AnonymousFunction $node,
   ): ?ASTLintError {
-
     $use_expr = $node->getUse();
 
     $uses_references = $use_expr is nonnull &&
