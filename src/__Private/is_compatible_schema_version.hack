@@ -38,10 +38,8 @@ function is_compatible_schema_version(string $other_version): bool {
       return true;
     */
     // succeeding versions:
-    /* NONE
-    case '2020-11-02-0001': // removes Pocket Universe syntax
+    case '2020-12-01-0001': // removes goto
       return true;
-    */
     default:
       return false;
   }
