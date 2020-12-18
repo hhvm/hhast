@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f59b01ed6fed48973c48e483a885e70b>>
+ * @generated SignedSource<<daebbb9220224de13fc674f8f0f00c89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<IParameter>> $_parameters;
   private RightParenToken $_right_paren;
-  private ?Node $_capability;
+  private ?Node $_contexts;
   private ?ColonToken $_colon;
   private ?ITypeSpecifier $_type;
 
@@ -23,7 +23,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     LeftParenToken $left_paren,
     ?NodeList<ListItem<IParameter>> $parameters,
     RightParenToken $right_paren,
-    ?Node $capability,
+    ?Node $contexts,
     ?ColonToken $colon,
     ?ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
@@ -31,7 +31,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     $this->_left_paren = $left_paren;
     $this->_parameters = $parameters;
     $this->_right_paren = $right_paren;
-    $this->_capability = $capability;
+    $this->_contexts = $contexts;
     $this->_colon = $colon;
     $this->_type = $type;
     parent::__construct($source_ref);
@@ -72,14 +72,14 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     );
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
-    $capability = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_capability'] ?? dict['kind' => 'missing'],
+    $contexts = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['lambda_contexts'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
       'Node',
     );
-    $offset += $capability?->getWidth() ?? 0;
+    $offset += $contexts?->getWidth() ?? 0;
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_colon'] ?? dict['kind' => 'missing'],
       $file,
@@ -106,7 +106,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       /* HH_IGNORE_ERROR[4110] */ $left_paren,
       /* HH_IGNORE_ERROR[4110] */ $parameters,
       /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $capability,
+      /* HH_IGNORE_ERROR[4110] */ $contexts,
       /* HH_IGNORE_ERROR[4110] */ $colon,
       /* HH_IGNORE_ERROR[4110] */ $type,
       $source_ref,
@@ -119,7 +119,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       'left_paren' => $this->_left_paren,
       'parameters' => $this->_parameters,
       'right_paren' => $this->_right_paren,
-      'capability' => $this->_capability,
+      'contexts' => $this->_contexts,
       'colon' => $this->_colon,
       'type' => $this->_type,
     ]
@@ -137,16 +137,16 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       ? null
       : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
-    $capability = $this->_capability === null
+    $contexts = $this->_contexts === null
       ? null
-      : $rewriter($this->_capability, $parents);
+      : $rewriter($this->_contexts, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     if (
       $left_paren === $this->_left_paren &&
       $parameters === $this->_parameters &&
       $right_paren === $this->_right_paren &&
-      $capability === $this->_capability &&
+      $contexts === $this->_contexts &&
       $colon === $this->_colon &&
       $type === $this->_type
     ) {
@@ -156,7 +156,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       /* HH_FIXME[4110] use `as` */ $left_paren,
       /* HH_FIXME[4110] use `as` */ $parameters,
       /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $capability,
+      /* HH_FIXME[4110] use `as` */ $contexts,
       /* HH_FIXME[4110] use `as` */ $colon,
       /* HH_FIXME[4110] use `as` */ $type,
     );
@@ -174,7 +174,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $value,
       $this->_parameters,
       $this->_right_paren,
-      $this->_capability,
+      $this->_contexts,
       $this->_colon,
       $this->_type,
     );
@@ -210,7 +210,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_left_paren,
       $value,
       $this->_right_paren,
-      $this->_capability,
+      $this->_contexts,
       $this->_colon,
       $this->_type,
     );
@@ -248,7 +248,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_left_paren,
       $this->_parameters,
       $value,
-      $this->_capability,
+      $this->_contexts,
       $this->_colon,
       $this->_type,
     );
@@ -272,12 +272,12 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->getRightParen();
   }
 
-  public function getCapabilityUNTYPED(): ?Node {
-    return $this->_capability;
+  public function getContextsUNTYPED(): ?Node {
+    return $this->_contexts;
   }
 
-  public function withCapability(?Node $value): this {
-    if ($value === $this->_capability) {
+  public function withContexts(?Node $value): this {
+    if ($value === $this->_contexts) {
       return $this;
     }
     return new static(
@@ -290,22 +290,22 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     );
   }
 
-  public function hasCapability(): bool {
-    return $this->_capability !== null;
+  public function hasContexts(): bool {
+    return $this->_contexts !== null;
   }
 
   /**
    * @return null
    */
-  public function getCapability(): ?Node {
-    return $this->_capability;
+  public function getContexts(): ?Node {
+    return $this->_contexts;
   }
 
   /**
    * @return
    */
-  public function getCapabilityx(): Node {
-    return TypeAssert\not_null($this->getCapability());
+  public function getContextsx(): Node {
+    return TypeAssert\not_null($this->getContexts());
   }
 
   public function getColonUNTYPED(): ?Node {
@@ -320,7 +320,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
-      $this->_capability,
+      $this->_contexts,
       $value,
       $this->_type,
     );
@@ -356,7 +356,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
-      $this->_capability,
+      $this->_contexts,
       $this->_colon,
       $value,
     );

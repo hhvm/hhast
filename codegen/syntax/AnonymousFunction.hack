@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd83b9400f3ab32f8a1fcee125fb5c8c>>
+ * @generated SignedSource<<924a9dc48ac06e43499b44c68a1cbd15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,6 +21,7 @@ final class AnonymousFunction
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<ParameterDeclaration>> $_parameters;
   private RightParenToken $_right_paren;
+  private ?Node $_ctx_list;
   private ?ColonToken $_colon;
   private ?ITypeSpecifier $_type;
   private ?AnonymousFunctionUseClause $_use;
@@ -34,6 +35,7 @@ final class AnonymousFunction
     LeftParenToken $left_paren,
     ?NodeList<ListItem<ParameterDeclaration>> $parameters,
     RightParenToken $right_paren,
+    ?Node $ctx_list,
     ?ColonToken $colon,
     ?ITypeSpecifier $type,
     ?AnonymousFunctionUseClause $use,
@@ -47,6 +49,7 @@ final class AnonymousFunction
     $this->_left_paren = $left_paren;
     $this->_parameters = $parameters;
     $this->_right_paren = $right_paren;
+    $this->_ctx_list = $ctx_list;
     $this->_colon = $colon;
     $this->_type = $type;
     $this->_use = $use;
@@ -122,6 +125,14 @@ final class AnonymousFunction
     );
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
+    $ctx_list = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['anonymous_ctx_list'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $ctx_list?->getWidth() ?? 0;
     $colon = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_colon'] ?? dict['kind' => 'missing'],
       $file,
@@ -169,6 +180,7 @@ final class AnonymousFunction
       /* HH_IGNORE_ERROR[4110] */ $left_paren,
       /* HH_IGNORE_ERROR[4110] */ $parameters,
       /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      /* HH_IGNORE_ERROR[4110] */ $ctx_list,
       /* HH_IGNORE_ERROR[4110] */ $colon,
       /* HH_IGNORE_ERROR[4110] */ $type,
       /* HH_IGNORE_ERROR[4110] */ $use,
@@ -187,6 +199,7 @@ final class AnonymousFunction
       'left_paren' => $this->_left_paren,
       'parameters' => $this->_parameters,
       'right_paren' => $this->_right_paren,
+      'ctx_list' => $this->_ctx_list,
       'colon' => $this->_colon,
       'type' => $this->_type,
       'use' => $this->_use,
@@ -216,6 +229,9 @@ final class AnonymousFunction
       ? null
       : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
+    $ctx_list = $this->_ctx_list === null
+      ? null
+      : $rewriter($this->_ctx_list, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $use = $this->_use === null ? null : $rewriter($this->_use, $parents);
@@ -228,6 +244,7 @@ final class AnonymousFunction
       $left_paren === $this->_left_paren &&
       $parameters === $this->_parameters &&
       $right_paren === $this->_right_paren &&
+      $ctx_list === $this->_ctx_list &&
       $colon === $this->_colon &&
       $type === $this->_type &&
       $use === $this->_use &&
@@ -243,6 +260,7 @@ final class AnonymousFunction
       /* HH_FIXME[4110] use `as` */ $left_paren,
       /* HH_FIXME[4110] use `as` */ $parameters,
       /* HH_FIXME[4110] use `as` */ $right_paren,
+      /* HH_FIXME[4110] use `as` */ $ctx_list,
       /* HH_FIXME[4110] use `as` */ $colon,
       /* HH_FIXME[4110] use `as` */ $type,
       /* HH_FIXME[4110] use `as` */ $use,
@@ -266,6 +284,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -307,6 +326,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -348,6 +368,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -389,6 +410,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -433,6 +455,7 @@ final class AnonymousFunction
       $value,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -476,6 +499,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $value,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -517,6 +541,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $value,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $this->_use,
@@ -542,6 +567,48 @@ final class AnonymousFunction
     return $this->getRightParen();
   }
 
+  public function getCtxListUNTYPED(): ?Node {
+    return $this->_ctx_list;
+  }
+
+  public function withCtxList(?Node $value): this {
+    if ($value === $this->_ctx_list) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_static_keyword,
+      $this->_async_keyword,
+      $this->_function_keyword,
+      $this->_left_paren,
+      $this->_parameters,
+      $this->_right_paren,
+      $value,
+      $this->_colon,
+      $this->_type,
+      $this->_use,
+      $this->_body,
+    );
+  }
+
+  public function hasCtxList(): bool {
+    return $this->_ctx_list !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getCtxList(): ?Node {
+    return $this->_ctx_list;
+  }
+
+  /**
+   * @return
+   */
+  public function getCtxListx(): Node {
+    return TypeAssert\not_null($this->getCtxList());
+  }
+
   public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
@@ -558,6 +625,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $value,
       $this->_type,
       $this->_use,
@@ -599,6 +667,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $value,
       $this->_use,
@@ -644,6 +713,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $value,
@@ -685,6 +755,7 @@ final class AnonymousFunction
       $this->_left_paren,
       $this->_parameters,
       $this->_right_paren,
+      $this->_ctx_list,
       $this->_colon,
       $this->_type,
       $this->_use,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e51383f5f7eec14447756a68ee729ba8>>
+ * @generated SignedSource<<61404dd95cb4bc51f5e12eb322276cbc>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -58,6 +58,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'anonymous_function.anonymous_colon' => keyset[
     'missing',
     'token::',
+  ],
+  'anonymous_function.anonymous_ctx_list' => keyset[
+    'missing',
   ],
   'anonymous_function.anonymous_function_keyword' => keyset[
     'token:function',
@@ -469,11 +472,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'tuple_type_specifier',
     'type_constant',
   ],
-  'closure_type_specifier.closure_capability' => keyset[
-    'missing',
-  ],
   'closure_type_specifier.closure_colon' => keyset[
     'token::',
+  ],
+  'closure_type_specifier.closure_contexts' => keyset[
+    'missing',
   ],
   'closure_type_specifier.closure_function_keyword' => keyset[
     'token:function',
@@ -1867,12 +1870,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'function_declaration.function_declaration_header' => keyset[
     'function_declaration_header',
   ],
-  'function_declaration_header.function_capability' => keyset[
-    'missing',
-  ],
   'function_declaration_header.function_colon' => keyset[
     'missing',
     'token::',
+  ],
+  'function_declaration_header.function_contexts' => keyset[
+    'missing',
   ],
   'function_declaration_header.function_keyword' => keyset[
     'token:function',
@@ -2153,12 +2156,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'lambda_signature',
     'token:variable',
   ],
-  'lambda_signature.lambda_capability' => keyset[
-    'missing',
-  ],
   'lambda_signature.lambda_colon' => keyset[
     'missing',
     'token::',
+  ],
+  'lambda_signature.lambda_contexts' => keyset[
+    'missing',
   ],
   'lambda_signature.lambda_left_paren' => keyset[
     'token:(',
@@ -3588,6 +3591,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_call_expression>|list_item<object_creation_expression>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<function_call_expression>|list_item<varray_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
+    'list<list_item<function_pointer_expression>>',
     'list<list_item<keyset_intrinsic_expression>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<literal>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<variable>>',

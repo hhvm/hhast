@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efd97758e6eb08b256f930af2d255351>>
+ * @generated SignedSource<<0a9b3155ee242e030c9bd07bdf564676>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -49,7 +49,6 @@ function node_from_json_unwrapped(
     'binary_expression' => HHAST\BinaryExpression::class,
     'braced_expression' => HHAST\BracedExpression::class,
     'break_statement' => HHAST\BreakStatement::class,
-    'capability' => HHAST\Capability::class,
     'case_label' => HHAST\CaseLabel::class,
     'cast_expression' => HHAST\CastExpression::class,
     'catch_clause' => HHAST\CatchClause::class,
@@ -68,6 +67,7 @@ function node_from_json_unwrapped(
     'constructor_call' => HHAST\ConstructorCall::class,
     'context_const_declaration' => HHAST\ContextConstDeclaration::class,
     'context_constraint' => HHAST\ContextConstraint::class,
+    'contexts' => HHAST\Contexts::class,
     'continue_statement' => HHAST\ContinueStatement::class,
     'darray_intrinsic_expression' => HHAST\DarrayIntrinsicExpression::class,
     'darray_type_specifier' => HHAST\DarrayTypeSpecifier::class,
@@ -78,6 +78,7 @@ function node_from_json_unwrapped(
       HHAST\DictionaryIntrinsicExpression::class,
     'dictionary_type_specifier' => HHAST\DictionaryTypeSpecifier::class,
     'do_statement' => HHAST\DoStatement::class,
+    'et_splice_expression' => HHAST\ETSpliceExpression::class,
     'echo_statement' => HHAST\EchoStatement::class,
     'element_initializer' => HHAST\ElementInitializer::class,
     'else_clause' => HHAST\ElseClause::class,

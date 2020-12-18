@@ -1,16 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18651dd84c3a7db970fba257b590e7ae>>
+ * @generated SignedSource<<f56a27015a55068131c8b15a8d09a53a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class Capability extends Node {
+final class Contexts extends Node {
 
-  const string SYNTAX_KIND = 'capability';
+  const string SYNTAX_KIND = 'contexts';
 
   private ?Node $_left_bracket;
   private ?Node $_types;
@@ -38,7 +38,7 @@ final class Capability extends Node {
   ): this {
     $offset = $initial_offset;
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['capability_left_bracket'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['contexts_left_bracket'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class Capability extends Node {
     );
     $offset += $left_bracket?->getWidth() ?? 0;
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['capability_types'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['contexts_types'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
@@ -54,7 +54,7 @@ final class Capability extends Node {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['capability_right_bracket'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['contexts_right_bracket'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
