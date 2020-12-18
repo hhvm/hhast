@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use namespace HH\Lib\Str;
-use type Facebook\HHAST\__Private\BufferedReader;
+use type HH\Lib\IO\BufferedReader;
 
 async function read_message_async(BufferedReader $in): Awaitable<string> {
   $length = null;
@@ -20,6 +20,9 @@ async function read_message_async(BufferedReader $in): Awaitable<string> {
   while (true) {
     /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
     $line = await $in->readLineAsync();
+    if ($line === null) {
+      break;
+    }
     $line = Str\trim($line);
     if ($line === '') {
       break;

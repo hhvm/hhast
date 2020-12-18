@@ -10,13 +10,13 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use type Facebook\HHAST\__Private\{
-  BufferedReader,
   LintRun,
   LintRunLSPPublishDiagnosticsEventHandler,
 };
 use namespace Facebook\HHAST\__Private\{LSPImpl, LSPLib};
 use type Facebook\CLILib\{ExitException, ITerminal};
 use namespace HH\Lib\{Async, Str};
+use type HH\Lib\IO\BufferedReader;
 
 final class Server extends LSPLib\Server<ServerState> {
   private BufferedReader $input;
