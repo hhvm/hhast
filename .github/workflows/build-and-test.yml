@@ -15,7 +15,6 @@ jobs:
         hhvm:
           - '4.88'
           - latest
-          - nightly
     runs-on: ${{matrix.os}}-latest
     steps:
       - uses: actions/checkout@v2
