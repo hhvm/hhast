@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05cd9039dc3c219f88926c44a154db29>>
+ * @generated SignedSource<<e90ab5196422264cf19893f987ae4e6e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,14 +109,14 @@ final class FunctionPointerExpression
   }
 
   /**
-   * @return ScopeResolutionExpression | NameToken
+   * @return QualifiedName | ScopeResolutionExpression | NameToken
    */
   public function getReceiver(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_receiver);
   }
 
   /**
-   * @return ScopeResolutionExpression | NameToken
+   * @return QualifiedName | ScopeResolutionExpression | NameToken
    */
   public function getReceiverx(): IExpression {
     return $this->getReceiver();

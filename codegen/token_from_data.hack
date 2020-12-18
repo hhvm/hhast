@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee5bbeb90df7d0d3fb0f2971cc513ab8>>
+ * @generated SignedSource<<8be7b227b6c50e6c06b1ce7ae3e3b16c>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -52,6 +52,7 @@ class TokenClassMap {
     'const' => HHAST\ConstToken::class,
     '__construct' => HHAST\ConstructToken::class,
     'continue' => HHAST\ContinueToken::class,
+    'ctx' => HHAST\CtxToken::class,
     'darray' => HHAST\DarrayToken::class,
     'default' => HHAST\DefaultToken::class,
     'define' => HHAST\DefineToken::class,
@@ -80,7 +81,6 @@ class TokenClassMap {
     'from' => HHAST\FromToken::class,
     'function' => HHAST\FunctionToken::class,
     'global' => HHAST\GlobalToken::class,
-    'goto' => HHAST\GotoToken::class,
     'if' => HHAST\IfToken::class,
     'implements' => HHAST\ImplementsToken::class,
     'include' => HHAST\IncludeToken::class,
@@ -125,7 +125,6 @@ class TokenClassMap {
     'static' => HHAST\StaticToken::class,
     'string' => HHAST\StringToken::class,
     'super' => HHAST\SuperToken::class,
-    'suspend' => HHAST\SuspendToken::class,
     'switch' => HHAST\SwitchToken::class,
     'this' => HHAST\ThisToken::class,
     'throw' => HHAST\ThrowToken::class,

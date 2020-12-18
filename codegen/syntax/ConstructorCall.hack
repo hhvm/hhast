@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9fcdb25472d0c5a34f1cce9927458eb0>>
+ * @generated SignedSource<<f86f7cf30be1dbcc413c359037961f9b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -154,8 +154,8 @@ final class ConstructorCall extends Node {
   /**
    * @return GenericTypeSpecifier | MemberSelectionExpression |
    * ParenthesizedExpression | QualifiedName | ScopeResolutionExpression |
-   * SimpleTypeSpecifier | NameToken | ParentToken | SelfToken | StaticToken |
-   * VariableExpression
+   * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
+   * SelfToken | StaticToken | VariableExpression
    */
   public function getType(): Node {
     return $this->_type;
@@ -164,8 +164,8 @@ final class ConstructorCall extends Node {
   /**
    * @return GenericTypeSpecifier | MemberSelectionExpression |
    * ParenthesizedExpression | QualifiedName | ScopeResolutionExpression |
-   * SimpleTypeSpecifier | NameToken | ParentToken | SelfToken | StaticToken |
-   * VariableExpression
+   * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
+   * SelfToken | StaticToken | VariableExpression
    */
   public function getTypex(): Node {
     return $this->getType();
@@ -230,18 +230,19 @@ final class ConstructorCall extends Node {
   /**
    * @return NodeList<ListItem<AnonymousFunction>> |
    * NodeList<ListItem<IExpression>> | NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ParenthesizedExpression>> |
-   * NodeList<ListItem<PipeVariableExpression>> |
    * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
@@ -258,18 +259,19 @@ final class ConstructorCall extends Node {
   /**
    * @return NodeList<ListItem<AnonymousFunction>> |
    * NodeList<ListItem<IExpression>> | NodeList<ListItem<BinaryExpression>> |
+   * NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<CollectionLiteralExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ParenthesizedExpression>> |
-   * NodeList<ListItem<PipeVariableExpression>> |
    * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |

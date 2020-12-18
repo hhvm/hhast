@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a08dd9b9f2e61975edb3aba4fa252d75>>
+ * @generated SignedSource<<076fcde7ff616450d6a28b7131223cf5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,10 +158,11 @@ final class ParenthesizedExpression
   }
 
   /**
-   * @return AnonymousFunction | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
-   * FunctionCallExpression | IsExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AnonymousFunction | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression | InclusionExpression |
+   * IsExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression |
@@ -172,10 +173,11 @@ final class ParenthesizedExpression
   }
 
   /**
-   * @return AnonymousFunction | BinaryExpression | CastExpression |
-   * CollectionLiteralExpression | ConditionalExpression |
-   * FunctionCallExpression | IsExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AnonymousFunction | AsExpression | BinaryExpression |
+   * CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | FunctionCallExpression | InclusionExpression |
+   * IsExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression |

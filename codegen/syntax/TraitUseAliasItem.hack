@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d479ed3a0a0bf25894334704af78fd37>>
+ * @generated SignedSource<<24b0793fddc1bcfd10f10bec32eb12d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -219,14 +219,16 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
   }
 
   /**
-   * @return NodeList<ProtectedToken> | NodeList<PublicToken> | null
+   * @return NodeList<PrivateToken> | NodeList<ProtectedToken> |
+   * NodeList<PublicToken> | null
    */
   public function getModifiers(): ?NodeList<Token> {
     return $this->_modifiers;
   }
 
   /**
-   * @return NodeList<ProtectedToken> | NodeList<PublicToken>
+   * @return NodeList<PrivateToken> | NodeList<ProtectedToken> |
+   * NodeList<PublicToken>
    */
   public function getModifiersx(): NodeList<Token> {
     return TypeAssert\not_null($this->getModifiers());

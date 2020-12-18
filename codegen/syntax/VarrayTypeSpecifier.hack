@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<209fbba3aa2c53ba7d758a81b7f21575>>
+ * @generated SignedSource<<e85641717baa795cc3c12c45f32f4316>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,14 +15,14 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
   private VarrayToken $_keyword;
   private LessThanToken $_left_angle;
   private ITypeSpecifier $_type;
-  private ?Node $_trailing_comma;
+  private ?CommaToken $_trailing_comma;
   private GreaterThanToken $_right_angle;
 
   public function __construct(
     VarrayToken $keyword,
     LessThanToken $left_angle,
     ITypeSpecifier $type,
-    ?Node $trailing_comma,
+    ?CommaToken $trailing_comma,
     GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -75,7 +75,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'Node',
+      'CommaToken',
     );
     $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
@@ -239,7 +239,8 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
-   * | ShapeTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier
+   * | ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VarrayTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
@@ -247,7 +248,8 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return DarrayTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier
-   * | ShapeTypeSpecifier | SimpleTypeSpecifier | VarrayTypeSpecifier
+   * | ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * VarrayTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();
@@ -257,7 +259,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_trailing_comma;
   }
 
-  public function withTrailingComma(?Node $value): this {
+  public function withTrailingComma(?CommaToken $value): this {
     if ($value === $this->_trailing_comma) {
       return $this;
     }
@@ -275,16 +277,16 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return null
+   * @return null | CommaToken
    */
-  public function getTrailingComma(): ?Node {
+  public function getTrailingComma(): ?CommaToken {
     return $this->_trailing_comma;
   }
 
   /**
-   * @return
+   * @return CommaToken
    */
-  public function getTrailingCommax(): Node {
+  public function getTrailingCommax(): CommaToken {
     return TypeAssert\not_null($this->getTrailingComma());
   }
 

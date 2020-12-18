@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e91c1274302a9f2edb3736dfea16879f>>
+ * @generated SignedSource<<31b9d9ea172d97e9d87f42123f41a8f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,20 +127,22 @@ final class ElementInitializer extends Node {
   }
 
   /**
-   * @return AnonymousFunction | AsExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | LiteralExpression |
-   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * NameToken | VariableExpression | VarrayIntrinsicExpression
+   * @return AsExpression | BinaryExpression | CastExpression |
+   * FunctionCallExpression | FunctionPointerExpression | LiteralExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getKey(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_key);
   }
 
   /**
-   * @return AnonymousFunction | AsExpression | BinaryExpression |
-   * CastExpression | FunctionCallExpression | LiteralExpression |
-   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * NameToken | VariableExpression | VarrayIntrinsicExpression
+   * @return AsExpression | BinaryExpression | CastExpression |
+   * FunctionCallExpression | FunctionPointerExpression | LiteralExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression
    */
   public function getKeyx(): IExpression {
     return $this->getKey();
@@ -194,12 +196,13 @@ final class ElementInitializer extends Node {
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
    * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | FunctionPointerExpression |
-   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
-   * | ObjectCreationExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * FunctionCallExpression | FunctionPointerExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValue(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_value);
@@ -209,12 +212,13 @@ final class ElementInitializer extends Node {
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
    * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | FunctionPointerExpression |
-   * KeysetIntrinsicExpression | LiteralExpression | MemberSelectionExpression
-   * | ObjectCreationExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * FunctionCallExpression | FunctionPointerExpression | IssetExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValuex(): IExpression {
     return $this->getValue();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71abb020123d7ca87b372f91d967274d>>
+ * @generated SignedSource<<933563c8b4658e0d0f15a70b40124f7e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -452,20 +452,20 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * VectorTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | KeysetTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
-   * VectorTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
+   * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

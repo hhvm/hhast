@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a0e85d5f288e393488e5a6d6cce18655>>
+ * @generated SignedSource<<4a260a532cad42ca00c96e1ee697c6d4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,7 +158,7 @@ final class XHPClassAttributeDeclaration
   }
 
   /**
-   * @return NodeList<ListItem<XHPClassAttribute>> |
+   * @return NodeList<ListItem<XHPClassAttribute>> | NodeList<ListItem<Node>> |
    * NodeList<ListItem<XHPSimpleClassAttribute>>
    */
   public function getAttributes(): NodeList<ListItem<Node>> {
@@ -166,7 +166,7 @@ final class XHPClassAttributeDeclaration
   }
 
   /**
-   * @return NodeList<ListItem<XHPClassAttribute>> |
+   * @return NodeList<ListItem<XHPClassAttribute>> | NodeList<ListItem<Node>> |
    * NodeList<ListItem<XHPSimpleClassAttribute>>
    */
   public function getAttributesx(): NodeList<ListItem<Node>> {

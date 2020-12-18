@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<165f6bbe41c9434a596bd0260911a455>>
+ * @generated SignedSource<<70e0dc85e1978fb8deebbb880dc77ee0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -285,7 +285,8 @@ final class IfStatement
    * FunctionCallExpression | IsExpression | IssetExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getCondition(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_condition);
@@ -296,7 +297,8 @@ final class IfStatement
    * FunctionCallExpression | IsExpression | IssetExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
    * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression
+   * SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression
    */
   public function getConditionx(): IExpression {
     return $this->getCondition();
@@ -364,8 +366,8 @@ final class IfStatement
 
   /**
    * @return BreakStatement | CompoundStatement | ContinueStatement |
-   * EchoStatement | ExpressionStatement | GotoStatement | ReturnStatement |
-   * ThrowStatement | UnsetStatement
+   * EchoStatement | ExpressionStatement | ReturnStatement | ThrowStatement |
+   * UnsetStatement
    */
   public function getStatement(): IStatement {
     return TypeAssert\instance_of(IStatement::class, $this->_statement);
@@ -373,8 +375,8 @@ final class IfStatement
 
   /**
    * @return BreakStatement | CompoundStatement | ContinueStatement |
-   * EchoStatement | ExpressionStatement | GotoStatement | ReturnStatement |
-   * ThrowStatement | UnsetStatement
+   * EchoStatement | ExpressionStatement | ReturnStatement | ThrowStatement |
+   * UnsetStatement
    */
   public function getStatementx(): IStatement {
     return $this->getStatement();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9386a9d835c94f1770b22f0d9f04f4ec>>
+ * @generated SignedSource<<184e0182a1ce32c7e1b46cd9ad2cc966>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -143,13 +143,12 @@ final class PrefixUnaryExpression
 
   /**
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | ConditionalExpression | EvalExpression |
-   * FunctionCallExpression | InclusionExpression | IsExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression
+   * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
+   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression | VarrayIntrinsicExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
@@ -157,13 +156,12 @@ final class PrefixUnaryExpression
 
   /**
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | ConditionalExpression | EvalExpression |
-   * FunctionCallExpression | InclusionExpression | IsExpression |
-   * IssetExpression | LiteralExpression | MemberSelectionExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression
+   * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
+   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
+   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression | VarrayIntrinsicExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

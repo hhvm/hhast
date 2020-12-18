@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9d6afb16fb25fc5f979b6e70f511e60>>
+ * @generated SignedSource<<e63768633a43328b7671f0016e59f733>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -280,8 +280,8 @@ final class SwitchStatement
 
   /**
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * MemberSelectionExpression | ObjectCreationExpression | SubscriptExpression
+   * | VariableExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
@@ -289,8 +289,8 @@ final class SwitchStatement
 
   /**
    * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ScopeResolutionExpression | SubscriptExpression | VariableExpression
+   * MemberSelectionExpression | ObjectCreationExpression | SubscriptExpression
+   * | VariableExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();

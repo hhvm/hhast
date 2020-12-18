@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7ed57c3ece982a8deb14acb8c16cb3b>>
+ * @generated SignedSource<<fd83b9400f3ab32f8a1fcee125fb5c8c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -22,7 +22,7 @@ final class AnonymousFunction
   private ?NodeList<ListItem<ParameterDeclaration>> $_parameters;
   private RightParenToken $_right_paren;
   private ?ColonToken $_colon;
-  private ?ISimpleCreationSpecifier $_type;
+  private ?ITypeSpecifier $_type;
   private ?AnonymousFunctionUseClause $_use;
   private CompoundStatement $_body;
 
@@ -35,7 +35,7 @@ final class AnonymousFunction
     ?NodeList<ListItem<ParameterDeclaration>> $parameters,
     RightParenToken $right_paren,
     ?ColonToken $colon,
-    ?ISimpleCreationSpecifier $type,
+    ?ITypeSpecifier $type,
     ?AnonymousFunctionUseClause $use,
     CompoundStatement $body,
     ?__Private\SourceRef $source_ref = null,
@@ -135,7 +135,7 @@ final class AnonymousFunction
       $file,
       $offset,
       $source,
-      'ISimpleCreationSpecifier',
+      'ITypeSpecifier',
     );
     $offset += $type?->getWidth() ?? 0;
     $use = Node::fromJSON(
@@ -587,7 +587,7 @@ final class AnonymousFunction
     return $this->_type;
   }
 
-  public function withType(?ISimpleCreationSpecifier $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -611,16 +611,20 @@ final class AnonymousFunction
   }
 
   /**
-   * @return GenericTypeSpecifier | null | SimpleTypeSpecifier
+   * @return AttributizedSpecifier | ClosureTypeSpecifier |
+   * GenericTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
+   * | TupleTypeSpecifier
    */
-  public function getType(): ?ISimpleCreationSpecifier {
+  public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return AttributizedSpecifier | ClosureTypeSpecifier |
+   * GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier
    */
-  public function getTypex(): ISimpleCreationSpecifier {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 

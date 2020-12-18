@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a35066d4c052cb4c43665c41b2dcfb5c>>
+ * @generated SignedSource<<b4f868b72b8fbf21afaae4c0090d663e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -314,8 +314,9 @@ final class LambdaExpression
   /**
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | CompoundStatement |
-   * ConditionalExpression | FunctionCallExpression | KeysetIntrinsicExpression
-   * | LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ConditionalExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | IsExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
    * | PrefixUnaryExpression | SubscriptExpression | VariableExpression |
    * VarrayIntrinsicExpression
@@ -327,8 +328,9 @@ final class LambdaExpression
   /**
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | CompoundStatement |
-   * ConditionalExpression | FunctionCallExpression | KeysetIntrinsicExpression
-   * | LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ConditionalExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | IsExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
    * | PrefixUnaryExpression | SubscriptExpression | VariableExpression |
    * VarrayIntrinsicExpression

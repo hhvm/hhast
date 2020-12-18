@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1276ef92eb3c308d6ecb7668f269f61f>>
+ * @generated SignedSource<<9c56ba2cfbdd745a3a006d733b775517>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,10 +160,9 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
    * @return NodeList<BreakStatement> | NodeList<IStatement> |
    * NodeList<CompoundStatement> | NodeList<ConcurrentStatement> |
    * NodeList<ContinueStatement> | NodeList<DoStatement> |
-   * NodeList<ILoopStatement> | NodeList<EchoStatement> |
-   * NodeList<ExpressionStatement> | NodeList<ForStatement> |
-   * NodeList<IControlFlowStatement> | NodeList<ForeachStatement> |
-   * NodeList<GotoLabel> | NodeList<GotoStatement> | NodeList<IfStatement> |
+   * NodeList<EchoStatement> | NodeList<ExpressionStatement> |
+   * NodeList<ForStatement> | NodeList<IControlFlowStatement> |
+   * NodeList<ForeachStatement> | NodeList<IfStatement> |
    * NodeList<ReturnStatement> | NodeList<SwitchStatement> |
    * NodeList<ThrowStatement> | NodeList<TryStatement> |
    * NodeList<UnsetStatement> | NodeList<UsingStatementBlockScoped> |
@@ -177,10 +176,9 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
    * @return NodeList<BreakStatement> | NodeList<IStatement> |
    * NodeList<CompoundStatement> | NodeList<ConcurrentStatement> |
    * NodeList<ContinueStatement> | NodeList<DoStatement> |
-   * NodeList<ILoopStatement> | NodeList<EchoStatement> |
-   * NodeList<ExpressionStatement> | NodeList<ForStatement> |
-   * NodeList<IControlFlowStatement> | NodeList<ForeachStatement> |
-   * NodeList<GotoLabel> | NodeList<GotoStatement> | NodeList<IfStatement> |
+   * NodeList<EchoStatement> | NodeList<ExpressionStatement> |
+   * NodeList<ForStatement> | NodeList<IControlFlowStatement> |
+   * NodeList<ForeachStatement> | NodeList<IfStatement> |
    * NodeList<ReturnStatement> | NodeList<SwitchStatement> |
    * NodeList<ThrowStatement> | NodeList<TryStatement> |
    * NodeList<UnsetStatement> | NodeList<UsingStatementBlockScoped> |

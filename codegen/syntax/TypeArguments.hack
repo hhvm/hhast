@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0905abc81798067a89e2ceda74ae00fd>>
+ * @generated SignedSource<<9b717c5512dd1cd05cb6d41f36ce387f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -156,8 +156,8 @@ final class TypeArguments extends Node {
 
   /**
    * @return NodeList<ListItem<AttributizedSpecifier>> |
-   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ClosureTypeSpecifier>> |
    * NodeList<ListItem<DarrayTypeSpecifier>> |
    * NodeList<ListItem<DictionaryTypeSpecifier>> |
@@ -178,8 +178,8 @@ final class TypeArguments extends Node {
 
   /**
    * @return NodeList<ListItem<AttributizedSpecifier>> |
-   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ITypeSpecifier>> |
+   * NodeList<ListItem<ClassnameTypeSpecifier>> |
    * NodeList<ListItem<ClosureTypeSpecifier>> |
    * NodeList<ListItem<DarrayTypeSpecifier>> |
    * NodeList<ListItem<DictionaryTypeSpecifier>> |

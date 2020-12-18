@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5332b1a0ec124e2084c8c4f28f86d3e4>>
+ * @generated SignedSource<<c7fe4d040b7a25c51c2fe8122005f82d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,8 +163,8 @@ final class SwitchSection extends Node {
    * @return NodeList<BreakStatement> | NodeList<IStatement> |
    * NodeList<DoStatement> | NodeList<EchoStatement> |
    * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
-   * NodeList<GotoStatement> | NodeList<IfStatement> |
-   * NodeList<ReturnStatement> | NodeList<ThrowStatement> | null
+   * NodeList<IfStatement> | NodeList<ReturnStatement> |
+   * NodeList<ThrowStatement> | null
    */
   public function getStatements(): ?NodeList<IStatement> {
     return $this->_statements;
@@ -174,8 +174,8 @@ final class SwitchSection extends Node {
    * @return NodeList<BreakStatement> | NodeList<IStatement> |
    * NodeList<DoStatement> | NodeList<EchoStatement> |
    * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
-   * NodeList<GotoStatement> | NodeList<IfStatement> |
-   * NodeList<ReturnStatement> | NodeList<ThrowStatement>
+   * NodeList<IfStatement> | NodeList<ReturnStatement> |
+   * NodeList<ThrowStatement>
    */
   public function getStatementsx(): NodeList<IStatement> {
     return TypeAssert\not_null($this->getStatements());

@@ -249,7 +249,6 @@ abstract class CodegenBase {
         keyset[
           HHAST\InclusionDirective::class,
           HHAST\SwitchFallthrough::class,
-          HHAST\GotoLabel::class,
           HHAST\UsingStatementBlockScoped::class,
           HHAST\UsingStatementFunctionScoped::class,
         ],

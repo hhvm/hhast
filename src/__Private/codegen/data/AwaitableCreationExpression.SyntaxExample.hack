@@ -8,9 +8,8 @@
  */
 namespace Facebook\HHAST\__Private\SyntaxExamples;
 
-function php_anonymous_function_with_empty_use(): void {
-  /* HH_IGNORE_ERROR[3084] HHAST bans using PHP anonymous functions, but we
-   * still need to support parsing them for now */
-  $_ = function() use () {
-  };
+function awaitable_creation_expression_with_attr(): void {
+  /* HH_IGNORE_ERROR[2049] */
+  /* HH_IGNORE_ERROR[3084] */
+  $_ = <<Foo>> async { };
 }

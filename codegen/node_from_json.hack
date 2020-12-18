@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e114000e4ce69d59dda0b6f54bf40365>>
+ * @generated SignedSource<<efd97758e6eb08b256f930af2d255351>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -50,7 +50,6 @@ function node_from_json_unwrapped(
     'braced_expression' => HHAST\BracedExpression::class,
     'break_statement' => HHAST\BreakStatement::class,
     'capability' => HHAST\Capability::class,
-    'capability_provisional' => HHAST\CapabilityProvisional::class,
     'case_label' => HHAST\CaseLabel::class,
     'cast_expression' => HHAST\CastExpression::class,
     'catch_clause' => HHAST\CatchClause::class,
@@ -67,6 +66,8 @@ function node_from_json_unwrapped(
     'const_declaration' => HHAST\ConstDeclaration::class,
     'constant_declarator' => HHAST\ConstantDeclarator::class,
     'constructor_call' => HHAST\ConstructorCall::class,
+    'context_const_declaration' => HHAST\ContextConstDeclaration::class,
+    'context_constraint' => HHAST\ContextConstraint::class,
     'continue_statement' => HHAST\ContinueStatement::class,
     'darray_intrinsic_expression' => HHAST\DarrayIntrinsicExpression::class,
     'darray_type_specifier' => HHAST\DarrayTypeSpecifier::class,
@@ -101,12 +102,11 @@ function node_from_json_unwrapped(
     'for_statement' => HHAST\ForStatement::class,
     'foreach_statement' => HHAST\ForeachStatement::class,
     'function_call_expression' => HHAST\FunctionCallExpression::class,
+    'function_ctx_type_specifier' => HHAST\FunctionCtxTypeSpecifier::class,
     'function_declaration' => HHAST\FunctionDeclaration::class,
     'function_declaration_header' => HHAST\FunctionDeclarationHeader::class,
     'function_pointer_expression' => HHAST\FunctionPointerExpression::class,
     'generic_type_specifier' => HHAST\GenericTypeSpecifier::class,
-    'goto_label' => HHAST\GotoLabel::class,
-    'goto_statement' => HHAST\GotoStatement::class,
     'if_statement' => HHAST\IfStatement::class,
     'inclusion_directive' => HHAST\InclusionDirective::class,
     'inclusion_expression' => HHAST\InclusionExpression::class,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb9795d8379edaad55785578178da62a>>
+ * @generated SignedSource<<16db13c51805cd02efe9300803ececc8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,18 +136,20 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | LikeTypeSpecifier | SimpleTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * SimpleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return ClosureTypeSpecifier | DictionaryTypeSpecifier |
-   * GenericTypeSpecifier | LikeTypeSpecifier | SimpleTypeSpecifier |
-   * TypeConstant | VectorTypeSpecifier
+   * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * SimpleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
+   * VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

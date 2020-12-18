@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd8c759976ea3192d72ba0ea853c6df8>>
+ * @generated SignedSource<<b30e03e6056cbb999206710b8693ebdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,7 +141,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
    * FunctionCallExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | null | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | BreakToken |
+   * ScopeResolutionExpression | SubscriptExpression | BreakToken | NameToken |
    * TupleExpression | VariableExpression
    */
   public function getOperand(): ?Node {
@@ -153,7 +153,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
    * FunctionCallExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | SubscriptExpression | BreakToken |
+   * ScopeResolutionExpression | SubscriptExpression | BreakToken | NameToken |
    * TupleExpression | VariableExpression
    */
   public function getOperandx(): Node {
