@@ -22,7 +22,7 @@
         "hhvm": "^4.88",
         "hhvm/hsl": "^4.25",
         "hhvm/hsl-experimental": "^4.58.0rc1",
-        "hhvm/hsl-io": "^0.2.0",
+        "hhvm/hsl-io": "^0.2.0|0.3.0",
         "hhvm/hhvm-autoload": "^2.0.4|^3.0",
         "hhvm/type-assert": "^3.0|^4.0",
         "facebook/hh-clilib": "^2.5.0rc1",

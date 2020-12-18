@@ -12,14 +12,14 @@ namespace Facebook\HHAST\__Private;
 use type Facebook\CLILib\ITerminal;
 use type Facebook\DiffLib\{CLIColoredUnifiedDiff, StringDiff};
 use type Facebook\HHAST\{AutoFixingLinter, BaseLinter, LintError};
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, IO, Str, Vec};
 
 final class LintRunCLIEventHandler implements LintRunEventHandler {
   private AsyncQueue $interactivityQueue;
-  private BufferedReader $input;
+  private IO\BufferedReader $input;
 
   public function __construct(private ITerminal $terminal) {
-    $this->input = new BufferedReader($terminal->getStdin());
+    $this->input = new IO\BufferedReader($terminal->getStdin());
     $this->interactivityQueue = new AsyncQueue();
   }
 
@@ -187,6 +187,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         );
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       $response = await $this->input->readLineAsync();
+      if ($response === null) {
+        break; // EOF
+      }
       $response = Str\trim($response);
       switch ($response) {
         case 'a':
