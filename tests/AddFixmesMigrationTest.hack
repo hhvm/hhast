@@ -11,4 +11,6 @@ namespace Facebook\HHAST;
 
 final class AddFixmesMigrationTest extends MigrationTest {
   const type TMigration = AddFixmesMigration;
+
+  public function foo_bar(): void {}
 }
