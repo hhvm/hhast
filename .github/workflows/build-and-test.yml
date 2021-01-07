@@ -25,3 +25,5 @@ jobs:
       # Above only runs vendor/bin/hhast-lint (if exists), not bin/hhast-lint
       - name: Lint
         run: bin/hhast-lint
+      - name: Check for manually modified codegen
+        run: vendor/bin/hh-codegen-verify-signatures codegen/
