@@ -22,3 +22,6 @@ jobs:
       - uses: hhvm/actions/hack-lint-test@master
         with:
           hhvm: ${{matrix.hhvm}}
+      # Above only runs vendor/bin/hhast-lint (if exists), not bin/hhast-lint
+      - name: Lint
+        run: bin/hhast-lint
