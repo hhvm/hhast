@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6fd444ca29cafed58a9172461341b5be>>
+ * @generated SignedSource<<85ff51d0ea5b472e8f560495fc3f907c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -217,7 +217,8 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<ListItem<ITypeSpecifier>> |
+   * @return NodeList<ListItem<ClassnameTypeSpecifier>> |
+   * NodeList<ListItem<ITypeSpecifier>> |
    * NodeList<ListItem<SimpleTypeSpecifier>>
    */
   public function getMembers(): NodeList<ListItem<ITypeSpecifier>> {
@@ -225,7 +226,8 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NodeList<ListItem<ITypeSpecifier>> |
+   * @return NodeList<ListItem<ClassnameTypeSpecifier>> |
+   * NodeList<ListItem<ITypeSpecifier>> |
    * NodeList<ListItem<SimpleTypeSpecifier>>
    */
   public function getMembersx(): NodeList<ListItem<ITypeSpecifier>> {

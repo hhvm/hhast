@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<512ee4d9e3d0e90798a36d084d5fdcb9>>
+ * @generated SignedSource<<f242e03b543047aa4dfe7419c975142d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,9 +135,9 @@ final class BinaryExpression
    * IssetExpression | KeysetIntrinsicExpression | ListExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getLeftOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
@@ -150,9 +150,9 @@ final class BinaryExpression
    * IssetExpression | KeysetIntrinsicExpression | ListExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
-   * | PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();

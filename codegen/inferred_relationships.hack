@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<61404dd95cb4bc51f5e12eb322276cbc>>
+ * @generated SignedSource<<4206c47c856786296a19fafcd3a7cba0>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -172,6 +172,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'postfix_unary_expression',
     'prefix_unary_expression',
     'qualified_name',
+    'safe_member_selection_expression',
     'scope_resolution_expression',
     'subscript_expression',
     'token:name',
@@ -649,6 +650,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<expression_statement>',
     'list<expression_statement|for_statement>',
     'list<expression_statement|for_statement|foreach_statement>',
+    'list<expression_statement|for_statement|foreach_statement|if_statement>',
     'list<expression_statement|for_statement|if_statement>',
     'list<expression_statement|for_statement|if_statement|return_statement>',
     'list<expression_statement|for_statement|if_statement|try_statement>',
@@ -669,6 +671,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<expression_statement|foreach_statement|return_statement|unset_statement>',
     'list<expression_statement|foreach_statement|return_statement|while_statement>',
     'list<expression_statement|foreach_statement|try_statement>',
+    'list<expression_statement|foreach_statement|try_statement|unset_statement>',
     'list<expression_statement|foreach_statement|unset_statement>',
     'list<expression_statement|foreach_statement|while_statement>',
     'list<expression_statement|if_statement>',
@@ -1021,6 +1024,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:<',
   ],
   'dictionary_type_specifier.dictionary_type_members' => keyset[
+    'list<list_item<classname_type_specifier>>',
     'list<list_item<classname_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<dictionary_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<keyset_type_specifier>|list_item<simple_type_specifier>>',
@@ -1641,6 +1645,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<dictionary_intrinsic_expression>|list_item<literal>|list_item<pipe_variable>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<literal>|list_item<pipe_variable>|list_item<variable>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<literal>|list_item<shape_expression>|list_item<vector_intrinsic_expression>>',
+    'list<list_item<dictionary_intrinsic_expression>|list_item<literal>|list_item<variable>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<shape_expression>|list_item<variable>|list_item<vector_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<token:name>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<variable>>',
@@ -1781,7 +1786,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<literal>|list_item<varray_intrinsic_expression>>',
     'list<list_item<literal>|list_item<vector_intrinsic_expression>>',
     'list<list_item<member_selection_expression>>',
-    'list<list_item<member_selection_expression>|list_item<subscript_expression>>',
     'list<list_item<member_selection_expression>|list_item<subscript_expression>|list_item<variable>>',
     'list<list_item<member_selection_expression>|list_item<variable>>',
     'list<list_item<member_selection_expression>|list_item<varray_intrinsic_expression>>',
@@ -3843,6 +3847,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'yield_expression.yield_operand' => keyset[
     'anonymous_function',
     'binary_expression',
+    'darray_intrinsic_expression',
     'element_initializer',
     'function_call_expression',
     'lambda_expression',
