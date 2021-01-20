@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a58960ed0393fd39dba4ca16f9c30f81>>
+ * @generated SignedSource<<0a9b3155ee242e030c9bd07bdf564676>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -212,7 +212,6 @@ function node_from_json_unwrapped(
     'xhp_simple_attribute' => HHAST\XHPSimpleAttribute::class,
     'xhp_simple_class_attribute' => HHAST\XHPSimpleClassAttribute::class,
     'xhp_spread_attribute' => HHAST\XHPSpreadAttribute::class,
-    'yield_break_statement' => HHAST\YieldBreakStatement::class,
     'yield_expression' => HHAST\YieldExpression::class,
   ];
   $class = $kind_to_class[$kind] ?? null;

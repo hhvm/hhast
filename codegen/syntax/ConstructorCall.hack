@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c53f3e9286c94daf2bc9d599b780c318>>
+ * @generated SignedSource<<f86f7cf30be1dbcc413c359037961f9b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -243,7 +243,6 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ParenthesizedExpression>> |
-   * NodeList<ListItem<PipeVariableExpression>> |
    * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
@@ -273,7 +272,6 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
    * NodeList<ListItem<ParenthesizedExpression>> |
-   * NodeList<ListItem<PipeVariableExpression>> |
    * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |

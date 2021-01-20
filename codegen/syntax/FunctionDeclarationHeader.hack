@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e851e00f8362009d6495f2a65a510494>>
+ * @generated SignedSource<<25cbc8ab3ca3866d5c2e7107b52797a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,7 +19,7 @@ final class FunctionDeclarationHeader extends Node {
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<IParameter>> $_parameter_list;
   private RightParenToken $_right_paren;
-  private ?Contexts $_contexts;
+  private ?Node $_contexts;
   private ?ColonToken $_colon;
   private ?ITypeSpecifier $_type;
   private ?WhereClause $_where_clause;
@@ -32,7 +32,7 @@ final class FunctionDeclarationHeader extends Node {
     LeftParenToken $left_paren,
     ?NodeList<ListItem<IParameter>> $parameter_list,
     RightParenToken $right_paren,
-    ?Contexts $contexts,
+    ?Node $contexts,
     ?ColonToken $colon,
     ?ITypeSpecifier $type,
     ?WhereClause $where_clause,
@@ -126,7 +126,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
-      'Contexts',
+      'Node',
     );
     $offset += $contexts?->getWidth() ?? 0;
     $colon = Node::fromJSON(
@@ -549,7 +549,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_contexts;
   }
 
-  public function withContexts(?Contexts $value): this {
+  public function withContexts(?Node $value): this {
     if ($value === $this->_contexts) {
       return $this;
     }
@@ -573,16 +573,16 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return Contexts | null
+   * @return null
    */
-  public function getContexts(): ?Contexts {
+  public function getContexts(): ?Node {
     return $this->_contexts;
   }
 
   /**
-   * @return Contexts
+   * @return
    */
-  public function getContextsx(): Contexts {
+  public function getContextsx(): Node {
     return TypeAssert\not_null($this->getContexts());
   }
 

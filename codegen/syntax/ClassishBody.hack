@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fc1177a10dc735ef55f7d31dbf967743>>
+ * @generated SignedSource<<f2d9c4828a24ea0661831649793dae7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,12 +13,12 @@ final class ClassishBody extends Node {
   const string SYNTAX_KIND = 'classish_body';
 
   private LeftBraceToken $_left_brace;
-  private ?NodeList<Node> $_elements;
+  private ?NodeList<IClassBodyDeclaration> $_elements;
   private RightBraceToken $_right_brace;
 
   public function __construct(
     LeftBraceToken $left_brace,
-    ?NodeList<Node> $elements,
+    ?NodeList<IClassBodyDeclaration> $elements,
     RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -51,7 +51,7 @@ final class ClassishBody extends Node {
       $file,
       $offset,
       $source,
-      'NodeList<Node>',
+      'NodeList<IClassBodyDeclaration>',
     );
     $offset += $elements?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
@@ -145,7 +145,7 @@ final class ClassishBody extends Node {
     return $this->_elements;
   }
 
-  public function withElements(?NodeList<Node> $value): this {
+  public function withElements(?NodeList<IClassBodyDeclaration> $value): this {
     if ($value === $this->_elements) {
       return $this;
     }
@@ -158,27 +158,25 @@ final class ClassishBody extends Node {
 
   /**
    * @return NodeList<ConstDeclaration> | NodeList<IClassBodyDeclaration> |
-   * NodeList<ContextConstDeclaration> | NodeList<Node> |
    * NodeList<MethodishDeclaration> | NodeList<IHasAttributeSpec> |
    * NodeList<PropertyDeclaration> | NodeList<RequireClause> |
    * NodeList<TraitUse> | NodeList<TraitUseConflictResolution> |
    * NodeList<TypeConstDeclaration> | NodeList<XHPChildrenDeclaration> |
    * NodeList<XHPClassAttributeDeclaration> | null
    */
-  public function getElements(): ?NodeList<Node> {
+  public function getElements(): ?NodeList<IClassBodyDeclaration> {
     return $this->_elements;
   }
 
   /**
    * @return NodeList<ConstDeclaration> | NodeList<IClassBodyDeclaration> |
-   * NodeList<ContextConstDeclaration> | NodeList<Node> |
    * NodeList<MethodishDeclaration> | NodeList<IHasAttributeSpec> |
    * NodeList<PropertyDeclaration> | NodeList<RequireClause> |
    * NodeList<TraitUse> | NodeList<TraitUseConflictResolution> |
    * NodeList<TypeConstDeclaration> | NodeList<XHPChildrenDeclaration> |
    * NodeList<XHPClassAttributeDeclaration>
    */
-  public function getElementsx(): NodeList<Node> {
+  public function getElementsx(): NodeList<IClassBodyDeclaration> {
     return TypeAssert\not_null($this->getElements());
   }
 

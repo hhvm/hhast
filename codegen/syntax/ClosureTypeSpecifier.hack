@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cbf0af9bdd4f101158891157b498dd70>>
+ * @generated SignedSource<<a4c39cd0f48235fcdcdd18d2550755c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,7 +17,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   private LeftParenToken $_inner_left_paren;
   private ?NodeList<ListItem<ITypeSpecifier>> $_parameter_list;
   private RightParenToken $_inner_right_paren;
-  private ?Contexts $_contexts;
+  private ?Node $_contexts;
   private ColonToken $_colon;
   private ITypeSpecifier $_return_type;
   private RightParenToken $_outer_right_paren;
@@ -28,7 +28,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     LeftParenToken $inner_left_paren,
     ?NodeList<ListItem<ITypeSpecifier>> $parameter_list,
     RightParenToken $inner_right_paren,
-    ?Contexts $contexts,
+    ?Node $contexts,
     ColonToken $colon,
     ITypeSpecifier $return_type,
     RightParenToken $outer_right_paren,
@@ -104,7 +104,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'Contexts',
+      'Node',
     );
     $offset += $contexts?->getWidth() ?? 0;
     $colon = Node::fromJSON(
@@ -431,7 +431,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_contexts;
   }
 
-  public function withContexts(?Contexts $value): this {
+  public function withContexts(?Node $value): this {
     if ($value === $this->_contexts) {
       return $this;
     }
@@ -453,16 +453,16 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return Contexts | null
+   * @return null
    */
-  public function getContexts(): ?Contexts {
+  public function getContexts(): ?Node {
     return $this->_contexts;
   }
 
   /**
-   * @return Contexts
+   * @return
    */
-  public function getContextsx(): Contexts {
+  public function getContextsx(): Node {
     return TypeAssert\not_null($this->getContexts());
   }
 

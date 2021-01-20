@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a619a8e46c6cefcdb6869524a514dace>>
+ * @generated SignedSource<<9c56ba2cfbdd745a3a006d733b775517>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -166,8 +166,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
    * NodeList<ReturnStatement> | NodeList<SwitchStatement> |
    * NodeList<ThrowStatement> | NodeList<TryStatement> |
    * NodeList<UnsetStatement> | NodeList<UsingStatementBlockScoped> |
-   * NodeList<UsingStatementFunctionScoped> | NodeList<WhileStatement> |
-   * NodeList<YieldBreakStatement> | null
+   * NodeList<UsingStatementFunctionScoped> | NodeList<WhileStatement> | null
    */
   public function getStatements(): ?NodeList<IStatement> {
     return $this->_statements;
@@ -183,8 +182,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
    * NodeList<ReturnStatement> | NodeList<SwitchStatement> |
    * NodeList<ThrowStatement> | NodeList<TryStatement> |
    * NodeList<UnsetStatement> | NodeList<UsingStatementBlockScoped> |
-   * NodeList<UsingStatementFunctionScoped> | NodeList<WhileStatement> |
-   * NodeList<YieldBreakStatement>
+   * NodeList<UsingStatementFunctionScoped> | NodeList<WhileStatement>
    */
   public function getStatementsx(): NodeList<IStatement> {
     return TypeAssert\not_null($this->getStatements());

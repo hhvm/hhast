@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<076067d6803f6c4904beff394c687113>>
+ * @generated SignedSource<<f56a27015a55068131c8b15a8d09a53a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,14 +12,14 @@ final class Contexts extends Node {
 
   const string SYNTAX_KIND = 'contexts';
 
-  private LeftBracketToken $_left_bracket;
-  private ?NodeList<ListItem<ITypeSpecifier>> $_types;
-  private RightBracketToken $_right_bracket;
+  private ?Node $_left_bracket;
+  private ?Node $_types;
+  private ?Node $_right_bracket;
 
   public function __construct(
-    LeftBracketToken $left_bracket,
-    ?NodeList<ListItem<ITypeSpecifier>> $types,
-    RightBracketToken $right_bracket,
+    ?Node $left_bracket,
+    ?Node $types,
+    ?Node $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_bracket = $left_bracket;
@@ -38,31 +38,29 @@ final class Contexts extends Node {
   ): this {
     $offset = $initial_offset;
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['contexts_left_bracket'],
+      /* HH_FIXME[4110] */ $json['contexts_left_bracket'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'LeftBracketToken',
+      'Node',
     );
-    $left_bracket = $left_bracket as nonnull;
-    $offset += $left_bracket->getWidth();
+    $offset += $left_bracket?->getWidth() ?? 0;
     $types = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['contexts_types'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<ITypeSpecifier>>',
+      'Node',
     );
     $offset += $types?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['contexts_right_bracket'],
+      /* HH_FIXME[4110] */ $json['contexts_right_bracket'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'RightBracketToken',
+      'Node',
     );
-    $right_bracket = $right_bracket as nonnull;
-    $offset += $right_bracket->getWidth();
+    $offset += $right_bracket?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -93,9 +91,13 @@ final class Contexts extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $left_bracket = $rewriter($this->_left_bracket, $parents);
+    $left_bracket = $this->_left_bracket === null
+      ? null
+      : $rewriter($this->_left_bracket, $parents);
     $types = $this->_types === null ? null : $rewriter($this->_types, $parents);
-    $right_bracket = $rewriter($this->_right_bracket, $parents);
+    $right_bracket = $this->_right_bracket === null
+      ? null
+      : $rewriter($this->_right_bracket, $parents);
     if (
       $left_bracket === $this->_left_bracket &&
       $types === $this->_types &&
@@ -114,7 +116,7 @@ final class Contexts extends Node {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(LeftBracketToken $value): this {
+  public function withLeftBracket(?Node $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
@@ -126,27 +128,24 @@ final class Contexts extends Node {
   }
 
   /**
-   * @return LeftBracketToken
+   * @return unknown
    */
-  public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+  public function getLeftBracket(): ?Node {
+    return $this->_left_bracket;
   }
 
   /**
-   * @return LeftBracketToken
+   * @return unknown
    */
-  public function getLeftBracketx(): LeftBracketToken {
-    return $this->getLeftBracket();
+  public function getLeftBracketx(): Node {
+    return TypeAssert\not_null($this->getLeftBracket());
   }
 
   public function getTypesUNTYPED(): ?Node {
     return $this->_types;
   }
 
-  public function withTypes(?NodeList<ListItem<ITypeSpecifier>> $value): this {
+  public function withTypes(?Node $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -158,21 +157,16 @@ final class Contexts extends Node {
   }
 
   /**
-   * @return NodeList<ListItem<FunctionCtxTypeSpecifier>> |
-   * NodeList<ListItem<ITypeSpecifier>> |
-   * NodeList<ListItem<SimpleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | null
+   * @return unknown
    */
-  public function getTypes(): ?NodeList<ListItem<ITypeSpecifier>> {
+  public function getTypes(): ?Node {
     return $this->_types;
   }
 
   /**
-   * @return NodeList<ListItem<FunctionCtxTypeSpecifier>> |
-   * NodeList<ListItem<ITypeSpecifier>> |
-   * NodeList<ListItem<SimpleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
+   * @return unknown
    */
-  public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {
+  public function getTypesx(): Node {
     return TypeAssert\not_null($this->getTypes());
   }
 
@@ -180,7 +174,7 @@ final class Contexts extends Node {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(RightBracketToken $value): this {
+  public function withRightBracket(?Node $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
@@ -192,19 +186,16 @@ final class Contexts extends Node {
   }
 
   /**
-   * @return RightBracketToken
+   * @return unknown
    */
-  public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+  public function getRightBracket(): ?Node {
+    return $this->_right_bracket;
   }
 
   /**
-   * @return RightBracketToken
+   * @return unknown
    */
-  public function getRightBracketx(): RightBracketToken {
-    return $this->getRightBracket();
+  public function getRightBracketx(): Node {
+    return TypeAssert\not_null($this->getRightBracket());
   }
 }

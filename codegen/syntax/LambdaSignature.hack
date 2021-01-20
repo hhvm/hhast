@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3535524f5df1507fad535b18a5faa4e8>>
+ * @generated SignedSource<<daebbb9220224de13fc674f8f0f00c89>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<IParameter>> $_parameters;
   private RightParenToken $_right_paren;
-  private ?Contexts $_contexts;
+  private ?Node $_contexts;
   private ?ColonToken $_colon;
   private ?ITypeSpecifier $_type;
 
@@ -23,7 +23,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     LeftParenToken $left_paren,
     ?NodeList<ListItem<IParameter>> $parameters,
     RightParenToken $right_paren,
-    ?Contexts $contexts,
+    ?Node $contexts,
     ?ColonToken $colon,
     ?ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
@@ -77,7 +77,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $file,
       $offset,
       $source,
-      'Contexts',
+      'Node',
     );
     $offset += $contexts?->getWidth() ?? 0;
     $colon = Node::fromJSON(
@@ -276,7 +276,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->_contexts;
   }
 
-  public function withContexts(?Contexts $value): this {
+  public function withContexts(?Node $value): this {
     if ($value === $this->_contexts) {
       return $this;
     }
@@ -295,16 +295,16 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   }
 
   /**
-   * @return Contexts | null
+   * @return null
    */
-  public function getContexts(): ?Contexts {
+  public function getContexts(): ?Node {
     return $this->_contexts;
   }
 
   /**
-   * @return Contexts
+   * @return
    */
-  public function getContextsx(): Contexts {
+  public function getContextsx(): Node {
     return TypeAssert\not_null($this->getContexts());
   }
 

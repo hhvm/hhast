@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d8a468b89ba3c467c682513f3afe8ae>>
+ * @generated SignedSource<<5152497e871f3af42d0a9fbe7bdc8582>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,29 +13,29 @@ final class EnumClassDeclaration extends Node {
   const string SYNTAX_KIND = 'enum_class_declaration';
 
   private ?Node $_attribute_spec;
-  private EnumToken $_enum_keyword;
-  private ClassToken $_class_keyword;
-  private NameToken $_name;
-  private ColonToken $_colon;
-  private SimpleTypeSpecifier $_base;
-  private ?ExtendsToken $_extends;
-  private ?NodeList<ListItem<SimpleTypeSpecifier>> $_extends_list;
-  private LeftBraceToken $_left_brace;
-  private NodeList<EnumClassEnumerator> $_elements;
-  private RightBraceToken $_right_brace;
+  private ?Node $_enum_keyword;
+  private ?Node $_class_keyword;
+  private ?Node $_name;
+  private ?Node $_colon;
+  private ?Node $_base;
+  private ?Node $_extends;
+  private ?Node $_extends_list;
+  private ?Node $_left_brace;
+  private ?Node $_elements;
+  private ?Node $_right_brace;
 
   public function __construct(
     ?Node $attribute_spec,
-    EnumToken $enum_keyword,
-    ClassToken $class_keyword,
-    NameToken $name,
-    ColonToken $colon,
-    SimpleTypeSpecifier $base,
-    ?ExtendsToken $extends,
-    ?NodeList<ListItem<SimpleTypeSpecifier>> $extends_list,
-    LeftBraceToken $left_brace,
-    NodeList<EnumClassEnumerator> $elements,
-    RightBraceToken $right_brace,
+    ?Node $enum_keyword,
+    ?Node $class_keyword,
+    ?Node $name,
+    ?Node $colon,
+    ?Node $base,
+    ?Node $extends,
+    ?Node $extends_list,
+    ?Node $left_brace,
+    ?Node $elements,
+    ?Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -70,56 +70,51 @@ final class EnumClassDeclaration extends Node {
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $enum_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enum_keyword'],
+      /* HH_FIXME[4110] */ $json['enum_class_enum_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'EnumToken',
+      'Node',
     );
-    $enum_keyword = $enum_keyword as nonnull;
-    $offset += $enum_keyword->getWidth();
+    $offset += $enum_keyword?->getWidth() ?? 0;
     $class_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_class_keyword'],
+      /* HH_FIXME[4110] */ $json['enum_class_class_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'ClassToken',
+      'Node',
     );
-    $class_keyword = $class_keyword as nonnull;
-    $offset += $class_keyword->getWidth();
+    $offset += $class_keyword?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_name'],
+      /* HH_FIXME[4110] */ $json['enum_class_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'NameToken',
+      'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_colon'],
+      /* HH_FIXME[4110] */ $json['enum_class_colon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'ColonToken',
+      'Node',
     );
-    $colon = $colon as nonnull;
-    $offset += $colon->getWidth();
+    $offset += $colon?->getWidth() ?? 0;
     $base = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_base'],
+      /* HH_FIXME[4110] */ $json['enum_class_base'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'SimpleTypeSpecifier',
+      'Node',
     );
-    $base = $base as nonnull;
-    $offset += $base->getWidth();
+    $offset += $base?->getWidth() ?? 0;
     $extends = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_class_extends'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'ExtendsToken',
+      'Node',
     );
     $offset += $extends?->getWidth() ?? 0;
     $extends_list = Node::fromJSON(
@@ -127,36 +122,33 @@ final class EnumClassDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<SimpleTypeSpecifier>>',
+      'Node',
     );
     $offset += $extends_list?->getWidth() ?? 0;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_left_brace'],
+      /* HH_FIXME[4110] */ $json['enum_class_left_brace'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'LeftBraceToken',
+      'Node',
     );
-    $left_brace = $left_brace as nonnull;
-    $offset += $left_brace->getWidth();
+    $offset += $left_brace?->getWidth() ?? 0;
     $elements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_elements'],
+      /* HH_FIXME[4110] */ $json['enum_class_elements'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'NodeList<EnumClassEnumerator>',
+      'Node',
     );
-    $elements = $elements as nonnull;
-    $offset += $elements->getWidth();
+    $offset += $elements?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_right_brace'],
+      /* HH_FIXME[4110] */ $json['enum_class_right_brace'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'RightBraceToken',
+      'Node',
     );
-    $right_brace = $right_brace as nonnull;
-    $offset += $right_brace->getWidth();
+    $offset += $right_brace?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -206,20 +198,30 @@ final class EnumClassDeclaration extends Node {
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
-    $enum_keyword = $rewriter($this->_enum_keyword, $parents);
-    $class_keyword = $rewriter($this->_class_keyword, $parents);
-    $name = $rewriter($this->_name, $parents);
-    $colon = $rewriter($this->_colon, $parents);
-    $base = $rewriter($this->_base, $parents);
+    $enum_keyword = $this->_enum_keyword === null
+      ? null
+      : $rewriter($this->_enum_keyword, $parents);
+    $class_keyword = $this->_class_keyword === null
+      ? null
+      : $rewriter($this->_class_keyword, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
+    $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
+    $base = $this->_base === null ? null : $rewriter($this->_base, $parents);
     $extends = $this->_extends === null
       ? null
       : $rewriter($this->_extends, $parents);
     $extends_list = $this->_extends_list === null
       ? null
       : $rewriter($this->_extends_list, $parents);
-    $left_brace = $rewriter($this->_left_brace, $parents);
-    $elements = $rewriter($this->_elements, $parents);
-    $right_brace = $rewriter($this->_right_brace, $parents);
+    $left_brace = $this->_left_brace === null
+      ? null
+      : $rewriter($this->_left_brace, $parents);
+    $elements = $this->_elements === null
+      ? null
+      : $rewriter($this->_elements, $parents);
+    $right_brace = $this->_right_brace === null
+      ? null
+      : $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $enum_keyword === $this->_enum_keyword &&
@@ -278,14 +280,14 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return null
+   * @return unknown
    */
   public function getAttributeSpec(): ?Node {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return
+   * @return unknown
    */
   public function getAttributeSpecx(): Node {
     return TypeAssert\not_null($this->getAttributeSpec());
@@ -295,7 +297,7 @@ final class EnumClassDeclaration extends Node {
     return $this->_enum_keyword;
   }
 
-  public function withEnumKeyword(EnumToken $value): this {
+  public function withEnumKeyword(?Node $value): this {
     if ($value === $this->_enum_keyword) {
       return $this;
     }
@@ -319,24 +321,24 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return EnumToken
+   * @return unknown
    */
-  public function getEnumKeyword(): EnumToken {
-    return TypeAssert\instance_of(EnumToken::class, $this->_enum_keyword);
+  public function getEnumKeyword(): ?Node {
+    return $this->_enum_keyword;
   }
 
   /**
-   * @return EnumToken
+   * @return unknown
    */
-  public function getEnumKeywordx(): EnumToken {
-    return $this->getEnumKeyword();
+  public function getEnumKeywordx(): Node {
+    return TypeAssert\not_null($this->getEnumKeyword());
   }
 
   public function getClassKeywordUNTYPED(): ?Node {
     return $this->_class_keyword;
   }
 
-  public function withClassKeyword(ClassToken $value): this {
+  public function withClassKeyword(?Node $value): this {
     if ($value === $this->_class_keyword) {
       return $this;
     }
@@ -360,24 +362,24 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return ClassToken
+   * @return unknown
    */
-  public function getClassKeyword(): ClassToken {
-    return TypeAssert\instance_of(ClassToken::class, $this->_class_keyword);
+  public function getClassKeyword(): ?Node {
+    return $this->_class_keyword;
   }
 
   /**
-   * @return ClassToken
+   * @return unknown
    */
-  public function getClassKeywordx(): ClassToken {
-    return $this->getClassKeyword();
+  public function getClassKeywordx(): Node {
+    return TypeAssert\not_null($this->getClassKeyword());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(NameToken $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -401,24 +403,24 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getName(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+  public function getName(): ?Node {
+    return $this->_name;
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getNamex(): NameToken {
-    return $this->getName();
+  public function getNamex(): Node {
+    return TypeAssert\not_null($this->getName());
   }
 
   public function getColonUNTYPED(): ?Node {
     return $this->_colon;
   }
 
-  public function withColon(ColonToken $value): this {
+  public function withColon(?Node $value): this {
     if ($value === $this->_colon) {
       return $this;
     }
@@ -442,24 +444,24 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return ColonToken
+   * @return unknown
    */
-  public function getColon(): ColonToken {
-    return TypeAssert\instance_of(ColonToken::class, $this->_colon);
+  public function getColon(): ?Node {
+    return $this->_colon;
   }
 
   /**
-   * @return ColonToken
+   * @return unknown
    */
-  public function getColonx(): ColonToken {
-    return $this->getColon();
+  public function getColonx(): Node {
+    return TypeAssert\not_null($this->getColon());
   }
 
   public function getBaseUNTYPED(): ?Node {
     return $this->_base;
   }
 
-  public function withBase(SimpleTypeSpecifier $value): this {
+  public function withBase(?Node $value): this {
     if ($value === $this->_base) {
       return $this;
     }
@@ -483,24 +485,24 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return unknown
    */
-  public function getBase(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_base);
+  public function getBase(): ?Node {
+    return $this->_base;
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return unknown
    */
-  public function getBasex(): SimpleTypeSpecifier {
-    return $this->getBase();
+  public function getBasex(): Node {
+    return TypeAssert\not_null($this->getBase());
   }
 
   public function getExtendsUNTYPED(): ?Node {
     return $this->_extends;
   }
 
-  public function withExtends(?ExtendsToken $value): this {
+  public function withExtends(?Node $value): this {
     if ($value === $this->_extends) {
       return $this;
     }
@@ -524,16 +526,16 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return null | ExtendsToken
+   * @return unknown
    */
-  public function getExtends(): ?ExtendsToken {
+  public function getExtends(): ?Node {
     return $this->_extends;
   }
 
   /**
-   * @return ExtendsToken
+   * @return unknown
    */
-  public function getExtendsx(): ExtendsToken {
+  public function getExtendsx(): Node {
     return TypeAssert\not_null($this->getExtends());
   }
 
@@ -541,9 +543,7 @@ final class EnumClassDeclaration extends Node {
     return $this->_extends_list;
   }
 
-  public function withExtendsList(
-    ?NodeList<ListItem<SimpleTypeSpecifier>> $value,
-  ): this {
+  public function withExtendsList(?Node $value): this {
     if ($value === $this->_extends_list) {
       return $this;
     }
@@ -567,16 +567,16 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return NodeList<ListItem<SimpleTypeSpecifier>> | null
+   * @return unknown
    */
-  public function getExtendsList(): ?NodeList<ListItem<SimpleTypeSpecifier>> {
+  public function getExtendsList(): ?Node {
     return $this->_extends_list;
   }
 
   /**
-   * @return NodeList<ListItem<SimpleTypeSpecifier>>
+   * @return unknown
    */
-  public function getExtendsListx(): NodeList<ListItem<SimpleTypeSpecifier>> {
+  public function getExtendsListx(): Node {
     return TypeAssert\not_null($this->getExtendsList());
   }
 
@@ -584,7 +584,7 @@ final class EnumClassDeclaration extends Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(LeftBraceToken $value): this {
+  public function withLeftBrace(?Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -608,24 +608,24 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return LeftBraceToken
+   * @return unknown
    */
-  public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  public function getLeftBrace(): ?Node {
+    return $this->_left_brace;
   }
 
   /**
-   * @return LeftBraceToken
+   * @return unknown
    */
-  public function getLeftBracex(): LeftBraceToken {
-    return $this->getLeftBrace();
+  public function getLeftBracex(): Node {
+    return TypeAssert\not_null($this->getLeftBrace());
   }
 
   public function getElementsUNTYPED(): ?Node {
     return $this->_elements;
   }
 
-  public function withElements(NodeList<EnumClassEnumerator> $value): this {
+  public function withElements(?Node $value): this {
     if ($value === $this->_elements) {
       return $this;
     }
@@ -649,24 +649,24 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return NodeList<EnumClassEnumerator>
+   * @return unknown
    */
-  public function getElements(): NodeList<EnumClassEnumerator> {
-    return TypeAssert\instance_of(NodeList::class, $this->_elements);
+  public function getElements(): ?Node {
+    return $this->_elements;
   }
 
   /**
-   * @return NodeList<EnumClassEnumerator>
+   * @return unknown
    */
-  public function getElementsx(): NodeList<EnumClassEnumerator> {
-    return $this->getElements();
+  public function getElementsx(): Node {
+    return TypeAssert\not_null($this->getElements());
   }
 
   public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(RightBraceToken $value): this {
+  public function withRightBrace(?Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -690,16 +690,16 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return RightBraceToken
+   * @return unknown
    */
-  public function getRightBrace(): RightBraceToken {
-    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  public function getRightBrace(): ?Node {
+    return $this->_right_brace;
   }
 
   /**
-   * @return RightBraceToken
+   * @return unknown
    */
-  public function getRightBracex(): RightBraceToken {
-    return $this->getRightBrace();
+  public function getRightBracex(): Node {
+    return TypeAssert\not_null($this->getRightBrace());
   }
 }

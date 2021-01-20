@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10852a4880fa0b0d966ca2f0966d1cf6>>
+ * @generated SignedSource<<5f89c94a5a0b62d441750f9341a21b95>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,26 +12,26 @@ final class ContextConstDeclaration extends Node {
 
   const string SYNTAX_KIND = 'context_const_declaration';
 
-  private ?NodeList<AbstractToken> $_modifiers;
-  private ConstToken $_const_keyword;
-  private CtxToken $_ctx_keyword;
-  private NameToken $_name;
+  private ?Node $_modifiers;
+  private ?Node $_const_keyword;
+  private ?Node $_ctx_keyword;
+  private ?Node $_name;
   private ?Node $_type_parameters;
-  private ?NodeList<TypeConstraint> $_constraint;
-  private ?EqualToken $_equal;
-  private ?Contexts $_ctx_list;
-  private SemicolonToken $_semicolon;
+  private ?Node $_constraint;
+  private ?Node $_equal;
+  private ?Node $_ctx_list;
+  private ?Node $_semicolon;
 
   public function __construct(
-    ?NodeList<AbstractToken> $modifiers,
-    ConstToken $const_keyword,
-    CtxToken $ctx_keyword,
-    NameToken $name,
+    ?Node $modifiers,
+    ?Node $const_keyword,
+    ?Node $ctx_keyword,
+    ?Node $name,
     ?Node $type_parameters,
-    ?NodeList<TypeConstraint> $constraint,
-    ?EqualToken $equal,
-    ?Contexts $ctx_list,
-    SemicolonToken $semicolon,
+    ?Node $constraint,
+    ?Node $equal,
+    ?Node $ctx_list,
+    ?Node $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_modifiers = $modifiers;
@@ -60,36 +60,33 @@ final class ContextConstDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'NodeList<AbstractToken>',
+      'Node',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $const_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_const_keyword'],
+      /* HH_FIXME[4110] */ $json['context_const_const_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'ConstToken',
+      'Node',
     );
-    $const_keyword = $const_keyword as nonnull;
-    $offset += $const_keyword->getWidth();
+    $offset += $const_keyword?->getWidth() ?? 0;
     $ctx_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_ctx_keyword'],
+      /* HH_FIXME[4110] */ $json['context_const_ctx_keyword'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'CtxToken',
+      'Node',
     );
-    $ctx_keyword = $ctx_keyword as nonnull;
-    $offset += $ctx_keyword->getWidth();
+    $offset += $ctx_keyword?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_name'],
+      /* HH_FIXME[4110] */ $json['context_const_name'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'NameToken',
+      'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $type_parameters = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['context_const_type_parameters'] ?? dict['kind' => 'missing'],
       $file,
@@ -103,7 +100,7 @@ final class ContextConstDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'NodeList<TypeConstraint>',
+      'Node',
     );
     $offset += $constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
@@ -111,7 +108,7 @@ final class ContextConstDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'EqualToken',
+      'Node',
     );
     $offset += $equal?->getWidth() ?? 0;
     $ctx_list = Node::fromJSON(
@@ -119,18 +116,17 @@ final class ContextConstDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'Contexts',
+      'Node',
     );
     $offset += $ctx_list?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_semicolon'],
+      /* HH_FIXME[4110] */ $json['context_const_semicolon'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
-      'SemicolonToken',
+      'Node',
     );
-    $semicolon = $semicolon as nonnull;
-    $offset += $semicolon->getWidth();
+    $offset += $semicolon?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -176,9 +172,13 @@ final class ContextConstDeclaration extends Node {
     $modifiers = $this->_modifiers === null
       ? null
       : $rewriter($this->_modifiers, $parents);
-    $const_keyword = $rewriter($this->_const_keyword, $parents);
-    $ctx_keyword = $rewriter($this->_ctx_keyword, $parents);
-    $name = $rewriter($this->_name, $parents);
+    $const_keyword = $this->_const_keyword === null
+      ? null
+      : $rewriter($this->_const_keyword, $parents);
+    $ctx_keyword = $this->_ctx_keyword === null
+      ? null
+      : $rewriter($this->_ctx_keyword, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $type_parameters = $this->_type_parameters === null
       ? null
       : $rewriter($this->_type_parameters, $parents);
@@ -189,7 +189,9 @@ final class ContextConstDeclaration extends Node {
     $ctx_list = $this->_ctx_list === null
       ? null
       : $rewriter($this->_ctx_list, $parents);
-    $semicolon = $rewriter($this->_semicolon, $parents);
+    $semicolon = $this->_semicolon === null
+      ? null
+      : $rewriter($this->_semicolon, $parents);
     if (
       $modifiers === $this->_modifiers &&
       $const_keyword === $this->_const_keyword &&
@@ -220,7 +222,7 @@ final class ContextConstDeclaration extends Node {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?NodeList<AbstractToken> $value): this {
+  public function withModifiers(?Node $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -242,16 +244,16 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return NodeList<AbstractToken> | null
+   * @return unknown
    */
-  public function getModifiers(): ?NodeList<AbstractToken> {
+  public function getModifiers(): ?Node {
     return $this->_modifiers;
   }
 
   /**
-   * @return NodeList<AbstractToken>
+   * @return unknown
    */
-  public function getModifiersx(): NodeList<AbstractToken> {
+  public function getModifiersx(): Node {
     return TypeAssert\not_null($this->getModifiers());
   }
 
@@ -259,7 +261,7 @@ final class ContextConstDeclaration extends Node {
     return $this->_const_keyword;
   }
 
-  public function withConstKeyword(ConstToken $value): this {
+  public function withConstKeyword(?Node $value): this {
     if ($value === $this->_const_keyword) {
       return $this;
     }
@@ -281,24 +283,24 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return ConstToken
+   * @return unknown
    */
-  public function getConstKeyword(): ConstToken {
-    return TypeAssert\instance_of(ConstToken::class, $this->_const_keyword);
+  public function getConstKeyword(): ?Node {
+    return $this->_const_keyword;
   }
 
   /**
-   * @return ConstToken
+   * @return unknown
    */
-  public function getConstKeywordx(): ConstToken {
-    return $this->getConstKeyword();
+  public function getConstKeywordx(): Node {
+    return TypeAssert\not_null($this->getConstKeyword());
   }
 
   public function getCtxKeywordUNTYPED(): ?Node {
     return $this->_ctx_keyword;
   }
 
-  public function withCtxKeyword(CtxToken $value): this {
+  public function withCtxKeyword(?Node $value): this {
     if ($value === $this->_ctx_keyword) {
       return $this;
     }
@@ -320,24 +322,24 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return CtxToken
+   * @return unknown
    */
-  public function getCtxKeyword(): CtxToken {
-    return TypeAssert\instance_of(CtxToken::class, $this->_ctx_keyword);
+  public function getCtxKeyword(): ?Node {
+    return $this->_ctx_keyword;
   }
 
   /**
-   * @return CtxToken
+   * @return unknown
    */
-  public function getCtxKeywordx(): CtxToken {
-    return $this->getCtxKeyword();
+  public function getCtxKeywordx(): Node {
+    return TypeAssert\not_null($this->getCtxKeyword());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(NameToken $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -359,17 +361,17 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getName(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+  public function getName(): ?Node {
+    return $this->_name;
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getNamex(): NameToken {
-    return $this->getName();
+  public function getNamex(): Node {
+    return TypeAssert\not_null($this->getName());
   }
 
   public function getTypeParametersUNTYPED(): ?Node {
@@ -398,14 +400,14 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return null
+   * @return unknown
    */
   public function getTypeParameters(): ?Node {
     return $this->_type_parameters;
   }
 
   /**
-   * @return
+   * @return unknown
    */
   public function getTypeParametersx(): Node {
     return TypeAssert\not_null($this->getTypeParameters());
@@ -415,7 +417,7 @@ final class ContextConstDeclaration extends Node {
     return $this->_constraint;
   }
 
-  public function withConstraint(?NodeList<TypeConstraint> $value): this {
+  public function withConstraint(?Node $value): this {
     if ($value === $this->_constraint) {
       return $this;
     }
@@ -437,16 +439,16 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return NodeList<TypeConstraint> | null
+   * @return unknown
    */
-  public function getConstraint(): ?NodeList<TypeConstraint> {
+  public function getConstraint(): ?Node {
     return $this->_constraint;
   }
 
   /**
-   * @return NodeList<TypeConstraint>
+   * @return unknown
    */
-  public function getConstraintx(): NodeList<TypeConstraint> {
+  public function getConstraintx(): Node {
     return TypeAssert\not_null($this->getConstraint());
   }
 
@@ -454,7 +456,7 @@ final class ContextConstDeclaration extends Node {
     return $this->_equal;
   }
 
-  public function withEqual(?EqualToken $value): this {
+  public function withEqual(?Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -476,16 +478,16 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return null | EqualToken
+   * @return unknown
    */
-  public function getEqual(): ?EqualToken {
+  public function getEqual(): ?Node {
     return $this->_equal;
   }
 
   /**
-   * @return EqualToken
+   * @return unknown
    */
-  public function getEqualx(): EqualToken {
+  public function getEqualx(): Node {
     return TypeAssert\not_null($this->getEqual());
   }
 
@@ -493,7 +495,7 @@ final class ContextConstDeclaration extends Node {
     return $this->_ctx_list;
   }
 
-  public function withCtxList(?Contexts $value): this {
+  public function withCtxList(?Node $value): this {
     if ($value === $this->_ctx_list) {
       return $this;
     }
@@ -515,16 +517,16 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return Contexts | null
+   * @return unknown
    */
-  public function getCtxList(): ?Contexts {
+  public function getCtxList(): ?Node {
     return $this->_ctx_list;
   }
 
   /**
-   * @return Contexts
+   * @return unknown
    */
-  public function getCtxListx(): Contexts {
+  public function getCtxListx(): Node {
     return TypeAssert\not_null($this->getCtxList());
   }
 
@@ -532,7 +534,7 @@ final class ContextConstDeclaration extends Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(SemicolonToken $value): this {
+  public function withSemicolon(?Node $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -554,16 +556,16 @@ final class ContextConstDeclaration extends Node {
   }
 
   /**
-   * @return SemicolonToken
+   * @return unknown
    */
-  public function getSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
+  public function getSemicolon(): ?Node {
+    return $this->_semicolon;
   }
 
   /**
-   * @return SemicolonToken
+   * @return unknown
    */
-  public function getSemicolonx(): SemicolonToken {
-    return $this->getSemicolon();
+  public function getSemicolonx(): Node {
+    return TypeAssert\not_null($this->getSemicolon());
   }
 }

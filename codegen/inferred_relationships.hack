@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3f13b3486419627c2705c27e8e7eeed>>
+ * @generated SignedSource<<4206c47c856786296a19fafcd3a7cba0>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -355,15 +355,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<const_declaration|methodish_declaration|type_const_declaration>',
     'list<const_declaration|property_declaration>',
     'list<const_declaration|type_const_declaration>',
-    'list<context_const_declaration>',
-    'list<context_const_declaration|methodish_declaration>',
     'list<methodish_declaration>',
     'list<methodish_declaration|property_declaration>',
     'list<methodish_declaration|property_declaration|require_clause>',
     'list<methodish_declaration|property_declaration|trait_use>',
     'list<methodish_declaration|property_declaration|type_const_declaration>',
     'list<methodish_declaration|require_clause>',
-    'list<methodish_declaration|require_clause|type_const_declaration>',
     'list<methodish_declaration|trait_use>',
     'list<methodish_declaration|trait_use_conflict_resolution>',
     'list<methodish_declaration|type_const_declaration>',
@@ -480,7 +477,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token::',
   ],
   'closure_type_specifier.closure_contexts' => keyset[
-    'contexts',
     'missing',
   ],
   'closure_type_specifier.closure_function_keyword' => keyset[
@@ -651,7 +647,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<echo_statement|using_statement_block_scoped>',
     'list<echo_statement|using_statement_function_scoped>',
     'list<echo_statement|while_statement>',
-    'list<echo_statement|yield_break_statement>',
     'list<expression_statement>',
     'list<expression_statement|for_statement>',
     'list<expression_statement|for_statement|foreach_statement>',
@@ -706,7 +701,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<expression_statement|using_statement_block_scoped|using_statement_function_scoped>',
     'list<expression_statement|using_statement_function_scoped>',
     'list<expression_statement|while_statement>',
-    'list<expression_statement|yield_break_statement>',
     'list<for_statement>',
     'list<for_statement|if_statement>',
     'list<for_statement|if_statement|return_statement>',
@@ -743,7 +737,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<using_statement_block_scoped|using_statement_function_scoped>',
     'list<using_statement_function_scoped>',
     'list<while_statement>',
-    'list<yield_break_statement>',
     'missing',
   ],
   'concurrent_statement.concurrent_keyword' => keyset[
@@ -896,7 +889,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<object_creation_expression>|list_item<scope_resolution_expression>>',
     'list<list_item<object_creation_expression>|list_item<variable>>',
     'list<list_item<parenthesized_expression>>',
-    'list<list_item<pipe_variable>>',
     'list<list_item<prefix_unary_expression>>',
     'list<list_item<prefix_unary_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<scope_resolution_expression>>',
@@ -934,50 +926,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:self',
     'token:static',
     'variable',
-  ],
-  'context_const_declaration.context_const_const_keyword' => keyset[
-    'token:const',
-  ],
-  'context_const_declaration.context_const_constraint' => keyset[
-    'list<type_constraint>',
-    'missing',
-  ],
-  'context_const_declaration.context_const_ctx_keyword' => keyset[
-    'token:ctx',
-  ],
-  'context_const_declaration.context_const_ctx_list' => keyset[
-    'contexts',
-    'missing',
-  ],
-  'context_const_declaration.context_const_equal' => keyset[
-    'missing',
-    'token:=',
-  ],
-  'context_const_declaration.context_const_modifiers' => keyset[
-    'list<token:abstract>',
-    'missing',
-  ],
-  'context_const_declaration.context_const_name' => keyset[
-    'token:name',
-  ],
-  'context_const_declaration.context_const_semicolon' => keyset[
-    'token:;',
-  ],
-  'context_const_declaration.context_const_type_parameters' => keyset[
-    'missing',
-  ],
-  'contexts.contexts_left_bracket' => keyset[
-    'token:[',
-  ],
-  'contexts.contexts_right_bracket' => keyset[
-    'token:]',
-  ],
-  'contexts.contexts_types' => keyset[
-    'list<list_item<function_ctx_type_specifier>>',
-    'list<list_item<function_ctx_type_specifier>|list_item<simple_type_specifier>>',
-    'list<list_item<simple_type_specifier>>',
-    'list<list_item<type_constant>>',
-    'missing',
   ],
   'continue_statement.continue_keyword' => keyset[
     'token:continue',
@@ -1079,13 +1027,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<classname_type_specifier>>',
     'list<list_item<classname_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<dictionary_type_specifier>|list_item<simple_type_specifier>>',
-    'list<list_item<generic_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<keyset_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<nullable_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<shape_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<simple_type_specifier>>',
     'list<list_item<simple_type_specifier>|list_item<tuple_type_specifier>>',
-    'list<list_item<simple_type_specifier>|list_item<varray_type_specifier>>',
     'list<list_item<simple_type_specifier>|list_item<vector_type_specifier>>',
   ],
   'dictionary_type_specifier.dictionary_type_right_angle' => keyset[
@@ -1251,57 +1197,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'end_of_file.end_of_file_token' => keyset[
     'token:end_of_file',
-  ],
-  'enum_class_declaration.enum_class_attribute_spec' => keyset[
-    'missing',
-  ],
-  'enum_class_declaration.enum_class_base' => keyset[
-    'simple_type_specifier',
-  ],
-  'enum_class_declaration.enum_class_class_keyword' => keyset[
-    'token:class',
-  ],
-  'enum_class_declaration.enum_class_colon' => keyset[
-    'token::',
-  ],
-  'enum_class_declaration.enum_class_elements' => keyset[
-    'list<enum_class_enumerator>',
-  ],
-  'enum_class_declaration.enum_class_enum_keyword' => keyset[
-    'token:enum',
-  ],
-  'enum_class_declaration.enum_class_extends' => keyset[
-    'missing',
-    'token:extends',
-  ],
-  'enum_class_declaration.enum_class_extends_list' => keyset[
-    'list<list_item<simple_type_specifier>>',
-    'missing',
-  ],
-  'enum_class_declaration.enum_class_left_brace' => keyset[
-    'token:{',
-  ],
-  'enum_class_declaration.enum_class_name' => keyset[
-    'token:name',
-  ],
-  'enum_class_declaration.enum_class_right_brace' => keyset[
-    'token:}',
-  ],
-  'enum_class_enumerator.enum_class_enumerator_equal' => keyset[
-    'token:=',
-  ],
-  'enum_class_enumerator.enum_class_enumerator_initial_value' => keyset[
-    'object_creation_expression',
-  ],
-  'enum_class_enumerator.enum_class_enumerator_name' => keyset[
-    'token:name',
-  ],
-  'enum_class_enumerator.enum_class_enumerator_semicolon' => keyset[
-    'token:;',
-  ],
-  'enum_class_enumerator.enum_class_enumerator_type' => keyset[
-    'generic_type_specifier',
-    'simple_type_specifier',
   ],
   'enum_declaration.enum_attribute_spec' => keyset[
     'missing',
@@ -1968,12 +1863,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
     'type_arguments',
   ],
-  'function_ctx_type_specifier.function_ctx_type_keyword' => keyset[
-    'token:ctx',
-  ],
-  'function_ctx_type_specifier.function_ctx_type_variable' => keyset[
-    'token:variable',
-  ],
   'function_declaration.function_attribute_spec' => keyset[
     'missing',
     'old_attribute_specification',
@@ -1990,7 +1879,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token::',
   ],
   'function_declaration_header.function_contexts' => keyset[
-    'contexts',
     'missing',
   ],
   'function_declaration_header.function_keyword' => keyset[
@@ -2277,7 +2165,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token::',
   ],
   'lambda_signature.lambda_contexts' => keyset[
-    'contexts',
     'missing',
   ],
   'lambda_signature.lambda_left_paren' => keyset[
@@ -2359,7 +2246,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'field_initializer',
     'field_specifier',
     'function_call_expression',
-    'function_ctx_type_specifier',
     'function_pointer_expression',
     'generic_type_specifier',
     'is_expression',
@@ -2915,7 +2801,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|const_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<classish_declaration|const_declaration|end_of_file|function_declaration|markup_section|namespace_declaration|namespace_use_declaration>',
     'list<classish_declaration|const_declaration|end_of_file|markup_section>',
-    'list<classish_declaration|end_of_file|enum_class_declaration|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|expression_statement|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section>',
@@ -3107,12 +2992,10 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<expression_statement|return_statement>',
     'list<expression_statement|return_statement|try_statement>',
     'list<expression_statement|throw_statement>',
-    'list<expression_statement|yield_break_statement>',
     'list<foreach_statement>',
     'list<if_statement>',
     'list<return_statement>',
     'list<throw_statement>',
-    'list<yield_break_statement>',
     'missing',
   ],
   'switch_statement.switch_expression' => keyset[
@@ -3299,7 +3182,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<simple_type_specifier>|list_item<type_constant>>',
     'list<list_item<simple_type_specifier>|list_item<vector_type_specifier>>',
     'list<list_item<tuple_type_specifier>>',
-    'list<list_item<type_constant>>',
     'list<list_item<varray_type_specifier>>',
     'list<list_item<vector_type_specifier>>',
   ],
@@ -3389,7 +3271,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:parent',
     'token:self',
     'token:this',
-    'token:variable',
     'type_constant',
   ],
   'type_constant.type_constant_right_type' => keyset[
@@ -3405,7 +3286,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'type_constraint.constraint_type' => keyset[
     'classname_type_specifier',
     'closure_type_specifier',
-    'contexts',
     'generic_type_specifier',
     'like_type_specifier',
     'nullable_type_specifier',
@@ -3961,15 +3841,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'xhp_spread_attribute.xhp_spread_attribute_spread_operator' => keyset[
     'token:...',
   ],
-  'yield_break_statement.yield_break_break' => keyset[
-    'token:break',
-  ],
-  'yield_break_statement.yield_break_keyword' => keyset[
-    'token:yield',
-  ],
-  'yield_break_statement.yield_break_semicolon' => keyset[
-    'token:;',
-  ],
   'yield_expression.yield_keyword' => keyset[
     'token:yield',
   ],
@@ -3989,6 +3860,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'prefix_unary_expression',
     'scope_resolution_expression',
     'subscript_expression',
+    'token:break',
     'token:name',
     'tuple_expression',
     'variable',
