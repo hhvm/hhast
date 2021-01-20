@@ -21,7 +21,7 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2021-01-05-0001',
+    SCHEMA_VERSION === '2021-01-14-0001',
     '%s needs updating',
     __FILE__,
   );
@@ -30,17 +30,9 @@ function is_compatible_schema_version(string $other_version): bool {
   }
 
   // Return true if $other_version is a subset of SCHEMA_VERSION
-
-  switch ($other_version) {
-    // preceding versions:
-    /* NONE
-    case '2020-10-15-0001': // missing enum-dependent type syntax
-      return true;
-    // succeeding versions:
-    case '2020-12-01-0001': // removes goto
-      return true;
-    */
-    default:
-      return false;
+  if ($other_version === '2021-01-05-0001') {
+    // Does not have `YieldBreakStatement`
+    return true;
   }
+  return false;
 }
