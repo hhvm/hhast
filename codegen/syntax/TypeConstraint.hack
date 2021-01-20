@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec9492264c290d294397e77c5bf22ac4>>
+ * @generated SignedSource<<f6dab44efd5ae5fbc4796b8102544e14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,11 +13,11 @@ final class TypeConstraint extends Node {
   const string SYNTAX_KIND = 'type_constraint';
 
   private Token $_keyword;
-  private ITypeSpecifier $_type;
+  private Node $_type;
 
   public function __construct(
     Token $keyword,
-    ITypeSpecifier $type,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -48,7 +48,7 @@ final class TypeConstraint extends Node {
       $file,
       $offset,
       $source,
-      'ITypeSpecifier',
+      'Node',
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
@@ -124,7 +124,7 @@ final class TypeConstraint extends Node {
     return $this->_type;
   }
 
-  public function withType(ITypeSpecifier $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -136,22 +136,22 @@ final class TypeConstraint extends Node {
   }
 
   /**
-   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier | Contexts |
    * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): ITypeSpecifier {
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+  public function getType(): Node {
+    return $this->_type;
   }
 
   /**
-   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier | Contexts |
    * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getTypex(): ITypeSpecifier {
+  public function getTypex(): Node {
     return $this->getType();
   }
 }
