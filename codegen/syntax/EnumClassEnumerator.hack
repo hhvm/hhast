@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eebdc2db68eae84c584adc6ffac7f6e2>>
+ * @generated SignedSource<<2db2005ab2528841d010265bb515d310>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,18 +12,18 @@ final class EnumClassEnumerator extends Node {
 
   const string SYNTAX_KIND = 'enum_class_enumerator';
 
-  private ?Node $_type;
-  private ?Node $_name;
-  private ?Node $_equal;
-  private ?Node $_initial_value;
-  private ?Node $_semicolon;
+  private ISimpleCreationSpecifier $_type;
+  private NameToken $_name;
+  private EqualToken $_equal;
+  private ObjectCreationExpression $_initial_value;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    ?Node $type,
-    ?Node $name,
-    ?Node $equal,
-    ?Node $initial_value,
-    ?Node $semicolon,
+    ISimpleCreationSpecifier $type,
+    NameToken $name,
+    EqualToken $equal,
+    ObjectCreationExpression $initial_value,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -44,45 +44,50 @@ final class EnumClassEnumerator extends Node {
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_type'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_class_enumerator_type'],
       $file,
       $offset,
       $source,
-      'Node',
+      'ISimpleCreationSpecifier',
     );
-    $offset += $type?->getWidth() ?? 0;
+    $type = $type as nonnull;
+    $offset += $type->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_name'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_class_enumerator_name'],
       $file,
       $offset,
       $source,
-      'Node',
+      'NameToken',
     );
-    $offset += $name?->getWidth() ?? 0;
+    $name = $name as nonnull;
+    $offset += $name->getWidth();
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_equal'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_class_enumerator_equal'],
       $file,
       $offset,
       $source,
-      'Node',
+      'EqualToken',
     );
-    $offset += $equal?->getWidth() ?? 0;
+    $equal = $equal as nonnull;
+    $offset += $equal->getWidth();
     $initial_value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_initial_value'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_class_enumerator_initial_value'],
       $file,
       $offset,
       $source,
-      'Node',
+      'ObjectCreationExpression',
     );
-    $offset += $initial_value?->getWidth() ?? 0;
+    $initial_value = $initial_value as nonnull;
+    $offset += $initial_value->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_semicolon'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_class_enumerator_semicolon'],
       $file,
       $offset,
       $source,
-      'Node',
+      'SemicolonToken',
     );
-    $offset += $semicolon?->getWidth() ?? 0;
+    $semicolon = $semicolon as nonnull;
+    $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -117,15 +122,11 @@ final class EnumClassEnumerator extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
-    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
-    $initial_value = $this->_initial_value === null
-      ? null
-      : $rewriter($this->_initial_value, $parents);
-    $semicolon = $this->_semicolon === null
-      ? null
-      : $rewriter($this->_semicolon, $parents);
+    $type = $rewriter($this->_type, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $equal = $rewriter($this->_equal, $parents);
+    $initial_value = $rewriter($this->_initial_value, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $type === $this->_type &&
       $name === $this->_name &&
@@ -148,7 +149,7 @@ final class EnumClassEnumerator extends Node {
     return $this->_type;
   }
 
-  public function withType(?Node $value): this {
+  public function withType(ISimpleCreationSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -166,24 +167,27 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return unknown
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getType(): ?Node {
-    return $this->_type;
+  public function getType(): ISimpleCreationSpecifier {
+    return TypeAssert\instance_of(
+      ISimpleCreationSpecifier::class,
+      $this->_type,
+    );
   }
 
   /**
-   * @return unknown
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getTypex(): Node {
-    return TypeAssert\not_null($this->getType());
+  public function getTypex(): ISimpleCreationSpecifier {
+    return $this->getType();
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(?Node $value): this {
+  public function withName(NameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -201,24 +205,24 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return unknown
+   * @return NameToken
    */
-  public function getName(): ?Node {
-    return $this->_name;
+  public function getName(): NameToken {
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @return unknown
+   * @return NameToken
    */
-  public function getNamex(): Node {
-    return TypeAssert\not_null($this->getName());
+  public function getNamex(): NameToken {
+    return $this->getName();
   }
 
   public function getEqualUNTYPED(): ?Node {
     return $this->_equal;
   }
 
-  public function withEqual(?Node $value): this {
+  public function withEqual(EqualToken $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -236,24 +240,24 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return unknown
+   * @return EqualToken
    */
-  public function getEqual(): ?Node {
-    return $this->_equal;
+  public function getEqual(): EqualToken {
+    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
   }
 
   /**
-   * @return unknown
+   * @return EqualToken
    */
-  public function getEqualx(): Node {
-    return TypeAssert\not_null($this->getEqual());
+  public function getEqualx(): EqualToken {
+    return $this->getEqual();
   }
 
   public function getInitialValueUNTYPED(): ?Node {
     return $this->_initial_value;
   }
 
-  public function withInitialValue(?Node $value): this {
+  public function withInitialValue(ObjectCreationExpression $value): this {
     if ($value === $this->_initial_value) {
       return $this;
     }
@@ -271,24 +275,27 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return unknown
+   * @return ObjectCreationExpression
    */
-  public function getInitialValue(): ?Node {
-    return $this->_initial_value;
+  public function getInitialValue(): ObjectCreationExpression {
+    return TypeAssert\instance_of(
+      ObjectCreationExpression::class,
+      $this->_initial_value,
+    );
   }
 
   /**
-   * @return unknown
+   * @return ObjectCreationExpression
    */
-  public function getInitialValuex(): Node {
-    return TypeAssert\not_null($this->getInitialValue());
+  public function getInitialValuex(): ObjectCreationExpression {
+    return $this->getInitialValue();
   }
 
   public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(?Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -306,16 +313,16 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return unknown
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?Node {
-    return $this->_semicolon;
+  public function getSemicolon(): SemicolonToken {
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @return unknown
+   * @return SemicolonToken
    */
-  public function getSemicolonx(): Node {
-    return TypeAssert\not_null($this->getSemicolon());
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ff0ad15cbdece948748d5635edac542>>
+ * @generated SignedSource<<7b17f7a531fd8a9701684e6c86cc42d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,12 +12,12 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'function_ctx_type_specifier';
 
-  private ?Node $_keyword;
-  private ?Node $_variable;
+  private CtxToken $_keyword;
+  private VariableToken $_variable;
 
   public function __construct(
-    ?Node $keyword,
-    ?Node $variable,
+    CtxToken $keyword,
+    VariableToken $variable,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -35,21 +35,23 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_ctx_type_keyword'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_ctx_type_keyword'],
       $file,
       $offset,
       $source,
-      'Node',
+      'CtxToken',
     );
-    $offset += $keyword?->getWidth() ?? 0;
+    $keyword = $keyword as nonnull;
+    $offset += $keyword->getWidth();
     $variable = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_ctx_type_variable'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['function_ctx_type_variable'],
       $file,
       $offset,
       $source,
-      'Node',
+      'VariableToken',
     );
-    $offset += $variable?->getWidth() ?? 0;
+    $variable = $variable as nonnull;
+    $offset += $variable->getWidth();
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -78,12 +80,8 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
-    $variable = $this->_variable === null
-      ? null
-      : $rewriter($this->_variable, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $variable = $rewriter($this->_variable, $parents);
     if ($keyword === $this->_keyword && $variable === $this->_variable) {
       return $this;
     }
@@ -97,7 +95,7 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_keyword;
   }
 
-  public function withKeyword(?Node $value): this {
+  public function withKeyword(CtxToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -109,24 +107,24 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return unknown
+   * @return CtxToken
    */
-  public function getKeyword(): ?Node {
-    return $this->_keyword;
+  public function getKeyword(): CtxToken {
+    return TypeAssert\instance_of(CtxToken::class, $this->_keyword);
   }
 
   /**
-   * @return unknown
+   * @return CtxToken
    */
-  public function getKeywordx(): Node {
-    return TypeAssert\not_null($this->getKeyword());
+  public function getKeywordx(): CtxToken {
+    return $this->getKeyword();
   }
 
   public function getVariableUNTYPED(): ?Node {
     return $this->_variable;
   }
 
-  public function withVariable(?Node $value): this {
+  public function withVariable(VariableToken $value): this {
     if ($value === $this->_variable) {
       return $this;
     }
@@ -138,16 +136,16 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return unknown
+   * @return VariableToken
    */
-  public function getVariable(): ?Node {
-    return $this->_variable;
+  public function getVariable(): VariableToken {
+    return TypeAssert\instance_of(VariableToken::class, $this->_variable);
   }
 
   /**
-   * @return unknown
+   * @return VariableToken
    */
-  public function getVariablex(): Node {
-    return TypeAssert\not_null($this->getVariable());
+  public function getVariablex(): VariableToken {
+    return $this->getVariable();
   }
 }

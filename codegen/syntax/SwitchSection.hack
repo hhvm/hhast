@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c7fe4d040b7a25c51c2fe8122005f82d>>
+ * @generated SignedSource<<f0ff9f25e8a9ccd523359853ee4e6592>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -164,7 +164,7 @@ final class SwitchSection extends Node {
    * NodeList<DoStatement> | NodeList<EchoStatement> |
    * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
    * NodeList<IfStatement> | NodeList<ReturnStatement> |
-   * NodeList<ThrowStatement> | null
+   * NodeList<ThrowStatement> | NodeList<YieldBreakStatement> | null
    */
   public function getStatements(): ?NodeList<IStatement> {
     return $this->_statements;
@@ -175,7 +175,7 @@ final class SwitchSection extends Node {
    * NodeList<DoStatement> | NodeList<EchoStatement> |
    * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
    * NodeList<IfStatement> | NodeList<ReturnStatement> |
-   * NodeList<ThrowStatement>
+   * NodeList<ThrowStatement> | NodeList<YieldBreakStatement>
    */
   public function getStatementsx(): NodeList<IStatement> {
     return TypeAssert\not_null($this->getStatements());
