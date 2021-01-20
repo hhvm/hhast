@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f88721067c28de94c37da177fc174371>>
+ * @generated SignedSource<<7f7e7efbcb2ea362c679d6b95e6e5c21>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,12 +12,12 @@ final class TypeConstant extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'type_constant';
 
-  private Node $_left_type;
+  private ITypeSpecifier $_left_type;
   private ColonColonToken $_separator;
   private NameToken $_right_type;
 
   public function __construct(
-    Node $left_type,
+    ITypeSpecifier $left_type,
     ColonColonToken $separator,
     NameToken $right_type,
     ?__Private\SourceRef $source_ref = null,
@@ -42,7 +42,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
     $left_type = $left_type as nonnull;
     $offset += $left_type->getWidth();
@@ -115,7 +115,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     return $this->_left_type;
   }
 
-  public function withLeftType(Node $value): this {
+  public function withLeftType(ITypeSpecifier $value): this {
     if ($value === $this->_left_type) {
       return $this;
     }
@@ -130,15 +130,15 @@ final class TypeConstant extends Node implements ITypeSpecifier {
    * @return NameToken | ParentToken | SelfToken | ThisToken | VariableToken |
    * TypeConstant
    */
-  public function getLeftType(): Node {
-    return $this->_left_type;
+  public function getLeftType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_left_type);
   }
 
   /**
    * @return NameToken | ParentToken | SelfToken | ThisToken | VariableToken |
    * TypeConstant
    */
-  public function getLeftTypex(): Node {
+  public function getLeftTypex(): ITypeSpecifier {
     return $this->getLeftType();
   }
 

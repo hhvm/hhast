@@ -1,13 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8a1cf56d13347a2c73e9d9bef86cf42c>>
+ * @generated SignedSource<<dd98ce0f111830442598182b01baf2c4>>
  */
 namespace Facebook\HHAST;
 
 final class VariableToken
   extends TokenWithVariableText
-  implements ILambdaBody, IExpression {
+  implements
+    ILambdaBody,
+    IExpression,
+    __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string KIND = 'variable';
 

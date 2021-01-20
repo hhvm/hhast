@@ -298,6 +298,7 @@ abstract class CodegenBase {
         HHAST\SelfToken::class,
         HHAST\StaticToken::class,
         HHAST\ThisToken::class,
+        HHAST\VariableToken::class,
         HHAST\XHPClassNameToken::class,
       ],
     ]
