@@ -159,6 +159,7 @@ abstract class CodegenBase {
       HHAST\IClassBodyDeclaration::class => keyset[
         HHAST\MethodishDeclaration::class,
         HHAST\MethodishTraitResolution::class,
+        HHAST\ContextConstDeclaration::class,
         HHAST\ConstDeclaration::class,
         HHAST\PropertyDeclaration::class,
         HHAST\RequireClause::class,

@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<10852a4880fa0b0d966ca2f0966d1cf6>>
+ * @generated SignedSource<<383571a08e449c07b030f3269586f931>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ContextConstDeclaration extends Node {
+final class ContextConstDeclaration
+  extends Node
+  implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'context_const_declaration';
 

@@ -1,4 +1,3 @@
-
 /*
  *  Copyright (c) 2017-present, Facebook, Inc.
  *  All rights reserved.
@@ -36,7 +35,7 @@ final class TypeSpecifierOrContextsTest extends TestCase {
     classname<Node> $expected,
   ): Awaitable<void> {
     if (\HHVM_VERSION_ID < 409300) {
-      self::markTestSkipped("Requires HHVM 4.93");
+      self::markTestSkipped('Requires HHVM 4.93');
     }
     $ast = await from_file_async(
       File::fromPathAndContents(
