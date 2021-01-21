@@ -1,14 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<594ef0716f6cde73ff47fdd83a79366e>>
+ * @generated SignedSource<<44893b1721f4e16970d0a99d1bd77a2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
+final class VectorTypeSpecifier
+  extends Node
+  implements ITypeSpecifier, ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'vector_type_specifier';
 

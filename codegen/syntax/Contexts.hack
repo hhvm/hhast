@@ -1,14 +1,16 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<076067d6803f6c4904beff394c687113>>
+ * @generated SignedSource<<af5d2eea0f483edcd56670c035dcab81>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class Contexts extends Node {
+final class Contexts extends Node implements ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'contexts';
 

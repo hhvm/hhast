@@ -68,12 +68,14 @@ final class CodegenSyntax extends CodegenBase {
       ->setExtends('Node')
       ->setInterfaces(
         (
-          $this
-            ->getMarkerInterfacesByImplementingClass()[$syntax['kind_name']] ??
+          $this->getMarkerInterfacesByImplementingClass()[
+            $syntax['kind_name'] as dynamic
+          ] ??
           vec[]
         )
           |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
       )
+      ->addTraits($cg->codegenUsesTraits($this->getTraitsByImplementingClass()[$syntax['kind_name'] as dynamic] ?? vec[]))
       ->addConstant(
         $cg->codegenClassConstant('SYNTAX_KIND')
           ->setType('string')
@@ -690,10 +692,8 @@ final class CodegenSyntax extends CodegenBase {
   private static function getKindsWithManualSubclasses(): keyset<string> {
     return keyset[
       HHAST\AwaitableCreationExpression::class,
-      HHAST\ClassishDeclaration::class,
       HHAST\MethodishDeclaration::class,
       HHAST\NamespaceDeclaration::class,
-      HHAST\ParameterDeclaration::class,
       HHAST\Script::class,
     ]
       |> Keyset\map(

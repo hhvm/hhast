@@ -1,14 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36427e82426cbf4d3e7412ec3db9b15e>>
+ * @generated SignedSource<<a3fee66db497aff80e48e49c3d78cf6d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class AttributizedSpecifier extends Node implements ITypeSpecifier {
+final class AttributizedSpecifier
+  extends Node
+  implements ITypeSpecifier, ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'attributized_specifier';
 

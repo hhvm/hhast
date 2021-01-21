@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<157e28daaab5b13bee2f79c2840f2bad>>
+ * @generated SignedSource<<8483cf663e857970e29710c357aaafd7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,7 +10,12 @@ use namespace HH\Lib\Dict;
 <<__ConsistentConstruct>>
 final class SimpleTypeSpecifier
   extends Node
-  implements ISimpleCreationSpecifier, ITypeSpecifier {
+  implements
+    ISimpleCreationSpecifier,
+    ITypeSpecifier,
+    ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'simple_type_specifier';
 

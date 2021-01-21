@@ -1,14 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81303ab619706ed3e89a98a53d47d370>>
+ * @generated SignedSource<<5309a8259fa655a219e1be924a1ab458>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class XHPEnumType extends Node implements ITypeSpecifier {
+final class XHPEnumType
+  extends Node
+  implements ITypeSpecifier, ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'xhp_enum_type';
 

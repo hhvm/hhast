@@ -35,6 +35,22 @@ function node_from_json(
     if ($type_hint === 'ITypeSpecifier') {
       return Wrap\wrap_ITypeSpecifier($node);
     }
+    if ($type_hint === 'ITypeSpecifierOrContexts') {
+      /* As of 4.93 (2021-01-19), the FFP seems to always generate a
+       * SimpleTypeSpecifier here rather than just a NameToken. Things that
+       * aren't a HHAST\Contexts can re-use `Wrap\wrap_ITypeSpecifier()`.
+       *
+       * If this ends up being a practical problem, you probably want to do
+       * that, but please add a unit test while you're here if the existing
+       * tests don't fail :)
+       */
+      invariant(
+        $node is \Facebook\HHAST\ITypeSpecifierOrContexts,
+        'Expected an ITypeSpecifierOrContexts, got a "%s"; wrapping may be '.
+        'needed via `wrap_ITypeSpecifier()`.',
+        \get_class($node),
+      );
+    }
     return $node;
   } catch (\Facebook\HHAST\ASTError $e) {
     throw $e;

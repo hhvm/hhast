@@ -1,14 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f126dbd53ae7b7ea7e384d733ad3090>>
+ * @generated SignedSource<<27e5f6c03c6e0a4a5bbc1f8e0cd23ea2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
+final class IntersectionTypeSpecifier
+  extends Node
+  implements ITypeSpecifier, ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'intersection_type_specifier';
 

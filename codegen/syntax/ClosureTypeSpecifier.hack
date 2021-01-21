@@ -1,14 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cbf0af9bdd4f101158891157b498dd70>>
+ * @generated SignedSource<<93048bdc0552b64284f2f3b543183340>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
+final class ClosureTypeSpecifier
+  extends Node
+  implements ITypeSpecifier, ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'closure_type_specifier';
 

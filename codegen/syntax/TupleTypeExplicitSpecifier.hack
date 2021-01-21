@@ -1,14 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05d019e560b037d890c4af8ae500fccc>>
+ * @generated SignedSource<<eceef8bada4b7f8111d5b491f3d70136>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
+final class TupleTypeExplicitSpecifier
+  extends Node
+  implements ITypeSpecifier, ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'tuple_type_explicit_specifier';
 

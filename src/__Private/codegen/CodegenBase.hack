@@ -101,17 +101,48 @@ abstract class CodegenBase {
     return keyset['Missing', 'SyntaxList', 'Token', 'ListItem'];
   }
 
+  private static function flipDictOfKeysets<Tk as arraykey, Tv as arraykey>(
+    KeyedTraversable<Tk, keyset<Tv>> $in,
+  ): dict<Tv, keyset<Tk>> {
+    $flipped = dict[];
+    foreach ($in as $k => $vs) {
+      foreach ($vs as $v) {
+        $flipped[$v] ??= keyset[];
+        $flipped[$v][] = $k;
+      }
+    }
+    return $flipped;
+  }
+
+  <<__Memoize>>
+  final protected function getTraitsByImplementingClass(
+  ): dict<string, keyset<string>> {
+    return self::flipDictOfKeysets($this->getTraits());
+  }
+
+  <<__Memoize>>
+  final protected function getTraits(
+  ): dict<string, keyset<string>> {
+    return dict[
+      HHAST\TypeSpecifierOrContextsTrait::class => Keyset\union(
+        keyset[HHAST\Contexts::class],
+        $this->getMarkerInterfacesByInterface()['ITypeSpecifier'],
+      ),
+      HHAST\AttributeAsAttributeSpecTrait::class => keyset[
+        HHAST\ClassishDeclaration::class,
+        HHAST\ParameterDeclaration::class,
+      ],
+    ]
+      |> Dict\map_keys($$, $k ==> Str\strip_prefix($k, 'Facebook\\HHAST\\'))
+      |> Dict\map($$,
+        $vs ==> Keyset\map($vs, $v ==> Str\strip_prefix($v, 'Facebook\\HHAST\\'))
+      );
+  }
+
   <<__Memoize>>
   final protected function getMarkerInterfacesByImplementingClass(
   ): dict<string, keyset<string>> {
-    $by_implementation = dict[];
-    foreach ($this->getMarkerInterfacesByInterface() as $if => $classes) {
-      foreach ($classes as $class) {
-        $by_implementation[$class] ??= keyset[];
-        $by_implementation[$class][] = $if;
-      }
-    }
-    return $by_implementation;
+    return self::flipDictOfKeysets($this->getMarkerInterfacesByInterface());
   }
 
   <<__Memoize>>
@@ -286,6 +317,10 @@ abstract class CodegenBase {
         )
           |> Keyset\map($$, $node ==> $node['kind_name']),
       ),
+      HHAST\ITypeSpecifierOrContexts::class => keyset[
+        HHAST\Contexts::class,
+        HHAST\ITypeSpecifier::class,
+      ],
       HHAST\IXHPAttribute::class => keyset[
         HHAST\XHPClassAttribute::class,
         HHAST\XHPSimpleAttribute::class,

@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79dcf3cb1a427be69ba2f437877f0026>>
+ * @generated SignedSource<<ddab0e9d4aec6fe191368d86a3aae144>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class ParameterDeclarationGeneratedBase
+final class ParameterDeclaration
   extends Node
   implements IHasTypeHint, IHasAttributeSpec, IParameter {
+
+  use AttributeAsAttributeSpecTrait;
 
   const string SYNTAX_KIND = 'parameter_declaration';
 

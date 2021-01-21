@@ -1,14 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e85641717baa795cc3c12c45f32f4316>>
+ * @generated SignedSource<<0c04b6f4e5a8a5f30f39883eb293f430>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
+final class VarrayTypeSpecifier
+  extends Node
+  implements ITypeSpecifier, ITypeSpecifierOrContexts {
+
+  use TypeSpecifierOrContextsTrait;
 
   const string SYNTAX_KIND = 'varray_type_specifier';
 

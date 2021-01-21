@@ -9,7 +9,9 @@
 
 namespace Facebook\HHAST;
 
+interface ITypeSpecifierOrContexts {
+  require extends Node;
 
-final class ParameterDeclaration extends ParameterDeclarationGeneratedBase {
-  use AttributeAsAttributeSpecTrait;
+  public function asTypeSpecifier(): ITypeSpecifier;
+  public function asContexts(): Contexts;
 }

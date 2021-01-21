@@ -9,6 +9,6 @@
 
 namespace Facebook\HHAST;
 
-interface ITypeSpecifier {
+interface ITypeSpecifier extends ITypeSpecifierOrContexts {
   require extends Node;
 }

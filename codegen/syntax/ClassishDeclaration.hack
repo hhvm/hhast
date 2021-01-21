@@ -1,16 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2549c50226cb4f6d26c8cc323c3ca247>>
+ * @generated SignedSource<<d57e976fa692740ae9903b0f2b670414>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-abstract class ClassishDeclarationGeneratedBase
+final class ClassishDeclaration
   extends Node
   implements IDeclaration, IHasAttributeSpec {
+
+  use AttributeAsAttributeSpecTrait;
 
   const string SYNTAX_KIND = 'classish_declaration';
 
