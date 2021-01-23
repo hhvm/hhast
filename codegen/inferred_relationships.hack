@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3f13b3486419627c2705c27e8e7eeed>>
+ * @generated SignedSource<<4a1d222459067c2cf86706fd92475c44>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -975,6 +975,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'contexts.contexts_types' => keyset[
     'list<list_item<function_ctx_type_specifier>>',
     'list<list_item<function_ctx_type_specifier>|list_item<simple_type_specifier>>',
+    'list<list_item<function_ctx_type_specifier>|list_item<simple_type_specifier>|list_item<type_constant>>',
     'list<list_item<simple_type_specifier>>',
     'list<list_item<type_constant>>',
     'missing',
@@ -1319,12 +1320,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<enumerator>',
     'missing',
   ],
-  'enum_declaration.enum_includes_keyword' => keyset[
-    'missing',
-  ],
-  'enum_declaration.enum_includes_list' => keyset[
-    'missing',
-  ],
   'enum_declaration.enum_keyword' => keyset[
     'token:enum',
   ],
@@ -1340,6 +1335,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'enum_declaration.enum_type' => keyset[
     'missing',
     'type_constraint',
+  ],
+  'enum_declaration.enum_use_clauses' => keyset[
+    'missing',
   ],
   'enumerator.enumerator_equal' => keyset[
     'token:=',
