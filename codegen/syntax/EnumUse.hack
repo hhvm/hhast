@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<38cc0dedd81c26fe0d5a4a3976de25f1>>
+ * @generated SignedSource<<715078d94815b872208a79d1cf638217>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,14 +12,14 @@ final class EnumUse extends Node {
 
   const string SYNTAX_KIND = 'enum_use';
 
-  private ?Node $_keyword;
-  private ?Node $_names;
-  private ?Node $_semicolon;
+  private UseToken $_keyword;
+  private NodeList<ListItem<SimpleTypeSpecifier>> $_names;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    ?Node $keyword,
-    ?Node $names,
-    ?Node $semicolon,
+    UseToken $keyword,
+    NodeList<ListItem<SimpleTypeSpecifier>> $names,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -38,29 +38,32 @@ final class EnumUse extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_use_keyword'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_use_keyword'],
       $file,
       $offset,
       $source,
-      'Node',
+      'UseToken',
     );
-    $offset += $keyword?->getWidth() ?? 0;
+    $keyword = $keyword as nonnull;
+    $offset += $keyword->getWidth();
     $names = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_use_names'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_use_names'],
       $file,
       $offset,
       $source,
-      'Node',
+      'NodeList<ListItem<SimpleTypeSpecifier>>',
     );
-    $offset += $names?->getWidth() ?? 0;
+    $names = $names as nonnull;
+    $offset += $names->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_use_semicolon'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['enum_use_semicolon'],
       $file,
       $offset,
       $source,
-      'Node',
+      'SemicolonToken',
     );
-    $offset += $semicolon?->getWidth() ?? 0;
+    $semicolon = $semicolon as nonnull;
+    $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -91,13 +94,9 @@ final class EnumUse extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
-    $names = $this->_names === null ? null : $rewriter($this->_names, $parents);
-    $semicolon = $this->_semicolon === null
-      ? null
-      : $rewriter($this->_semicolon, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $names = $rewriter($this->_names, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $keyword === $this->_keyword &&
       $names === $this->_names &&
@@ -116,7 +115,7 @@ final class EnumUse extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(?Node $value): this {
+  public function withKeyword(UseToken $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -128,24 +127,26 @@ final class EnumUse extends Node {
   }
 
   /**
-   * @return unknown
+   * @return UseToken
    */
-  public function getKeyword(): ?Node {
-    return $this->_keyword;
+  public function getKeyword(): UseToken {
+    return TypeAssert\instance_of(UseToken::class, $this->_keyword);
   }
 
   /**
-   * @return unknown
+   * @return UseToken
    */
-  public function getKeywordx(): Node {
-    return TypeAssert\not_null($this->getKeyword());
+  public function getKeywordx(): UseToken {
+    return $this->getKeyword();
   }
 
   public function getNamesUNTYPED(): ?Node {
     return $this->_names;
   }
 
-  public function withNames(?Node $value): this {
+  public function withNames(
+    NodeList<ListItem<SimpleTypeSpecifier>> $value,
+  ): this {
     if ($value === $this->_names) {
       return $this;
     }
@@ -157,24 +158,24 @@ final class EnumUse extends Node {
   }
 
   /**
-   * @return unknown
+   * @return NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getNames(): ?Node {
-    return $this->_names;
+  public function getNames(): NodeList<ListItem<SimpleTypeSpecifier>> {
+    return TypeAssert\instance_of(NodeList::class, $this->_names);
   }
 
   /**
-   * @return unknown
+   * @return NodeList<ListItem<SimpleTypeSpecifier>>
    */
-  public function getNamesx(): Node {
-    return TypeAssert\not_null($this->getNames());
+  public function getNamesx(): NodeList<ListItem<SimpleTypeSpecifier>> {
+    return $this->getNames();
   }
 
   public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(?Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -186,16 +187,16 @@ final class EnumUse extends Node {
   }
 
   /**
-   * @return unknown
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?Node {
-    return $this->_semicolon;
+  public function getSemicolon(): SemicolonToken {
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @return unknown
+   * @return SemicolonToken
    */
-  public function getSemicolonx(): Node {
-    return TypeAssert\not_null($this->getSemicolon());
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

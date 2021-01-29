@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<924a9dc48ac06e43499b44c68a1cbd15>>
+ * @generated SignedSource<<c5ce08f4005ce0d33a0d402db8f55981>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,6 +23,7 @@ final class AnonymousFunction
   private RightParenToken $_right_paren;
   private ?Node $_ctx_list;
   private ?ColonToken $_colon;
+  private ?Node $_readonly_return;
   private ?ITypeSpecifier $_type;
   private ?AnonymousFunctionUseClause $_use;
   private CompoundStatement $_body;
@@ -37,6 +38,7 @@ final class AnonymousFunction
     RightParenToken $right_paren,
     ?Node $ctx_list,
     ?ColonToken $colon,
+    ?Node $readonly_return,
     ?ITypeSpecifier $type,
     ?AnonymousFunctionUseClause $use,
     CompoundStatement $body,
@@ -51,6 +53,7 @@ final class AnonymousFunction
     $this->_right_paren = $right_paren;
     $this->_ctx_list = $ctx_list;
     $this->_colon = $colon;
+    $this->_readonly_return = $readonly_return;
     $this->_type = $type;
     $this->_use = $use;
     $this->_body = $body;
@@ -141,6 +144,14 @@ final class AnonymousFunction
       'ColonToken',
     );
     $offset += $colon?->getWidth() ?? 0;
+    $readonly_return = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['anonymous_readonly_return'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $readonly_return?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_type'] ?? dict['kind' => 'missing'],
       $file,
@@ -182,6 +193,7 @@ final class AnonymousFunction
       /* HH_IGNORE_ERROR[4110] */ $right_paren,
       /* HH_IGNORE_ERROR[4110] */ $ctx_list,
       /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $readonly_return,
       /* HH_IGNORE_ERROR[4110] */ $type,
       /* HH_IGNORE_ERROR[4110] */ $use,
       /* HH_IGNORE_ERROR[4110] */ $body,
@@ -201,6 +213,7 @@ final class AnonymousFunction
       'right_paren' => $this->_right_paren,
       'ctx_list' => $this->_ctx_list,
       'colon' => $this->_colon,
+      'readonly_return' => $this->_readonly_return,
       'type' => $this->_type,
       'use' => $this->_use,
       'body' => $this->_body,
@@ -233,6 +246,9 @@ final class AnonymousFunction
       ? null
       : $rewriter($this->_ctx_list, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
+    $readonly_return = $this->_readonly_return === null
+      ? null
+      : $rewriter($this->_readonly_return, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $use = $this->_use === null ? null : $rewriter($this->_use, $parents);
     $body = $rewriter($this->_body, $parents);
@@ -246,6 +262,7 @@ final class AnonymousFunction
       $right_paren === $this->_right_paren &&
       $ctx_list === $this->_ctx_list &&
       $colon === $this->_colon &&
+      $readonly_return === $this->_readonly_return &&
       $type === $this->_type &&
       $use === $this->_use &&
       $body === $this->_body
@@ -262,6 +279,7 @@ final class AnonymousFunction
       /* HH_FIXME[4110] use `as` */ $right_paren,
       /* HH_FIXME[4110] use `as` */ $ctx_list,
       /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $readonly_return,
       /* HH_FIXME[4110] use `as` */ $type,
       /* HH_FIXME[4110] use `as` */ $use,
       /* HH_FIXME[4110] use `as` */ $body,
@@ -286,6 +304,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -328,6 +347,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -370,6 +390,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -412,6 +433,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -457,6 +479,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -501,6 +524,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -543,6 +567,7 @@ final class AnonymousFunction
       $value,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -585,6 +610,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $value,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -627,6 +653,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $value,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $this->_body,
@@ -651,6 +678,49 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getColon());
   }
 
+  public function getReadonlyReturnUNTYPED(): ?Node {
+    return $this->_readonly_return;
+  }
+
+  public function withReadonlyReturn(?Node $value): this {
+    if ($value === $this->_readonly_return) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_static_keyword,
+      $this->_async_keyword,
+      $this->_function_keyword,
+      $this->_left_paren,
+      $this->_parameters,
+      $this->_right_paren,
+      $this->_ctx_list,
+      $this->_colon,
+      $value,
+      $this->_type,
+      $this->_use,
+      $this->_body,
+    );
+  }
+
+  public function hasReadonlyReturn(): bool {
+    return $this->_readonly_return !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getReadonlyReturn(): ?Node {
+    return $this->_readonly_return;
+  }
+
+  /**
+   * @return
+   */
+  public function getReadonlyReturnx(): Node {
+    return TypeAssert\not_null($this->getReadonlyReturn());
+  }
+
   public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
@@ -669,6 +739,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $value,
       $this->_use,
       $this->_body,
@@ -715,6 +786,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $value,
       $this->_body,
@@ -757,6 +829,7 @@ final class AnonymousFunction
       $this->_right_paren,
       $this->_ctx_list,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_use,
       $value,

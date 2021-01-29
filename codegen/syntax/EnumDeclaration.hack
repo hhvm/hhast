@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<db4c27fbd99820a397ca61e352cb7b4a>>
+ * @generated SignedSource<<968bb272c6522ea7c1a049ad226dbd38>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,7 +19,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   private ITypeSpecifier $_base;
   private ?TypeConstraint $_type;
   private LeftBraceToken $_left_brace;
-  private ?Node $_use_clauses;
+  private ?NodeList<EnumUse> $_use_clauses;
   private ?NodeList<Enumerator> $_enumerators;
   private RightBraceToken $_right_brace;
 
@@ -31,7 +31,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     ITypeSpecifier $base,
     ?TypeConstraint $type,
     LeftBraceToken $left_brace,
-    ?Node $use_clauses,
+    ?NodeList<EnumUse> $use_clauses,
     ?NodeList<Enumerator> $enumerators,
     RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
@@ -124,7 +124,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'Node',
+      'NodeList<EnumUse>',
     );
     $offset += $use_clauses?->getWidth() ?? 0;
     $enumerators = Node::fromJSON(
@@ -516,7 +516,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return $this->_use_clauses;
   }
 
-  public function withUseClauses(?Node $value): this {
+  public function withUseClauses(?NodeList<EnumUse> $value): this {
     if ($value === $this->_use_clauses) {
       return $this;
     }
@@ -539,16 +539,16 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return null
+   * @return NodeList<EnumUse> | null
    */
-  public function getUseClauses(): ?Node {
+  public function getUseClauses(): ?NodeList<EnumUse> {
     return $this->_use_clauses;
   }
 
   /**
-   * @return
+   * @return NodeList<EnumUse>
    */
-  public function getUseClausesx(): Node {
+  public function getUseClausesx(): NodeList<EnumUse> {
     return TypeAssert\not_null($this->getUseClauses());
   }
 

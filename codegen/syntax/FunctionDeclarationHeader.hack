@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e851e00f8362009d6495f2a65a510494>>
+ * @generated SignedSource<<6eab26b2b591acab26828a87e2f29771>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,6 +21,7 @@ final class FunctionDeclarationHeader extends Node {
   private RightParenToken $_right_paren;
   private ?Contexts $_contexts;
   private ?ColonToken $_colon;
+  private ?Node $_readonly_return;
   private ?ITypeSpecifier $_type;
   private ?WhereClause $_where_clause;
 
@@ -34,6 +35,7 @@ final class FunctionDeclarationHeader extends Node {
     RightParenToken $right_paren,
     ?Contexts $contexts,
     ?ColonToken $colon,
+    ?Node $readonly_return,
     ?ITypeSpecifier $type,
     ?WhereClause $where_clause,
     ?__Private\SourceRef $source_ref = null,
@@ -47,6 +49,7 @@ final class FunctionDeclarationHeader extends Node {
     $this->_right_paren = $right_paren;
     $this->_contexts = $contexts;
     $this->_colon = $colon;
+    $this->_readonly_return = $readonly_return;
     $this->_type = $type;
     $this->_where_clause = $where_clause;
     parent::__construct($source_ref);
@@ -137,6 +140,14 @@ final class FunctionDeclarationHeader extends Node {
       'ColonToken',
     );
     $offset += $colon?->getWidth() ?? 0;
+    $readonly_return = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['function_readonly_return'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $readonly_return?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_type'] ?? dict['kind' => 'missing'],
       $file,
@@ -169,6 +180,7 @@ final class FunctionDeclarationHeader extends Node {
       /* HH_IGNORE_ERROR[4110] */ $right_paren,
       /* HH_IGNORE_ERROR[4110] */ $contexts,
       /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $readonly_return,
       /* HH_IGNORE_ERROR[4110] */ $type,
       /* HH_IGNORE_ERROR[4110] */ $where_clause,
       $source_ref,
@@ -187,6 +199,7 @@ final class FunctionDeclarationHeader extends Node {
       'right_paren' => $this->_right_paren,
       'contexts' => $this->_contexts,
       'colon' => $this->_colon,
+      'readonly_return' => $this->_readonly_return,
       'type' => $this->_type,
       'where_clause' => $this->_where_clause,
     ]
@@ -216,6 +229,9 @@ final class FunctionDeclarationHeader extends Node {
       ? null
       : $rewriter($this->_contexts, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
+    $readonly_return = $this->_readonly_return === null
+      ? null
+      : $rewriter($this->_readonly_return, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $where_clause = $this->_where_clause === null
       ? null
@@ -230,6 +246,7 @@ final class FunctionDeclarationHeader extends Node {
       $right_paren === $this->_right_paren &&
       $contexts === $this->_contexts &&
       $colon === $this->_colon &&
+      $readonly_return === $this->_readonly_return &&
       $type === $this->_type &&
       $where_clause === $this->_where_clause
     ) {
@@ -245,6 +262,7 @@ final class FunctionDeclarationHeader extends Node {
       /* HH_FIXME[4110] use `as` */ $right_paren,
       /* HH_FIXME[4110] use `as` */ $contexts,
       /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $readonly_return,
       /* HH_FIXME[4110] use `as` */ $type,
       /* HH_FIXME[4110] use `as` */ $where_clause,
     );
@@ -268,6 +286,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -313,6 +332,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -354,6 +374,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -395,6 +416,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -436,6 +458,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -479,6 +502,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -522,6 +546,7 @@ final class FunctionDeclarationHeader extends Node {
       $value,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -563,6 +588,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $value,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -604,6 +630,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $value,
+      $this->_readonly_return,
       $this->_type,
       $this->_where_clause,
     );
@@ -627,6 +654,48 @@ final class FunctionDeclarationHeader extends Node {
     return TypeAssert\not_null($this->getColon());
   }
 
+  public function getReadonlyReturnUNTYPED(): ?Node {
+    return $this->_readonly_return;
+  }
+
+  public function withReadonlyReturn(?Node $value): this {
+    if ($value === $this->_readonly_return) {
+      return $this;
+    }
+    return new static(
+      $this->_modifiers,
+      $this->_keyword,
+      $this->_name,
+      $this->_type_parameter_list,
+      $this->_left_paren,
+      $this->_parameter_list,
+      $this->_right_paren,
+      $this->_contexts,
+      $this->_colon,
+      $value,
+      $this->_type,
+      $this->_where_clause,
+    );
+  }
+
+  public function hasReadonlyReturn(): bool {
+    return $this->_readonly_return !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getReadonlyReturn(): ?Node {
+    return $this->_readonly_return;
+  }
+
+  /**
+   * @return
+   */
+  public function getReadonlyReturnx(): Node {
+    return TypeAssert\not_null($this->getReadonlyReturn());
+  }
+
   public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
@@ -645,6 +714,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $value,
       $this->_where_clause,
     );
@@ -696,6 +766,7 @@ final class FunctionDeclarationHeader extends Node {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
       $value,
     );

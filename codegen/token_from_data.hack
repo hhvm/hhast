@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa10598438160680db6bbceeb55eb151>>
+ * @generated SignedSource<<e2f60406650cc0567d6d1d8c0a6bcbfd>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -110,6 +110,7 @@ class TokenClassMap {
     'protected' => HHAST\ProtectedToken::class,
     'public' => HHAST\PublicToken::class,
     '?as' => HHAST\QuestionAsToken::class,
+    'readonly' => HHAST\ReadonlyToken::class,
     'real' => HHAST\RealToken::class,
     'recordname' => HHAST\RecordToken::class,
     'record' => HHAST\RecordDecToken::class,
