@@ -35,6 +35,7 @@ final class AppendToNodeListTest extends TestCase {
         null,
         null,
         null,
+        null,
         new SimpleTypeSpecifier(new IntToken(null, null)),
         new VariableToken(
           NodeList::createMaybeEmptyList(vec[new WhiteSpace(' ')]),

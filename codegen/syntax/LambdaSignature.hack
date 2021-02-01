@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3535524f5df1507fad535b18a5faa4e8>>
+ * @generated SignedSource<<952615353a93a0747219e7d8622de491>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,6 +17,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   private RightParenToken $_right_paren;
   private ?Contexts $_contexts;
   private ?ColonToken $_colon;
+  private ?Node $_readonly_return;
   private ?ITypeSpecifier $_type;
 
   public function __construct(
@@ -25,6 +26,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     RightParenToken $right_paren,
     ?Contexts $contexts,
     ?ColonToken $colon,
+    ?Node $readonly_return,
     ?ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -33,6 +35,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     $this->_right_paren = $right_paren;
     $this->_contexts = $contexts;
     $this->_colon = $colon;
+    $this->_readonly_return = $readonly_return;
     $this->_type = $type;
     parent::__construct($source_ref);
   }
@@ -88,6 +91,14 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       'ColonToken',
     );
     $offset += $colon?->getWidth() ?? 0;
+    $readonly_return = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['lambda_readonly_return'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $readonly_return?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['lambda_type'] ?? dict['kind' => 'missing'],
       $file,
@@ -108,6 +119,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       /* HH_IGNORE_ERROR[4110] */ $right_paren,
       /* HH_IGNORE_ERROR[4110] */ $contexts,
       /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $readonly_return,
       /* HH_IGNORE_ERROR[4110] */ $type,
       $source_ref,
     );
@@ -121,6 +133,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       'right_paren' => $this->_right_paren,
       'contexts' => $this->_contexts,
       'colon' => $this->_colon,
+      'readonly_return' => $this->_readonly_return,
       'type' => $this->_type,
     ]
       |> Dict\filter_nulls($$);
@@ -141,6 +154,9 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       ? null
       : $rewriter($this->_contexts, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
+    $readonly_return = $this->_readonly_return === null
+      ? null
+      : $rewriter($this->_readonly_return, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     if (
       $left_paren === $this->_left_paren &&
@@ -148,6 +164,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $right_paren === $this->_right_paren &&
       $contexts === $this->_contexts &&
       $colon === $this->_colon &&
+      $readonly_return === $this->_readonly_return &&
       $type === $this->_type
     ) {
       return $this;
@@ -158,6 +175,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       /* HH_FIXME[4110] use `as` */ $right_paren,
       /* HH_FIXME[4110] use `as` */ $contexts,
       /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $readonly_return,
       /* HH_FIXME[4110] use `as` */ $type,
     );
   }
@@ -176,6 +194,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
     );
   }
@@ -212,6 +231,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
     );
   }
@@ -250,6 +270,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $value,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
     );
   }
@@ -286,6 +307,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_right_paren,
       $value,
       $this->_colon,
+      $this->_readonly_return,
       $this->_type,
     );
   }
@@ -322,6 +344,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_right_paren,
       $this->_contexts,
       $value,
+      $this->_readonly_return,
       $this->_type,
     );
   }
@@ -344,6 +367,43 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return TypeAssert\not_null($this->getColon());
   }
 
+  public function getReadonlyReturnUNTYPED(): ?Node {
+    return $this->_readonly_return;
+  }
+
+  public function withReadonlyReturn(?Node $value): this {
+    if ($value === $this->_readonly_return) {
+      return $this;
+    }
+    return new static(
+      $this->_left_paren,
+      $this->_parameters,
+      $this->_right_paren,
+      $this->_contexts,
+      $this->_colon,
+      $value,
+      $this->_type,
+    );
+  }
+
+  public function hasReadonlyReturn(): bool {
+    return $this->_readonly_return !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getReadonlyReturn(): ?Node {
+    return $this->_readonly_return;
+  }
+
+  /**
+   * @return
+   */
+  public function getReadonlyReturnx(): Node {
+    return TypeAssert\not_null($this->getReadonlyReturn());
+  }
+
   public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
@@ -358,6 +418,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $this->_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $value,
     );
   }

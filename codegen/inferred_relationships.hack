@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a1d222459067c2cf86706fd92475c44>>
+ * @generated SignedSource<<47eadaa50ec56f929e2a3f8f2f9f06ca>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -70,6 +70,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'anonymous_function.anonymous_parameters' => keyset[
     'list<list_item<parameter_declaration>>',
+    'missing',
+  ],
+  'anonymous_function.anonymous_readonly_return' => keyset[
     'missing',
   ],
   'anonymous_function.anonymous_right_paren' => keyset[
@@ -641,6 +644,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<echo_statement|foreach_statement>',
     'list<echo_statement|if_statement>',
     'list<echo_statement|if_statement|return_statement>',
+    'list<echo_statement|if_statement|try_statement>',
     'list<echo_statement|return_statement>',
     'list<echo_statement|return_statement|try_statement>',
     'list<echo_statement|switch_statement>',
@@ -1337,7 +1341,17 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'type_constraint',
   ],
   'enum_declaration.enum_use_clauses' => keyset[
+    'list<enum_use>',
     'missing',
+  ],
+  'enum_use.enum_use_keyword' => keyset[
+    'token:use',
+  ],
+  'enum_use.enum_use_names' => keyset[
+    'list<list_item<simple_type_specifier>>',
+  ],
+  'enum_use.enum_use_semicolon' => keyset[
+    'token:;',
   ],
   'enumerator.enumerator_equal' => keyset[
     'token:=',
@@ -1584,7 +1598,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<anonymous_function>|list_item<token:name>|list_item<variable>>',
     'list<list_item<anonymous_function>|list_item<variable>>',
     'list<list_item<anonymous_function>|list_item<varray_intrinsic_expression>>',
-    'list<list_item<anonymous_function>|list_item<vector_intrinsic_expression>>',
     'list<list_item<as_expression>>',
     'list<list_item<awaitable_creation_expression>>',
     'list<list_item<awaitable_creation_expression>|list_item<function_call_expression>>',
@@ -2036,6 +2049,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<parameter_declaration>|list_item<variadic_parameter>>',
     'missing',
   ],
+  'function_declaration_header.function_readonly_return' => keyset[
+    'missing',
+  ],
   'function_declaration_header.function_right_paren' => keyset[
     'token:)',
   ],
@@ -2284,6 +2300,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'lambda_signature.lambda_parameters' => keyset[
     'list<list_item<parameter_declaration>>',
     'list<list_item<variadic_parameter>>',
+    'missing',
+  ],
+  'lambda_signature.lambda_readonly_return' => keyset[
     'missing',
   ],
   'lambda_signature.lambda_right_paren' => keyset[
@@ -2625,6 +2644,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'parameter_declaration.parameter_name' => keyset[
     'decorated_expression',
     'token:variable',
+  ],
+  'parameter_declaration.parameter_readonly' => keyset[
+    'missing',
   ],
   'parameter_declaration.parameter_type' => keyset[
     'classname_type_specifier',

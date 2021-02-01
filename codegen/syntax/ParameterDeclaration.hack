@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddab0e9d4aec6fe191368d86a3aae144>>
+ * @generated SignedSource<<6cc0d3260863894ea38ca391c8c8eac6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,6 +19,7 @@ final class ParameterDeclaration
   private ?OldAttributeSpecification $_attribute;
   private ?Token $_visibility;
   private ?InoutToken $_call_convention;
+  private ?Node $_readonly;
   private ?ITypeSpecifier $_type;
   private IExpression $_name;
   private ?SimpleInitializer $_default_value;
@@ -27,6 +28,7 @@ final class ParameterDeclaration
     ?OldAttributeSpecification $attribute,
     ?Token $visibility,
     ?InoutToken $call_convention,
+    ?Node $readonly,
     ?ITypeSpecifier $type,
     IExpression $name,
     ?SimpleInitializer $default_value,
@@ -35,6 +37,7 @@ final class ParameterDeclaration
     $this->_attribute = $attribute;
     $this->_visibility = $visibility;
     $this->_call_convention = $call_convention;
+    $this->_readonly = $readonly;
     $this->_type = $type;
     $this->_name = $name;
     $this->_default_value = $default_value;
@@ -74,6 +77,14 @@ final class ParameterDeclaration
       'InoutToken',
     );
     $offset += $call_convention?->getWidth() ?? 0;
+    $readonly = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['parameter_readonly'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $readonly?->getWidth() ?? 0;
     $type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['parameter_type'] ?? dict['kind' => 'missing'],
       $file,
@@ -109,6 +120,7 @@ final class ParameterDeclaration
       /* HH_IGNORE_ERROR[4110] */ $attribute,
       /* HH_IGNORE_ERROR[4110] */ $visibility,
       /* HH_IGNORE_ERROR[4110] */ $call_convention,
+      /* HH_IGNORE_ERROR[4110] */ $readonly,
       /* HH_IGNORE_ERROR[4110] */ $type,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $default_value,
@@ -122,6 +134,7 @@ final class ParameterDeclaration
       'attribute' => $this->_attribute,
       'visibility' => $this->_visibility,
       'call_convention' => $this->_call_convention,
+      'readonly' => $this->_readonly,
       'type' => $this->_type,
       'name' => $this->_name,
       'default_value' => $this->_default_value,
@@ -144,6 +157,9 @@ final class ParameterDeclaration
     $call_convention = $this->_call_convention === null
       ? null
       : $rewriter($this->_call_convention, $parents);
+    $readonly = $this->_readonly === null
+      ? null
+      : $rewriter($this->_readonly, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $name = $rewriter($this->_name, $parents);
     $default_value = $this->_default_value === null
@@ -153,6 +169,7 @@ final class ParameterDeclaration
       $attribute === $this->_attribute &&
       $visibility === $this->_visibility &&
       $call_convention === $this->_call_convention &&
+      $readonly === $this->_readonly &&
       $type === $this->_type &&
       $name === $this->_name &&
       $default_value === $this->_default_value
@@ -163,6 +180,7 @@ final class ParameterDeclaration
       /* HH_FIXME[4110] use `as` */ $attribute,
       /* HH_FIXME[4110] use `as` */ $visibility,
       /* HH_FIXME[4110] use `as` */ $call_convention,
+      /* HH_FIXME[4110] use `as` */ $readonly,
       /* HH_FIXME[4110] use `as` */ $type,
       /* HH_FIXME[4110] use `as` */ $name,
       /* HH_FIXME[4110] use `as` */ $default_value,
@@ -181,6 +199,7 @@ final class ParameterDeclaration
       $value,
       $this->_visibility,
       $this->_call_convention,
+      $this->_readonly,
       $this->_type,
       $this->_name,
       $this->_default_value,
@@ -217,6 +236,7 @@ final class ParameterDeclaration
       $this->_attribute,
       $value,
       $this->_call_convention,
+      $this->_readonly,
       $this->_type,
       $this->_name,
       $this->_default_value,
@@ -253,6 +273,7 @@ final class ParameterDeclaration
       $this->_attribute,
       $this->_visibility,
       $value,
+      $this->_readonly,
       $this->_type,
       $this->_name,
       $this->_default_value,
@@ -277,6 +298,43 @@ final class ParameterDeclaration
     return TypeAssert\not_null($this->getCallConvention());
   }
 
+  public function getReadonlyUNTYPED(): ?Node {
+    return $this->_readonly;
+  }
+
+  public function withReadonly(?Node $value): this {
+    if ($value === $this->_readonly) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute,
+      $this->_visibility,
+      $this->_call_convention,
+      $value,
+      $this->_type,
+      $this->_name,
+      $this->_default_value,
+    );
+  }
+
+  public function hasReadonly(): bool {
+    return $this->_readonly !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getReadonly(): ?Node {
+    return $this->_readonly;
+  }
+
+  /**
+   * @return
+   */
+  public function getReadonlyx(): Node {
+    return TypeAssert\not_null($this->getReadonly());
+  }
+
   public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
@@ -289,6 +347,7 @@ final class ParameterDeclaration
       $this->_attribute,
       $this->_visibility,
       $this->_call_convention,
+      $this->_readonly,
       $value,
       $this->_name,
       $this->_default_value,
@@ -333,6 +392,7 @@ final class ParameterDeclaration
       $this->_attribute,
       $this->_visibility,
       $this->_call_convention,
+      $this->_readonly,
       $this->_type,
       $value,
       $this->_default_value,
@@ -369,6 +429,7 @@ final class ParameterDeclaration
       $this->_attribute,
       $this->_visibility,
       $this->_call_convention,
+      $this->_readonly,
       $this->_type,
       $this->_name,
       $value,
