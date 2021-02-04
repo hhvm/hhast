@@ -33,12 +33,17 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    list($header, $body) = $this->getFunctionishParts($functionish);
-    if (C\contains($this->getAlwaysUsedVariables($header, $body), $name)) {
-      return null;
-    }
+    // If this variable is inside a lambda function, we should be looking in the
+    // lambda's header and body, not the enclosing function/method.
+    $lambda =
+      $functionish->getClosestAncestorOfDescendantOfType<LambdaExpression>(
+        $node,
+      );
 
-    $vars = $this->classifyVariables($body);
+    $vars = $lambda is nonnull
+      ? $this->classifyLambdaVariables($lambda)
+      : $this->classifyFunctionishVariables($functionish);
+
     if (C\contains($vars['used'], $name)) {
       return null;
     }
@@ -62,12 +67,10 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
    * used. This is done to avoid false positives at the cost of potential false
    * negatives (unused variables that are not identified as unused).
    */
-  <<__Memoize>>
   private function getAlwaysUsedVariables(
-    FunctionDeclarationHeader $header,
-    CompoundStatement $body,
+    vec<ParameterDeclaration> $params,
+    Node $body,
   ): keyset<string> {
-    $params = $header->getDescendantsOfType(ParameterDeclaration::class);
     $anon_fns = $body->getDescendantsOfType(AnonymousFunction::class);
     $lambdas = $body->getDescendantsOfType(LambdaExpression::class);
 
@@ -115,7 +118,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
 
   private function getFunctionishParts(
     IFunctionishDeclaration $functionish,
-  ): (FunctionDeclarationHeader, CompoundStatement) {
+  ): (vec<ParameterDeclaration>, CompoundStatement) {
     if ($functionish is FunctionDeclaration) {
       $body = $functionish->getBody();
       $header = $functionish->getDeclarationHeader();
@@ -132,7 +135,45 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       );
     }
 
-    return tuple($header, $body as CompoundStatement);
+    $params = vec[];
+    if ($header->getParameterList() is nonnull) {
+      foreach ($header->getParameterListx()->getChildrenOfItems() as $param) {
+        if ($param is ParameterDeclaration) {
+          $params[] = $param;
+        }
+      }
+    }
+
+    return tuple($params, $body as CompoundStatement);
+  }
+
+  private function getLambdaParts(
+    LambdaExpression $lambda,
+  ): (vec<ParameterDeclaration>, Node) {
+    $sig = $lambda->getSignature();
+    if ($sig is LambdaSignature) {
+      $params = vec[];
+      if ($sig->getParameters() is nonnull) {
+        foreach ($sig->getParametersx()->getChildrenOfItems() as $param) {
+          if ($param is ParameterDeclaration) {
+            $params[] = $param;
+          }
+        }
+      }
+    } else {
+      $params = vec[
+        new ParameterDeclaration(
+          null,
+          null,
+          null,
+          null,
+          null,
+          new VariableExpression($sig as VariableToken),
+          null,
+        ),
+      ];
+    }
+    return tuple($params, $lambda->getBody());
   }
 
   /**
@@ -163,8 +204,22 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
    * ```
    */
   <<__Memoize>>
+  private function classifyLambdaVariables(
+    LambdaExpression $lambda,
+  ): shape('assigned' => keyset<string>, 'used' => keyset<string>) {
+    return $this->classifyVariables(...$this->getLambdaParts($lambda));
+  }
+
+  <<__Memoize>>
+  private function classifyFunctionishVariables(
+    IFunctionishDeclaration $fun,
+  ): shape('assigned' => keyset<string>, 'used' => keyset<string>) {
+    return $this->classifyVariables(...$this->getFunctionishParts($fun));
+  }
+
   private function classifyVariables(
-    CompoundStatement $body,
+    vec<ParameterDeclaration> $params,
+    Node $body,
   ): shape('assigned' => keyset<string>, 'used' => keyset<string>) {
     $ret = shape('assigned' => vec[], 'used' => vec[]);
     foreach ($body->getDescendantsOfType(VariableExpression::class) as $var) {
@@ -185,6 +240,10 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       $ret['used'],
       $v ==> ($v->getExpression() as VariableToken)->getText(),
     );
+
+    foreach ($this->getAlwaysUsedVariables($params, $body) as $name) {
+      $ret['used'][] = $name;
+    }
 
     return $ret;
   }
