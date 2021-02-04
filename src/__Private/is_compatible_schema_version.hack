@@ -33,6 +33,7 @@ function is_compatible_schema_version(string $other_version): bool {
   switch ($other_version) {
     case '2021-01-21-0001': // doesn't have ReadonlyToken
     case '2021-02-01-0001': // no change
+    case '2021-02-02-0001': // no change
       return true;
     default:
       return false;
