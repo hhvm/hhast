@@ -15,6 +15,18 @@ function with_mutation(): void {
   return;
 }
 
+function lambdas(
+  (function(int, int): void) $fun = ($x, $y) ==> { $z = $x; },
+): void {
+  $a = $a ==> $a; // shadowed name, currently causes a false negative
+  $b = 42;
+  $c = $b ==> $b; // same here
+  $d = () ==> {
+    $fun = ($x, $y) ==> { $z = $x; };
+  };
+  $d();
+}
+
 class C {
   public function simple(int $bar): int {
     $baz = $bar;

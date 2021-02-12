@@ -27,8 +27,8 @@ final class LinterException extends \Exception {
         $rawMessage,
       ),
       /* code = */ 0,
-      /* HH_IGNORE_ERROR[4110] : Throwable is fine. facebook/hhvm#8239 */
-      $previous,
+      // Throwable should be fine but causes type errors. facebook/hhvm#8239
+      $previous ?as \Exception,
     );
   }
 

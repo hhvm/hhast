@@ -3,3 +3,12 @@
 function foo(int $bar, int $baz) {
   return $bar;
 }
+
+function lambdas(
+  int $a,
+  int $b,
+  (function(int, int): int) $c = ($c1, $c2) ==> $c2,
+): void {
+  $d = ($d1, $d2) ==> tuple($d1, $b);
+  $e = $a ==> $a; // shadowed parameter, currently causes a false negative
+}

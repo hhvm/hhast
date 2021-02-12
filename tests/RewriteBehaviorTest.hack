@@ -125,7 +125,7 @@ final class RewriteBehaviorTest extends TestCase {
     );
 
     $new = $orig->rewrite(
-      ($node, $parents) ==> {
+      ($node, $_parents) ==> {
         if (!$node is HHAST\Trivia) {
           return $node;
         }

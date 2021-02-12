@@ -25,15 +25,26 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    $name = $node->getName();
-    if (!$name is VariableToken) {
-      return null;
-    }
-    if (Str\starts_with($name->getText(), '$_')) {
+    $name_node = $node->getName();
+    if (!$name_node is VariableToken) {
       return null;
     }
 
-    if ($functionish is FunctionDeclaration) {
+    $name = $name_node->getText();
+    if (Str\starts_with($name, '$_')) {
+      return null;
+    }
+
+    // If this is a parameter of a lambda function, we should be looking in the
+    // lambda's body, not the enclosing function/method's body.
+    $lambda =
+      $functionish->getClosestAncestorOfDescendantOfType<LambdaExpression>(
+        $node,
+      );
+
+    if ($lambda is nonnull) {
+      $body = $lambda->getBody();
+    } else if ($functionish is FunctionDeclaration) {
       $body = $functionish->getBody();
     } else if ($functionish is MethodishDeclaration) {
       $body = $functionish->getFunctionBody();
@@ -48,16 +59,12 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    $statements = ($body as CompoundStatement)->getStatements();
-    if ($statements !== null) {
-      $name = $name->getText();
-      foreach ($statements->traverse() as $var) {
-        if (!$var is VariableToken) {
-          continue;
-        }
-        if ($var->getText() === $name) {
-          return null;
-        }
+    foreach ($body->traverse() as $var) {
+      if (!$var is VariableToken) {
+        continue;
+      }
+      if ($var->getText() === $name) {
+        return null;
       }
     }
 

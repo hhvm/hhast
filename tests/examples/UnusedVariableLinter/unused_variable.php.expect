@@ -25,6 +25,26 @@
         "description": "Variable is unused"
     },
     {
+        "blame": "$z ",
+        "blame_pretty": "$z ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "  $c ",
+        "blame_pretty": "  $c ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "    $fun ",
+        "blame_pretty": "    $fun ",
+        "description": "Variable is unused"
+    },
+    {
+        "blame": "$z ",
+        "blame_pretty": "$z ",
+        "description": "Variable is unused"
+    },
+    {
         "blame": "    $baz ",
         "blame_pretty": "    $baz ",
         "description": "Variable is unused"

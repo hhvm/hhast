@@ -388,7 +388,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                       $alias_trailing,
                       $comma_trailing,
                     ),
-                    ($lt, $trivia) ==> Str\length($trivia->getCode()),
+                    ($_lt, $trivia) ==> Str\length($trivia->getCode()),
                     0,
                   );
               },
