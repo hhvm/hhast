@@ -45,22 +45,24 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
   }
 
   private function getBody(Node $node): ?IStatement {
-    if ($node is IfStatement) {
+    if ($node is IfStatement || $node is ElseifClause || $node is ElseClause) {
       return $node->getStatement();
     }
-    if ($node is ElseClause) {
-      return $node->getStatement();
-    }
-    if ($node is ElseifClause) {
-      return $node->getStatement();
-    }
-    if ($node is ForeachStatement) {
+    if (
+      $node is ForeachStatement ||
+      $node is ForStatement ||
+      $node is DoStatement ||
+      $node is WhileStatement
+    ) {
       return $node->getBody();
     }
-    if ($node is WhileStatement) {
-      return $node->getBody();
+    if ($node is SwitchStatement) {
+      return null;
     }
-    return null;
+    invariant_violation(
+      'Unhandled control flow block type %s',
+      \get_class($node),
+    );
   }
 
   private function getLastHeadToken(Node $node): Token {
