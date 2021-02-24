@@ -1,0 +1,45 @@
+<?hh
+
+function a_flock_of_wild_braces(): void {
+
+  if (HAPPY_IF) {
+    f();
+  }
+
+  if (COMPACT_IF) { f(); }
+
+  if (WIDE_IF) {
+    f();
+  }
+
+  if (WIDE_IF) {
+    /* HH_FIXME[4110] Fake type error */
+    f();
+  }
+
+  while(LOOPS) {
+    f();
+  }
+
+  do {
+    // Obligatory tight loop joke
+
+
+
+
+    f();
+  } while (LOOPS);
+
+  if (nesting_braces(() ==> {
+    while(THIS_IS_POINTLESS) {
+      if (hi()) {
+        f();
+      }
+    }
+  })) {() ==> {
+
+      // This whitespace is owned by the lambda, so it won't get fixed.
+
+    };
+  }
+}

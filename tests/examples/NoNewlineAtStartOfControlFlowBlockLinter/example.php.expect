@@ -1,0 +1,32 @@
+[
+    {
+        "blame": "\n    f",
+        "blame_pretty": "\n    f",
+        "description": "Don't start control flow blocks with a newline."
+    },
+    {
+        "blame": "\n    \/* HH_FIXME[4110] Fake type error *\/\n    f",
+        "blame_pretty": "\n    \/* HH_FIXME[4110] Fake type error *\/\n    f",
+        "description": "Don't start control flow blocks with a newline."
+    },
+    {
+        "blame": "\n    f",
+        "blame_pretty": "\n    f",
+        "description": "Don't start control flow blocks with a newline."
+    },
+    {
+        "blame": "\n\n\n\n    \/\/ Obligatory tight loop joke\n\n\n\n\n    f",
+        "blame_pretty": "\n\n\n\n    \/\/ Obligatory tight loop joke\n\n\n\n\n    f",
+        "description": "Don't start control flow blocks with a newline."
+    },
+    {
+        "blame": "\n      if ",
+        "blame_pretty": "\n      if ",
+        "description": "Don't start control flow blocks with a newline."
+    },
+    {
+        "blame": "\n        f",
+        "blame_pretty": "\n        f",
+        "description": "Don't start control flow blocks with a newline."
+    }
+]
