@@ -9,8 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{ExpressionStatement, Node, NodeList, Script, Token};
-
+use type Facebook\HHAST\{ExpressionStatement, Node, Script, Token};
 
 final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
   const type TNode = ExpressionStatement;
@@ -43,7 +42,6 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
         $this,
         'This statement includes an expression that has no effect',
         $stmt,
-        () ==> $this->getFixedNode($stmt),
       );
     }
 
@@ -51,13 +49,33 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
   }
 
   public function getFixedNode(ExpressionStatement $stmt): Node {
-    // Only offer a fix if the node is literally empty
-    if ($stmt->getExpression() !== null) {
-      return $stmt;
+    $semicolon = $stmt->getSemicolon();
+    // Some places where an expression statement can appear
+    // can not be replaced with a NodeList.
+    // Trying to do so is a TypeError (uncaught Throwable).
+    // More places like this could exist, but there is no way to enumerate them.
+    // If you have found another place where this method goes bad,
+    // feel free to add another patch below.
+
+    // Patching body likes of control flow statements.
+    // if (side_effect()) ;
+    //                   ^^
+    // This expression statement can't be a NodeList.
+    // We can add an empty CompoundStatement here.
+    $owner = $this->getAST()->getParentOfDescendant($stmt);
+    if ($owner is IControlFlowStatement) {
+      $i_am_the_body = control_flow_statement_get_body_like($owner) === $stmt;
+      if ($i_am_the_body) {
+        return new CompoundStatement(
+          new LeftBraceToken($semicolon->getLeading(), null),
+          null,
+          new RightBraceToken(null, $semicolon->getTrailing()),
+        );
+      }
     }
 
-    $semicolon = $stmt->getSemicolonx();
-
+    // This could cause a TypeError still,
+    // if it does, add more patches.
     return NodeList::concat(
       $semicolon->getLeading(),
       $semicolon->getTrailing(),
@@ -68,8 +86,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * Returns whether the given expression is empty.
    */
   private function isEmptyExpression(Node $expr): bool {
-    return
-      $expr is AnonymousFunction ||
+    return $expr is AnonymousFunction ||
       (
         $expr is BinaryExpression &&
         $this->isOperatorWithoutSideEffects($expr->getOperator())
