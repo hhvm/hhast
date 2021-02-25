@@ -10,7 +10,6 @@
 namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Keyset, Math, Str, Vec};
-use type Facebook\HHAST\_Private\SoftDeprecated;
 use function Facebook\HHAST\__Private\find_type_for_node_async;
 
 enum HslNamespace: string {
@@ -609,7 +608,7 @@ final class HSLMigration extends BaseMigration {
       // single namespace use declaration
       $ns = C\firstx($suffixes);
     }
-    return $this->nodeByTypeFromCode<INamespaceUseDeclaration>(
+    return $this->nodeFromCode<INamespaceUseDeclaration>(
       "\nuse namespace HH\\Lib\\".$ns.";\n",
     );
   }
@@ -663,27 +662,7 @@ final class HSLMigration extends BaseMigration {
     return $node->replace($receiver, $new_receiver);
   }
 
-  <<SoftDeprecated('$this->nodeOfTypeFromCode<T>($code)')>>
-  protected function nodeFromCode<T as Node>(
-    string $code,
-    classname<T> $expected,
-  ): T {
-    /*HHAST_FIXME[DontUseAsioJoin]*/
-    $script = \HH\Asio\join(
-      from_file_async(File::fromPathAndContents('/dev/null', $code)),
-    );
-    // Using getFirstDescendantOfType(), see nodeOfTypeFromCode<T>().
-    $node = $script->getDeclarations()->getFirstDescendantOfType($expected);
-    invariant(
-      $node !== null,
-      "Failed to find node of type '%s' in code '%s'",
-      $expected,
-      $code,
-    );
-    return $node;
-  }
-
-  protected function nodeByTypeFromCode<<<__Enforceable>> reify T as Node>(
+  private function nodeFromCode<<<__Enforceable>> reify T as Node>(
     string $code,
   ): T {
     /*HHAST_FIXME[DontUseAsioJoin]*/
