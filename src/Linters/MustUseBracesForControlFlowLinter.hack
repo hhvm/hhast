@@ -20,11 +20,8 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
     Script $_context,
     IControlFlowStatement $node,
   ): ?ASTLintError {
-    $body = $this->getBody($node);
-    if ($body === null) {
-      return null;
-    }
-    if ($body is CompoundStatement) {
+    $body = control_flow_statement_get_body_like($node);
+    if ($body is ?CompoundStatement) {
       return null;
     }
 
@@ -42,25 +39,6 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
       $node,
       () ==> $this->getFixedNode($node),
     );
-  }
-
-  private function getBody(Node $node): ?IStatement {
-    if ($node is IfStatement) {
-      return $node->getStatement();
-    }
-    if ($node is ElseClause) {
-      return $node->getStatement();
-    }
-    if ($node is ElseifClause) {
-      return $node->getStatement();
-    }
-    if ($node is ForeachStatement) {
-      return $node->getBody();
-    }
-    if ($node is WhileStatement) {
-      return $node->getBody();
-    }
-    return null;
   }
 
   private function getLastHeadToken(Node $node): Token {
@@ -89,8 +67,8 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
   public function getFixedNode(
     IControlFlowStatement $node,
   ): IControlFlowStatement {
-    $body = $this->getBody($node);
-    invariant($body !== null, "Can't fix a node with no body");
+    $body = control_flow_statement_get_body_like($node);
+    invariant($body is nonnull, "Can't fix a node with no body");
     $last_token = $this->getLastHeadToken($node);
 
     if (

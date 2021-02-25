@@ -571,7 +571,6 @@ final class HSLMigration extends BaseMigration {
 
         $clauses = $decl->getClauses()->getChildrenOfItems();
         foreach ($clauses as $clause) {
-
           $name = $clause->getName();
           if ($name is QualifiedName) {
             $parts = $name->getParts()

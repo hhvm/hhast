@@ -69,6 +69,7 @@ final class LintRunConfig {
     HHAST\NewlineAtEndOfFileLinter::class,
     HHAST\NoBasicAssignmentFunctionParameterLinter::class,
     HHAST\MustUseBracesForControlFlowLinter::class,
+    HHAST\NoNewlineAtStartOfControlFlowBlockLinter::class,
     HHAST\MustUseOverrideAttributeLinter::class,
     HHAST\NoElseifLinter::class,
     HHAST\NoPHPEqualityLinter::class,
