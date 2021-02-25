@@ -11,6 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Dict, Str, Vec};
 use namespace Facebook\TypeAssert;
+use type Facebook\HHAST\_Private\SoftDeprecated;
 
 abstract class Node implements IMemoizeParam {
   abstract const string SYNTAX_KIND;
@@ -67,6 +68,7 @@ abstract class Node implements IMemoizeParam {
     return Dict\filter($this->getChildren(), $child ==> $filter($child));
   }
 
+  <<SoftDeprecated('$node->getChildrenByType<T>()')>>
   final public function getChildrenOfType<T as Node>(
     classname<T> $what,
   ): KeyedContainer<arraykey, T> {
@@ -77,6 +79,17 @@ abstract class Node implements IMemoizeParam {
       }
     }
     return /* HH_FIXME[4110] need reified generics */ $out;
+  }
+
+  final public function getChildrenByType<<<__Enforceable>> reify T as Node>(
+  ): dict<arraykey, T> {
+    $out = dict[];
+    foreach ($this->getChildren() as $k => $node) {
+      if ($node is T) {
+        $out[$k] = $node;
+      }
+    }
+    return $out;
   }
 
   final public function traverse(): Container<Node> {
@@ -140,6 +153,7 @@ abstract class Node implements IMemoizeParam {
     return vec[$this];
   }
 
+  <<SoftDeprecated('$node->getDescendantsByType<T>()')>>
   final public function getDescendantsOfType<T as Node>(
     classname<T> $what,
   ): vec<T> {
@@ -152,12 +166,35 @@ abstract class Node implements IMemoizeParam {
     return /* HH_FIXME[4110] need reified generics */ $out;
   }
 
+  final public function getDescendantsByType<<<__Enforceable>> reify T as Node>(
+  ): vec<T> {
+    $out = vec[];
+    foreach ($this->_descendants as $node) {
+      if ($node is T) {
+        $out[] = $node;
+      }
+    }
+    return $out;
+  }
+
+  <<SoftDeprecated('$node->getFirstDescendantByType<T>()')>>
   final public function getFirstDescendantOfType<T as Node>(
     classname<T> $what,
   ): ?T {
     foreach ($this->_descendants as $node) {
       if (\is_a($node, $what)) {
         return /* HH_FIXME[4110] need reified generics */ $node;
+      }
+    }
+    return null;
+  }
+
+  final public function getFirstDescendantByType<
+    <<__Enforceable>> reify T as Node,
+  >(): ?T {
+    foreach ($this->_descendants as $node) {
+      if ($node is T) {
+        return $node;
       }
     }
     return null;
@@ -218,9 +255,9 @@ abstract class Node implements IMemoizeParam {
     return $this is Token
       ? $this->withLeading($leading)
       : $this->replaceDescendant(
-          $this->getFirstTokenx(),
-          $this->getFirstTokenx()->withLeading($leading),
-        );
+        $this->getFirstTokenx(),
+        $this->getFirstTokenx()->withLeading($leading),
+      );
   }
 
   final public function withLastTokenTrailing(
@@ -229,9 +266,9 @@ abstract class Node implements IMemoizeParam {
     return $this is Token
       ? $this->withTrailing($trailing)
       : $this->replaceDescendant(
-          $this->getLastTokenx(),
-          $this->getLastTokenx()->withTrailing($trailing),
-        );
+        $this->getLastTokenx(),
+        $this->getLastTokenx()->withTrailing($trailing),
+      );
   }
 
   final public function rewriteDescendants<Tret as ?Node>(
@@ -277,9 +314,7 @@ abstract class Node implements IMemoizeParam {
 
   final public function getClosestAncestorOfDescendantOfType<
     <<__Enforceable>> reify TAncestor as Node,
-  >(
-    Node $node,
-  ): ?TAncestor {
+  >(Node $node): ?TAncestor {
     foreach (Vec\reverse($this->getAncestorsOfDescendant($node)) as $ancestor) {
       if ($ancestor is TAncestor) {
         return $ancestor;
