@@ -20,7 +20,7 @@ class NoNewlineAtStartOfControlFlowBlockLinter extends AutoFixingASTLinter {
     Script $_context,
     IControlFlowStatement $node,
   ): ?ASTLintError {
-    $body = $this->getBody($node);
+    $body = control_flow_statement_get_body_like($node);
     if (!$body is CompoundStatement) {
       return null;
     }
@@ -62,27 +62,6 @@ class NoNewlineAtStartOfControlFlowBlockLinter extends AutoFixingASTLinter {
     }
 
     return null;
-  }
-
-  private function getBody(IControlFlowStatement $node): ?IStatement {
-    if ($node is IfStatement || $node is ElseifClause || $node is ElseClause) {
-      return $node->getStatement();
-    }
-    if (
-      $node is ForeachStatement ||
-      $node is ForStatement ||
-      $node is DoStatement ||
-      $node is WhileStatement
-    ) {
-      return $node->getBody();
-    }
-    if ($node is SwitchStatement) {
-      return null;
-    }
-    invariant_violation(
-      'Unhandled control flow block type %s',
-      \get_class($node),
-    );
   }
 
   private static function stripLeadingEols(vec<Trivia> $trivia): vec<Trivia> {
