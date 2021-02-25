@@ -11,35 +11,34 @@
 namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
-use namespace HH\Lib\{C, Str, Vec};
-use namespace Facebook\HHAST;
+use namespace HH\Lib\{Str, Vec};
 
 final class RewriteBehaviorTest extends TestCase {
   public function testTokenIdentity(): void {
-    $node = new HHAST\VariableToken(null, null, '$var');
+    $node = new VariableToken(null, null, '$var');
 
     expect($node->rewrite(($x, $_) ==> $x))
       ->toBeSame($node);
   }
 
   public function testTriviaIdentity(): void {
-    $node = new HHAST\DelimitedComment('foo');
+    $node = new DelimitedComment('foo');
 
     expect($node->rewrite(($x, $_) ==> $x))
       ->toBeSame($node);
   }
 
   public function testSyntaxIdentity(): void {
-    $node = new HHAST\Script(new HHAST\NodeList(vec[], null));
+    $node = new Script(new NodeList(vec[], null));
     expect($node->rewrite(($x, $_) ==> $x))
       ->toBeSame($node);
   }
 
   public function testListIdentity(): void {
-    $node = new HHAST\NodeList(
+    $node = new NodeList(
       vec[
-        new HHAST\SingleLineComment('foo'),
-        new HHAST\DelimitedComment('bar'),
+        new SingleLineComment('foo'),
+        new DelimitedComment('bar'),
       ],
     );
 
@@ -48,18 +47,18 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testRewritingListChildren(): void {
-    $orig = new HHAST\NodeList(
+    $orig = new NodeList(
       vec[
-        new HHAST\SingleLineComment('foo'),
+        new SingleLineComment('foo'),
       ],
     );
 
     $new = $orig->rewrite(
       ($x, $_) ==> {
-        if (!$x is HHAST\SingleLineComment) {
+        if (!$x is SingleLineComment) {
           return $x;
         }
-        return new HHAST\DelimitedComment('bar');
+        return new DelimitedComment('bar');
       },
     );
 
@@ -68,15 +67,15 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testEditingCommentInList(): void {
-    $orig = new HHAST\NodeList(
+    $orig = new NodeList(
       vec[
-        new HHAST\SingleLineComment('foo'),
+        new SingleLineComment('foo'),
       ],
     );
 
     $new = $orig->rewrite(
       ($x, $_) ==> {
-        if (!$x is HHAST\SingleLineComment) {
+        if (!$x is SingleLineComment) {
           return $x;
         }
         return $x->withText('bar');
@@ -88,11 +87,11 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testRewriteLeadingComment(): void {
-    $orig = new HHAST\VariableToken(
-      new HHAST\NodeList(
+    $orig = new VariableToken(
+      new NodeList(
         vec[
-          new HHAST\DelimitedComment('/* foo */'),
-          new HHAST\WhiteSpace(' '),
+          new DelimitedComment('/* foo */'),
+          new WhiteSpace(' '),
         ],
       ),
       null,
@@ -101,7 +100,7 @@ final class RewriteBehaviorTest extends TestCase {
 
     $new = $orig->rewrite(
       ($node, $_) ==> {
-        if (!$node is HHAST\DelimitedComment) {
+        if (!$node is DelimitedComment) {
           return $node;
         }
         return $node->withText('/* bar */');
@@ -113,11 +112,11 @@ final class RewriteBehaviorTest extends TestCase {
   }
 
   public function testEmptyingList(): void {
-    $orig = new HHAST\VariableToken(
-      new HHAST\NodeList(
+    $orig = new VariableToken(
+      new NodeList(
         vec[
-          new HHAST\DelimitedComment('/* foo */'),
-          new HHAST\WhiteSpace(' '),
+          new DelimitedComment('/* foo */'),
+          new WhiteSpace(' '),
         ],
       ),
       null,
@@ -126,13 +125,13 @@ final class RewriteBehaviorTest extends TestCase {
 
     $new = $orig->rewrite(
       ($node, $_parents) ==> {
-        if (!$node is HHAST\Trivia) {
+        if (!$node is Trivia) {
           return $node;
         }
         return null;
       },
     )
-      |> expect($$)->toBeInstanceOf(HHAST\VariableToken::class);
+      |> expect($$)->toBeInstanceOf(VariableToken::class);
 
 
     expect($new->getLeading()->isEmpty())->toBeTrue(
@@ -143,36 +142,33 @@ final class RewriteBehaviorTest extends TestCase {
   public async function testRewritePreservesCaseOfFixedTextTokens(
   ): Awaitable<void> {
     $code = "<?hh \$x = NuLl;";
-    $ast = await HHAST\from_file_async(
-      HHAST\File::fromPathAndContents('/dev/null', $code),
-    );
+    $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
     expect($ast->getCode())->toBeSame($code);
   }
 
   public async function testRewritesNewChildren(): Awaitable<void> {
     $code = "<?hh type T = shape('subshape' => shape('subfield' => string));";
-    $orig = await HHAST\from_file_async(
-      HHAST\File::fromPathAndContents('/dev/null', $code),
+    $orig = await from_file_async(
+      File::fromPathAndContents('/dev/null', $code),
     );
     expect($orig->getCode())->toBeSame($code);
 
     $new = $orig->rewrite(
       ($shape, $_) ==> {
-        if (!$shape is HHAST\ShapeTypeSpecifier) {
+        if (!$shape is ShapeTypeSpecifier) {
           return $shape;
         }
 
         return $shape->withFields(
-          new HHAST\NodeList(
+          new NodeList(
             Vec\map(
               $shape->getFieldsx()->getChildren(),
               $item ==> {
                 $field = $item->getItem();
                 $name = $field->getName();
-                $name_t = $name->getDescendantsOfType(
-                  HHAST\SingleQuotedStringLiteralToken::class,
-                )
-                  |> C\first($$);
+                $name_t = $name->getFirstDescendantByType<
+                  SingleQuotedStringLiteralToken,
+                >();
                 if ($name_t === null) {
                   return $item;
                 }

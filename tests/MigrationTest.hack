@@ -10,7 +10,6 @@
 namespace Facebook\HHAST;
 
 use function Facebook\HHAST\TestLib\expect;
-use namespace Facebook\HHAST;
 use type Facebook\HackTest\DataProvider;
 use namespace HH\Lib\{C, Str};
 
@@ -50,7 +49,7 @@ abstract class MigrationTest extends TestCase {
       __DIR__.'/examples/'.$example.'.in',
     );
     $file = $temp->getFilePath();
-    $ast = await HHAST\from_file_async(HHAST\File::fromPath($file));
+    $ast = await from_file_async(File::fromPath($file));
 
     $migration = new $migration($temp->getRootPath());
 
@@ -68,7 +67,7 @@ abstract class MigrationTest extends TestCase {
       __DIR__.'/examples/'.$example.'.in',
     );
     $file = $temp->getFilePath();
-    $ast = await HHAST\from_file_async(HHAST\File::fromPath($file));
+    $ast = await from_file_async(File::fromPath($file));
 
     $root = $temp->getRootPath();
     $migration = () ==> new $migration($root);

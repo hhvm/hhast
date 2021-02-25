@@ -59,8 +59,7 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
     if ($shape->hasEllipsis()) {
       return $shape;
     }
-    $fields = $shape->getDescendantsOfType(FieldSpecifier::class);
-    $first_field = C\first($fields);
+    $first_field = $shape->getFirstDescendantByType<FieldSpecifier>();
     if ($first_field === null) {
       return $shape->withEllipsis(new DotDotDotToken(null, null));
     }
@@ -84,12 +83,7 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
     $make_step = (
       string $name,
       (function(ShapeTypeSpecifier): ShapeTypeSpecifier) $impl,
-    ) ==> new TypedMigrationStep(
-      $name,
-      ShapeTypeSpecifier::class,
-      ShapeTypeSpecifier::class,
-      $impl,
-    );
+    ) ==> new NodeTypeMigrationStep<ShapeTypeSpecifier, _>($name, $impl);
 
     return vec[
       $make_step(

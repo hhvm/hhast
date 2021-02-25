@@ -21,12 +21,12 @@ final class TopLevelRequiresMigration extends BaseMigration {
 
   private async function migrateFileAsync(Script $script): Awaitable<Script> {
     $decls = $script->getDeclarations();
-    $includes = $decls->getChildrenOfType(InclusionDirective::class);
+    $includes = $decls->getChildrenByType<InclusionDirective>();
     if (C\is_empty($includes)) {
       return $script;
     }
 
-    $entrypoint = $decls->getChildrenOfType(FunctionDeclaration::class)
+    $entrypoint = $decls->getChildrenByType<FunctionDeclaration>()
       |> Vec\filter(
         $$,
         $f ==> C\any(
@@ -41,7 +41,7 @@ final class TopLevelRequiresMigration extends BaseMigration {
     if (!$entrypoint) {
       return $script;
     }
-    $classes = $script->getDescendantsOfType(ClassishDeclaration::class);
+    $classes = $script->getDescendantsByType<ClassishDeclaration>();
     if (
       C\any(
         $classes,

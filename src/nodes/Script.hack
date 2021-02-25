@@ -14,7 +14,7 @@ use namespace HH\Lib\{C, Dict, Vec};
 final class Script extends ScriptGeneratedBase {
   <<__Memoize>>
   public function getTokens(): vec<Token> {
-    return $this->getDescendantsOfType(Token::class);
+    return $this->getDescendantsByType<Token>();
   }
 
   <<__Memoize>>
@@ -125,8 +125,9 @@ final class Script extends ScriptGeneratedBase {
         if ($ns['name'] === '') {
           $ns['name'] = null;
         }
-        $inner =
-          __Private\Resolution\get_uses_directly_in_scope($ns['children']);
+        $inner = __Private\Resolution\get_uses_directly_in_scope(
+          $ns['children'],
+        );
         $ns['uses'] = shape(
           'namespaces' =>
             Dict\merge($outer['namespaces'], $inner['namespaces']),
@@ -151,30 +152,30 @@ final class Script extends ScriptGeneratedBase {
     $nodes_with_maybe_generics = Vec\concat(
       // classes/interfaces/traits
       Vec\map(
-        $root->getDescendantsOfType(ClassishDeclaration::class),
+        $root->getDescendantsByType<ClassishDeclaration>(),
         $n ==> tuple($n, $n->getTypeParameters()),
       ),
       // type declarations
       Vec\map(
-        $root->getDescendantsOfType(AliasDeclaration::class),
+        $root->getDescendantsByType<AliasDeclaration>(),
         $n ==> tuple($n, $n->getGenericParameter()),
       ),
       Vec\map(
-        $root->getDescendantsOfType(TypeConstDeclaration::class),
+        $root->getDescendantsByType<TypeConstDeclaration>(),
         $n ==> tuple($n, $n->getTypeParameters() as ?TypeParameters),
       ),
       // functions/methods
       Vec\map(
-        $root->getDescendantsOfType(FunctionDeclaration::class),
+        $root->getDescendantsByType<FunctionDeclaration>(),
         $n ==> tuple($n, $n->getDeclarationHeader()->getTypeParameterList()),
       ),
       Vec\map(
-        $root->getDescendantsOfType(MethodishDeclaration::class),
+        $root->getDescendantsByType<MethodishDeclaration>(),
         $n ==> tuple($n, $n->getFunctionDeclHeader()->getTypeParameterList()),
       ),
       // whatever this is
       Vec\map(
-        $root->getDescendantsOfType(MethodishTraitResolution::class),
+        $root->getDescendantsByType<MethodishTraitResolution>(),
         $n ==> tuple(
           $n,
           $n->getFunctionDeclHeader() as FunctionDeclarationHeader

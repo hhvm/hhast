@@ -87,7 +87,7 @@ final class NodeTypesTest extends TestCase {
     $qualified_name = expect($some_namespaced_const->getWrappedNode())
       ->toBeInstanceOf(QualifiedName::class);
     expect(
-      $qualified_name->getDescendantsOfType(Token::class)
+      $qualified_name->getDescendantsByType<Token>()
         |> Vec\map($$, $t ==> $t->getText())
         |> Str\join($$, ''),
     )->toBeSame('SOME\\NAMESPACED\\CONST');
@@ -117,7 +117,7 @@ final class NodeTypesTest extends TestCase {
     expect($c1->getText())->toBeSame('SOME_CONST');
     $c2 = expect($c2->getWrappedNode())->toBeInstanceOf(QualifiedName::class);
     expect(
-      $c2->getDescendantsOfType(Token::class)
+      $c2->getDescendantsByType<Token>()
         |> Vec\map($$, $t ==> $t->getText())
         |> Str\join($$, ''),
     )->toBeSame('SOME\\NAMESPACED\\CONST');
@@ -130,11 +130,11 @@ final class NodeTypesTest extends TestCase {
     $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
     $decl = $class->getBody()
       ->getElementsx()
-      ->getChildrenOfType(XHPChildrenDeclaration::class)
+      ->getChildrenByType<XHPChildrenDeclaration>()
       |> C\onlyx($$);
 
     // :bar+
-    $bin_expr = $decl->getDescendantsOfType(PostfixUnaryExpression::class)
+    $bin_expr = $decl->getDescendantsByType<PostfixUnaryExpression>()
       |> C\onlyx($$);
     $lhs = $bin_expr->getOperand();
     $lhs = expect($lhs)->toBeInstanceOf(NameExpression::class);
@@ -151,10 +151,10 @@ final class NodeTypesTest extends TestCase {
     $class = expect($x)->toBeInstanceOf(ClassishDeclaration::class);
     $decl = $class->getBody()
       ->getElementsx()
-      ->getChildrenOfType(XHPChildrenDeclaration::class)
+      ->getChildrenByType<XHPChildrenDeclaration>()
       |> C\onlyx($$);
 
-    $bin_expr = $decl->getDescendantsOfType(PostfixUnaryExpression::class)
+    $bin_expr = $decl->getDescendantsByType<PostfixUnaryExpression>()
       |> C\onlyx($$);
     $lhs = $bin_expr->getOperand();
     $lhs = expect($lhs)->toBeInstanceOf(XHPChildrenParenthesizedList::class);

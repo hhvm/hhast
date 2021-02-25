@@ -26,7 +26,7 @@ final class DontUseAsioJoinLinter extends AutoFixingASTLinter {
     if ($name is NameToken) {
       $string_name = $name->getText();
     } else if ($name is QualifiedName) {
-      $string_name = $name->getDescendantsOfType(NameToken::class)
+      $string_name = $name->getDescendantsByType<NameToken>()
         |> Vec\map($$, $n ==> $n->getText())
         |> Str\join($$, '\\');
       if (qualified_name_is_fully_qualified($name)) {

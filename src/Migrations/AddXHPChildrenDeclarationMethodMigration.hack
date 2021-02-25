@@ -22,13 +22,13 @@ final class AddXHPChildrenDeclarationMethodMigration
     ) {
       return false;
     }
-    $classes = $in->getChildrenOfType(ClassishDeclaration::class);
+    $classes = $in->getChildrenByType<ClassishDeclaration>();
     return C\any(
       $classes,
       $class ==> !C\is_empty(
         $class->getBody()
           ->getElements()
-          ?->getChildrenOfType(XHPChildrenDeclaration::class) ??
+          ?->getChildrenByType<XHPChildrenDeclaration>() ??
           vec[],
       ),
     );
@@ -40,7 +40,7 @@ final class AddXHPChildrenDeclarationMethodMigration
       return $in;
     }
 
-    $before = C\firstx($decls->getChildrenOfType(IDeclaration::class));
+    $before = C\firstx($decls->getChildrenByType<IDeclaration>());
     $t = $before->getFirstTokenx();
     $use = self::getUseNamespace();
     if ($t->getLeading() !== $t->getLeadingWhitespace()) {
@@ -86,7 +86,7 @@ final class AddXHPChildrenDeclarationMethodMigration
     return $in->withBody(
       $body->withDeclarations(
         $decls->insertBefore(
-          C\firstx($decls->getChildrenOfType(IDeclaration::class)),
+          C\firstx($decls->getChildrenByType<IDeclaration>()),
           $use,
         ),
       ),
@@ -128,7 +128,7 @@ final class AddXHPChildrenDeclarationMethodMigration
   }
 
   private static function alreadyUsesTrait(ClassishBody $in): bool {
-    $uses = $in->getElementsx()->getChildrenOfType(TraitUse::class)
+    $uses = $in->getElementsx()->getChildrenByType<TraitUse>()
       |> Vec\map($$, $use ==> $use->getNames()->getChildrenOfItems())
       |> Vec\flatten($$);
     foreach ($uses as $use) {
@@ -147,7 +147,7 @@ final class AddXHPChildrenDeclarationMethodMigration
 
   private static function addTrait(ClassishBody $in): ClassishBody {
     $decl = $in->getElements()
-      ?->getChildrenOfType(XHPChildrenDeclaration::class) ??
+      ?->getChildrenByType<XHPChildrenDeclaration>() ??
       vec[];
     if (C\is_empty($decl)) {
       return $in;
@@ -189,14 +189,13 @@ final class AddXHPChildrenDeclarationMethodMigration
     ClassishBody $in,
   ): ClassishBody {
     $decl = $in->getElements()
-      ?->getChildrenOfType(XHPChildrenDeclaration::class) ??
+      ?->getChildrenByType<XHPChildrenDeclaration>() ??
       vec[];
     if (C\is_empty($decl)) {
       return $in;
     }
     foreach (
-      $in->getElementsx()->getChildrenOfType(MethodishDeclaration::class) as
-        $method
+      $in->getElementsx()->getChildrenByType<MethodishDeclaration>() as $method
     ) {
       if (
         $method->getFunctionDeclHeader()->getName()->getText() ===
@@ -415,28 +414,20 @@ final class AddXHPChildrenDeclarationMethodMigration
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
     return vec[
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<Script, _>(
         'Add `use` statement to top level of file if needed',
-        Script::class,
-        Script::class,
         $node ==> self::addUseNamespaceToScript($node),
       ),
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<NamespaceDeclaration, _>(
         'Add `use` statement to namespace blocks as needed',
-        NamespaceDeclaration::class,
-        NamespaceDeclaration::class,
         $node ==> self::addUseNamespaceToNamespaceBlock($node),
       ),
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<ClassishBody, _>(
         'Add `getChildrenDeclaration()` method',
-        ClassishBody::class,
-        ClassishBody::class,
         $node ==> self::addChildrenDeclarationMethod($node),
       ),
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<ClassishBody, _>(
         'Add `XHPChildDeclarationConsistencyValidation` trait',
-        ClassishBody::class,
-        ClassishBody::class,
         $node ==> self::addTrait($node),
       ),
     ];

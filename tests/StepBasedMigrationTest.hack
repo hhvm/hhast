@@ -10,7 +10,6 @@
 namespace Facebook\HHAST;
 use function Facebook\HHAST\TestLib\expect;
 
-use namespace Facebook\HHAST;
 use type Facebook\HackTest\DataProvider;
 
 abstract class StepBasedMigrationTest extends MigrationTest {
@@ -33,11 +32,10 @@ abstract class StepBasedMigrationTest extends MigrationTest {
     IMigrationStep $step,
     string $example,
   ): Awaitable<void> {
-    $rewrite = (HHAST\Node $ast) ==>
-      $ast->rewrite(($n, $_) ==> $step->rewrite($n));
+    $rewrite = (Node $ast) ==> $ast->rewrite(($n, $_) ==> $step->rewrite($n));
 
-    $ast = await HHAST\from_file_async(
-      HHAST\File::fromPath(__DIR__.'/examples/'.$example.'.in'),
+    $ast = await from_file_async(
+      File::fromPath(__DIR__.'/examples/'.$example.'.in'),
     );
     $ast = $rewrite($ast);
 

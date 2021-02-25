@@ -91,8 +91,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
 
     $private = $method->getFunctionDeclHeader()
       ->getModifiersx()
-      ->getDescendantsOfType(PrivateToken::class)
-      |> C\first($$);
+      ->getFirstDescendantByType<PrivateToken>();
     if ($private !== null) {
       return true;
     }

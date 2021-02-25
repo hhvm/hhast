@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{Str, Vec};
 
 class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
   const type TNode = IControlFlowStatement;
@@ -95,8 +95,7 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
 
     if (
       $last_token->getTrailingWhitespace()
-        ->getDescendantsOfType(EndOfLine::class)
-      |> C\is_empty(vec($$))
+        ->getFirstDescendantByType<EndOfLine>() is null
     ) {
       $right_brace_leading = new NodeList(vec[new WhiteSpace(' ')]);
       $body_trailing = null;

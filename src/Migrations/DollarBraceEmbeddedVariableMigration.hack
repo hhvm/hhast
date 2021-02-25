@@ -67,10 +67,8 @@ final class DollarBraceEmbeddedVariableMigration extends StepBasedMigration {
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
     return vec[
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<LiteralExpression, _>(
         'convert "${foo}" to "{$foo}"',
-        LiteralExpression::class,
-        LiteralExpression::class,
         $node ==> self::migrateLiteralExpression($node),
       ),
     ];

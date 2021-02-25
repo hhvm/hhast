@@ -173,6 +173,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
         )
         |> $node->withClauses(new NodeList($$));
     }
+    // ->getChildrenByType<ListItem>() can't be used, because ListItem is generic.
     $last = C\lastx($fixed->getClauses()->getChildrenOfType(ListItem::class));
     $sep = $last->getSeparator();
 
@@ -183,8 +184,7 @@ final class UnusedUseClauseLinter extends AutoFixingASTLinter {
   }
 
   <<__Memoize>>
-  private function getUnresolvedReferencedNames(
-  ): shape(
+  private function getUnresolvedReferencedNames(): shape(
     'namespaces' => keyset<string>,
     'types' => keyset<string>,
     'functions' => keyset<string>,
