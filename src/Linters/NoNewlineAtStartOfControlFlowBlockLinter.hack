@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{C, Vec};
 
 class NoNewlineAtStartOfControlFlowBlockLinter extends AutoFixingASTLinter {
   const type TNode = IControlFlowStatement;
@@ -31,19 +31,37 @@ class NoNewlineAtStartOfControlFlowBlockLinter extends AutoFixingASTLinter {
     if ($next_token is null) {
       return null;
     }
-
-    $whitespace = $next_token->getLeading()->getCode();
-
-    if (!Str\starts_with($whitespace, \PHP_EOL)) {
+    $next_leading = $next_token->getLeading()->toVec();
+    if (!C\first($next_leading) is EndOfLine) {
       return null;
     }
 
-    return new ASTLintError(
-      $this,
-      "Don't start control flow blocks with a newline.",
-      $next_token,
-      () ==> self::fix($next_token),
-    );
+    $seen_eol = C\last($left_brace->getTrailing()->toVec()) is EndOfLine;
+
+    // The AST tends to be structured in such a way that the trivia
+    // after the `{` including the newline is part of the `{`.
+    // If this were to change in the future,
+    // expect two newlines before the next token.
+    if ($seen_eol) {
+      return new ASTLintError(
+        $this,
+        "Don't start control flow blocks with a newline.",
+        $next_token,
+        () ==> self::stripLeadingEols($next_leading)
+          |> $next_token->withLeading(new NodeList($$)),
+      );
+    } else if (idx($next_leading, 1) is EndOfLine) {
+      return new ASTLintError(
+        $this,
+        "Don't start control flow blocks with a newline.",
+        $next_token,
+        () ==> self::stripLeadingEols($next_leading)
+          |> Vec\concat(vec[$next_leading[0]], $$)
+          |> $next_token->withLeading(new NodeList($$)),
+      );
+    }
+
+    return null;
   }
 
   private function getBody(IControlFlowStatement $node): ?IStatement {
@@ -67,12 +85,8 @@ class NoNewlineAtStartOfControlFlowBlockLinter extends AutoFixingASTLinter {
     );
   }
 
-  private static function fix(Token $token): Token {
-    return $token->withLeading(
-      $token->getLeading()->toVec()
-        |> new Vector($$)
-        |> $$->skipWhile($t ==> $t is EndOfLine)
-        |> new NodeList(vec($$)),
-    );
+  private static function stripLeadingEols(vec<Trivia> $trivia): vec<Trivia> {
+    return C\find_key($trivia, $n ==> !$n is EndOfLine)
+      |> Vec\slice($trivia, $$ as nonnull);
   }
 }
