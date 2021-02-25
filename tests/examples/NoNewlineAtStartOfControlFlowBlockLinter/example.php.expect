@@ -28,5 +28,20 @@
         "blame": "\n        f",
         "blame_pretty": "\n        f",
         "description": "Don't start control flow blocks with a newline."
+    },
+    {
+        "blame": "\n    f",
+        "blame_pretty": "\n    f",
+        "description": "Don't start control flow blocks with a newline."
+    },
+    {
+        "blame": "\n    f",
+        "blame_pretty": "\n    f",
+        "description": "Don't start control flow blocks with a newline."
+    },
+    {
+        "blame": "\n    f",
+        "blame_pretty": "\n    f",
+        "description": "Don't start control flow blocks with a newline."
     }
 ]

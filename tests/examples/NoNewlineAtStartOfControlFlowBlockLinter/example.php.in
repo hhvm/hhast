@@ -1,7 +1,6 @@
 <?hh
 
 function a_flock_of_wild_braces(): void {
-
   if (HAPPY_IF) {
     f();
   }
@@ -50,5 +49,23 @@ function a_flock_of_wild_braces(): void {
       // This whitespace is owned by the lambda, so it won't get fixed.
 
     };
+  }
+
+  if (WITH_COMMENT) { // hi
+
+    f();
+  }
+
+  if (WITH_COMMENT) // hi
+  {
+
+    f();
+  }
+
+  if (WITH_MULTI_LINE) { /*
+
+  */
+
+    f();
   }
 }
