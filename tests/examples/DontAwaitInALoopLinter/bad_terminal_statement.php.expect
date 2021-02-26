@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "      await $k->somethingAsync()",
+        "blame_pretty": "Line 5:     foreach (vec[] as $k) {\nLine 6:       await $k->somethingAsync();",
+        "description": "Don't use await in a loop"
+    }
+]
