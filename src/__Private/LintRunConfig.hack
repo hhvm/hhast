@@ -82,6 +82,7 @@ final class LintRunConfig {
     HHAST\NoWhitespaceAtEndOfLineLinter::class,
     HHAST\PreferRequireOnceLinter::class,
     HHAST\ConsistentLineEndingsLinter::class,
+    HHAST\DontShadowLocalVariablesInForeachLinter::class,
   ];
 
   const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[

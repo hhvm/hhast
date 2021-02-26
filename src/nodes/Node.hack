@@ -323,6 +323,18 @@ abstract class Node implements IMemoizeParam {
     return null;
   }
 
+  final public function getAncestorsOfDescendantOfType<
+    <<__Enforceable>> reify TAncestor as Node,
+  >(Node $node): vec<TAncestor> {
+    $out = vec[];
+    foreach ($this->getAncestorsOfDescendant($node) as $ancestor) {
+      if ($ancestor is TAncestor) {
+        $out[] = $ancestor;
+      }
+    }
+    return $out;
+  }
+
   final public function getParentOfDescendant(Node $node): Node {
     invariant($node !== $this, 'Asked to find parent of self');
     invariant($this->isAncestorOf($node), 'Node is not a descendant');
