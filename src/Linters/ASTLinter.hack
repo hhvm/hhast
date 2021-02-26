@@ -50,10 +50,9 @@ abstract class ASTLinter extends BaseLinter {
     $targets = dict[];
     $ancestor = static::getAncestorType();
     if ($ancestor === Script::class) {
-      $context = $ast as this::TContext;
       $targets = Vec\map(
         $ast->getDescendantsByType<this::TNode>(),
-        $node ==> tuple($context, $node),
+        $node ==> tuple($ast as this::TContext, $node),
       );
     } else {
       foreach ($ast->getDescendantsByType<this::TContext>() as $context) {
