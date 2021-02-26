@@ -78,6 +78,7 @@ final class LintRun {
           $class,
           $file,
           $config->getLinterConfigForLinter($class),
+          $config->getSuppressionAliasesForLinter($class),
         );
         $result->v = self::worstResult($result->v, $this_result);
       } catch (LinterException $e) {
@@ -104,12 +105,13 @@ final class LintRun {
     classname<TLinter> $linter,
     File $file,
     ?TLinterConfig $linter_config,
+    keyset<string> $suppression_aliases,
   ): Awaitable<LintRunResult> where TLinterConfig = TLinter::TConfig {
     if (!$file->isHackFile() || !$linter::shouldLintFile($file)) {
       return LintRunResult::NO_ERRORS;
     }
 
-    $linter = new $linter($file, $linter_config);
+    $linter = new $linter($file, $linter_config, $suppression_aliases);
 
     if ($linter->isLinterSuppressedForFile()) {
       return LintRunResult::NO_ERRORS;

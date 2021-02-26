@@ -54,6 +54,12 @@ final class LintRunConfig {
     // Each linter may specify a type for itself.
     // The type of this key is effectively `dict<classname<T1 ... Tn>, Tx>`
     ?'linterConfigs' => dict<string, BaseLinter::TConfig>,
+    // Maps FQN linter names to suppression aliases.
+    // "suppressionAliases": {
+    //   "Facebook\\HHAST\\DontAwaitInALoopLinter": [ "This is a polling loop" ]
+    // }
+    // Comments with "This is a lopping loop" now act like "HHAST_FIXME[DontAwaitInALoop]" would.
+    ?'suppressionAliases' => dict<string, vec<string>>,
   );
 
   const type TFileConfig = shape(
@@ -264,6 +270,12 @@ final class LintRunConfig {
         $e,
       );
     }
+  }
+
+  public function getSuppressionAliasesForLinter(
+    classname<BaseLinter> $classname,
+  ): keyset<string> {
+    return keyset($this->configFile['suppressionAliases'][$classname] ?? vec[]);
   }
 
   private function getFullyQualifiedLinterName(string $name): string {

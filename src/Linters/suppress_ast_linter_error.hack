@@ -21,22 +21,19 @@ function is_linter_error_suppressed(
   Node $node,
   Script $root,
 ): bool {
-  $fixme = $linter->getFixmeMarker();
-  $ignore = $linter->getIgnoreSingleErrorMarker();
-
-  if (is_linter_suppressed_in_current_node($node, $fixme, $ignore)) {
+  $suppressors = $linter->getAllSuppressors();
+  if (is_linter_suppressed_in_current_node($node, $suppressors)) {
     return true;
   }
 
-  return is_linter_suppressed_in_sibling_node($node, $root, $fixme, $ignore) ||
-    is_linter_suppressed_up_to_statement($node, $root, $fixme, $ignore);
+  return is_linter_suppressed_in_sibling_node($node, $root, $suppressors) ||
+    is_linter_suppressed_up_to_statement($node, $root, $suppressors);
 }
 
 // Check the current token's leading trivia. For example a comment on the line before
 function is_linter_suppressed_in_current_node(
   Node $node,
-  string $fixme,
-  string $ignore,
+  keyset<string> $suppressors,
 ): bool {
   $token = $node->getFirstToken();
   if ($token === null) {
@@ -44,30 +41,28 @@ function is_linter_suppressed_in_current_node(
   }
 
   $leading = $token->getLeading()->getCode();
-  return Str\contains($leading, $fixme) || Str\contains($leading, $ignore);
+  return C\any($suppressors, $supp ==> Str\contains($leading, $supp));
 }
 
 // Check sibling node as the comment might be attached there instead of on the current node
 function is_linter_suppressed_in_sibling_node(
   Node $node,
   Script $root,
-  string $fixme,
-  string $ignore,
+  keyset<string> $suppressors,
 ): bool {
   $token = $root->getPreviousToken($node->getFirstTokenx());
   if ($token === null) {
     return false;
   }
   $trailing = $token->getTrailing()->getCode();
-  return Str\contains($trailing, $fixme) || Str\contains($trailing, $ignore);
+  return C\any($suppressors, $supp ==> Str\contains($trailing, $supp));
 }
 
 // Walk up the parents and check the leading trivia until we hit a Statement type node.
 function is_linter_suppressed_up_to_statement(
   Node $node,
   Script $root,
-  string $fixme,
-  string $ignore,
+  keyset<string> $suppressors,
 ): bool {
   if ($node is IStatement) {
     return false;
@@ -91,6 +86,6 @@ function is_linter_suppressed_up_to_statement(
   if ($statement === null) {
     return false;
   }
-  return is_linter_suppressed_in_current_node($statement, $fixme, $ignore) ||
-    is_linter_suppressed_in_sibling_node($statement, $root, $fixme, $ignore);
+  return is_linter_suppressed_in_current_node($statement, $suppressors) ||
+    is_linter_suppressed_in_sibling_node($statement, $root, $suppressors);
 }

@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
 use type Facebook\HHAST\File;
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\{C, Keyset, Str};
 
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
@@ -27,6 +27,7 @@ abstract class BaseLinter {
   public function __construct(
     private File $file,
     private ?this::TConfig $config,
+    private keyset<string> $extraSuppressors,
   ) {
   }
 
@@ -57,7 +58,15 @@ abstract class BaseLinter {
     string $path,
     ?this::TConfig $config,
   ): this {
-    return new static(File::fromPath($path), $config);
+    return new static(File::fromPath($path), $config, keyset[]);
+  }
+
+  final public static function fromPathWithConfigAndSuppressionAliasses(
+    string $path,
+    ?this::TConfig $config,
+    keyset<string> $suppression_aliases,
+  ): this {
+    return new static(File::fromPath($path), $config, $suppression_aliases);
   }
 
   final public function getFile(): File {
@@ -82,11 +91,48 @@ abstract class BaseLinter {
   }
 
   /**
+   * Provided for consistency with other (internal) linting frameworks.
+   */
+  final public function getFrameworkAgnosticIgnoreAllMarker(): string {
+    return '@lint-ignore-all '.$this->getLinterName();
+  }
+
+  final public function getAllSuppressors(): keyset<string> {
+    return Keyset\union($this->defaultSuppressors(), $this->extraSuppressors);
+  }
+
+  final public function defaultSuppressors(): keyset<string> {
+    return keyset[
+      $this->getIgnoreSingleErrorMarker(),
+      $this->getFixmeMarker(),
+      $this->getFrameworkAgnosticFixmeMarker(),
+      $this->getShortIgnoreSingleMarker(),
+      $this->getFrameworkAgnosticIgnoreSingleMarker(),
+    ];
+  }
+
+  /**
    * A user can choose to ignore a specific error reported by this linter
-   * using this string as a marker
+   * using this string as a marker. HHAST_IGNORE or @lint-ignore are recommended instead.
    */
   public function getIgnoreSingleErrorMarker(): string {
     return 'HHAST_IGNORE_ERROR['.$this->getLinterName().']';
+  }
+
+  /**
+   * Identical to HHAST_IGNORE_ERROR, but doesn't suggest that
+   * the suppressed code is erroneous. Prefer this over HHAST_IGNORE_ERROR.
+   */
+  final public function getShortIgnoreSingleMarker(): string {
+    return 'HHAST_IGNORE['.$this->getLinterName().']';
+  }
+
+  /**
+   * Provided for consistency with other (internal) linting frameworks.
+   * Identical to HHAST_IGNORE.
+   */
+  final public function getFrameworkAgnosticIgnoreSingleMarker(): string {
+    return '@lint-ignore '.$this->getLinterName();
   }
 
   /**
@@ -101,15 +147,22 @@ abstract class BaseLinter {
   }
 
   /**
+   * Provided for consistency with other (internal) linting frameworks.
+   * Identical to HHAST_FIXME.
+   */
+  final public function getFrameworkAgnosticFixmeMarker(): string {
+    return '@lint-fixme '.$this->getLinterName();
+  }
+
+  /**
    * Is this linter error disabled for the entire file?
    * Memoized since this should not change per run.
    */
   <<__Memoize>>
   public function isLinterSuppressedForFile(): bool {
-    return Str\contains(
-      $this->getFile()->getContents(),
-      $this->getIgnoreAllMarker(),
-    );
+    $contents = $this->getFile()->getContents();
+    return Str\contains($contents, $this->getIgnoreAllMarker()) ||
+      Str\contains($contents, $this->getFrameworkAgnosticIgnoreAllMarker());
   }
 
 }

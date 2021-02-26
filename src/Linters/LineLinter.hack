@@ -50,8 +50,10 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
   /** Check if this linter has been disabled by a comment on the previous line.
    */
   protected function isLinterSuppressed(string $previous_line): bool {
-    return Str\contains($previous_line, $this->getFixmeMarker()) ||
-      Str\contains($previous_line, $this->getIgnoreSingleErrorMarker());
+    return C\any(
+      $this->getAllSuppressors(),
+      $supp ==> Str\contains($previous_line, $supp),
+    );
   }
 
   /** Parse a single line of code and attempts to find lint errors */

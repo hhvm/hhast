@@ -85,6 +85,14 @@ trait LinterTestTrait {
 
     $linter = $this->getLinter(__DIR__.'/examples/'.$example.'.in');
 
+    if ($linter->isLinterSuppressedForFile()) {
+      // @see tests/examples/NewLintErrorSuppressionMechanism/old_style_global.php.in
+      // We want to be able to explicitly suppress the linter under test.
+      $global_suppression = 'Linter was suppressed globally';
+      expect($global_suppression)->toMatchExpectFile($example.'.expect');
+      return;
+    }
+
     /*HHAST_FIXME[DontUseAsioJoin]*/
     $out = \HH\Asio\join($linter->getLintErrorsAsync())
       |> Vec\map($$, $error ==> self::getErrorAsShape($error))
