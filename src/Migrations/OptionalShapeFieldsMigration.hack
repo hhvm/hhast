@@ -40,6 +40,7 @@ final class OptionalShapeFieldsMigration extends StepBasedMigration {
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
     return vec[
+      // Can't use NodeTypeMigrationStep<ListItem, _>, because ListItem is generic.
       new TypedMigrationStep(
         'make nullable fields optional',
         ListItem::class,

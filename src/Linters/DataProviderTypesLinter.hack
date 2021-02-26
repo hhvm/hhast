@@ -180,9 +180,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
   }
 
   <<__Memoize>>
-  private function getInfoAboutTestFile(
-    this::TContext $context,
-  ): ?shape(
+  private function getInfoAboutTestFile(this::TContext $context): ?shape(
     'data_providers' => this::TProviders,
     'hhast_methods' => dict<string, FunctionDeclarationHeader>,
   ) {
@@ -190,7 +188,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
       return null;
     }
 
-    $methods = $context->getDescendantsOfType(MethodishDeclaration::class);
+    $methods = $context->getDescendantsByType<MethodishDeclaration>();
 
     $data_providers = $methods
       |> Vec\map(
@@ -243,7 +241,7 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
         if ($name is NameToken) {
           $string_name = $name->getText();
         } else if ($name is QualifiedName) {
-          $string_name = $name->getDescendantsOfType(NameToken::class)
+          $string_name = $name->getDescendantsByType<NameToken>()
             |> Vec\map($$, $name ==> $name->getText())
             |> Str\join($$, '\\');
           if (qualified_name_is_fully_qualified($name)) {

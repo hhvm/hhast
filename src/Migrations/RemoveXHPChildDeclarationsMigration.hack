@@ -13,7 +13,7 @@ use namespace HH\Lib\{C, Vec};
 
 final class RemoveXHPChildDeclarationsMigration extends StepBasedMigration {
   private static function replaceTrait(ClassishBody $in): ClassishBody {
-    $uses = $in->getElements()?->getChildrenOfType(TraitUse::class) ?? vec[]
+    $uses = $in->getElements()?->getChildrenByType<TraitUse>() ?? vec[]
       |> Vec\map($$, $use ==> $use->getNames()->getChildrenOfItems())
       |> Vec\flatten($$);
     foreach ($uses as $use) {
@@ -36,7 +36,7 @@ final class RemoveXHPChildDeclarationsMigration extends StepBasedMigration {
     ClassishBody $in,
   ): ClassishBody {
     $decls = $in->getElements()
-      ?->getChildrenOfType(XHPChildrenDeclaration::class) ??
+      ?->getChildrenByType<XHPChildrenDeclaration>() ??
       vec[];
     if (C\is_empty($decls)) {
       return $in;
@@ -73,16 +73,12 @@ final class RemoveXHPChildDeclarationsMigration extends StepBasedMigration {
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
     return vec[
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<ClassishBody, _>(
         'Replace consistency trait with validation trait',
-        ClassishBody::class,
-        ClassishBody::class,
         $node ==> self::replaceTrait($node),
       ),
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<ClassishBody, _>(
         'Remove `children` declarations',
-        ClassishBody::class,
-        ClassishBody::class,
         $node ==> self::removeChildrenDeclaration($node),
       ),
     ];

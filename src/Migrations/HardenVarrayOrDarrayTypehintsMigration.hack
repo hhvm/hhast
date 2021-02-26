@@ -16,22 +16,16 @@ final class HardenVarrayOrDarrayTypehintsMigration extends StepBasedMigration {
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
     return vec[
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<ParameterDeclaration, _>(
         'Migrate varray_or_darray parameters',
-        ParameterDeclaration::class,
-        ParameterDeclaration::class,
         $node ==> self::migrateParameter($node),
       ),
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<FunctionDeclarationHeader, _>(
         'Migrate varray_or_darray return types',
-        FunctionDeclarationHeader::class,
-        FunctionDeclarationHeader::class,
         $node ==> $node->withType(self::migrateReturnType($node->getType())),
       ),
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<LambdaSignature, _>(
         'Migrate varray_or_darray return types in lambda functions',
-        LambdaSignature::class,
-        LambdaSignature::class,
         $node ==> $node->withType(static::migrateReturnType($node->getType())),
       ),
     ];
@@ -58,7 +52,8 @@ final class HardenVarrayOrDarrayTypehintsMigration extends StepBasedMigration {
     list($attr, $type) = static::migrate($wrapper?->getAttributeSpec(), $type);
     return $wrapper is null || $attr is null || $type is null
       ? $type
-      : $wrapper->withAttributeSpec($attr)->withType($type as ISimpleCreationSpecifier);
+      : $wrapper->withAttributeSpec($attr)
+        ->withType($type as ISimpleCreationSpecifier);
   }
 
   /**

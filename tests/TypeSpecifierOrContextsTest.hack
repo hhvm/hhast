@@ -43,8 +43,7 @@ final class TypeSpecifierOrContextsTest extends TestCase {
         'abstract class Foo { '.$code.'; }',
       ),
     );
-    $constraint = $ast->getFirstDescendantOfType(TypeConstraint::class)
-      as nonnull;
+    $constraint = $ast->getFirstDescendantByType<TypeConstraint>() as nonnull;
     expect($constraint->getType())->toBeInstanceOf($expected);
   }
 }

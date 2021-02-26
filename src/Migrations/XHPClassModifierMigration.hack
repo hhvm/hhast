@@ -47,10 +47,8 @@ final class XHPClassModifierMigration extends StepBasedMigration {
   <<__Override>>
   public function getSteps(): Traversable<IMigrationStep> {
     return vec[
-      new TypedMigrationStep(
+      new NodeTypeMigrationStep<ClassishDeclaration, _>(
         'Replace `class :foo:bar` with `xhp class foo:bar`',
-        ClassishDeclaration::class,
-        ClassishDeclaration::class,
         $node ==> self::replaceXHPClassWithModifier($node),
       ),
     ];

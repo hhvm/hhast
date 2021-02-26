@@ -11,16 +11,15 @@
 namespace Facebook\HHAST;
 
 use function Facebook\HHAST\TestLib\expect;
-use namespace Facebook\HHAST;
 use namespace HH\Lib\Str;
 
 final class FixtureRewritingTest extends TestCase {
   public async function testRewriteComments(): Awaitable<void> {
-    $rewriter = (HHAST\Node $node, ?vec<HHAST\Node> $_parents) ==> {
-      if ($node is HHAST\SingleLineComment) {
+    $rewriter = (Node $node, ?vec<Node> $_parents) ==> {
+      if ($node is SingleLineComment) {
         return $node->withText('// blah blah blah');
       }
-      if ($node is HHAST\DelimitedComment) {
+      if ($node is DelimitedComment) {
         if (Str\contains($node->getText(), 'Copyright')) {
           return $node;
         }
@@ -29,8 +28,8 @@ final class FixtureRewritingTest extends TestCase {
       return $node;
     };
 
-    $ast = await HHAST\from_file_async(
-      HHAST\File::fromPath(__DIR__.'/examples/rewrite_comments.php.in'),
+    $ast = await from_file_async(
+      File::fromPath(__DIR__.'/examples/rewrite_comments.php.in'),
     );
     $code = $ast->rewrite($rewriter)->getCode();
     expect($code)->toMatchExpectFile('rewrite_comments.php.expect');

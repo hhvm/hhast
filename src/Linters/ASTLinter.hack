@@ -9,14 +9,15 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\{HHAST, TypeAssert};
 use namespace Facebook\HHAST\SuppressASTLinter;
 use namespace HH\Lib\Vec;
 
 abstract class ASTLinter extends BaseLinter {
+  <<__Enforceable, __Reifiable>>
   abstract const type TContext as Node;
+  <<__Enforceable, __Reifiable>>
   abstract const type TNode as Node;
-  private ?HHAST\Script $ast;
+  private ?Script $ast;
 
   abstract protected function getLintErrorForNode(
     this::TContext $context,
@@ -48,18 +49,15 @@ abstract class ASTLinter extends BaseLinter {
     $this->ast = $ast;
     $targets = dict[];
     $ancestor = static::getAncestorType();
-    $target = static::getTargetType();
     if ($ancestor === Script::class) {
-      $context = TypeAssert\instance_of($ancestor, $ast);
+      $context = $ast as this::TContext;
       $targets = Vec\map(
-        $ast->getDescendantsOfType($target),
+        $ast->getDescendantsByType<this::TNode>(),
         $node ==> tuple($context, $node),
       );
     } else {
-      foreach (
-        $ast->getDescendantsOfType(static::getAncestorType()) as $context
-      ) {
-        foreach ($context->getDescendantsOfType($target) as $node) {
+      foreach ($ast->getDescendantsByType<this::TContext>() as $context) {
+        foreach ($context->getDescendantsByType<this::TNode>() as $node) {
           $targets[$node->getUniqueID()] = tuple($context, $node);
         }
       }

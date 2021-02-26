@@ -30,7 +30,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
 
     $uses_references = $use_expr is nonnull &&
       C\any(
-        $use_expr->getDescendantsOfType(PrefixUnaryExpression::class),
+        $use_expr->getDescendantsByType<PrefixUnaryExpression>(),
         $expr ==> $expr->getOperator() is AmpersandToken,
       );
 

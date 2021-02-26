@@ -10,8 +10,6 @@
 namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Keyset, Math, Str, Vec};
-
-
 use function Facebook\HHAST\__Private\find_type_for_node_async;
 
 enum HslNamespace: string {
@@ -158,7 +156,7 @@ final class HSLMigration extends BaseMigration {
   <<__Override>>
   public function migrateFile(string $path, Script $root): Script {
     // find all the function calls
-    $nodes = $root->getDescendantsOfType(FunctionCallExpression::class);
+    $nodes = $root->getDescendantsByType<FunctionCallExpression>();
 
     // keep track of any HSL namespaces we may have to add to the top of the file
     $found_namespaces = keyset[];
@@ -224,9 +222,7 @@ final class HSLMigration extends BaseMigration {
     }
 
     // add "use namespace" declarations at the top if they aren't already present
-    $declarations = vec(
-      $root->getDescendantsOfType(INamespaceUseDeclaration::class),
-    );
+    $declarations = $root->getDescendantsByType<INamespaceUseDeclaration>();
     list($hsl_declarations, $suffixes) = $this->findUseDeclarations(
       $declarations,
     );
@@ -242,6 +238,7 @@ final class HSLMigration extends BaseMigration {
     }
 
     // remove any current use statements for HH\Lib\* namespaces, we'll group them together
+    // Can't use ->getDescendantsByType<NodeList>() because NodeList is generic.
     $lists = $root->getDescendantsOfType(NodeList::class);
     foreach ($lists as $list) {
       $children = $list->toVec();
@@ -548,9 +545,8 @@ final class HSLMigration extends BaseMigration {
         // prefix matches: add node to list of nodes
         $nodes[] = $decl;
 
-        $clauses = vec(
-          $decl->getClauses()->getDescendantsOfType(NamespaceUseClause::class),
-        );
+        $clauses = $decl->getClauses()
+          ->getDescendantsByType<NamespaceUseClause>();
         $suffixes = $clauses
           |> Vec\map(
             $$,
@@ -611,9 +607,8 @@ final class HSLMigration extends BaseMigration {
       // single namespace use declaration
       $ns = C\firstx($suffixes);
     }
-    return $this->nodeFromCode(
+    return $this->nodeFromCode<INamespaceUseDeclaration>(
       "\nuse namespace HH\\Lib\\".$ns.";\n",
-      INamespaceUseDeclaration::class,
     );
   }
 
@@ -666,19 +661,18 @@ final class HSLMigration extends BaseMigration {
     return $node->replace($receiver, $new_receiver);
   }
 
-  protected function nodeFromCode<T as Node>(
+  private function nodeFromCode<<<__Enforceable>> reify T as Node>(
     string $code,
-    classname<T> $expected,
   ): T {
     /*HHAST_FIXME[DontUseAsioJoin]*/
     $script = \HH\Asio\join(
       from_file_async(File::fromPathAndContents('/dev/null', $code)),
     );
-    $node = $script->getDeclarations()->getFirstDescendantOfType($expected);
+    $node = $script->getDeclarations()->getFirstDescendantByType<T>();
     invariant(
       $node !== null,
       "Failed to find node of type '%s' in code '%s'",
-      $expected,
+      \HH\ReifiedGenerics\get_classname<T>(),
       $code,
     );
     return $node;

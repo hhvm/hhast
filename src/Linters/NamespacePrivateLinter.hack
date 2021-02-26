@@ -46,13 +46,13 @@ final class NamespacePrivateLinter extends ASTLinter {
 
     $traversed_qualified_names = varray[];
     foreach (
-      $node->getDescendantsOfType(QualifiedName::class) as $qualified_name_token
+      $node->getDescendantsByType<QualifiedName>() as $qualified_name_token
     ) {
       $name_token_key = '';
       if ($qualified_name_token->hasParts()) {
-        $name_token_key = $qualified_name_token->getDescendantsOfType(
-          NameToken::class,
-        )
+        $name_token_key = $qualified_name_token->getDescendantsByType<
+          NameToken,
+        >()
           |> Vec\map(
             $$,
             $qualified_name_token ==> $qualified_name_token->getText(),

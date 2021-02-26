@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Str};
+use namespace HH\Lib\Str;
 
 abstract class FunctionNamingLinter extends AutoFixingASTLinter {
   const type TContext = IFunctionishDeclaration;
@@ -85,9 +85,7 @@ abstract class FunctionNamingLinter extends AutoFixingASTLinter {
     } else if ($func is MethodishDeclaration) {
       if (
         $header->getModifiers()
-          ?->getDescendantsOfType(StaticToken::class)
-        |> ($$ ?? vec[])
-        |> C\is_empty(vec($$))
+          ?->getFirstDescendantByType<StaticToken>() is null
       ) {
         $what = 'Method';
         $new = $this->getSuggestedNameForInstanceMethod($old, $func);

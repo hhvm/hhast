@@ -546,7 +546,7 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
    * `Foo \ Bar \ Baz // comment` -> `Foo\Bar\Baz`
    */
   private static function withoutTrivia(Node $node): string {
-    return $node->getDescendantsOfType(Token::class)
+    return $node->getDescendantsByType<Token>()
       |> Vec\map($$, $token ==> $token->getText())
       |> Str\join($$, '');
   }

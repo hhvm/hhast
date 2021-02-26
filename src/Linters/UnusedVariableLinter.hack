@@ -35,10 +35,9 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
 
     // If this variable is inside a lambda function, we should be looking in the
     // lambda's header and body, not the enclosing function/method.
-    $lambda =
-      $functionish->getClosestAncestorOfDescendantOfType<LambdaExpression>(
-        $node,
-      );
+    $lambda = $functionish->getClosestAncestorOfDescendantOfType<
+      LambdaExpression,
+    >($node);
 
     $vars = $lambda is nonnull
       ? $this->classifyLambdaVariables($lambda)
@@ -71,21 +70,21 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     vec<ParameterDeclaration> $params,
     Node $body,
   ): keyset<string> {
-    $anon_fns = $body->getDescendantsOfType(AnonymousFunction::class);
-    $lambdas = $body->getDescendantsOfType(LambdaExpression::class);
+    $anon_fns = $body->getDescendantsByType<AnonymousFunction>();
+    $lambdas = $body->getDescendantsByType<LambdaExpression>();
 
     $anon_fn_params = Vec\map($anon_fns, $fn ==> {
       $params = $fn->getParameters();
       return $params is null
         ? vec[]
-        : $params->getDescendantsOfType(ParameterDeclaration::class);
+        : $params->getDescendantsByType<ParameterDeclaration>();
     })
       |> Vec\flatten($$);
 
     $lambda_params = Vec\map($lambdas, $lambda ==> {
       $signature = $lambda->getSignature();
       return $signature is LambdaSignature
-        ? $signature->getDescendantsOfType(ParameterDeclaration::class)
+        ? $signature->getDescendantsByType<ParameterDeclaration>()
         : vec[];
     })
       |> Vec\flatten($$);
@@ -222,7 +221,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     Node $body,
   ): shape('assigned' => keyset<string>, 'used' => keyset<string>) {
     $ret = shape('assigned' => vec[], 'used' => vec[]);
-    foreach ($body->getDescendantsOfType(VariableExpression::class) as $var) {
+    foreach ($body->getDescendantsByType<VariableExpression>() as $var) {
       if (
         $this->isVariableAssignment($var, $body->getAncestorsOfDescendant($var))
       ) {

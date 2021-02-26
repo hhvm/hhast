@@ -13,15 +13,14 @@ namespace Facebook\HHAST;
 use function Facebook\FBExpect\expect;
 use namespace Facebook\HHAST\__Private\Resolution;
 use type Facebook\HackTest\DataProvider;
-use namespace HH\Lib\{C, Dict, Vec};
+use namespace HH\Lib\{Dict, Vec};
 
 final class ResolutionTest extends TestCase {
   private static async function getRootAndNodeAsync(
     string $code,
   ): Awaitable<(Script, ClassishDeclaration)> {
     $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
-    $node = $ast->getDescendantsOfType(ClassishDeclaration::class)
-      |> C\firstx($$);
+    $node = $ast->getFirstDescendantByType<ClassishDeclaration>() as nonnull;
     return tuple($ast, $node);
   }
 
@@ -33,12 +32,12 @@ final class ResolutionTest extends TestCase {
   public async function testMultipleClassesInNamespaceBlock(): Awaitable<void> {
     $code = '<?hh namespace MyNS\\SubNS { class Foo {}; class Bar {} }';
     $ast = await from_file_async(File::fromPathAndContents('/dev/null', $code));
-    $namespace_names = $ast->getDescendantsOfType(NamespaceDeclaration::class)
+    $namespace_names = $ast->getDescendantsByType<NamespaceDeclaration>()
       |> Vec\map($$, $namespace ==> $namespace->getQualifiedNameAsString());
     expect($namespace_names)->toBeSame(vec[
       'MyNS\\SubNS',
     ]);
-    $class_names = $ast->getDescendantsOfType(ClassishDeclaration::class)
+    $class_names = $ast->getDescendantsByType<ClassishDeclaration>()
       |> Vec\map($$, $class ==> {
         return Resolution\get_current_namespace($ast, $class).
           '\\'.
@@ -73,8 +72,7 @@ final class ResolutionTest extends TestCase {
     expect(Resolution\get_current_namespace($root, $node))->toBeNull();
   }
 
-  public function getUseStatementExamples(
-  ): vec<(
+  public function getUseStatementExamples(): vec<(
     string,
     shape(
       'namespaces' => dict<string, string>,
@@ -167,11 +165,7 @@ final class ResolutionTest extends TestCase {
       'types' => Dict\map($uses['types'], $v ==> $v['name']),
       'functions' => Dict\map($uses['functions'], $v ==> $v['name']),
     );
-    expect($actual)->toBeSame(
-      $expected,
-      'Source: %s',
-      $code,
-    );
+    expect($actual)->toBeSame($expected, 'Source: %s', $code);
   }
 
   public function getTypeResolutionExamples(): vec<(string, string, string)> {

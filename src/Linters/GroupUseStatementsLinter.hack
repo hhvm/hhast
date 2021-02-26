@@ -53,13 +53,11 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
     };
 
     foreach (
-      $script->getDescendantsOfType(INamespaceUseDeclaration::class) as
-        $use_decl
+      $script->getDescendantsByType<INamespaceUseDeclaration>() as $use_decl
     ) {
       if ($use_decl is NamespaceUseDeclaration) {
         foreach (
-          $use_decl->getDescendantsOfType(NamespaceUseClause::class) as
-            $use_clause
+          $use_decl->getDescendantsByType<NamespaceUseClause>() as $use_clause
         ) {
           $parts = vec[];
 
@@ -82,9 +80,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
 
             $parts[] = $name->getText();
           } else if ($name is QualifiedName) {
-            foreach (
-              $name->getDescendantsOfType(NameToken::class) as $name_token
-            ) {
+            foreach ($name->getDescendantsByType<NameToken>() as $name_token) {
               if ($name_token->getLeading()->isList()) {
                 foreach ($name_token->getLeading()->getChildren() as $leading) {
                   $name_leading[] = $leading;
@@ -135,33 +131,33 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
         $parts = vec[];
 
         foreach (
-          $use_decl->getChildrenOfType(QualifiedName::class) as $qualified_name
+          $use_decl->getChildrenByType<QualifiedName>() as $qualified_name
         ) {
           foreach (
-            $qualified_name->getDescendantsOfType(NameToken::class) as
-              $name_token
+            $qualified_name->getDescendantsByType<NameToken>() as $name_token
           ) {
             $parts[] = $name_token->getText();
           }
         }
 
         foreach (
-          $use_decl->getDescendantsOfType(NamespaceUseClause::class) as
-            $use_clause
+          $use_decl->getDescendantsByType<NamespaceUseClause>() as $use_clause
         ) {
           $parts_item = vec[];
 
           $name_leading = vec[];
           $name_trailing = vec[];
           $comma_trailing = vec[];
-
+          // ->getDescendantsByType<ListItem>() can not be used, because ListItem is generic
           foreach ($use_decl->getDescendantsOfType(ListItem::class) as $item) {
             if ($item->isAncestorOf($use_clause)) {
-              $comma_tokens = vec($item->getChildrenOfType(CommaToken::class));
-              if (C\count($comma_tokens) > 0) {
-                if ($comma_tokens[0]->getTrailing()->isList()) {
+              $comma_tokens = $item->getChildrenByType<CommaToken>();
+              if (!C\is_empty($comma_tokens)) {
+                $first_comma_token = C\firstx($comma_tokens);
+                if ($first_comma_token->getTrailing()->isList()) {
                   foreach (
-                    $comma_tokens[0]->getTrailing()->getChildren() as $trailing
+                    $first_comma_token->getTrailing()->getChildren() as
+                      $trailing
                   ) {
                     $comma_trailing[] = $trailing;
                   }
@@ -187,9 +183,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
 
             $parts_item[] = $name->getText();
           } else if ($name is QualifiedName) {
-            foreach (
-              $name->getDescendantsOfType(NameToken::class) as $name_token
-            ) {
+            foreach ($name->getDescendantsByType<NameToken>() as $name_token) {
               if ($name_token->getLeading()->isList()) {
                 foreach ($name_token->getLeading()->getChildren() as $leading) {
                   $name_leading[] = $leading;
@@ -404,10 +398,8 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
         $i = 0;
         foreach ($nodes as $node) {
           if ($i === 0) {
-            $use_token = $node->getDescendantsOfType(UseToken::class)[0] ??
-              null;
-            $semicolumn_token =
-              $node->getDescendantsOfType(SemicolonToken::class)[0] ?? null;
+            $use_token = $node->getFirstDescendantByType<UseToken>();
+            $semi_token = $node->getFirstDescendantByType<SemicolonToken>();
 
             $script = $script->replace($node, new NamespaceGroupUseDeclaration(
               new UseToken(
@@ -509,7 +501,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                 );
               })),
               new RightBraceToken(null, null),
-              new SemicolonToken(null, $semicolumn_token?->getTrailing()),
+              new SemicolonToken(null, $semi_token?->getTrailing()),
             ));
           } else {
             $descendants = $script->getAncestorsOfDescendant($node);

@@ -37,11 +37,11 @@ function get_uses_directly_in_scope(?NodeList<Node> $scope): shape(
   $uses = vec[];
 
   // use [kind] Foo, [kind] Bar;
-  $statements = $scope->getChildrenOfType(NamespaceUseDeclaration::class);
+  $statements = $scope->getChildrenByType<NamespaceUseDeclaration>();
   foreach ($statements as $statement) {
     $kind = $statement->getKind();
     $clauses = $statement->getClauses()
-      ->getDescendantsOfType(NamespaceUseClause::class);
+      ->getDescendantsByType<NamespaceUseClause>();
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,
@@ -53,14 +53,14 @@ function get_uses_directly_in_scope(?NodeList<Node> $scope): shape(
   }
 
   // use [kind] Foo\{Bar, [kind] Baz}
-  $statements = $scope->getChildrenOfType(NamespaceGroupUseDeclaration::class);
+  $statements = $scope->getChildrenByType<NamespaceGroupUseDeclaration>();
   foreach ($statements as $statement) {
     $kind = $statement->getKind();
     $prefix = $statement->getPrefix()->getCode()
       |> Str\trim($$)
       |> Str\strip_prefix($$, '\\');
     $clauses = $statement->getClauses()
-      ->getDescendantsOfType(NamespaceUseClause::class);
+      ->getDescendantsByType<NamespaceUseClause>();
     foreach ($clauses as $clause) {
       $uses[] = tuple(
         $clause->hasClauseKind() ? $clause->getClauseKind() : $kind,

@@ -10,16 +10,14 @@
 namespace Facebook\HHAST;
 
 use type Facebook\HHAST\Node;
-use type Facebook\HHAST\_Private\SoftDeprecated;
 
-final class TypedMigrationStep<Tin as Node, Tout as Node>
-  implements IMigrationStep {
+final class NodeTypeMigrationStep<
+  <<__Enforceable>> reify Tin as Node,
+  Tout as Node,
+> implements IMigrationStep {
 
-  <<SoftDeprecated(NodeTypeMigrationStep::class)>>
   public function __construct(
     private string $name,
-    private classname<Tin> $tin,
-    classname<Tout> $_tout,
     private (function(Tin): Tout) $rewriter,
   ) {
   }
@@ -29,10 +27,9 @@ final class TypedMigrationStep<Tin as Node, Tout as Node>
   }
 
   public function rewrite(Node $node): Node {
-    if (!\is_a($node, $this->tin)) {
+    if (!$node is Tin) {
       return $node;
     }
-    $rewriter = $this->rewriter;
-    return $rewriter(/* HH_FIXME[4110] need reified generics */ $node);
+    return ($this->rewriter)($node);
   }
 }

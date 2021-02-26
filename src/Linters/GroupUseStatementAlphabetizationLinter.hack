@@ -40,7 +40,7 @@ final class GroupUseStatementAlphabetizationLinter extends AutoFixingASTLinter {
     $list = $node->getClauses();
     foreach ($list->toVec() as $item) {
       $name = $item->getItem()->getName();
-      $str = $name->getDescendantsOfType(NameToken::class)
+      $str = $name->getDescendantsByType<NameToken>()
         |> Vec\map($$, $t ==> $t->getText())
         |> Str\join($$, '\\');
       $items[$str] = $item;
