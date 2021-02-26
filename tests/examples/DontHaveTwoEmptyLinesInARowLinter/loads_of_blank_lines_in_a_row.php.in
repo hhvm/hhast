@@ -1,0 +1,18 @@
+<?hh
+
+function _(): void {
+
+
+
+
+
+
+
+
+
+
+
+  // Hackfmt will already format away any gap
+  // of three blank lines or greater to two blank lines.
+  hi();
+}

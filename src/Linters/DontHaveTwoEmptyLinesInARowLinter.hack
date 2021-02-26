@@ -9,31 +9,40 @@
 
 namespace Facebook\HHAST;
 
+use namespace HH\Lib\{C, Str};
+
 final class DontHaveTwoEmptyLinesInARowLinter extends AutoFixingASTLinter {
-  const type TContext = Token;
-  const type TNode = EndOfLine;
+  const type TContext = Script;
+  const type TNode = Token;
 
   <<__Override>>
   public function getLintErrorForNode(
-    this::TContext $token,
-    this::TNode $eol,
+    this::TContext $context,
+    this::TNode $token,
   ): ?ASTLintError {
+    if ($this->entireScriptIsClean($context)) {
+      return null;
+    }
+
+    if (!Str\contains($token->getCode(), \PHP_EOL.\PHP_EOL)) {
+      // We check for 2 eols, because the previous token may have the first.
+      return null;
+    }
+
     $eol_count = $this->getAST()
       ->getPreviousToken($token)
       ?->getTrailing()
       ?->getLast()
       |> $$ is EndOfLine ? 1 : 0;
 
+    $remove_leading = vec[];
+    $remove_trailing = vec[];
+
     foreach ($token->getLeading()->toVec() as $trivia) {
       if ($trivia is EndOfLine) {
         $eol_count++;
-        if ($eol_count >= 3 && $trivia === $eol) {
-          return new ASTLintError(
-            $this,
-            "Don't have two empty lines in a row",
-            $token,
-            () ==> static::removeLeading($token, $trivia),
-          );
+        if ($eol_count >= 3) {
+          $remove_leading[] = $trivia;
         }
       } else {
         $eol_count = 0;
@@ -47,33 +56,44 @@ final class DontHaveTwoEmptyLinesInARowLinter extends AutoFixingASTLinter {
     foreach ($token->getTrailing()->toVec() as $trivia) {
       if ($trivia is EndOfLine) {
         $eol_count++;
-        if ($eol_count >= 3 && $trivia === $eol) {
-          return new ASTLintError(
-            $this,
-            "Don't have two empty lines in a row",
-            $token,
-            () ==> static::removeTrailing($token, $trivia),
-          );
+        if ($eol_count >= 3) {
+          $remove_trailing[] = $trivia;
         }
       } else {
         $eol_count = 0;
       }
     }
 
-    return null;
+    if (C\is_empty($remove_leading) && C\is_empty($remove_trailing)) {
+      return null;
+    }
+
+    return new ASTLintError(
+      $this,
+      "Don't have two empty lines in a row",
+      $token,
+      () ==> static::removeTrivia($token, $remove_leading, $remove_trailing),
+    );
   }
 
-  private static function removeLeading(
-    this::TContext $token,
-    Trivia $trivia,
-  ): this::TContext {
-    return $token->withLeading($token->getLeading()->withoutChild($trivia));
+  <<__Memoize>>
+  private function entireScriptIsClean(Script $script): bool {
+    return !Str\contains($script->getCode(), \PHP_EOL.\PHP_EOL.\PHP_EOL);
   }
 
-  private static function removeTrailing(
-    this::TContext $token,
-    Trivia $trivia,
-  ): this::TContext {
-    return $token->withTrailing($token->getTrailing()->withoutChild($trivia));
+  private static function removeTrivia(
+    this::TNode $token,
+    vec<Trivia> $leading_trivia,
+    vec<Trivia> $trailing_trivia,
+  ): this::TNode {
+    $leading = $token->getLeading();
+    foreach ($leading_trivia as $t) {
+      $leading = $leading->withoutChild($t);
+    }
+    $trailing = $token->getTrailing();
+    foreach ($trailing_trivia as $t) {
+      $trailing = $trailing->withoutChild($t);
+    }
+    return $token->withLeading($leading)->withTrailing($trailing);
   }
 }
