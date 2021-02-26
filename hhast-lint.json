@@ -22,5 +22,8 @@
         "Facebook\\HHAST\\DataProviderTypesLinter"
       ]
     }
-  ]
+  ],
+  "suppressionAliases": {
+    "Facebook\\HHAST\\DontAwaitInALoopLinter": [ "This is a polling loop" ]
+  }
 }
