@@ -37,7 +37,7 @@ final class DontAwaitInALoopLinter extends ASTLinter {
 
     if (
       $outermost_loop is null ||
-      self::isInTerminalStatement($node, $script) ||
+      self::isInTerminalStatement($node, $boundary) ||
       !self::isInLoop($outermost_loop, $node)
     ) {
       return null;
@@ -99,10 +99,10 @@ final class DontAwaitInALoopLinter extends ASTLinter {
    */
   private static function isInTerminalStatement(
     PrefixUnaryExpression $node,
-    Script $script,
+    Node $boundary,
   ): bool {
     return C\any(
-      $script->getAncestorsOfDescendant($node),
+      $boundary->getAncestorsOfDescendant($node),
       $a ==> $a is ReturnStatement || $a is ThrowStatement,
     );
   }
