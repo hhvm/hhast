@@ -16,7 +16,7 @@ final class DontHaveTwoEmptyLinesInARowLinter extends AutoFixingASTLinter {
   <<__Override>>
   public function getLintErrorForNode(
     this::TContext $token,
-    this::TNode $_i_make_hhast_not_hand_me_nodes_that_dont_have_eol_in_trivia,
+    this::TNode $eol,
   ): ?ASTLintError {
     $eol_count = $this->getAST()
       ->getPreviousToken($token)
@@ -27,7 +27,7 @@ final class DontHaveTwoEmptyLinesInARowLinter extends AutoFixingASTLinter {
     foreach ($token->getLeading()->toVec() as $trivia) {
       if ($trivia is EndOfLine) {
         $eol_count++;
-        if ($eol_count === 3) {
+        if ($eol_count >= 3 && $trivia === $eol) {
           return new ASTLintError(
             $this,
             "Don't have two empty lines in a row",
@@ -47,12 +47,12 @@ final class DontHaveTwoEmptyLinesInARowLinter extends AutoFixingASTLinter {
     foreach ($token->getTrailing()->toVec() as $trivia) {
       if ($trivia is EndOfLine) {
         $eol_count++;
-        if ($eol_count === 3) {
+        if ($eol_count >= 3 && $trivia === $eol) {
           return new ASTLintError(
             $this,
             "Don't have two empty lines in a row",
             $token,
-            () ==> static::removeLeading($token, $trivia),
+            () ==> static::removeTrailing($token, $trivia),
           );
         }
       } else {
