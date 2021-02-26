@@ -1,0 +1,23 @@
+<?hh
+
+function no_side_effects(): void {
+  if ("NO SIDE EFFECTS") ;
+
+  $please_do_not_delete_me = side_effect();
+}
+
+function with_operator(): void {
+  if (1 === 1) ;
+
+  $please_do_not_delete_me = side_effect();
+}
+
+function with_side_effects(): void {
+  if (side_effect()) ;
+
+  $please_do_not_delete_me = side_effect();
+}
+
+function side_effect(): null {
+  return null;
+}
