@@ -108,7 +108,6 @@ abstract class ASTLinter extends BaseLinter {
     return $errors;
   }
 
-
   final public function getAST(): Script {
     $ast = $this->ast;
     invariant($ast !== null, 'Calling getAST before it was initialized');

@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 final class XHPClassModifierMigrationTest extends StepBasedMigrationTest {
   const type TMigration = XHPClassModifierMigration;
 

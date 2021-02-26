@@ -64,7 +64,6 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
       $modifiers->filterChildren($modifier ==> !$modifier is FinalToken),
     );
 
-
     $final_trivia = $final->getTrailing()->getCode() === ' '
       // In the /common/ case that final only has one trailing space,
       // ignore it for nicer diffs.

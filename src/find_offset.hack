@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 function find_offset_after_leading(Node $root, Node $node): int {
   if ($root === $node) {
     return 0;

@@ -7,9 +7,7 @@
  *
  */
 
-
 namespace Facebook\HHAST;
-
 
 final class AsyncFunctionAndMethodLinterTest extends TestCase {
   use LinterTestTrait;

@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 use namespace HH\Lib\C;
 
 final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {

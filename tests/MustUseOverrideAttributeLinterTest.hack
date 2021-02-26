@@ -7,9 +7,7 @@
  *
  */
 
-
 namespace Facebook\HHAST;
-
 
 final class MustUseOverrideAttributeLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;

@@ -200,7 +200,6 @@ abstract class Node implements IMemoizeParam {
     return null;
   }
 
-
   final public function replace(Node $old, Node $new): this {
     if ($old === $new) {
       return $this;

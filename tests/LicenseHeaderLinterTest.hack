@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 final class LicenseHeaderLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 

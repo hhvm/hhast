@@ -213,7 +213,6 @@ final class DataProviderTypesLinter extends AutoFixingASTLinter {
       $meth ==> $meth->getFunctionDeclHeader()->getNamex()->getText(),
     );
 
-
     return shape(
       'data_providers' => $data_providers,
       'hhast_methods' => $hhast_methods,

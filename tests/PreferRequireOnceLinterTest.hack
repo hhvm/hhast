@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST;
 
 final class PreferRequireOnceLinterTest extends TestCase {

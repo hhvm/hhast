@@ -7,9 +7,7 @@
  *
  */
 
-
 namespace Facebook\HHAST;
-
 
 final class CamelCasedMethodsUnderscoredFunctionsLinterTest extends TestCase {
   use LinterTestTrait;

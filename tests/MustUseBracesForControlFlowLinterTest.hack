@@ -7,13 +7,10 @@
  *
  */
 
-
 namespace Facebook\HHAST;
-
 
 final class MustUseBracesForControlFlowLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
-
 
   protected function getLinter(
     string $file,

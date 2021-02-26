@@ -11,7 +11,6 @@ namespace Facebook\HHAST\__Private;
 
 use namespace HH\Lib\Async;
 
-
 final class ParserQueue {
   private Async\Semaphore<vec<string>, vec<string>> $impl;
   protected function __construct() {

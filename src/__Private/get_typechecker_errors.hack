@@ -8,8 +8,6 @@
  */
 
 namespace Facebook\HHAST\__Private;
-;
-
 
 use namespace HH\Lib\Str;
 use namespace Facebook\TypeAssert;
@@ -28,7 +26,6 @@ type TTypecheckerError = shape(
   >,
   ...
 );
-
 
 type TTypecheckerOutput = shape(
   ?'errors' => vec<TTypecheckerError>,

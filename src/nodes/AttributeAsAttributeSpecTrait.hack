@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 trait AttributeAsAttributeSpecTrait {
   require extends Node;
 

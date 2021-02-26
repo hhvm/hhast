@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST\TestLib;
 
 function expect<T>(T $var): ExpectObj<T> {

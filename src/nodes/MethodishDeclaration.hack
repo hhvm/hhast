@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 final class MethodishDeclaration extends MethodishDeclarationGeneratedBase {
   use AttributeAsAttributeSpecTrait;
 
