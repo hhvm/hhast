@@ -58,7 +58,7 @@ final class LintRunConfig {
     // "suppressionAliases": {
     //   "Facebook\\HHAST\\DontAwaitInALoopLinter": [ "This is a polling loop" ]
     // }
-    // Comments with "This is a lopping loop" now act like "HHAST_FIXME[DontAwaitInALoop]" would.
+    // Comments with "This is a polling loop" now act like "HHAST_FIXME[DontAwaitInALoop]" would.
     ?'suppressionAliases' => dict<string, vec<string>>,
   );
 

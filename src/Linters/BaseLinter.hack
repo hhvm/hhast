@@ -27,7 +27,7 @@ abstract class BaseLinter {
   public function __construct(
     private File $file,
     private ?this::TConfig $config,
-    private keyset<string> $extraSuppressors,
+    private keyset<string> $suppressionAliases,
   ) {
   }
 
@@ -92,13 +92,14 @@ abstract class BaseLinter {
 
   /**
    * Provided for consistency with other (internal) linting frameworks.
+   * Identical to HHAST_IGNORE_ALL.
    */
   final public function getFrameworkAgnosticIgnoreAllMarker(): string {
     return '@lint-ignore-all '.$this->getLinterName();
   }
 
   final public function getAllSuppressors(): keyset<string> {
-    return Keyset\union($this->defaultSuppressors(), $this->extraSuppressors);
+    return Keyset\union($this->defaultSuppressors(), $this->suppressionAliases);
   }
 
   final public function defaultSuppressors(): keyset<string> {
