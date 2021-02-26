@@ -1,0 +1,9 @@
+<?hh
+
+async function await_in_lambda_in_return(): Awaitable<void> {
+  return await async () ==> {
+    foreach (vec[] as $k) {
+      await $k->somethingAsync();
+    }
+  }();
+}

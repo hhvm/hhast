@@ -18,23 +18,28 @@ final class DontAwaitInALoopLinter extends ASTLinter {
 
   <<__Override>>
   public function getLintErrorForNode(
-    Script $context,
+    Script $script,
     PrefixUnaryExpression $node,
   ): ?ASTLintError {
     if (!$node->getOperator() is AwaitToken) {
       return null;
     }
 
-    $boundary =
-      $context->getClosestAncestorOfDescendantOfType<IHasFunctionBody>($node) ??
-      $context;
+    $boundary = $script->getClosestAncestorOfDescendantOfType<IHasFunctionBody>(
+      $node,
+    ) ??
+      $script;
 
     $outermost_loop = $boundary->getFirstAncestorOfDescendantWhere(
       $node,
       $a ==> $a is ILoopStatement,
     ) as ?ILoopStatement;
 
-    if ($outermost_loop is null || !self::isInLoop($outermost_loop, $node)) {
+    if (
+      $outermost_loop is null ||
+      self::isInTerminalStatement($node, $boundary) ||
+      !self::isInLoop($outermost_loop, $node)
+    ) {
       return null;
     }
 
@@ -73,6 +78,33 @@ final class DontAwaitInALoopLinter extends ASTLinter {
     $output[] = 'Line '.$blame_line.': '.$lines[$blame_line - 1];
 
     return Str\join($output, "\n");
+  }
+
+  /**
+   * The following statements, although `await`ing in a loop,
+   * will never execute more than once.
+   * We can detect these cases and not emit a lint error for them.
+   * ```
+   * return await Asio\curl_exec($url);
+   * // or
+   * throw new BadRequestException(await $repo->getUserAsync());
+   * ```
+   *
+   * Cases like these are not covered and they should be suppressed.
+   * ```
+   * // @see https://docs.hhvm.com/hack/asynchronous-operations/await-as-an-expression#limitations
+   * $some_value = await $some_awaitable;
+   * return await something_else_async($some_value);
+   * ```
+   */
+  private static function isInTerminalStatement(
+    PrefixUnaryExpression $node,
+    Node $boundary,
+  ): bool {
+    return C\any(
+      $boundary->getAncestorsOfDescendant($node),
+      $a ==> $a is ReturnStatement || $a is ThrowStatement,
+    );
   }
 
   /**

@@ -1,0 +1,17 @@
+<?hh
+
+async function await_in_return_statement_async(): Awaitable<void> {
+  foreach (vec[] as $k) {
+    if ($k->isValid()) {
+      return await $k->somethingAsync();
+    }
+  }
+}
+
+async function await_in_throw_statement_async(): Awaitable<void> {
+  foreach (vec[] as $k) {
+    if ($k->isValid()) {
+      throw new \Exception(await $k->somethingAsync());
+    }
+  }
+}
