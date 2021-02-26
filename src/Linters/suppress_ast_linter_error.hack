@@ -54,7 +54,11 @@ function is_linter_suppressed_in_sibling_node(
   string $fixme,
   string $ignore,
 ): bool {
-  $token = $root->getPreviousToken($node->getFirstTokenx());
+  $first_token = $node->getFirstToken();
+  if ($first_token is null) {
+    return false;
+  }
+  $token = $root->getPreviousToken($first_token);
   if ($token === null) {
     return false;
   }

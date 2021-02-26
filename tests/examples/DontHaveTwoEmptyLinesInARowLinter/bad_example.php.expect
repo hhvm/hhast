@@ -1,0 +1,287 @@
+[
+    {
+        "blame": "\n\nfunction\n",
+        "blame_pretty": "\n\nfunction\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nfunction\n",
+        "blame_pretty": "\n\nfunction\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nfunction\n",
+        "blame_pretty": "\n\nfunction\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\ndont_format_your_code_list_this\n",
+        "blame_pretty": "\n\ndont_format_your_code_list_this\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\ndont_format_your_code_list_this\n",
+        "blame_pretty": "\n\ndont_format_your_code_list_this\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\ndont_format_your_code_list_this\n",
+        "blame_pretty": "\n\ndont_format_your_code_list_this\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n(\n",
+        "blame_pretty": "\n\n(\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n(\n",
+        "blame_pretty": "\n\n(\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n(\n",
+        "blame_pretty": "\n\n(\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n<<\n",
+        "blame_pretty": "\n\n<<\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n<<\n",
+        "blame_pretty": "\n\n<<\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n<<\n",
+        "blame_pretty": "\n\n<<\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nAttr\n",
+        "blame_pretty": "\n\nAttr\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nAttr\n",
+        "blame_pretty": "\n\nAttr\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nAttr\n",
+        "blame_pretty": "\n\nAttr\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n,\n",
+        "blame_pretty": "\n\n,\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n,\n",
+        "blame_pretty": "\n\n,\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n,\n",
+        "blame_pretty": "\n\n,\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nOtherAttr\n",
+        "blame_pretty": "\n\nOtherAttr\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nOtherAttr\n",
+        "blame_pretty": "\n\nOtherAttr\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nOtherAttr\n",
+        "blame_pretty": "\n\nOtherAttr\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n>>\n",
+        "blame_pretty": "\n\n>>\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n>>\n",
+        "blame_pretty": "\n\n>>\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n>>\n",
+        "blame_pretty": "\n\n>>\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nstring\n",
+        "blame_pretty": "\n\nstring\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nstring\n",
+        "blame_pretty": "\n\nstring\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nstring\n",
+        "blame_pretty": "\n\nstring\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n$string\n",
+        "blame_pretty": "\n\n$string\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n$string\n",
+        "blame_pretty": "\n\n$string\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n$string\n",
+        "blame_pretty": "\n\n$string\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n,\n",
+        "blame_pretty": "\n\n,\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n,\n",
+        "blame_pretty": "\n\n,\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n,\n",
+        "blame_pretty": "\n\n,\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n)\n",
+        "blame_pretty": "\n\n)\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n)\n",
+        "blame_pretty": "\n\n)\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n)\n",
+        "blame_pretty": "\n\n)\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n:\n",
+        "blame_pretty": "\n\n:\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n:\n",
+        "blame_pretty": "\n\n:\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n:\n",
+        "blame_pretty": "\n\n:\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nstring\n",
+        "blame_pretty": "\n\nstring\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nstring\n",
+        "blame_pretty": "\n\nstring\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nstring\n",
+        "blame_pretty": "\n\nstring\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n{\n",
+        "blame_pretty": "\n\n{\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n{\n",
+        "blame_pretty": "\n\n{\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n{\n",
+        "blame_pretty": "\n\n{\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nreturn\n",
+        "blame_pretty": "\n\nreturn\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nreturn\n",
+        "blame_pretty": "\n\nreturn\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\nreturn\n",
+        "blame_pretty": "\n\nreturn\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n$string\n",
+        "blame_pretty": "\n\n$string\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n$string\n",
+        "blame_pretty": "\n\n$string\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n$string\n",
+        "blame_pretty": "\n\n$string\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n;\n",
+        "blame_pretty": "\n\n;\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n;\n",
+        "blame_pretty": "\n\n;\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n;\n",
+        "blame_pretty": "\n\n;\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n}\n",
+        "blame_pretty": "\n\n}\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n}\n",
+        "blame_pretty": "\n\n}\n",
+        "description": "Don't have two empty lines in a row"
+    },
+    {
+        "blame": "\n\n}\n",
+        "blame_pretty": "\n\n}\n",
+        "description": "Don't have two empty lines in a row"
+    }
+]
