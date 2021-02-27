@@ -361,4 +361,31 @@ abstract class Node implements IMemoizeParam {
     }
     return null;
   }
+
+  public function __debugInfo(): dict<arraykey, mixed> {
+    return Dict\merge(
+      dict[
+        '__ID__' => $this->getUniqueID(),
+        '__CODE_REPRESENTATION__' => $this->getCode(),
+      ],
+      $this->getChildren(),
+    );
+  }
+
+  /**
+   * @return type T = dict<arraykey, arraykey|T>
+   * Tip for IDE users:
+   * If you want to inspect a Node, `json_encode()` the DebugTree to a JSON file.
+   * You can use code folding to explore the tree.
+   * For inspecting with a GUI, see https://github.com/hhvm/hhast-inspect.
+   */
+  public function toDebugTree(): dict<arraykey, mixed> {
+    return Dict\merge(
+      dict[
+        '__ID__' => $this->getUniqueID(),
+        '__CODE_REPRESENTATION__' => $this->getCode(),
+      ],
+      Dict\map($this->getChildren(), $child ==> $child->toDebugTree()),
+    );
+  }
 }
