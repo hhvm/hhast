@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d8a468b89ba3c467c682513f3afe8ae>>
+ * @generated SignedSource<<9035fcd249508f4387b620c854818cea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,7 +12,7 @@ final class EnumClassDeclaration extends Node {
 
   const string SYNTAX_KIND = 'enum_class_declaration';
 
-  private ?Node $_attribute_spec;
+  private ?OldAttributeSpecification $_attribute_spec;
   private EnumToken $_enum_keyword;
   private ClassToken $_class_keyword;
   private NameToken $_name;
@@ -21,11 +21,11 @@ final class EnumClassDeclaration extends Node {
   private ?ExtendsToken $_extends;
   private ?NodeList<ListItem<SimpleTypeSpecifier>> $_extends_list;
   private LeftBraceToken $_left_brace;
-  private NodeList<EnumClassEnumerator> $_elements;
+  private ?NodeList<EnumClassEnumerator> $_elements;
   private RightBraceToken $_right_brace;
 
   public function __construct(
-    ?Node $attribute_spec,
+    ?OldAttributeSpecification $attribute_spec,
     EnumToken $enum_keyword,
     ClassToken $class_keyword,
     NameToken $name,
@@ -34,7 +34,7 @@ final class EnumClassDeclaration extends Node {
     ?ExtendsToken $extends,
     ?NodeList<ListItem<SimpleTypeSpecifier>> $extends_list,
     LeftBraceToken $left_brace,
-    NodeList<EnumClassEnumerator> $elements,
+    ?NodeList<EnumClassEnumerator> $elements,
     RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -66,7 +66,7 @@ final class EnumClassDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $enum_keyword = Node::fromJSON(
@@ -140,14 +140,13 @@ final class EnumClassDeclaration extends Node {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $elements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_elements'],
+      /* HH_FIXME[4110] */ $json['enum_class_elements'] ?? dict['kind' => 'missing'],
       $file,
       $offset,
       $source,
       'NodeList<EnumClassEnumerator>',
     );
-    $elements = $elements as nonnull;
-    $offset += $elements->getWidth();
+    $offset += $elements?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['enum_class_right_brace'],
       $file,
@@ -218,7 +217,9 @@ final class EnumClassDeclaration extends Node {
       ? null
       : $rewriter($this->_extends_list, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $elements = $rewriter($this->_elements, $parents);
+    $elements = $this->_elements === null
+      ? null
+      : $rewriter($this->_elements, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -254,7 +255,7 @@ final class EnumClassDeclaration extends Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(?Node $value): this {
+  public function withAttributeSpec(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -278,16 +279,16 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return null
+   * @return null | OldAttributeSpecification
    */
-  public function getAttributeSpec(): ?Node {
+  public function getAttributeSpec(): ?OldAttributeSpecification {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return
+   * @return OldAttributeSpecification
    */
-  public function getAttributeSpecx(): Node {
+  public function getAttributeSpecx(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
@@ -625,7 +626,7 @@ final class EnumClassDeclaration extends Node {
     return $this->_elements;
   }
 
-  public function withElements(NodeList<EnumClassEnumerator> $value): this {
+  public function withElements(?NodeList<EnumClassEnumerator> $value): this {
     if ($value === $this->_elements) {
       return $this;
     }
@@ -649,17 +650,17 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return NodeList<EnumClassEnumerator>
+   * @return NodeList<EnumClassEnumerator> | null
    */
-  public function getElements(): NodeList<EnumClassEnumerator> {
-    return TypeAssert\instance_of(NodeList::class, $this->_elements);
+  public function getElements(): ?NodeList<EnumClassEnumerator> {
+    return $this->_elements;
   }
 
   /**
    * @return NodeList<EnumClassEnumerator>
    */
   public function getElementsx(): NodeList<EnumClassEnumerator> {
-    return $this->getElements();
+    return TypeAssert\not_null($this->getElements());
   }
 
   public function getRightBraceUNTYPED(): ?Node {

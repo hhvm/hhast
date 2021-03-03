@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d4bfdb80371460637c9f2c745318e33>>
+ * @generated SignedSource<<fbbfda052495d06ece58e775097f4d5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -291,6 +291,7 @@ final class VarrayIntrinsicExpression
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<FunctionPointerExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
@@ -320,6 +321,7 @@ final class VarrayIntrinsicExpression
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<FunctionPointerExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |

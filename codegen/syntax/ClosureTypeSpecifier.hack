@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93048bdc0552b64284f2f3b543183340>>
+ * @generated SignedSource<<f20163e4daec7a53ec522fb58cc1874f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,6 +23,7 @@ final class ClosureTypeSpecifier
   private RightParenToken $_inner_right_paren;
   private ?Contexts $_contexts;
   private ColonToken $_colon;
+  private ?Node $_readonly_return;
   private ITypeSpecifier $_return_type;
   private RightParenToken $_outer_right_paren;
 
@@ -34,6 +35,7 @@ final class ClosureTypeSpecifier
     RightParenToken $inner_right_paren,
     ?Contexts $contexts,
     ColonToken $colon,
+    ?Node $readonly_return,
     ITypeSpecifier $return_type,
     RightParenToken $outer_right_paren,
     ?__Private\SourceRef $source_ref = null,
@@ -45,6 +47,7 @@ final class ClosureTypeSpecifier
     $this->_inner_right_paren = $inner_right_paren;
     $this->_contexts = $contexts;
     $this->_colon = $colon;
+    $this->_readonly_return = $readonly_return;
     $this->_return_type = $return_type;
     $this->_outer_right_paren = $outer_right_paren;
     parent::__construct($source_ref);
@@ -120,6 +123,14 @@ final class ClosureTypeSpecifier
     );
     $colon = $colon as nonnull;
     $offset += $colon->getWidth();
+    $readonly_return = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['closure_readonly_return'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $readonly_return?->getWidth() ?? 0;
     $return_type = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_return_type'],
       $file,
@@ -152,6 +163,7 @@ final class ClosureTypeSpecifier
       /* HH_IGNORE_ERROR[4110] */ $inner_right_paren,
       /* HH_IGNORE_ERROR[4110] */ $contexts,
       /* HH_IGNORE_ERROR[4110] */ $colon,
+      /* HH_IGNORE_ERROR[4110] */ $readonly_return,
       /* HH_IGNORE_ERROR[4110] */ $return_type,
       /* HH_IGNORE_ERROR[4110] */ $outer_right_paren,
       $source_ref,
@@ -168,6 +180,7 @@ final class ClosureTypeSpecifier
       'inner_right_paren' => $this->_inner_right_paren,
       'contexts' => $this->_contexts,
       'colon' => $this->_colon,
+      'readonly_return' => $this->_readonly_return,
       'return_type' => $this->_return_type,
       'outer_right_paren' => $this->_outer_right_paren,
     ]
@@ -191,6 +204,9 @@ final class ClosureTypeSpecifier
       ? null
       : $rewriter($this->_contexts, $parents);
     $colon = $rewriter($this->_colon, $parents);
+    $readonly_return = $this->_readonly_return === null
+      ? null
+      : $rewriter($this->_readonly_return, $parents);
     $return_type = $rewriter($this->_return_type, $parents);
     $outer_right_paren = $rewriter($this->_outer_right_paren, $parents);
     if (
@@ -201,6 +217,7 @@ final class ClosureTypeSpecifier
       $inner_right_paren === $this->_inner_right_paren &&
       $contexts === $this->_contexts &&
       $colon === $this->_colon &&
+      $readonly_return === $this->_readonly_return &&
       $return_type === $this->_return_type &&
       $outer_right_paren === $this->_outer_right_paren
     ) {
@@ -214,6 +231,7 @@ final class ClosureTypeSpecifier
       /* HH_FIXME[4110] use `as` */ $inner_right_paren,
       /* HH_FIXME[4110] use `as` */ $contexts,
       /* HH_FIXME[4110] use `as` */ $colon,
+      /* HH_FIXME[4110] use `as` */ $readonly_return,
       /* HH_FIXME[4110] use `as` */ $return_type,
       /* HH_FIXME[4110] use `as` */ $outer_right_paren,
     );
@@ -235,6 +253,7 @@ final class ClosureTypeSpecifier
       $this->_inner_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_return_type,
       $this->_outer_right_paren,
     );
@@ -277,6 +296,7 @@ final class ClosureTypeSpecifier
       $this->_inner_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_return_type,
       $this->_outer_right_paren,
     );
@@ -319,6 +339,7 @@ final class ClosureTypeSpecifier
       $this->_inner_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_return_type,
       $this->_outer_right_paren,
     );
@@ -363,6 +384,7 @@ final class ClosureTypeSpecifier
       $this->_inner_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_return_type,
       $this->_outer_right_paren,
     );
@@ -405,6 +427,7 @@ final class ClosureTypeSpecifier
       $value,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_return_type,
       $this->_outer_right_paren,
     );
@@ -447,6 +470,7 @@ final class ClosureTypeSpecifier
       $this->_inner_right_paren,
       $value,
       $this->_colon,
+      $this->_readonly_return,
       $this->_return_type,
       $this->_outer_right_paren,
     );
@@ -486,6 +510,7 @@ final class ClosureTypeSpecifier
       $this->_inner_right_paren,
       $this->_contexts,
       $value,
+      $this->_readonly_return,
       $this->_return_type,
       $this->_outer_right_paren,
     );
@@ -509,6 +534,46 @@ final class ClosureTypeSpecifier
     return $this->getColon();
   }
 
+  public function getReadonlyReturnUNTYPED(): ?Node {
+    return $this->_readonly_return;
+  }
+
+  public function withReadonlyReturn(?Node $value): this {
+    if ($value === $this->_readonly_return) {
+      return $this;
+    }
+    return new static(
+      $this->_outer_left_paren,
+      $this->_function_keyword,
+      $this->_inner_left_paren,
+      $this->_parameter_list,
+      $this->_inner_right_paren,
+      $this->_contexts,
+      $this->_colon,
+      $value,
+      $this->_return_type,
+      $this->_outer_right_paren,
+    );
+  }
+
+  public function hasReadonlyReturn(): bool {
+    return $this->_readonly_return !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getReadonlyReturn(): ?Node {
+    return $this->_readonly_return;
+  }
+
+  /**
+   * @return
+   */
+  public function getReadonlyReturnx(): Node {
+    return TypeAssert\not_null($this->getReadonlyReturn());
+  }
+
   public function getReturnTypeUNTYPED(): ?Node {
     return $this->_return_type;
   }
@@ -525,6 +590,7 @@ final class ClosureTypeSpecifier
       $this->_inner_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $value,
       $this->_outer_right_paren,
     );
@@ -566,6 +632,7 @@ final class ClosureTypeSpecifier
       $this->_inner_right_paren,
       $this->_contexts,
       $this->_colon,
+      $this->_readonly_return,
       $this->_return_type,
       $value,
     );

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f242e03b543047aa4dfe7419c975142d>>
+ * @generated SignedSource<<88b4b30eb3844a4a0dc10d6017a554db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,7 +137,8 @@ final class BinaryExpression
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression
    */
   public function getLeftOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
@@ -152,7 +153,8 @@ final class BinaryExpression
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * TupleExpression | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();

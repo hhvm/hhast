@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2db2005ab2528841d010265bb515d310>>
+ * @generated SignedSource<<d7e690c11f4f63050dea71a92529c1a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,14 +15,14 @@ final class EnumClassEnumerator extends Node {
   private ISimpleCreationSpecifier $_type;
   private NameToken $_name;
   private EqualToken $_equal;
-  private ObjectCreationExpression $_initial_value;
+  private IExpression $_initial_value;
   private SemicolonToken $_semicolon;
 
   public function __construct(
     ISimpleCreationSpecifier $type,
     NameToken $name,
     EqualToken $equal,
-    ObjectCreationExpression $initial_value,
+    IExpression $initial_value,
     SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -75,7 +75,7 @@ final class EnumClassEnumerator extends Node {
       $file,
       $offset,
       $source,
-      'ObjectCreationExpression',
+      'IExpression',
     );
     $initial_value = $initial_value as nonnull;
     $offset += $initial_value->getWidth();
@@ -257,7 +257,7 @@ final class EnumClassEnumerator extends Node {
     return $this->_initial_value;
   }
 
-  public function withInitialValue(ObjectCreationExpression $value): this {
+  public function withInitialValue(IExpression $value): this {
     if ($value === $this->_initial_value) {
       return $this;
     }
@@ -275,19 +275,16 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return ObjectCreationExpression
+   * @return LiteralExpression | ObjectCreationExpression
    */
-  public function getInitialValue(): ObjectCreationExpression {
-    return TypeAssert\instance_of(
-      ObjectCreationExpression::class,
-      $this->_initial_value,
-    );
+  public function getInitialValue(): IExpression {
+    return TypeAssert\instance_of(IExpression::class, $this->_initial_value);
   }
 
   /**
-   * @return ObjectCreationExpression
+   * @return LiteralExpression | ObjectCreationExpression
    */
-  public function getInitialValuex(): ObjectCreationExpression {
+  public function getInitialValuex(): IExpression {
     return $this->getInitialValue();
   }
 

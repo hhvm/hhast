@@ -21,7 +21,7 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2021-01-22-0001',
+    SCHEMA_VERSION === '2021-02-21-0001',
     '%s needs updating',
     __FILE__,
   );
@@ -31,9 +31,10 @@ function is_compatible_schema_version(string $other_version): bool {
 
   // Return true if $other_version is a subset of SCHEMA_VERSION
   switch ($other_version) {
+    case '2021-02-02-0001': // doesn't have readonly lambda param/return type
+    case '2021-02-01-0001': // identical to 2021-02-02-0001
+    case '2021-01-22-0001': // identical to 2021-02-02-0001 and 2021-02-01-0001
     case '2021-01-21-0001': // doesn't have ReadonlyToken
-    case '2021-02-01-0001': // no change
-    case '2021-02-02-0001': // no change
       return true;
     default:
       return false;
