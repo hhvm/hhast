@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 final class RemoveXHPChildDeclarationsMigrationTest
   extends StepBasedMigrationTest {
   const type TMigration = RemoveXHPChildDeclarationsMigration;

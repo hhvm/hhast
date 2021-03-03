@@ -26,7 +26,6 @@ abstract class WrapperNode extends Node {
     return $this->wrapped->getCodeUncached();
   }
 
-
   <<__Override>>
   final public function getChildren(): dict<string, Node> {
     return dict['wrapped' => $this->wrapped];

@@ -235,4 +235,8 @@ final class NodeList<+Titem as Node> extends Node {
   public function getCount(): int {
     return C\count($this->_children);
   }
+
+  public function getLast(): ?Titem {
+    return C\last($this->_children);
+  }
 }

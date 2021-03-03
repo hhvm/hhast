@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{ExpressionStatement, Node, Script, Token};
+use type Facebook\HHAST\{ExpressionStatement, Node, NodeList, Script, Token};
 
 final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
   const type TNode = ExpressionStatement;

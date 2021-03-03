@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 final class NoWhitespaceAtEndOfLineLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<LineLintError>;
 

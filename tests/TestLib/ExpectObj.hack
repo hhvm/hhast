@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST\TestLib;
 
 use namespace Facebook\DiffLib;

@@ -101,7 +101,6 @@ final class LicenseHeaderLinter extends AutoFixingASTLinter {
       return $node->replace($existing, NodeList::createMaybeEmptyList($new));
     }
 
-
     $leading = Vec\concat(
       vec[
         new DelimitedComment(

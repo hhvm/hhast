@@ -41,7 +41,6 @@ final class LintRunJSONEventHandler implements LintRunEventHandler {
   public function __construct(private ITerminal $terminal) {
   }
 
-
   public async function linterRaisedErrorsAsync(
     BaseLinter $_linter,
     LintRunConfig::TFileConfig $_config,

@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST\Tests;
 
 use type Facebook\HackTest\HackTest;

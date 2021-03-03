@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST;
 
 use function Facebook\FBExpect\expect;
@@ -132,7 +131,6 @@ final class RewriteBehaviorTest extends TestCase {
       },
     )
       |> expect($$)->toBeInstanceOf(VariableToken::class);
-
 
     expect($new->getLeading()->isEmpty())->toBeTrue(
       'Should have empty leading',

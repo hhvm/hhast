@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST;
 
 abstract class TestCase extends \Facebook\HackTest\HackTest {

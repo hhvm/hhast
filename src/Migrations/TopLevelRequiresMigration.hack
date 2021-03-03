@@ -93,7 +93,6 @@ final class TopLevelRequiresMigration extends BaseMigration {
       "})();\n\n",
     );
 
-
     $body = $body->withStatements(
       new NodeList(
         Vec\concat(

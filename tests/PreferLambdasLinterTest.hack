@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST;
 
 final class PreferLambdasLinterTest extends TestCase {

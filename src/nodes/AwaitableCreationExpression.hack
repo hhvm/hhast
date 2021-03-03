@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 final class AwaitableCreationExpression
   extends AwaitableCreationExpressionGeneratedBase {
 

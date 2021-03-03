@@ -11,7 +11,6 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
-
 abstract class Client {
 
   abstract protected function sendMessageAsync(

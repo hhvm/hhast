@@ -152,7 +152,6 @@ final class HSLMigration extends BaseMigration {
     ),
   ];
 
-
   <<__Override>>
   public function migrateFile(string $path, Script $root): Script {
     // find all the function calls

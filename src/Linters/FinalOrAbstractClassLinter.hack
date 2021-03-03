@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 /*
  * This linter ensures we always qualify classes as final or abstract
  */

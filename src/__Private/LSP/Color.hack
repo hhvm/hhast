@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST\__Private\LSP;
 
-
 type Color = shape(
   'red' => float,
   'green' => float,

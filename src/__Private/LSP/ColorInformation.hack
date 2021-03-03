@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST\__Private\LSP;
 
-
 type ColorInformation = shape(
   'range' => Range,
   'color' => Color,

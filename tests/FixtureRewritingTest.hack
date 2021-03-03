@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST;
 
 use function Facebook\HHAST\TestLib\expect;

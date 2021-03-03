@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 final class OptionalShapeFieldsMigration extends StepBasedMigration {
   private static function makeNullableFieldsOptional(
     ListItem<Node> $node,

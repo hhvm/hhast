@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-
 interface IMigrationWithFileList {
   require extends BaseMigration;
   public function getFilePathsToMigrate(): keyset<string>;

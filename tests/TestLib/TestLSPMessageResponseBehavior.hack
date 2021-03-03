@@ -7,7 +7,6 @@
  *
  */
 
-
 namespace Facebook\HHAST\TestLib;
 
 enum TestLSPMessageResponseBehavior: string {
