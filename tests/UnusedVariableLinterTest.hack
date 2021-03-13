@@ -60,6 +60,6 @@ function foo(): void {
 }
 HACK
       ),
-   ];
- }
+    ];
+  }
 }
