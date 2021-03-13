@@ -68,5 +68,10 @@
         "blame": "    $c ",
         "blame_pretty": "    $c ",
         "description": "Variable is unused"
+    },
+    {
+        "blame": "    $y ",
+        "blame_pretty": "    $y ",
+        "description": "Variable is unused"
     }
 ]
