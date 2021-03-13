@@ -47,7 +47,6 @@ final class UnusedVariableLinterTest extends TestCase {
       tuple('<?hh class C { public function foo(inout $d) { $d = 5; } }'),
       tuple('<?hh class C { public function foo() { $users = dict[]; $u = dict["id" => 15]; $users[$u["id"]] = 5; return $users; } }'),
       tuple('<?hh class C { public function foo() { $s = "a"; echo "{$s}"; } }'),
-      tuple('<?hh class C { public function foo() { $x = 3; echo $x; } }'),
       tuple('<?hh class C { public function foo(string $x = $this->x) { echo $x; } }'),
       tuple('<?hh class C { public int $x = 1; public function foo() { $this->x = 3; } }'),
       tuple(<<<HACK
