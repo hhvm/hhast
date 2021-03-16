@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be9f54a0c3309f2cdebf1be7913e59e2>>
+ * @generated SignedSource<<2fcb052033e0b3ed54e8031fedffef15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,6 +16,7 @@ final class FunctionCallExpression
 
   private Node $_receiver;
   private ?TypeArguments $_type_args;
+  private ?Node $_enum_atom;
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<IExpression>> $_argument_list;
   private RightParenToken $_right_paren;
@@ -23,6 +24,7 @@ final class FunctionCallExpression
   public function __construct(
     Node $receiver,
     ?TypeArguments $type_args,
+    ?Node $enum_atom,
     LeftParenToken $left_paren,
     ?NodeList<ListItem<IExpression>> $argument_list,
     RightParenToken $right_paren,
@@ -30,6 +32,7 @@ final class FunctionCallExpression
   ) {
     $this->_receiver = $receiver;
     $this->_type_args = $type_args;
+    $this->_enum_atom = $enum_atom;
     $this->_left_paren = $left_paren;
     $this->_argument_list = $argument_list;
     $this->_right_paren = $right_paren;
@@ -62,6 +65,14 @@ final class FunctionCallExpression
       'TypeArguments',
     );
     $offset += $type_args?->getWidth() ?? 0;
+    $enum_atom = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['function_call_enum_atom'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $enum_atom?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['function_call_left_paren'],
       $file,
@@ -97,6 +108,7 @@ final class FunctionCallExpression
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $receiver,
       /* HH_IGNORE_ERROR[4110] */ $type_args,
+      /* HH_IGNORE_ERROR[4110] */ $enum_atom,
       /* HH_IGNORE_ERROR[4110] */ $left_paren,
       /* HH_IGNORE_ERROR[4110] */ $argument_list,
       /* HH_IGNORE_ERROR[4110] */ $right_paren,
@@ -109,6 +121,7 @@ final class FunctionCallExpression
     return dict[
       'receiver' => $this->_receiver,
       'type_args' => $this->_type_args,
+      'enum_atom' => $this->_enum_atom,
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
@@ -126,6 +139,9 @@ final class FunctionCallExpression
     $type_args = $this->_type_args === null
       ? null
       : $rewriter($this->_type_args, $parents);
+    $enum_atom = $this->_enum_atom === null
+      ? null
+      : $rewriter($this->_enum_atom, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
     $argument_list = $this->_argument_list === null
       ? null
@@ -134,6 +150,7 @@ final class FunctionCallExpression
     if (
       $receiver === $this->_receiver &&
       $type_args === $this->_type_args &&
+      $enum_atom === $this->_enum_atom &&
       $left_paren === $this->_left_paren &&
       $argument_list === $this->_argument_list &&
       $right_paren === $this->_right_paren
@@ -143,6 +160,7 @@ final class FunctionCallExpression
     return new static(
       /* HH_FIXME[4110] use `as` */ $receiver,
       /* HH_FIXME[4110] use `as` */ $type_args,
+      /* HH_FIXME[4110] use `as` */ $enum_atom,
       /* HH_FIXME[4110] use `as` */ $left_paren,
       /* HH_FIXME[4110] use `as` */ $argument_list,
       /* HH_FIXME[4110] use `as` */ $right_paren,
@@ -160,6 +178,7 @@ final class FunctionCallExpression
     return new static(
       $value,
       $this->_type_args,
+      $this->_enum_atom,
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -201,6 +220,7 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $value,
+      $this->_enum_atom,
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -225,6 +245,42 @@ final class FunctionCallExpression
     return TypeAssert\not_null($this->getTypeArgs());
   }
 
+  public function getEnumAtomUNTYPED(): ?Node {
+    return $this->_enum_atom;
+  }
+
+  public function withEnumAtom(?Node $value): this {
+    if ($value === $this->_enum_atom) {
+      return $this;
+    }
+    return new static(
+      $this->_receiver,
+      $this->_type_args,
+      $value,
+      $this->_left_paren,
+      $this->_argument_list,
+      $this->_right_paren,
+    );
+  }
+
+  public function hasEnumAtom(): bool {
+    return $this->_enum_atom !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getEnumAtom(): ?Node {
+    return $this->_enum_atom;
+  }
+
+  /**
+   * @return
+   */
+  public function getEnumAtomx(): Node {
+    return TypeAssert\not_null($this->getEnumAtom());
+  }
+
   public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
@@ -236,6 +292,7 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $this->_type_args,
+      $this->_enum_atom,
       $value,
       $this->_argument_list,
       $this->_right_paren,
@@ -273,6 +330,7 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $this->_type_args,
+      $this->_enum_atom,
       $this->_left_paren,
       $value,
       $this->_right_paren,
@@ -374,6 +432,7 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $this->_type_args,
+      $this->_enum_atom,
       $this->_left_paren,
       $this->_argument_list,
       $value,

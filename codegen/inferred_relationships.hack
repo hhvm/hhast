@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c098ca82ef1cf5a9dd8d026f6496ac7b>>
+ * @generated SignedSource<<67beccdd0f0d80d10508931827d6f4ff>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -1972,6 +1972,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<xhp_expression>>',
     'missing',
   ],
+  'function_call_expression.function_call_enum_atom' => keyset[
+    'missing',
+  ],
   'function_call_expression.function_call_left_paren' => keyset[
     'token:(',
   ],
@@ -3743,6 +3746,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<literal>>',
+    'list<list_item<dictionary_intrinsic_expression>|list_item<literal>|list_item<prefix_unary_expression>|list_item<token:name>|list_item<varray_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<function_call_expression>>',
     'list<list_item<function_call_expression>|list_item<keyset_intrinsic_expression>|list_item<variable>>',
