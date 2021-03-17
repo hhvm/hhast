@@ -23,6 +23,9 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
 
     $parent = $functionish->getParentOfDescendant($node);
     if ($parent is MemberSelectionExpression) {
+      // $this->x() : $this is used
+      // $this->x = $foo: all vars are used
+      // $x = $this->y: $this and $this->y are used, $x is checked separately
       return null;
     }
 
