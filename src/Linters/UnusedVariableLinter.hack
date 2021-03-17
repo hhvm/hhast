@@ -21,6 +21,11 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
     VariableExpression $node,
   ): ?ASTLintError {
 
+    $parent = $functionish->getParentOfDescendant($node);
+    if ($parent is MemberSelectionExpression) {
+      return null;
+    }
+
     $var = $node->getExpression();
     if (!$var is VariableToken) {
       return null;
