@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
+use namespace HH\Lib\{C, Str, Vec};
 use namespace Facebook\TypeAssert;
 use type Facebook\HHAST\File;
 
@@ -24,7 +25,7 @@ final class ParserCache {
   );
 
   public function fetch(File $file): ?dict<string, mixed> {
-    $path = self::getCacheFileName($file);
+    $path = $this->getCacheFileName($file);
     if ($path === null) {
       return null;
     }
@@ -54,7 +55,7 @@ final class ParserCache {
   }
 
   public function store(File $file, dict<string, mixed> $ast): void {
-    $path = self::getCacheFileName($file);
+    $path = $this->getCacheFileName($file);
     if ($path === null) {
       return;
     }
@@ -71,11 +72,53 @@ final class ParserCache {
     );
   }
 
-  private static function getCacheFileName(File $file): ?string {
+  private ?string $repoRoot = null;
+  const string NO_REPO_ROOT = "\0NO_REPO_ROOT";
+
+  private function getRepoRoot(string $file_path): ?string {
+    if ($this->repoRoot === self::NO_REPO_ROOT) {
+      return null;
+    }
+    if (
+      $this->repoRoot !== null && Str\starts_with($file_path, $this->repoRoot)
+    ) {
+      return $this->repoRoot;
+    }
+
+    $parts = Str\split($file_path, '/');
+    while (!C\is_empty($parts)) {
+      $dir = Str\join($parts, '/');
+      if (\file_exists($dir.'/.hhconfig')) {
+        $this->repoRoot = $dir;
+        return $dir;
+      }
+      $parts = Vec\take($parts, C\count($parts) - 1);
+    }
+    $this->repoRoot = self::NO_REPO_ROOT;
+    return null;
+  }
+
+  private function getCacheFileName(File $file): ?string {
     if ($file->isDirty()) {
       return null;
     }
+
     $source = $file->getPath();
+    $root = $this->getRepoRoot($source);
+    if ($root !== null) {
+      $dir = $root.'/.var/cache/hhvm/hhast/parser-cache';
+      if (Str\starts_with($source, $root)) {
+        $path = $dir.'/'.(Str\strip_prefix($source, $root) |> Str\strip_prefix($$, '/'));
+      } else {
+        $path = $dir.'/'.\sha1($source);
+      }
+      $path .= '.parser-cache';
+      $dir = \dirname($path);
+      if (!\is_dir($dir)) {
+        \mkdir($dir, 0755, /* recursive = */ true);
+      }
+      return $path;
+    }
     return \dirname($source).'/.'.\basename($source).'.hhast.parser-cache';
   }
 

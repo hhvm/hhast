@@ -5,5 +5,5 @@ tests/examples/**/*.out
 tests/lsp/*.out
 *.swo
 .DS_Store
-*.hhast.parser-cache
+.var/
 composer.lock
