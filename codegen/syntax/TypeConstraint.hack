@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8c7bd96e36d5064cef37bc7c1102f847>>
+ * @generated SignedSource<<ec9492264c290d294397e77c5bf22ac4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,11 +13,11 @@ final class TypeConstraint extends Node {
   const string SYNTAX_KIND = 'type_constraint';
 
   private Token $_keyword;
-  private ITypeSpecifierOrContexts $_type;
+  private ITypeSpecifier $_type;
 
   public function __construct(
     Token $keyword,
-    ITypeSpecifierOrContexts $type,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -48,7 +48,7 @@ final class TypeConstraint extends Node {
       $file,
       $offset,
       $source,
-      'ITypeSpecifierOrContexts',
+      'ITypeSpecifier',
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
@@ -124,7 +124,7 @@ final class TypeConstraint extends Node {
     return $this->_type;
   }
 
-  public function withType(ITypeSpecifierOrContexts $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -136,25 +136,22 @@ final class TypeConstraint extends Node {
   }
 
   /**
-   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier | Contexts |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): ITypeSpecifierOrContexts {
-    return TypeAssert\instance_of(
-      ITypeSpecifierOrContexts::class,
-      $this->_type,
-    );
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier | Contexts |
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
    * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getTypex(): ITypeSpecifierOrContexts {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 }

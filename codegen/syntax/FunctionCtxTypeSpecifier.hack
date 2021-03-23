@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<462a975b93829e012e1a1f45506e3cb8>>
+ * @generated SignedSource<<7b17f7a531fd8a9701684e6c86cc42d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class FunctionCtxTypeSpecifier
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'function_ctx_type_specifier';
 

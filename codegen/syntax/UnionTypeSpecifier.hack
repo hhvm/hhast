@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea0fcf0fcccf5cc8218ad1d2d402815a>>
+ * @generated SignedSource<<466e18b1a82d2e78b9d9fb163091602d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class UnionTypeSpecifier
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'union_type_specifier';
 

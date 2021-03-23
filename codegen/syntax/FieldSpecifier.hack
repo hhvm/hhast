@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<76301a2bc5f3945c87fe6fdd1be247be>>
+ * @generated SignedSource<<a4e5a31a983f4a8f6c641b76e5645c1e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class FieldSpecifier
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class FieldSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'field_specifier';
 

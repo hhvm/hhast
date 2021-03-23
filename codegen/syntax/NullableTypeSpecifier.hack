@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47c3c7965affef9b30d42ce835b29768>>
+ * @generated SignedSource<<b595cb6f669902ab580d3f0dd5c7b151>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class NullableTypeSpecifier
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'nullable_type_specifier';
 

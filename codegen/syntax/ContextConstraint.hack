@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32342174414cafdda7d89577207b225b>>
+ * @generated SignedSource<<2d3d9be152dc0dad2d361b85e395af60>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,12 +12,12 @@ final class ContextConstraint extends Node {
 
   const string SYNTAX_KIND = 'context_constraint';
 
-  private ?Node $_keyword;
-  private ?Node $_ctx_list;
+  private Token $_keyword;
+  private Contexts $_ctx_list;
 
   public function __construct(
-    ?Node $keyword,
-    ?Node $ctx_list,
+    Token $keyword,
+    Contexts $ctx_list,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -35,21 +35,23 @@ final class ContextConstraint extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['ctx_constraint_keyword'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['ctx_constraint_keyword'],
       $file,
       $offset,
       $source,
-      'Node',
+      'Token',
     );
-    $offset += $keyword?->getWidth() ?? 0;
+    $keyword = $keyword as nonnull;
+    $offset += $keyword->getWidth();
     $ctx_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['ctx_constraint_ctx_list'] ?? dict['kind' => 'missing'],
+      /* HH_FIXME[4110] */ $json['ctx_constraint_ctx_list'],
       $file,
       $offset,
       $source,
-      'Node',
+      'Contexts',
     );
-    $offset += $ctx_list?->getWidth() ?? 0;
+    $ctx_list = $ctx_list as nonnull;
+    $offset += $ctx_list->getWidth();
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -78,12 +80,8 @@ final class ContextConstraint extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
-    $ctx_list = $this->_ctx_list === null
-      ? null
-      : $rewriter($this->_ctx_list, $parents);
+    $keyword = $rewriter($this->_keyword, $parents);
+    $ctx_list = $rewriter($this->_ctx_list, $parents);
     if ($keyword === $this->_keyword && $ctx_list === $this->_ctx_list) {
       return $this;
     }
@@ -97,7 +95,7 @@ final class ContextConstraint extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(?Node $value): this {
+  public function withKeyword(Token $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -109,24 +107,24 @@ final class ContextConstraint extends Node {
   }
 
   /**
-   * @return unknown
+   * @return AsToken | SuperToken
    */
-  public function getKeyword(): ?Node {
-    return $this->_keyword;
+  public function getKeyword(): Token {
+    return TypeAssert\instance_of(Token::class, $this->_keyword);
   }
 
   /**
-   * @return unknown
+   * @return AsToken | SuperToken
    */
-  public function getKeywordx(): Node {
-    return TypeAssert\not_null($this->getKeyword());
+  public function getKeywordx(): Token {
+    return $this->getKeyword();
   }
 
   public function getCtxListUNTYPED(): ?Node {
     return $this->_ctx_list;
   }
 
-  public function withCtxList(?Node $value): this {
+  public function withCtxList(Contexts $value): this {
     if ($value === $this->_ctx_list) {
       return $this;
     }
@@ -138,16 +136,16 @@ final class ContextConstraint extends Node {
   }
 
   /**
-   * @return unknown
+   * @return Contexts
    */
-  public function getCtxList(): ?Node {
-    return $this->_ctx_list;
+  public function getCtxList(): Contexts {
+    return TypeAssert\instance_of(Contexts::class, $this->_ctx_list);
   }
 
   /**
-   * @return unknown
+   * @return Contexts
    */
-  public function getCtxListx(): Node {
-    return TypeAssert\not_null($this->getCtxList());
+  public function getCtxListx(): Contexts {
+    return $this->getCtxList();
   }
 }

@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5a0060c4b556db3cb917fdd4fd1ba39>>
+ * @generated SignedSource<<554cd35a59fa56b80a8ed3fd456bc3b8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class KeysetTypeSpecifier
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'keyset_type_specifier';
 

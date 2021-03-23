@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<081526a8326aba1b7fe89e0265723d62>>
+ * @generated SignedSource<<bbe4268eba035466c57a147efb37fde4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class SoftTypeSpecifier
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'soft_type_specifier';
 

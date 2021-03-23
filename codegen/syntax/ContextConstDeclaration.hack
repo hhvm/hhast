@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<383571a08e449c07b030f3269586f931>>
+ * @generated SignedSource<<2f3b92ae7c70ef0093af5f2e2b392c2a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -19,7 +19,7 @@ final class ContextConstDeclaration
   private CtxToken $_ctx_keyword;
   private NameToken $_name;
   private ?Node $_type_parameters;
-  private ?NodeList<TypeConstraint> $_constraint;
+  private ?NodeList<ContextConstraint> $_constraint;
   private ?EqualToken $_equal;
   private ?Contexts $_ctx_list;
   private SemicolonToken $_semicolon;
@@ -30,7 +30,7 @@ final class ContextConstDeclaration
     CtxToken $ctx_keyword,
     NameToken $name,
     ?Node $type_parameters,
-    ?NodeList<TypeConstraint> $constraint,
+    ?NodeList<ContextConstraint> $constraint,
     ?EqualToken $equal,
     ?Contexts $ctx_list,
     SemicolonToken $semicolon,
@@ -105,7 +105,7 @@ final class ContextConstDeclaration
       $file,
       $offset,
       $source,
-      'NodeList<TypeConstraint>',
+      'NodeList<ContextConstraint>',
     );
     $offset += $constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
@@ -417,7 +417,7 @@ final class ContextConstDeclaration
     return $this->_constraint;
   }
 
-  public function withConstraint(?NodeList<TypeConstraint> $value): this {
+  public function withConstraint(?NodeList<ContextConstraint> $value): this {
     if ($value === $this->_constraint) {
       return $this;
     }
@@ -439,16 +439,16 @@ final class ContextConstDeclaration
   }
 
   /**
-   * @return NodeList<TypeConstraint> | null
+   * @return NodeList<ContextConstraint> | null
    */
-  public function getConstraint(): ?NodeList<TypeConstraint> {
+  public function getConstraint(): ?NodeList<ContextConstraint> {
     return $this->_constraint;
   }
 
   /**
-   * @return NodeList<TypeConstraint>
+   * @return NodeList<ContextConstraint>
    */
-  public function getConstraintx(): NodeList<TypeConstraint> {
+  public function getConstraintx(): NodeList<ContextConstraint> {
     return TypeAssert\not_null($this->getConstraint());
   }
 
