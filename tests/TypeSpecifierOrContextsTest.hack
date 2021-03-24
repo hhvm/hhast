@@ -13,7 +13,8 @@ use function Facebook\FBExpect\expect;
 use type Facebook\HackTest\DataProvider;
 
 final class TypeSpecifierOrContextsTest extends TestCase {
-  public function getExamples(): dict<string, (string, classname<Node>)> {
+  public function getTypeConstraintExamples(
+  ): dict<string, (string, classname<Node>)> {
     return dict[
       'unwrapped type specifier' => tuple(
         'abstract const type TFoo as shape(...)',
@@ -23,26 +24,44 @@ final class TypeSpecifierOrContextsTest extends TestCase {
         'abstract const type TFoo as MyClass',
         SimpleTypeSpecifier::class,
       ),
-      'contexts' =>
-        tuple('abstract const ctx CFoo super [defaults]', Contexts::class),
     ];
   }
 
-  <<DataProvider('getExamples')>>
-  public async function testExample(
+  <<DataProvider('getTypeConstraintExamples')>>
+  public async function testTypeConstraintExample(
     string $code,
     classname<Node> $expected,
   ): Awaitable<void> {
-    if (\HHVM_VERSION_ID < 409300) {
-      self::markTestSkipped('Requires HHVM 4.93');
-    }
     $ast = await from_file_async(
       File::fromPathAndContents(
         '/dev/null',
         'abstract class Foo { '.$code.'; }',
       ),
     );
-    $constraint = $ast->getFirstDescendantByType<TypeConstraint>() as nonnull;
+    $constraint = expect($ast->getFirstDescendantByType<TypeConstraint>())
+      ->toNotBeNull('Expected the AST to contain a %s!', TypeConstraint::class);
     expect($constraint->getType())->toBeInstanceOf($expected);
+  }
+
+  public function getContextConstraintExamples(): dict<string, (string)> {
+    return dict[
+      'contexts' => tuple('abstract const ctx CFoo super [defaults]'),
+    ];
+  }
+
+  <<DataProvider('getContextConstraintExamples')>>
+  public async function testContextConstraintExample(
+    string $code,
+  ): Awaitable<void> {
+    $ast = await from_file_async(
+      File::fromPathAndContents(
+        '/dev/null',
+        'abstract class Foo { '.$code.'; }',
+      ),
+    );
+    expect($ast->getFirstDescendantByType<ContextConstraint>())->toNotBeNull(
+      'Expected the AST to contain a %s!',
+      ContextConstraint::class,
+    );
   }
 }
