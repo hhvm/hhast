@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36c4936cb2ba88327106564f423e2bfa>>
+ * @generated SignedSource<<7f7e7efbcb2ea362c679d6b95e6e5c21>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class TypeConstant
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class TypeConstant extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'type_constant';
 

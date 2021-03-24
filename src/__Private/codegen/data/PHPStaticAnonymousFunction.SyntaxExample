@@ -7,11 +7,6 @@
  *
  */
 
-namespace Facebook\HHAST;
-
-interface ITypeSpecifierOrContexts {
-  require extends Node;
-
-  public function asTypeSpecifier(): ITypeSpecifier;
-  public function asContexts(): Contexts;
+function php_anonymous_function_static(): void {
+  $_ = static function() {};
 }

@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06faedfaae552a29362caa3ecd85d978>>
+ * @generated SignedSource<<33099d3bcbfb43620ebdd277fea34ff4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class DictionaryTypeSpecifier
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'dictionary_type_specifier';
 

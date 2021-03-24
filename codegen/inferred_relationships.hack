@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67beccdd0f0d80d10508931827d6f4ff>>
+ * @generated SignedSource<<e2712a86d0ce802061550ae62c414192>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -950,7 +950,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:const',
   ],
   'context_const_declaration.context_const_constraint' => keyset[
-    'list<type_constraint>',
+    'list<context_constraint>',
     'missing',
   ],
   'context_const_declaration.context_const_ctx_keyword' => keyset[
@@ -976,6 +976,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'context_const_declaration.context_const_type_parameters' => keyset[
     'missing',
+  ],
+  'context_constraint.ctx_constraint_ctx_list' => keyset[
+    'contexts',
+  ],
+  'context_constraint.ctx_constraint_keyword' => keyset[
+    'token:as',
+    'token:super',
   ],
   'contexts.contexts_left_bracket' => keyset[
     'token:[',
@@ -2936,7 +2943,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'script.script_declarations' => keyset[
     'list<alias_declaration|classish_declaration|const_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|const_declaration|end_of_file|function_declaration|markup_section>',
-    'list<alias_declaration|classish_declaration|end_of_file|enum_declaration|file_attribute_specification|function_declaration|markup_section>',
+    'list<alias_declaration|classish_declaration|end_of_file|enum_class_declaration|enum_declaration|file_attribute_specification|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
@@ -2952,6 +2959,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|const_declaration|end_of_file|function_declaration|markup_section|namespace_declaration|namespace_use_declaration>',
     'list<classish_declaration|const_declaration|end_of_file|markup_section>',
     'list<classish_declaration|end_of_file|enum_class_declaration|function_declaration|markup_section>',
+    'list<classish_declaration|end_of_file|enum_class_declaration|markup_section>',
     'list<classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|expression_statement|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section>',
@@ -2975,6 +2983,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<end_of_file|enum_declaration|markup_section>',
     'list<end_of_file|enum_declaration|markup_section|namespace_use_declaration>',
+    'list<end_of_file|function_declaration>',
     'list<end_of_file|function_declaration|markup_section>',
     'list<end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<end_of_file|function_declaration|markup_section|namespace_declaration|namespace_use_declaration>',
@@ -3442,7 +3451,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'type_constraint.constraint_type' => keyset[
     'classname_type_specifier',
     'closure_type_specifier',
-    'contexts',
     'generic_type_specifier',
     'like_type_specifier',
     'nullable_type_specifier',

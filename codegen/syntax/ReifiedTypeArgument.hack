@@ -1,18 +1,14 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<279dbedd3de155d5e836536b133108c3>>
+ * @generated SignedSource<<6d1ed53ce97533a091fef3e88aacbba5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class ReifiedTypeArgument
-  extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'reified_type_argument';
 

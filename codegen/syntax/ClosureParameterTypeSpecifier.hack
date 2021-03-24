@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<744c258105c624484711e2eedb1d8fef>>
+ * @generated SignedSource<<755d30d82384d95c5a50a2e8e837af23>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,9 +10,7 @@ use namespace HH\Lib\Dict;
 <<__ConsistentConstruct>>
 final class ClosureParameterTypeSpecifier
   extends Node
-  implements ITypeSpecifier, ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+  implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'closure_parameter_type_specifier';
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70389c8eae7f4631e2c41d07ce843221>>
+ * @generated SignedSource<<31548ed0cbd5823c1aa1f727b8f939c6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,13 +10,7 @@ use namespace HH\Lib\Dict;
 <<__ConsistentConstruct>>
 final class VariadicParameter
   extends Node
-  implements
-    IHasTypeHint,
-    IParameter,
-    ITypeSpecifier,
-    ITypeSpecifierOrContexts {
-
-  use TypeSpecifierOrContextsTrait;
+  implements IHasTypeHint, IParameter, ITypeSpecifier {
 
   const string SYNTAX_KIND = 'variadic_parameter';
 

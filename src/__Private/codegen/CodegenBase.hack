@@ -124,10 +124,6 @@ abstract class CodegenBase {
   final protected function getTraits(
   ): dict<string, keyset<string>> {
     return dict[
-      HHAST\TypeSpecifierOrContextsTrait::class => Keyset\union(
-        keyset[HHAST\Contexts::class],
-        $this->getMarkerInterfacesByInterface()['ITypeSpecifier'],
-      ),
       HHAST\AttributeAsAttributeSpecTrait::class => keyset[
         HHAST\ClassishDeclaration::class,
         HHAST\ParameterDeclaration::class,
@@ -318,10 +314,6 @@ abstract class CodegenBase {
         )
           |> Keyset\map($$, $node ==> $node['kind_name']),
       ),
-      HHAST\ITypeSpecifierOrContexts::class => keyset[
-        HHAST\Contexts::class,
-        HHAST\ITypeSpecifier::class,
-      ],
       HHAST\IXHPAttribute::class => keyset[
         HHAST\XHPClassAttribute::class,
         HHAST\XHPSimpleAttribute::class,
