@@ -42,24 +42,17 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
   }
 
   private function getLastHeadToken(Node $node): Token {
-    if ($node is IfStatement) {
-      $paren = $node->getRightParen();
-      if ($paren !== null) {
-        return $paren->getLastTokenx();
-      }
-      return $node->getCondition()->getLastTokenx();
+    if (
+      $node is IfStatement ||
+      $node is ElseifClause ||
+      $node is ForeachStatement ||
+      $node is ForStatement ||
+      $node is WhileStatement
+    ) {
+      return $node->getRightParen()->getLastToken();
     }
-    if ($node is ElseClause) {
-      return $node->getKeyword();
-    }
-    if ($node is ElseifClause) {
-      return $node->getRightParen()->getLastTokenx();
-    }
-    if ($node is ForeachStatement) {
-      return $node->getRightParen()->getLastTokenx();
-    }
-    if ($node is WhileStatement) {
-      return $node->getRightParen()->getLastTokenx();
+    if ($node is ElseClause || $node is DoStatement) {
+      return $node->getKeyword()->getLastToken();
     }
     invariant_violation('unhandled type: %s', \get_class($node));
   }
