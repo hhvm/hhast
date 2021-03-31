@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3455de7d3cc717f9d7bcb9c6c4a88d1>>
+ * @generated SignedSource<<77b994614da7c5e23addc4461485a8d6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -191,18 +191,18 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier
-   * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   * @return GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant
    */
   public function getRightOperand(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_right_operand);
   }
 
   /**
-   * @return DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier
-   * | NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * TupleTypeSpecifier | TypeConstant | VectorTypeSpecifier
+   * @return GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
+   * TypeConstant
    */
   public function getRightOperandx(): ITypeSpecifier {
     return $this->getRightOperand();

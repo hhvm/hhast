@@ -21,7 +21,7 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2021-03-10-0001',
+    SCHEMA_VERSION === '2021-03-24-0001',
     '%s needs updating',
     __FILE__,
   );
@@ -30,11 +30,5 @@ function is_compatible_schema_version(string $other_version): bool {
   }
 
   // Return true if $other_version is a subset of SCHEMA_VERSION
-  switch ($other_version) {
-    case '2021-03-08-0001': // function calls do not have enum atom
-    case '2021-02-21-0001': // identical to 2021-03-08-0001
-      return true;
-    default:
-      return false;
-  }
+  return false;
 }

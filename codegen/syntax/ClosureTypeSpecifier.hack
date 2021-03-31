@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<773b22742dacf14f51cd6b50bcc812ef>>
+ * @generated SignedSource<<39f7cecd53e530e68007b9d742a3ea14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,6 +13,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   const string SYNTAX_KIND = 'closure_type_specifier';
 
   private LeftParenToken $_outer_left_paren;
+  private ?Node $_readonly_keyword;
   private FunctionToken $_function_keyword;
   private LeftParenToken $_inner_left_paren;
   private ?NodeList<ListItem<ITypeSpecifier>> $_parameter_list;
@@ -25,6 +26,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
 
   public function __construct(
     LeftParenToken $outer_left_paren,
+    ?Node $readonly_keyword,
     FunctionToken $function_keyword,
     LeftParenToken $inner_left_paren,
     ?NodeList<ListItem<ITypeSpecifier>> $parameter_list,
@@ -37,6 +39,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_outer_left_paren = $outer_left_paren;
+    $this->_readonly_keyword = $readonly_keyword;
     $this->_function_keyword = $function_keyword;
     $this->_inner_left_paren = $inner_left_paren;
     $this->_parameter_list = $parameter_list;
@@ -67,6 +70,14 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $outer_left_paren = $outer_left_paren as nonnull;
     $offset += $outer_left_paren->getWidth();
+    $readonly_keyword = Node::fromJSON(
+      /* HH_FIXME[4110] */ $json['closure_readonly_keyword'] ?? dict['kind' => 'missing'],
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $readonly_keyword?->getWidth() ?? 0;
     $function_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['closure_function_keyword'],
       $file,
@@ -153,6 +164,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $outer_left_paren,
+      /* HH_IGNORE_ERROR[4110] */ $readonly_keyword,
       /* HH_IGNORE_ERROR[4110] */ $function_keyword,
       /* HH_IGNORE_ERROR[4110] */ $inner_left_paren,
       /* HH_IGNORE_ERROR[4110] */ $parameter_list,
@@ -170,6 +182,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   public function getChildren(): dict<string, Node> {
     return dict[
       'outer_left_paren' => $this->_outer_left_paren,
+      'readonly_keyword' => $this->_readonly_keyword,
       'function_keyword' => $this->_function_keyword,
       'inner_left_paren' => $this->_inner_left_paren,
       'parameter_list' => $this->_parameter_list,
@@ -190,6 +203,9 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $parents[] = $this;
     $outer_left_paren = $rewriter($this->_outer_left_paren, $parents);
+    $readonly_keyword = $this->_readonly_keyword === null
+      ? null
+      : $rewriter($this->_readonly_keyword, $parents);
     $function_keyword = $rewriter($this->_function_keyword, $parents);
     $inner_left_paren = $rewriter($this->_inner_left_paren, $parents);
     $parameter_list = $this->_parameter_list === null
@@ -207,6 +223,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $outer_right_paren = $rewriter($this->_outer_right_paren, $parents);
     if (
       $outer_left_paren === $this->_outer_left_paren &&
+      $readonly_keyword === $this->_readonly_keyword &&
       $function_keyword === $this->_function_keyword &&
       $inner_left_paren === $this->_inner_left_paren &&
       $parameter_list === $this->_parameter_list &&
@@ -221,6 +238,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       /* HH_FIXME[4110] use `as` */ $outer_left_paren,
+      /* HH_FIXME[4110] use `as` */ $readonly_keyword,
       /* HH_FIXME[4110] use `as` */ $function_keyword,
       /* HH_FIXME[4110] use `as` */ $inner_left_paren,
       /* HH_FIXME[4110] use `as` */ $parameter_list,
@@ -243,6 +261,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $value,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,
@@ -276,6 +295,47 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->getOuterLeftParen();
   }
 
+  public function getReadonlyKeywordUNTYPED(): ?Node {
+    return $this->_readonly_keyword;
+  }
+
+  public function withReadonlyKeyword(?Node $value): this {
+    if ($value === $this->_readonly_keyword) {
+      return $this;
+    }
+    return new static(
+      $this->_outer_left_paren,
+      $value,
+      $this->_function_keyword,
+      $this->_inner_left_paren,
+      $this->_parameter_list,
+      $this->_inner_right_paren,
+      $this->_contexts,
+      $this->_colon,
+      $this->_readonly_return,
+      $this->_return_type,
+      $this->_outer_right_paren,
+    );
+  }
+
+  public function hasReadonlyKeyword(): bool {
+    return $this->_readonly_keyword !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getReadonlyKeyword(): ?Node {
+    return $this->_readonly_keyword;
+  }
+
+  /**
+   * @return
+   */
+  public function getReadonlyKeywordx(): Node {
+    return TypeAssert\not_null($this->getReadonlyKeyword());
+  }
+
   public function getFunctionKeywordUNTYPED(): ?Node {
     return $this->_function_keyword;
   }
@@ -286,6 +346,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $value,
       $this->_inner_left_paren,
       $this->_parameter_list,
@@ -329,6 +390,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $value,
       $this->_parameter_list,
@@ -374,6 +436,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $this->_inner_left_paren,
       $value,
@@ -417,6 +480,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,
@@ -460,6 +524,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,
@@ -500,6 +565,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,
@@ -540,6 +606,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,
@@ -580,6 +647,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,
@@ -622,6 +690,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $this->_outer_left_paren,
+      $this->_readonly_keyword,
       $this->_function_keyword,
       $this->_inner_left_paren,
       $this->_parameter_list,

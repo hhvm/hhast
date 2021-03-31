@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9035fcd249508f4387b620c854818cea>>
+ * @generated SignedSource<<3090e152f01a47860727e6366f8d5a91>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,7 +17,7 @@ final class EnumClassDeclaration extends Node {
   private ClassToken $_class_keyword;
   private NameToken $_name;
   private ColonToken $_colon;
-  private SimpleTypeSpecifier $_base;
+  private ISimpleCreationSpecifier $_base;
   private ?ExtendsToken $_extends;
   private ?NodeList<ListItem<SimpleTypeSpecifier>> $_extends_list;
   private LeftBraceToken $_left_brace;
@@ -30,7 +30,7 @@ final class EnumClassDeclaration extends Node {
     ClassToken $class_keyword,
     NameToken $name,
     ColonToken $colon,
-    SimpleTypeSpecifier $base,
+    ISimpleCreationSpecifier $base,
     ?ExtendsToken $extends,
     ?NodeList<ListItem<SimpleTypeSpecifier>> $extends_list,
     LeftBraceToken $left_brace,
@@ -110,7 +110,7 @@ final class EnumClassDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'SimpleTypeSpecifier',
+      'ISimpleCreationSpecifier',
     );
     $base = $base as nonnull;
     $offset += $base->getWidth();
@@ -460,7 +460,7 @@ final class EnumClassDeclaration extends Node {
     return $this->_base;
   }
 
-  public function withBase(SimpleTypeSpecifier $value): this {
+  public function withBase(ISimpleCreationSpecifier $value): this {
     if ($value === $this->_base) {
       return $this;
     }
@@ -484,16 +484,19 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getBase(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_base);
+  public function getBase(): ISimpleCreationSpecifier {
+    return TypeAssert\instance_of(
+      ISimpleCreationSpecifier::class,
+      $this->_base,
+    );
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getBasex(): SimpleTypeSpecifier {
+  public function getBasex(): ISimpleCreationSpecifier {
     return $this->getBase();
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5ce08f4005ce0d33a0d402db8f55981>>
+ * @generated SignedSource<<f714a6b7a7c1a8702d3c1279fbcd14cf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,6 @@ final class AnonymousFunction
   const string SYNTAX_KIND = 'anonymous_function';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private ?StaticToken $_static_keyword;
   private ?AsyncToken $_async_keyword;
   private FunctionToken $_function_keyword;
   private LeftParenToken $_left_paren;
@@ -30,7 +29,6 @@ final class AnonymousFunction
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    ?StaticToken $static_keyword,
     ?AsyncToken $async_keyword,
     FunctionToken $function_keyword,
     LeftParenToken $left_paren,
@@ -45,7 +43,6 @@ final class AnonymousFunction
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
-    $this->_static_keyword = $static_keyword;
     $this->_async_keyword = $async_keyword;
     $this->_function_keyword = $function_keyword;
     $this->_left_paren = $left_paren;
@@ -77,14 +74,6 @@ final class AnonymousFunction
       'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
-    $static_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_static_keyword'] ?? dict['kind' => 'missing'],
-      $file,
-      $offset,
-      $source,
-      'StaticToken',
-    );
-    $offset += $static_keyword?->getWidth() ?? 0;
     $async_keyword = Node::fromJSON(
       /* HH_FIXME[4110] */ $json['anonymous_async_keyword'] ?? dict['kind' => 'missing'],
       $file,
@@ -185,7 +174,6 @@ final class AnonymousFunction
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $static_keyword,
       /* HH_IGNORE_ERROR[4110] */ $async_keyword,
       /* HH_IGNORE_ERROR[4110] */ $function_keyword,
       /* HH_IGNORE_ERROR[4110] */ $left_paren,
@@ -205,7 +193,6 @@ final class AnonymousFunction
   public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
-      'static_keyword' => $this->_static_keyword,
       'async_keyword' => $this->_async_keyword,
       'function_keyword' => $this->_function_keyword,
       'left_paren' => $this->_left_paren,
@@ -230,9 +217,6 @@ final class AnonymousFunction
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
-    $static_keyword = $this->_static_keyword === null
-      ? null
-      : $rewriter($this->_static_keyword, $parents);
     $async_keyword = $this->_async_keyword === null
       ? null
       : $rewriter($this->_async_keyword, $parents);
@@ -254,7 +238,6 @@ final class AnonymousFunction
     $body = $rewriter($this->_body, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
-      $static_keyword === $this->_static_keyword &&
       $async_keyword === $this->_async_keyword &&
       $function_keyword === $this->_function_keyword &&
       $left_paren === $this->_left_paren &&
@@ -271,7 +254,6 @@ final class AnonymousFunction
     }
     return new static(
       /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $static_keyword,
       /* HH_FIXME[4110] use `as` */ $async_keyword,
       /* HH_FIXME[4110] use `as` */ $function_keyword,
       /* HH_FIXME[4110] use `as` */ $left_paren,
@@ -296,7 +278,6 @@ final class AnonymousFunction
     }
     return new static(
       $value,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -329,49 +310,6 @@ final class AnonymousFunction
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getStaticKeywordUNTYPED(): ?Node {
-    return $this->_static_keyword;
-  }
-
-  public function withStaticKeyword(?StaticToken $value): this {
-    if ($value === $this->_static_keyword) {
-      return $this;
-    }
-    return new static(
-      $this->_attribute_spec,
-      $value,
-      $this->_async_keyword,
-      $this->_function_keyword,
-      $this->_left_paren,
-      $this->_parameters,
-      $this->_right_paren,
-      $this->_ctx_list,
-      $this->_colon,
-      $this->_readonly_return,
-      $this->_type,
-      $this->_use,
-      $this->_body,
-    );
-  }
-
-  public function hasStaticKeyword(): bool {
-    return $this->_static_keyword !== null;
-  }
-
-  /**
-   * @return null | StaticToken
-   */
-  public function getStaticKeyword(): ?StaticToken {
-    return $this->_static_keyword;
-  }
-
-  /**
-   * @return StaticToken
-   */
-  public function getStaticKeywordx(): StaticToken {
-    return TypeAssert\not_null($this->getStaticKeyword());
-  }
-
   public function getAsyncKeywordUNTYPED(): ?Node {
     return $this->_async_keyword;
   }
@@ -382,7 +320,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $value,
       $this->_function_keyword,
       $this->_left_paren,
@@ -425,7 +362,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $value,
       $this->_left_paren,
@@ -471,7 +407,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $value,
@@ -516,7 +451,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -559,7 +493,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -602,7 +535,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -645,7 +577,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -688,7 +619,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -731,7 +661,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -778,7 +707,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,
@@ -821,7 +749,6 @@ final class AnonymousFunction
     }
     return new static(
       $this->_attribute_spec,
-      $this->_static_keyword,
       $this->_async_keyword,
       $this->_function_keyword,
       $this->_left_paren,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7e690c11f4f63050dea71a92529c1a9>>
+ * @generated SignedSource<<edbe7a281417ab0c4d0e3dbadb694c33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -275,14 +275,16 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return LiteralExpression | ObjectCreationExpression
+   * @return FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression
    */
   public function getInitialValue(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_initial_value);
   }
 
   /**
-   * @return LiteralExpression | ObjectCreationExpression
+   * @return FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression
    */
   public function getInitialValuex(): IExpression {
     return $this->getInitialValue();
