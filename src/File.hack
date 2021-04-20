@@ -85,7 +85,7 @@ final class File {
     return \sodium_crypto_generichash(
       SCHEMA_VERSION.
       '!'.
-      /* HH_FIXME[4106] */ /* HH_FIXME[2049] */\HHVM_REPO_SCHEMA,
+      \HHVM_REPO_SCHEMA,
       null,
       \SODIUM_CRYPTO_GENERICHASH_KEYBYTES,
     );

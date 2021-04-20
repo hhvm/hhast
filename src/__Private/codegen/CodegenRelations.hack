@@ -255,7 +255,6 @@ final class CodegenRelations extends CodegenBase {
       if (!is_dict($json)) {
         return dict[];
       }
-      /* HH_IGNORE_ERROR[4110] making assumptions about JSON */
       $ast = $this->flatten($json['parse_tree']);
     } catch (\Exception $_) {
       return dict[];

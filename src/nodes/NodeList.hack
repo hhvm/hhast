@@ -108,12 +108,15 @@ final class NodeList<+Titem as Node> extends Node {
       $children[] = $child;
       $current_position += $child->getWidth();
     }
-    return new NodeList(/* HH_FIXME[4110] */ $children, shape(
-      'file' => $file,
-      'source' => $source,
-      'offset' => $offset,
-      'width' => $current_position - $offset,
-    ));
+    return new NodeList(
+      /* HH_FIXME[4110] Expected vec<TItem>, got vec<Node> */ $children,
+      shape(
+        'file' => $file,
+        'source' => $source,
+        'offset' => $offset,
+        'width' => $current_position - $offset,
+      )
+    );
   }
 
   <<__Override>>
@@ -141,7 +144,9 @@ final class NodeList<+Titem as Node> extends Node {
       return $this;
     }
 
-    return new NodeList(/* HH_FIXME[4110] */ Vec\filter_nulls($new_children));
+    return new NodeList(
+      /* HH_FIXME[4110] Expected vec<TItem>, got vec<?Node>*/ Vec\filter_nulls($new_children)
+    );
   }
 
   <<__Override>>
@@ -158,7 +163,10 @@ final class NodeList<+Titem as Node> extends Node {
       $children[$idx] = $child->replaceImpl($old_id, $new);
       break;
     }
-    return new self(Vec\filter_nulls(/* HH_FIXME[4110] */ $children));
+    return new self(
+      /* HH_FIXME[4110] Expected vec<TItem>, got vec<Node> */
+      Vec\filter_nulls($children)
+    );
   }
 
   public function replaceChild<Tchild super Titem as Node>(

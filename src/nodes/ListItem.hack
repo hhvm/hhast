@@ -68,7 +68,7 @@ final class ListItem<+T as ?Node> extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $item,
+      /* HH_FIXME[4110] Expected T, got ?Node */ $item,
       $separator as ?Token,
       $source_ref,
     );
