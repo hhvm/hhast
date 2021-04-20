@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<184e0182a1ce32c7e1b46cd9ad2cc966>>
+ * @generated SignedSource<<eb9810ba80a31fba3cb969a59c7a4b98>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,8 +110,7 @@ final class PrefixUnaryExpression
 
   /**
    * @return ExclamationToken | PlusToken | PlusPlusToken | MinusToken |
-   * MinusMinusToken | AtToken | AwaitToken | CloneToken | PrintToken |
-   * TildeToken
+   * MinusMinusToken | AwaitToken | CloneToken | PrintToken | TildeToken
    */
   public function getOperator(): Token {
     return TypeAssert\instance_of(Token::class, $this->_operator);
@@ -119,8 +118,7 @@ final class PrefixUnaryExpression
 
   /**
    * @return ExclamationToken | PlusToken | PlusPlusToken | MinusToken |
-   * MinusMinusToken | AtToken | AwaitToken | CloneToken | PrintToken |
-   * TildeToken
+   * MinusMinusToken | AwaitToken | CloneToken | PrintToken | TildeToken
    */
   public function getOperatorx(): Token {
     return $this->getOperator();
@@ -142,10 +140,10 @@ final class PrefixUnaryExpression
   }
 
   /**
-   * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AwaitableCreationExpression | BinaryExpression | CastExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression | FunctionCallExpression
+   * | IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression
@@ -155,10 +153,10 @@ final class PrefixUnaryExpression
   }
 
   /**
-   * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AwaitableCreationExpression | BinaryExpression | CastExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression | FunctionCallExpression
+   * | IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression

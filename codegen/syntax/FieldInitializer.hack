@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c4a83ab1f16f472320f981f1c042fab6>>
+ * @generated SignedSource<<c06f0ddb81248523292956a7d9267806>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -186,10 +186,11 @@ final class FieldInitializer extends Node {
 
   /**
    * @return BinaryExpression | DarrayIntrinsicExpression |
-   * FunctionCallExpression | FunctionPointerExpression | LambdaExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * FunctionPointerExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
    * ShapeExpression | SubscriptExpression | VariableExpression |
-   * VarrayIntrinsicExpression
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValue(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_value);
@@ -197,10 +198,11 @@ final class FieldInitializer extends Node {
 
   /**
    * @return BinaryExpression | DarrayIntrinsicExpression |
-   * FunctionCallExpression | FunctionPointerExpression | LambdaExpression |
+   * DictionaryIntrinsicExpression | FunctionCallExpression |
+   * FunctionPointerExpression | KeysetIntrinsicExpression | LambdaExpression |
    * LiteralExpression | ObjectCreationExpression | ScopeResolutionExpression |
    * ShapeExpression | SubscriptExpression | VariableExpression |
-   * VarrayIntrinsicExpression
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getValuex(): IExpression {
     return $this->getValue();
