@@ -429,68 +429,6 @@ final class CodegenSyntax extends CodegenBase {
       );
   }
 
-  private function generateRewriteDescendantsMethod(
-    Schema\TAST $syntax,
-  ): CodegenMethod {
-    $cg = $this->getCodegenFactory();
-
-    $fields = Vec\map($syntax['fields'], $field ==> $field['field_name']);
-
-    return $cg
-      ->codegenMethod('rewriteDescendants')
-      ->setIsOverride()
-      ->addParameter('self::TRewriter $rewriter')
-      ->addParameter('vec<Node> $parents = vec[]')
-      ->setReturnType('this')
-      ->setBody(
-        $cg
-          ->codegenHackBuilder()
-          ->addLine('$parents[] = $this;')
-          ->addLines(
-            Vec\map(
-              $fields,
-              $field ==> {
-                return Str\format(
-                  '$%s = $this->_%s->rewrite($rewriter, $parents);',
-                  $field,
-                  $field,
-                );
-              },
-            ),
-          )
-          ->addLine('if (')
-          ->indent()
-          ->addLines(
-            Vec\map(
-              $fields,
-              $field ==> Str\format('$%s === $this->_%s &&', $field, $field),
-            )
-              |> (
-                (vec<string> $lines) ==> {
-                  $idx = C\last_keyx($lines);
-                  $lines[$idx] = Str\strip_suffix($lines[$idx], ' &&');
-                  return $lines;
-                }
-              )($$),
-          )
-          ->unindent()
-          ->addLine(') {')
-          ->indent()
-          ->addLine('return $this;')
-          ->unindent()
-          ->addLine('}')
-          ->add('return ')
-          ->addMultilineCall(
-            'new static',
-            Vec\map(
-              $fields,
-              $field ==> '/* HH_FIXME[4110] use `as` */ $'.$field,
-            ),
-          )
-          ->getCode(),
-      );
-  }
-
   private function generateRewriteChildrenMethod(
     Schema\TAST $syntax,
   ): CodegenMethod {
