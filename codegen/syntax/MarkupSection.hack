@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee5c4f225cf5b2765a40725abeb6bb49>>
+ * @generated SignedSource<<5f92fcbfb9d9d5514afa832b4581c954>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,10 +86,7 @@ final class MarkupSection extends Node {
     if ($hashbang === $this->_hashbang && $suffix === $this->_suffix) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $hashbang,
-      /* HH_FIXME[4110] use `as` */ $suffix,
-    );
+    return new static($hashbang as HashbangToken, $suffix as ?MarkupSuffix);
   }
 
   public function getHashbangUNTYPED(): ?Node {

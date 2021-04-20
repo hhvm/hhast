@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6286eaf91f0ff09e2ef4ad15d6e18f31>>
+ * @generated SignedSource<<31348eb223e895ad9fc0bace0b890969>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class ContinueStatement extends Node implements IStatement {
     if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
-    );
+    return new static($keyword as ContinueToken, $semicolon as SemicolonToken);
   }
 
   public function getKeywordUNTYPED(): ?Node {

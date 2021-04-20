@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6d1ed53ce97533a091fef3e88aacbba5>>
+ * @generated SignedSource<<9988e8335d9aec17f69483ba82914b18>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
     if ($reified === $this->_reified && $type === $this->_type) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $reified,
-      /* HH_FIXME[4110] use `as` */ $type,
-    );
+    return new static($reified as Node, $type as Node);
   }
 
   public function getReifiedUNTYPED(): ?Node {

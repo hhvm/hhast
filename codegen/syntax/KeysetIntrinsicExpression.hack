@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3f682f90ccb3f6143ff4e8f09ea696c>>
+ * @generated SignedSource<<537d546314b6d8b3f82e3092327bacbd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,11 +141,11 @@ final class KeysetIntrinsicExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $explicit_type,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $keyword as KeysetToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $members,
+      $right_bracket as RightBracketToken,
     );
   }
 

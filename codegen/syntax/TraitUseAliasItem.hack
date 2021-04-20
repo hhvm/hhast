@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24b0793fddc1bcfd10f10bec32eb12d5>>
+ * @generated SignedSource<<6fcb1bb1c512870d6121a714f061c5fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,10 +123,10 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $aliasing_name,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $modifiers,
-      /* HH_FIXME[4110] use `as` */ $aliased_name,
+      $aliasing_name as Node,
+      $keyword as AsToken,
+      /* HH_FIXME[4110] ?NodeList<Token> may not be enforceable */ $modifiers,
+      $aliased_name as ?SimpleTypeSpecifier,
     );
   }
 

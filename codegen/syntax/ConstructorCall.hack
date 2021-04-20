@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f86f7cf30be1dbcc413c359037961f9b>>
+ * @generated SignedSource<<6dbcd79fdb80ec2295dd8d963a726076>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -124,10 +124,10 @@ final class ConstructorCall extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $argument_list,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $type as Node,
+      $left_paren as ?LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $argument_list,
+      $right_paren as ?RightParenToken,
     );
   }
 

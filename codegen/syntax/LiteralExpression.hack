@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a9d146f36b980d6c4b1dca54ccb579b>>
+ * @generated SignedSource<<21e06bca6241a194ac13d640cd14927c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -68,7 +68,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
     if ($expression === $this->_expression) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $expression);
+    return new static($expression as ?Node);
   }
 
   public function getExpressionUNTYPED(): ?Node {

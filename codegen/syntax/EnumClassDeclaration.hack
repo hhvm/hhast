@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3090e152f01a47860727e6366f8d5a91>>
+ * @generated SignedSource<<91028db0970ba6bcdf0dc97ea262a4d8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -237,17 +237,17 @@ final class EnumClassDeclaration extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $enum_keyword,
-      /* HH_FIXME[4110] use `as` */ $class_keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $base,
-      /* HH_FIXME[4110] use `as` */ $extends,
-      /* HH_FIXME[4110] use `as` */ $extends_list,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $elements,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $attribute_spec as ?OldAttributeSpecification,
+      $enum_keyword as EnumToken,
+      $class_keyword as ClassToken,
+      $name as NameToken,
+      $colon as ColonToken,
+      $base as ISimpleCreationSpecifier,
+      $extends as ?ExtendsToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<SimpleTypeSpecifier>> may not be enforceable */ $extends_list,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<EnumClassEnumerator> may not be enforceable */ $elements,
+      $right_brace as RightBraceToken,
     );
   }
 

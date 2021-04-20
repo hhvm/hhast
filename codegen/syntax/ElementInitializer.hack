@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31b9d9ea172d97e9d87f42123f41a8f8>>
+ * @generated SignedSource<<4445715f0afc1e4dec23b06ea836cd41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class ElementInitializer extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $key,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $value,
+      $key as IExpression,
+      $arrow as EqualGreaterThanToken,
+      $value as IExpression,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<076fcde7ff616450d6a28b7131223cf5>>
+ * @generated SignedSource<<9658d76f0a5676c5a5f40434be5f1a93>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class ParenthesizedExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $left_paren as LeftParenToken,
+      $expression as IExpression,
+      $right_paren as RightParenToken,
     );
   }
 

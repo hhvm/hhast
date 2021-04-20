@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0a1fd0b4071b8eed6fe5a7848d9f553>>
+ * @generated SignedSource<<842b760e9b2cad812ba7576b4199b28d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -124,10 +124,10 @@ final class CollectionLiteralExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $initializers,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $name as ISimpleCreationSpecifier,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<Node>> may not be enforceable */ $initializers,
+      $right_brace as RightBraceToken,
     );
   }
 

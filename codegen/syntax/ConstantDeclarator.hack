@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<494718cbcbf4862c3c3409151aad7ac4>>
+ * @generated SignedSource<<a208fd550969afea0aaf40a6aadc86ab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,10 +86,7 @@ final class ConstantDeclarator extends Node {
     if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $initializer,
-    );
+    return new static($name as NameToken, $initializer as ?SimpleInitializer);
   }
 
   public function getNameUNTYPED(): ?Node {

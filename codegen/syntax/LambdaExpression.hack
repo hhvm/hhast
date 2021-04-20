@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4f868b72b8fbf21afaae4c0090d663e>>
+ * @generated SignedSource<<772c6a851d261281d9b72d0823a1c05c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,11 +139,11 @@ final class LambdaExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $async,
-      /* HH_FIXME[4110] use `as` */ $signature,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $attribute_spec as ?OldAttributeSpecification,
+      $async as ?AsyncToken,
+      $signature as Node,
+      $arrow as EqualEqualGreaterThanToken,
+      $body as ILambdaBody,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a93ed36086e6c979c8feb97e1948e6c0>>
+ * @generated SignedSource<<3b6eb5ff987254658fedf1981797798a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class Attribute extends Node {
     if ($at === $this->_at && $attribute_name === $this->_attribute_name) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $at,
-      /* HH_FIXME[4110] use `as` */ $attribute_name,
-    );
+    return new static($at as ?Node, $attribute_name as ?Node);
   }
 
   public function getAtUNTYPED(): ?Node {

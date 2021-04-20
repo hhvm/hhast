@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55d567ebcf67d8a515862bcb7d9e4803>>
+ * @generated SignedSource<<e5b9e44c0e561831916467bc1701bd58>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,11 +141,11 @@ final class DarrayIntrinsicExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $explicit_type,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $keyword as DarrayToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ElementInitializer>> may not be enforceable */ $members,
+      $right_bracket as RightBracketToken,
     );
   }
 

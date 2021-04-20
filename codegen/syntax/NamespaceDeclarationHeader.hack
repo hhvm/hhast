@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47c2e79b62905f7b728fa628a41fe6a6>>
+ * @generated SignedSource<<7550a4a890fa9f9f4733bea9ad1f5a1e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,10 +84,7 @@ final class NamespaceDeclarationHeader extends Node {
     if ($keyword === $this->_keyword && $name === $this->_name) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-    );
+    return new static($keyword as NamespaceToken, $name as ?INameishNode);
   }
 
   public function getKeywordUNTYPED(): ?Node {

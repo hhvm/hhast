@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f714a6b7a7c1a8702d3c1279fbcd14cf>>
+ * @generated SignedSource<<fef2c7be812d731b32a902ad6db835b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -253,18 +253,18 @@ final class AnonymousFunction
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $async_keyword,
-      /* HH_FIXME[4110] use `as` */ $function_keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $parameters,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $ctx_list,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $readonly_return,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $use,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $attribute_spec as ?OldAttributeSpecification,
+      $async_keyword as ?AsyncToken,
+      $function_keyword as FunctionToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ParameterDeclaration>> may not be enforceable */ $parameters,
+      $right_paren as RightParenToken,
+      $ctx_list as ?Node,
+      $colon as ?ColonToken,
+      $readonly_return as ?Node,
+      $type as ?ITypeSpecifier,
+      $use as ?AnonymousFunctionUseClause,
+      $body as CompoundStatement,
     );
   }
 

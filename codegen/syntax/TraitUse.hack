@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbeb7e58f875d8600056857af66d0c35>>
+ * @generated SignedSource<<d12ebb36d1361194bf01043260f57b27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $names,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as UseToken,
+      /* HH_FIXME[4110] NodeList<ListItem<ISimpleCreationSpecifier>> may not be enforceable */ $names,
+      $semicolon as SemicolonToken,
     );
   }
 

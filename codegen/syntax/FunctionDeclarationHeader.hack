@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6eab26b2b591acab26828a87e2f29771>>
+ * @generated SignedSource<<b5eebc37ba58b3490a7e42241164b415>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -253,18 +253,18 @@ final class FunctionDeclarationHeader extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $modifiers,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $type_parameter_list,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $parameter_list,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $contexts,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $readonly_return,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $where_clause,
+      /* HH_FIXME[4110] ?NodeList<Token> may not be enforceable */ $modifiers,
+      $keyword as FunctionToken,
+      $name as Token,
+      $type_parameter_list as ?TypeParameters,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IParameter>> may not be enforceable */ $parameter_list,
+      $right_paren as RightParenToken,
+      $contexts as ?Contexts,
+      $colon as ?ColonToken,
+      $readonly_return as ?Node,
+      $type as ?ITypeSpecifier,
+      $where_clause as ?WhereClause,
     );
   }
 

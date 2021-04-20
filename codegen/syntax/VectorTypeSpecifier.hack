@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<594ef0716f6cde73ff47fdd83a79366e>>
+ * @generated SignedSource<<8f7c356f92e624e871696b6a78960ae3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -138,11 +138,11 @@ final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $trailing_comma,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $keyword as VecToken,
+      $left_angle as LessThanToken,
+      $type as ITypeSpecifier,
+      $trailing_comma as ?Node,
+      $right_angle as GreaterThanToken,
     );
   }
 

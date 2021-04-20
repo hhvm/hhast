@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c0e669b55fe0f200ad5e61e1c618d80b>>
+ * @generated SignedSource<<5304fbdc8f404d3ae38bdd39341db640>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,10 +86,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     if ($keyword === $this->_keyword && $operand === $this->_operand) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $operand,
-    );
+    return new static($keyword as YieldToken, $operand as ?Node);
   }
 
   public function getKeywordUNTYPED(): ?Node {

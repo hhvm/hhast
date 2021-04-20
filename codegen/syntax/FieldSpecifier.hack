@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4e5a31a983f4a8f6c641b76e5645c1e>>
+ * @generated SignedSource<<02f4fba864377e241e1c9defb6b00fa2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,10 +122,10 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $question,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $type,
+      $question as ?QuestionToken,
+      $name as IExpression,
+      $arrow as EqualGreaterThanToken,
+      $type as ITypeSpecifier,
     );
   }
 

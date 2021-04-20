@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65c2ee31cc9aa30e0988cfca291f41b1>>
+ * @generated SignedSource<<f88ce43d08609b4253990e0c38719558>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,10 +125,10 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $argument_list,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as ?Node,
+      $left_paren as ?Node,
+      $argument_list as ?Node,
+      $right_paren as ?Node,
     );
   }
 

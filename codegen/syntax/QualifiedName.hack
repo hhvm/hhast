@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee739ad4d0d8cfcde190762d8f6e33d8>>
+ * @generated SignedSource<<1df6cbc8615f6ef04d7dc446f9ca49ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -69,7 +69,9 @@ final class QualifiedName
     if ($parts === $this->_parts) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $parts);
+    return new static(
+      /* HH_FIXME[4110] NodeList<ListItem<?Token>> may not be enforceable */ $parts,
+    );
   }
 
   public function getPartsUNTYPED(): ?Node {

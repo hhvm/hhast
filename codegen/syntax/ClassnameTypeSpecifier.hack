@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e55e9cf133d18ec6cd707fe40a18bc15>>
+ * @generated SignedSource<<fb5ec52e7607f681539f61f951039965>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,11 +139,11 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $trailing_comma,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $keyword as ClassnameToken,
+      $left_angle as ?LessThanToken,
+      $type as ?ITypeSpecifier,
+      $trailing_comma as ?Node,
+      $right_angle as ?GreaterThanToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<109dda21548b507fcd862b6c9099b72e>>
+ * @generated SignedSource<<d31ab9f1b0817ea110779b6e77f2f0d9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,10 +121,10 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $argument,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as EvalToken,
+      $left_paren as LeftParenToken,
+      $argument as IExpression,
+      $right_paren as RightParenToken,
     );
   }
 

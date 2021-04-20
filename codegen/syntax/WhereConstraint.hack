@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e8e5dbf2149904fdaf69382718ef837>>
+ * @generated SignedSource<<01cb3a5cd13a804d798d19492de51439>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class WhereConstraint extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_type,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $right_type,
+      $left_type as ITypeSpecifier,
+      $operator as Token,
+      $right_type as ITypeSpecifier,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<072a8bb9fbc1e972c36031d857c89475>>
+ * @generated SignedSource<<f650b923d24c1171ed04e77a2382911c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -218,16 +218,16 @@ final class ForeachStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $collection,
-      /* HH_FIXME[4110] use `as` */ $await_keyword,
-      /* HH_FIXME[4110] use `as` */ $as,
-      /* HH_FIXME[4110] use `as` */ $key,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $value,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $keyword as ForeachToken,
+      $left_paren as LeftParenToken,
+      $collection as IExpression,
+      $await_keyword as ?AwaitToken,
+      $as as AsToken,
+      $key as ?IExpression,
+      $arrow as ?EqualGreaterThanToken,
+      $value as IExpression,
+      $right_paren as RightParenToken,
+      $body as IStatement,
     );
   }
 

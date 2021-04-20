@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8f1e351e292f1f6dd05ed597c5e1188>>
+ * @generated SignedSource<<94ac073a95152af0a633df9afc4aa26b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,9 +106,9 @@ final class NamespaceBody extends Node implements INamespaceBody {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $declarations,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<Node> may not be enforceable */ $declarations,
+      $right_brace as RightBraceToken,
     );
   }
 

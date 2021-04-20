@@ -556,7 +556,18 @@ final class CodegenSyntax extends CodegenBase {
             'new static',
             Vec\map(
               $fields,
-              $field ==> '/* HH_FIXME[4110] use `as` */ $'.$field,
+              $field ==> {
+                $type = $this->getTypeSpecForField($syntax, $field)
+                  |> $$['nullable'] ? '?'.$$['class'] : $$['class'];
+                $enforceable = Str\format('$%s as %s', $field, $type);
+                $not_enforceable = Str\format(
+                  '/* HH_FIXME[4110] %s may not be enforceable */ $%s',
+                  $type,
+                  $field,
+                );
+                return $type
+                  |> Str\contains($$, '<') ? $not_enforceable : $enforceable;
+              },
             ),
           )
           ->getCode(),

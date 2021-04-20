@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf5c257127fae152fd4dd5ceb3abbcbf>>
+ * @generated SignedSource<<9630d96663defbb2811b3167735dd048>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,10 +123,10 @@ final class TryStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $compound_statement,
-      /* HH_FIXME[4110] use `as` */ $catch_clauses,
-      /* HH_FIXME[4110] use `as` */ $finally_clause,
+      $keyword as TryToken,
+      $compound_statement as CompoundStatement,
+      /* HH_FIXME[4110] ?NodeList<CatchClause> may not be enforceable */ $catch_clauses,
+      $finally_clause as ?FinallyClause,
     );
   }
 

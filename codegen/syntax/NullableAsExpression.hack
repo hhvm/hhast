@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf598b138bee78ac85338e970f649dfd>>
+ * @generated SignedSource<<8a543711c283ad3cef86bf9d8e514fbc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class NullableAsExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_operand,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $right_operand,
+      $left_operand as IExpression,
+      $operator as QuestionAsToken,
+      $right_operand as ITypeSpecifier,
     );
   }
 

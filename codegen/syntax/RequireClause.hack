@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d50b36297f1fce73049e532add08fbda>>
+ * @generated SignedSource<<d4c627c4497cbe2cea3eb6979e6238d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,10 +121,10 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $kind,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as RequireToken,
+      $kind as Token,
+      $name as ISimpleCreationSpecifier,
+      $semicolon as SemicolonToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a9c007871ae2e26b0c24865dc0a8f6c>>
+ * @generated SignedSource<<0f92e9d506eab40a89ce7504736bc7c0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,11 +139,11 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $fields,
-      /* HH_FIXME[4110] use `as` */ $ellipsis,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as ShapeToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<FieldSpecifier>> may not be enforceable */ $fields,
+      $ellipsis as ?DotDotDotToken,
+      $right_paren as RightParenToken,
     );
   }
 

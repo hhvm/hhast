@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd6859bda937699ed63706754dd80b4a>>
+ * @generated SignedSource<<995d8d0d9d4cb6c4a9a0bc8471985615>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class YieldBreakStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $break,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as YieldToken,
+      $break as BreakToken,
+      $semicolon as SemicolonToken,
     );
   }
 

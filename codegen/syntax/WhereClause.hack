@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a80d5adb0456d8f2ca7856311e8e804>>
+ * @generated SignedSource<<9e33b5e443a5385413df27a4e075fab1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,8 +86,8 @@ final class WhereClause extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $constraints,
+      $keyword as WhereToken,
+      /* HH_FIXME[4110] NodeList<ListItem<WhereConstraint>> may not be enforceable */ $constraints,
     );
   }
 

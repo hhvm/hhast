@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a619a8e46c6cefcdb6869524a514dace>>
+ * @generated SignedSource<<a33e72f35f05cdd7592c5b8b90befee3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,9 +106,9 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $statements,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<IStatement> may not be enforceable */ $statements,
+      $right_brace as RightBraceToken,
     );
   }
 

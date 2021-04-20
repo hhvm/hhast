@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52b0f5c743b7a39edfdb525ce062aeec>>
+ * @generated SignedSource<<f57732639a030623889bcce638f4029e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,9 +110,9 @@ final class XHPCategoryDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $categories,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as ?Node,
+      $categories as ?Node,
+      $semicolon as ?Node,
     );
   }
 

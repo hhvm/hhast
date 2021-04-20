@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06683d0426898d1ab4cabd5b1c5d553c>>
+ * @generated SignedSource<<2b83a3ef93cd98cb4e5adf2eec0fa9a2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -68,7 +68,7 @@ final class AttributeSpecification extends Node {
     if ($attributes === $this->_attributes) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $attributes);
+    return new static($attributes as ?Node);
   }
 
   public function getAttributesUNTYPED(): ?Node {

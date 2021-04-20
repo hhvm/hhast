@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2c0a751af0de2edf6cad8aba3f07694a>>
+ * @generated SignedSource<<cb42d9490ec9553f149e5d9f9d37a5d8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -66,7 +66,7 @@ final class ErrorSyntax extends Node {
     if ($error === $this->_error) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $error);
+    return new static($error as ?Node);
   }
 
   public function getErrorUNTYPED(): ?Node {

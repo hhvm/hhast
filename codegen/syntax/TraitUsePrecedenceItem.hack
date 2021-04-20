@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c831d9f323d3b1bb38ba6c4c0403d4ef>>
+ * @generated SignedSource<<ec776991759e91af1b20f93681dd18d4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $removed_names,
+      $name as ScopeResolutionExpression,
+      $keyword as InsteadofToken,
+      /* HH_FIXME[4110] NodeList<ListItem<SimpleTypeSpecifier>> may not be enforceable */ $removed_names,
     );
   }
 

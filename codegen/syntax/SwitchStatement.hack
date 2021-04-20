@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e63768633a43328b7671f0016e59f733>>
+ * @generated SignedSource<<9e9624b921c0aebf577fb9875611a770>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,13 +171,13 @@ final class SwitchStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $sections,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $keyword as SwitchToken,
+      $left_paren as LeftParenToken,
+      $expression as IExpression,
+      $right_paren as RightParenToken,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] NodeList<SwitchSection> may not be enforceable */ $sections,
+      $right_brace as RightBraceToken,
     );
   }
 

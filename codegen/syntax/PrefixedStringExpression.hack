@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97317dfbb961c3536688711f334704aa>>
+ * @generated SignedSource<<8edb769817b4fc874c19ab39b914075f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class PrefixedStringExpression
     if ($name === $this->_name && $str === $this->_str) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $str,
-    );
+    return new static($name as ?Node, $str as ?Node);
   }
 
   public function getNameUNTYPED(): ?Node {

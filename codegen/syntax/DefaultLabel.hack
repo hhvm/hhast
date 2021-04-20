@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<debe6bcf1ec67c1dc3497f2a7cdcb67f>>
+ * @generated SignedSource<<371b0d2033c3fe9060dd8cea7d8c86ad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     if ($keyword === $this->_keyword && $colon === $this->_colon) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $colon,
-    );
+    return new static($keyword as DefaultToken, $colon as ColonToken);
   }
 
   public function getKeywordUNTYPED(): ?Node {

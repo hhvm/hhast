@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08359e94b079066b60eaa1fc0b4e43ae>>
+ * @generated SignedSource<<68901c50fc01c6b2585714344a537f3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,11 +139,11 @@ final class WhileStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $condition,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $keyword as WhileToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $body as IStatement,
     );
   }
 

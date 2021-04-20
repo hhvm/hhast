@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0276421e32f5e273b9a92e9584f6d672>>
+ * @generated SignedSource<<f9911c79fa97590e88fb3c33896ebc22>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,10 +122,10 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $await_keyword,
-      /* HH_FIXME[4110] use `as` */ $using_keyword,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $await_keyword as ?AwaitToken,
+      $using_keyword as UsingToken,
+      $expression as IExpression,
+      $semicolon as SemicolonToken,
     );
   }
 

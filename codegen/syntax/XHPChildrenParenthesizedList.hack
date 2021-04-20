@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ce7005d5b74500b993f53ec73c54f54>>
+ * @generated SignedSource<<edf3ef2915376eb9a64a6ba51e22c8d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class XHPChildrenParenthesizedList
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $xhp_children,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $xhp_children,
+      $right_paren as RightParenToken,
     );
   }
 

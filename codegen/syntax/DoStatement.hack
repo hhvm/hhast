@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c15d4704b7e5b26a5519772c0ff91878>>
+ * @generated SignedSource<<f3208170afa92fa08e40d24bf3397f6c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -171,13 +171,13 @@ final class DoStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $body,
-      /* HH_FIXME[4110] use `as` */ $while_keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $condition,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as DoToken,
+      $body as IStatement,
+      $while_keyword as WhileToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $semicolon as SemicolonToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<157e28daaab5b13bee2f79c2840f2bad>>
+ * @generated SignedSource<<3f51ea83f8390f0ff5048e05c214c46b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -69,7 +69,7 @@ final class SimpleTypeSpecifier
     if ($specifier === $this->_specifier) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $specifier);
+    return new static($specifier as Node);
   }
 
   public function getSpecifierUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88b4b30eb3844a4a0dc10d6017a554db>>
+ * @generated SignedSource<<fc123c0d83ea29f00457743418085635>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class BinaryExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_operand,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $right_operand,
+      $left_operand as IExpression,
+      $operator as Token,
+      $right_operand as IExpression,
     );
   }
 

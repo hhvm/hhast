@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63095347295063ac2853022527be4ef9>>
+ * @generated SignedSource<<96d3be4c430b85211bf825c1d6b5ed05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,10 +122,10 @@ final class SubscriptExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $receiver,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $index,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $receiver as IExpression,
+      $left_bracket as LeftBracketToken,
+      $index as ?IExpression,
+      $right_bracket as RightBracketToken,
     );
   }
 

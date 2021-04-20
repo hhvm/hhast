@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<387cf349e40dc2322d98cd4c9a693c7b>>
+ * @generated SignedSource<<fd352459769a1535b5500047bc358a33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class SafeMemberSelectionExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $object,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $name,
+      $object as IExpression,
+      $operator as QuestionMinusGreaterThanToken,
+      $name as NameToken,
     );
   }
 

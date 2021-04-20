@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a260a532cad42ca00c96e1ee697c6d4>>
+ * @generated SignedSource<<f85f18b88324bed29cd5ec34ee488463>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class XHPClassAttributeDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $attributes,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as AttributeToken,
+      /* HH_FIXME[4110] NodeList<ListItem<Node>> may not be enforceable */ $attributes,
+      $semicolon as SemicolonToken,
     );
   }
 

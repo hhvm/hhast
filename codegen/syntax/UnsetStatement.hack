@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1b7a46747b4e718e1f59f558ce30067d>>
+ * @generated SignedSource<<d848714adc9561be247e2a9cecaf88d7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,11 +137,11 @@ final class UnsetStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $variables,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as UnsetToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $variables,
+      $right_paren as RightParenToken,
+      $semicolon as SemicolonToken,
     );
   }
 

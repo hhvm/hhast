@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb9810ba80a31fba3cb969a59c7a4b98>>
+ * @generated SignedSource<<a354e6b6c038d7de2271631356bdf3de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,7 @@ final class PrefixUnaryExpression
     if ($operator === $this->_operator && $operand === $this->_operand) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $operand,
-    );
+    return new static($operator as Token, $operand as IExpression);
   }
 
   public function getOperatorUNTYPED(): ?Node {

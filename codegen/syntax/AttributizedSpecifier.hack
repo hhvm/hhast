@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<36427e82426cbf4d3e7412ec3db9b15e>>
+ * @generated SignedSource<<6398644a0da7100250227ab457a3db7c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,8 +86,8 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $type,
+      $attribute_spec as OldAttributeSpecification,
+      $type as ITypeSpecifier,
     );
   }
 

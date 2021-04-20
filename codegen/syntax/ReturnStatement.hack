@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b69f27bc9bf2c8b458d6b5ddf5efcf4>>
+ * @generated SignedSource<<a7d3477189604fe50adc37493e0a12c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,9 +106,9 @@ final class ReturnStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as ReturnToken,
+      $expression as ?IExpression,
+      $semicolon as SemicolonToken,
     );
   }
 

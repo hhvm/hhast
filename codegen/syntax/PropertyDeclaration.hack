@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21a99c3796cce11f1184dea97d1d5881>>
+ * @generated SignedSource<<bd30e1d60a8d1ecad1725d5eaf4d65fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,11 +139,11 @@ final class PropertyDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $modifiers,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $declarators,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $attribute_spec as ?OldAttributeSpecification,
+      /* HH_FIXME[4110] NodeList<Token> may not be enforceable */ $modifiers,
+      $type as ?ITypeSpecifier,
+      /* HH_FIXME[4110] NodeList<ListItem<PropertyDeclarator>> may not be enforceable */ $declarators,
+      $semicolon as SemicolonToken,
     );
   }
 

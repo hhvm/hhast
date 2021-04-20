@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee9817ae02f34601d3b74e80a3a52481>>
+ * @generated SignedSource<<cd8dfaf9417f8f054031d72af810b72f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,9 +103,9 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $open,
-      /* HH_FIXME[4110] use `as` */ $body,
-      /* HH_FIXME[4110] use `as` */ $close,
+      $open as XHPOpen,
+      /* HH_FIXME[4110] ?NodeList<Node> may not be enforceable */ $body,
+      $close as ?XHPClose,
     );
   }
 

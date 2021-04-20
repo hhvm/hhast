@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29362d550571fffc19ae025baad52e8f>>
+ * @generated SignedSource<<22cc72e77ec8c53e510387560a5775fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class FinallyClause extends Node {
     if ($keyword === $this->_keyword && $body === $this->_body) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $body,
-    );
+    return new static($keyword as FinallyToken, $body as CompoundStatement);
   }
 
   public function getKeywordUNTYPED(): ?Node {

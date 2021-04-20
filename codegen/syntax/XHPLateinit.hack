@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed3691e39bf9a11f88dc833d5054fc7f>>
+ * @generated SignedSource<<95d32c19f4f559cdcf044d24f2c88939>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class XHPLateinit extends Node {
     if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $at,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-    );
+    return new static($at as AtToken, $keyword as LateinitToken);
   }
 
   public function getAtUNTYPED(): ?Node {

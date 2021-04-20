@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39f7cecd53e530e68007b9d742a3ea14>>
+ * @generated SignedSource<<e3e19f271284ff1894fc71604a1986b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -237,17 +237,17 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $outer_left_paren,
-      /* HH_FIXME[4110] use `as` */ $readonly_keyword,
-      /* HH_FIXME[4110] use `as` */ $function_keyword,
-      /* HH_FIXME[4110] use `as` */ $inner_left_paren,
-      /* HH_FIXME[4110] use `as` */ $parameter_list,
-      /* HH_FIXME[4110] use `as` */ $inner_right_paren,
-      /* HH_FIXME[4110] use `as` */ $contexts,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $readonly_return,
-      /* HH_FIXME[4110] use `as` */ $return_type,
-      /* HH_FIXME[4110] use `as` */ $outer_right_paren,
+      $outer_left_paren as LeftParenToken,
+      $readonly_keyword as ?Node,
+      $function_keyword as FunctionToken,
+      $inner_left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $parameter_list,
+      $inner_right_paren as RightParenToken,
+      $contexts as ?Contexts,
+      $colon as ColonToken,
+      $readonly_return as ?Node,
+      $return_type as ITypeSpecifier,
+      $outer_right_paren as RightParenToken,
     );
   }
 

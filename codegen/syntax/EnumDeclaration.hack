@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<968bb272c6522ea7c1a049ad226dbd38>>
+ * @generated SignedSource<<6727e9e097f616b440309bbd04a58669>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -219,16 +219,16 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $base,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $use_clauses,
-      /* HH_FIXME[4110] use `as` */ $enumerators,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $attribute_spec as ?OldAttributeSpecification,
+      $keyword as EnumToken,
+      $name as NameToken,
+      $colon as ColonToken,
+      $base as ITypeSpecifier,
+      $type as ?TypeConstraint,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<EnumUse> may not be enforceable */ $use_clauses,
+      /* HH_FIXME[4110] ?NodeList<Enumerator> may not be enforceable */ $enumerators,
+      $right_brace as RightBraceToken,
     );
   }
 

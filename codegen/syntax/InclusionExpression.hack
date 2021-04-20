@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d097a674064ec80a09e8d29114d8842>>
+ * @generated SignedSource<<4b7b7eee64ff3b4b74451eb8e3203c36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,7 @@ final class InclusionExpression
     if ($require === $this->_require && $filename === $this->_filename) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $require,
-      /* HH_FIXME[4110] use `as` */ $filename,
-    );
+    return new static($require as Token, $filename as IExpression);
   }
 
   public function getRequireUNTYPED(): ?Node {

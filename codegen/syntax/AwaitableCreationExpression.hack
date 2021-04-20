@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ccb8c868e0868c18bfa2a0639479b876>>
+ * @generated SignedSource<<f97d3d0a11eeb8356d82364a7eefec5d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,9 +108,9 @@ abstract class AwaitableCreationExpressionGeneratedBase
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $async,
-      /* HH_FIXME[4110] use `as` */ $compound_statement,
+      $attribute_spec as ?OldAttributeSpecification,
+      $async as AsyncToken,
+      $compound_statement as CompoundStatement,
     );
   }
 

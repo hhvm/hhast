@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16265c681c6a82f02c5683ff7c829395>>
+ * @generated SignedSource<<06e52ad86010baf5145bbfc6632da1ea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,10 +122,10 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as ListToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<?IExpression>> may not be enforceable */ $members,
+      $right_paren as RightParenToken,
     );
   }
 

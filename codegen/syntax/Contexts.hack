@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<076067d6803f6c4904beff394c687113>>
+ * @generated SignedSource<<c5e7d6b3506d4c95a043d017b802593a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,9 +104,9 @@ final class Contexts extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $types,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $types,
+      $right_bracket as RightBracketToken,
     );
   }
 

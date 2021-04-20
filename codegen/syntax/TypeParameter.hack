@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d8d65931db58c9f4476d4e4dcf7c6c8>>
+ * @generated SignedSource<<4e3677bf099fc59544894a25f524d4e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,12 +158,12 @@ final class TypeParameter extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $reified,
-      /* HH_FIXME[4110] use `as` */ $variance,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $param_params,
-      /* HH_FIXME[4110] use `as` */ $constraints,
+      $attribute_spec as ?OldAttributeSpecification,
+      $reified as ?ReifyToken,
+      $variance as ?Token,
+      $name as NameToken,
+      $param_params as ?TypeParameters,
+      /* HH_FIXME[4110] ?NodeList<TypeConstraint> may not be enforceable */ $constraints,
     );
   }
 

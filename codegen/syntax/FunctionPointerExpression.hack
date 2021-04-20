@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e90ab5196422264cf19893f987ae4e6e>>
+ * @generated SignedSource<<4b7070e70876cf951f62fad9d40061a8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,7 @@ final class FunctionPointerExpression
     if ($receiver === $this->_receiver && $type_args === $this->_type_args) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $receiver,
-      /* HH_FIXME[4110] use `as` */ $type_args,
-    );
+    return new static($receiver as IExpression, $type_args as TypeArguments);
   }
 
   public function getReceiverUNTYPED(): ?Node {

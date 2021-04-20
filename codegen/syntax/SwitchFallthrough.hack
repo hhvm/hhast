@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d1ad8073a456828243f22cfb7575a893>>
+ * @generated SignedSource<<061264e14bbcee9ee12dd109058b3fac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,7 @@ final class SwitchFallthrough extends Node implements IStatement {
     if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
-    );
+    return new static($keyword as ?Node, $semicolon as ?Node);
   }
 
   public function getKeywordUNTYPED(): ?Node {

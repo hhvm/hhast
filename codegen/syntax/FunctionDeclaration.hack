@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46c1d14b0d41b92244b2fe8fce43657e>>
+ * @generated SignedSource<<0aeef8310c1797f74c42f136ff1f9f3a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,9 +108,9 @@ final class FunctionDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $declaration_header,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $attribute_spec as ?OldAttributeSpecification,
+      $declaration_header as FunctionDeclarationHeader,
+      $body as Node,
     );
   }
 

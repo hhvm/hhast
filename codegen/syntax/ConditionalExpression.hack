@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20d2420da748a997817ad12dfa8b7571>>
+ * @generated SignedSource<<376ec4a79242afaef9ee973f5651af2b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,11 +139,11 @@ final class ConditionalExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $test,
-      /* HH_FIXME[4110] use `as` */ $question,
-      /* HH_FIXME[4110] use `as` */ $consequence,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $alternative,
+      $test as IExpression,
+      $question as QuestionToken,
+      $consequence as IExpression,
+      $colon as ColonToken,
+      $alternative as IExpression,
     );
   }
 

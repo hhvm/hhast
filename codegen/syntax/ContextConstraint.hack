@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d3d9be152dc0dad2d361b85e395af60>>
+ * @generated SignedSource<<f803b0b4d8a98dc58abc4cb0a743e779>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class ContextConstraint extends Node {
     if ($keyword === $this->_keyword && $ctx_list === $this->_ctx_list) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $ctx_list,
-    );
+    return new static($keyword as Token, $ctx_list as Contexts);
   }
 
   public function getKeywordUNTYPED(): ?Node {

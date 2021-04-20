@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<498bbf8a7694f59cbba5d0abe623a1b1>>
+ * @generated SignedSource<<7f0b3fa2f245457d40906e9476654cbe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -90,10 +90,7 @@ final class GenericTypeSpecifier
     ) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $class_type,
-      /* HH_FIXME[4110] use `as` */ $argument_list,
-    );
+    return new static($class_type as Node, $argument_list as TypeArguments);
   }
 
   public function getClassTypeUNTYPED(): ?Node {

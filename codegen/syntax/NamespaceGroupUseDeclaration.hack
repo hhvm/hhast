@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eef01e9cf856acfce4de528ffa1c1a0e>>
+ * @generated SignedSource<<65349da6ef2fa96e98f48e9ba37c953c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -170,13 +170,13 @@ final class NamespaceGroupUseDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $kind,
-      /* HH_FIXME[4110] use `as` */ $prefix,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $clauses,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as UseToken,
+      $kind as ?Token,
+      $prefix as QualifiedName,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] NodeList<ListItem<NamespaceUseClause>> may not be enforceable */ $clauses,
+      $right_brace as RightBraceToken,
+      $semicolon as SemicolonToken,
     );
   }
 

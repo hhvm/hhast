@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f073f8b14ccce3d3e66249a174208f0>>
+ * @generated SignedSource<<1880c3aa8e776fc77114668f781814d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $types,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $types,
+      $right_paren as RightParenToken,
     );
   }
 

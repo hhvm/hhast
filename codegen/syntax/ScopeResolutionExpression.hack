@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b79f7688191d4e2c8d2bb992f7fbf99e>>
+ * @generated SignedSource<<288ecead26ef5382af2d82f411d22298>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class ScopeResolutionExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $qualifier,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $name,
+      $qualifier as Node,
+      $operator as ColonColonToken,
+      $name as Node,
     );
   }
 

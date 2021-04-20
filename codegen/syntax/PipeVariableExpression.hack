@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff6c9ee0e9e12c317d26aeab817a5c67>>
+ * @generated SignedSource<<f2f2f287f8aa75f94480cc707ad365f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,7 +70,7 @@ final class PipeVariableExpression
     if ($expression === $this->_expression) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $expression);
+    return new static($expression as ?Node);
   }
 
   public function getExpressionUNTYPED(): ?Node {

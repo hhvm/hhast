@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87e739c50068573401394db86ba16f92>>
+ * @generated SignedSource<<c89fee92b83ba92553cdfd6c99645b43>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,10 +127,10 @@ final class ETSpliceExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $dollar,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $dollar as ?Node,
+      $left_brace as ?Node,
+      $expression as ?Node,
+      $right_brace as ?Node,
     );
   }
 

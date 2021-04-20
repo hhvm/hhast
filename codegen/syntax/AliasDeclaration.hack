@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<933563c8b4658e0d0f15a70b40124f7e>>
+ * @generated SignedSource<<fccdef97b27507e2e58414036aefabde>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -188,14 +188,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $generic_parameter,
-      /* HH_FIXME[4110] use `as` */ $constraint,
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $attribute_spec as ?OldAttributeSpecification,
+      $keyword as Token,
+      $name as NameToken,
+      $generic_parameter as ?TypeParameters,
+      $constraint as ?TypeConstraint,
+      $equal as EqualToken,
+      $type as ITypeSpecifier,
+      $semicolon as SemicolonToken,
     );
   }
 

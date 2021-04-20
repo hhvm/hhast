@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31548ed0cbd5823c1aa1f727b8f939c6>>
+ * @generated SignedSource<<8b327fc4356c23435bad5a5c133ba5ff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class VariadicParameter
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $call_convention,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $ellipsis,
+      $call_convention as ?Node,
+      $type as ?ITypeSpecifier,
+      $ellipsis as DotDotDotToken,
     );
   }
 

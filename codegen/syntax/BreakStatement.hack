@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<abbf53a9823e00b185b15b002694b293>>
+ * @generated SignedSource<<0e1a484be1e67ad6dfac0abc1acfd3e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class BreakStatement extends Node implements IStatement {
     if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
-    );
+    return new static($keyword as BreakToken, $semicolon as SemicolonToken);
   }
 
   public function getKeywordUNTYPED(): ?Node {

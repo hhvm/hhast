@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b595cb6f669902ab580d3f0dd5c7b151>>
+ * @generated SignedSource<<ea5621fff050b01acddc02c97c2b7822>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     if ($question === $this->_question && $type === $this->_type) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $question,
-      /* HH_FIXME[4110] use `as` */ $type,
-    );
+    return new static($question as QuestionToken, $type as ITypeSpecifier);
   }
 
   public function getQuestionUNTYPED(): ?Node {

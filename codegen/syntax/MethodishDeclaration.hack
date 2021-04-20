@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bbddee9558a4e2145cb3f04da69bb0c>>
+ * @generated SignedSource<<a5b1d19fb056ed2f8ac18e2b4a2925e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,10 +130,10 @@ abstract class MethodishDeclarationGeneratedBase
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute,
-      /* HH_FIXME[4110] use `as` */ $function_decl_header,
-      /* HH_FIXME[4110] use `as` */ $function_body,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $attribute as ?OldAttributeSpecification,
+      $function_decl_header as FunctionDeclarationHeader,
+      $function_body as ?CompoundStatement,
+      $semicolon as ?SemicolonToken,
     );
   }
 

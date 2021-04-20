@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d57e976fa692740ae9903b0f2b670414>>
+ * @generated SignedSource<<07ac4e7cc70681a22a223b38f5fb87f6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -260,18 +260,18 @@ final class ClassishDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute,
-      /* HH_FIXME[4110] use `as` */ $modifiers,
-      /* HH_FIXME[4110] use `as` */ $xhp,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $type_parameters,
-      /* HH_FIXME[4110] use `as` */ $extends_keyword,
-      /* HH_FIXME[4110] use `as` */ $extends_list,
-      /* HH_FIXME[4110] use `as` */ $implements_keyword,
-      /* HH_FIXME[4110] use `as` */ $implements_list,
-      /* HH_FIXME[4110] use `as` */ $where_clause,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $attribute as ?OldAttributeSpecification,
+      /* HH_FIXME[4110] ?NodeList<Token> may not be enforceable */ $modifiers,
+      $xhp as ?Node,
+      $keyword as Token,
+      $name as Token,
+      $type_parameters as ?TypeParameters,
+      $extends_keyword as ?ExtendsToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ISimpleCreationSpecifier>> may not be enforceable */ $extends_list,
+      $implements_keyword as ?ImplementsToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ISimpleCreationSpecifier>> may not be enforceable */ $implements_list,
+      $where_clause as ?Node,
+      $body as ClassishBody,
     );
   }
 

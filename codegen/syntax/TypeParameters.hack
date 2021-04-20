@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1829381ea114088113b6474c9e23e8b7>>
+ * @generated SignedSource<<901513cc64c285515c34f4f11be4e9c4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class TypeParameters extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $parameters,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $left_angle as LessThanToken,
+      /* HH_FIXME[4110] NodeList<ListItem<TypeParameter>> may not be enforceable */ $parameters,
+      $right_angle as GreaterThanToken,
     );
   }
 

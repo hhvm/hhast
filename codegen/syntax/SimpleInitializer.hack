@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fab712125f6decea869772abde9d21c0>>
+ * @generated SignedSource<<b961674f20b4f7e58dea3c264fa8e9cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class SimpleInitializer extends Node {
     if ($equal === $this->_equal && $value === $this->_value) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $value,
-    );
+    return new static($equal as EqualToken, $value as IExpression);
   }
 
   public function getEqualUNTYPED(): ?Node {

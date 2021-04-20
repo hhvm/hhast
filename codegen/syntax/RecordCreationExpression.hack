@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec86378fa1132b43a78daaef34dc26ca>>
+ * @generated SignedSource<<87717764fc80a10847173c3ba5908e2c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,10 +123,10 @@ final class RecordCreationExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $type as NameToken,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] NodeList<ListItem<ElementInitializer>> may not be enforceable */ $members,
+      $right_bracket as RightBracketToken,
     );
   }
 

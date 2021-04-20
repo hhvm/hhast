@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<923889b4b1c0b87bbdadbc32d8c54f05>>
+ * @generated SignedSource<<cdb61346831d9385db275c3b523618b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,10 +122,10 @@ final class XHPOpen extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $attributes,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $left_angle as LessThanToken,
+      $name as XHPElementNameToken,
+      /* HH_FIXME[4110] ?NodeList<Node> may not be enforceable */ $attributes,
+      $right_angle as Token,
     );
   }
 

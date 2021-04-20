@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<883e1e11a4eeb3c4ecbd6c009c05a893>>
+ * @generated SignedSource<<cf5449f110bf18b25730d6ceb5f556b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,11 +137,11 @@ final class FileAttributeSpecification extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_double_angle,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $attributes,
-      /* HH_FIXME[4110] use `as` */ $right_double_angle,
+      $left_double_angle as LessThanLessThanToken,
+      $keyword as FileToken,
+      $colon as ColonToken,
+      /* HH_FIXME[4110] NodeList<ListItem<ConstructorCall>> may not be enforceable */ $attributes,
+      $right_double_angle as GreaterThanGreaterThanToken,
     );
   }
 

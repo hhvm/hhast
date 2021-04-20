@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2fcb052033e0b3ed54e8031fedffef15>>
+ * @generated SignedSource<<7e05f3c50a8b3f59fbcfc2d088ef28cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,12 +158,12 @@ final class FunctionCallExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $receiver,
-      /* HH_FIXME[4110] use `as` */ $type_args,
-      /* HH_FIXME[4110] use `as` */ $enum_atom,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $argument_list,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $receiver as Node,
+      $type_args as ?TypeArguments,
+      $enum_atom as ?Node,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $argument_list,
+      $right_paren as RightParenToken,
     );
   }
 

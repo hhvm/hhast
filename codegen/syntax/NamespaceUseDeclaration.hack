@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<697a7ca6d7a52e8680b21efa76c30adb>>
+ * @generated SignedSource<<a8970cbc114d2675616cab5c988362fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,10 +122,10 @@ final class NamespaceUseDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $kind,
-      /* HH_FIXME[4110] use `as` */ $clauses,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as UseToken,
+      $kind as ?Token,
+      /* HH_FIXME[4110] NodeList<ListItem<NamespaceUseClause>> may not be enforceable */ $clauses,
+      $semicolon as SemicolonToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<466e18b1a82d2e78b9d9fb163091602d>>
+ * @generated SignedSource<<e25e900a78362e9280bfd05077d5509b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,9 +106,9 @@ final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $types,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $left_paren as ?Node,
+      $types as ?Node,
+      $right_paren as ?Node,
     );
   }
 

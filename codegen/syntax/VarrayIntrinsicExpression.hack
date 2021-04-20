@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbbfda052495d06ece58e775097f4d5f>>
+ * @generated SignedSource<<79374278579e11bc9491ef04c1588632>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,11 +141,11 @@ final class VarrayIntrinsicExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $explicit_type,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $keyword as VarrayToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $members,
+      $right_bracket as RightBracketToken,
     );
   }
 

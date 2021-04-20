@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53ded28c9b01a08239e3e28a17360be3>>
+ * @generated SignedSource<<a8c7bb55480fdf461fcc59abb732b55b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -221,16 +221,16 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $modifiers,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $type_keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $type_parameters,
-      /* HH_FIXME[4110] use `as` */ $type_constraint,
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $type_specifier,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $attribute_spec as ?OldAttributeSpecification,
+      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
+      $keyword as ConstToken,
+      $type_keyword as TypeToken,
+      $name as NameToken,
+      $type_parameters as ?Node,
+      $type_constraint as ?TypeConstraint,
+      $equal as ?EqualToken,
+      $type_specifier as ?ITypeSpecifier,
+      $semicolon as SemicolonToken,
     );
   }
 

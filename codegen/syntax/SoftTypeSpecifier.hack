@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bbe4268eba035466c57a147efb37fde4>>
+ * @generated SignedSource<<fb4a25e3d474e4f96f00c68c59b21da9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,10 +83,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     if ($at === $this->_at && $type === $this->_type) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $at,
-      /* HH_FIXME[4110] use `as` */ $type,
-    );
+    return new static($at as ?Node, $type as ?Node);
   }
 
   public function getAtUNTYPED(): ?Node {

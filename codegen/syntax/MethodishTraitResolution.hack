@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6c7ace6be4736542a333baf9dd0f20e>>
+ * @generated SignedSource<<30abf68915a1aa69011b6cd609a70a47>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,11 +140,11 @@ final class MethodishTraitResolution
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute,
-      /* HH_FIXME[4110] use `as` */ $function_decl_header,
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $attribute as ?Node,
+      $function_decl_header as ?Node,
+      $equal as ?Node,
+      $name as ?Node,
+      $semicolon as ?Node,
     );
   }
 

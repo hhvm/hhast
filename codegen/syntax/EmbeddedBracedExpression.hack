@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a14b2c0b8ae23861b087052f20a703f8>>
+ * @generated SignedSource<<f13f172ed679be70c483082f29cd0a26>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,9 +110,9 @@ final class EmbeddedBracedExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $left_brace as ?Node,
+      $expression as ?Node,
+      $right_brace as ?Node,
     );
   }
 

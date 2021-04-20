@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f7e7efbcb2ea362c679d6b95e6e5c21>>
+ * @generated SignedSource<<943b6e23b79186651f2f77fa08415f11>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_type,
-      /* HH_FIXME[4110] use `as` */ $separator,
-      /* HH_FIXME[4110] use `as` */ $right_type,
+      $left_type as ITypeSpecifier,
+      $separator as ColonColonToken,
+      $right_type as NameToken,
     );
   }
 

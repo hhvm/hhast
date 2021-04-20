@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70e0dc85e1978fb8deebbb880dc77ee0>>
+ * @generated SignedSource<<3ec460f9502e2e849db4371a0679c24a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -173,13 +173,13 @@ final class IfStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $condition,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $statement,
-      /* HH_FIXME[4110] use `as` */ $elseif_clauses,
-      /* HH_FIXME[4110] use `as` */ $else_clause,
+      $keyword as IfToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $statement as IStatement,
+      /* HH_FIXME[4110] ?NodeList<ElseifClause> may not be enforceable */ $elseif_clauses,
+      $else_clause as ?ElseClause,
     );
   }
 

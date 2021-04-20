@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd1d49c80dfceb2b22fe3484afb37644>>
+ * @generated SignedSource<<1b1e5ea1f0a9746efc94ccfa6409d9bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,11 +107,7 @@ final class EmbeddedMemberSelectionExpression
     ) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $object,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $name,
-    );
+    return new static($object as ?Node, $operator as ?Node, $name as ?Node);
   }
 
   public function getObjectUNTYPED(): ?Node {

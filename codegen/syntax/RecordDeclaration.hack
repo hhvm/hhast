@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b699ccfe0e4251a30f5ba7ed8d362b21>>
+ * @generated SignedSource<<0c2a97d212e5f330dd6669d7535d1ee9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,15 +201,15 @@ final class RecordDeclaration extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $modifier,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $extends_keyword,
-      /* HH_FIXME[4110] use `as` */ $extends_opt,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $fields,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $attribute_spec as Node,
+      $modifier as Node,
+      $keyword as Node,
+      $name as Node,
+      $extends_keyword as Node,
+      $extends_opt as Node,
+      $left_brace as Node,
+      $fields as Node,
+      $right_brace as Node,
     );
   }
 

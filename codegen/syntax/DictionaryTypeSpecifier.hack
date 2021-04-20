@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<33099d3bcbfb43620ebdd277fea34ff4>>
+ * @generated SignedSource<<0acbdf0212c268f4715251a7a6f01f33>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,10 +121,10 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $keyword as DictToken,
+      $left_angle as LessThanToken,
+      /* HH_FIXME[4110] NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $members,
+      $right_angle as GreaterThanToken,
     );
   }
 

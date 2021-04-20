@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8d7f4902d1ce553ef85f5e5a7eaf7404>>
+ * @generated SignedSource<<ff0c47d5431b8c4709dbb502e74c4f5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class ElseClause extends Node implements IControlFlowStatement {
     if ($keyword === $this->_keyword && $statement === $this->_statement) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $statement,
-    );
+    return new static($keyword as ElseToken, $statement as IStatement);
   }
 
   public function getKeywordUNTYPED(): ?Node {

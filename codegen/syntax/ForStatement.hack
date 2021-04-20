@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7666729a1ceed3bc551fb22df8ecb2e2>>
+ * @generated SignedSource<<a9ba1fab29ffdd6f9179a79f51517003>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,15 +206,15 @@ final class ForStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $initializer,
-      /* HH_FIXME[4110] use `as` */ $first_semicolon,
-      /* HH_FIXME[4110] use `as` */ $control,
-      /* HH_FIXME[4110] use `as` */ $second_semicolon,
-      /* HH_FIXME[4110] use `as` */ $end_of_loop,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $keyword as ForToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $initializer,
+      $first_semicolon as SemicolonToken,
+      $control as ?IExpression,
+      $second_semicolon as SemicolonToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $end_of_loop,
+      $right_paren as RightParenToken,
+      $body as IStatement,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50e1599f6152c2e73ef6a58dde2dc9bb>>
+ * @generated SignedSource<<1ada858ff9a8cacb12f9c19f6c10fd9f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,7 @@ final class ObjectCreationExpression
     if ($new_keyword === $this->_new_keyword && $object === $this->_object) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $new_keyword,
-      /* HH_FIXME[4110] use `as` */ $object,
-    );
+    return new static($new_keyword as NewToken, $object as ConstructorCall);
   }
 
   public function getNewKeywordUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<19239b09abe9fb90fa935aedd7fde3c4>>
+ * @generated SignedSource<<7045d133f0ad892a9a2ee56f09e53e7a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -139,11 +139,11 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $modifiers,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $type_specifier,
-      /* HH_FIXME[4110] use `as` */ $declarators,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
+      $keyword as ConstToken,
+      $type_specifier as ?ITypeSpecifier,
+      /* HH_FIXME[4110] NodeList<ListItem<ConstantDeclarator>> may not be enforceable */ $declarators,
+      $semicolon as SemicolonToken,
     );
   }
 

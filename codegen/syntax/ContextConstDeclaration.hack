@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f3b92ae7c70ef0093af5f2e2b392c2a>>
+ * @generated SignedSource<<5477abbb94e1e7ea6fd864a1a1abea07>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -206,15 +206,15 @@ final class ContextConstDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $modifiers,
-      /* HH_FIXME[4110] use `as` */ $const_keyword,
-      /* HH_FIXME[4110] use `as` */ $ctx_keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $type_parameters,
-      /* HH_FIXME[4110] use `as` */ $constraint,
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $ctx_list,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
+      $const_keyword as ConstToken,
+      $ctx_keyword as CtxToken,
+      $name as NameToken,
+      $type_parameters as ?Node,
+      /* HH_FIXME[4110] ?NodeList<ContextConstraint> may not be enforceable */ $constraint,
+      $equal as ?EqualToken,
+      $ctx_list as ?Contexts,
+      $semicolon as SemicolonToken,
     );
   }
 

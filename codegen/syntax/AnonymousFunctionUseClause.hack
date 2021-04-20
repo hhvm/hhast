@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd23dfafdc67b59bac4cfb8fb43742f1>>
+ * @generated SignedSource<<f6cd4e838869a7cc7240b6637a41d2db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,10 +122,10 @@ final class AnonymousFunctionUseClause extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $variables,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as UseToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<VariableToken>> may not be enforceable */ $variables,
+      $right_paren as RightParenToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5defac03af365b1a1cc2cb00bae6efb9>>
+ * @generated SignedSource<<e2f34e48a11ba093de657387aa2581a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,10 +127,10 @@ final class PrefixedCodeExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $prefix,
-      /* HH_FIXME[4110] use `as` */ $left_backtick,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $right_backtick,
+      $prefix as ?Node,
+      $left_backtick as ?Node,
+      $expression as ?Node,
+      $right_backtick as ?Node,
     );
   }
 

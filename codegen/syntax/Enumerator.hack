@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39c51bb03d107b2a32c4e197c50f39ab>>
+ * @generated SignedSource<<104b53faf5f13ef461af831189492b57>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,10 +121,10 @@ final class Enumerator extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $value,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $name as NameToken,
+      $equal as EqualToken,
+      $value as IExpression,
+      $semicolon as SemicolonToken,
     );
   }
 

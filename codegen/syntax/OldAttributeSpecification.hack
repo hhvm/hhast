@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e24dd9ff58de0c7ea046c35438dd4dd>>
+ * @generated SignedSource<<fb1fa558b39b54976a975bfb601d2d50>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class OldAttributeSpecification extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_double_angle,
-      /* HH_FIXME[4110] use `as` */ $attributes,
-      /* HH_FIXME[4110] use `as` */ $right_double_angle,
+      $left_double_angle as LessThanLessThanToken,
+      /* HH_FIXME[4110] NodeList<ListItem<ConstructorCall>> may not be enforceable */ $attributes,
+      $right_double_angle as GreaterThanGreaterThanToken,
     );
   }
 

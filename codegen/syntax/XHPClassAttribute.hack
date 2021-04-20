@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<faed773895e7681bf57a4b3507e90412>>
+ * @generated SignedSource<<1008cb5fd1040e06cee8c2306d5bd33d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,10 +123,10 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $initializer,
-      /* HH_FIXME[4110] use `as` */ $required,
+      $type as ITypeSpecifier,
+      $name as XHPElementNameToken,
+      $initializer as ?SimpleInitializer,
+      $required as ?Node,
     );
   }
 

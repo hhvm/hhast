@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b17f7a531fd8a9701684e6c86cc42d1>>
+ * @generated SignedSource<<a6c7293634ef68e56925e81b0c7b1be6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
     if ($keyword === $this->_keyword && $variable === $this->_variable) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $variable,
-    );
+    return new static($keyword as CtxToken, $variable as VariableToken);
   }
 
   public function getKeywordUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be7c21cc10293ab2c02a21e280046c54>>
+ * @generated SignedSource<<60b6e3e95553855ccf455a11be2c1fc6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class XHPClose extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $left_angle as LessThanSlashToken,
+      $name as XHPElementNameToken,
+      $right_angle as GreaterThanToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9a5e4df48ee9a94aeb8ce758ad56827>>
+ * @generated SignedSource<<9a381119a9d49b1a54d4b310a7904e8a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,11 +141,11 @@ final class VectorIntrinsicExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $explicit_type,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $keyword as VecToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $members,
+      $right_bracket as RightBracketToken,
     );
   }
 

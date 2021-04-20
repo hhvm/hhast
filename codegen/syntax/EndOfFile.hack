@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3462ef6cbb50c239582cdb4322561787>>
+ * @generated SignedSource<<64f21b6533acb468feb17a59912fad3d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -67,7 +67,7 @@ final class EndOfFile extends Node {
     if ($token === $this->_token) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $token);
+    return new static($token as EndOfFileToken);
   }
 
   public function getTokenUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eba70dfa26c2ca9337f042e5b56978c9>>
+ * @generated SignedSource<<14eb73c84229c94fdd2eebef8d10c7af>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,10 +89,7 @@ final class DecoratedExpression
     ) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $decorator,
-      /* HH_FIXME[4110] use `as` */ $expression,
-    );
+    return new static($decorator as Token, $expression as IExpression);
   }
 
   public function getDecoratorUNTYPED(): ?Node {

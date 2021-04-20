@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94c7aeea8f2eb41d2dcde94a6e9b6485>>
+ * @generated SignedSource<<d5470d67d3674fbf10d479ed1f0e5871>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class CaseLabel extends Node implements ISwitchLabel {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $colon,
+      $keyword as CaseToken,
+      $expression as IExpression,
+      $colon as ColonToken,
     );
   }
 

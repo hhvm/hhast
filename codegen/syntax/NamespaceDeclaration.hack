@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99fe0821bf7ad1c9ec153cdffef27f5f>>
+ * @generated SignedSource<<3e434789b199d06eebb0eac7f428932f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,8 +86,8 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $header,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $header as NamespaceDeclarationHeader,
+      $body as INamespaceBody,
     );
   }
 

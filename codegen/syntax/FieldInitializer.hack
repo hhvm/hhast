@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c06f0ddb81248523292956a7d9267806>>
+ * @generated SignedSource<<eddb5fb96119c3adec9b595fbc997495>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,9 +105,9 @@ final class FieldInitializer extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $value,
+      $name as IExpression,
+      $arrow as EqualGreaterThanToken,
+      $value as IExpression,
     );
   }
 

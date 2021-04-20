@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2372d482aa5df13aef09653f4b5acfc2>>
+ * @generated SignedSource<<c8fd646a810b892a824c6ffb8d026226>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -67,7 +67,7 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
     if ($semicolon === $this->_semicolon) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $semicolon);
+    return new static($semicolon as SemicolonToken);
   }
 
   public function getSemicolonUNTYPED(): ?Node {

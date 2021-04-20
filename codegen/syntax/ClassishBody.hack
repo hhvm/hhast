@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac55159d6ecdf797e8a04bf07e8d2e4b>>
+ * @generated SignedSource<<910d9f8d435c8b693882ed6288cf868e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,9 +106,9 @@ final class ClassishBody extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $elements,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<IClassBodyDeclaration> may not be enforceable */ $elements,
+      $right_brace as RightBraceToken,
     );
   }
 

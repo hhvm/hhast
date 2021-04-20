@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d614f4c599c70c2d0050438193714d5c>>
+ * @generated SignedSource<<a42e59712ff40fe87f8e73a65fab500c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,7 @@ final class InclusionDirective extends Node implements IStatement {
     ) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
-    );
+    return new static($expression as Node, $semicolon as Node);
   }
 
   public function getExpressionUNTYPED(): ?Node {

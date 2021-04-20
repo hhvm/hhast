@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f986ebfd151ea899b91831fda2f80638>>
+ * @generated SignedSource<<262618711bfdec04610d52f55df2468e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,11 +141,11 @@ final class DictionaryIntrinsicExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $explicit_type,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $keyword as DictToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ElementInitializer>> may not be enforceable */ $members,
+      $right_bracket as RightBracketToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<952615353a93a0747219e7d8622de491>>
+ * @generated SignedSource<<c1eeaa0be989fb00e37d328ff88e0afb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -170,13 +170,13 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $parameters,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $contexts,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $readonly_return,
-      /* HH_FIXME[4110] use `as` */ $type,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IParameter>> may not be enforceable */ $parameters,
+      $right_paren as RightParenToken,
+      $contexts as ?Contexts,
+      $colon as ?ColonToken,
+      $readonly_return as ?Node,
+      $type as ?ITypeSpecifier,
     );
   }
 

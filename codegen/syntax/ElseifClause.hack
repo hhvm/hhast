@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70e1af07db5479b8347c1b04cbd42f99>>
+ * @generated SignedSource<<6f57646caad85878a9704905aaa55a16>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,11 +137,11 @@ final class ElseifClause extends Node implements IControlFlowStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $condition,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $statement,
+      $keyword as ElseifToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $statement as IStatement,
     );
   }
 

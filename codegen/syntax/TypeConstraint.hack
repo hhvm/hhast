@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec9492264c290d294397e77c5bf22ac4>>
+ * @generated SignedSource<<4565152ed3c309e3a688b480af1fd9db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,7 @@ final class TypeConstraint extends Node {
     if ($keyword === $this->_keyword && $type === $this->_type) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $type,
-    );
+    return new static($keyword as Token, $type as ITypeSpecifier);
   }
 
   public function getKeywordUNTYPED(): ?Node {

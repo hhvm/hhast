@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b17cf12fe82fbdcb29e763cb0dd228f>>
+ * @generated SignedSource<<075bcb0f8abacd2c79118c9a8d66571b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -67,7 +67,7 @@ final class XHPSimpleClassAttribute extends Node {
     if ($type === $this->_type) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $type);
+    return new static($type as SimpleTypeSpecifier);
   }
 
   public function getTypeUNTYPED(): ?Node {

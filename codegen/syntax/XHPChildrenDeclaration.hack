@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b09c7dcf5ba973ed788ec5469d0b986>>
+ * @generated SignedSource<<8072db0bb5835024fd5b2dabe91cc324>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,9 @@ final class XHPChildrenDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as ChildrenToken,
+      $expression as Node,
+      $semicolon as SemicolonToken,
     );
   }
 

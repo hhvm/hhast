@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e68f4e3db924524fff85694b9b98ea9>>
+ * @generated SignedSource<<ffb3ebf20c452b08059603dcf3a8b4d1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,10 +121,10 @@ final class RecordField extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $init,
-      /* HH_FIXME[4110] use `as` */ $semi,
+      $type as Node,
+      $name as Node,
+      $init as Node,
+      $semi as Node,
     );
   }
 

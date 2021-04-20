@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad8fbfc242c81afad6adb8e411e74aa0>>
+ * @generated SignedSource<<9d34413b4f835f3c8e1f9107eb06b942>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,11 +140,11 @@ final class TraitUseConflictResolution
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $names,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $clauses,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $keyword as UseToken,
+      /* HH_FIXME[4110] NodeList<ListItem<SimpleTypeSpecifier>> may not be enforceable */ $names,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ITraitUseItem>> may not be enforceable */ $clauses,
+      $right_brace as RightBraceToken,
     );
   }
 

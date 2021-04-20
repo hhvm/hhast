@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<560abb853931bc26b1ca13fc444446dc>>
+ * @generated SignedSource<<84c4331c1233d099ab5a255dc3c53ed1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,10 +120,10 @@ final class NamespaceUseClause extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $clause_kind,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $as,
-      /* HH_FIXME[4110] use `as` */ $alias,
+      $clause_kind as ?Token,
+      $name as INameishNode,
+      $as as ?AsToken,
+      $alias as ?NameToken,
     );
   }
 

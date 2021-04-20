@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e3899ccecc0b87eb43c86aa29206487>>
+ * @generated SignedSource<<dd109768be7be256c9e6417298f95a8d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,8 +89,8 @@ final class MarkupSuffix extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $less_than_question,
-      /* HH_FIXME[4110] use `as` */ $name,
+      $less_than_question as LessThanQuestionToken,
+      $name as NameToken,
     );
   }
 

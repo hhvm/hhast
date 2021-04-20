@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a55cbe8d8d6ce88c163ae2aff87af97>>
+ * @generated SignedSource<<202e80bc2bde0ccf1c7e41119ee088b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,10 +120,10 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $items,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as TupleToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $items,
+      $right_paren as RightParenToken,
     );
   }
 

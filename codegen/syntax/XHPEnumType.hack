@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<81303ab619706ed3e89a98a53d47d370>>
+ * @generated SignedSource<<97f0599be1ab156a8d186354f8ac7bdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,10 +121,10 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $values,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $keyword as EnumToken,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] NodeList<ListItem<LiteralExpression>> may not be enforceable */ $values,
+      $right_brace as RightBraceToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a932a1f84f2d68fc4702aa770b3277a8>>
+ * @generated SignedSource<<589dbbce4208fee188edcdd59c85f928>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -153,12 +153,12 @@ final class CatchClause extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $variable,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $keyword as CatchToken,
+      $left_paren as LeftParenToken,
+      $type as SimpleTypeSpecifier,
+      $variable as VariableToken,
+      $right_paren as RightParenToken,
+      $body as CompoundStatement,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<755d30d82384d95c5a50a2e8e837af23>>
+ * @generated SignedSource<<1d8bacd1af989c6ab252934f62994a4a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,9 +109,9 @@ final class ClosureParameterTypeSpecifier
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $call_convention,
-      /* HH_FIXME[4110] use `as` */ $readonly,
-      /* HH_FIXME[4110] use `as` */ $type,
+      $call_convention as ?InoutToken,
+      $readonly as ?Node,
+      $type as ITypeSpecifier,
     );
   }
 
