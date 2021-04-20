@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<943b6e23b79186651f2f77fa08415f11>>
+ * @generated SignedSource<<ff5550170fbc325f36c93b9b3bf399ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $left_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_constant_left_type'],
+      ($json['type_constant_left_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     $left_type = $left_type as nonnull;
     $offset += $left_type->getWidth();
     $separator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_constant_separator'],
+      ($json['type_constant_separator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
     $separator = $separator as nonnull;
     $offset += $separator->getWidth();
     $right_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_constant_right_type'],
+      ($json['type_constant_right_type']) as dict<_, _>,
       $file,
       $offset,
       $source,

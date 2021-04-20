@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01cb3a5cd13a804d798d19492de51439>>
+ * @generated SignedSource<<708407af47efcf0075deeb47cf1695f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class WhereConstraint extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class WhereConstraint extends Node {
   ): this {
     $offset = $initial_offset;
     $left_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['where_constraint_left_type'],
+      ($json['where_constraint_left_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class WhereConstraint extends Node {
     $left_type = $left_type as nonnull;
     $offset += $left_type->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['where_constraint_operator'],
+      ($json['where_constraint_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class WhereConstraint extends Node {
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $right_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['where_constraint_right_type'],
+      ($json['where_constraint_right_type']) as dict<_, _>,
       $file,
       $offset,
       $source,

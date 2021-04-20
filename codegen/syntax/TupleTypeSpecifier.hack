@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1880c3aa8e776fc77114668f781814d5>>
+ * @generated SignedSource<<9f0a8e17793ea10489389e93b6200f3a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_left_paren'],
+      ($json['tuple_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_types'],
+      ($json['tuple_types']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
     $types = $types as nonnull;
     $offset += $types->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_right_paren'],
+      ($json['tuple_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,

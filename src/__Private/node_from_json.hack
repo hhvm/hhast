@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private;
 use type Facebook\HHAST\Node;
 
 function node_from_json(
-  dict<string, mixed> $json,
+  dict<arraykey, mixed> $json,
   string $file,
   int $offset,
   string $source,

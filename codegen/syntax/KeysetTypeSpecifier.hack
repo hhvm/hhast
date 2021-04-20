@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90baf4e305050fd16e865a62d37113f0>>
+ * @generated SignedSource<<ca8601025562bd474dabc85a0dd4f85d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -44,7 +44,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_type_keyword'],
+      ($json['keyset_type_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -53,7 +53,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_type_left_angle'],
+      ($json['keyset_type_left_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +62,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_type_type'],
+      ($json['keyset_type_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +71,8 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_type_trailing_comma'] ?? dict['kind' => 'missing'],
+      ($json['keyset_type_trailing_comma'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -79,7 +80,7 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_type_right_angle'],
+      ($json['keyset_type_right_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,

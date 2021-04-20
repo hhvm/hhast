@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f9911c79fa97590e88fb3c33896ebc22>>
+ * @generated SignedSource<<d707e9deed6a643212bad7add6461581>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,8 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $await_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_function_await_keyword'] ?? dict['kind' => 'missing'],
+      ($json['using_function_await_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +50,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     );
     $offset += $await_keyword?->getWidth() ?? 0;
     $using_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_function_using_keyword'],
+      ($json['using_function_using_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +59,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     $using_keyword = $using_keyword as nonnull;
     $offset += $using_keyword->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_function_expression'],
+      ($json['using_function_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,7 @@ final class UsingStatementFunctionScoped extends Node implements IStatement {
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_function_semicolon'],
+      ($json['using_function_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

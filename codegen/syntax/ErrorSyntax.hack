@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb42d9490ec9553f149e5d9f9d37a5d8>>
+ * @generated SignedSource<<fb02aa01ddfb440a959c284a309e71fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ final class ErrorSyntax extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -32,7 +32,7 @@ final class ErrorSyntax extends Node {
   ): this {
     $offset = $initial_offset;
     $error = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['error_error'] ?? dict['kind' => 'missing'],
+      ($json['error_error'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,

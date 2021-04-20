@@ -82,7 +82,7 @@ final class NodeList<+Titem as Node> extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $offset,
     string $source,
@@ -97,9 +97,9 @@ final class NodeList<+Titem as Node> extends Node {
     }
     $children = vec[];
     $current_position = $offset;
-    foreach (/* HH_FIXME[4110] */ $json['elements'] as $element) {
+    foreach (($json['elements'] as Traversable<_>) as $element) {
       $child = Node::fromJSON(
-        $element,
+        $element as dict<_, _>,
         $file,
         $current_position,
         $source,

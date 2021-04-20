@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7550a4a890fa9f9f4733bea9ad1f5a1e>>
+ * @generated SignedSource<<fb1735a967319bc827dee603c9bb1fee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class NamespaceDeclarationHeader extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class NamespaceDeclarationHeader extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_keyword'],
+      ($json['namespace_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class NamespaceDeclarationHeader extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_name'] ?? dict['kind' => 'missing'],
+      ($json['namespace_name'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,

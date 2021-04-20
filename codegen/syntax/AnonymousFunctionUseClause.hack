@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6cd4e838869a7cc7240b6637a41d2db>>
+ * @generated SignedSource<<6598e94446144ddfc636ad119a7a8463>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class AnonymousFunctionUseClause extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class AnonymousFunctionUseClause extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_keyword'],
+      ($json['anonymous_use_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class AnonymousFunctionUseClause extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_left_paren'],
+      ($json['anonymous_use_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,8 @@ final class AnonymousFunctionUseClause extends Node {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $variables = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_variables'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_use_variables'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,7 @@ final class AnonymousFunctionUseClause extends Node {
     );
     $offset += $variables?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_right_paren'],
+      ($json['anonymous_use_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,

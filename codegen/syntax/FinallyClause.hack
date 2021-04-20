@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22cc72e77ec8c53e510387560a5775fe>>
+ * @generated SignedSource<<79fc826666bc7cd693c051b437e452cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class FinallyClause extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class FinallyClause extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['finally_keyword'],
+      ($json['finally_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class FinallyClause extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['finally_body'],
+      ($json['finally_body']) as dict<_, _>,
       $file,
       $offset,
       $source,

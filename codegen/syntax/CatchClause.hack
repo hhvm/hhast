@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<589dbbce4208fee188edcdd59c85f928>>
+ * @generated SignedSource<<ae768a615d53dd7f3fdcc1b3b9e3d17f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,7 +39,7 @@ final class CatchClause extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -47,7 +47,7 @@ final class CatchClause extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['catch_keyword'],
+      ($json['catch_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class CatchClause extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['catch_left_paren'],
+      ($json['catch_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -65,7 +65,7 @@ final class CatchClause extends Node {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['catch_type'],
+      ($json['catch_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -74,7 +74,7 @@ final class CatchClause extends Node {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $variable = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['catch_variable'],
+      ($json['catch_variable']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -83,7 +83,7 @@ final class CatchClause extends Node {
     $variable = $variable as nonnull;
     $offset += $variable->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['catch_right_paren'],
+      ($json['catch_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -92,7 +92,7 @@ final class CatchClause extends Node {
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['catch_body'],
+      ($json['catch_body']) as dict<_, _>,
       $file,
       $offset,
       $source,

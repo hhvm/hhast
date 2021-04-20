@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e25e900a78362e9280bfd05077d5509b>>
+ * @generated SignedSource<<9e37e64e69d25db03b17521e8e6b4f28>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['union_left_paren'] ?? dict['kind' => 'missing'],
+      ($json['union_left_paren'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['union_types'] ?? dict['kind' => 'missing'],
+      ($json['union_types'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -54,7 +54,7 @@ final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['union_right_paren'] ?? dict['kind' => 'missing'],
+      ($json['union_right_paren'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,

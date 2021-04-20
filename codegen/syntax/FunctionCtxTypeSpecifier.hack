@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6c7293634ef68e56925e81b0c7b1be6>>
+ * @generated SignedSource<<e9ab84f31eebc320c432d3ea07467a27>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_ctx_type_keyword'],
+      ($json['function_ctx_type_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $variable = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_ctx_type_variable'],
+      ($json['function_ctx_type_variable']) as dict<_, _>,
       $file,
       $offset,
       $source,

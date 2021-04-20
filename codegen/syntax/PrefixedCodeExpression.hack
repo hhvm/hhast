@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2f34e48a11ba093de657387aa2581a4>>
+ * @generated SignedSource<<45c0a91b942e8d09188dd7727a1cfa9c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,7 +35,7 @@ final class PrefixedCodeExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -43,7 +43,8 @@ final class PrefixedCodeExpression
   ): this {
     $offset = $initial_offset;
     $prefix = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefixed_code_prefix'] ?? dict['kind' => 'missing'],
+      ($json['prefixed_code_prefix'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -51,7 +52,8 @@ final class PrefixedCodeExpression
     );
     $offset += $prefix?->getWidth() ?? 0;
     $left_backtick = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefixed_code_left_backtick'] ?? dict['kind' => 'missing'],
+      ($json['prefixed_code_left_backtick'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +61,8 @@ final class PrefixedCodeExpression
     );
     $offset += $left_backtick?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefixed_code_expression'] ?? dict['kind' => 'missing'],
+      ($json['prefixed_code_expression'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +70,8 @@ final class PrefixedCodeExpression
     );
     $offset += $expression?->getWidth() ?? 0;
     $right_backtick = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefixed_code_right_backtick'] ?? dict['kind' => 'missing'],
+      ($json['prefixed_code_right_backtick'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,

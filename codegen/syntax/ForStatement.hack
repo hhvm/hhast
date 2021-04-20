@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9ba1fab29ffdd6f9179a79f51517003>>
+ * @generated SignedSource<<bbdd1a946d316179b1b0ab6e552e8a76>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,7 +50,7 @@ final class ForStatement
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -58,7 +58,7 @@ final class ForStatement
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_keyword'],
+      ($json['for_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class ForStatement
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_left_paren'],
+      ($json['for_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -76,7 +76,7 @@ final class ForStatement
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_initializer'] ?? dict['kind' => 'missing'],
+      ($json['for_initializer'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -84,7 +84,7 @@ final class ForStatement
     );
     $offset += $initializer?->getWidth() ?? 0;
     $first_semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_first_semicolon'],
+      ($json['for_first_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -93,7 +93,7 @@ final class ForStatement
     $first_semicolon = $first_semicolon as nonnull;
     $offset += $first_semicolon->getWidth();
     $control = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_control'] ?? dict['kind' => 'missing'],
+      ($json['for_control'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -101,7 +101,7 @@ final class ForStatement
     );
     $offset += $control?->getWidth() ?? 0;
     $second_semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_second_semicolon'],
+      ($json['for_second_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -110,7 +110,7 @@ final class ForStatement
     $second_semicolon = $second_semicolon as nonnull;
     $offset += $second_semicolon->getWidth();
     $end_of_loop = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_end_of_loop'] ?? dict['kind' => 'missing'],
+      ($json['for_end_of_loop'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -118,7 +118,7 @@ final class ForStatement
     );
     $offset += $end_of_loop?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_right_paren'],
+      ($json['for_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -127,7 +127,7 @@ final class ForStatement
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['for_body'],
+      ($json['for_body']) as dict<_, _>,
       $file,
       $offset,
       $source,

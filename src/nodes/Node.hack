@@ -140,7 +140,7 @@ abstract class Node implements IMemoizeParam {
   }
 
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $offset,
     string $source,

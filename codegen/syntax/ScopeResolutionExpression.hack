@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<288ecead26ef5382af2d82f411d22298>>
+ * @generated SignedSource<<d716f4b0ac2bc093560401ee5ee9587e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class ScopeResolutionExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,7 @@ final class ScopeResolutionExpression
   ): this {
     $offset = $initial_offset;
     $qualifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['scope_resolution_qualifier'],
+      ($json['scope_resolution_qualifier']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class ScopeResolutionExpression
     $qualifier = $qualifier as nonnull;
     $offset += $qualifier->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['scope_resolution_operator'],
+      ($json['scope_resolution_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class ScopeResolutionExpression
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['scope_resolution_name'],
+      ($json['scope_resolution_name']) as dict<_, _>,
       $file,
       $offset,
       $source,

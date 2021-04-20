@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a8c7bb55480fdf461fcc59abb732b55b>>
+ * @generated SignedSource<<345585ee29f4b1118fa95090399d5238>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,7 +51,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -59,7 +59,8 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['type_const_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,8 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_modifiers'] ?? dict['kind' => 'missing'],
+      ($json['type_const_modifiers'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -75,7 +77,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_keyword'],
+      ($json['type_const_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -84,7 +86,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $type_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_type_keyword'],
+      ($json['type_const_type_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -93,7 +95,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     $type_keyword = $type_keyword as nonnull;
     $offset += $type_keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_name'],
+      ($json['type_const_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -102,7 +104,8 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_type_parameters'] ?? dict['kind' => 'missing'],
+      ($json['type_const_type_parameters'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -110,7 +113,8 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $type_parameters?->getWidth() ?? 0;
     $type_constraint = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_type_constraint'] ?? dict['kind' => 'missing'],
+      ($json['type_const_type_constraint'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -118,7 +122,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $type_constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_equal'] ?? dict['kind' => 'missing'],
+      ($json['type_const_equal'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -126,7 +130,8 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $equal?->getWidth() ?? 0;
     $type_specifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_type_specifier'] ?? dict['kind' => 'missing'],
+      ($json['type_const_type_specifier'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -134,7 +139,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $type_specifier?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_const_semicolon'],
+      ($json['type_const_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

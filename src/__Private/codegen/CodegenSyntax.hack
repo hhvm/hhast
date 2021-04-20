@@ -332,7 +332,7 @@ final class CodegenSyntax extends CodegenBase {
           'Node::fromJSON',
           vec[
             Str\format(
-              '/* HH_FIXME[4110] */ $json[\'%s_%s\']%s',
+              '($json[\'%s_%s\']%s',
               $syntax['prefix'],
               $field['field_name'],
               // Normally the JSON field always exists, even for nullable
@@ -342,7 +342,7 @@ final class CodegenSyntax extends CodegenBase {
               // not be present here. But we want to be able to treat the new
               // schema as compatible with the previous version, which this
               // fallback takes care of.
-              $spec['nullable'] ? " ?? dict['kind' => 'missing']" : '',
+              $spec['nullable'] ? " ?? dict['kind' => 'missing']) as dict<_, _>" : ') as dict<_, _>',
             ),
             '$file',
             '$offset',
@@ -370,7 +370,7 @@ final class CodegenSyntax extends CodegenBase {
       ->codegenMethod('fromJSON')
       ->setIsOverride()
       ->setIsStatic()
-      ->addParameter('dict<string, mixed> $json')
+      ->addParameter('dict<arraykey, mixed> $json')
       ->addParameter('string $file')
       ->addParameter('int $initial_offset')
       ->addParameter('string $source')

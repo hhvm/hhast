@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c89fee92b83ba92553cdfd6c99645b43>>
+ * @generated SignedSource<<68695b96425a0078f1e1abac5e4cbc1e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,7 +35,7 @@ final class ETSpliceExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -43,7 +43,8 @@ final class ETSpliceExpression
   ): this {
     $offset = $initial_offset;
     $dollar = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['et_splice_expression_dollar'] ?? dict['kind' => 'missing'],
+      ($json['et_splice_expression_dollar'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -51,7 +52,8 @@ final class ETSpliceExpression
     );
     $offset += $dollar?->getWidth() ?? 0;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['et_splice_expression_left_brace'] ?? dict['kind' => 'missing'],
+      ($json['et_splice_expression_left_brace'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +61,8 @@ final class ETSpliceExpression
     );
     $offset += $left_brace?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['et_splice_expression_expression'] ?? dict['kind' => 'missing'],
+      ($json['et_splice_expression_expression'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +70,8 @@ final class ETSpliceExpression
     );
     $offset += $expression?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['et_splice_expression_right_brace'] ?? dict['kind' => 'missing'],
+      ($json['et_splice_expression_right_brace'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,

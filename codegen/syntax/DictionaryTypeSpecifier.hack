@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0acbdf0212c268f4715251a7a6f01f33>>
+ * @generated SignedSource<<9277649e6316b6f330b4ca686dfae528>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['dictionary_type_keyword'],
+      ($json['dictionary_type_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['dictionary_type_left_angle'],
+      ($json['dictionary_type_left_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['dictionary_type_members'],
+      ($json['dictionary_type_members']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     $members = $members as nonnull;
     $offset += $members->getWidth();
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['dictionary_type_right_angle'],
+      ($json['dictionary_type_right_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c8e6c9803869e9dcccfc72fdf1bda30>>
+ * @generated SignedSource<<ede9edd65e2c665c557e5d1847590a0c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,7 @@ final class EnumClassEnumerator extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -44,7 +44,7 @@ final class EnumClassEnumerator extends Node {
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_type'],
+      ($json['enum_class_enumerator_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -53,7 +53,7 @@ final class EnumClassEnumerator extends Node {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_name'],
+      ($json['enum_class_enumerator_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +62,7 @@ final class EnumClassEnumerator extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_equal'],
+      ($json['enum_class_enumerator_equal']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +71,7 @@ final class EnumClassEnumerator extends Node {
     $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $initial_value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_initial_value'],
+      ($json['enum_class_enumerator_initial_value']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +80,7 @@ final class EnumClassEnumerator extends Node {
     $initial_value = $initial_value as nonnull;
     $offset += $initial_value->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_class_enumerator_semicolon'],
+      ($json['enum_class_enumerator_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

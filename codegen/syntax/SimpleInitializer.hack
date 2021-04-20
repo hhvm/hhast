@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b961674f20b4f7e58dea3c264fa8e9cb>>
+ * @generated SignedSource<<11fb2efc933b0387f69b96d76593bb7a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class SimpleInitializer extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class SimpleInitializer extends Node {
   ): this {
     $offset = $initial_offset;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['simple_initializer_equal'],
+      ($json['simple_initializer_equal']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class SimpleInitializer extends Node {
     $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['simple_initializer_value'],
+      ($json['simple_initializer_value']) as dict<_, _>,
       $file,
       $offset,
       $source,

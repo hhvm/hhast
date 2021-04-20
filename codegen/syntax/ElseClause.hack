@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff0c47d5431b8c4709dbb502e74c4f5f>>
+ * @generated SignedSource<<7a85e177e22247ea1d4884ef3ab2985c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class ElseClause extends Node implements IControlFlowStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class ElseClause extends Node implements IControlFlowStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['else_keyword'],
+      ($json['else_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class ElseClause extends Node implements IControlFlowStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $statement = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['else_statement'],
+      ($json['else_statement']) as dict<_, _>,
       $file,
       $offset,
       $source,

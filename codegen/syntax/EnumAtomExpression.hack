@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d3f5cedb2338fb9baa419f67397a909>>
+ * @generated SignedSource<<55cb803256b6d185e8900cf0f02c059c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class EnumAtomExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class EnumAtomExpression
   ): this {
     $offset = $initial_offset;
     $hash = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_atom_hash'] ?? dict['kind' => 'missing'],
+      ($json['enum_atom_hash'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -45,7 +45,8 @@ final class EnumAtomExpression
     );
     $offset += $hash?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_atom_expression'] ?? dict['kind' => 'missing'],
+      ($json['enum_atom_expression'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,

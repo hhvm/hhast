@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83e311964fb8c2c86ffe8f8db8a5d1d9>>
+ * @generated SignedSource<<3b2c905aa3e36ad120a126c275d1f6f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class ExpressionStatement extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,8 @@ final class ExpressionStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['expression_statement_expression'] ?? dict['kind' => 'missing'],
+      ($json['expression_statement_expression'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -43,7 +44,7 @@ final class ExpressionStatement extends Node implements IStatement {
     );
     $offset += $expression?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['expression_statement_semicolon'],
+      ($json['expression_statement_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97f0599be1ab156a8d186354f8ac7bdb>>
+ * @generated SignedSource<<d36085aff960c220ea05e50826c80391>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_enum_keyword'],
+      ($json['xhp_enum_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_enum_left_brace'],
+      ($json['xhp_enum_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $values = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_enum_values'],
+      ($json['xhp_enum_values']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     $values = $values as nonnull;
     $offset += $values->getWidth();
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_enum_right_brace'],
+      ($json['xhp_enum_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,

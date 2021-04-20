@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb1fa558b39b54976a975bfb601d2d50>>
+ * @generated SignedSource<<0a71f1782b8433042cd72ed538d95190>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class OldAttributeSpecification extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class OldAttributeSpecification extends Node {
   ): this {
     $offset = $initial_offset;
     $left_double_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['old_attribute_specification_left_double_angle'],
+      ($json['old_attribute_specification_left_double_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class OldAttributeSpecification extends Node {
     $left_double_angle = $left_double_angle as nonnull;
     $offset += $left_double_angle->getWidth();
     $attributes = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['old_attribute_specification_attributes'],
+      ($json['old_attribute_specification_attributes']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class OldAttributeSpecification extends Node {
     $attributes = $attributes as nonnull;
     $offset += $attributes->getWidth();
     $right_double_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['old_attribute_specification_right_double_angle'],
+      ($json['old_attribute_specification_right_double_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,

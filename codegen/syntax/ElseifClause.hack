@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6f57646caad85878a9704905aaa55a16>>
+ * @generated SignedSource<<ecb5a73831b8b79b2950eaabea5c97ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -44,7 +44,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['elseif_keyword'],
+      ($json['elseif_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -53,7 +53,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['elseif_left_paren'],
+      ($json['elseif_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +62,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['elseif_condition'],
+      ($json['elseif_condition']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +71,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     $condition = $condition as nonnull;
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['elseif_right_paren'],
+      ($json['elseif_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +80,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $statement = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['elseif_statement'],
+      ($json['elseif_statement']) as dict<_, _>,
       $file,
       $offset,
       $source,

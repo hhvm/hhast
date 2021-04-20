@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1ada858ff9a8cacb12f9c19f6c10fd9f>>
+ * @generated SignedSource<<5eba2d9b499605bb89c9daff2c7a2a30>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class ObjectCreationExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class ObjectCreationExpression
   ): this {
     $offset = $initial_offset;
     $new_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['object_creation_new_keyword'],
+      ($json['object_creation_new_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class ObjectCreationExpression
     $new_keyword = $new_keyword as nonnull;
     $offset += $new_keyword->getWidth();
     $object = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['object_creation_object'],
+      ($json['object_creation_object']) as dict<_, _>,
       $file,
       $offset,
       $source,

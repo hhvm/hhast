@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<842b760e9b2cad812ba7576b4199b28d>>
+ * @generated SignedSource<<4cacf94591c2655a4c83efc492c8088d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,7 +35,7 @@ final class CollectionLiteralExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -43,7 +43,7 @@ final class CollectionLiteralExpression
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_name'],
+      ($json['collection_literal_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -52,7 +52,7 @@ final class CollectionLiteralExpression
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_left_brace'],
+      ($json['collection_literal_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,8 @@ final class CollectionLiteralExpression
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $initializers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_initializers'] ?? dict['kind' => 'missing'],
+      ($json['collection_literal_initializers'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -69,7 +70,7 @@ final class CollectionLiteralExpression
     );
     $offset += $initializers?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_right_brace'],
+      ($json['collection_literal_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,

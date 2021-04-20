@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d34413b4f835f3c8e1f9107eb06b942>>
+ * @generated SignedSource<<c03a8766e3d6ef14e276483f44b6fe68>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,7 @@ final class TraitUseConflictResolution
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,7 @@ final class TraitUseConflictResolution
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_keyword'],
+      ($json['trait_use_conflict_resolution_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class TraitUseConflictResolution
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $names = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_names'],
+      ($json['trait_use_conflict_resolution_names']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -64,7 +64,7 @@ final class TraitUseConflictResolution
     $names = $names as nonnull;
     $offset += $names->getWidth();
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_left_brace'],
+      ($json['trait_use_conflict_resolution_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -73,7 +73,10 @@ final class TraitUseConflictResolution
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_clauses'] ?? dict['kind' => 'missing'],
+      (
+        $json['trait_use_conflict_resolution_clauses'] ??
+        dict['kind' => 'missing']
+      ) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -81,7 +84,7 @@ final class TraitUseConflictResolution
     );
     $offset += $clauses?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_conflict_resolution_right_brace'],
+      ($json['trait_use_conflict_resolution_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,

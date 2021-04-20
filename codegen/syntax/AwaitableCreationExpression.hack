@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f97d3d0a11eeb8356d82364a7eefec5d>>
+ * @generated SignedSource<<febeb1cfe7f081420d84dbe131c2911f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,8 @@ abstract class AwaitableCreationExpressionGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['awaitable_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['awaitable_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -48,7 +49,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $async = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['awaitable_async'],
+      ($json['awaitable_async']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -57,7 +58,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
     $async = $async as nonnull;
     $offset += $async->getWidth();
     $compound_statement = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['awaitable_compound_statement'],
+      ($json['awaitable_compound_statement']) as dict<_, _>,
       $file,
       $offset,
       $source,

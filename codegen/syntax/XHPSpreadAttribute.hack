@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90c0b7117015721b849e4b7c30764a8c>>
+ * @generated SignedSource<<e5660eddb05f22bf42b2efd7a7071f09>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class XHPSpreadAttribute extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class XHPSpreadAttribute extends Node {
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_spread_attribute_left_brace'],
+      ($json['xhp_spread_attribute_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class XHPSpreadAttribute extends Node {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $spread_operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_spread_attribute_spread_operator'],
+      ($json['xhp_spread_attribute_spread_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class XHPSpreadAttribute extends Node {
     $spread_operator = $spread_operator as nonnull;
     $offset += $spread_operator->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_spread_attribute_expression'],
+      ($json['xhp_spread_attribute_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class XHPSpreadAttribute extends Node {
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_spread_attribute_right_brace'],
+      ($json['xhp_spread_attribute_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,

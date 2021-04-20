@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06e52ad86010baf5145bbfc6632da1ea>>
+ * @generated SignedSource<<f663c621a332a4e3ab276ef0a1b5ddee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['list_keyword'],
+      ($json['list_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['list_left_paren'],
+      ($json['list_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['list_members'] ?? dict['kind' => 'missing'],
+      ($json['list_members'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $members?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['list_right_paren'],
+      ($json['list_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,

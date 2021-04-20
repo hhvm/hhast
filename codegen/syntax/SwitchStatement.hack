@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e9624b921c0aebf577fb9875611a770>>
+ * @generated SignedSource<<8f90f356e7754fc12fe0b613f6d8272f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,7 @@ final class SwitchStatement
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -52,7 +52,7 @@ final class SwitchStatement
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_keyword'],
+      ($json['switch_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,7 @@ final class SwitchStatement
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_left_paren'],
+      ($json['switch_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +70,7 @@ final class SwitchStatement
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_expression'],
+      ($json['switch_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -79,7 +79,7 @@ final class SwitchStatement
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_right_paren'],
+      ($json['switch_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -88,7 +88,7 @@ final class SwitchStatement
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_left_brace'],
+      ($json['switch_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -97,7 +97,7 @@ final class SwitchStatement
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $sections = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_sections'],
+      ($json['switch_sections']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -106,7 +106,7 @@ final class SwitchStatement
     $sections = $sections as nonnull;
     $offset += $sections->getWidth();
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_right_brace'],
+      ($json['switch_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<473c0798a36de7fea753e96c01a150ad>>
+ * @generated SignedSource<<9ec6af4cb6ea20b271167ba1b0dce708>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -44,7 +44,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['varray_keyword'],
+      ($json['varray_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -53,7 +53,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['varray_left_angle'],
+      ($json['varray_left_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +62,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['varray_type'],
+      ($json['varray_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +71,8 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['varray_trailing_comma'] ?? dict['kind' => 'missing'],
+      ($json['varray_trailing_comma'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -79,7 +80,7 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['varray_right_angle'],
+      ($json['varray_right_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec776991759e91af1b20f93681dd18d4>>
+ * @generated SignedSource<<ba534eb13deb6f5ef970bfa37a34309f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_precedence_item_name'],
+      ($json['trait_use_precedence_item_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_precedence_item_keyword'],
+      ($json['trait_use_precedence_item_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $removed_names = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_precedence_item_removed_names'],
+      ($json['trait_use_precedence_item_removed_names']) as dict<_, _>,
       $file,
       $offset,
       $source,

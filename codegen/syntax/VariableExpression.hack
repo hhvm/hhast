@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edc22b1581b721d729310e57505454d5>>
+ * @generated SignedSource<<6bbf75f06d09414fcf252956f0f1fb9e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -26,7 +26,7 @@ final class VariableExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -34,7 +34,7 @@ final class VariableExpression
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['variable_expression'] ?? dict['kind' => 'missing'],
+      ($json['variable_expression'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,

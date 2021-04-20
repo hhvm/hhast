@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4565152ed3c309e3a688b480af1fd9db>>
+ * @generated SignedSource<<9afa00c3a37f5587c29accc5316667d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class TypeConstraint extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class TypeConstraint extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constraint_keyword'],
+      ($json['constraint_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class TypeConstraint extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constraint_type'],
+      ($json['constraint_type']) as dict<_, _>,
       $file,
       $offset,
       $source,

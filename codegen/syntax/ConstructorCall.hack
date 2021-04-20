@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6dbcd79fdb80ec2295dd8d963a726076>>
+ * @generated SignedSource<<bc4b39a741c5bbf18bbefff87e57c693>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class ConstructorCall extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class ConstructorCall extends Node {
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_type'],
+      ($json['constructor_call_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,8 @@ final class ConstructorCall extends Node {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_left_paren'] ?? dict['kind' => 'missing'],
+      ($json['constructor_call_left_paren'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +59,8 @@ final class ConstructorCall extends Node {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_argument_list'] ?? dict['kind' => 'missing'],
+      ($json['constructor_call_argument_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -66,7 +68,8 @@ final class ConstructorCall extends Node {
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constructor_call_right_paren'] ?? dict['kind' => 'missing'],
+      ($json['constructor_call_right_paren'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,

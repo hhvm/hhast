@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9630d96663defbb2811b3167735dd048>>
+ * @generated SignedSource<<499b1ce94ba1e67376de784a15acdce6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class TryStatement extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class TryStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_keyword'],
+      ($json['try_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class TryStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $compound_statement = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_compound_statement'],
+      ($json['try_compound_statement']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class TryStatement extends Node implements IStatement {
     $compound_statement = $compound_statement as nonnull;
     $offset += $compound_statement->getWidth();
     $catch_clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_catch_clauses'] ?? dict['kind' => 'missing'],
+      ($json['try_catch_clauses'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class TryStatement extends Node implements IStatement {
     );
     $offset += $catch_clauses?->getWidth() ?? 0;
     $finally_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_finally_clause'] ?? dict['kind' => 'missing'],
+      ($json['try_finally_clause'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,

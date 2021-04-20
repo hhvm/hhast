@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21e06bca6241a194ac13d640cd14927c>>
+ * @generated SignedSource<<3afd89d7a45802ce840b9774cdeb394e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -32,7 +32,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['literal_expression'] ?? dict['kind' => 'missing'],
+      ($json['literal_expression'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,

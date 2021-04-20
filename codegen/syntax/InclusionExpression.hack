@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b7b7eee64ff3b4b74451eb8e3203c36>>
+ * @generated SignedSource<<5607e3bdfd5774433bee4e5ffa52455e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class InclusionExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class InclusionExpression
   ): this {
     $offset = $initial_offset;
     $require = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['inclusion_require'],
+      ($json['inclusion_require']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class InclusionExpression
     $require = $require as nonnull;
     $offset += $require->getWidth();
     $filename = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['inclusion_filename'],
+      ($json['inclusion_filename']) as dict<_, _>,
       $file,
       $offset,
       $source,

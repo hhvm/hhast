@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eddb5fb96119c3adec9b595fbc997495>>
+ * @generated SignedSource<<7a60773b215a9bff1ff4b48daa7f1d36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class FieldInitializer extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class FieldInitializer extends Node {
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['field_initializer_name'],
+      ($json['field_initializer_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class FieldInitializer extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $arrow = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['field_initializer_arrow'],
+      ($json['field_initializer_arrow']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class FieldInitializer extends Node {
     $arrow = $arrow as nonnull;
     $offset += $arrow->getWidth();
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['field_initializer_value'],
+      ($json['field_initializer_value']) as dict<_, _>,
       $file,
       $offset,
       $source,

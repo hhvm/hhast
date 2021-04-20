@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a354e6b6c038d7de2271631356bdf3de>>
+ * @generated SignedSource<<4c13ae012542aa07e3c53f4c97741085>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class PrefixUnaryExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class PrefixUnaryExpression
   ): this {
     $offset = $initial_offset;
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefix_unary_operator'],
+      ($json['prefix_unary_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class PrefixUnaryExpression
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefix_unary_operand'],
+      ($json['prefix_unary_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,

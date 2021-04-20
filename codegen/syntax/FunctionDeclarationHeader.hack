@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5eebc37ba58b3490a7e42241164b415>>
+ * @generated SignedSource<<29af1c26eb28e7a1d202b2166ceebad6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -57,7 +57,7 @@ final class FunctionDeclarationHeader extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -65,7 +65,7 @@ final class FunctionDeclarationHeader extends Node {
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_modifiers'] ?? dict['kind' => 'missing'],
+      ($json['function_modifiers'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -73,7 +73,7 @@ final class FunctionDeclarationHeader extends Node {
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_keyword'],
+      ($json['function_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -82,7 +82,7 @@ final class FunctionDeclarationHeader extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_name'],
+      ($json['function_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -91,7 +91,8 @@ final class FunctionDeclarationHeader extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameter_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_type_parameter_list'] ?? dict['kind' => 'missing'],
+      ($json['function_type_parameter_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -99,7 +100,7 @@ final class FunctionDeclarationHeader extends Node {
     );
     $offset += $type_parameter_list?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_left_paren'],
+      ($json['function_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -108,7 +109,8 @@ final class FunctionDeclarationHeader extends Node {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameter_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_parameter_list'] ?? dict['kind' => 'missing'],
+      ($json['function_parameter_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -116,7 +118,7 @@ final class FunctionDeclarationHeader extends Node {
     );
     $offset += $parameter_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_right_paren'],
+      ($json['function_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -125,7 +127,7 @@ final class FunctionDeclarationHeader extends Node {
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $contexts = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_contexts'] ?? dict['kind' => 'missing'],
+      ($json['function_contexts'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -133,7 +135,7 @@ final class FunctionDeclarationHeader extends Node {
     );
     $offset += $contexts?->getWidth() ?? 0;
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_colon'] ?? dict['kind' => 'missing'],
+      ($json['function_colon'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -141,7 +143,8 @@ final class FunctionDeclarationHeader extends Node {
     );
     $offset += $colon?->getWidth() ?? 0;
     $readonly_return = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_readonly_return'] ?? dict['kind' => 'missing'],
+      ($json['function_readonly_return'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -149,7 +152,7 @@ final class FunctionDeclarationHeader extends Node {
     );
     $offset += $readonly_return?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_type'] ?? dict['kind' => 'missing'],
+      ($json['function_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -157,7 +160,8 @@ final class FunctionDeclarationHeader extends Node {
     );
     $offset += $type?->getWidth() ?? 0;
     $where_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_where_clause'] ?? dict['kind' => 'missing'],
+      ($json['function_where_clause'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,

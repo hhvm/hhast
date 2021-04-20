@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd352459769a1535b5500047bc358a33>>
+ * @generated SignedSource<<9439ba497ca7b8b4bf7da4c31d2f310f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class SafeMemberSelectionExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,7 @@ final class SafeMemberSelectionExpression
   ): this {
     $offset = $initial_offset;
     $object = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['safe_member_object'],
+      ($json['safe_member_object']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class SafeMemberSelectionExpression
     $object = $object as nonnull;
     $offset += $object->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['safe_member_operator'],
+      ($json['safe_member_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class SafeMemberSelectionExpression
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['safe_member_name'],
+      ($json['safe_member_name']) as dict<_, _>,
       $file,
       $offset,
       $source,

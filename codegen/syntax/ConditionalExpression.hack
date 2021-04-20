@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<376ec4a79242afaef9ee973f5651af2b>>
+ * @generated SignedSource<<e6426e862bad6d3cc6b9132c8a545cf4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,7 @@ final class ConditionalExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,7 @@ final class ConditionalExpression
   ): this {
     $offset = $initial_offset;
     $test = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['conditional_test'],
+      ($json['conditional_test']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class ConditionalExpression
     $test = $test as nonnull;
     $offset += $test->getWidth();
     $question = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['conditional_question'],
+      ($json['conditional_question']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -64,7 +64,7 @@ final class ConditionalExpression
     $question = $question as nonnull;
     $offset += $question->getWidth();
     $consequence = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['conditional_consequence'],
+      ($json['conditional_consequence']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -73,7 +73,7 @@ final class ConditionalExpression
     $consequence = $consequence as nonnull;
     $offset += $consequence->getWidth();
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['conditional_colon'],
+      ($json['conditional_colon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -82,7 +82,7 @@ final class ConditionalExpression
     $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $alternative = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['conditional_alternative'],
+      ($json['conditional_alternative']) as dict<_, _>,
       $file,
       $offset,
       $source,

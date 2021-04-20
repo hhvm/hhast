@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7e05f3c50a8b3f59fbcfc2d088ef28cc>>
+ * @generated SignedSource<<ad5c27867c4585962206421938f6044c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -41,7 +41,7 @@ final class FunctionCallExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -49,7 +49,7 @@ final class FunctionCallExpression
   ): this {
     $offset = $initial_offset;
     $receiver = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_receiver'],
+      ($json['function_call_receiver']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,8 @@ final class FunctionCallExpression
     $receiver = $receiver as nonnull;
     $offset += $receiver->getWidth();
     $type_args = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_type_args'] ?? dict['kind' => 'missing'],
+      ($json['function_call_type_args'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -66,7 +67,8 @@ final class FunctionCallExpression
     );
     $offset += $type_args?->getWidth() ?? 0;
     $enum_atom = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_enum_atom'] ?? dict['kind' => 'missing'],
+      ($json['function_call_enum_atom'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -74,7 +76,7 @@ final class FunctionCallExpression
     );
     $offset += $enum_atom?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_left_paren'],
+      ($json['function_call_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -83,7 +85,8 @@ final class FunctionCallExpression
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_argument_list'] ?? dict['kind' => 'missing'],
+      ($json['function_call_argument_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -91,7 +94,7 @@ final class FunctionCallExpression
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_call_right_paren'],
+      ($json['function_call_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5304fbdc8f404d3ae38bdd39341db640>>
+ * @generated SignedSource<<5766557ae6900688a0fcf2544022207a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['yield_keyword'],
+      ($json['yield_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['yield_operand'] ?? dict['kind' => 'missing'],
+      ($json['yield_operand'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,

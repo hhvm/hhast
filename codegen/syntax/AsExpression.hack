@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4a3d3af4c389ea3cd8897002c4df751>>
+ * @generated SignedSource<<fe5a4650d39ccafe9b24bcd83c64ad80>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $left_operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['as_left_operand'],
+      ($json['as_left_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
     $left_operand = $left_operand as nonnull;
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['as_operator'],
+      ($json['as_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['as_right_operand'],
+      ($json['as_right_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<17ede901a78b4849540fa0ec9601c265>>
+ * @generated SignedSource<<14442b98aa4f52edd51b167688fe635c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class TypeArguments extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class TypeArguments extends Node {
   ): this {
     $offset = $initial_offset;
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_arguments_left_angle'],
+      ($json['type_arguments_left_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,8 @@ final class TypeArguments extends Node {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_arguments_types'] ?? dict['kind' => 'missing'],
+      ($json['type_arguments_types'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +56,7 @@ final class TypeArguments extends Node {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_arguments_right_angle'],
+      ($json['type_arguments_right_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,

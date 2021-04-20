@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d31ab9f1b0817ea110779b6e77f2f0d9>>
+ * @generated SignedSource<<9de27d7221b50b9e759e49b87fd53ccd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['eval_keyword'],
+      ($json['eval_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['eval_left_paren'],
+      ($json['eval_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['eval_argument'],
+      ($json['eval_argument']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
     $argument = $argument as nonnull;
     $offset += $argument->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['eval_right_paren'],
+      ($json['eval_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,

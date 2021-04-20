@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c5e7d6b3506d4c95a043d017b802593a>>
+ * @generated SignedSource<<fec8dc41918f55a9341fe0803f46ec42>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class Contexts extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class Contexts extends Node {
   ): this {
     $offset = $initial_offset;
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['contexts_left_bracket'],
+      ($json['contexts_left_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class Contexts extends Node {
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['contexts_types'] ?? dict['kind' => 'missing'],
+      ($json['contexts_types'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class Contexts extends Node {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['contexts_right_bracket'],
+      ($json['contexts_right_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,

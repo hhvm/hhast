@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96d3be4c430b85211bf825c1d6b5ed05>>
+ * @generated SignedSource<<7d29b879cdb51f865e8e00b5d46ee957>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,7 +35,7 @@ final class SubscriptExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -43,7 +43,7 @@ final class SubscriptExpression
   ): this {
     $offset = $initial_offset;
     $receiver = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['subscript_receiver'],
+      ($json['subscript_receiver']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -52,7 +52,7 @@ final class SubscriptExpression
     $receiver = $receiver as nonnull;
     $offset += $receiver->getWidth();
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['subscript_left_bracket'],
+      ($json['subscript_left_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,7 @@ final class SubscriptExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $index = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['subscript_index'] ?? dict['kind' => 'missing'],
+      ($json['subscript_index'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -69,7 +69,7 @@ final class SubscriptExpression
     );
     $offset += $index?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['subscript_right_bracket'],
+      ($json['subscript_right_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<202e80bc2bde0ccf1c7e41119ee088b9>>
+ * @generated SignedSource<<1731d01b3927d3645aaa57bbb3b0cfe4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_keyword'],
+      ($json['tuple_expression_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_left_paren'],
+      ($json['tuple_expression_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,8 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $items = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_items'] ?? dict['kind' => 'missing'],
+      ($json['tuple_expression_items'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $items?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_right_paren'],
+      ($json['tuple_expression_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,

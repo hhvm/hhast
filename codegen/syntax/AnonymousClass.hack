@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8c65c38f9d699ddd8bd97a3044ba12f>>
+ * @generated SignedSource<<59a87fac3b6b6aa7e81e6cd16137772c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,7 +48,7 @@ final class AnonymousClass extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -56,7 +56,8 @@ final class AnonymousClass extends Node {
   ): this {
     $offset = $initial_offset;
     $class_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_class_keyword'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_class_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -64,7 +65,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $class_keyword?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_left_paren'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_left_paren'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -72,7 +74,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_argument_list'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_argument_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +83,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_right_paren'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_right_paren'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -88,7 +92,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $right_paren?->getWidth() ?? 0;
     $extends_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_extends_keyword'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_extends_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -96,7 +101,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $extends_keyword?->getWidth() ?? 0;
     $extends_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_extends_list'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_extends_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -104,7 +110,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $extends_list?->getWidth() ?? 0;
     $implements_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_implements_keyword'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_implements_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -112,7 +119,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $implements_keyword?->getWidth() ?? 0;
     $implements_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_implements_list'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_implements_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -120,7 +128,8 @@ final class AnonymousClass extends Node {
     );
     $offset += $implements_list?->getWidth() ?? 0;
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_class_body'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_class_body'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,

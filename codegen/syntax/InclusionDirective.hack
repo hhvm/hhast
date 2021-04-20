@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a42e59712ff40fe87f8e73a65fab500c>>
+ * @generated SignedSource<<08f68dfdf03e40b470a825658477fc40>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class InclusionDirective extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class InclusionDirective extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['inclusion_expression'],
+      ($json['inclusion_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class InclusionDirective extends Node implements IStatement {
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['inclusion_semicolon'],
+      ($json['inclusion_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

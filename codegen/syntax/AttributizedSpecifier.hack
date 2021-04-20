@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6398644a0da7100250227ab457a3db7c>>
+ * @generated SignedSource<<7681ad8d623ff4203cd8a74e426d542b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['attributized_specifier_attribute_spec'],
+      ($json['attributized_specifier_attribute_spec']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
     $attribute_spec = $attribute_spec as nonnull;
     $offset += $attribute_spec->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['attributized_specifier_type'],
+      ($json['attributized_specifier_type']) as dict<_, _>,
       $file,
       $offset,
       $source,

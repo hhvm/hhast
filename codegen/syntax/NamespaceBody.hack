@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94ac073a95152af0a633df9afc4aa26b>>
+ * @generated SignedSource<<41485689d4425e0f1c0959da3622cf63>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_left_brace'],
+      ($json['namespace_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,8 @@ final class NamespaceBody extends Node implements INamespaceBody {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $declarations = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_declarations'] ?? dict['kind' => 'missing'],
+      ($json['namespace_declarations'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +56,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
     );
     $offset += $declarations?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_right_brace'],
+      ($json['namespace_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<64f21b6533acb468feb17a59912fad3d>>
+ * @generated SignedSource<<d83bfec508c24670abe1aff72e520d8e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ final class EndOfFile extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -32,7 +32,7 @@ final class EndOfFile extends Node {
   ): this {
     $offset = $initial_offset;
     $token = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['end_of_file_token'],
+      ($json['end_of_file_token']) as dict<_, _>,
       $file,
       $offset,
       $source,

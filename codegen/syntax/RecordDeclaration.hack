@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c2a97d212e5f330dd6669d7535d1ee9>>
+ * @generated SignedSource<<eb63acf437d19dbbe1bd5491a574cc79>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,7 +48,7 @@ final class RecordDeclaration extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -56,7 +56,7 @@ final class RecordDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_attribute_spec'],
+      ($json['record_attribute_spec']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -65,7 +65,7 @@ final class RecordDeclaration extends Node {
     $attribute_spec = $attribute_spec as nonnull;
     $offset += $attribute_spec->getWidth();
     $modifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_modifier'],
+      ($json['record_modifier']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -74,7 +74,7 @@ final class RecordDeclaration extends Node {
     $modifier = $modifier as nonnull;
     $offset += $modifier->getWidth();
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_keyword'],
+      ($json['record_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -83,7 +83,7 @@ final class RecordDeclaration extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_name'],
+      ($json['record_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -92,7 +92,7 @@ final class RecordDeclaration extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $extends_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_extends_keyword'],
+      ($json['record_extends_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -101,7 +101,7 @@ final class RecordDeclaration extends Node {
     $extends_keyword = $extends_keyword as nonnull;
     $offset += $extends_keyword->getWidth();
     $extends_opt = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_extends_opt'],
+      ($json['record_extends_opt']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -110,7 +110,7 @@ final class RecordDeclaration extends Node {
     $extends_opt = $extends_opt as nonnull;
     $offset += $extends_opt->getWidth();
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_left_brace'],
+      ($json['record_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -119,7 +119,7 @@ final class RecordDeclaration extends Node {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $fields = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_fields'],
+      ($json['record_fields']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -128,7 +128,7 @@ final class RecordDeclaration extends Node {
     $fields = $fields as nonnull;
     $offset += $fields->getWidth();
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_right_brace'],
+      ($json['record_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,

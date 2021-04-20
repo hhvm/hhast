@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<34e7824a6da119e7ea064262f02617ab>>
+ * @generated SignedSource<<65e67aa96f391347d0ac124c6a20da6b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class EnumUse extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class EnumUse extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_use_keyword'],
+      ($json['enum_use_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class EnumUse extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $names = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_use_names'],
+      ($json['enum_use_names']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class EnumUse extends Node {
     $names = $names as nonnull;
     $offset += $names->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_use_semicolon'],
+      ($json['enum_use_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e749808a2cecb1f314467da6daf08eef>>
+ * @generated SignedSource<<4d7a01340bc3a44ca42d16840820b96c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $tilde = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['like_tilde'],
+      ($json['like_tilde']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     $tilde = $tilde as nonnull;
     $offset += $tilde->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['like_type'],
+      ($json['like_type']) as dict<_, _>,
       $file,
       $offset,
       $source,

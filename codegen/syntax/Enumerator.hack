@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<104b53faf5f13ef461af831189492b57>>
+ * @generated SignedSource<<ff97d6b10e119018928b5cab5c58332d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class Enumerator extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class Enumerator extends Node {
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enumerator_name'],
+      ($json['enumerator_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class Enumerator extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enumerator_equal'],
+      ($json['enumerator_equal']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class Enumerator extends Node {
     $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enumerator_value'],
+      ($json['enumerator_value']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class Enumerator extends Node {
     $value = $value as nonnull;
     $offset += $value->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enumerator_semicolon'],
+      ($json['enumerator_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd30e1d60a8d1ecad1725d5eaf4d65fe>>
+ * @generated SignedSource<<fa476c4751490290c93ba8e8d2beed08>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,7 @@ final class PropertyDeclaration
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,8 @@ final class PropertyDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['property_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -54,7 +55,7 @@ final class PropertyDeclaration
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_modifiers'],
+      ($json['property_modifiers']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -63,7 +64,7 @@ final class PropertyDeclaration
     $modifiers = $modifiers as nonnull;
     $offset += $modifiers->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_type'] ?? dict['kind' => 'missing'],
+      ($json['property_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +72,7 @@ final class PropertyDeclaration
     );
     $offset += $type?->getWidth() ?? 0;
     $declarators = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_declarators'],
+      ($json['property_declarators']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +81,7 @@ final class PropertyDeclaration
     $declarators = $declarators as nonnull;
     $offset += $declarators->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['property_semicolon'],
+      ($json['property_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b7070e70876cf951f62fad9d40061a8>>
+ * @generated SignedSource<<284d62e2a4583664917b7893fa1646a1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class FunctionPointerExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class FunctionPointerExpression
   ): this {
     $offset = $initial_offset;
     $receiver = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_pointer_receiver'],
+      ($json['function_pointer_receiver']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class FunctionPointerExpression
     $receiver = $receiver as nonnull;
     $offset += $receiver->getWidth();
     $type_args = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_pointer_type_args'],
+      ($json['function_pointer_type_args']) as dict<_, _>,
       $file,
       $offset,
       $source,

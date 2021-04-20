@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<537d546314b6d8b3f82e3092327bacbd>>
+ * @generated SignedSource<<b5503748055804929b680813f61fb33e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,7 @@ final class KeysetIntrinsicExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,7 @@ final class KeysetIntrinsicExpression
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_intrinsic_keyword'],
+      ($json['keyset_intrinsic_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,8 @@ final class KeysetIntrinsicExpression
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_intrinsic_explicit_type'] ?? dict['kind' => 'missing'],
+      ($json['keyset_intrinsic_explicit_type'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -63,7 +64,7 @@ final class KeysetIntrinsicExpression
     );
     $offset += $explicit_type?->getWidth() ?? 0;
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_intrinsic_left_bracket'],
+      ($json['keyset_intrinsic_left_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -72,7 +73,8 @@ final class KeysetIntrinsicExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_intrinsic_members'] ?? dict['kind' => 'missing'],
+      ($json['keyset_intrinsic_members'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +82,7 @@ final class KeysetIntrinsicExpression
     );
     $offset += $members?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['keyset_intrinsic_right_bracket'],
+      ($json['keyset_intrinsic_right_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,

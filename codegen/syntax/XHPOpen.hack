@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cdb61346831d9385db275c3b523618b6>>
+ * @generated SignedSource<<eddf1171f44f569bf03dbe4bcbde63b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class XHPOpen extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class XHPOpen extends Node {
   ): this {
     $offset = $initial_offset;
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_open_left_angle'],
+      ($json['xhp_open_left_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class XHPOpen extends Node {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_open_name'],
+      ($json['xhp_open_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class XHPOpen extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $attributes = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_open_attributes'] ?? dict['kind' => 'missing'],
+      ($json['xhp_open_attributes'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class XHPOpen extends Node {
     );
     $offset += $attributes?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_open_right_angle'],
+      ($json['xhp_open_right_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9988e8335d9aec17f69483ba82914b18>>
+ * @generated SignedSource<<ce9517c67c2a15316e52b8a9efc3b7f1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $reified = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['reified_type_argument_reified'],
+      ($json['reified_type_argument_reified']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
     $reified = $reified as nonnull;
     $offset += $reified->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['reified_type_argument_type'],
+      ($json['reified_type_argument_type']) as dict<_, _>,
       $file,
       $offset,
       $source,

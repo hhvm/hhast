@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7045d133f0ad892a9a2ee56f09e53e7a>>
+ * @generated SignedSource<<2c04aa047e41b3dd489b4b0531c4a5db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -44,7 +44,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_modifiers'] ?? dict['kind' => 'missing'],
+      ($json['const_modifiers'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -52,7 +52,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_keyword'],
+      ($json['const_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,8 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $type_specifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_type_specifier'] ?? dict['kind' => 'missing'],
+      ($json['const_type_specifier'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -69,7 +70,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     );
     $offset += $type_specifier?->getWidth() ?? 0;
     $declarators = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_declarators'],
+      ($json['const_declarators']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -78,7 +79,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     $declarators = $declarators as nonnull;
     $offset += $declarators->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['const_semicolon'],
+      ($json['const_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

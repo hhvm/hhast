@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<061264e14bbcee9ee12dd109058b3fac>>
+ * @generated SignedSource<<738688c2d60078b312f535ed9b690d5c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class SwitchFallthrough extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class SwitchFallthrough extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['fallthrough_keyword'] ?? dict['kind' => 'missing'],
+      ($json['fallthrough_keyword'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -43,7 +43,8 @@ final class SwitchFallthrough extends Node implements IStatement {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['fallthrough_semicolon'] ?? dict['kind' => 'missing'],
+      ($json['fallthrough_semicolon'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,

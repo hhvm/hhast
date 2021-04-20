@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60b6e3e95553855ccf455a11be2c1fc6>>
+ * @generated SignedSource<<133f1f1128d5a77c7b58506435aa11b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class XHPClose extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class XHPClose extends Node {
   ): this {
     $offset = $initial_offset;
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_close_left_angle'],
+      ($json['xhp_close_left_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class XHPClose extends Node {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_close_name'],
+      ($json['xhp_close_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class XHPClose extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_close_right_angle'],
+      ($json['xhp_close_right_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cf5449f110bf18b25730d6ceb5f556b9>>
+ * @generated SignedSource<<f8bac00febed72d82432666273c9a0d9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,7 @@ final class FileAttributeSpecification extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -44,7 +44,7 @@ final class FileAttributeSpecification extends Node {
   ): this {
     $offset = $initial_offset;
     $left_double_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['file_attribute_specification_left_double_angle'],
+      ($json['file_attribute_specification_left_double_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -53,7 +53,7 @@ final class FileAttributeSpecification extends Node {
     $left_double_angle = $left_double_angle as nonnull;
     $offset += $left_double_angle->getWidth();
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['file_attribute_specification_keyword'],
+      ($json['file_attribute_specification_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +62,7 @@ final class FileAttributeSpecification extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['file_attribute_specification_colon'],
+      ($json['file_attribute_specification_colon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +71,7 @@ final class FileAttributeSpecification extends Node {
     $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $attributes = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['file_attribute_specification_attributes'],
+      ($json['file_attribute_specification_attributes']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +80,7 @@ final class FileAttributeSpecification extends Node {
     $attributes = $attributes as nonnull;
     $offset += $attributes->getWidth();
     $right_double_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['file_attribute_specification_right_double_angle'],
+      ($json['file_attribute_specification_right_double_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,

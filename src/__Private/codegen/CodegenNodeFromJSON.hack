@@ -54,7 +54,7 @@ final class CodegenNodeFromJSON extends CodegenBase {
         $cg
           ->codegenFunction('node_from_json_unwrapped')
           ->setReturnType('?HHAST\\Node')
-          ->addParameter('dict<string, mixed> $json')
+          ->addParameter('dict<arraykey, mixed> $json')
           ->addParameter('string $file')
           ->addParameter('int $offset')
           ->addParameter('string $source')
@@ -75,7 +75,7 @@ final class CodegenNodeFromJSON extends CodegenBase {
               ->addMultilineCall(
                 'HHAST\\Token::fromJSON',
                 vec[
-                  '/* HH_FIXME[4110] */ $json[\'token\']',
+                  '$json[\'token\'] as dict<_, _>',
                   '$file',
                   '$offset',
                   '$source',

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6727e9e097f616b440309bbd04a58669>>
+ * @generated SignedSource<<a5301bdbbd5f0d58efb7c5656c769687>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -51,7 +51,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -59,7 +59,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['enum_attribute_spec'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_keyword'],
+      ($json['enum_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -76,7 +76,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_name'],
+      ($json['enum_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,7 +85,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_colon'],
+      ($json['enum_colon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -94,7 +94,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $base = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_base'],
+      ($json['enum_base']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -103,7 +103,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $base = $base as nonnull;
     $offset += $base->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_type'] ?? dict['kind' => 'missing'],
+      ($json['enum_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -111,7 +111,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $type?->getWidth() ?? 0;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_left_brace'],
+      ($json['enum_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -120,7 +120,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $use_clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_use_clauses'] ?? dict['kind' => 'missing'],
+      ($json['enum_use_clauses'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -128,7 +128,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $use_clauses?->getWidth() ?? 0;
     $enumerators = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_enumerators'] ?? dict['kind' => 'missing'],
+      ($json['enum_enumerators'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -136,7 +136,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $enumerators?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_right_brace'],
+      ($json['enum_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,

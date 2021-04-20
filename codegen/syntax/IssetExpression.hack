@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<212064638407e727dd2792abd69c37ff>>
+ * @generated SignedSource<<a3c1446f0f214fd1f54982b696d1c6b5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['isset_keyword'],
+      ($json['isset_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['isset_left_paren'],
+      ($json['isset_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['isset_argument_list'],
+      ($json['isset_argument_list']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
     $argument_list = $argument_list as nonnull;
     $offset += $argument_list->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['isset_right_paren'],
+      ($json['isset_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,

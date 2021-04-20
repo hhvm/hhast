@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5477abbb94e1e7ea6fd864a1a1abea07>>
+ * @generated SignedSource<<0a59961e82d56b49d8524c190c9c8dfc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,7 +50,7 @@ final class ContextConstDeclaration
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -58,7 +58,8 @@ final class ContextConstDeclaration
   ): this {
     $offset = $initial_offset;
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_modifiers'] ?? dict['kind' => 'missing'],
+      ($json['context_const_modifiers'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -66,7 +67,7 @@ final class ContextConstDeclaration
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $const_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_const_keyword'],
+      ($json['context_const_const_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -75,7 +76,7 @@ final class ContextConstDeclaration
     $const_keyword = $const_keyword as nonnull;
     $offset += $const_keyword->getWidth();
     $ctx_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_ctx_keyword'],
+      ($json['context_const_ctx_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -84,7 +85,7 @@ final class ContextConstDeclaration
     $ctx_keyword = $ctx_keyword as nonnull;
     $offset += $ctx_keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_name'],
+      ($json['context_const_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -93,7 +94,8 @@ final class ContextConstDeclaration
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $type_parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_type_parameters'] ?? dict['kind' => 'missing'],
+      ($json['context_const_type_parameters'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -101,7 +103,8 @@ final class ContextConstDeclaration
     );
     $offset += $type_parameters?->getWidth() ?? 0;
     $constraint = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_constraint'] ?? dict['kind' => 'missing'],
+      ($json['context_const_constraint'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -109,7 +112,7 @@ final class ContextConstDeclaration
     );
     $offset += $constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_equal'] ?? dict['kind' => 'missing'],
+      ($json['context_const_equal'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -117,7 +120,8 @@ final class ContextConstDeclaration
     );
     $offset += $equal?->getWidth() ?? 0;
     $ctx_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_ctx_list'] ?? dict['kind' => 'missing'],
+      ($json['context_const_ctx_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -125,7 +129,7 @@ final class ContextConstDeclaration
     );
     $offset += $ctx_list?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['context_const_semicolon'],
+      ($json['context_const_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,

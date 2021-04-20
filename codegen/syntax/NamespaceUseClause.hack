@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84c4331c1233d099ab5a255dc3c53ed1>>
+ * @generated SignedSource<<a554eec3e897cb19265f9fe67ab51938>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class NamespaceUseClause extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,8 @@ final class NamespaceUseClause extends Node {
   ): this {
     $offset = $initial_offset;
     $clause_kind = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_clause_kind'] ?? dict['kind' => 'missing'],
+      ($json['namespace_use_clause_kind'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +50,7 @@ final class NamespaceUseClause extends Node {
     );
     $offset += $clause_kind?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_name'],
+      ($json['namespace_use_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +59,7 @@ final class NamespaceUseClause extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $as = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_as'] ?? dict['kind' => 'missing'],
+      ($json['namespace_use_as'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -66,7 +67,7 @@ final class NamespaceUseClause extends Node {
     );
     $offset += $as?->getWidth() ?? 0;
     $alias = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_alias'] ?? dict['kind' => 'missing'],
+      ($json['namespace_use_alias'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
