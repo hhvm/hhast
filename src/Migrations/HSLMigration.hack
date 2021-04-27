@@ -427,6 +427,7 @@ final class HSLMigration extends BaseMigration {
         return tuple(null, $found_namespaces);
       }
     } else if (
+      $fn_name is nonnull &&
       ($fn_name === 'Math\\max' || $fn_name === 'Math\\min') &&
       C\count($items) !== 1
     ) {
