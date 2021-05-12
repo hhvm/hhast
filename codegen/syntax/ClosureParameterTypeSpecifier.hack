@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<755d30d82384d95c5a50a2e8e837af23>>
+ * @generated SignedSource<<e6dc33803e7712bf884700ae203759bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class ClosureParameterTypeSpecifier
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,8 @@ final class ClosureParameterTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $call_convention = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_parameter_call_convention'] ?? dict['kind' => 'missing'],
+      ($json['closure_parameter_call_convention'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -48,7 +49,8 @@ final class ClosureParameterTypeSpecifier
     );
     $offset += $call_convention?->getWidth() ?? 0;
     $readonly = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_parameter_readonly'] ?? dict['kind' => 'missing'],
+      ($json['closure_parameter_readonly'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +58,7 @@ final class ClosureParameterTypeSpecifier
     );
     $offset += $readonly?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_parameter_type'],
+      ($json['closure_parameter_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -109,9 +111,9 @@ final class ClosureParameterTypeSpecifier
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $call_convention,
-      /* HH_FIXME[4110] use `as` */ $readonly,
-      /* HH_FIXME[4110] use `as` */ $type,
+      $call_convention as ?InoutToken,
+      $readonly as ?Node,
+      $type as ITypeSpecifier,
     );
   }
 

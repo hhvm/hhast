@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<184e0182a1ce32c7e1b46cd9ad2cc966>>
+ * @generated SignedSource<<4c13ae012542aa07e3c53f4c97741085>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class PrefixUnaryExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class PrefixUnaryExpression
   ): this {
     $offset = $initial_offset;
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefix_unary_operator'],
+      ($json['prefix_unary_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class PrefixUnaryExpression
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['prefix_unary_operand'],
+      ($json['prefix_unary_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -87,10 +87,7 @@ final class PrefixUnaryExpression
     if ($operator === $this->_operator && $operand === $this->_operand) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $operand,
-    );
+    return new static($operator as Token, $operand as IExpression);
   }
 
   public function getOperatorUNTYPED(): ?Node {
@@ -110,8 +107,7 @@ final class PrefixUnaryExpression
 
   /**
    * @return ExclamationToken | PlusToken | PlusPlusToken | MinusToken |
-   * MinusMinusToken | AtToken | AwaitToken | CloneToken | PrintToken |
-   * TildeToken
+   * MinusMinusToken | AwaitToken | CloneToken | PrintToken | TildeToken
    */
   public function getOperator(): Token {
     return TypeAssert\instance_of(Token::class, $this->_operator);
@@ -119,8 +115,7 @@ final class PrefixUnaryExpression
 
   /**
    * @return ExclamationToken | PlusToken | PlusPlusToken | MinusToken |
-   * MinusMinusToken | AtToken | AwaitToken | CloneToken | PrintToken |
-   * TildeToken
+   * MinusMinusToken | AwaitToken | CloneToken | PrintToken | TildeToken
    */
   public function getOperatorx(): Token {
     return $this->getOperator();
@@ -142,10 +137,10 @@ final class PrefixUnaryExpression
   }
 
   /**
-   * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AwaitableCreationExpression | BinaryExpression | CastExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression | FunctionCallExpression
+   * | IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression
@@ -155,10 +150,10 @@ final class PrefixUnaryExpression
   }
 
   /**
-   * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * @return AwaitableCreationExpression | BinaryExpression | CastExpression |
+   * ConditionalExpression | DarrayIntrinsicExpression | FunctionCallExpression
+   * | IsExpression | IssetExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression

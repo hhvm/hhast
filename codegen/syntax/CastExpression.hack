@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c9bea2e7d7f41cad227177aca623c9b7>>
+ * @generated SignedSource<<5d8453d94d9b4a349b75d3d5279829f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['cast_left_paren'],
+      ($json['cast_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['cast_type'],
+      ($json['cast_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['cast_right_paren'],
+      ($json['cast_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['cast_operand'],
+      ($json['cast_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -121,10 +121,10 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $operand,
+      $left_paren as LeftParenToken,
+      $type as Token,
+      $right_paren as RightParenToken,
+      $operand as IExpression,
     );
   }
 

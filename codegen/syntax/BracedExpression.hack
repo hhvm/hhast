@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbbff32ad9371962a60697e02dddb6c1>>
+ * @generated SignedSource<<aca1ce484be0013ffb28b3f1d1327c9a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['braced_expression_left_brace'],
+      ($json['braced_expression_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['braced_expression_expression'],
+      ($json['braced_expression_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['braced_expression_right_brace'],
+      ($json['braced_expression_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $left_brace as LeftBraceToken,
+      $expression as IExpression,
+      $right_brace as RightBraceToken,
     );
   }
 

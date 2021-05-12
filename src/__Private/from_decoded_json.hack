@@ -20,10 +20,10 @@ function from_decoded_json(
     throw new SchemaVersionError($file ?? '! no file !', $version);
   }
   return Script::fromJSON(
-    /* HH_IGNORE_ERROR[4110] */ $json['parse_tree'],
+    $json['parse_tree'] as dict<_, _>,
     $file ?? '! no file !',
     0,
-    /* HH_IGNORE_ERROR[4110] */ $json['program_text'],
+    $json['program_text'] as string,
     'Script',
   );
 }

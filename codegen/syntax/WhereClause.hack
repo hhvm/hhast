@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a80d5adb0456d8f2ca7856311e8e804>>
+ * @generated SignedSource<<e938d98da9bca1b23da4c03647ec7017>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class WhereClause extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class WhereClause extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['where_clause_keyword'],
+      ($json['where_clause_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class WhereClause extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $constraints = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['where_clause_constraints'],
+      ($json['where_clause_constraints']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -86,8 +86,8 @@ final class WhereClause extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $constraints,
+      $keyword as WhereToken,
+      /* HH_FIXME[4110] NodeList<ListItem<WhereConstraint>> may not be enforceable */ $constraints,
     );
   }
 

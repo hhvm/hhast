@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b09c7dcf5ba973ed788ec5469d0b986>>
+ * @generated SignedSource<<f9e1e1b24b8795162d8608d865a4e982>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class XHPChildrenDeclaration
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,7 @@ final class XHPChildrenDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_keyword'],
+      ($json['xhp_children_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class XHPChildrenDeclaration
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_expression'],
+      ($json['xhp_children_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class XHPChildrenDeclaration
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_semicolon'],
+      ($json['xhp_children_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,9 +107,9 @@ final class XHPChildrenDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as ChildrenToken,
+      $expression as Node,
+      $semicolon as SemicolonToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d50b36297f1fce73049e532add08fbda>>
+ * @generated SignedSource<<e8e550d90c3078990058b8d45fc3908b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['require_keyword'],
+      ($json['require_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['require_kind'],
+      ($json['require_kind']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     $kind = $kind as nonnull;
     $offset += $kind->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['require_name'],
+      ($json['require_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['require_semicolon'],
+      ($json['require_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -121,10 +121,10 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $kind,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as RequireToken,
+      $kind as Token,
+      $name as ISimpleCreationSpecifier,
+      $semicolon as SemicolonToken,
     );
   }
 

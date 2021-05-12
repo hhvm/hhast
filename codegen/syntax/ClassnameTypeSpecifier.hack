@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e55e9cf133d18ec6cd707fe40a18bc15>>
+ * @generated SignedSource<<aa013a8a0712725406ec5d1ee3b0f57a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -44,7 +44,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_keyword'],
+      ($json['classname_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -53,7 +53,8 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_left_angle'] ?? dict['kind' => 'missing'],
+      ($json['classname_left_angle'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +62,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $left_angle?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_type'] ?? dict['kind' => 'missing'],
+      ($json['classname_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -69,7 +70,8 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $type?->getWidth() ?? 0;
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_trailing_comma'] ?? dict['kind' => 'missing'],
+      ($json['classname_trailing_comma'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -77,7 +79,8 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classname_right_angle'] ?? dict['kind' => 'missing'],
+      ($json['classname_right_angle'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -139,11 +142,11 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $trailing_comma,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $keyword as ClassnameToken,
+      $left_angle as ?LessThanToken,
+      $type as ?ITypeSpecifier,
+      $trailing_comma as ?Node,
+      $right_angle as ?GreaterThanToken,
     );
   }
 

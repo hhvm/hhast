@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<46c1d14b0d41b92244b2fe8fce43657e>>
+ * @generated SignedSource<<f9f346b8094b21446ac9d0aad381fada>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class FunctionDeclaration
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,8 @@ final class FunctionDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['function_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -48,7 +49,7 @@ final class FunctionDeclaration
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $declaration_header = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_declaration_header'],
+      ($json['function_declaration_header']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -57,7 +58,7 @@ final class FunctionDeclaration
     $declaration_header = $declaration_header as nonnull;
     $offset += $declaration_header->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['function_body'],
+      ($json['function_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -108,9 +109,9 @@ final class FunctionDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $declaration_header,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $attribute_spec as ?OldAttributeSpecification,
+      $declaration_header as FunctionDeclarationHeader,
+      $body as Node,
     );
   }
 

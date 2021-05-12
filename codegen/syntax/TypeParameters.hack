@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1829381ea114088113b6474c9e23e8b7>>
+ * @generated SignedSource<<dbbec0347c2945b1ea7a50aabee3eadd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class TypeParameters extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class TypeParameters extends Node {
   ): this {
     $offset = $initial_offset;
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_parameters_left_angle'],
+      ($json['type_parameters_left_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class TypeParameters extends Node {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_parameters_parameters'],
+      ($json['type_parameters_parameters']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class TypeParameters extends Node {
     $parameters = $parameters as nonnull;
     $offset += $parameters->getWidth();
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_parameters_right_angle'],
+      ($json['type_parameters_right_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class TypeParameters extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $parameters,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $left_angle as LessThanToken,
+      /* HH_FIXME[4110] NodeList<ListItem<TypeParameter>> may not be enforceable */ $parameters,
+      $right_angle as GreaterThanToken,
     );
   }
 

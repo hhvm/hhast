@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
-/* HH_IGNORE_ERROR[2049] __Sealed is new in 3.27 */
 <<__Sealed(Success::class, Error::class)>>
 abstract class SuccessOrError<TSuccess, TErrorCode as int, TErrorData> {
   abstract public function isSuccess(): bool;

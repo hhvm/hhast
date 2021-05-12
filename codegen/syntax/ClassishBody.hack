@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ac55159d6ecdf797e8a04bf07e8d2e4b>>
+ * @generated SignedSource<<2877bf5ff84323d0776d89f51eb57d5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class ClassishBody extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class ClassishBody extends Node {
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_body_left_brace'],
+      ($json['classish_body_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,8 @@ final class ClassishBody extends Node {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $elements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_body_elements'] ?? dict['kind' => 'missing'],
+      ($json['classish_body_elements'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +56,7 @@ final class ClassishBody extends Node {
     );
     $offset += $elements?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['classish_body_right_brace'],
+      ($json['classish_body_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -106,9 +107,9 @@ final class ClassishBody extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $elements,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<IClassBodyDeclaration> may not be enforceable */ $elements,
+      $right_brace as RightBraceToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44f88d87e78cc9ec66a1dc2aa3053e3c>>
+ * @generated SignedSource<<2ea21847a86dfbd8b39fb2bd28a93c39>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_simple_attribute_name'],
+      ($json['xhp_simple_attribute_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_simple_attribute_equal'],
+      ($json['xhp_simple_attribute_equal']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
     $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_simple_attribute_expression'],
+      ($json['xhp_simple_attribute_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $expression,
+      $name as XHPElementNameToken,
+      $equal as EqualToken,
+      $expression as Node,
     );
   }
 

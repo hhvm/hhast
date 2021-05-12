@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf598b138bee78ac85338e970f649dfd>>
+ * @generated SignedSource<<e8ebaf68dcef8868cefa8595c978ebca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class NullableAsExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,7 @@ final class NullableAsExpression
   ): this {
     $offset = $initial_offset;
     $left_operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['nullable_as_left_operand'],
+      ($json['nullable_as_left_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class NullableAsExpression
     $left_operand = $left_operand as nonnull;
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['nullable_as_operator'],
+      ($json['nullable_as_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class NullableAsExpression
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['nullable_as_right_operand'],
+      ($json['nullable_as_right_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,9 +107,9 @@ final class NullableAsExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_operand,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $right_operand,
+      $left_operand as IExpression,
+      $operator as QuestionAsToken,
+      $right_operand as ITypeSpecifier,
     );
   }
 

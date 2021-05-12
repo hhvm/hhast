@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<52b0f5c743b7a39edfdb525ce062aeec>>
+ * @generated SignedSource<<aaeba8695624583c187ce2e6f3213aa8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class XHPCategoryDeclaration
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,8 @@ final class XHPCategoryDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_keyword'] ?? dict['kind' => 'missing'],
+      ($json['xhp_category_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -48,7 +49,8 @@ final class XHPCategoryDeclaration
     );
     $offset += $keyword?->getWidth() ?? 0;
     $categories = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_categories'] ?? dict['kind' => 'missing'],
+      ($json['xhp_category_categories'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +58,8 @@ final class XHPCategoryDeclaration
     );
     $offset += $categories?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_category_semicolon'] ?? dict['kind' => 'missing'],
+      ($json['xhp_category_semicolon'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -110,9 +113,9 @@ final class XHPCategoryDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $categories,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as ?Node,
+      $categories as ?Node,
+      $semicolon as ?Node,
     );
   }
 

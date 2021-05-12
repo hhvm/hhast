@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<42d277ac7e59a1c27b368cc62f7475f3>>
+ * @generated SignedSource<<e83f2167dfb389d729df2afb517b6c18>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class MemberSelectionExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,7 @@ final class MemberSelectionExpression
   ): this {
     $offset = $initial_offset;
     $object = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['member_object'],
+      ($json['member_object']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class MemberSelectionExpression
     $object = $object as nonnull;
     $offset += $object->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['member_operator'],
+      ($json['member_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class MemberSelectionExpression
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['member_name'],
+      ($json['member_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,9 +107,9 @@ final class MemberSelectionExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $object,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $name,
+      $object as IExpression,
+      $operator as MinusGreaterThanToken,
+      $name as IExpression,
     );
   }
 

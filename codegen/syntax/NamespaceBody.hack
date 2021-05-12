@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d8f1e351e292f1f6dd05ed597c5e1188>>
+ * @generated SignedSource<<41485689d4425e0f1c0959da3622cf63>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_left_brace'],
+      ($json['namespace_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,8 @@ final class NamespaceBody extends Node implements INamespaceBody {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $declarations = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_declarations'] ?? dict['kind' => 'missing'],
+      ($json['namespace_declarations'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +56,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
     );
     $offset += $declarations?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_right_brace'],
+      ($json['namespace_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -106,9 +107,9 @@ final class NamespaceBody extends Node implements INamespaceBody {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $declarations,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<Node> may not be enforceable */ $declarations,
+      $right_brace as RightBraceToken,
     );
   }
 

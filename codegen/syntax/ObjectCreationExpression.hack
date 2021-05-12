@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<50e1599f6152c2e73ef6a58dde2dc9bb>>
+ * @generated SignedSource<<5eba2d9b499605bb89c9daff2c7a2a30>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class ObjectCreationExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class ObjectCreationExpression
   ): this {
     $offset = $initial_offset;
     $new_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['object_creation_new_keyword'],
+      ($json['object_creation_new_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class ObjectCreationExpression
     $new_keyword = $new_keyword as nonnull;
     $offset += $new_keyword->getWidth();
     $object = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['object_creation_object'],
+      ($json['object_creation_object']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -87,10 +87,7 @@ final class ObjectCreationExpression
     if ($new_keyword === $this->_new_keyword && $object === $this->_object) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $new_keyword,
-      /* HH_FIXME[4110] use `as` */ $object,
-    );
+    return new static($new_keyword as NewToken, $object as ConstructorCall);
   }
 
   public function getNewKeywordUNTYPED(): ?Node {

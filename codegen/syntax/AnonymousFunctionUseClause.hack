@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd23dfafdc67b59bac4cfb8fb43742f1>>
+ * @generated SignedSource<<6598e94446144ddfc636ad119a7a8463>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class AnonymousFunctionUseClause extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class AnonymousFunctionUseClause extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_keyword'],
+      ($json['anonymous_use_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class AnonymousFunctionUseClause extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_left_paren'],
+      ($json['anonymous_use_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,8 @@ final class AnonymousFunctionUseClause extends Node {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $variables = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_variables'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_use_variables'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,7 @@ final class AnonymousFunctionUseClause extends Node {
     );
     $offset += $variables?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use_right_paren'],
+      ($json['anonymous_use_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -122,10 +123,10 @@ final class AnonymousFunctionUseClause extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $variables,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as UseToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<VariableToken>> may not be enforceable */ $variables,
+      $right_paren as RightParenToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<498bbf8a7694f59cbba5d0abe623a1b1>>
+ * @generated SignedSource<<9aed3ea9d0e14f5c1c4284b195c8121f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class GenericTypeSpecifier
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class GenericTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $class_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['generic_class_type'],
+      ($json['generic_class_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class GenericTypeSpecifier
     $class_type = $class_type as nonnull;
     $offset += $class_type->getWidth();
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['generic_argument_list'],
+      ($json['generic_argument_list']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -90,10 +90,7 @@ final class GenericTypeSpecifier
     ) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $class_type,
-      /* HH_FIXME[4110] use `as` */ $argument_list,
-    );
+    return new static($class_type as Node, $argument_list as TypeArguments);
   }
 
   public function getClassTypeUNTYPED(): ?Node {

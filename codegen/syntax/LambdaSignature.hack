@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<952615353a93a0747219e7d8622de491>>
+ * @generated SignedSource<<8aa9816728a68d20efd69b9bc76c1695>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,7 +42,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -50,7 +50,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_left_paren'],
+      ($json['lambda_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_parameters'] ?? dict['kind' => 'missing'],
+      ($json['lambda_parameters'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     );
     $offset += $parameters?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_right_paren'],
+      ($json['lambda_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -76,7 +76,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $contexts = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_contexts'] ?? dict['kind' => 'missing'],
+      ($json['lambda_contexts'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -84,7 +84,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     );
     $offset += $contexts?->getWidth() ?? 0;
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_colon'] ?? dict['kind' => 'missing'],
+      ($json['lambda_colon'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -92,7 +92,8 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     );
     $offset += $colon?->getWidth() ?? 0;
     $readonly_return = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_readonly_return'] ?? dict['kind' => 'missing'],
+      ($json['lambda_readonly_return'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -100,7 +101,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     );
     $offset += $readonly_return?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_type'] ?? dict['kind' => 'missing'],
+      ($json['lambda_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -170,13 +171,13 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $parameters,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $contexts,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $readonly_return,
-      /* HH_FIXME[4110] use `as` */ $type,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IParameter>> may not be enforceable */ $parameters,
+      $right_paren as RightParenToken,
+      $contexts as ?Contexts,
+      $colon as ?ColonToken,
+      $readonly_return as ?Node,
+      $type as ?ITypeSpecifier,
     );
   }
 

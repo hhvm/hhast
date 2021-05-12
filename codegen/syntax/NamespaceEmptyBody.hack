@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2372d482aa5df13aef09653f4b5acfc2>>
+ * @generated SignedSource<<8bd7de6f14d493c83365ea11db63428b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -32,7 +32,7 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
   ): this {
     $offset = $initial_offset;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_semicolon'],
+      ($json['namespace_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
     if ($semicolon === $this->_semicolon) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $semicolon);
+    return new static($semicolon as SemicolonToken);
   }
 
   public function getSemicolonUNTYPED(): ?Node {

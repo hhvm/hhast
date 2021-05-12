@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0a1fd0b4071b8eed6fe5a7848d9f553>>
+ * @generated SignedSource<<4cacf94591c2655a4c83efc492c8088d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,7 +35,7 @@ final class CollectionLiteralExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -43,7 +43,7 @@ final class CollectionLiteralExpression
   ): this {
     $offset = $initial_offset;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_name'],
+      ($json['collection_literal_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -52,7 +52,7 @@ final class CollectionLiteralExpression
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_left_brace'],
+      ($json['collection_literal_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,8 @@ final class CollectionLiteralExpression
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $initializers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_initializers'] ?? dict['kind' => 'missing'],
+      ($json['collection_literal_initializers'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -69,7 +70,7 @@ final class CollectionLiteralExpression
     );
     $offset += $initializers?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['collection_literal_right_brace'],
+      ($json['collection_literal_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -124,10 +125,10 @@ final class CollectionLiteralExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $initializers,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $name as ISimpleCreationSpecifier,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<Node>> may not be enforceable */ $initializers,
+      $right_brace as RightBraceToken,
     );
   }
 

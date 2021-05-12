@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<157e28daaab5b13bee2f79c2840f2bad>>
+ * @generated SignedSource<<a3d65a8a54d9f22e01de595ae88d422c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -26,7 +26,7 @@ final class SimpleTypeSpecifier
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -34,7 +34,7 @@ final class SimpleTypeSpecifier
   ): this {
     $offset = $initial_offset;
     $specifier = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['simple_type_specifier'],
+      ($json['simple_type_specifier']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -69,7 +69,7 @@ final class SimpleTypeSpecifier
     if ($specifier === $this->_specifier) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $specifier);
+    return new static($specifier as Node);
   }
 
   public function getSpecifierUNTYPED(): ?Node {

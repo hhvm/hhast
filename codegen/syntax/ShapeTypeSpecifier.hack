@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2a9c007871ae2e26b0c24865dc0a8f6c>>
+ * @generated SignedSource<<84bc29e19740f6f5992d52579cb5bcb5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -36,7 +36,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -44,7 +44,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_keyword'],
+      ($json['shape_type_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -53,7 +53,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_left_paren'],
+      ($json['shape_type_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +62,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_fields'] ?? dict['kind' => 'missing'],
+      ($json['shape_type_fields'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +70,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $fields?->getWidth() ?? 0;
     $ellipsis = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_ellipsis'] ?? dict['kind' => 'missing'],
+      ($json['shape_type_ellipsis'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -78,7 +78,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $ellipsis?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_type_right_paren'],
+      ($json['shape_type_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -139,11 +139,11 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $fields,
-      /* HH_FIXME[4110] use `as` */ $ellipsis,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as ShapeToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<FieldSpecifier>> may not be enforceable */ $fields,
+      $ellipsis as ?DotDotDotToken,
+      $right_paren as RightParenToken,
     );
   }
 

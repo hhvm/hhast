@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e357d53332140719efa5d3a4872821b>>
+ * @generated SignedSource<<3b2c905aa3e36ad120a126c275d1f6f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class ExpressionStatement extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,8 @@ final class ExpressionStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['expression_statement_expression'] ?? dict['kind' => 'missing'],
+      ($json['expression_statement_expression'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -43,7 +44,7 @@ final class ExpressionStatement extends Node implements IStatement {
     );
     $offset += $expression?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['expression_statement_semicolon'],
+      ($json['expression_statement_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -89,8 +90,8 @@ final class ExpressionStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $expression as ?IExpression,
+      $semicolon as SemicolonToken,
     );
   }
 

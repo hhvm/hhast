@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e3899ccecc0b87eb43c86aa29206487>>
+ * @generated SignedSource<<b68df8b32b8f5f28ec443170c709b5e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class MarkupSuffix extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class MarkupSuffix extends Node {
   ): this {
     $offset = $initial_offset;
     $less_than_question = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['markup_suffix_less_than_question'],
+      ($json['markup_suffix_less_than_question']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class MarkupSuffix extends Node {
     $less_than_question = $less_than_question as nonnull;
     $offset += $less_than_question->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['markup_suffix_name'],
+      ($json['markup_suffix_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -89,8 +89,8 @@ final class MarkupSuffix extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $less_than_question,
-      /* HH_FIXME[4110] use `as` */ $name,
+      $less_than_question as LessThanQuestionToken,
+      $name as NameToken,
     );
   }
 

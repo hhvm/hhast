@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6cc0d3260863894ea38ca391c8c8eac6>>
+ * @generated SignedSource<<e383b9204e573203292f09a45cb71643>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -46,7 +46,7 @@ final class ParameterDeclaration
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -54,7 +54,7 @@ final class ParameterDeclaration
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_attribute'] ?? dict['kind' => 'missing'],
+      ($json['parameter_attribute'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +62,8 @@ final class ParameterDeclaration
     );
     $offset += $attribute?->getWidth() ?? 0;
     $visibility = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_visibility'] ?? dict['kind' => 'missing'],
+      ($json['parameter_visibility'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +71,8 @@ final class ParameterDeclaration
     );
     $offset += $visibility?->getWidth() ?? 0;
     $call_convention = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_call_convention'] ?? dict['kind' => 'missing'],
+      ($json['parameter_call_convention'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -78,7 +80,7 @@ final class ParameterDeclaration
     );
     $offset += $call_convention?->getWidth() ?? 0;
     $readonly = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_readonly'] ?? dict['kind' => 'missing'],
+      ($json['parameter_readonly'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -86,7 +88,7 @@ final class ParameterDeclaration
     );
     $offset += $readonly?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_type'] ?? dict['kind' => 'missing'],
+      ($json['parameter_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -94,7 +96,7 @@ final class ParameterDeclaration
     );
     $offset += $type?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_name'],
+      ($json['parameter_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -103,7 +105,8 @@ final class ParameterDeclaration
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $default_value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parameter_default_value'] ?? dict['kind' => 'missing'],
+      ($json['parameter_default_value'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -177,13 +180,13 @@ final class ParameterDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute,
-      /* HH_FIXME[4110] use `as` */ $visibility,
-      /* HH_FIXME[4110] use `as` */ $call_convention,
-      /* HH_FIXME[4110] use `as` */ $readonly,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $default_value,
+      $attribute as ?OldAttributeSpecification,
+      $visibility as ?Token,
+      $call_convention as ?InoutToken,
+      $readonly as ?Node,
+      $type as ?ITypeSpecifier,
+      $name as IExpression,
+      $default_value as ?SimpleInitializer,
     );
   }
 

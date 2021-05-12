@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ff6c9ee0e9e12c317d26aeab817a5c67>>
+ * @generated SignedSource<<0a4ecd42ebf2c9844d312d3bb7c93937>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -26,7 +26,7 @@ final class PipeVariableExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -34,7 +34,8 @@ final class PipeVariableExpression
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['pipe_variable_expression'] ?? dict['kind' => 'missing'],
+      ($json['pipe_variable_expression'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +71,7 @@ final class PipeVariableExpression
     if ($expression === $this->_expression) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $expression);
+    return new static($expression as ?Node);
   }
 
   public function getExpressionUNTYPED(): ?Node {

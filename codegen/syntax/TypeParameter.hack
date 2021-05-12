@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d8d65931db58c9f4476d4e4dcf7c6c8>>
+ * @generated SignedSource<<1f1484b11fcbb9571af5057ceb540606>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,7 +39,7 @@ final class TypeParameter extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -47,7 +47,7 @@ final class TypeParameter extends Node {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['type_attribute_spec'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class TypeParameter extends Node {
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $reified = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_reified'] ?? dict['kind' => 'missing'],
+      ($json['type_reified'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -63,7 +63,7 @@ final class TypeParameter extends Node {
     );
     $offset += $reified?->getWidth() ?? 0;
     $variance = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_variance'] ?? dict['kind' => 'missing'],
+      ($json['type_variance'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +71,7 @@ final class TypeParameter extends Node {
     );
     $offset += $variance?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_name'],
+      ($json['type_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +80,7 @@ final class TypeParameter extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $param_params = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_param_params'] ?? dict['kind' => 'missing'],
+      ($json['type_param_params'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -88,7 +88,7 @@ final class TypeParameter extends Node {
     );
     $offset += $param_params?->getWidth() ?? 0;
     $constraints = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['type_constraints'] ?? dict['kind' => 'missing'],
+      ($json['type_constraints'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -158,12 +158,12 @@ final class TypeParameter extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $reified,
-      /* HH_FIXME[4110] use `as` */ $variance,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $param_params,
-      /* HH_FIXME[4110] use `as` */ $constraints,
+      $attribute_spec as ?OldAttributeSpecification,
+      $reified as ?ReifyToken,
+      $variance as ?Token,
+      $name as NameToken,
+      $param_params as ?TypeParameters,
+      /* HH_FIXME[4110] ?NodeList<TypeConstraint> may not be enforceable */ $constraints,
     );
   }
 

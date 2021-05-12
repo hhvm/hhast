@@ -25,7 +25,7 @@ final class CodegenTriviaFromJSON extends CodegenBase {
         $cg
           ->codegenFunction('trivia_from_json')
           ->setReturnType('HHAST\\Trivia')
-          ->addParameter('dict<string, mixed> $json')
+          ->addParameter('dict<arraykey, mixed> $json')
           ->addParameter('SourceRef $source_ref')
           ->setBody(
             $cg

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<67e3dba3bbbb8c97fafadb0c7b35af92>>
+ * @generated SignedSource<<55cb803256b6d185e8900cf0f02c059c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class EnumAtomExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class EnumAtomExpression
   ): this {
     $offset = $initial_offset;
     $hash = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_atom_hash'] ?? dict['kind' => 'missing'],
+      ($json['enum_atom_hash'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -45,7 +45,8 @@ final class EnumAtomExpression
     );
     $offset += $hash?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['enum_atom_expression'] ?? dict['kind' => 'missing'],
+      ($json['enum_atom_expression'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -87,10 +88,7 @@ final class EnumAtomExpression
     if ($hash === $this->_hash && $expression === $this->_expression) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $hash,
-      /* HH_FIXME[4110] use `as` */ $expression,
-    );
+    return new static($hash as ?Node, $expression as ?Node);
   }
 
   public function getHashUNTYPED(): ?Node {

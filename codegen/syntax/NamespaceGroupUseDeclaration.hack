@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eef01e9cf856acfce4de528ffa1c1a0e>>
+ * @generated SignedSource<<0cb5e3c4511a8de23fdacf0812ebb781>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,7 @@ final class NamespaceGroupUseDeclaration
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -52,7 +52,7 @@ final class NamespaceGroupUseDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_group_use_keyword'],
+      ($json['namespace_group_use_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,8 @@ final class NamespaceGroupUseDeclaration
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_group_use_kind'] ?? dict['kind' => 'missing'],
+      ($json['namespace_group_use_kind'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -69,7 +70,7 @@ final class NamespaceGroupUseDeclaration
     );
     $offset += $kind?->getWidth() ?? 0;
     $prefix = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_group_use_prefix'],
+      ($json['namespace_group_use_prefix']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -78,7 +79,7 @@ final class NamespaceGroupUseDeclaration
     $prefix = $prefix as nonnull;
     $offset += $prefix->getWidth();
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_group_use_left_brace'],
+      ($json['namespace_group_use_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -87,7 +88,7 @@ final class NamespaceGroupUseDeclaration
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_group_use_clauses'],
+      ($json['namespace_group_use_clauses']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -96,7 +97,7 @@ final class NamespaceGroupUseDeclaration
     $clauses = $clauses as nonnull;
     $offset += $clauses->getWidth();
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_group_use_right_brace'],
+      ($json['namespace_group_use_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,7 +106,7 @@ final class NamespaceGroupUseDeclaration
     $right_brace = $right_brace as nonnull;
     $offset += $right_brace->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_group_use_semicolon'],
+      ($json['namespace_group_use_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -170,13 +171,13 @@ final class NamespaceGroupUseDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $kind,
-      /* HH_FIXME[4110] use `as` */ $prefix,
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $clauses,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as UseToken,
+      $kind as ?Token,
+      $prefix as QualifiedName,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] NodeList<ListItem<NamespaceUseClause>> may not be enforceable */ $clauses,
+      $right_brace as RightBraceToken,
+      $semicolon as SemicolonToken,
     );
   }
 

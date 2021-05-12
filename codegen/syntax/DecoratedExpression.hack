@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eba70dfa26c2ca9337f042e5b56978c9>>
+ * @generated SignedSource<<211a75be13052aff365c46ef4884499c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class DecoratedExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class DecoratedExpression
   ): this {
     $offset = $initial_offset;
     $decorator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['decorated_expression_decorator'],
+      ($json['decorated_expression_decorator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class DecoratedExpression
     $decorator = $decorator as nonnull;
     $offset += $decorator->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['decorated_expression_expression'],
+      ($json['decorated_expression_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -89,10 +89,7 @@ final class DecoratedExpression
     ) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $decorator,
-      /* HH_FIXME[4110] use `as` */ $expression,
-    );
+    return new static($decorator as Token, $expression as IExpression);
   }
 
   public function getDecoratorUNTYPED(): ?Node {

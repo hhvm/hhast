@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24b0793fddc1bcfd10f10bec32eb12d5>>
+ * @generated SignedSource<<f803da7f44ed87c26cea0c8504f27d83>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
   ): this {
     $offset = $initial_offset;
     $aliasing_name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliasing_name'],
+      ($json['trait_use_alias_item_aliasing_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     $aliasing_name = $aliasing_name as nonnull;
     $offset += $aliasing_name->getWidth();
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_alias_item_keyword'],
+      ($json['trait_use_alias_item_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,8 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $modifiers = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_alias_item_modifiers'] ?? dict['kind' => 'missing'],
+      ($json['trait_use_alias_item_modifiers'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,8 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $aliased_name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_alias_item_aliased_name'] ?? dict['kind' => 'missing'],
+      ($json['trait_use_alias_item_aliased_name'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -123,10 +125,10 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $aliasing_name,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $modifiers,
-      /* HH_FIXME[4110] use `as` */ $aliased_name,
+      $aliasing_name as Node,
+      $keyword as AsToken,
+      /* HH_FIXME[4110] ?NodeList<Token> may not be enforceable */ $modifiers,
+      $aliased_name as ?SimpleTypeSpecifier,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec86378fa1132b43a78daaef34dc26ca>>
+ * @generated SignedSource<<3c69d026271c4fed96533a51596287f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,7 +35,7 @@ final class RecordCreationExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -43,7 +43,7 @@ final class RecordCreationExpression
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_creation_type'],
+      ($json['record_creation_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -52,7 +52,7 @@ final class RecordCreationExpression
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_creation_left_bracket'],
+      ($json['record_creation_left_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,7 @@ final class RecordCreationExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_creation_members'],
+      ($json['record_creation_members']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +70,7 @@ final class RecordCreationExpression
     $members = $members as nonnull;
     $offset += $members->getWidth();
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_creation_right_bracket'],
+      ($json['record_creation_right_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -123,10 +123,10 @@ final class RecordCreationExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $type as NameToken,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] NodeList<ListItem<ElementInitializer>> may not be enforceable */ $members,
+      $right_bracket as RightBracketToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4e5a31a983f4a8f6c641b76e5645c1e>>
+ * @generated SignedSource<<f609df5b7c351c2198c7ccb036b4f16f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $question = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['field_question'] ?? dict['kind' => 'missing'],
+      ($json['field_question'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $question?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['field_name'],
+      ($json['field_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $arrow = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['field_arrow'],
+      ($json['field_arrow']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     $arrow = $arrow as nonnull;
     $offset += $arrow->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['field_type'],
+      ($json['field_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -122,10 +122,10 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $question,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $type,
+      $question as ?QuestionToken,
+      $name as IExpression,
+      $arrow as EqualGreaterThanToken,
+      $type as ITypeSpecifier,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a61da79ece3c17f6bed1c10010dd460>>
+ * @generated SignedSource<<4d7a01340bc3a44ca42d16840820b96c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $tilde = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['like_tilde'],
+      ($json['like_tilde']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     $tilde = $tilde as nonnull;
     $offset += $tilde->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['like_type'],
+      ($json['like_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
     if ($tilde === $this->_tilde && $type === $this->_type) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $tilde,
-      /* HH_FIXME[4110] use `as` */ $type,
-    );
+    return new static($tilde as TildeToken, $type as ITypeSpecifier);
   }
 
   public function getTildeUNTYPED(): ?Node {

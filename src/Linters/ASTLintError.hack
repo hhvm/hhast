@@ -58,6 +58,6 @@ class ASTLintError extends LintError {
 
   <<__Memoize, __Override>>
   final public function getPrettyBlame(): string {
-    return $this->linter->getPrettyTextForNode(/* HH_FIXME[4110] */$this->node);
+    return $this->linter->getPrettyTextForNode(/* HH_FIXME[4110] Expected TNode, got Node */$this->node);
   }
 }

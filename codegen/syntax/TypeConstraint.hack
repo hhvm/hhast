@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ec9492264c290d294397e77c5bf22ac4>>
+ * @generated SignedSource<<9afa00c3a37f5587c29accc5316667d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class TypeConstraint extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class TypeConstraint extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constraint_keyword'],
+      ($json['constraint_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class TypeConstraint extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['constraint_type'],
+      ($json['constraint_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class TypeConstraint extends Node {
     if ($keyword === $this->_keyword && $type === $this->_type) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $type,
-    );
+    return new static($keyword as Token, $type as ITypeSpecifier);
   }
 
   public function getKeywordUNTYPED(): ?Node {

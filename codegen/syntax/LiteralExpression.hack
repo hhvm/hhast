@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a9d146f36b980d6c4b1dca54ccb579b>>
+ * @generated SignedSource<<3afd89d7a45802ce840b9774cdeb394e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -32,7 +32,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['literal_expression'] ?? dict['kind' => 'missing'],
+      ($json['literal_expression'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
     if ($expression === $this->_expression) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $expression);
+    return new static($expression as ?Node);
   }
 
   public function getExpressionUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3f126dbd53ae7b7ea7e384d733ad3090>>
+ * @generated SignedSource<<d3b7e80a20b439afb82cd730ec43469b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,8 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['intersection_left_paren'] ?? dict['kind' => 'missing'],
+      ($json['intersection_left_paren'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +47,7 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['intersection_types'] ?? dict['kind' => 'missing'],
+      ($json['intersection_types'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -54,7 +55,8 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['intersection_right_paren'] ?? dict['kind' => 'missing'],
+      ($json['intersection_right_paren'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -106,9 +108,9 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $types,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $left_paren as ?Node,
+      $types as ?Node,
+      $right_paren as ?Node,
     );
   }
 

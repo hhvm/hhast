@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<99fe0821bf7ad1c9ec153cdffef27f5f>>
+ * @generated SignedSource<<6e0c9f95f7df0684c02eb08fd4a00bac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
   ): this {
     $offset = $initial_offset;
     $header = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_header'],
+      ($json['namespace_header']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
     $header = $header as nonnull;
     $offset += $header->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_body'],
+      ($json['namespace_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -86,8 +86,8 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $header,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $header as NamespaceDeclarationHeader,
+      $body as INamespaceBody,
     );
   }
 

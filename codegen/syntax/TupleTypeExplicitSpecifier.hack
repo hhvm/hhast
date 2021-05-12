@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05d019e560b037d890c4af8ae500fccc>>
+ * @generated SignedSource<<bc775b36d0d1b33ff955527f26bd3b65>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_keyword'] ?? dict['kind' => 'missing'],
+      ($json['tuple_type_keyword'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_left_angle'] ?? dict['kind' => 'missing'],
+      ($json['tuple_type_left_angle'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -57,7 +58,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $left_angle?->getWidth() ?? 0;
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_types'] ?? dict['kind' => 'missing'],
+      ($json['tuple_type_types'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -65,7 +66,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_type_right_angle'] ?? dict['kind' => 'missing'],
+      ($json['tuple_type_right_angle'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -123,10 +125,10 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $types,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $keyword as ?Node,
+      $left_angle as ?Node,
+      $types as ?Node,
+      $right_angle as ?Node,
     );
   }
 

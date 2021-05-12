@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ed3691e39bf9a11f88dc833d5054fc7f>>
+ * @generated SignedSource<<65f65c45e874a49f37e76b2c83951842>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class XHPLateinit extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class XHPLateinit extends Node {
   ): this {
     $offset = $initial_offset;
     $at = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_lateinit_at'],
+      ($json['xhp_lateinit_at']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class XHPLateinit extends Node {
     $at = $at as nonnull;
     $offset += $at->getWidth();
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_lateinit_keyword'],
+      ($json['xhp_lateinit_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class XHPLateinit extends Node {
     if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $at,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-    );
+    return new static($at as AtToken, $keyword as LateinitToken);
   }
 
   public function getAtUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d3d9be152dc0dad2d361b85e395af60>>
+ * @generated SignedSource<<95cc8b9a72884becaee4139a0b2ab4c1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class ContextConstraint extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class ContextConstraint extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['ctx_constraint_keyword'],
+      ($json['ctx_constraint_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class ContextConstraint extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $ctx_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['ctx_constraint_ctx_list'],
+      ($json['ctx_constraint_ctx_list']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class ContextConstraint extends Node {
     if ($keyword === $this->_keyword && $ctx_list === $this->_ctx_list) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $ctx_list,
-    );
+    return new static($keyword as Token, $ctx_list as Contexts);
   }
 
   public function getKeywordUNTYPED(): ?Node {

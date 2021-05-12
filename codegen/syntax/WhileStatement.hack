@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08359e94b079066b60eaa1fc0b4e43ae>>
+ * @generated SignedSource<<f710332397c468a288874883b889abdf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,7 @@ final class WhileStatement
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,7 @@ final class WhileStatement
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['while_keyword'],
+      ($json['while_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class WhileStatement
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['while_left_paren'],
+      ($json['while_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -64,7 +64,7 @@ final class WhileStatement
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['while_condition'],
+      ($json['while_condition']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -73,7 +73,7 @@ final class WhileStatement
     $condition = $condition as nonnull;
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['while_right_paren'],
+      ($json['while_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -82,7 +82,7 @@ final class WhileStatement
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['while_body'],
+      ($json['while_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -139,11 +139,11 @@ final class WhileStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $condition,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $keyword as WhileToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $body as IStatement,
     );
   }
 

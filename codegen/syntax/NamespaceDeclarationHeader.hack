@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<47c2e79b62905f7b728fa628a41fe6a6>>
+ * @generated SignedSource<<fb1735a967319bc827dee603c9bb1fee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class NamespaceDeclarationHeader extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class NamespaceDeclarationHeader extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_keyword'],
+      ($json['namespace_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class NamespaceDeclarationHeader extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_name'] ?? dict['kind' => 'missing'],
+      ($json['namespace_name'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -84,10 +84,7 @@ final class NamespaceDeclarationHeader extends Node {
     if ($keyword === $this->_keyword && $name === $this->_name) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-    );
+    return new static($keyword as NamespaceToken, $name as ?INameishNode);
   }
 
   public function getKeywordUNTYPED(): ?Node {

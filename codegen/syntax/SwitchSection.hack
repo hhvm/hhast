@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0ff9f25e8a9ccd523359853ee4e6592>>
+ * @generated SignedSource<<22046e803c1436dcce913ee659eefe34>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class SwitchSection extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class SwitchSection extends Node {
   ): this {
     $offset = $initial_offset;
     $labels = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_section_labels'],
+      ($json['switch_section_labels']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,8 @@ final class SwitchSection extends Node {
     $labels = $labels as nonnull;
     $offset += $labels->getWidth();
     $statements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_section_statements'] ?? dict['kind' => 'missing'],
+      ($json['switch_section_statements'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +56,8 @@ final class SwitchSection extends Node {
     );
     $offset += $statements?->getWidth() ?? 0;
     $fallthrough = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['switch_section_fallthrough'] ?? dict['kind' => 'missing'],
+      ($json['switch_section_fallthrough'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,9 +109,9 @@ final class SwitchSection extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $labels,
-      /* HH_FIXME[4110] use `as` */ $statements,
-      /* HH_FIXME[4110] use `as` */ $fallthrough,
+      /* HH_FIXME[4110] NodeList<ISwitchLabel> may not be enforceable */ $labels,
+      /* HH_FIXME[4110] ?NodeList<IStatement> may not be enforceable */ $statements,
+      $fallthrough as ?SwitchFallthrough,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<076fcde7ff616450d6a28b7131223cf5>>
+ * @generated SignedSource<<63bb53dfbb5d326e9114cdf4a6ab0bf3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class ParenthesizedExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,7 @@ final class ParenthesizedExpression
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parenthesized_expression_left_paren'],
+      ($json['parenthesized_expression_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class ParenthesizedExpression
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parenthesized_expression_expression'],
+      ($json['parenthesized_expression_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class ParenthesizedExpression
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['parenthesized_expression_right_paren'],
+      ($json['parenthesized_expression_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,9 +107,9 @@ final class ParenthesizedExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $left_paren as LeftParenToken,
+      $expression as IExpression,
+      $right_paren as RightParenToken,
     );
   }
 

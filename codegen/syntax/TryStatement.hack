@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf5c257127fae152fd4dd5ceb3abbcbf>>
+ * @generated SignedSource<<499b1ce94ba1e67376de784a15acdce6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class TryStatement extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class TryStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_keyword'],
+      ($json['try_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class TryStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $compound_statement = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_compound_statement'],
+      ($json['try_compound_statement']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class TryStatement extends Node implements IStatement {
     $compound_statement = $compound_statement as nonnull;
     $offset += $compound_statement->getWidth();
     $catch_clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_catch_clauses'] ?? dict['kind' => 'missing'],
+      ($json['try_catch_clauses'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class TryStatement extends Node implements IStatement {
     );
     $offset += $catch_clauses?->getWidth() ?? 0;
     $finally_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['try_finally_clause'] ?? dict['kind' => 'missing'],
+      ($json['try_finally_clause'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -123,10 +123,10 @@ final class TryStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $compound_statement,
-      /* HH_FIXME[4110] use `as` */ $catch_clauses,
-      /* HH_FIXME[4110] use `as` */ $finally_clause,
+      $keyword as TryToken,
+      $compound_statement as CompoundStatement,
+      /* HH_FIXME[4110] ?NodeList<CatchClause> may not be enforceable */ $catch_clauses,
+      $finally_clause as ?FinallyClause,
     );
   }
 

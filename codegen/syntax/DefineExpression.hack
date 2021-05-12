@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<65c2ee31cc9aa30e0988cfca291f41b1>>
+ * @generated SignedSource<<dd37b9f18c87652071430621500b893a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['define_keyword'] ?? dict['kind' => 'missing'],
+      ($json['define_keyword'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $keyword?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['define_left_paren'] ?? dict['kind' => 'missing'],
+      ($json['define_left_paren'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -57,7 +57,8 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $left_paren?->getWidth() ?? 0;
     $argument_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['define_argument_list'] ?? dict['kind' => 'missing'],
+      ($json['define_argument_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -65,7 +66,7 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $argument_list?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['define_right_paren'] ?? dict['kind' => 'missing'],
+      ($json['define_right_paren'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -125,10 +126,10 @@ final class DefineExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $argument_list,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as ?Node,
+      $left_paren as ?Node,
+      $argument_list as ?Node,
+      $right_paren as ?Node,
     );
   }
 

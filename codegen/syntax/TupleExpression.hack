@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9a55cbe8d8d6ce88c163ae2aff87af97>>
+ * @generated SignedSource<<1731d01b3927d3645aaa57bbb3b0cfe4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_keyword'],
+      ($json['tuple_expression_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_left_paren'],
+      ($json['tuple_expression_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,8 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $items = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_items'] ?? dict['kind' => 'missing'],
+      ($json['tuple_expression_items'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $items?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['tuple_expression_right_paren'],
+      ($json['tuple_expression_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -120,10 +121,10 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $items,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as TupleToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $items,
+      $right_paren as RightParenToken,
     );
   }
 

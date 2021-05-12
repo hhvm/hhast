@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<debe6bcf1ec67c1dc3497f2a7cdcb67f>>
+ * @generated SignedSource<<1e0b1656c925cc29337eea06b9c26ac9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['default_keyword'],
+      ($json['default_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['default_colon'],
+      ($json['default_colon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class DefaultLabel extends Node implements ISwitchLabel {
     if ($keyword === $this->_keyword && $colon === $this->_colon) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $colon,
-    );
+    return new static($keyword as DefaultToken, $colon as ColonToken);
   }
 
   public function getKeywordUNTYPED(): ?Node {

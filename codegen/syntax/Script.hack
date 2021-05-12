@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d59bd3c0bc907955ddea4538b5ba6a5>>
+ * @generated SignedSource<<89cb346bb65c2fa80705c2aeb5dd9969>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ abstract class ScriptGeneratedBase extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -32,7 +32,7 @@ abstract class ScriptGeneratedBase extends Node {
   ): this {
     $offset = $initial_offset;
     $declarations = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['script_declarations'],
+      ($json['script_declarations']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,9 @@ abstract class ScriptGeneratedBase extends Node {
     if ($declarations === $this->_declarations) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $declarations);
+    return new static(
+      /* HH_FIXME[4110] NodeList<Node> may not be enforceable */ $declarations,
+    );
   }
 
   public function getDeclarationsUNTYPED(): ?Node {

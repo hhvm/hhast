@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b595cb6f669902ab580d3f0dd5c7b151>>
+ * @generated SignedSource<<4fc07d9443438ab73d13bfc2f14df869>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $question = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['nullable_question'],
+      ($json['nullable_question']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     $question = $question as nonnull;
     $offset += $question->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['nullable_type'],
+      ($json['nullable_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
     if ($question === $this->_question && $type === $this->_type) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $question,
-      /* HH_FIXME[4110] use `as` */ $type,
-    );
+    return new static($question as QuestionToken, $type as ITypeSpecifier);
   }
 
   public function getQuestionUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a6c7ace6be4736542a333baf9dd0f20e>>
+ * @generated SignedSource<<8a0ad2bcf263ddcfd00b9e3140ad4cd5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,7 @@ final class MethodishTraitResolution
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,8 @@ final class MethodishTraitResolution
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_attribute'] ?? dict['kind' => 'missing'],
+      ($json['methodish_trait_attribute'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -54,7 +55,10 @@ final class MethodishTraitResolution
     );
     $offset += $attribute?->getWidth() ?? 0;
     $function_decl_header = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_function_decl_header'] ?? dict['kind' => 'missing'],
+      (
+        $json['methodish_trait_function_decl_header'] ??
+        dict['kind' => 'missing']
+      ) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +66,8 @@ final class MethodishTraitResolution
     );
     $offset += $function_decl_header?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_equal'] ?? dict['kind' => 'missing'],
+      ($json['methodish_trait_equal'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +75,8 @@ final class MethodishTraitResolution
     );
     $offset += $equal?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_name'] ?? dict['kind' => 'missing'],
+      ($json['methodish_trait_name'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -78,7 +84,8 @@ final class MethodishTraitResolution
     );
     $offset += $name?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_trait_semicolon'] ?? dict['kind' => 'missing'],
+      ($json['methodish_trait_semicolon'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -140,11 +147,11 @@ final class MethodishTraitResolution
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute,
-      /* HH_FIXME[4110] use `as` */ $function_decl_header,
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $attribute as ?Node,
+      $function_decl_header as ?Node,
+      $equal as ?Node,
+      $name as ?Node,
+      $semicolon as ?Node,
     );
   }
 

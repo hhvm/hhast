@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a93ed36086e6c979c8feb97e1948e6c0>>
+ * @generated SignedSource<<2d0ebaa1e8af77eee7dc22139a51c248>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class Attribute extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class Attribute extends Node {
   ): this {
     $offset = $initial_offset;
     $at = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['attribute_at'] ?? dict['kind' => 'missing'],
+      ($json['attribute_at'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -43,7 +43,8 @@ final class Attribute extends Node {
     );
     $offset += $at?->getWidth() ?? 0;
     $attribute_name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['attribute_attribute_name'] ?? dict['kind' => 'missing'],
+      ($json['attribute_attribute_name'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +86,7 @@ final class Attribute extends Node {
     if ($at === $this->_at && $attribute_name === $this->_attribute_name) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $at,
-      /* HH_FIXME[4110] use `as` */ $attribute_name,
-    );
+    return new static($at as ?Node, $attribute_name as ?Node);
   }
 
   public function getAtUNTYPED(): ?Node {

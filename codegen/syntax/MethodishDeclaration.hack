@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bbddee9558a4e2145cb3f04da69bb0c>>
+ * @generated SignedSource<<9864d92c21fedba5f19523bee51496ce>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,7 +39,7 @@ abstract class MethodishDeclarationGeneratedBase
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -47,7 +47,7 @@ abstract class MethodishDeclarationGeneratedBase
   ): this {
     $offset = $initial_offset;
     $attribute = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_attribute'] ?? dict['kind' => 'missing'],
+      ($json['methodish_attribute'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ abstract class MethodishDeclarationGeneratedBase
     );
     $offset += $attribute?->getWidth() ?? 0;
     $function_decl_header = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_function_decl_header'],
+      ($json['methodish_function_decl_header']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -64,7 +64,8 @@ abstract class MethodishDeclarationGeneratedBase
     $function_decl_header = $function_decl_header as nonnull;
     $offset += $function_decl_header->getWidth();
     $function_body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_function_body'] ?? dict['kind' => 'missing'],
+      ($json['methodish_function_body'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -72,7 +73,7 @@ abstract class MethodishDeclarationGeneratedBase
     );
     $offset += $function_body?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['methodish_semicolon'] ?? dict['kind' => 'missing'],
+      ($json['methodish_semicolon'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -130,10 +131,10 @@ abstract class MethodishDeclarationGeneratedBase
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute,
-      /* HH_FIXME[4110] use `as` */ $function_decl_header,
-      /* HH_FIXME[4110] use `as` */ $function_body,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $attribute as ?OldAttributeSpecification,
+      $function_decl_header as FunctionDeclarationHeader,
+      $function_body as ?CompoundStatement,
+      $semicolon as ?SemicolonToken,
     );
   }
 
