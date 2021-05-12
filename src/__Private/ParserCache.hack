@@ -22,6 +22,7 @@ final class ParserCache {
   const type TCached = shape(
     'hash' => string,
     'ast' => dict<string, mixed>,
+    ?'new_attribute_syntax_allowed' => bool,
   );
 
   public function fetch(File $file): ?dict<string, mixed> {
@@ -35,7 +36,7 @@ final class ParserCache {
 
     try {
       $cache = \unserialize(\gzinflate(\file_get_contents($path)) as string)
-        |> TypeAssert\matches_type_structure(self::getCacheTS(), $$);
+        |> TypeAssert\matches<self::TCached>($$);
     } catch (\Exception $_) {
       \unlink($path);
       return null;
@@ -43,6 +44,13 @@ final class ParserCache {
     if ($cache['hash'] !== \bin2hex($file->getHash())) {
       return null;
     }
+    if (
+      Shapes::idx($cache, 'new_attribute_syntax_allowed', false) !==
+        is_new_attribute_syntax_allowed()
+    ) {
+      return null;
+    }
+
     $data = $cache['ast'];
     invariant(
       $data['version'] === \Facebook\HHAST\SCHEMA_VERSION,
@@ -68,6 +76,7 @@ final class ParserCache {
       \gzdeflate(\serialize(shape(
         'hash' => \bin2hex($file->getHash()),
         'ast' => $ast,
+        'new_attribute_syntax_allowed' => is_new_attribute_syntax_allowed(),
       ))),
     );
   }
@@ -108,7 +117,9 @@ final class ParserCache {
     if ($root !== null) {
       $dir = $root.'/.var/cache/hhvm/hhast/parser-cache';
       if (Str\starts_with($source, $root)) {
-        $path = $dir.'/'.(Str\strip_prefix($source, $root) |> Str\strip_prefix($$, '/'));
+        $path = $dir.
+          '/'.
+          (Str\strip_prefix($source, $root) |> Str\strip_prefix($$, '/'));
       } else {
         $path = $dir.'/'.\sha1($source);
       }
@@ -120,10 +131,5 @@ final class ParserCache {
       return $path;
     }
     return \dirname($source).'/.'.\basename($source).'.hhast.parser-cache';
-  }
-
-  <<__Memoize>>
-  private static function getCacheTS(): TypeStructure<self::TCached> {
-    return type_structure(self::class, 'TCached');
   }
 }

@@ -13,7 +13,7 @@ final class UnusedUseClauseLinterXHPTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
   protected function getLinter(string $file): AutoFixingASTLinter {
-    if (!\ini_get('hhvm.hack.lang.disable_xhp_element_mangling')) {
+    if (!__Private\is_xhp_element_mangling_disabled()) {
       self::markTestSkipped(
         'requires hhvm.hack.lang.disable_xhp_element_mangling=true',
       );

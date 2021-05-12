@@ -16,9 +16,7 @@ use namespace HH\Lib\{C, Str};
  * These are not resolved to fully-qualified names; for example, `use`
  * and `namespace` statements to not affect the return value.
  */
-function get_unresolved_referenced_names(
-  Node $root,
-): shape(
+function get_unresolved_referenced_names(Node $root): shape(
   'namespaces' => keyset<string>,
   'types' => keyset<string>,
   'functions' => keyset<string>,
@@ -80,7 +78,7 @@ function get_unresolved_referenced_names(
 
     if (
       $node is XHPElementNameToken &&
-      \ini_get('hhvm.hack.lang.disable_xhp_element_mangling')
+      __Private\is_xhp_element_mangling_disabled()
     ) {
       $parts = Str\split($node->getText(), ':');
       if (C\count($parts) === 1) {

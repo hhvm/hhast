@@ -24,7 +24,14 @@ async function from_file_async(
   $path = $odf->getPath();
 
   $args = Vec\concat(
-    vec['--php5-compat-mode', '--full-fidelity-json'],
+    vec[
+      '--php5-compat-mode',
+      '--full-fidelity-json',
+      '--allow-unstable-features',
+    ],
+    __Private\is_new_attribute_syntax_allowed()
+      ? vec['--allow-new-attribute-syntax']
+      : vec[],
     $user_args,
     vec[$path],
   );

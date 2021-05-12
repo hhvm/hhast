@@ -236,12 +236,26 @@ final class CodegenRelations extends CodegenBase {
       // UTF8, we throw an exception and ignore the file. This is fine as the
       // invalid UTF8 is only in files that are testing encoding, and the odds
       // of them introducing new node relationships are pretty low
-      $lines = await execute_async(
-        'hh_parse',
-        '--full-fidelity-errors',
-        '--full-fidelity-json',
-        $file,
-      );
+
+      if (is_new_attribute_syntax_allowed()) {
+        $lines = await execute_async(
+          'hh_parse',
+          '--full-fidelity-errors',
+          '--full-fidelity-json',
+          '--allow-unstable-features',
+          '--allow-new-attribute-syntax',
+          $file,
+        );
+      } else {
+        $lines = await execute_async(
+          'hh_parse',
+          '--full-fidelity-errors',
+          '--full-fidelity-json',
+          '--allow-unstable-features',
+          $file,
+        );
+      }
+
       $lines = Vec\filter($lines, $line ==> $line !== '');
       if (C\count($lines) !== 1) {
         return dict[];

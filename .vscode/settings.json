@@ -3,5 +3,6 @@
   "hack.useHhast": true,
   "files.associations": {
     "*.php": "hack"
-  }
+  },
+  "editor.tabSize": 2
 }
