@@ -353,7 +353,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
   ): Script {
     foreach ($result as $kind => $result_kind) {
       foreach ($result_kind as $namespace => list($nodes, $names)) {
-        $names = Vec\sort_by($names, ($name) ==> $name[0].'-'.$name[1] ?? '');
+        $names = Vec\sort_by($names, ($name) ==> $name[0].'-'.($name[1] ?? ''));
         $names_count = C\count($names);
 
         $length = 8 +
