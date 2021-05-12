@@ -1,0 +1,80 @@
+<?hh
+
+/*HHAST_IGNORE_ALL[UnusedVariable] HHAST_IGNORE_ALL[UnusedParameter]*/
+
+function testing_different_places_in_foreach(string $param): void {
+  foreach (vec[] as $param) {
+  }
+  foreach (vec[] as $param => $_) {
+  }
+  foreach (vec[] as list($param, $_)) {
+  }
+  foreach (vec[] as list($_, $param)) {
+  }
+}
+
+function messing_with_locals(): void {
+  $before = 'I look const, but I will be overwritten';
+  foreach (vec[1] as $before) {
+  }
+}
+
+function messing_with_lambda_params_level_1(): void {
+  $param ==> {
+    foreach (vec[] as $param) {
+    }
+  };
+}
+
+function messing_with_lambda_params_many_levels(): void {
+  $assigned = ($param, $more) ==> (null $nested) ==> (null $lambdas) ==> {
+    foreach (vec[] as $param) {
+    }
+    foreach (vec[] as $more) {
+    }
+    foreach (vec[] as $nested) {
+    }
+    foreach (vec[] as $lambdas) {
+    }
+    foreach (vec[] as $assigned) {
+    }
+  };
+}
+
+function assigned_in_lambda_before(): void {
+  () ==> {
+    $hi = 'constant?';
+    () ==> {
+      foreach (vec[] as $hi) {
+      }
+    };
+  };
+}
+
+function linter_does_not_understand_control_flow(): void {
+  if (true) {
+    $false_positive = 'Appears before foreach, so this is a lint error.';
+  } else {
+    foreach (vec[] as $false_positive) {
+    }
+  }
+}
+
+function incorrect_on_many_counts(
+  string $param_and_local,
+  string $param_and_lambda,
+  string $param_and_lambda_and_local,
+): void {
+  $param_and_local = '';
+  $lambda_and_local = '';
+  ($param_and_lambda, $lambda_and_local, $param_and_lambda_and_local) ==> {
+    foreach (vec[] as $param_and_lambda) {
+    }
+    foreach (vec[] as $param_and_local) {
+    }
+    foreach (vec[] as $lambda_and_local) {
+    }
+    foreach (vec[] as $param_and_lambda_and_local) {
+    }
+  };
+}

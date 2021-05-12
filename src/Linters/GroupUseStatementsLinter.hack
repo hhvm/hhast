@@ -34,7 +34,7 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
       'type' => dict[],
     ];
 
-    $use_kind = (INamespaceUseDeclaration $node): ?string ==> {
+    $get_use_kind = (INamespaceUseDeclaration $node): ?string ==> {
       foreach ($node->getChildren() as $child) {
         if ($child is FunctionToken) {
           return 'function';
@@ -111,9 +111,9 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
               }
             }
 
-            $kind = $use_kind($use_decl);
-            if ($kind is nonnull) {
-              $uses[$kind][] = tuple(
+            $parsed_kind = $get_use_kind($use_decl);
+            if ($parsed_kind is nonnull) {
+              $uses[$parsed_kind][] = tuple(
                 $use_decl,
                 $parts,
                 $alias?->getText(),
@@ -215,9 +215,9 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
               }
             }
 
-            $kind = $use_kind($use_decl);
-            if ($kind is nonnull) {
-              $uses[$kind][] = tuple(
+            $parsed_kind = $get_use_kind($use_decl);
+            if ($parsed_kind is nonnull) {
+              $uses[$parsed_kind][] = tuple(
                 $use_decl,
                 $parts_item,
                 $alias?->getText(),

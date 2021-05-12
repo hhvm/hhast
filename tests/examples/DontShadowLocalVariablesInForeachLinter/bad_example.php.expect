@@ -1,0 +1,87 @@
+[
+    {
+        "blame": "$param",
+        "blame_pretty": "$param",
+        "description": "This variable is shadowing parameter $param from testing_different_places_in_foreach.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$param ",
+        "blame_pretty": "$param ",
+        "description": "This variable is shadowing parameter $param from testing_different_places_in_foreach.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$param",
+        "blame_pretty": "$param",
+        "description": "This variable is shadowing parameter $param from testing_different_places_in_foreach.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$param",
+        "blame_pretty": "$param",
+        "description": "This variable is shadowing parameter $param from testing_different_places_in_foreach.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$before",
+        "blame_pretty": "$before",
+        "description": "$before was previously assigned here:\n  $before = 'I look const, but I will be overwritten'\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$param",
+        "blame_pretty": "$param",
+        "description": "This variable is shadowing parameter $param from an anonymous function in your scope.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$param",
+        "blame_pretty": "$param",
+        "description": "This variable is shadowing parameter $param from an anonymous function in your scope.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$more",
+        "blame_pretty": "$more",
+        "description": "This variable is shadowing parameter $more from an anonymous function in your scope.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$nested",
+        "blame_pretty": "$nested",
+        "description": "This variable is shadowing parameter $nested from an anonymous function in your scope.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$lambdas",
+        "blame_pretty": "$lambdas",
+        "description": "This variable is shadowing parameter $lambdas from an anonymous function in your scope.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$assigned",
+        "blame_pretty": "$assigned",
+        "description": "$assigned was previously assigned here:\n  $assigned = ($param, $more) ==> (null $nested) ==> (null $lambdas) ==> {\n    foreach (vec[] as $param) {\n    }\n    foreach (vec[] as $more) {\n    }\n    foreach (vec[] as $nested) {\n    }\n    foreach (vec[] as $lambdas) {\n    }\n    foreach (vec[] as $assigned) {\n    }\n  }\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$hi",
+        "blame_pretty": "$hi",
+        "description": "$hi was previously assigned here:\n    $hi = 'constant?'\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$false_positive",
+        "blame_pretty": "$false_positive",
+        "description": "$false_positive was previously assigned here:\n    $false_positive = 'Appears before foreach, so this is a lint error.'\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$param_and_lambda",
+        "blame_pretty": "$param_and_lambda",
+        "description": "This variable is shadowing parameter $param_and_lambda from incorrect_on_many_counts.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$param_and_local",
+        "blame_pretty": "$param_and_local",
+        "description": "This variable is shadowing parameter $param_and_local from incorrect_on_many_counts.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$lambda_and_local",
+        "blame_pretty": "$lambda_and_local",
+        "description": "This variable is shadowing parameter $lambda_and_local from an anonymous function in your scope.\nPlease pick a different name for this variable.\n"
+    },
+    {
+        "blame": "$param_and_lambda_and_local",
+        "blame_pretty": "$param_and_lambda_and_local",
+        "description": "This variable is shadowing parameter $param_and_lambda_and_local from incorrect_on_many_counts.\nPlease pick a different name for this variable.\n"
+    }
+]
