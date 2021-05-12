@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ffcf7d834fddf52e681663f7fa4bee6d>>
+ * @generated SignedSource<<97d368341959bcf65c145142e644ba63>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class XHPRequired extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class XHPRequired extends Node {
   ): this {
     $offset = $initial_offset;
     $at = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_required_at'],
+      ($json['xhp_required_at']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class XHPRequired extends Node {
     $at = $at as nonnull;
     $offset += $at->getWidth();
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_required_keyword'],
+      ($json['xhp_required_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class XHPRequired extends Node {
     if ($at === $this->_at && $keyword === $this->_keyword) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $at,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-    );
+    return new static($at as AtToken, $keyword as RequiredToken);
   }
 
   public function getAtUNTYPED(): ?Node {

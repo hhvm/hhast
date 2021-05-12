@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c15d4704b7e5b26a5519772c0ff91878>>
+ * @generated SignedSource<<714e4061cc3bd930e66c617feacef63f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,7 @@ final class DoStatement
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -52,7 +52,7 @@ final class DoStatement
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['do_keyword'],
+      ($json['do_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,7 @@ final class DoStatement
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['do_body'],
+      ($json['do_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +70,7 @@ final class DoStatement
     $body = $body as nonnull;
     $offset += $body->getWidth();
     $while_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['do_while_keyword'],
+      ($json['do_while_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -79,7 +79,7 @@ final class DoStatement
     $while_keyword = $while_keyword as nonnull;
     $offset += $while_keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['do_left_paren'],
+      ($json['do_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -88,7 +88,7 @@ final class DoStatement
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['do_condition'],
+      ($json['do_condition']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -97,7 +97,7 @@ final class DoStatement
     $condition = $condition as nonnull;
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['do_right_paren'],
+      ($json['do_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -106,7 +106,7 @@ final class DoStatement
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['do_semicolon'],
+      ($json['do_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -171,13 +171,13 @@ final class DoStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $body,
-      /* HH_FIXME[4110] use `as` */ $while_keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $condition,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as DoToken,
+      $body as IStatement,
+      $while_keyword as WhileToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $semicolon as SemicolonToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b17cf12fe82fbdcb29e763cb0dd228f>>
+ * @generated SignedSource<<de178bda8bc3c104463a63fe131e7277>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ final class XHPSimpleClassAttribute extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -32,7 +32,7 @@ final class XHPSimpleClassAttribute extends Node {
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_simple_class_attribute_type'],
+      ($json['xhp_simple_class_attribute_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +67,7 @@ final class XHPSimpleClassAttribute extends Node {
     if ($type === $this->_type) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $type);
+    return new static($type as SimpleTypeSpecifier);
   }
 
   public function getTypeUNTYPED(): ?Node {

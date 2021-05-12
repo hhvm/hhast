@@ -77,6 +77,5 @@ async function from_file_async(
   if ($user_args === vec[]) {
     $cache->store($file, $data);
   }
-  return
-    /* HH_FIXME[4110] */ __Private\from_decoded_json($data, $file->getPath());
+  return __Private\from_decoded_json($data, $file->getPath());
 }

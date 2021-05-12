@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29362d550571fffc19ae025baad52e8f>>
+ * @generated SignedSource<<79fc826666bc7cd693c051b437e452cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class FinallyClause extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class FinallyClause extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['finally_keyword'],
+      ($json['finally_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class FinallyClause extends Node {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['finally_body'],
+      ($json['finally_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class FinallyClause extends Node {
     if ($keyword === $this->_keyword && $body === $this->_body) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $body,
-    );
+    return new static($keyword as FinallyToken, $body as CompoundStatement);
   }
 
   public function getKeywordUNTYPED(): ?Node {

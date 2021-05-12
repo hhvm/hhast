@@ -85,8 +85,8 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       if ($fixing_linter) {
         /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
         $should_fix = await $this->shouldFixLintAsync(
-          /* HH_FIXME[4110] */ $fixing_linter,
-          /* HH_FIXME[4110] */ $error,
+          /* HH_FIXME[4110] TError is lost here*/ $fixing_linter,
+          /* HH_FIXME[4110] TError is lost here*/ $error,
         );
         if ($should_fix) {
           $to_fix[] = $error;
@@ -103,7 +103,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
     if (!C\is_empty($to_fix)) {
       invariant($fixing_linter, "Can't fix without a fixing linter");
-      self::fixErrors(/* HH_FIXME[4110] */ $fixing_linter, $to_fix);
+      self::fixErrors(/* HH_FIXME[4110] TError is lost here */ $fixing_linter, $to_fix);
     }
 
     return $result;

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d723bd7da89c6a5f1dea14136fbd186>>
+ * @generated SignedSource<<20eda114200fbe3c3f2dbce70c946b93>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $left_operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['is_left_operand'],
+      ($json['is_left_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
     $left_operand = $left_operand as nonnull;
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['is_operator'],
+      ($json['is_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['is_right_operand'],
+      ($json['is_right_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_operand,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $right_operand,
+      $left_operand as IExpression,
+      $operator as IsToken,
+      $right_operand as ITypeSpecifier,
     );
   }
 
@@ -127,9 +127,9 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return AnonymousFunction | FunctionCallExpression | LiteralExpression |
+   * @return FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ParenthesizedExpression | PipeVariableExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperand(): IExpression {
@@ -137,9 +137,9 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return AnonymousFunction | FunctionCallExpression | LiteralExpression |
+   * @return FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
+   * ParenthesizedExpression | PipeVariableExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperandx(): IExpression {

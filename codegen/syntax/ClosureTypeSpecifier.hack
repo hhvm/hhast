@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39f7cecd53e530e68007b9d742a3ea14>>
+ * @generated SignedSource<<aed7ef3895e4e389200f8fe9e208d401>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -54,7 +54,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -62,7 +62,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $outer_left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_outer_left_paren'],
+      ($json['closure_outer_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +71,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $outer_left_paren = $outer_left_paren as nonnull;
     $offset += $outer_left_paren->getWidth();
     $readonly_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_readonly_keyword'] ?? dict['kind' => 'missing'],
+      ($json['closure_readonly_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -79,7 +80,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $readonly_keyword?->getWidth() ?? 0;
     $function_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_function_keyword'],
+      ($json['closure_function_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -88,7 +89,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $function_keyword = $function_keyword as nonnull;
     $offset += $function_keyword->getWidth();
     $inner_left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_inner_left_paren'],
+      ($json['closure_inner_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -97,7 +98,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $inner_left_paren = $inner_left_paren as nonnull;
     $offset += $inner_left_paren->getWidth();
     $parameter_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_parameter_list'] ?? dict['kind' => 'missing'],
+      ($json['closure_parameter_list'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,7 +107,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $parameter_list?->getWidth() ?? 0;
     $inner_right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_inner_right_paren'],
+      ($json['closure_inner_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -114,7 +116,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $inner_right_paren = $inner_right_paren as nonnull;
     $offset += $inner_right_paren->getWidth();
     $contexts = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_contexts'] ?? dict['kind' => 'missing'],
+      ($json['closure_contexts'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -122,7 +124,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $contexts?->getWidth() ?? 0;
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_colon'],
+      ($json['closure_colon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -131,7 +133,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $colon = $colon as nonnull;
     $offset += $colon->getWidth();
     $readonly_return = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_readonly_return'] ?? dict['kind' => 'missing'],
+      ($json['closure_readonly_return'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -139,7 +142,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $readonly_return?->getWidth() ?? 0;
     $return_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_return_type'],
+      ($json['closure_return_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -148,7 +151,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     $return_type = $return_type as nonnull;
     $offset += $return_type->getWidth();
     $outer_right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['closure_outer_right_paren'],
+      ($json['closure_outer_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -237,17 +240,17 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $outer_left_paren,
-      /* HH_FIXME[4110] use `as` */ $readonly_keyword,
-      /* HH_FIXME[4110] use `as` */ $function_keyword,
-      /* HH_FIXME[4110] use `as` */ $inner_left_paren,
-      /* HH_FIXME[4110] use `as` */ $parameter_list,
-      /* HH_FIXME[4110] use `as` */ $inner_right_paren,
-      /* HH_FIXME[4110] use `as` */ $contexts,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $readonly_return,
-      /* HH_FIXME[4110] use `as` */ $return_type,
-      /* HH_FIXME[4110] use `as` */ $outer_right_paren,
+      $outer_left_paren as LeftParenToken,
+      $readonly_keyword as ?Node,
+      $function_keyword as FunctionToken,
+      $inner_left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $parameter_list,
+      $inner_right_paren as RightParenToken,
+      $contexts as ?Contexts,
+      $colon as ColonToken,
+      $readonly_return as ?Node,
+      $return_type as ITypeSpecifier,
+      $outer_right_paren as RightParenToken,
     );
   }
 

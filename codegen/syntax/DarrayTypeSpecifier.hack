@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a83890dde312cdf82e2d2709e9422a19>>
+ * @generated SignedSource<<c595328cff9df99fd5bec1fefe3901e9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -42,7 +42,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -50,7 +50,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_keyword'],
+      ($json['darray_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_left_angle'],
+      ($json['darray_left_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $left_angle = $left_angle as nonnull;
     $offset += $left_angle->getWidth();
     $key = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_key'],
+      ($json['darray_key']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -77,7 +77,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $key = $key as nonnull;
     $offset += $key->getWidth();
     $comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_comma'],
+      ($json['darray_comma']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -86,7 +86,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $comma = $comma as nonnull;
     $offset += $comma->getWidth();
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_value'],
+      ($json['darray_value']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -95,7 +95,8 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     $value = $value as nonnull;
     $offset += $value->getWidth();
     $trailing_comma = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_trailing_comma'] ?? dict['kind' => 'missing'],
+      ($json['darray_trailing_comma'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -103,7 +104,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $trailing_comma?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['darray_right_angle'],
+      ($json['darray_right_angle']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -170,13 +171,13 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_angle,
-      /* HH_FIXME[4110] use `as` */ $key,
-      /* HH_FIXME[4110] use `as` */ $comma,
-      /* HH_FIXME[4110] use `as` */ $value,
-      /* HH_FIXME[4110] use `as` */ $trailing_comma,
-      /* HH_FIXME[4110] use `as` */ $right_angle,
+      $keyword as DarrayToken,
+      $left_angle as LessThanToken,
+      $key as ITypeSpecifier,
+      $comma as CommaToken,
+      $value as ITypeSpecifier,
+      $trailing_comma as ?Node,
+      $right_angle as GreaterThanToken,
     );
   }
 

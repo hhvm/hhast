@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<845f3ba9fba18ab36774daf492055c91>>
+ * @generated SignedSource<<5607e3bdfd5774433bee4e5ffa52455e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class InclusionExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class InclusionExpression
   ): this {
     $offset = $initial_offset;
     $require = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['inclusion_require'],
+      ($json['inclusion_require']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class InclusionExpression
     $require = $require as nonnull;
     $offset += $require->getWidth();
     $filename = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['inclusion_filename'],
+      ($json['inclusion_filename']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -87,10 +87,7 @@ final class InclusionExpression
     if ($require === $this->_require && $filename === $this->_filename) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $require,
-      /* HH_FIXME[4110] use `as` */ $filename,
-    );
+    return new static($require as Token, $filename as IExpression);
   }
 
   public function getRequireUNTYPED(): ?Node {
@@ -138,16 +135,16 @@ final class InclusionExpression
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * ParenthesizedExpression | NameToken | VariableExpression
+   * @return BinaryExpression | LiteralExpression | ParenthesizedExpression |
+   * NameToken | VariableExpression
    */
   public function getFilename(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_filename);
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * ParenthesizedExpression | NameToken | VariableExpression
+   * @return BinaryExpression | LiteralExpression | ParenthesizedExpression |
+   * NameToken | VariableExpression
    */
   public function getFilenamex(): IExpression {
     return $this->getFilename();

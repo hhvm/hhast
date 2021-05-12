@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4f868b72b8fbf21afaae4c0090d663e>>
+ * @generated SignedSource<<da499c7cd251ae65273f61c018278cc0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,7 @@ final class LambdaExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,8 @@ final class LambdaExpression
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['lambda_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -54,7 +55,7 @@ final class LambdaExpression
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $async = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_async'] ?? dict['kind' => 'missing'],
+      ($json['lambda_async'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -62,7 +63,7 @@ final class LambdaExpression
     );
     $offset += $async?->getWidth() ?? 0;
     $signature = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_signature'],
+      ($json['lambda_signature']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -71,7 +72,7 @@ final class LambdaExpression
     $signature = $signature as nonnull;
     $offset += $signature->getWidth();
     $arrow = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_arrow'],
+      ($json['lambda_arrow']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +81,7 @@ final class LambdaExpression
     $arrow = $arrow as nonnull;
     $offset += $arrow->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['lambda_body'],
+      ($json['lambda_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -139,11 +140,11 @@ final class LambdaExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $async,
-      /* HH_FIXME[4110] use `as` */ $signature,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $attribute_spec as ?OldAttributeSpecification,
+      $async as ?AsyncToken,
+      $signature as Node,
+      $arrow as EqualEqualGreaterThanToken,
+      $body as ILambdaBody,
     );
   }
 

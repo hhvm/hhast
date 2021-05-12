@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<06683d0426898d1ab4cabd5b1c5d553c>>
+ * @generated SignedSource<<b35a59fc06a7f71aedac4344a9684e92>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ final class AttributeSpecification extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -32,7 +32,8 @@ final class AttributeSpecification extends Node {
   ): this {
     $offset = $initial_offset;
     $attributes = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['attribute_specification_attributes'] ?? dict['kind' => 'missing'],
+      ($json['attribute_specification_attributes'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +69,7 @@ final class AttributeSpecification extends Node {
     if ($attributes === $this->_attributes) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] use `as` */ $attributes);
+    return new static($attributes as ?Node);
   }
 
   public function getAttributesUNTYPED(): ?Node {

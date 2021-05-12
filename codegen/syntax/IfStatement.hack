@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<70e0dc85e1978fb8deebbb880dc77ee0>>
+ * @generated SignedSource<<0896e3db5cf9a8a3e30aaa4b8710e77c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -44,7 +44,7 @@ final class IfStatement
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -52,7 +52,7 @@ final class IfStatement
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_keyword'],
+      ($json['if_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +61,7 @@ final class IfStatement
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_left_paren'],
+      ($json['if_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +70,7 @@ final class IfStatement
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $condition = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_condition'],
+      ($json['if_condition']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -79,7 +79,7 @@ final class IfStatement
     $condition = $condition as nonnull;
     $offset += $condition->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_right_paren'],
+      ($json['if_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -88,7 +88,7 @@ final class IfStatement
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $statement = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_statement'],
+      ($json['if_statement']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -97,7 +97,7 @@ final class IfStatement
     $statement = $statement as nonnull;
     $offset += $statement->getWidth();
     $elseif_clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_elseif_clauses'] ?? dict['kind' => 'missing'],
+      ($json['if_elseif_clauses'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,7 +105,7 @@ final class IfStatement
     );
     $offset += $elseif_clauses?->getWidth() ?? 0;
     $else_clause = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['if_else_clause'] ?? dict['kind' => 'missing'],
+      ($json['if_else_clause'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -173,13 +173,13 @@ final class IfStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $condition,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $statement,
-      /* HH_FIXME[4110] use `as` */ $elseif_clauses,
-      /* HH_FIXME[4110] use `as` */ $else_clause,
+      $keyword as IfToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $statement as IStatement,
+      /* HH_FIXME[4110] ?NodeList<ElseifClause> may not be enforceable */ $elseif_clauses,
+      $else_clause as ?ElseClause,
     );
   }
 

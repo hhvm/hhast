@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e68f4e3db924524fff85694b9b98ea9>>
+ * @generated SignedSource<<8aee8a3ae3c5172a1e64c313ea00b533>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class RecordField extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class RecordField extends Node {
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_field_type'],
+      ($json['record_field_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class RecordField extends Node {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_field_name'],
+      ($json['record_field_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,7 @@ final class RecordField extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $init = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_field_init'],
+      ($json['record_field_init']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class RecordField extends Node {
     $init = $init as nonnull;
     $offset += $init->getWidth();
     $semi = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['record_field_semi'],
+      ($json['record_field_semi']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -121,10 +121,10 @@ final class RecordField extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $init,
-      /* HH_FIXME[4110] use `as` */ $semi,
+      $type as Node,
+      $name as Node,
+      $init as Node,
+      $semi as Node,
     );
   }
 

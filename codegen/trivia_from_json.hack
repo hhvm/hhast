@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e80adcca259d0135dc42e50a07fecbc>>
+ * @generated SignedSource<<0fd76d7d553db4931e3c4c4194f8a797>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
 function trivia_from_json(
-  dict<string, mixed> $json,
+  dict<arraykey, mixed> $json,
   SourceRef $source_ref,
 ): HHAST\Trivia {
   $trivia_text = \substr(

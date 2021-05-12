@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a4073bb8c2f541f1e6bcc8d2f04853d5>>
+ * @generated SignedSource<<0c17ea9dc6d25d3d3f7d7b87c1699bf4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -29,7 +29,7 @@ final class PostfixUnaryExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -37,7 +37,7 @@ final class PostfixUnaryExpression
   ): this {
     $offset = $initial_offset;
     $operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['postfix_unary_operand'],
+      ($json['postfix_unary_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -46,7 +46,7 @@ final class PostfixUnaryExpression
     $operand = $operand as nonnull;
     $offset += $operand->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['postfix_unary_operator'],
+      ($json['postfix_unary_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -87,10 +87,7 @@ final class PostfixUnaryExpression
     if ($operand === $this->_operand && $operator === $this->_operator) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $operand,
-      /* HH_FIXME[4110] use `as` */ $operator,
-    );
+    return new static($operand as IExpression, $operator as Token);
   }
 
   public function getOperandUNTYPED(): ?Node {

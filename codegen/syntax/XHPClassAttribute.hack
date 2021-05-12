@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<faed773895e7681bf57a4b3507e90412>>
+ * @generated SignedSource<<1a8922c3a88c9c0900b09515753bcc96>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_type'],
+      ($json['xhp_attribute_decl_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_name'],
+      ($json['xhp_attribute_decl_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,8 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_initializer'] ?? dict['kind' => 'missing'],
+      ($json['xhp_attribute_decl_initializer'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,8 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     );
     $offset += $initializer?->getWidth() ?? 0;
     $required = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_attribute_decl_required'] ?? dict['kind' => 'missing'],
+      ($json['xhp_attribute_decl_required'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -123,10 +125,10 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $initializer,
-      /* HH_FIXME[4110] use `as` */ $required,
+      $type as ITypeSpecifier,
+      $name as XHPElementNameToken,
+      $initializer as ?SimpleInitializer,
+      $required as ?Node,
     );
   }
 

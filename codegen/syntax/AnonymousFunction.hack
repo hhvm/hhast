@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f714a6b7a7c1a8702d3c1279fbcd14cf>>
+ * @generated SignedSource<<1647fafde8e9e1b87b62ddd0bfba85b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,7 +59,7 @@ final class AnonymousFunction
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -67,7 +67,8 @@ final class AnonymousFunction
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -75,7 +76,8 @@ final class AnonymousFunction
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $async_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_async_keyword'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_async_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -83,7 +85,7 @@ final class AnonymousFunction
     );
     $offset += $async_keyword?->getWidth() ?? 0;
     $function_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_function_keyword'],
+      ($json['anonymous_function_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -92,7 +94,7 @@ final class AnonymousFunction
     $function_keyword = $function_keyword as nonnull;
     $offset += $function_keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_left_paren'],
+      ($json['anonymous_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -101,7 +103,8 @@ final class AnonymousFunction
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $parameters = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_parameters'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_parameters'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -109,7 +112,7 @@ final class AnonymousFunction
     );
     $offset += $parameters?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_right_paren'],
+      ($json['anonymous_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -118,7 +121,7 @@ final class AnonymousFunction
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $ctx_list = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_ctx_list'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_ctx_list'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -126,7 +129,7 @@ final class AnonymousFunction
     );
     $offset += $ctx_list?->getWidth() ?? 0;
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_colon'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_colon'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -134,7 +137,8 @@ final class AnonymousFunction
     );
     $offset += $colon?->getWidth() ?? 0;
     $readonly_return = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_readonly_return'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_readonly_return'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -142,7 +146,7 @@ final class AnonymousFunction
     );
     $offset += $readonly_return?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_type'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -150,7 +154,7 @@ final class AnonymousFunction
     );
     $offset += $type?->getWidth() ?? 0;
     $use = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_use'] ?? dict['kind' => 'missing'],
+      ($json['anonymous_use'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -158,7 +162,7 @@ final class AnonymousFunction
     );
     $offset += $use?->getWidth() ?? 0;
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['anonymous_body'],
+      ($json['anonymous_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -253,18 +257,18 @@ final class AnonymousFunction
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $async_keyword,
-      /* HH_FIXME[4110] use `as` */ $function_keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $parameters,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $ctx_list,
-      /* HH_FIXME[4110] use `as` */ $colon,
-      /* HH_FIXME[4110] use `as` */ $readonly_return,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $use,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $attribute_spec as ?OldAttributeSpecification,
+      $async_keyword as ?AsyncToken,
+      $function_keyword as FunctionToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ParameterDeclaration>> may not be enforceable */ $parameters,
+      $right_paren as RightParenToken,
+      $ctx_list as ?Node,
+      $colon as ?ColonToken,
+      $readonly_return as ?Node,
+      $type as ?ITypeSpecifier,
+      $use as ?AnonymousFunctionUseClause,
+      $body as CompoundStatement,
     );
   }
 

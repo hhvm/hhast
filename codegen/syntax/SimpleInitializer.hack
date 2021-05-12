@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fab712125f6decea869772abde9d21c0>>
+ * @generated SignedSource<<11fb2efc933b0387f69b96d76593bb7a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class SimpleInitializer extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class SimpleInitializer extends Node {
   ): this {
     $offset = $initial_offset;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['simple_initializer_equal'],
+      ($json['simple_initializer_equal']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class SimpleInitializer extends Node {
     $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['simple_initializer_value'],
+      ($json['simple_initializer_value']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class SimpleInitializer extends Node {
     if ($equal === $this->_equal && $value === $this->_value) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $value,
-    );
+    return new static($equal as EqualToken, $value as IExpression);
   }
 
   public function getEqualUNTYPED(): ?Node {

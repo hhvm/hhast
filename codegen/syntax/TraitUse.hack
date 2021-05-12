@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbeb7e58f875d8600056857af66d0c35>>
+ * @generated SignedSource<<3bd725991ca4e8f6954c044a4aae9b24>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_keyword'],
+      ($json['trait_use_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $names = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_names'],
+      ($json['trait_use_names']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     $names = $names as nonnull;
     $offset += $names->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['trait_use_semicolon'],
+      ($json['trait_use_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $names,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as UseToken,
+      /* HH_FIXME[4110] NodeList<ListItem<ISimpleCreationSpecifier>> may not be enforceable */ $names,
+      $semicolon as SemicolonToken,
     );
   }
 

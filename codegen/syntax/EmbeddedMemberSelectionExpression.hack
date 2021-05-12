@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd1d49c80dfceb2b22fe3484afb37644>>
+ * @generated SignedSource<<685e0d9e199850cf2efb67c6eb6b682a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class EmbeddedMemberSelectionExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,8 @@ final class EmbeddedMemberSelectionExpression
   ): this {
     $offset = $initial_offset;
     $object = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_member_object'] ?? dict['kind' => 'missing'],
+      ($json['embedded_member_object'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -48,7 +49,8 @@ final class EmbeddedMemberSelectionExpression
     );
     $offset += $object?->getWidth() ?? 0;
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_member_operator'] ?? dict['kind' => 'missing'],
+      ($json['embedded_member_operator'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +58,8 @@ final class EmbeddedMemberSelectionExpression
     );
     $offset += $operator?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['embedded_member_name'] ?? dict['kind' => 'missing'],
+      ($json['embedded_member_name'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,11 +110,7 @@ final class EmbeddedMemberSelectionExpression
     ) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $object,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $name,
-    );
+    return new static($object as ?Node, $operator as ?Node, $name as ?Node);
   }
 
   public function getObjectUNTYPED(): ?Node {

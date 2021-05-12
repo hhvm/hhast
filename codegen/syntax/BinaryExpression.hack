@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<88b4b30eb3844a4a0dc10d6017a554db>>
+ * @generated SignedSource<<f730607789e8ea8c0d250e9c0a754f6d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class BinaryExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,7 @@ final class BinaryExpression
   ): this {
     $offset = $initial_offset;
     $left_operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['binary_left_operand'],
+      ($json['binary_left_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class BinaryExpression
     $left_operand = $left_operand as nonnull;
     $offset += $left_operand->getWidth();
     $operator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['binary_operator'],
+      ($json['binary_operator']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class BinaryExpression
     $operator = $operator as nonnull;
     $offset += $operator->getWidth();
     $right_operand = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['binary_right_operand'],
+      ($json['binary_right_operand']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,9 +107,9 @@ final class BinaryExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_operand,
-      /* HH_FIXME[4110] use `as` */ $operator,
-      /* HH_FIXME[4110] use `as` */ $right_operand,
+      $left_operand as IExpression,
+      $operator as Token,
+      $right_operand as IExpression,
     );
   }
 

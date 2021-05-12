@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<49c1d4f48a162bcd8d7b10a5a1ca6fa0>>
+ * @generated SignedSource<<2705e7315df4304a15e3b4bd00176628>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -39,7 +39,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -47,7 +47,8 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $await_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_block_await_keyword'] ?? dict['kind' => 'missing'],
+      ($json['using_block_await_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +56,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     );
     $offset += $await_keyword?->getWidth() ?? 0;
     $using_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_block_using_keyword'],
+      ($json['using_block_using_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -64,7 +65,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     $using_keyword = $using_keyword as nonnull;
     $offset += $using_keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_block_left_paren'],
+      ($json['using_block_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -73,7 +74,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $expressions = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_block_expressions'],
+      ($json['using_block_expressions']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -82,7 +83,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     $expressions = $expressions as nonnull;
     $offset += $expressions->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_block_right_paren'],
+      ($json['using_block_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -91,7 +92,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['using_block_body'],
+      ($json['using_block_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -154,12 +155,12 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $await_keyword,
-      /* HH_FIXME[4110] use `as` */ $using_keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $expressions,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $await_keyword as ?AwaitToken,
+      $using_keyword as UsingToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $expressions,
+      $right_paren as RightParenToken,
+      $body as CompoundStatement,
     );
   }
 

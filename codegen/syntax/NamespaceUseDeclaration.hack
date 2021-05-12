@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<697a7ca6d7a52e8680b21efa76c30adb>>
+ * @generated SignedSource<<c3449b69fb4141f9d74417f2968841f5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -35,7 +35,7 @@ final class NamespaceUseDeclaration
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -43,7 +43,7 @@ final class NamespaceUseDeclaration
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_keyword'],
+      ($json['namespace_use_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -52,7 +52,7 @@ final class NamespaceUseDeclaration
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $kind = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_kind'] ?? dict['kind' => 'missing'],
+      ($json['namespace_use_kind'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -60,7 +60,7 @@ final class NamespaceUseDeclaration
     );
     $offset += $kind?->getWidth() ?? 0;
     $clauses = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_clauses'],
+      ($json['namespace_use_clauses']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -69,7 +69,7 @@ final class NamespaceUseDeclaration
     $clauses = $clauses as nonnull;
     $offset += $clauses->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['namespace_use_semicolon'],
+      ($json['namespace_use_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -122,10 +122,10 @@ final class NamespaceUseDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $kind,
-      /* HH_FIXME[4110] use `as` */ $clauses,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as UseToken,
+      $kind as ?Token,
+      /* HH_FIXME[4110] NodeList<ListItem<NamespaceUseClause>> may not be enforceable */ $clauses,
+      $semicolon as SemicolonToken,
     );
   }
 

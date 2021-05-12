@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2f537dfcdd880dcdf5158f501b642fa>>
+ * @generated SignedSource<<52f4962f10d88ab7338f45f5c6bd1745>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -33,7 +33,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -41,7 +41,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_expression_keyword'],
+      ($json['shape_expression_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -50,7 +50,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_expression_left_paren'],
+      ($json['shape_expression_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -59,7 +59,8 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $fields = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_expression_fields'] ?? dict['kind' => 'missing'],
+      ($json['shape_expression_fields'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -67,7 +68,7 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $fields?->getWidth() ?? 0;
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['shape_expression_right_paren'],
+      ($json['shape_expression_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -122,10 +123,10 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $fields,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $keyword as ShapeToken,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<FieldInitializer>> may not be enforceable */ $fields,
+      $right_paren as RightParenToken,
     );
   }
 

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<da26d397c6fa38db13a6a4212ae3068d>>
+ * @generated SignedSource<<5f99b9224df956c97817115056260c2b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class EchoStatement extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class EchoStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['echo_keyword'],
+      ($json['echo_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class EchoStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $expressions = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['echo_expressions'],
+      ($json['echo_expressions']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class EchoStatement extends Node implements IStatement {
     $expressions = $expressions as nonnull;
     $offset += $expressions->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['echo_semicolon'],
+      ($json['echo_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class EchoStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $expressions,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as EchoToken,
+      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $expressions,
+      $semicolon as SemicolonToken,
     );
   }
 

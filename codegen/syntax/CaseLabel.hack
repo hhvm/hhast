@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<94c7aeea8f2eb41d2dcde94a6e9b6485>>
+ * @generated SignedSource<<6551a961549223ddddf39df1c8cdec16>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['case_keyword'],
+      ($json['case_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $expression = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['case_expression'],
+      ($json['case_expression']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
     $expression = $expression as nonnull;
     $offset += $expression->getWidth();
     $colon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['case_colon'],
+      ($json['case_colon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class CaseLabel extends Node implements ISwitchLabel {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $expression,
-      /* HH_FIXME[4110] use `as` */ $colon,
+      $keyword as CaseToken,
+      $expression as IExpression,
+      $colon as ColonToken,
     );
   }
 

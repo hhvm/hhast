@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a619a8e46c6cefcdb6869524a514dace>>
+ * @generated SignedSource<<de26d0467550bf7da37e7eb409b21bf6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   ): this {
     $offset = $initial_offset;
     $left_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['compound_left_brace'],
+      ($json['compound_left_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
     $statements = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['compound_statements'] ?? dict['kind' => 'missing'],
+      ($json['compound_statements'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     );
     $offset += $statements?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['compound_right_brace'],
+      ($json['compound_right_brace']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -106,9 +106,9 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_brace,
-      /* HH_FIXME[4110] use `as` */ $statements,
-      /* HH_FIXME[4110] use `as` */ $right_brace,
+      $left_brace as LeftBraceToken,
+      /* HH_FIXME[4110] ?NodeList<IStatement> may not be enforceable */ $statements,
+      $right_brace as RightBraceToken,
     );
   }
 

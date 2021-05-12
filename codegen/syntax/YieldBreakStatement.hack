@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cd6859bda937699ed63706754dd80b4a>>
+ * @generated SignedSource<<d7debacff1ba4b10d07a00abd89da1a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class YieldBreakStatement extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class YieldBreakStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['yield_break_keyword'],
+      ($json['yield_break_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class YieldBreakStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $break = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['yield_break_break'],
+      ($json['yield_break_break']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class YieldBreakStatement extends Node implements IStatement {
     $break = $break as nonnull;
     $offset += $break->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['yield_break_semicolon'],
+      ($json['yield_break_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class YieldBreakStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $break,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $keyword as YieldToken,
+      $break as BreakToken,
+      $semicolon as SemicolonToken,
     );
   }
 

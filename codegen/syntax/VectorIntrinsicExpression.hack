@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a9a5e4df48ee9a94aeb8ce758ad56827>>
+ * @generated SignedSource<<b8600d46634d250a70d3352b86764346>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -38,7 +38,7 @@ final class VectorIntrinsicExpression
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,7 @@ final class VectorIntrinsicExpression
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['vector_intrinsic_keyword'],
+      ($json['vector_intrinsic_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,8 @@ final class VectorIntrinsicExpression
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $explicit_type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['vector_intrinsic_explicit_type'] ?? dict['kind' => 'missing'],
+      ($json['vector_intrinsic_explicit_type'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -63,7 +64,7 @@ final class VectorIntrinsicExpression
     );
     $offset += $explicit_type?->getWidth() ?? 0;
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['vector_intrinsic_left_bracket'],
+      ($json['vector_intrinsic_left_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -72,7 +73,8 @@ final class VectorIntrinsicExpression
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $members = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['vector_intrinsic_members'] ?? dict['kind' => 'missing'],
+      ($json['vector_intrinsic_members'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -80,7 +82,7 @@ final class VectorIntrinsicExpression
     );
     $offset += $members?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['vector_intrinsic_right_bracket'],
+      ($json['vector_intrinsic_right_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -141,11 +143,11 @@ final class VectorIntrinsicExpression
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $explicit_type,
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $members,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $keyword as VecToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $members,
+      $right_bracket as RightBracketToken,
     );
   }
 

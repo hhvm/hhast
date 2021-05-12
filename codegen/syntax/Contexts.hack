@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<076067d6803f6c4904beff394c687113>>
+ * @generated SignedSource<<fec8dc41918f55a9341fe0803f46ec42>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class Contexts extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class Contexts extends Node {
   ): this {
     $offset = $initial_offset;
     $left_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['contexts_left_bracket'],
+      ($json['contexts_left_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class Contexts extends Node {
     $left_bracket = $left_bracket as nonnull;
     $offset += $left_bracket->getWidth();
     $types = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['contexts_types'] ?? dict['kind' => 'missing'],
+      ($json['contexts_types'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class Contexts extends Node {
     );
     $offset += $types?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['contexts_right_bracket'],
+      ($json['contexts_right_bracket']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -104,9 +104,9 @@ final class Contexts extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_bracket,
-      /* HH_FIXME[4110] use `as` */ $types,
-      /* HH_FIXME[4110] use `as` */ $right_bracket,
+      $left_bracket as LeftBracketToken,
+      /* HH_FIXME[4110] ?NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $types,
+      $right_bracket as RightBracketToken,
     );
   }
 

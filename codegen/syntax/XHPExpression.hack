@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee9817ae02f34601d3b74e80a3a52481>>
+ * @generated SignedSource<<78a03814e336c43096a1267e129fb6bf>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $offset = $initial_offset;
     $open = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_open'],
+      ($json['xhp_open']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     $open = $open as nonnull;
     $offset += $open->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_body'] ?? dict['kind' => 'missing'],
+      ($json['xhp_body'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -55,7 +55,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     );
     $offset += $body?->getWidth() ?? 0;
     $close = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_close'] ?? dict['kind' => 'missing'],
+      ($json['xhp_close'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -103,9 +103,9 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $open,
-      /* HH_FIXME[4110] use `as` */ $body,
-      /* HH_FIXME[4110] use `as` */ $close,
+      $open as XHPOpen,
+      /* HH_FIXME[4110] ?NodeList<Node> may not be enforceable */ $body,
+      $close as ?XHPClose,
     );
   }
 

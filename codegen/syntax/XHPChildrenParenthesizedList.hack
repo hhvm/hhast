@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3ce7005d5b74500b993f53ec73c54f54>>
+ * @generated SignedSource<<b735d7a2a00d2f59eaec14b51d37f2a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class XHPChildrenParenthesizedList
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,7 @@ final class XHPChildrenParenthesizedList
   ): this {
     $offset = $initial_offset;
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_list_left_paren'],
+      ($json['xhp_children_list_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -49,7 +49,7 @@ final class XHPChildrenParenthesizedList
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $xhp_children = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_list_xhp_children'],
+      ($json['xhp_children_list_xhp_children']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -58,7 +58,7 @@ final class XHPChildrenParenthesizedList
     $xhp_children = $xhp_children as nonnull;
     $offset += $xhp_children->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['xhp_children_list_right_paren'],
+      ($json['xhp_children_list_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,9 +107,9 @@ final class XHPChildrenParenthesizedList
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $xhp_children,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
+      $left_paren as LeftParenToken,
+      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $xhp_children,
+      $right_paren as RightParenToken,
     );
   }
 

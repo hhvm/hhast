@@ -31,7 +31,7 @@ final class ListItem<+T as ?Node> extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -46,7 +46,7 @@ final class ListItem<+T as ?Node> extends Node {
     }
     $offset = $initial_offset;
     $item = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['list_item'],
+      $json['list_item'] as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -54,7 +54,7 @@ final class ListItem<+T as ?Node> extends Node {
     );
     $offset += $item?->getWidth() ?? 0;
     $separator = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['list_separator'],
+      $json['list_separator'] as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -68,7 +68,7 @@ final class ListItem<+T as ?Node> extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $item,
+      /* HH_FIXME[4110] Expected T, got ?Node */ $item,
       $separator as ?Token,
       $source_ref,
     );

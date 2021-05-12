@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6286eaf91f0ff09e2ef4ad15d6e18f31>>
+ * @generated SignedSource<<62f3b385fbd2ea48f73da97d25585228>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class ContinueStatement extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class ContinueStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['continue_keyword'],
+      ($json['continue_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class ContinueStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['continue_semicolon'],
+      ($json['continue_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -85,10 +85,7 @@ final class ContinueStatement extends Node implements IStatement {
     if ($keyword === $this->_keyword && $semicolon === $this->_semicolon) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
-    );
+    return new static($keyword as ContinueToken, $semicolon as SemicolonToken);
   }
 
   public function getKeywordUNTYPED(): ?Node {

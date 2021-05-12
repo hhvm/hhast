@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee5c4f225cf5b2765a40725abeb6bb49>>
+ * @generated SignedSource<<22906a99f08a9c61ec8ce1fc63adee61>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class MarkupSection extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class MarkupSection extends Node {
   ): this {
     $offset = $initial_offset;
     $hashbang = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['markup_hashbang'],
+      ($json['markup_hashbang']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class MarkupSection extends Node {
     $hashbang = $hashbang as nonnull;
     $offset += $hashbang->getWidth();
     $suffix = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['markup_suffix'] ?? dict['kind' => 'missing'],
+      ($json['markup_suffix'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -86,10 +86,7 @@ final class MarkupSection extends Node {
     if ($hashbang === $this->_hashbang && $suffix === $this->_suffix) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $hashbang,
-      /* HH_FIXME[4110] use `as` */ $suffix,
-    );
+    return new static($hashbang as HashbangToken, $suffix as ?MarkupSuffix);
   }
 
   public function getHashbangUNTYPED(): ?Node {

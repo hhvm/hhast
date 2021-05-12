@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bbe4268eba035466c57a147efb37fde4>>
+ * @generated SignedSource<<af4cac462e94839dbeb69dc43ffcd0ee>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $at = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['soft_at'] ?? dict['kind' => 'missing'],
+      ($json['soft_at'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -43,7 +43,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     );
     $offset += $at?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['soft_type'] ?? dict['kind' => 'missing'],
+      ($json['soft_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -83,10 +83,7 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     if ($at === $this->_at && $type === $this->_type) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] use `as` */ $at,
-      /* HH_FIXME[4110] use `as` */ $type,
-    );
+    return new static($at as ?Node, $type as ?Node);
   }
 
   public function getAtUNTYPED(): ?Node {

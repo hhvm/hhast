@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31548ed0cbd5823c1aa1f727b8f939c6>>
+ * @generated SignedSource<<89290291f49548e16b74390c38f790c5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -32,7 +32,7 @@ final class VariadicParameter
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -40,7 +40,8 @@ final class VariadicParameter
   ): this {
     $offset = $initial_offset;
     $call_convention = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['variadic_parameter_call_convention'] ?? dict['kind' => 'missing'],
+      ($json['variadic_parameter_call_convention'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -48,7 +49,8 @@ final class VariadicParameter
     );
     $offset += $call_convention?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['variadic_parameter_type'] ?? dict['kind' => 'missing'],
+      ($json['variadic_parameter_type'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +58,7 @@ final class VariadicParameter
     );
     $offset += $type?->getWidth() ?? 0;
     $ellipsis = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['variadic_parameter_ellipsis'],
+      ($json['variadic_parameter_ellipsis']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -107,9 +109,9 @@ final class VariadicParameter
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $call_convention,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $ellipsis,
+      $call_convention as ?Node,
+      $type as ?ITypeSpecifier,
+      $ellipsis as DotDotDotToken,
     );
   }
 

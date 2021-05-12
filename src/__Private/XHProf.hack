@@ -16,8 +16,6 @@ final abstract class XHProf {
   public static function enable(): void {
     invariant(self::$enabled === false, "Can't enable twice");
     self::$enabled = true;
-    /* HH_FIXME[2049] no HHI for xhprof */
-    /* HH_FIXME[4107] no HHI for xhprof */
     \xhprof_enable();
   }
 
@@ -31,8 +29,6 @@ final abstract class XHProf {
   public static function disable(): dict<string, self::TResult> {
     invariant(self::$enabled === true, "Can't disable twice");
     self::$enabled = false;
-    /* HH_FIXME[2049] no HHI for XHProf */
-    /* HH_FIXME[4107] no HHI for XHProf */
     $raw = Dict\map(\xhprof_disable(), $v ==> (int) $v['wt']);
 
     $inclusive = dict[];

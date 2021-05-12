@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<072a8bb9fbc1e972c36031d857c89475>>
+ * @generated SignedSource<<e18502d21d5cc0e69ddc450faa914aac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,7 +53,7 @@ final class ForeachStatement
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -61,7 +61,7 @@ final class ForeachStatement
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_keyword'],
+      ($json['foreach_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +70,7 @@ final class ForeachStatement
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $left_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_left_paren'],
+      ($json['foreach_left_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -79,7 +79,7 @@ final class ForeachStatement
     $left_paren = $left_paren as nonnull;
     $offset += $left_paren->getWidth();
     $collection = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_collection'],
+      ($json['foreach_collection']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -88,7 +88,8 @@ final class ForeachStatement
     $collection = $collection as nonnull;
     $offset += $collection->getWidth();
     $await_keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_await_keyword'] ?? dict['kind' => 'missing'],
+      ($json['foreach_await_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -96,7 +97,7 @@ final class ForeachStatement
     );
     $offset += $await_keyword?->getWidth() ?? 0;
     $as = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_as'],
+      ($json['foreach_as']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,7 +106,7 @@ final class ForeachStatement
     $as = $as as nonnull;
     $offset += $as->getWidth();
     $key = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_key'] ?? dict['kind' => 'missing'],
+      ($json['foreach_key'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -113,7 +114,7 @@ final class ForeachStatement
     );
     $offset += $key?->getWidth() ?? 0;
     $arrow = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_arrow'] ?? dict['kind' => 'missing'],
+      ($json['foreach_arrow'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -121,7 +122,7 @@ final class ForeachStatement
     );
     $offset += $arrow?->getWidth() ?? 0;
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_value'],
+      ($json['foreach_value']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -130,7 +131,7 @@ final class ForeachStatement
     $value = $value as nonnull;
     $offset += $value->getWidth();
     $right_paren = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_right_paren'],
+      ($json['foreach_right_paren']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -139,7 +140,7 @@ final class ForeachStatement
     $right_paren = $right_paren as nonnull;
     $offset += $right_paren->getWidth();
     $body = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['foreach_body'],
+      ($json['foreach_body']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -218,16 +219,16 @@ final class ForeachStatement
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $left_paren,
-      /* HH_FIXME[4110] use `as` */ $collection,
-      /* HH_FIXME[4110] use `as` */ $await_keyword,
-      /* HH_FIXME[4110] use `as` */ $as,
-      /* HH_FIXME[4110] use `as` */ $key,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $value,
-      /* HH_FIXME[4110] use `as` */ $right_paren,
-      /* HH_FIXME[4110] use `as` */ $body,
+      $keyword as ForeachToken,
+      $left_paren as LeftParenToken,
+      $collection as IExpression,
+      $await_keyword as ?AwaitToken,
+      $as as AsToken,
+      $key as ?IExpression,
+      $arrow as ?EqualGreaterThanToken,
+      $value as IExpression,
+      $right_paren as RightParenToken,
+      $body as IStatement,
     );
   }
 

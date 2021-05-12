@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5b95f2867843e864fd0ed3263c8cf034>>
+ * @generated SignedSource<<f06ed4966c3f76a8503b5fd81129ca28>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -27,7 +27,7 @@ final class ConcurrentStatement extends Node implements IStatement {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -35,7 +35,7 @@ final class ConcurrentStatement extends Node implements IStatement {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['concurrent_keyword'],
+      ($json['concurrent_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -44,7 +44,7 @@ final class ConcurrentStatement extends Node implements IStatement {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $statement = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['concurrent_statement'],
+      ($json['concurrent_statement']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -86,8 +86,8 @@ final class ConcurrentStatement extends Node implements IStatement {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $statement,
+      $keyword as ConcurrentToken,
+      $statement as CompoundStatement,
     );
   }
 

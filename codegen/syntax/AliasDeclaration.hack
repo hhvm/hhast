@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<933563c8b4658e0d0f15a70b40124f7e>>
+ * @generated SignedSource<<54aa74691f54339ed396f3418bcb041f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -45,7 +45,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -53,7 +53,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_attribute_spec'] ?? dict['kind' => 'missing'],
+      ($json['alias_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -61,7 +62,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_keyword'],
+      ($json['alias_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -70,7 +71,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     $keyword = $keyword as nonnull;
     $offset += $keyword->getWidth();
     $name = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_name'],
+      ($json['alias_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -79,7 +80,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $generic_parameter = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_generic_parameter'] ?? dict['kind' => 'missing'],
+      ($json['alias_generic_parameter'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -87,7 +89,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $generic_parameter?->getWidth() ?? 0;
     $constraint = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_constraint'] ?? dict['kind' => 'missing'],
+      ($json['alias_constraint'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -95,7 +97,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     );
     $offset += $constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_equal'],
+      ($json['alias_equal']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -104,7 +106,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     $equal = $equal as nonnull;
     $offset += $equal->getWidth();
     $type = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_type'],
+      ($json['alias_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -113,7 +115,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     $type = $type as nonnull;
     $offset += $type->getWidth();
     $semicolon = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['alias_semicolon'],
+      ($json['alias_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -188,14 +190,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $attribute_spec,
-      /* HH_FIXME[4110] use `as` */ $keyword,
-      /* HH_FIXME[4110] use `as` */ $name,
-      /* HH_FIXME[4110] use `as` */ $generic_parameter,
-      /* HH_FIXME[4110] use `as` */ $constraint,
-      /* HH_FIXME[4110] use `as` */ $equal,
-      /* HH_FIXME[4110] use `as` */ $type,
-      /* HH_FIXME[4110] use `as` */ $semicolon,
+      $attribute_spec as ?OldAttributeSpecification,
+      $keyword as Token,
+      $name as NameToken,
+      $generic_parameter as ?TypeParameters,
+      $constraint as ?TypeConstraint,
+      $equal as EqualToken,
+      $type as ITypeSpecifier,
+      $semicolon as SemicolonToken,
     );
   }
 

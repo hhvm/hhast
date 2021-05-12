@@ -1,13 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb93c667e456ab965735ce1f04a7f00f>>
+ * @generated SignedSource<<2e2af2d54f386b88ac6505f08d4e10ae>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
 
 function node_from_json_unwrapped(
-  dict<string, mixed> $json,
+  dict<arraykey, mixed> $json,
   string $file,
   int $offset,
   string $source,
@@ -19,7 +19,7 @@ function node_from_json_unwrapped(
   }
   if ($kind === 'token') {
     return HHAST\Token::fromJSON(
-      /* HH_FIXME[4110] */ $json['token'],
+      $json['token'] as dict<_, _>,
       $file,
       $offset,
       $source,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<31b9d9ea172d97e9d87f42123f41a8f8>>
+ * @generated SignedSource<<d44e136f79b64035f166778dbc88ea7e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -30,7 +30,7 @@ final class ElementInitializer extends Node {
 
   <<__Override>>
   public static function fromJSON(
-    dict<string, mixed> $json,
+    dict<arraykey, mixed> $json,
     string $file,
     int $initial_offset,
     string $source,
@@ -38,7 +38,7 @@ final class ElementInitializer extends Node {
   ): this {
     $offset = $initial_offset;
     $key = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['element_key'],
+      ($json['element_key']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -47,7 +47,7 @@ final class ElementInitializer extends Node {
     $key = $key as nonnull;
     $offset += $key->getWidth();
     $arrow = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['element_arrow'],
+      ($json['element_arrow']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -56,7 +56,7 @@ final class ElementInitializer extends Node {
     $arrow = $arrow as nonnull;
     $offset += $arrow->getWidth();
     $value = Node::fromJSON(
-      /* HH_FIXME[4110] */ $json['element_value'],
+      ($json['element_value']) as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -105,9 +105,9 @@ final class ElementInitializer extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] use `as` */ $key,
-      /* HH_FIXME[4110] use `as` */ $arrow,
-      /* HH_FIXME[4110] use `as` */ $value,
+      $key as IExpression,
+      $arrow as EqualGreaterThanToken,
+      $value as IExpression,
     );
   }
 
