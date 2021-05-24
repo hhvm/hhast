@@ -30,5 +30,10 @@ function is_compatible_schema_version(string $other_version): bool {
   }
 
   // Return true if $other_version is a subset of SCHEMA_VERSION
-  return false;
+  switch ($other_version) {
+    case '2021-05-20-0001': // removes DefineExpression (unused)
+      return true;
+    default:
+      return false;
+  }
 }
