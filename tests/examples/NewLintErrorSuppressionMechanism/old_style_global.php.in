@@ -1,0 +1,9 @@
+<?hh
+
+// HHAST_IGNORE_ALL[DontAwaitInALoop]
+
+async function old_style(): Awaitable<void> {
+  while(false) {
+    await in_a_loop();
+  }
+}

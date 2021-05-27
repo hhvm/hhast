@@ -1,0 +1,9 @@
+<?hh
+
+// @lint-ignore-all DontAwaitInALoop
+
+async function old_style(): Awaitable<void> {
+  while(false) {
+    await in_a_loop();
+  }
+}
