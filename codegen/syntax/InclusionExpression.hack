@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5607e3bdfd5774433bee4e5ffa52455e>>
+ * @generated SignedSource<<28f83eb25ce21884fccd314f43937860>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -135,16 +135,16 @@ final class InclusionExpression
   }
 
   /**
-   * @return BinaryExpression | LiteralExpression | ParenthesizedExpression |
-   * NameToken | VariableExpression
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * ParenthesizedExpression | NameToken | VariableExpression
    */
   public function getFilename(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_filename);
   }
 
   /**
-   * @return BinaryExpression | LiteralExpression | ParenthesizedExpression |
-   * NameToken | VariableExpression
+   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
+   * ParenthesizedExpression | NameToken | VariableExpression
    */
   public function getFilenamex(): IExpression {
     return $this->getFilename();

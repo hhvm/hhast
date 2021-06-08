@@ -1,27 +1,30 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<55cb803256b6d185e8900cf0f02c059c>>
+ * @generated SignedSource<<ea571f5342abf84853cdbb04f1e195e5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
 
 <<__ConsistentConstruct>>
-final class EnumAtomExpression
+final class EnumClassLabelExpression
   extends Node
   implements ILambdaBody, IExpression {
 
-  const string SYNTAX_KIND = 'enum_atom_expression';
+  const string SYNTAX_KIND = 'enum_class_label_expression';
 
+  private ?Node $_qualifier;
   private ?Node $_hash;
   private ?Node $_expression;
 
   public function __construct(
+    ?Node $qualifier,
     ?Node $hash,
     ?Node $expression,
     ?__Private\SourceRef $source_ref = null,
   ) {
+    $this->_qualifier = $qualifier;
     $this->_hash = $hash;
     $this->_expression = $expression;
     parent::__construct($source_ref);
@@ -36,8 +39,18 @@ final class EnumAtomExpression
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
+    $qualifier = Node::fromJSON(
+      ($json['enum_class_label_qualifier'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $qualifier?->getWidth() ?? 0;
     $hash = Node::fromJSON(
-      ($json['enum_atom_hash'] ?? dict['kind' => 'missing']) as dict<_, _>,
+      ($json['enum_class_label_hash'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
@@ -45,7 +58,7 @@ final class EnumAtomExpression
     );
     $offset += $hash?->getWidth() ?? 0;
     $expression = Node::fromJSON(
-      ($json['enum_atom_expression'] ?? dict['kind' => 'missing'])
+      ($json['enum_class_label_expression'] ?? dict['kind' => 'missing'])
         as dict<_, _>,
       $file,
       $offset,
@@ -60,6 +73,7 @@ final class EnumAtomExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
+      /* HH_IGNORE_ERROR[4110] */ $qualifier,
       /* HH_IGNORE_ERROR[4110] */ $hash,
       /* HH_IGNORE_ERROR[4110] */ $expression,
       $source_ref,
@@ -69,6 +83,7 @@ final class EnumAtomExpression
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
+      'qualifier' => $this->_qualifier,
       'hash' => $this->_hash,
       'expression' => $this->_expression,
     ]
@@ -81,14 +96,54 @@ final class EnumAtomExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
+    $qualifier = $this->_qualifier === null
+      ? null
+      : $rewriter($this->_qualifier, $parents);
     $hash = $this->_hash === null ? null : $rewriter($this->_hash, $parents);
     $expression = $this->_expression === null
       ? null
       : $rewriter($this->_expression, $parents);
-    if ($hash === $this->_hash && $expression === $this->_expression) {
+    if (
+      $qualifier === $this->_qualifier &&
+      $hash === $this->_hash &&
+      $expression === $this->_expression
+    ) {
       return $this;
     }
-    return new static($hash as ?Node, $expression as ?Node);
+    return new static(
+      $qualifier as ?Node,
+      $hash as ?Node,
+      $expression as ?Node,
+    );
+  }
+
+  public function getQualifierUNTYPED(): ?Node {
+    return $this->_qualifier;
+  }
+
+  public function withQualifier(?Node $value): this {
+    if ($value === $this->_qualifier) {
+      return $this;
+    }
+    return new static($value, $this->_hash, $this->_expression);
+  }
+
+  public function hasQualifier(): bool {
+    return $this->_qualifier !== null;
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getQualifier(): ?Node {
+    return $this->_qualifier;
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getQualifierx(): Node {
+    return TypeAssert\not_null($this->getQualifier());
   }
 
   public function getHashUNTYPED(): ?Node {
@@ -99,7 +154,7 @@ final class EnumAtomExpression
     if ($value === $this->_hash) {
       return $this;
     }
-    return new static($value, $this->_expression);
+    return new static($this->_qualifier, $value, $this->_expression);
   }
 
   public function hasHash(): bool {
@@ -128,7 +183,7 @@ final class EnumAtomExpression
     if ($value === $this->_expression) {
       return $this;
     }
-    return new static($this->_hash, $value);
+    return new static($this->_qualifier, $this->_hash, $value);
   }
 
   public function hasExpression(): bool {

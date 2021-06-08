@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<20eda114200fbe3c3f2dbce70c946b93>>
+ * @generated SignedSource<<b779f3f83e2ab9cb4faaec77332db98f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,9 +127,9 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
+   * @return AnonymousFunction | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperand(): IExpression {
@@ -137,9 +137,9 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
+   * @return AnonymousFunction | FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PipeVariableExpression |
+   * ParenthesizedExpression | PipeVariableExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | SubscriptExpression | VariableExpression
    */
   public function getLeftOperandx(): IExpression {

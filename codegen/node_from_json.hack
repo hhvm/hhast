@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2e2af2d54f386b88ac6505f08d4e10ae>>
+ * @generated SignedSource<<53164a9607aec9949bfabbf7060734bc>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -73,7 +73,6 @@ function node_from_json_unwrapped(
     'darray_type_specifier' => HHAST\DarrayTypeSpecifier::class,
     'decorated_expression' => HHAST\DecoratedExpression::class,
     'default_label' => HHAST\DefaultLabel::class,
-    'define_expression' => HHAST\DefineExpression::class,
     'dictionary_intrinsic_expression' =>
       HHAST\DictionaryIntrinsicExpression::class,
     'dictionary_type_specifier' => HHAST\DictionaryTypeSpecifier::class,
@@ -88,9 +87,9 @@ function node_from_json_unwrapped(
       HHAST\EmbeddedMemberSelectionExpression::class,
     'embedded_subscript_expression' => HHAST\EmbeddedSubscriptExpression::class,
     'end_of_file' => HHAST\EndOfFile::class,
-    'enum_atom' => HHAST\EnumAtomExpression::class,
     'enum_class_declaration' => HHAST\EnumClassDeclaration::class,
     'enum_class_enumerator' => HHAST\EnumClassEnumerator::class,
+    'enum_class_label' => HHAST\EnumClassLabelExpression::class,
     'enum_declaration' => HHAST\EnumDeclaration::class,
     'enum_use' => HHAST\EnumUse::class,
     'enumerator' => HHAST\Enumerator::class,

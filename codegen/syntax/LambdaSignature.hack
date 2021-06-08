@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8aa9816728a68d20efd69b9bc76c1695>>
+ * @generated SignedSource<<5f777271aa5513c67814c93dec919b88>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,7 +17,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   private RightParenToken $_right_paren;
   private ?Contexts $_contexts;
   private ?ColonToken $_colon;
-  private ?Node $_readonly_return;
+  private ?ReadonlyToken $_readonly_return;
   private ?ITypeSpecifier $_type;
 
   public function __construct(
@@ -26,7 +26,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     RightParenToken $right_paren,
     ?Contexts $contexts,
     ?ColonToken $colon,
-    ?Node $readonly_return,
+    ?ReadonlyToken $readonly_return,
     ?ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -97,7 +97,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $file,
       $offset,
       $source,
-      'Node',
+      'ReadonlyToken',
     );
     $offset += $readonly_return?->getWidth() ?? 0;
     $type = Node::fromJSON(
@@ -176,7 +176,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       $right_paren as RightParenToken,
       $contexts as ?Contexts,
       $colon as ?ColonToken,
-      $readonly_return as ?Node,
+      $readonly_return as ?ReadonlyToken,
       $type as ?ITypeSpecifier,
     );
   }
@@ -372,7 +372,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     return $this->_readonly_return;
   }
 
-  public function withReadonlyReturn(?Node $value): this {
+  public function withReadonlyReturn(?ReadonlyToken $value): this {
     if ($value === $this->_readonly_return) {
       return $this;
     }
@@ -392,16 +392,16 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   }
 
   /**
-   * @return null
+   * @return null | ReadonlyToken
    */
-  public function getReadonlyReturn(): ?Node {
+  public function getReadonlyReturn(): ?ReadonlyToken {
     return $this->_readonly_return;
   }
 
   /**
-   * @return
+   * @return ReadonlyToken
    */
-  public function getReadonlyReturnx(): Node {
+  public function getReadonlyReturnx(): ReadonlyToken {
     return TypeAssert\not_null($this->getReadonlyReturn());
   }
 

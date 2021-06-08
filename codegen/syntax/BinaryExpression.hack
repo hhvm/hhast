@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f730607789e8ea8c0d250e9c0a754f6d>>
+ * @generated SignedSource<<24b49fb448bf7c50cdfb83b05408a0b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,9 +129,10 @@ final class BinaryExpression
   }
 
   /**
-   * @return AsExpression | AwaitableCreationExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
+   * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | FunctionPointerExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | ListExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
@@ -145,9 +146,10 @@ final class BinaryExpression
   }
 
   /**
-   * @return AsExpression | AwaitableCreationExpression | BinaryExpression |
-   * CastExpression | CollectionLiteralExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | FunctionCallExpression | IsExpression |
+   * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
+   * BinaryExpression | CastExpression | CollectionLiteralExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | FunctionPointerExpression | IsExpression |
    * IssetExpression | KeysetIntrinsicExpression | ListExpression |
    * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression

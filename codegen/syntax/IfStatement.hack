@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0896e3db5cf9a8a3e30aaa4b8710e77c>>
+ * @generated SignedSource<<599972a313ee91e45876b427afb77efa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -284,9 +284,8 @@ final class IfStatement
    * @return AsExpression | BinaryExpression | CastExpression |
    * FunctionCallExpression | IsExpression | IssetExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression
+   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression | VarrayIntrinsicExpression
    */
   public function getCondition(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_condition);
@@ -296,9 +295,8 @@ final class IfStatement
    * @return AsExpression | BinaryExpression | CastExpression |
    * FunctionCallExpression | IsExpression | IssetExpression |
    * LiteralExpression | MemberSelectionExpression | ParenthesizedExpression |
-   * PrefixUnaryExpression | QualifiedName | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression
+   * PrefixUnaryExpression | ScopeResolutionExpression | SubscriptExpression |
+   * NameToken | VariableExpression | VarrayIntrinsicExpression
    */
   public function getConditionx(): IExpression {
     return $this->getCondition();

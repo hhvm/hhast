@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29af1c26eb28e7a1d202b2166ceebad6>>
+ * @generated SignedSource<<f82fd14156bc9d650c8ab04a57e8b146>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -21,7 +21,7 @@ final class FunctionDeclarationHeader extends Node {
   private RightParenToken $_right_paren;
   private ?Contexts $_contexts;
   private ?ColonToken $_colon;
-  private ?Node $_readonly_return;
+  private ?ReadonlyToken $_readonly_return;
   private ?ITypeSpecifier $_type;
   private ?WhereClause $_where_clause;
 
@@ -35,7 +35,7 @@ final class FunctionDeclarationHeader extends Node {
     RightParenToken $right_paren,
     ?Contexts $contexts,
     ?ColonToken $colon,
-    ?Node $readonly_return,
+    ?ReadonlyToken $readonly_return,
     ?ITypeSpecifier $type,
     ?WhereClause $where_clause,
     ?__Private\SourceRef $source_ref = null,
@@ -148,7 +148,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'ReadonlyToken',
     );
     $offset += $readonly_return?->getWidth() ?? 0;
     $type = Node::fromJSON(
@@ -266,7 +266,7 @@ final class FunctionDeclarationHeader extends Node {
       $right_paren as RightParenToken,
       $contexts as ?Contexts,
       $colon as ?ColonToken,
-      $readonly_return as ?Node,
+      $readonly_return as ?ReadonlyToken,
       $type as ?ITypeSpecifier,
       $where_clause as ?WhereClause,
     );
@@ -662,7 +662,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_readonly_return;
   }
 
-  public function withReadonlyReturn(?Node $value): this {
+  public function withReadonlyReturn(?ReadonlyToken $value): this {
     if ($value === $this->_readonly_return) {
       return $this;
     }
@@ -687,16 +687,16 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   /**
-   * @return null
+   * @return null | ReadonlyToken
    */
-  public function getReadonlyReturn(): ?Node {
+  public function getReadonlyReturn(): ?ReadonlyToken {
     return $this->_readonly_return;
   }
 
   /**
-   * @return
+   * @return ReadonlyToken
    */
-  public function getReadonlyReturnx(): Node {
+  public function getReadonlyReturnx(): ReadonlyToken {
     return TypeAssert\not_null($this->getReadonlyReturn());
   }
 
