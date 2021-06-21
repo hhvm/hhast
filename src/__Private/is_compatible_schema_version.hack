@@ -21,7 +21,7 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2021-06-04-0001',
+    SCHEMA_VERSION === '2021-06-09-0001',
     '%s needs updating',
     __FILE__,
   );
@@ -31,10 +31,8 @@ function is_compatible_schema_version(string $other_version): bool {
 
   // Return true if $other_version is a subset of SCHEMA_VERSION
   switch ($other_version) {
-    /* Example:
-    case '2021-05-20-0001': // removes DefineExpression (unused)
+    case '2021-06-04-0001': // doesn't have newtype Y as [a] = [b];
       return true;
-    */
     default:
       return false;
   }

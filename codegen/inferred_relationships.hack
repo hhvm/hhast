@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f79ad4858d3a7ea29644e7535c882bee>>
+ * @generated SignedSource<<5c46e3448e7a1ce3b4a1c0e2a522209f>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -292,12 +292,15 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token::',
   ],
   'case_label.case_expression' => keyset[
+    'collection_literal_expression',
     'function_call_expression',
     'literal',
+    'object_creation_expression',
     'prefix_unary_expression',
     'scope_resolution_expression',
     'token:name',
     'variable',
+    'vector_intrinsic_expression',
   ],
   'case_label.case_keyword' => keyset[
     'token:case',
@@ -2967,6 +2970,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<alias_declaration|classish_declaration|const_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_class_declaration|enum_declaration|file_attribute_specification|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
+    'list<alias_declaration|classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|markup_section>',
@@ -2981,6 +2985,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|const_declaration|end_of_file|function_declaration|markup_section|namespace_declaration|namespace_use_declaration>',
     'list<classish_declaration|const_declaration|end_of_file|markup_section>',
     'list<classish_declaration|end_of_file|enum_class_declaration|expression_statement|function_declaration|markup_section>',
+    'list<classish_declaration|end_of_file|enum_class_declaration|file_attribute_specification|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|enum_class_declaration|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|enum_class_declaration|markup_section>',
     'list<classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
@@ -3323,6 +3328,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<lambda_expression>|list_item<object_creation_expression>>',
     'list<list_item<literal>>',
     'list<list_item<literal>|list_item<object_creation_expression>>',
+    'list<list_item<literal>|list_item<prefix_unary_expression>>',
+    'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<variable>>',
     'list<list_item<literal>|list_item<scope_resolution_expression>>',
     'list<list_item<literal>|list_item<shape_expression>>',
     'list<list_item<literal>|list_item<subscript_expression>>',
@@ -3391,6 +3398,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<dictionary_type_specifier>>',
     'list<list_item<generic_type_specifier>>',
     'list<list_item<generic_type_specifier>|list_item<simple_type_specifier>>',
+    'list<list_item<generic_type_specifier>|list_item<type_constant>>',
     'list<list_item<keyset_type_specifier>>',
     'list<list_item<like_type_specifier>>',
     'list<list_item<nullable_type_specifier>>',
@@ -3783,6 +3791,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_call_expression>>',
     'list<list_item<function_call_expression>|list_item<keyset_intrinsic_expression>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<literal>>',
+    'list<list_item<function_call_expression>|list_item<literal>|list_item<object_creation_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<function_call_expression>|list_item<object_creation_expression>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<varray_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<function_pointer_expression>>',

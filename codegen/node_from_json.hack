@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53164a9607aec9949bfabbf7060734bc>>
+ * @generated SignedSource<<aaad4ff4cc6d560d8caf2c075230db57>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -65,6 +65,7 @@ function node_from_json_unwrapped(
     'const_declaration' => HHAST\ConstDeclaration::class,
     'constant_declarator' => HHAST\ConstantDeclarator::class,
     'constructor_call' => HHAST\ConstructorCall::class,
+    'context_alias_declaration' => HHAST\ContextAliasDeclaration::class,
     'context_const_declaration' => HHAST\ContextConstDeclaration::class,
     'context_constraint' => HHAST\ContextConstraint::class,
     'contexts' => HHAST\Contexts::class,
