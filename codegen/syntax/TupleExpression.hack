@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1731d01b3927d3645aaa57bbb3b0cfe4>>
+ * @generated SignedSource<<7c98dbc73d6cf8df02d538e1b132ce7c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -225,6 +225,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |
@@ -243,6 +244,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
    * NodeList<ListItem<VariableExpression>> |
    * NodeList<ListItem<VarrayIntrinsicExpression>> |

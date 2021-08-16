@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb7cf0fa26f40925348b761c33ae247e>>
+ * @generated SignedSource<<b1d287ad0a3038e8409d76248e179858>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -156,7 +156,7 @@ final class ThrowStatement extends Node implements IStatement {
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
+   * @return FunctionCallExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | VariableExpression
    */
@@ -165,7 +165,7 @@ final class ThrowStatement extends Node implements IStatement {
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
+   * @return FunctionCallExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | VariableExpression
    */

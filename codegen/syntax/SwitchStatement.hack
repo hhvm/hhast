@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f90f356e7754fc12fe0b613f6d8272f>>
+ * @generated SignedSource<<ebeb1194bdb7c4ff626a145e66b293f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -279,18 +279,18 @@ final class SwitchStatement
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression | SubscriptExpression
-   * | VariableExpression
+   * @return BinaryExpression | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
   }
 
   /**
-   * @return BinaryExpression | FunctionCallExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression | SubscriptExpression
-   * | VariableExpression
+   * @return BinaryExpression | CastExpression | FunctionCallExpression |
+   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * PrefixUnaryExpression | SubscriptExpression | VariableExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();

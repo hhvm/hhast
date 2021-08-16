@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c46e3448e7a1ce3b4a1c0e2a522209f>>
+ * @generated SignedSource<<b3575f3597e04470a20538eae3fb596f>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -292,6 +292,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token::',
   ],
   'case_label.case_expression' => keyset[
+    'cast_expression',
     'collection_literal_expression',
     'function_call_expression',
     'literal',
@@ -1310,19 +1311,20 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'enum_class_declaration.enum_class_left_brace' => keyset[
     'token:{',
   ],
+  'enum_class_declaration.enum_class_modifiers' => keyset[
+    'missing',
+  ],
   'enum_class_declaration.enum_class_name' => keyset[
     'token:name',
   ],
   'enum_class_declaration.enum_class_right_brace' => keyset[
     'token:}',
   ],
-  'enum_class_enumerator.enum_class_enumerator_equal' => keyset[
-    'token:=',
+  'enum_class_enumerator.enum_class_enumerator_initializer' => keyset[
+    'simple_initializer',
   ],
-  'enum_class_enumerator.enum_class_enumerator_initial_value' => keyset[
-    'function_call_expression',
-    'literal',
-    'object_creation_expression',
+  'enum_class_enumerator.enum_class_enumerator_modifiers' => keyset[
+    'missing',
   ],
   'enum_class_enumerator.enum_class_enumerator_name' => keyset[
     'token:name',
@@ -1631,6 +1633,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<awaitable_creation_expression>>',
     'list<list_item<awaitable_creation_expression>|list_item<function_call_expression>>',
     'list<list_item<binary_expression>>',
+    'list<list_item<binary_expression>|list_item<cast_expression>>',
     'list<list_item<binary_expression>|list_item<cast_expression>|list_item<literal>>',
     'list<list_item<binary_expression>|list_item<cast_expression>|list_item<scope_resolution_expression>>',
     'list<list_item<binary_expression>|list_item<collection_literal_expression>>',
@@ -1663,7 +1666,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<binary_expression>|list_item<literal>|list_item<token:name>|list_item<varray_intrinsic_expression>>',
     'list<list_item<binary_expression>|list_item<literal>|list_item<variable>>',
     'list<list_item<binary_expression>|list_item<object_creation_expression>>',
-    'list<list_item<binary_expression>|list_item<parenthesized_expression>>',
     'list<list_item<binary_expression>|list_item<pipe_variable>>',
     'list<list_item<binary_expression>|list_item<postfix_unary_expression>|list_item<variable>>',
     'list<list_item<binary_expression>|list_item<prefix_unary_expression>>',
@@ -1684,6 +1686,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<cast_expression>|list_item<literal>>',
     'list<list_item<cast_expression>|list_item<literal>|list_item<token:name>>',
     'list<list_item<cast_expression>|list_item<literal>|list_item<variable>>',
+    'list<list_item<cast_expression>|list_item<parenthesized_expression>>',
     'list<list_item<cast_expression>|list_item<scope_resolution_expression>|list_item<token:name>>',
     'list<list_item<cast_expression>|list_item<subscript_expression>>',
     'list<list_item<cast_expression>|list_item<variable>>',
@@ -1777,7 +1780,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<decorated_expression>|list_item<prefix_unary_expression>>',
     'list<list_item<decorated_expression>|list_item<prefix_unary_expression>|list_item<variable>>',
     'list<list_item<decorated_expression>|list_item<scope_resolution_expression>>',
-    'list<list_item<decorated_expression>|list_item<scope_resolution_expression>|list_item<variable>>',
     'list<list_item<decorated_expression>|list_item<subscript_expression>>',
     'list<list_item<decorated_expression>|list_item<subscript_expression>|list_item<token:name>>',
     'list<list_item<decorated_expression>|list_item<subscript_expression>|list_item<variable>>',
@@ -1808,6 +1810,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_call_expression>>',
     'list<list_item<function_call_expression>|list_item<function_pointer_expression>>',
     'list<list_item<function_call_expression>|list_item<function_pointer_expression>|list_item<literal>>',
+    'list<list_item<function_call_expression>|list_item<is_expression>>',
     'list<list_item<function_call_expression>|list_item<lambda_expression>>',
     'list<list_item<function_call_expression>|list_item<lambda_expression>|list_item<literal>>',
     'list<list_item<function_call_expression>|list_item<literal>>',
@@ -1837,7 +1840,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_call_expression>|list_item<token:name>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<variable>>',
     'list<list_item<function_call_expression>|list_item<varray_intrinsic_expression>>',
-    'list<list_item<function_call_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<function_call_expression>|list_item<xhp_expression>>',
     'list<list_item<function_pointer_expression>>',
     'list<list_item<function_pointer_expression>|list_item<keyset_intrinsic_expression>>',
@@ -1909,7 +1911,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<literal>|list_item<pipe_variable>|list_item<variable>|list_item<vector_intrinsic_expression>>',
     'list<list_item<literal>|list_item<pipe_variable>|list_item<varray_intrinsic_expression>>',
     'list<list_item<literal>|list_item<pipe_variable>|list_item<vector_intrinsic_expression>>',
-    'list<list_item<literal>|list_item<postfix_unary_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<scope_resolution_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<subscript_expression>>',
@@ -1950,6 +1951,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<object_creation_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<parenthesized_expression>>',
     'list<list_item<parenthesized_expression>|list_item<pipe_variable>>',
+    'list<list_item<parenthesized_expression>|list_item<subscript_expression>>',
     'list<list_item<parenthesized_expression>|list_item<variable>>',
     'list<list_item<pipe_variable>>',
     'list<list_item<postfix_unary_expression>>',
@@ -2214,7 +2216,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'pipe_variable',
     'prefix_unary_expression',
     'scope_resolution_expression',
+    'shape_expression',
     'subscript_expression',
+    'tuple_expression',
     'variable',
   ],
   'is_expression.is_operator' => keyset[
@@ -2321,7 +2325,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'nullable_as_expression',
     'object_creation_expression',
     'parenthesized_expression',
+    'postfix_unary_expression',
     'prefix_unary_expression',
+    'shape_expression',
     'subscript_expression',
     'variable',
     'varray_intrinsic_expression',
@@ -2728,6 +2734,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'function_call_expression',
     'inclusion_expression',
     'is_expression',
+    'isset_expression',
     'lambda_expression',
     'literal',
     'member_selection_expression',
@@ -2787,6 +2794,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:name',
     'variable',
     'varray_intrinsic_expression',
+    'vector_intrinsic_expression',
   ],
   'prefix_unary_expression.prefix_unary_operator' => keyset[
     'token:!',
@@ -3193,10 +3201,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'switch_statement.switch_expression' => keyset[
     'binary_expression',
+    'cast_expression',
     'function_call_expression',
     'literal',
     'member_selection_expression',
     'object_creation_expression',
+    'prefix_unary_expression',
     'subscript_expression',
     'variable',
   ],
@@ -3220,6 +3230,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'throw_statement.throw_expression' => keyset[
     'function_call_expression',
+    'lambda_expression',
     'literal',
     'member_selection_expression',
     'object_creation_expression',
@@ -3324,7 +3335,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<function_call_expression>|list_item<variable>>',
     'list<list_item<function_pointer_expression>|list_item<literal>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<literal>>',
-    'list<list_item<lambda_expression>|list_item<literal>>',
     'list<list_item<lambda_expression>|list_item<object_creation_expression>>',
     'list<list_item<literal>>',
     'list<list_item<literal>|list_item<object_creation_expression>>',
@@ -3340,6 +3350,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<member_selection_expression>>',
     'list<list_item<object_creation_expression>>',
     'list<list_item<object_creation_expression>|list_item<variable>>',
+    'list<list_item<prefix_unary_expression>>',
     'list<list_item<subscript_expression>>',
     'list<list_item<subscript_expression>|list_item<variable>>',
     'list<list_item<variable>>',
@@ -3375,6 +3386,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<simple_type_specifier>>',
     'list<list_item<simple_type_specifier>|list_item<tuple_type_specifier>>',
     'list<list_item<simple_type_specifier>|list_item<type_constant>>',
+    'list<list_item<simple_type_specifier>|list_item<varray_type_specifier>>',
     'list<list_item<simple_type_specifier>|list_item<vector_type_specifier>>',
     'list<list_item<tuple_type_specifier>>',
     'list<list_item<type_constant>>',
@@ -3620,7 +3632,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<binary_expression>|list_item<function_call_expression>>',
     'list<list_item<binary_expression>|list_item<function_call_expression>|list_item<literal>>',
     'list<list_item<binary_expression>|list_item<function_call_expression>|list_item<literal>|list_item<variable>>',
-    'list<list_item<binary_expression>|list_item<function_call_expression>|list_item<literal>|list_item<varray_intrinsic_expression>>',
     'list<list_item<binary_expression>|list_item<literal>>',
     'list<list_item<binary_expression>|list_item<literal>|list_item<object_creation_expression>|list_item<prefix_unary_expression>>',
     'list<list_item<binary_expression>|list_item<literal>|list_item<prefix_unary_expression>>',
@@ -3637,8 +3648,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<cast_expression>|list_item<literal>>',
     'list<list_item<cast_expression>|list_item<literal>|list_item<object_creation_expression>|list_item<prefix_unary_expression>|list_item<variable>>',
     'list<list_item<collection_literal_expression>>',
-    'list<list_item<collection_literal_expression>|list_item<darray_intrinsic_expression>|list_item<dictionary_intrinsic_expression>|list_item<function_pointer_expression>|list_item<keyset_intrinsic_expression>|list_item<literal>|list_item<varray_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<collection_literal_expression>|list_item<darray_intrinsic_expression>|list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<varray_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
+    'list<list_item<collection_literal_expression>|list_item<dictionary_intrinsic_expression>|list_item<function_pointer_expression>|list_item<keyset_intrinsic_expression>|list_item<literal>|list_item<vector_intrinsic_expression>>',
     'list<list_item<collection_literal_expression>|list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<variable>|list_item<varray_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<collection_literal_expression>|list_item<literal>>',
     'list<list_item<conditional_expression>>',
@@ -3689,6 +3700,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<literal>|list_item<prefix_unary_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<scope_resolution_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<token:name>>',
+    'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<token:name>|list_item<variable>|list_item<varray_intrinsic_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<variable>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<variable>|list_item<varray_intrinsic_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<varray_intrinsic_expression>>',
@@ -3800,6 +3812,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<keyset_intrinsic_expression>|list_item<variable>>',
     'list<list_item<literal>>',
     'list<list_item<literal>|list_item<object_creation_expression>>',
+    'list<list_item<literal>|list_item<object_creation_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>>',
     'list<list_item<literal>|list_item<prefix_unary_expression>|list_item<token:name>>',
     'list<list_item<literal>|list_item<scope_resolution_expression>>',

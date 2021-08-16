@@ -21,19 +21,12 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2021-06-09-0001',
+    SCHEMA_VERSION === '2021-08-09-0002',
     '%s needs updating',
     __FILE__,
   );
   if ($other_version === SCHEMA_VERSION) {
     return true;
   }
-
-  // Return true if $other_version is a subset of SCHEMA_VERSION
-  switch ($other_version) {
-    case '2021-06-04-0001': // doesn't have newtype Y as [a] = [b];
-      return true;
-    default:
-      return false;
-  }
+  return false;
 }

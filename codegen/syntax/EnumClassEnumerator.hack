@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ede9edd65e2c665c557e5d1847590a0c>>
+ * @generated SignedSource<<96f02ecb290eecf8ac03dc8e1fdc2d6d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,24 +12,24 @@ final class EnumClassEnumerator extends Node {
 
   const string SYNTAX_KIND = 'enum_class_enumerator';
 
+  private ?Node $_modifiers;
   private ISimpleCreationSpecifier $_type;
   private NameToken $_name;
-  private EqualToken $_equal;
-  private IExpression $_initial_value;
+  private SimpleInitializer $_initializer;
   private SemicolonToken $_semicolon;
 
   public function __construct(
+    ?Node $modifiers,
     ISimpleCreationSpecifier $type,
     NameToken $name,
-    EqualToken $equal,
-    IExpression $initial_value,
+    SimpleInitializer $initializer,
     SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
+    $this->_modifiers = $modifiers;
     $this->_type = $type;
     $this->_name = $name;
-    $this->_equal = $equal;
-    $this->_initial_value = $initial_value;
+    $this->_initializer = $initializer;
     $this->_semicolon = $semicolon;
     parent::__construct($source_ref);
   }
@@ -43,6 +43,15 @@ final class EnumClassEnumerator extends Node {
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
+    $modifiers = Node::fromJSON(
+      ($json['enum_class_enumerator_modifiers'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $modifiers?->getWidth() ?? 0;
     $type = Node::fromJSON(
       ($json['enum_class_enumerator_type']) as dict<_, _>,
       $file,
@@ -61,24 +70,15 @@ final class EnumClassEnumerator extends Node {
     );
     $name = $name as nonnull;
     $offset += $name->getWidth();
-    $equal = Node::fromJSON(
-      ($json['enum_class_enumerator_equal']) as dict<_, _>,
+    $initializer = Node::fromJSON(
+      ($json['enum_class_enumerator_initializer']) as dict<_, _>,
       $file,
       $offset,
       $source,
-      'EqualToken',
+      'SimpleInitializer',
     );
-    $equal = $equal as nonnull;
-    $offset += $equal->getWidth();
-    $initial_value = Node::fromJSON(
-      ($json['enum_class_enumerator_initial_value']) as dict<_, _>,
-      $file,
-      $offset,
-      $source,
-      'IExpression',
-    );
-    $initial_value = $initial_value as nonnull;
-    $offset += $initial_value->getWidth();
+    $initializer = $initializer as nonnull;
+    $offset += $initializer->getWidth();
     $semicolon = Node::fromJSON(
       ($json['enum_class_enumerator_semicolon']) as dict<_, _>,
       $file,
@@ -95,10 +95,10 @@ final class EnumClassEnumerator extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
       /* HH_IGNORE_ERROR[4110] */ $type,
       /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $equal,
-      /* HH_IGNORE_ERROR[4110] */ $initial_value,
+      /* HH_IGNORE_ERROR[4110] */ $initializer,
       /* HH_IGNORE_ERROR[4110] */ $semicolon,
       $source_ref,
     );
@@ -107,10 +107,10 @@ final class EnumClassEnumerator extends Node {
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
+      'modifiers' => $this->_modifiers,
       'type' => $this->_type,
       'name' => $this->_name,
-      'equal' => $this->_equal,
-      'initial_value' => $this->_initial_value,
+      'initializer' => $this->_initializer,
       'semicolon' => $this->_semicolon,
     ]
       |> Dict\filter_nulls($$);
@@ -122,27 +122,64 @@ final class EnumClassEnumerator extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $type = $rewriter($this->_type, $parents);
     $name = $rewriter($this->_name, $parents);
-    $equal = $rewriter($this->_equal, $parents);
-    $initial_value = $rewriter($this->_initial_value, $parents);
+    $initializer = $rewriter($this->_initializer, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
+      $modifiers === $this->_modifiers &&
       $type === $this->_type &&
       $name === $this->_name &&
-      $equal === $this->_equal &&
-      $initial_value === $this->_initial_value &&
+      $initializer === $this->_initializer &&
       $semicolon === $this->_semicolon
     ) {
       return $this;
     }
     return new static(
+      $modifiers as ?Node,
       $type as ISimpleCreationSpecifier,
       $name as NameToken,
-      $equal as EqualToken,
-      $initial_value as IExpression,
+      $initializer as SimpleInitializer,
       $semicolon as SemicolonToken,
     );
+  }
+
+  public function getModifiersUNTYPED(): ?Node {
+    return $this->_modifiers;
+  }
+
+  public function withModifiers(?Node $value): this {
+    if ($value === $this->_modifiers) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_type,
+      $this->_name,
+      $this->_initializer,
+      $this->_semicolon,
+    );
+  }
+
+  public function hasModifiers(): bool {
+    return $this->_modifiers !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getModifiers(): ?Node {
+    return $this->_modifiers;
+  }
+
+  /**
+   * @return
+   */
+  public function getModifiersx(): Node {
+    return TypeAssert\not_null($this->getModifiers());
   }
 
   public function getTypeUNTYPED(): ?Node {
@@ -154,10 +191,10 @@ final class EnumClassEnumerator extends Node {
       return $this;
     }
     return new static(
+      $this->_modifiers,
       $value,
       $this->_name,
-      $this->_equal,
-      $this->_initial_value,
+      $this->_initializer,
       $this->_semicolon,
     );
   }
@@ -192,10 +229,10 @@ final class EnumClassEnumerator extends Node {
       return $this;
     }
     return new static(
+      $this->_modifiers,
       $this->_type,
       $value,
-      $this->_equal,
-      $this->_initial_value,
+      $this->_initializer,
       $this->_semicolon,
     );
   }
@@ -218,76 +255,42 @@ final class EnumClassEnumerator extends Node {
     return $this->getName();
   }
 
-  public function getEqualUNTYPED(): ?Node {
-    return $this->_equal;
+  public function getInitializerUNTYPED(): ?Node {
+    return $this->_initializer;
   }
 
-  public function withEqual(EqualToken $value): this {
-    if ($value === $this->_equal) {
+  public function withInitializer(SimpleInitializer $value): this {
+    if ($value === $this->_initializer) {
       return $this;
     }
     return new static(
+      $this->_modifiers,
       $this->_type,
       $this->_name,
-      $value,
-      $this->_initial_value,
-      $this->_semicolon,
-    );
-  }
-
-  public function hasEqual(): bool {
-    return $this->_equal !== null;
-  }
-
-  /**
-   * @return EqualToken
-   */
-  public function getEqual(): EqualToken {
-    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
-  }
-
-  /**
-   * @return EqualToken
-   */
-  public function getEqualx(): EqualToken {
-    return $this->getEqual();
-  }
-
-  public function getInitialValueUNTYPED(): ?Node {
-    return $this->_initial_value;
-  }
-
-  public function withInitialValue(IExpression $value): this {
-    if ($value === $this->_initial_value) {
-      return $this;
-    }
-    return new static(
-      $this->_type,
-      $this->_name,
-      $this->_equal,
       $value,
       $this->_semicolon,
     );
   }
 
-  public function hasInitialValue(): bool {
-    return $this->_initial_value !== null;
+  public function hasInitializer(): bool {
+    return $this->_initializer !== null;
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
-   * ObjectCreationExpression
+   * @return SimpleInitializer
    */
-  public function getInitialValue(): IExpression {
-    return TypeAssert\instance_of(IExpression::class, $this->_initial_value);
+  public function getInitializer(): SimpleInitializer {
+    return TypeAssert\instance_of(
+      SimpleInitializer::class,
+      $this->_initializer,
+    );
   }
 
   /**
-   * @return FunctionCallExpression | LiteralExpression |
-   * ObjectCreationExpression
+   * @return SimpleInitializer
    */
-  public function getInitialValuex(): IExpression {
-    return $this->getInitialValue();
+  public function getInitializerx(): SimpleInitializer {
+    return $this->getInitializer();
   }
 
   public function getSemicolonUNTYPED(): ?Node {
@@ -299,10 +302,10 @@ final class EnumClassEnumerator extends Node {
       return $this;
     }
     return new static(
+      $this->_modifiers,
       $this->_type,
       $this->_name,
-      $this->_equal,
-      $this->_initial_value,
+      $this->_initializer,
       $value,
     );
   }

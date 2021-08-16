@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63bb53dfbb5d326e9114cdf4a6ab0bf3>>
+ * @generated SignedSource<<cc84c3eb6023a8426f097b0487291a44>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,7 +161,7 @@ final class ParenthesizedExpression
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | FunctionCallExpression | InclusionExpression |
-   * IsExpression | LambdaExpression | LiteralExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
@@ -176,7 +176,7 @@ final class ParenthesizedExpression
    * @return AnonymousFunction | AsExpression | BinaryExpression |
    * CastExpression | CollectionLiteralExpression | ConditionalExpression |
    * DarrayIntrinsicExpression | FunctionCallExpression | InclusionExpression |
-   * IsExpression | LambdaExpression | LiteralExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
