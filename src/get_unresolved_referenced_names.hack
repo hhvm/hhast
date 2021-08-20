@@ -16,9 +16,7 @@ use namespace HH\Lib\{C, Str};
  * These are not resolved to fully-qualified names; for example, `use`
  * and `namespace` statements to not affect the return value.
  */
-function get_unresolved_referenced_names(
-  Node $root,
-): shape(
+function get_unresolved_referenced_names(Node $root): shape(
   'namespaces' => keyset<string>,
   'types' => keyset<string>,
   'functions' => keyset<string>,
@@ -65,6 +63,17 @@ function get_unresolved_referenced_names(
       $name = $node->getReceiver();
       if ($name is NameToken) {
         $ret['functions'][] = $name->getText();
+      }
+      continue;
+    }
+
+    if ($node is FunctionPointerExpression) {
+      $name = $node->getReceiver();
+      if ($name is NameExpression) {
+        $name = $name->getWrappedNode();
+        if ($name is NameToken) {
+          $ret['functions'][] = $name->getText();
+        }
       }
       continue;
     }
