@@ -30,15 +30,18 @@ final class UnusedUseClauseLinterTest extends TestCase {
       tuple("<?hh\nuse Foo; new Foo\Bar();"),
       tuple("<?hh\nuse function foo; foo();"),
       tuple("<?hh\nuse const FOO; var_dump(FOO);"),
+      tuple(
+        "<?hh\nuse namespace HH\Lib\{C, Vec};\n Vec\map(vec[], C\count<>);",
+      ),
+      tuple(
+        "<?hh\nuse namespace HH\Lib\Vec;\n use function HH\Lib\C\count; Vec\map(vec[], count<>);",
+      ),
     ];
 
-    if (\HHVM_VERSION_ID < 41700) {
-      $examples[] = tuple("<?hh\nuse type Foo; \$x instanceof Foo;");
-    }
-
     if (\ini_get('hhvm.hack.lang.disable_xhp_element_mangling')) {
-      $examples[] =
-        tuple("<?hh\nuse type foo; function bar(): void { \$_ = <foo />; }");
+      $examples[] = tuple(
+        "<?hh\nuse type foo; function bar(): void { \$_ = <foo />; }",
+      );
     }
 
     return $examples;
