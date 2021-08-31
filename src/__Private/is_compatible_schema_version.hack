@@ -21,11 +21,16 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2021-08-09-0002',
+    SCHEMA_VERSION === '2021-08-12-0001',
     '%s needs updating',
     __FILE__,
   );
-  if ($other_version === SCHEMA_VERSION) {
+  if ($other_version === '2021-08-12-0001') {
+    // - Adds `newctx` token
+    // - Infers usage of `readonly` token
+    return true;
+  }
+  if ($other_version === '2021-08-09-0002') {
     return true;
   }
   return false;

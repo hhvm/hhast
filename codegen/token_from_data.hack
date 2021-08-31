@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e2f60406650cc0567d6d1d8c0a6bcbfd>>
+ * @generated SignedSource<<5f32f29bfe6a8615390d5cd7198c8e3b>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -99,6 +99,7 @@ class TokenClassMap {
     'mixed' => HHAST\MixedToken::class,
     'namespace' => HHAST\NamespaceToken::class,
     'new' => HHAST\NewToken::class,
+    'newctx' => HHAST\NewctxToken::class,
     'newtype' => HHAST\NewtypeToken::class,
     'noreturn' => HHAST\NoreturnToken::class,
     'null' => HHAST\NullLiteralToken::class,

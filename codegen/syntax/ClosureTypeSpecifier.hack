@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aed7ef3895e4e389200f8fe9e208d401>>
+ * @generated SignedSource<<470bc3c524dfcda22bd1de451b6c0b49>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -13,7 +13,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   const string SYNTAX_KIND = 'closure_type_specifier';
 
   private LeftParenToken $_outer_left_paren;
-  private ?Node $_readonly_keyword;
+  private ?ReadonlyToken $_readonly_keyword;
   private FunctionToken $_function_keyword;
   private LeftParenToken $_inner_left_paren;
   private ?NodeList<ListItem<ITypeSpecifier>> $_parameter_list;
@@ -26,7 +26,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
 
   public function __construct(
     LeftParenToken $outer_left_paren,
-    ?Node $readonly_keyword,
+    ?ReadonlyToken $readonly_keyword,
     FunctionToken $function_keyword,
     LeftParenToken $inner_left_paren,
     ?NodeList<ListItem<ITypeSpecifier>> $parameter_list,
@@ -76,7 +76,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'Node',
+      'ReadonlyToken',
     );
     $offset += $readonly_keyword?->getWidth() ?? 0;
     $function_keyword = Node::fromJSON(
@@ -241,7 +241,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     }
     return new static(
       $outer_left_paren as LeftParenToken,
-      $readonly_keyword as ?Node,
+      $readonly_keyword as ?ReadonlyToken,
       $function_keyword as FunctionToken,
       $inner_left_paren as LeftParenToken,
       /* HH_FIXME[4110] ?NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $parameter_list,
@@ -302,7 +302,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_readonly_keyword;
   }
 
-  public function withReadonlyKeyword(?Node $value): this {
+  public function withReadonlyKeyword(?ReadonlyToken $value): this {
     if ($value === $this->_readonly_keyword) {
       return $this;
     }
@@ -326,16 +326,16 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return null
+   * @return null | ReadonlyToken
    */
-  public function getReadonlyKeyword(): ?Node {
+  public function getReadonlyKeyword(): ?ReadonlyToken {
     return $this->_readonly_keyword;
   }
 
   /**
-   * @return
+   * @return ReadonlyToken
    */
-  public function getReadonlyKeywordx(): Node {
+  public function getReadonlyKeywordx(): ReadonlyToken {
     return TypeAssert\not_null($this->getReadonlyKeyword());
   }
 

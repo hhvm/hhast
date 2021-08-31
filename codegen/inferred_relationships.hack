@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b3575f3597e04470a20538eae3fb596f>>
+ * @generated SignedSource<<6a9f560a7ed419acd48e8fc2a02b7b3f>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -517,6 +517,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'closure_type_specifier.closure_readonly_keyword' => keyset[
     'missing',
+    'token:readonly',
   ],
   'closure_type_specifier.closure_readonly_return' => keyset[
     'missing',
@@ -559,6 +560,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<tuple_expression>>',
     'list<list_item<variable>>',
     'list<list_item<varray_intrinsic_expression>>',
+    'list<list_item<vector_intrinsic_expression>>',
     'missing',
   ],
   'collection_literal_expression.collection_literal_left_brace' => keyset[
@@ -756,6 +758,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<throw_statement|try_statement>',
     'list<throw_statement|using_statement_function_scoped>',
     'list<try_statement>',
+    'list<try_statement|unset_statement>',
     'list<unset_statement>',
     'list<using_statement_block_scoped>',
     'list<using_statement_block_scoped|using_statement_function_scoped>',
@@ -2823,6 +2826,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<token:protected|token:static>',
     'list<token:public>',
     'list<token:public|token:readonly>',
+    'list<token:public|token:readonly|token:static>',
     'list<token:public|token:static>',
     'list<token:static>',
   ],
@@ -3343,6 +3347,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<literal>|list_item<scope_resolution_expression>>',
     'list<list_item<literal>|list_item<shape_expression>>',
     'list<list_item<literal>|list_item<subscript_expression>>',
+    'list<list_item<literal>|list_item<token:name>>',
     'list<list_item<literal>|list_item<tuple_expression>>',
     'list<list_item<literal>|list_item<variable>>',
     'list<list_item<literal>|list_item<varray_intrinsic_expression>>',
@@ -3350,7 +3355,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<member_selection_expression>>',
     'list<list_item<object_creation_expression>>',
     'list<list_item<object_creation_expression>|list_item<variable>>',
-    'list<list_item<prefix_unary_expression>>',
     'list<list_item<subscript_expression>>',
     'list<list_item<subscript_expression>|list_item<variable>>',
     'list<list_item<variable>>',
@@ -3405,6 +3409,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<classname_type_specifier>>',
     'list<list_item<classname_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<closure_type_specifier>>',
+    'list<list_item<closure_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<darray_type_specifier>>',
     'list<list_item<darray_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<dictionary_type_specifier>>',
