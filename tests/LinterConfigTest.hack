@@ -13,7 +13,6 @@ use type Facebook\HackTest\HackTest;
 use function Facebook\FBExpect\expect;
 use type Facebook\HHAST\{
   BaseLinter,
-  FinalOrAbstractClassLinter,
   LintError,
   PreferRequireOnceLinter,
 };
