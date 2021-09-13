@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\C;
 
 final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = INamespaceUseDeclaration;
   const type TContext = Script;
 

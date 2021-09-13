@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{Str, Vec};
 
 final class DontUseAsioJoinLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TContext = Script;
   const type TNode = FunctionCallExpression;
   const string F_JOIN = 'HH\\Asio\\join';

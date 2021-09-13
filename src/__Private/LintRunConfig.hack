@@ -53,7 +53,7 @@ final class LintRunConfig {
     >,
     // Each linter may specify a type for itself.
     // The type of this key is effectively `dict<classname<T1 ... Tn>, Tx>`
-    ?'linterConfigs' => dict<string, BaseLinter::TConfig>,
+    ?'linterConfigs' => dict<string, dynamic>,
   );
 
   const type TFileConfig = shape(

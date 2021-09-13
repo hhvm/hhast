@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Str, Vec};
 
 final class GroupUseStatementAlphabetizationLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = NamespaceGroupUseDeclaration;
   const type TContext = Script;
 

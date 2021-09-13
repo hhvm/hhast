@@ -12,6 +12,8 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\Str;
 
 class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
+  const type TConfig = shape();
+
   <<__Override>>
   final public function getSuggestedNameForFunction(
     string $name,

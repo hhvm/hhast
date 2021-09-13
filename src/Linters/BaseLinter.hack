@@ -16,7 +16,7 @@ use namespace HH\Lib\{C, Str};
 <<__ConsistentConstruct>>
 abstract class BaseLinter {
   <<__Reifiable>>
-  const type TConfig as shape(...) = shape(...);
+  abstract const type TConfig;
 
   abstract public function getLintErrorsAsync(): Awaitable<vec<LintError>>;
 

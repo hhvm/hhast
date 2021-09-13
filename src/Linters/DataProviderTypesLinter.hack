@@ -12,6 +12,8 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Math, Str, Vec};
 
 final class DataProviderTypesLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
+
   const type TContext = ClassishDeclaration;
   const type TNode = FunctionDeclarationHeader;
   //dict<provider, vec<(test, provider again)>>

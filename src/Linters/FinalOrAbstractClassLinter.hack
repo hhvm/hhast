@@ -13,6 +13,7 @@ namespace Facebook\HHAST;
  * This linter ensures we always qualify classes as final or abstract
  */
 final class FinalOrAbstractClassLinter extends ASTLinter {
+  const type TConfig = shape();
   const type TNode = ClassishDeclaration;
   const type TContext = Script;
 

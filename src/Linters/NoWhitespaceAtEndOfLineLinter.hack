@@ -13,6 +13,7 @@ use namespace HH\Lib\Str;
 
 final class NoWhitespaceAtEndOfLineLinter
   extends AutoFixingLineLinter<LineLintError> {
+  const type TConfig = shape();
 
   <<__Override>>
   public function getTitleForFix(LineLintError $_): string {

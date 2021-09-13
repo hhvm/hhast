@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\{ExpressionStatement, Node, NodeList, Script, Token};
 
 final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = ExpressionStatement;
 
   <<__Override>>

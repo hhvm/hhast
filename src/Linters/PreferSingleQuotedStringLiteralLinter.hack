@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Regex, Str};
 
 final class PreferSingleQuotedStringLiteralLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TContext = Script;
   const type TNode = DoubleQuotedStringLiteralToken;
 

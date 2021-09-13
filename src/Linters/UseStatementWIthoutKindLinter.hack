@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset};
 
 final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = INamespaceUseDeclaration;
   const type TContext = Script;
 

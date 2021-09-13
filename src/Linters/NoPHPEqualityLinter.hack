@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\Str;
 
 final class NoPHPEqualityLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = BinaryExpression;
 
   <<__Override>>

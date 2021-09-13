@@ -108,18 +108,6 @@ final class LinterConfigTest extends HackTest {
     expect($config)->toBeNull('No config supplied');
   }
 
-  public function testConfigSuppliedAndLinterDoesNotSpecify(): void {
-    $lrc = static::getLintRunConfig();
-
-    $config = $lrc->getLinterConfigForLinter<FinalOrAbstractClassLinter, _>(
-      FinalOrAbstractClassLinter::class,
-    );
-
-    expect($config)->toEqual(
-      shape('I can supply a config' => "even if the linter doesn't need one"),
-    );
-  }
-
   public function testConfigTypeIsNotSupportedByTypeAssertLinter(): void {
     $lrc = static::getLintRunConfig();
 

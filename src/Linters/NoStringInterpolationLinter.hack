@@ -11,7 +11,9 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Vec};
 
-final class NoStringInterpolationLinter extends AutoFixingASTLinter {
+final class NoStringInterpolationLinter
+extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = LiteralExpression;
   const type TContext = Script;
 

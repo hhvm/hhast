@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Vec};
 
 class NoNewlineAtStartOfControlFlowBlockLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = IControlFlowStatement;
   const type TContext = Script;
 

@@ -13,6 +13,7 @@ use function Facebook\HHAST\resolve_type;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = MethodishDeclaration;
 
   <<__Override>>

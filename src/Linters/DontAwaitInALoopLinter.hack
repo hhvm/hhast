@@ -13,6 +13,7 @@ use namespace HH\Lib\{C, Str, Vec};
 use function Facebook\HHAST\find_position;
 
 final class DontAwaitInALoopLinter extends ASTLinter {
+  const type TConfig = shape();
   const type TNode = PrefixUnaryExpression;
   const type TContext = Script;
 
