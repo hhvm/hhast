@@ -13,6 +13,7 @@ use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class LicenseHeaderLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = Script;
 
   public static ?string $forcedHeader = null;

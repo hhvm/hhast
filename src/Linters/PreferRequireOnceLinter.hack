@@ -10,6 +10,7 @@
 namespace Facebook\HHAST;
 
 final class PreferRequireOnceLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TContext = Script;
   const type TNode = InclusionExpression;
 

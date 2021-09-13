@@ -10,6 +10,7 @@
 namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str, Vec};
 final class NamespacePrivateLinter extends ASTLinter {
+  const type TConfig = shape();
   const type TContext = Script;
   const type TNode = Script;
 

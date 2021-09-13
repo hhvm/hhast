@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Regex, Str, Vec};
 
 final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TContext = EnumDeclaration;
   const type TNode = Enumerator;
 

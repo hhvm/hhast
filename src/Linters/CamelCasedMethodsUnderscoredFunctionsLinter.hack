@@ -13,6 +13,8 @@ use type Facebook\HHAST\{FunctionDeclaration, MethodishDeclaration};
 use namespace HH\Lib\{C, Str};
 
 class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
+  const type TConfig = shape();
+
   <<__Override>>
   final public function getSuggestedNameForFunction(
     string $name,

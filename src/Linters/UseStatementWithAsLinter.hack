@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\{NamespaceUseClause, Script};
 
 final class UseStatementWithAsLinter extends ASTLinter {
+  const type TConfig = shape();
   const type TNode = NamespaceUseClause;
   const type TContext = Script;
 

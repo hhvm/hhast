@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Keyset, Str, Vec};
 
 final class UnusedVariableLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = VariableExpression;
   const type TContext = IFunctionishDeclaration;
 

@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\Str;
 
 final class UnusedParameterLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = ParameterDeclaration;
   const type TContext = IFunctionishDeclaration;
 

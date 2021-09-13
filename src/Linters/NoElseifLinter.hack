@@ -10,6 +10,7 @@
 namespace Facebook\HHAST;
 
 final class NoElseifLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = ElseifClause;
   const type TContext = Script;
 

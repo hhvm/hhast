@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
 final class DontHaveTwoEmptyLinesInARowLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TContext = Script;
   const type TNode = Token;
 

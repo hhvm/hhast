@@ -15,6 +15,7 @@ use namespace HH\Lib\{C, Math, Str, Vec};
 final class NewlineAtEndOfFileLinter
   extends BaseLinter
   implements AutoFixingLinter<LintError> {
+  const type TConfig = shape();
   use AutoFixingLinterTrait<LintError>;
 
   <<__Override>>

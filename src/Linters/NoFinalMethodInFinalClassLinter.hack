@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
 final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
+  const type TConfig = shape();
   const type TNode = MethodishDeclaration;
   const type TContext = ClassishDeclaration;
 
