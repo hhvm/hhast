@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6a9f560a7ed419acd48e8fc2a02b7b3f>>
+ * @generated SignedSource<<4da2a3e8381cc2f3d57536d6cfa26d59>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -251,7 +251,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'prefix_unary_expression',
     'prefixed_string',
     'qualified_name',
-    'record_creation_expression',
     'safe_member_selection_expression',
     'scope_resolution_expression',
     'shape_expression',
@@ -554,6 +553,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<literal>|list_item<varray_intrinsic_expression>>',
     'list<list_item<member_selection_expression>|list_item<variable>>',
     'list<list_item<object_creation_expression>>',
+    'list<list_item<prefix_unary_expression>>',
     'list<list_item<scope_resolution_expression>>',
     'list<list_item<shape_expression>>',
     'list<list_item<subscript_expression>>',
@@ -2779,12 +2779,14 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'awaitable_creation_expression',
     'binary_expression',
     'cast_expression',
+    'collection_literal_expression',
     'conditional_expression',
     'darray_intrinsic_expression',
     'eval_expression',
     'function_call_expression',
     'is_expression',
     'isset_expression',
+    'lambda_expression',
     'literal',
     'member_selection_expression',
     'object_creation_expression',
@@ -2859,18 +2861,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<token:name>>',
     'list<list_item<token:name>|list_item<token:namespace>>',
   ],
-  'record_creation_expression.record_creation_left_bracket' => keyset[
-    'token:[',
-  ],
-  'record_creation_expression.record_creation_members' => keyset[
-    'list<list_item<element_initializer>>',
-  ],
-  'record_creation_expression.record_creation_right_bracket' => keyset[
-    'token:]',
-  ],
-  'record_creation_expression.record_creation_type' => keyset[
-    'token:name',
-  ],
   'record_declaration.record_attribute_spec' => keyset[],
   'record_declaration.record_extends_keyword' => keyset[],
   'record_declaration.record_extends_opt' => keyset[],
@@ -2925,7 +2915,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'postfix_unary_expression',
     'prefix_unary_expression',
     'qualified_name',
-    'record_creation_expression',
     'safe_member_selection_expression',
     'scope_resolution_expression',
     'shape_expression',
@@ -2948,6 +2937,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'safe_member_selection_expression.safe_member_object' => keyset[
     'function_call_expression',
+    'literal',
     'member_selection_expression',
     'safe_member_selection_expression',
     'scope_resolution_expression',
@@ -3815,6 +3805,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<keyset_intrinsic_expression>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<literal>>',
     'list<list_item<keyset_intrinsic_expression>|list_item<variable>>',
+    'list<list_item<lambda_expression>>',
     'list<list_item<literal>>',
     'list<list_item<literal>|list_item<object_creation_expression>>',
     'list<list_item<literal>|list_item<object_creation_expression>|list_item<varray_intrinsic_expression>>',
@@ -3828,6 +3819,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<member_selection_expression>|list_item<variable>>',
     'list<list_item<object_creation_expression>>',
     'list<list_item<object_creation_expression>|list_item<varray_intrinsic_expression>>',
+    'list<list_item<prefix_unary_expression>>',
     'list<list_item<scope_resolution_expression>>',
     'list<list_item<shape_expression>>',
     'list<list_item<subscript_expression>>',

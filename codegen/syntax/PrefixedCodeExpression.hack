@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45c0a91b942e8d09188dd7727a1cfa9c>>
+ * @generated SignedSource<<a286f6ccb1cb359104f44365445fc105>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,9 +110,8 @@ final class PrefixedCodeExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $prefix = $this->_prefix === null
-      ? null
-      : $rewriter($this->_prefix, $parents);
+    $prefix =
+      $this->_prefix === null ? null : $rewriter($this->_prefix, $parents);
     $left_backtick = $this->_left_backtick === null
       ? null
       : $rewriter($this->_left_backtick, $parents);

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc4b39a741c5bbf18bbefff87e57c693>>
+ * @generated SignedSource<<e77bf231199a89d20c54d976146dfd9f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -218,12 +218,8 @@ final class ConstructorCall extends Node {
     if ($value === $this->_argument_list) {
       return $this;
     }
-    return new static(
-      $this->_type,
-      $this->_left_paren,
-      $value,
-      $this->_right_paren,
-    );
+    return
+      new static($this->_type, $this->_left_paren, $value, $this->_right_paren);
   }
 
   public function hasArgumentList(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f1484b11fcbb9571af5057ceb540606>>
+ * @generated SignedSource<<a2424dd6682fc5c5667810d70614b706>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,12 +134,10 @@ final class TypeParameter extends Node {
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
-    $reified = $this->_reified === null
-      ? null
-      : $rewriter($this->_reified, $parents);
-    $variance = $this->_variance === null
-      ? null
-      : $rewriter($this->_variance, $parents);
+    $reified =
+      $this->_reified === null ? null : $rewriter($this->_reified, $parents);
+    $variance =
+      $this->_variance === null ? null : $rewriter($this->_variance, $parents);
     $name = $rewriter($this->_name, $parents);
     $param_params = $this->_param_params === null
       ? null

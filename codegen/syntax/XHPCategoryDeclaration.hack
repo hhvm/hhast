@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aaeba8695624583c187ce2e6f3213aa8>>
+ * @generated SignedSource<<9f891a92ccaa06bab0f27c7fd204b194>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -96,9 +96,8 @@ final class XHPCategoryDeclaration
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
+    $keyword =
+      $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
     $categories = $this->_categories === null
       ? null
       : $rewriter($this->_categories, $parents);
@@ -112,11 +111,8 @@ final class XHPCategoryDeclaration
     ) {
       return $this;
     }
-    return new static(
-      $keyword as ?Node,
-      $categories as ?Node,
-      $semicolon as ?Node,
-    );
+    return
+      new static($keyword as ?Node, $categories as ?Node, $semicolon as ?Node);
   }
 
   public function getKeywordUNTYPED(): ?Node {

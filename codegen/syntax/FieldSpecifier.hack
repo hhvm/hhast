@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f609df5b7c351c2198c7ccb036b4f16f>>
+ * @generated SignedSource<<fceb14bc4522a8641db7d76e61855176>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,9 +107,8 @@ final class FieldSpecifier extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $question = $this->_question === null
-      ? null
-      : $rewriter($this->_question, $parents);
+    $question =
+      $this->_question === null ? null : $rewriter($this->_question, $parents);
     $name = $rewriter($this->_name, $parents);
     $arrow = $rewriter($this->_arrow, $parents);
     $type = $rewriter($this->_type, $parents);

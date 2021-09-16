@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1731d01b3927d3645aaa57bbb3b0cfe4>>
+ * @generated SignedSource<<4b3ed05e2671aa81d23e0402135e410d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -170,12 +170,8 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_items,
-      $this->_right_paren,
-    );
+    return
+      new static($this->_keyword, $value, $this->_items, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -260,12 +256,8 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $this->_items,
-      $value,
-    );
+    return
+      new static($this->_keyword, $this->_left_paren, $this->_items, $value);
   }
 
   public function hasRightParen(): bool {

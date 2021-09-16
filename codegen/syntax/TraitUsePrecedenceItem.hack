@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba534eb13deb6f5ef970bfa37a34309f>>
+ * @generated SignedSource<<e98dc990aaef1d16a387552dbad76058>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -130,10 +130,8 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
    * @return ScopeResolutionExpression
    */
   public function getName(): ScopeResolutionExpression {
-    return TypeAssert\instance_of(
-      ScopeResolutionExpression::class,
-      $this->_name,
-    );
+    return
+      TypeAssert\instance_of(ScopeResolutionExpression::class, $this->_name);
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f9f346b8094b21446ac9d0aad381fada>>
+ * @generated SignedSource<<42a50b2b986c591ca2c183018509cc41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -186,11 +186,8 @@ final class FunctionDeclaration
     if ($value === $this->_body) {
       return $this;
     }
-    return new static(
-      $this->_attribute_spec,
-      $this->_declaration_header,
-      $value,
-    );
+    return
+      new static($this->_attribute_spec, $this->_declaration_header, $value);
   }
 
   public function hasBody(): bool {

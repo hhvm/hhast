@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<febeb1cfe7f081420d84dbe131c2911f>>
+ * @generated SignedSource<<05ebad7366723f35ee2f1836f8b5f686>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -152,11 +152,8 @@ abstract class AwaitableCreationExpressionGeneratedBase
     if ($value === $this->_async) {
       return $this;
     }
-    return new static(
-      $this->_attribute_spec,
-      $value,
-      $this->_compound_statement,
-    );
+    return
+      new static($this->_attribute_spec, $value, $this->_compound_statement);
   }
 
   public function hasAsync(): bool {

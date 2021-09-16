@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8aee8a3ae3c5172a1e64c313ea00b533>>
+ * @generated SignedSource<<7ee3405e5e89a3926c0a9340587596b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -120,12 +120,8 @@ final class RecordField extends Node {
     ) {
       return $this;
     }
-    return new static(
-      $type as Node,
-      $name as Node,
-      $init as Node,
-      $semi as Node,
-    );
+    return
+      new static($type as Node, $name as Node, $init as Node, $semi as Node);
   }
 
   public function getTypeUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bbdd1a946d316179b1b0ab6e552e8a76>>
+ * @generated SignedSource<<f1828a26cfbdce5a07bbfd7c691840e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -183,9 +183,8 @@ final class ForStatement
       ? null
       : $rewriter($this->_initializer, $parents);
     $first_semicolon = $rewriter($this->_first_semicolon, $parents);
-    $control = $this->_control === null
-      ? null
-      : $rewriter($this->_control, $parents);
+    $control =
+      $this->_control === null ? null : $rewriter($this->_control, $parents);
     $second_semicolon = $rewriter($this->_second_semicolon, $parents);
     $end_of_loop = $this->_end_of_loop === null
       ? null
@@ -368,10 +367,8 @@ final class ForStatement
    * @return SemicolonToken
    */
   public function getFirstSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(
-      SemicolonToken::class,
-      $this->_first_semicolon,
-    );
+    return
+      TypeAssert\instance_of(SemicolonToken::class, $this->_first_semicolon);
   }
 
   /**
@@ -451,10 +448,8 @@ final class ForStatement
    * @return SemicolonToken
    */
   public function getSecondSemicolon(): SemicolonToken {
-    return TypeAssert\instance_of(
-      SemicolonToken::class,
-      $this->_second_semicolon,
-    );
+    return
+      TypeAssert\instance_of(SemicolonToken::class, $this->_second_semicolon);
   }
 
   /**

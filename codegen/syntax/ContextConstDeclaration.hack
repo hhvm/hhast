@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0a59961e82d56b49d8524c190c9c8dfc>>
+ * @generated SignedSource<<edf12a759526d546cdd5cc743d59993b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -192,9 +192,8 @@ final class ContextConstDeclaration
       ? null
       : $rewriter($this->_constraint, $parents);
     $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
-    $ctx_list = $this->_ctx_list === null
-      ? null
-      : $rewriter($this->_ctx_list, $parents);
+    $ctx_list =
+      $this->_ctx_list === null ? null : $rewriter($this->_ctx_list, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $modifiers === $this->_modifiers &&

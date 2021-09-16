@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a8922c3a88c9c0900b09515753bcc96>>
+ * @generated SignedSource<<c98af067495db43311785bc068dd3bac>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -113,9 +113,8 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     $initializer = $this->_initializer === null
       ? null
       : $rewriter($this->_initializer, $parents);
-    $required = $this->_required === null
-      ? null
-      : $rewriter($this->_required, $parents);
+    $required =
+      $this->_required === null ? null : $rewriter($this->_required, $parents);
     if (
       $type === $this->_type &&
       $name === $this->_name &&
@@ -140,12 +139,8 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     if ($value === $this->_type) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_name,
-      $this->_initializer,
-      $this->_required,
-    );
+    return
+      new static($value, $this->_name, $this->_initializer, $this->_required);
   }
 
   public function hasType(): bool {
@@ -176,12 +171,8 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
     if ($value === $this->_name) {
       return $this;
     }
-    return new static(
-      $this->_type,
-      $value,
-      $this->_initializer,
-      $this->_required,
-    );
+    return
+      new static($this->_type, $value, $this->_initializer, $this->_required);
   }
 
   public function hasName(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0f286af5dd6e1cb6c1f8b126428db94>>
+ * @generated SignedSource<<dcd6d38420ed9a8b71c71fbe2c523cf0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,9 +162,8 @@ final class ContextAliasDeclaration extends Node {
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
+    $keyword =
+      $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $generic_parameter = $this->_generic_parameter === null
       ? null
@@ -173,9 +172,8 @@ final class ContextAliasDeclaration extends Node {
       ? null
       : $rewriter($this->_as_constraint, $parents);
     $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
-    $context = $this->_context === null
-      ? null
-      : $rewriter($this->_context, $parents);
+    $context =
+      $this->_context === null ? null : $rewriter($this->_context, $parents);
     $semicolon = $this->_semicolon === null
       ? null
       : $rewriter($this->_semicolon, $parents);

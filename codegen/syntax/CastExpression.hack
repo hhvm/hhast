@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d8453d94d9b4a349b75d3d5279829f2>>
+ * @generated SignedSource<<398303ea171ef81ece9d5529e540a1db>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,12 +136,8 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_type,
-      $this->_right_paren,
-      $this->_operand,
-    );
+    return
+      new static($value, $this->_type, $this->_right_paren, $this->_operand);
   }
 
   public function hasLeftParen(): bool {
@@ -204,12 +200,8 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $this->_type,
-      $value,
-      $this->_operand,
-    );
+    return
+      new static($this->_left_paren, $this->_type, $value, $this->_operand);
   }
 
   public function hasRightParen(): bool {
@@ -238,12 +230,8 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_operand) {
       return $this;
     }
-    return new static(
-      $this->_left_paren,
-      $this->_type,
-      $this->_right_paren,
-      $value,
-    );
+    return
+      new static($this->_left_paren, $this->_type, $this->_right_paren, $value);
   }
 
   public function hasOperand(): bool {

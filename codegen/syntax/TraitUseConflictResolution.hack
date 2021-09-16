@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c03a8766e3d6ef14e276483f44b6fe68>>
+ * @generated SignedSource<<8ec6807fafcac1ece63c8a2a5ab38d8d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,9 +129,8 @@ final class TraitUseConflictResolution
     $keyword = $rewriter($this->_keyword, $parents);
     $names = $rewriter($this->_names, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $clauses = $this->_clauses === null
-      ? null
-      : $rewriter($this->_clauses, $parents);
+    $clauses =
+      $this->_clauses === null ? null : $rewriter($this->_clauses, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $keyword === $this->_keyword &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d36085aff960c220ea05e50826c80391>>
+ * @generated SignedSource<<60321d4b1967c1533267b106e8b737de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -170,12 +170,8 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_values,
-      $this->_right_brace,
-    );
+    return
+      new static($this->_keyword, $value, $this->_values, $this->_right_brace);
   }
 
   public function hasLeftBrace(): bool {
@@ -240,12 +236,8 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_brace,
-      $this->_values,
-      $value,
-    );
+    return
+      new static($this->_keyword, $this->_left_brace, $this->_values, $value);
   }
 
   public function hasRightBrace(): bool {

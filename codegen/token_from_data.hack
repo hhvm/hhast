@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f32f29bfe6a8615390d5cd7198c8e3b>>
+ * @generated SignedSource<<b66f0138818494bd612260ec4caf0a25>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -134,6 +134,7 @@ class TokenClassMap {
     'tuple' => HHAST\TupleToken::class,
     'type' => HHAST\TypeToken::class,
     'unset' => HHAST\UnsetToken::class,
+    'upcast' => HHAST\UpcastToken::class,
     'use' => HHAST\UseToken::class,
     'using' => HHAST\UsingToken::class,
     'var' => HHAST\VarToken::class,

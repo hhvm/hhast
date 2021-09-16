@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6dc33803e7712bf884700ae203759bf>>
+ * @generated SignedSource<<56836c075f2b9ac81bc41784f1360b88>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,9 +99,8 @@ final class ClosureParameterTypeSpecifier
     $call_convention = $this->_call_convention === null
       ? null
       : $rewriter($this->_call_convention, $parents);
-    $readonly = $this->_readonly === null
-      ? null
-      : $rewriter($this->_readonly, $parents);
+    $readonly =
+      $this->_readonly === null ? null : $rewriter($this->_readonly, $parents);
     $type = $rewriter($this->_type, $parents);
     if (
       $call_convention === $this->_call_convention &&

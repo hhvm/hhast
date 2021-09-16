@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<df475589241e2ca8c5ac75abd03eb227>>
+ * @generated SignedSource<<22cbe433c2c7143119a14dea9746011a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,9 +110,8 @@ final class EmbeddedSubscriptExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $receiver = $this->_receiver === null
-      ? null
-      : $rewriter($this->_receiver, $parents);
+    $receiver =
+      $this->_receiver === null ? null : $rewriter($this->_receiver, $parents);
     $left_bracket = $this->_left_bracket === null
       ? null
       : $rewriter($this->_left_bracket, $parents);
@@ -246,12 +245,8 @@ final class EmbeddedSubscriptExpression
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new static(
-      $this->_receiver,
-      $this->_left_bracket,
-      $this->_index,
-      $value,
-    );
+    return
+      new static($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 
   public function hasRightBracket(): bool {

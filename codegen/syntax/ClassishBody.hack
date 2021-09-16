@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2877bf5ff84323d0776d89f51eb57d5f>>
+ * @generated SignedSource<<66eedbd12f4314098bf3f9e1ea22ae7b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -95,9 +95,8 @@ final class ClassishBody extends Node {
   ): this {
     $parents[] = $this;
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $elements = $this->_elements === null
-      ? null
-      : $rewriter($this->_elements, $parents);
+    $elements =
+      $this->_elements === null ? null : $rewriter($this->_elements, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $left_brace === $this->_left_brace &&

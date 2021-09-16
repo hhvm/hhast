@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24b49fb448bf7c50cdfb83b05408a0b6>>
+ * @generated SignedSource<<1c0bd9cf84b3143b7e30fbb3159ab6aa>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -238,11 +238,11 @@ final class BinaryExpression
    * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * PrefixedStringExpression | QualifiedName | RecordCreationExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldExpression
+   * PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
+   * YieldExpression
    */
   public function getRightOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_right_operand);
@@ -258,11 +258,11 @@ final class BinaryExpression
    * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * PrefixedStringExpression | QualifiedName | RecordCreationExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
-   * | XHPExpression | YieldExpression
+   * PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression |
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | TupleExpression | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
+   * YieldExpression
    */
   public function getRightOperandx(): IExpression {
     return $this->getRightOperand();

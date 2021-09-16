@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0fd76d7d553db4931e3c4c4194f8a797>>
+ * @generated SignedSource<<5ff5d7781b929dd741909db34fef2bb0>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -10,11 +10,8 @@ function trivia_from_json(
   dict<arraykey, mixed> $json,
   SourceRef $source_ref,
 ): HHAST\Trivia {
-  $trivia_text = \substr(
-    $source_ref['source'],
-    $source_ref['offset'],
-    $source_ref['width'],
-  );
+  $trivia_text =
+    \substr($source_ref['source'], $source_ref['offset'], $source_ref['width']);
   switch ((string)$json['kind']) {
     case 'delimited_comment':
       return new HHAST\DelimitedComment($trivia_text, $source_ref);

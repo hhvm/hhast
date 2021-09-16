@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e5660eddb05f22bf42b2efd7a7071f09>>
+ * @generated SignedSource<<8fc3ef544dbf2559227993b5d808fdb8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -186,10 +186,8 @@ final class XHPSpreadAttribute extends Node {
    * @return DotDotDotToken
    */
   public function getSpreadOperator(): DotDotDotToken {
-    return TypeAssert\instance_of(
-      DotDotDotToken::class,
-      $this->_spread_operator,
-    );
+    return
+      TypeAssert\instance_of(DotDotDotToken::class, $this->_spread_operator);
   }
 
   /**

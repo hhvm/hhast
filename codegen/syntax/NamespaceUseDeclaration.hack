@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c3449b69fb4141f9d74417f2968841f5>>
+ * @generated SignedSource<<59c6074e948d959c6bd983cd7e32e97a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -166,12 +166,8 @@ final class NamespaceUseDeclaration
     if ($value === $this->_kind) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_clauses,
-      $this->_semicolon,
-    );
+    return
+      new static($this->_keyword, $value, $this->_clauses, $this->_semicolon);
   }
 
   public function hasKind(): bool {

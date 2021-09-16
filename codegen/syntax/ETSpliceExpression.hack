@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68695b96425a0078f1e1abac5e4cbc1e>>
+ * @generated SignedSource<<311bc30035cd77455998d8dfbe5ea43b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,9 +110,8 @@ final class ETSpliceExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $dollar = $this->_dollar === null
-      ? null
-      : $rewriter($this->_dollar, $parents);
+    $dollar =
+      $this->_dollar === null ? null : $rewriter($this->_dollar, $parents);
     $left_brace = $this->_left_brace === null
       ? null
       : $rewriter($this->_left_brace, $parents);

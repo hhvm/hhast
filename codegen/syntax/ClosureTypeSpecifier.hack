@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<470bc3c524dfcda22bd1de451b6c0b49>>
+ * @generated SignedSource<<f371f460c21f46630ca067bd7e3e481c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -215,9 +215,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       ? null
       : $rewriter($this->_parameter_list, $parents);
     $inner_right_paren = $rewriter($this->_inner_right_paren, $parents);
-    $contexts = $this->_contexts === null
-      ? null
-      : $rewriter($this->_contexts, $parents);
+    $contexts =
+      $this->_contexts === null ? null : $rewriter($this->_contexts, $parents);
     $colon = $rewriter($this->_colon, $parents);
     $readonly_return = $this->_readonly_return === null
       ? null
@@ -285,10 +284,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
    * @return LeftParenToken
    */
   public function getOuterLeftParen(): LeftParenToken {
-    return TypeAssert\instance_of(
-      LeftParenToken::class,
-      $this->_outer_left_paren,
-    );
+    return
+      TypeAssert\instance_of(LeftParenToken::class, $this->_outer_left_paren);
   }
 
   /**
@@ -370,10 +367,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
    * @return FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
-    return TypeAssert\instance_of(
-      FunctionToken::class,
-      $this->_function_keyword,
-    );
+    return
+      TypeAssert\instance_of(FunctionToken::class, $this->_function_keyword);
   }
 
   /**
@@ -414,10 +409,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
    * @return LeftParenToken
    */
   public function getInnerLeftParen(): LeftParenToken {
-    return TypeAssert\instance_of(
-      LeftParenToken::class,
-      $this->_inner_left_paren,
-    );
+    return
+      TypeAssert\instance_of(LeftParenToken::class, $this->_inner_left_paren);
   }
 
   /**
@@ -504,10 +497,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
    * @return RightParenToken
    */
   public function getInnerRightParen(): RightParenToken {
-    return TypeAssert\instance_of(
-      RightParenToken::class,
-      $this->_inner_right_paren,
-    );
+    return
+      TypeAssert\instance_of(RightParenToken::class, $this->_inner_right_paren);
   }
 
   /**
@@ -714,10 +705,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
    * @return RightParenToken
    */
   public function getOuterRightParen(): RightParenToken {
-    return TypeAssert\instance_of(
-      RightParenToken::class,
-      $this->_outer_right_paren,
-    );
+    return
+      TypeAssert\instance_of(RightParenToken::class, $this->_outer_right_paren);
   }
 
   /**

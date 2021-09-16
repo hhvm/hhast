@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9277649e6316b6f330b4ca686dfae528>>
+ * @generated SignedSource<<31cc213f82ac7a36cf3b5b9a4e991dc6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -170,12 +170,8 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_members,
-      $this->_right_angle,
-    );
+    return
+      new static($this->_keyword, $value, $this->_members, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -244,12 +240,8 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_angle,
-      $this->_members,
-      $value,
-    );
+    return
+      new static($this->_keyword, $this->_left_angle, $this->_members, $value);
   }
 
   public function hasRightAngle(): bool {

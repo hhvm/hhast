@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eddf1171f44f569bf03dbe4bcbde63b1>>
+ * @generated SignedSource<<368239f1b09bf9b5eb835f5d2e45695f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,12 +137,8 @@ final class XHPOpen extends Node {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static(
-      $value,
-      $this->_name,
-      $this->_attributes,
-      $this->_right_angle,
-    );
+    return
+      new static($value, $this->_name, $this->_attributes, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -205,12 +201,8 @@ final class XHPOpen extends Node {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $this->_name,
-      $value,
-      $this->_right_angle,
-    );
+    return
+      new static($this->_left_angle, $this->_name, $value, $this->_right_angle);
   }
 
   public function hasAttributes(): bool {
@@ -241,12 +233,8 @@ final class XHPOpen extends Node {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static(
-      $this->_left_angle,
-      $this->_name,
-      $this->_attributes,
-      $value,
-    );
+    return
+      new static($this->_left_angle, $this->_name, $this->_attributes, $value);
   }
 
   public function hasRightAngle(): bool {

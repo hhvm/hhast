@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea571f5342abf84853cdbb04f1e195e5>>
+ * @generated SignedSource<<6313e13d3131b4fef8dafcbba257cd61>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,11 +110,8 @@ final class EnumClassLabelExpression
     ) {
       return $this;
     }
-    return new static(
-      $qualifier as ?Node,
-      $hash as ?Node,
-      $expression as ?Node,
-    );
+    return
+      new static($qualifier as ?Node, $hash as ?Node, $expression as ?Node);
   }
 
   public function getQualifierUNTYPED(): ?Node {
