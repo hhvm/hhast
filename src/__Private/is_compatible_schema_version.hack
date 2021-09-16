@@ -25,7 +25,7 @@ function is_compatible_schema_version(string $other_version): bool {
     '%s needs updating',
     __FILE__,
   );
-  if ($other_version == '2021-09-13-0001') {
+  if ($other_version === '2021-09-13-0001') {
     // adds upcast token and expression
     // removes inference of record types (never supported)
     return true;
