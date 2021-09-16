@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9e37e64e69d25db03b17521e8e6b4f28>>
+ * @generated SignedSource<<a77db6f6aebc378288acc6bff076d7b0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,11 +105,8 @@ final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
     ) {
       return $this;
     }
-    return new static(
-      $left_paren as ?Node,
-      $types as ?Node,
-      $right_paren as ?Node,
-    );
+    return
+      new static($left_paren as ?Node, $types as ?Node, $right_paren as ?Node);
   }
 
   public function getLeftParenUNTYPED(): ?Node {

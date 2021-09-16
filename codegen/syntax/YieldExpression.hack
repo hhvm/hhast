@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5766557ae6900688a0fcf2544022207a>>
+ * @generated SignedSource<<93699c0344aa1b1a4bd6b6cf3cbb29b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -80,9 +80,8 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   ): this {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
-    $operand = $this->_operand === null
-      ? null
-      : $rewriter($this->_operand, $parents);
+    $operand =
+      $this->_operand === null ? null : $rewriter($this->_operand, $parents);
     if ($keyword === $this->_keyword && $operand === $this->_operand) {
       return $this;
     }

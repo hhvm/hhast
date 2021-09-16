@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<367e5e9bd112495aa6b7b326401b5a23>>
+ * @generated SignedSource<<ba1fe8fdff9a5fbebc8c17fb267952b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,9 +129,8 @@ final class DarrayIntrinsicExpression
       ? null
       : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $this->_members === null
-      ? null
-      : $rewriter($this->_members, $parents);
+    $members =
+      $this->_members === null ? null : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -246,10 +245,8 @@ final class DarrayIntrinsicExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return
+      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -321,10 +318,8 @@ final class DarrayIntrinsicExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return
+      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

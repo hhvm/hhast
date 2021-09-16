@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6e0c9f95f7df0684c02eb08fd4a00bac>>
+ * @generated SignedSource<<75d350fd6ba3cf053824dc7c92af0d17>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,10 +110,8 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
    * @return NamespaceDeclarationHeader
    */
   public function getHeader(): NamespaceDeclarationHeader {
-    return TypeAssert\instance_of(
-      NamespaceDeclarationHeader::class,
-      $this->_header,
-    );
+    return
+      TypeAssert\instance_of(NamespaceDeclarationHeader::class, $this->_header);
   }
 
   /**

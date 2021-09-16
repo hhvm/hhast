@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc8fcf3143c3bf4555268902d483eea0>>
+ * @generated SignedSource<<320c24f0735e777b43abf83486c6f8b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,8 @@ final class PropertyDeclarator extends Node {
     if ($name === $this->_name && $initializer === $this->_initializer) {
       return $this;
     }
-    return new static(
-      $name as VariableToken,
-      $initializer as ?SimpleInitializer,
-    );
+    return
+      new static($name as VariableToken, $initializer as ?SimpleInitializer);
   }
 
   public function getNameUNTYPED(): ?Node {

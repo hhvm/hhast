@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8e550d90c3078990058b8d45fc3908b>>
+ * @generated SignedSource<<6f3228c343ad45def080efbaf2b27589>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -205,10 +205,8 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getName(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(
-      ISimpleCreationSpecifier::class,
-      $this->_name,
-    );
+    return
+      TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_name);
   }
 
   /**

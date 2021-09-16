@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f06ed4966c3f76a8503b5fd81129ca28>>
+ * @generated SignedSource<<5fba3eeb540264862d2cbaf39c2a5555>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,8 @@ final class ConcurrentStatement extends Node implements IStatement {
     if ($keyword === $this->_keyword && $statement === $this->_statement) {
       return $this;
     }
-    return new static(
-      $keyword as ConcurrentToken,
-      $statement as CompoundStatement,
-    );
+    return
+      new static($keyword as ConcurrentToken, $statement as CompoundStatement);
   }
 
   public function getKeywordUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bc775b36d0d1b33ff955527f26bd3b65>>
+ * @generated SignedSource<<6d3d7b274f2a6cab72331affb61cd056>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -106,9 +106,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
+    $keyword =
+      $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
     $left_angle = $this->_left_angle === null
       ? null
       : $rewriter($this->_left_angle, $parents);
@@ -174,12 +173,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_left_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_types,
-      $this->_right_angle,
-    );
+    return
+      new static($this->_keyword, $value, $this->_types, $this->_right_angle);
   }
 
   public function hasLeftAngle(): bool {
@@ -242,12 +237,8 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
     if ($value === $this->_right_angle) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_angle,
-      $this->_types,
-      $value,
-    );
+    return
+      new static($this->_keyword, $this->_left_angle, $this->_types, $value);
   }
 
   public function hasRightAngle(): bool {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8600d46634d250a70d3352b86764346>>
+ * @generated SignedSource<<59827116c3e0bcff8db71efc7dc37389>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,9 +129,8 @@ final class VectorIntrinsicExpression
       ? null
       : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $this->_members === null
-      ? null
-      : $rewriter($this->_members, $parents);
+    $members =
+      $this->_members === null ? null : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -246,10 +245,8 @@ final class VectorIntrinsicExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return
+      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -291,8 +288,10 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<FunctionPointerExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
    * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
@@ -317,8 +316,10 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<FunctionPointerExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
+   * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
    * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
@@ -357,10 +358,8 @@ final class VectorIntrinsicExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return
+      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

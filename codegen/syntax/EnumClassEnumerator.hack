@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<96f02ecb290eecf8ac03dc8e1fdc2d6d>>
+ * @generated SignedSource<<bdb048e8e014e85f7c1c417f14faa114>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -207,10 +207,8 @@ final class EnumClassEnumerator extends Node {
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getType(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(
-      ISimpleCreationSpecifier::class,
-      $this->_type,
-    );
+    return
+      TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_type);
   }
 
   /**
@@ -280,10 +278,8 @@ final class EnumClassEnumerator extends Node {
    * @return SimpleInitializer
    */
   public function getInitializer(): SimpleInitializer {
-    return TypeAssert\instance_of(
-      SimpleInitializer::class,
-      $this->_initializer,
-    );
+    return
+      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
   }
 
   /**

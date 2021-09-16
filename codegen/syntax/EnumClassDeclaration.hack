@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a87f637975fed9e3cfbe163b76931f10>>
+ * @generated SignedSource<<e97d922115a863d7a9a53e55af59a5e6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -229,16 +229,14 @@ final class EnumClassDeclaration extends Node {
     $name = $rewriter($this->_name, $parents);
     $colon = $rewriter($this->_colon, $parents);
     $base = $rewriter($this->_base, $parents);
-    $extends = $this->_extends === null
-      ? null
-      : $rewriter($this->_extends, $parents);
+    $extends =
+      $this->_extends === null ? null : $rewriter($this->_extends, $parents);
     $extends_list = $this->_extends_list === null
       ? null
       : $rewriter($this->_extends_list, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
-    $elements = $this->_elements === null
-      ? null
-      : $rewriter($this->_elements, $parents);
+    $elements =
+      $this->_elements === null ? null : $rewriter($this->_elements, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -556,10 +554,8 @@ final class EnumClassDeclaration extends Node {
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getBase(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(
-      ISimpleCreationSpecifier::class,
-      $this->_base,
-    );
+    return
+      TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_base);
   }
 
   /**

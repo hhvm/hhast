@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22906a99f08a9c61ec8ce1fc63adee61>>
+ * @generated SignedSource<<1863636219b20e6e0a948a064cc6e89b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -80,9 +80,8 @@ final class MarkupSection extends Node {
   ): this {
     $parents[] = $this;
     $hashbang = $rewriter($this->_hashbang, $parents);
-    $suffix = $this->_suffix === null
-      ? null
-      : $rewriter($this->_suffix, $parents);
+    $suffix =
+      $this->_suffix === null ? null : $rewriter($this->_suffix, $parents);
     if ($hashbang === $this->_hashbang && $suffix === $this->_suffix) {
       return $this;
     }

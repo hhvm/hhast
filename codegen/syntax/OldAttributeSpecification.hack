@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0a71f1782b8433042cd72ed538d95190>>
+ * @generated SignedSource<<822ab2d91c7410bfe36533a506dad8f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -153,11 +153,8 @@ final class OldAttributeSpecification extends Node {
     if ($value === $this->_attributes) {
       return $this;
     }
-    return new static(
-      $this->_left_double_angle,
-      $value,
-      $this->_right_double_angle,
-    );
+    return
+      new static($this->_left_double_angle, $value, $this->_right_double_angle);
   }
 
   public function hasAttributes(): bool {

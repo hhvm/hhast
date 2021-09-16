@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3d38c443d2f8d8badb0bf87ab6d097b6>>
+ * @generated SignedSource<<c79c7591b55d5f89c6322fa24a573495>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,9 +129,8 @@ final class DictionaryIntrinsicExpression
       ? null
       : $rewriter($this->_explicit_type, $parents);
     $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $this->_members === null
-      ? null
-      : $rewriter($this->_members, $parents);
+    $members =
+      $this->_members === null ? null : $rewriter($this->_members, $parents);
     $right_bracket = $rewriter($this->_right_bracket, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -246,10 +245,8 @@ final class DictionaryIntrinsicExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return
+      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -321,10 +318,8 @@ final class DictionaryIntrinsicExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return
+      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

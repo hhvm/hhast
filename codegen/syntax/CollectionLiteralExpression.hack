@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28d1fcaf02b46d971e4278b4807901f6>>
+ * @generated SignedSource<<c20ea0f906a48e25f5496a38c4710c88>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -156,10 +156,8 @@ final class CollectionLiteralExpression
    * @return GenericTypeSpecifier | SimpleTypeSpecifier
    */
   public function getName(): ISimpleCreationSpecifier {
-    return TypeAssert\instance_of(
-      ISimpleCreationSpecifier::class,
-      $this->_name,
-    );
+    return
+      TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_name);
   }
 
   /**
@@ -211,12 +209,8 @@ final class CollectionLiteralExpression
     if ($value === $this->_initializers) {
       return $this;
     }
-    return new static(
-      $this->_name,
-      $this->_left_brace,
-      $value,
-      $this->_right_brace,
-    );
+    return
+      new static($this->_name, $this->_left_brace, $value, $this->_right_brace);
   }
 
   public function hasInitializers(): bool {
@@ -235,6 +229,7 @@ final class CollectionLiteralExpression
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
@@ -259,6 +254,7 @@ final class CollectionLiteralExpression
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
+   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |

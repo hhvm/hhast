@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<738688c2d60078b312f535ed9b690d5c>>
+ * @generated SignedSource<<b4dbfd85db59f1febd3eb914007b0e50>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -79,9 +79,8 @@ final class SwitchFallthrough extends Node implements IStatement {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $this->_keyword === null
-      ? null
-      : $rewriter($this->_keyword, $parents);
+    $keyword =
+      $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
     $semicolon = $this->_semicolon === null
       ? null
       : $rewriter($this->_semicolon, $parents);

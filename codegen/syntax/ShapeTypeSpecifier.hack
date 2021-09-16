@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<84bc29e19740f6f5992d52579cb5bcb5>>
+ * @generated SignedSource<<f0984671085a0a0fb6e35103712fb213>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,12 +122,10 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $fields = $this->_fields === null
-      ? null
-      : $rewriter($this->_fields, $parents);
-    $ellipsis = $this->_ellipsis === null
-      ? null
-      : $rewriter($this->_ellipsis, $parents);
+    $fields =
+      $this->_fields === null ? null : $rewriter($this->_fields, $parents);
+    $ellipsis =
+      $this->_ellipsis === null ? null : $rewriter($this->_ellipsis, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&

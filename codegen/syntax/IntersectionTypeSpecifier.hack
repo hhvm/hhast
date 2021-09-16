@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d3b7e80a20b439afb82cd730ec43469b>>
+ * @generated SignedSource<<24ecf157d5c1aa6a67a94cfa4f624258>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -107,11 +107,8 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
     ) {
       return $this;
     }
-    return new static(
-      $left_paren as ?Node,
-      $types as ?Node,
-      $right_paren as ?Node,
-    );
+    return
+      new static($left_paren as ?Node, $types as ?Node, $right_paren as ?Node);
   }
 
   public function getLeftParenUNTYPED(): ?Node {

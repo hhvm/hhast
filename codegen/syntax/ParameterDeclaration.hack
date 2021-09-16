@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<af585ca90dbb39561e04829e77bc00a6>>
+ * @generated SignedSource<<6bf73879c1b3922381c1121cf445f9dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,9 +160,8 @@ final class ParameterDeclaration
     $call_convention = $this->_call_convention === null
       ? null
       : $rewriter($this->_call_convention, $parents);
-    $readonly = $this->_readonly === null
-      ? null
-      : $rewriter($this->_readonly, $parents);
+    $readonly =
+      $this->_readonly === null ? null : $rewriter($this->_readonly, $parents);
     $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     $name = $rewriter($this->_name, $parents);
     $default_value = $this->_default_value === null

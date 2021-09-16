@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3b2c905aa3e36ad120a126c275d1f6f7>>
+ * @generated SignedSource<<2b26dbfbc5bedd64bb717ce86f6b8efd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,10 +89,8 @@ final class ExpressionStatement extends Node implements IStatement {
     ) {
       return $this;
     }
-    return new static(
-      $expression as ?IExpression,
-      $semicolon as SemicolonToken,
-    );
+    return
+      new static($expression as ?IExpression, $semicolon as SemicolonToken);
   }
 
   public function getExpressionUNTYPED(): ?Node {

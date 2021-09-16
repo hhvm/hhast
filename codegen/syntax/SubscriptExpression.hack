@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7d29b879cdb51f865e8e00b5d46ee957>>
+ * @generated SignedSource<<a41a9f0f11948c2f3e2dbe0fc953b0de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -195,10 +195,8 @@ final class SubscriptExpression
    * @return LeftBracketToken
    */
   public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+    return
+      TypeAssert\instance_of(LeftBracketToken::class, $this->_left_bracket);
   }
 
   /**
@@ -257,12 +255,8 @@ final class SubscriptExpression
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new static(
-      $this->_receiver,
-      $this->_left_bracket,
-      $this->_index,
-      $value,
-    );
+    return
+      new static($this->_receiver, $this->_left_bracket, $this->_index, $value);
   }
 
   public function hasRightBracket(): bool {
@@ -273,10 +267,8 @@ final class SubscriptExpression
    * @return RightBracketToken
    */
   public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+    return
+      TypeAssert\instance_of(RightBracketToken::class, $this->_right_bracket);
   }
 
   /**

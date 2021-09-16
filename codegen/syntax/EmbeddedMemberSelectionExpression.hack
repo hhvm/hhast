@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<685e0d9e199850cf2efb67c6eb6b682a>>
+ * @generated SignedSource<<2439a1ff33188dc16a2721e95079a884>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -96,12 +96,10 @@ final class EmbeddedMemberSelectionExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $object = $this->_object === null
-      ? null
-      : $rewriter($this->_object, $parents);
-    $operator = $this->_operator === null
-      ? null
-      : $rewriter($this->_operator, $parents);
+    $object =
+      $this->_object === null ? null : $rewriter($this->_object, $parents);
+    $operator =
+      $this->_operator === null ? null : $rewriter($this->_operator, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     if (
       $object === $this->_object &&

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<16099315313c37abcf5f3202d36c5c8f>>
+ * @generated SignedSource<<661f7ebdd50e97294e773bc3836c6c15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -140,9 +140,10 @@ final class PrefixUnaryExpression
 
   /**
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | EvalExpression | FunctionCallExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression |
@@ -154,9 +155,10 @@ final class PrefixUnaryExpression
 
   /**
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
-   * | CastExpression | ConditionalExpression | DarrayIntrinsicExpression |
-   * EvalExpression | FunctionCallExpression | IsExpression | IssetExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
+   * DarrayIntrinsicExpression | EvalExpression | FunctionCallExpression |
+   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression |

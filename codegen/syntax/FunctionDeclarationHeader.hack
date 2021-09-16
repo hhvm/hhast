@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f82fd14156bc9d650c8ab04a57e8b146>>
+ * @generated SignedSource<<166c03235fbc9fd25f0ea44f8d7f6733>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -229,9 +229,8 @@ final class FunctionDeclarationHeader extends Node {
       ? null
       : $rewriter($this->_parameter_list, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
-    $contexts = $this->_contexts === null
-      ? null
-      : $rewriter($this->_contexts, $parents);
+    $contexts =
+      $this->_contexts === null ? null : $rewriter($this->_contexts, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $readonly_return = $this->_readonly_return === null
       ? null

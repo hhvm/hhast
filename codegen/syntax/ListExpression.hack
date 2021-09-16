@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f663c621a332a4e3ab276ef0a1b5ddee>>
+ * @generated SignedSource<<2c4a85436d9d9cbdfd3c3b9180cd26ab>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,9 +109,8 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     $parents[] = $this;
     $keyword = $rewriter($this->_keyword, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
-    $members = $this->_members === null
-      ? null
-      : $rewriter($this->_members, $parents);
+    $members =
+      $this->_members === null ? null : $rewriter($this->_members, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
     if (
       $keyword === $this->_keyword &&
@@ -171,12 +170,8 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_left_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $value,
-      $this->_members,
-      $this->_right_paren,
-    );
+    return
+      new static($this->_keyword, $value, $this->_members, $this->_right_paren);
   }
 
   public function hasLeftParen(): bool {
@@ -249,12 +244,8 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     if ($value === $this->_right_paren) {
       return $this;
     }
-    return new static(
-      $this->_keyword,
-      $this->_left_paren,
-      $this->_members,
-      $value,
-    );
+    return
+      new static($this->_keyword, $this->_left_paren, $this->_members, $value);
   }
 
   public function hasRightParen(): bool {

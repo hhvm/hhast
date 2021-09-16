@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e83f2167dfb389d729df2afb517b6c18>>
+ * @generated SignedSource<<8faabad9131e693f54b0927111f53225>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -167,10 +167,8 @@ final class MemberSelectionExpression
    * @return MinusGreaterThanToken
    */
   public function getOperator(): MinusGreaterThanToken {
-    return TypeAssert\instance_of(
-      MinusGreaterThanToken::class,
-      $this->_operator,
-    );
+    return
+      TypeAssert\instance_of(MinusGreaterThanToken::class, $this->_operator);
   }
 
   /**

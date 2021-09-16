@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3c69d026271c4fed96533a51596287f4>>
+ * @generated SignedSource<<37619522653ba22ee5e3f8cbb7df809b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,16 +14,16 @@ final class RecordCreationExpression
 
   const string SYNTAX_KIND = 'record_creation_expression';
 
-  private NameToken $_type;
-  private LeftBracketToken $_left_bracket;
-  private NodeList<ListItem<ElementInitializer>> $_members;
-  private RightBracketToken $_right_bracket;
+  private ?Node $_type;
+  private ?Node $_left_bracket;
+  private ?Node $_members;
+  private ?Node $_right_bracket;
 
   public function __construct(
-    NameToken $type,
-    LeftBracketToken $left_bracket,
-    NodeList<ListItem<ElementInitializer>> $members,
-    RightBracketToken $right_bracket,
+    ?Node $type,
+    ?Node $left_bracket,
+    ?Node $members,
+    ?Node $right_bracket,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -43,41 +43,41 @@ final class RecordCreationExpression
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      ($json['record_creation_type']) as dict<_, _>,
+      ($json['record_creation_type'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'NameToken',
+      'Node',
     );
-    $type = $type as nonnull;
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $left_bracket = Node::fromJSON(
-      ($json['record_creation_left_bracket']) as dict<_, _>,
+      ($json['record_creation_left_bracket'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'LeftBracketToken',
+      'Node',
     );
-    $left_bracket = $left_bracket as nonnull;
-    $offset += $left_bracket->getWidth();
+    $offset += $left_bracket?->getWidth() ?? 0;
     $members = Node::fromJSON(
-      ($json['record_creation_members']) as dict<_, _>,
+      ($json['record_creation_members'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<ElementInitializer>>',
+      'Node',
     );
-    $members = $members as nonnull;
-    $offset += $members->getWidth();
+    $offset += $members?->getWidth() ?? 0;
     $right_bracket = Node::fromJSON(
-      ($json['record_creation_right_bracket']) as dict<_, _>,
+      ($json['record_creation_right_bracket'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'RightBracketToken',
+      'Node',
     );
-    $right_bracket = $right_bracket as nonnull;
-    $offset += $right_bracket->getWidth();
+    $offset += $right_bracket?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -110,10 +110,15 @@ final class RecordCreationExpression
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $type = $rewriter($this->_type, $parents);
-    $left_bracket = $rewriter($this->_left_bracket, $parents);
-    $members = $rewriter($this->_members, $parents);
-    $right_bracket = $rewriter($this->_right_bracket, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
+    $left_bracket = $this->_left_bracket === null
+      ? null
+      : $rewriter($this->_left_bracket, $parents);
+    $members =
+      $this->_members === null ? null : $rewriter($this->_members, $parents);
+    $right_bracket = $this->_right_bracket === null
+      ? null
+      : $rewriter($this->_right_bracket, $parents);
     if (
       $type === $this->_type &&
       $left_bracket === $this->_left_bracket &&
@@ -123,10 +128,10 @@ final class RecordCreationExpression
       return $this;
     }
     return new static(
-      $type as NameToken,
-      $left_bracket as LeftBracketToken,
-      /* HH_FIXME[4110] NodeList<ListItem<ElementInitializer>> may not be enforceable */ $members,
-      $right_bracket as RightBracketToken,
+      $type as ?Node,
+      $left_bracket as ?Node,
+      $members as ?Node,
+      $right_bracket as ?Node,
     );
   }
 
@@ -134,7 +139,7 @@ final class RecordCreationExpression
     return $this->_type;
   }
 
-  public function withType(NameToken $value): this {
+  public function withType(?Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -151,33 +156,29 @@ final class RecordCreationExpression
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getType(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_type);
+  public function getType(): ?Node {
+    return $this->_type;
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getTypex(): NameToken {
-    return $this->getType();
+  public function getTypex(): Node {
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getLeftBracketUNTYPED(): ?Node {
     return $this->_left_bracket;
   }
 
-  public function withLeftBracket(LeftBracketToken $value): this {
+  public function withLeftBracket(?Node $value): this {
     if ($value === $this->_left_bracket) {
       return $this;
     }
-    return new static(
-      $this->_type,
-      $value,
-      $this->_members,
-      $this->_right_bracket,
-    );
+    return
+      new static($this->_type, $value, $this->_members, $this->_right_bracket);
   }
 
   public function hasLeftBracket(): bool {
@@ -185,29 +186,24 @@ final class RecordCreationExpression
   }
 
   /**
-   * @return LeftBracketToken
+   * @return unknown
    */
-  public function getLeftBracket(): LeftBracketToken {
-    return TypeAssert\instance_of(
-      LeftBracketToken::class,
-      $this->_left_bracket,
-    );
+  public function getLeftBracket(): ?Node {
+    return $this->_left_bracket;
   }
 
   /**
-   * @return LeftBracketToken
+   * @return unknown
    */
-  public function getLeftBracketx(): LeftBracketToken {
-    return $this->getLeftBracket();
+  public function getLeftBracketx(): Node {
+    return TypeAssert\not_null($this->getLeftBracket());
   }
 
   public function getMembersUNTYPED(): ?Node {
     return $this->_members;
   }
 
-  public function withMembers(
-    NodeList<ListItem<ElementInitializer>> $value,
-  ): this {
+  public function withMembers(?Node $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -224,33 +220,29 @@ final class RecordCreationExpression
   }
 
   /**
-   * @return NodeList<ListItem<ElementInitializer>>
+   * @return unknown
    */
-  public function getMembers(): NodeList<ListItem<ElementInitializer>> {
-    return TypeAssert\instance_of(NodeList::class, $this->_members);
+  public function getMembers(): ?Node {
+    return $this->_members;
   }
 
   /**
-   * @return NodeList<ListItem<ElementInitializer>>
+   * @return unknown
    */
-  public function getMembersx(): NodeList<ListItem<ElementInitializer>> {
-    return $this->getMembers();
+  public function getMembersx(): Node {
+    return TypeAssert\not_null($this->getMembers());
   }
 
   public function getRightBracketUNTYPED(): ?Node {
     return $this->_right_bracket;
   }
 
-  public function withRightBracket(RightBracketToken $value): this {
+  public function withRightBracket(?Node $value): this {
     if ($value === $this->_right_bracket) {
       return $this;
     }
-    return new static(
-      $this->_type,
-      $this->_left_bracket,
-      $this->_members,
-      $value,
-    );
+    return
+      new static($this->_type, $this->_left_bracket, $this->_members, $value);
   }
 
   public function hasRightBracket(): bool {
@@ -258,19 +250,16 @@ final class RecordCreationExpression
   }
 
   /**
-   * @return RightBracketToken
+   * @return unknown
    */
-  public function getRightBracket(): RightBracketToken {
-    return TypeAssert\instance_of(
-      RightBracketToken::class,
-      $this->_right_bracket,
-    );
+  public function getRightBracket(): ?Node {
+    return $this->_right_bracket;
   }
 
   /**
-   * @return RightBracketToken
+   * @return unknown
    */
-  public function getRightBracketx(): RightBracketToken {
-    return $this->getRightBracket();
+  public function getRightBracketx(): Node {
+    return TypeAssert\not_null($this->getRightBracket());
   }
 }

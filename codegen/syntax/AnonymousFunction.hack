@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f395f1456d40ffcd95cc0543caf3fa08>>
+ * @generated SignedSource<<40c5f9a5a34abef22d951edcfbe3bfcb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -230,9 +230,8 @@ final class AnonymousFunction
       ? null
       : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
-    $ctx_list = $this->_ctx_list === null
-      ? null
-      : $rewriter($this->_ctx_list, $parents);
+    $ctx_list =
+      $this->_ctx_list === null ? null : $rewriter($this->_ctx_list, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $readonly_return = $this->_readonly_return === null
       ? null
@@ -388,10 +387,8 @@ final class AnonymousFunction
    * @return FunctionToken
    */
   public function getFunctionKeyword(): FunctionToken {
-    return TypeAssert\instance_of(
-      FunctionToken::class,
-      $this->_function_keyword,
-    );
+    return
+      TypeAssert\instance_of(FunctionToken::class, $this->_function_keyword);
   }
 
   /**

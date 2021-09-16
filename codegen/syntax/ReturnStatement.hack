@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fd0665aa06152bf7409d3d20de6ca94c>>
+ * @generated SignedSource<<ca1e619187b267092ae28f6475842e67>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -166,10 +166,10 @@ final class ReturnStatement extends Node implements IStatement {
    * MemberSelectionExpression | null | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * RecordCreationExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression
    */
   public function getExpression(): ?IExpression {
     return $this->_expression;
@@ -185,10 +185,10 @@ final class ReturnStatement extends Node implements IStatement {
    * MemberSelectionExpression | NullableAsExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * RecordCreationExpression | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * NameToken | TupleExpression | VariableExpression |
-   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression
+   * SafeMemberSelectionExpression | ScopeResolutionExpression |
+   * ShapeExpression | SubscriptExpression | NameToken | TupleExpression |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * | XHPExpression
    */
   public function getExpressionx(): IExpression {
     return TypeAssert\not_null($this->getExpression());

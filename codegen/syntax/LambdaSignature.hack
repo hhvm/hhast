@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f777271aa5513c67814c93dec919b88>>
+ * @generated SignedSource<<5d2c08f89b6c152136df1439a4adbea1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,9 +151,8 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       ? null
       : $rewriter($this->_parameters, $parents);
     $right_paren = $rewriter($this->_right_paren, $parents);
-    $contexts = $this->_contexts === null
-      ? null
-      : $rewriter($this->_contexts, $parents);
+    $contexts =
+      $this->_contexts === null ? null : $rewriter($this->_contexts, $parents);
     $colon = $this->_colon === null ? null : $rewriter($this->_colon, $parents);
     $readonly_return = $this->_readonly_return === null
       ? null

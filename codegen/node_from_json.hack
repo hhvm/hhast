@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aaad4ff4cc6d560d8caf2c075230db57>>
+ * @generated SignedSource<<e5469b873e61ee9889a7a7630abd0d8c>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -185,6 +185,7 @@ function node_from_json_unwrapped(
     'type_parameters' => HHAST\TypeParameters::class,
     'union_type_specifier' => HHAST\UnionTypeSpecifier::class,
     'unset_statement' => HHAST\UnsetStatement::class,
+    'upcast_expression' => HHAST\UpcastExpression::class,
     'using_statement_block_scoped' => HHAST\UsingStatementBlockScoped::class,
     'using_statement_function_scoped' =>
       HHAST\UsingStatementFunctionScoped::class,
@@ -220,9 +221,6 @@ function node_from_json_unwrapped(
   if ($class is nonnull) {
     return $class::fromJSON($json, $file, $offset, $source, $type_hint);
   }
-  throw new HHAST\UnsupportedASTNodeError(
-    $file,
-    $offset,
-    (string)$json['kind'],
-  );
+  throw
+    new HHAST\UnsupportedASTNodeError($file, $offset, (string)$json['kind']);
 }
