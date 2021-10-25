@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9686fd7b8d29f76b580b7decae4da11f>>
+ * @generated SignedSource<<3254455f96b33741d6bec38d2035568d>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2521,6 +2521,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'markup_section.markup_suffix' => keyset[
     'markup_suffix',
+    'missing',
   ],
   'markup_suffix.markup_suffix_less_than_question' => keyset[
     'token:<?',
@@ -3050,6 +3051,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<end_of_file|enum_declaration|markup_section|namespace_use_declaration>',
     'list<end_of_file|file_attribute_specification|function_declaration|markup_section>',
     'list<end_of_file|file_attribute_specification|markup_section|namespace_declaration>',
+    'list<end_of_file|function_declaration>',
     'list<end_of_file|function_declaration|markup_section>',
     'list<end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<end_of_file|function_declaration|markup_section|namespace_declaration|namespace_use_declaration>',

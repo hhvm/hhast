@@ -205,7 +205,7 @@ final class CodegenRelations extends CodegenBase {
         continue;
       }
       $ext = Str\lowercase($info->getExtension());
-      if ($ext !== 'php' && $ext !== 'hh') {
+      if ($ext !== 'php' && $ext !== 'hh' && $ext !== 'hack' && $ext !== 'hackpartial') {
         continue;
       }
       yield $info->getPathname();
