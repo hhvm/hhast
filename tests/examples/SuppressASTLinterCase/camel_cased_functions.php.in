@@ -11,10 +11,6 @@
 function failMefooBar(): void {
 }
 
-# HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions]
-function fooBar(): void {
-}
-
 // HHAST_FIXME[CamelCasedMethodsUnderscoredFunctions]
 function HerpDerpSlash(): FooBar {
 }
