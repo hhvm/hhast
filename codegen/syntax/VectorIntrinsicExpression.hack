@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<59827116c3e0bcff8db71efc7dc37389>>
+ * @generated SignedSource<<7bd196e8ba32a992161ad3e061c30222>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -291,7 +291,6 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
    * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |
@@ -319,7 +318,6 @@ final class VectorIntrinsicExpression
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
    * NodeList<ListItem<SubscriptExpression>> | NodeList<ListItem<NameToken>> |

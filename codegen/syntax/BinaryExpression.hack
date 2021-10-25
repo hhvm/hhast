@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1c0bd9cf84b3143b7e30fbb3159ab6aa>>
+ * @generated SignedSource<<5f6e2ca2a833276117dc65eea3e0bf12>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -232,14 +232,14 @@ final class BinaryExpression
    * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * FunctionPointerExpression | InclusionExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * DictionaryIntrinsicExpression | EnumClassLabelExpression | EvalExpression
+   * | FunctionCallExpression | FunctionPointerExpression | InclusionExpression
+   * | IsExpression | IssetExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression
+   * | ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
    * YieldExpression
@@ -252,14 +252,14 @@ final class BinaryExpression
    * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * ConditionalExpression | DarrayIntrinsicExpression |
-   * DictionaryIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * FunctionPointerExpression | InclusionExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | NullableAsExpression |
-   * ObjectCreationExpression | ParenthesizedExpression |
-   * PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression |
-   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * DictionaryIntrinsicExpression | EnumClassLabelExpression | EvalExpression
+   * | FunctionCallExpression | FunctionPointerExpression | InclusionExpression
+   * | IsExpression | IssetExpression | KeysetIntrinsicExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
+   * | PipeVariableExpression | PostfixUnaryExpression | PrefixUnaryExpression
+   * | PrefixedStringExpression | QualifiedName | SafeMemberSelectionExpression
+   * | ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | TupleExpression | VariableExpression |
    * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
    * YieldExpression

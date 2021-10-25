@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7330d24e813ca0c6712b3157ecf87001>>
+ * @generated SignedSource<<c7ddfc2a45ae34a0869ab6aca932ba53>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,7 +16,7 @@ final class FunctionCallExpression
 
   private Node $_receiver;
   private ?TypeArguments $_type_args;
-  private ?Node $_enum_class_label;
+  private ?EnumClassLabelExpression $_enum_class_label;
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<IExpression>> $_argument_list;
   private RightParenToken $_right_paren;
@@ -24,7 +24,7 @@ final class FunctionCallExpression
   public function __construct(
     Node $receiver,
     ?TypeArguments $type_args,
-    ?Node $enum_class_label,
+    ?EnumClassLabelExpression $enum_class_label,
     LeftParenToken $left_paren,
     ?NodeList<ListItem<IExpression>> $argument_list,
     RightParenToken $right_paren,
@@ -72,7 +72,7 @@ final class FunctionCallExpression
       $file,
       $offset,
       $source,
-      'Node',
+      'EnumClassLabelExpression',
     );
     $offset += $enum_class_label?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
@@ -163,7 +163,7 @@ final class FunctionCallExpression
     return new static(
       $receiver as Node,
       $type_args as ?TypeArguments,
-      $enum_class_label as ?Node,
+      $enum_class_label as ?EnumClassLabelExpression,
       $left_paren as LeftParenToken,
       /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $argument_list,
       $right_paren as RightParenToken,
@@ -252,7 +252,7 @@ final class FunctionCallExpression
     return $this->_enum_class_label;
   }
 
-  public function withEnumClassLabel(?Node $value): this {
+  public function withEnumClassLabel(?EnumClassLabelExpression $value): this {
     if ($value === $this->_enum_class_label) {
       return $this;
     }
@@ -271,16 +271,16 @@ final class FunctionCallExpression
   }
 
   /**
-   * @return null
+   * @return EnumClassLabelExpression | null
    */
-  public function getEnumClassLabel(): ?Node {
+  public function getEnumClassLabel(): ?EnumClassLabelExpression {
     return $this->_enum_class_label;
   }
 
   /**
-   * @return
+   * @return EnumClassLabelExpression
    */
-  public function getEnumClassLabelx(): Node {
+  public function getEnumClassLabelx(): EnumClassLabelExpression {
     return TypeAssert\not_null($this->getEnumClassLabel());
   }
 
@@ -356,6 +356,7 @@ final class FunctionCallExpression
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
+   * NodeList<ListItem<EnumClassLabelExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<IFunctionCallishExpression>> |
    * NodeList<ListItem<FunctionPointerExpression>> |
@@ -396,6 +397,7 @@ final class FunctionCallExpression
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<IHackArray>> |
+   * NodeList<ListItem<EnumClassLabelExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<IFunctionCallishExpression>> |
    * NodeList<ListItem<FunctionPointerExpression>> |
