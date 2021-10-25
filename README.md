@@ -1,6 +1,6 @@
 # HHAST
 
-[![Build Status](https://travis-ci.org/hhvm/hhast.svg?branch=master)](https://travis-ci.org/hhvm/hhast)
+[![Continuous Integration](https://github.com/hhvm/hhast/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/hhvm/hhast/actions/workflows/build-and-test.yml)
 
 HHAST is a toolkit for processing the AST of Hack files.
 
