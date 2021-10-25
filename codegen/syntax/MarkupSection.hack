@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1863636219b20e6e0a948a064cc6e89b>>
+ * @generated SignedSource<<d74cad8d3f9252ae7186367df2a9891a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,11 +12,11 @@ final class MarkupSection extends Node {
 
   const string SYNTAX_KIND = 'markup_section';
 
-  private HashbangToken $_hashbang;
+  private ?HashbangToken $_hashbang;
   private ?MarkupSuffix $_suffix;
 
   public function __construct(
-    HashbangToken $hashbang,
+    ?HashbangToken $hashbang,
     ?MarkupSuffix $suffix,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -35,14 +35,13 @@ final class MarkupSection extends Node {
   ): this {
     $offset = $initial_offset;
     $hashbang = Node::fromJSON(
-      ($json['markup_hashbang']) as dict<_, _>,
+      ($json['markup_hashbang'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
       $offset,
       $source,
       'HashbangToken',
     );
-    $hashbang = $hashbang as nonnull;
-    $offset += $hashbang->getWidth();
+    $offset += $hashbang?->getWidth() ?? 0;
     $suffix = Node::fromJSON(
       ($json['markup_suffix'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
@@ -79,20 +78,21 @@ final class MarkupSection extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $hashbang = $rewriter($this->_hashbang, $parents);
+    $hashbang =
+      $this->_hashbang === null ? null : $rewriter($this->_hashbang, $parents);
     $suffix =
       $this->_suffix === null ? null : $rewriter($this->_suffix, $parents);
     if ($hashbang === $this->_hashbang && $suffix === $this->_suffix) {
       return $this;
     }
-    return new static($hashbang as HashbangToken, $suffix as ?MarkupSuffix);
+    return new static($hashbang as ?HashbangToken, $suffix as ?MarkupSuffix);
   }
 
   public function getHashbangUNTYPED(): ?Node {
     return $this->_hashbang;
   }
 
-  public function withHashbang(HashbangToken $value): this {
+  public function withHashbang(?HashbangToken $value): this {
     if ($value === $this->_hashbang) {
       return $this;
     }
@@ -104,17 +104,17 @@ final class MarkupSection extends Node {
   }
 
   /**
-   * @return HashbangToken
+   * @return null | HashbangToken
    */
-  public function getHashbang(): HashbangToken {
-    return TypeAssert\instance_of(HashbangToken::class, $this->_hashbang);
+  public function getHashbang(): ?HashbangToken {
+    return $this->_hashbang;
   }
 
   /**
    * @return HashbangToken
    */
   public function getHashbangx(): HashbangToken {
-    return $this->getHashbang();
+    return TypeAssert\not_null($this->getHashbang());
   }
 
   public function getSuffixUNTYPED(): ?Node {

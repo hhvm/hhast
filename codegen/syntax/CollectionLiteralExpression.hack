@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c20ea0f906a48e25f5496a38c4710c88>>
+ * @generated SignedSource<<b152e77553dede238ac62700513f8185>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -229,7 +229,6 @@ final class CollectionLiteralExpression
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |
@@ -254,7 +253,6 @@ final class CollectionLiteralExpression
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<ObjectCreationExpression>> |
-   * NodeList<ListItem<PrefixUnaryExpression>> |
    * NodeList<ListItem<ScopeResolutionExpression>> |
    * NodeList<ListItem<ShapeExpression>> |
    * NodeList<ListItem<SubscriptExpression>> |

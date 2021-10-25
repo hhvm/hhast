@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f99b9224df956c97817115056260c2b>>
+ * @generated SignedSource<<d5ab2d0dba7a420d5f817f8ea558fb34>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -161,6 +161,7 @@ final class EchoStatement extends Node implements IStatement {
    * @return NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<IExpression>> | NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<EnumClassLabelExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
@@ -180,6 +181,7 @@ final class EchoStatement extends Node implements IStatement {
    * @return NodeList<ListItem<BinaryExpression>> |
    * NodeList<ListItem<IExpression>> | NodeList<ListItem<CastExpression>> |
    * NodeList<ListItem<ConditionalExpression>> |
+   * NodeList<ListItem<EnumClassLabelExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
    * NodeList<ListItem<MemberSelectionExpression>> |
