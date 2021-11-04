@@ -10,19 +10,10 @@
 namespace Facebook\HHAST;
 
 use type Facebook\HHAST\{BaseLinter};
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Vec};
 
 abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
-
-  public function getLinesFromFile(): vec<string> {
-    $code = $this->getFile()->getContents();
-    $lines = Str\split($code, "\n");
-    return vec($lines);
-  }
-
-  public function getLine(int $l): ?string {
-    return idx($this->getLinesFromFile(), $l);
-  }
+  use MemoizedLineLinterTrait;
 
   <<__Override>>
   public async function getLintErrorsAsync(): Awaitable<vec<Terror>> {
@@ -45,13 +36,6 @@ abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
     }
 
     return $errs;
-  }
-
-  /** Check if this linter has been disabled by a comment on the previous line.
-   */
-  protected function isLinterSuppressed(string $previous_line): bool {
-    return Str\contains($previous_line, $this->getFixmeMarker()) ||
-      Str\contains($previous_line, $this->getIgnoreSingleErrorMarker());
   }
 
   /** Parse a single line of code and attempts to find lint errors */
