@@ -2,7 +2,9 @@
 {
   "name": "Hack",
   "runArgs": [
-    "--init"
+    "--init",
+    "--volume",
+    "${localEnv:HOME}/.ssh:/root/.ssh:ro"
   ],
   "image": "hhvm/hhvm:latest",
 
