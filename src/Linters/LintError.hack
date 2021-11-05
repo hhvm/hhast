@@ -38,10 +38,18 @@ class LintError {
     return $this->description;
   }
 
+  /** Retrieve a snippet of the source code that is responsible for the error.
+   */
   public function getBlameCode(): ?string {
     return null;
   }
 
+  /** Retrieve a human-friendly version of "what's responsible".
+   *
+   * For example, for "await in a loop", `getBlameCode()` may point at the
+   * await statement, but this function may return the entire loop, annotated
+   * with pointers.
+   */
   public function getPrettyBlame(): ?string {
     return $this->getBlameCode();
   }
