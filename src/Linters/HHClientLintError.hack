@@ -63,7 +63,7 @@ final class HHClientLintError implements LintError {
   }
 
   <<__Memoize>>
-  public function getLintRule(): LintRule {
+  public function getLintRule(): HHClientLintRule {
     return new HHClientLintRule($this->error['code']);
   }
 

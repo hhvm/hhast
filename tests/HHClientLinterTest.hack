@@ -24,6 +24,16 @@ final class HHClientLinterTest extends TestCase {
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple("<?hh\nclass Foo {}"),
+      tuple(
+        '<?hh
+        function invalid_null_check(): void {
+          $cannot_be_null = 42;
+          // HHAST_FIXME[5611]
+          if ($cannot_be_null is null) {
+            throw new Exception();
+          }
+        }',
+      ),
     ];
   }
 

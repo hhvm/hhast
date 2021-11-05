@@ -59,13 +59,35 @@ final class HHClientLinter implements Linter {
       ),
     );
     $file_lines = Str\split($this->getFile()->getContents(), "\n");
-    return Vec\map(
-      $hh_client_lint_result['errors'],
-      $error ==> new HHClientLintError(
-        $this->file,
-        $error,
-        $this::blameCode($file_lines, $error),
-      ),
-    );
+    return $hh_client_lint_result['errors']
+      |> Vec\map(
+        $$,
+        $error ==> new HHClientLintError(
+          $this->file,
+          $error,
+          $this::blameCode($file_lines, $error),
+        ),
+      )
+      |> Vec\filter($$, $error ==> {
+        if ($error->getLintRule()->isSuppressedForFile($this->file)) {
+          return false;
+        }
+        $range = $error->getRange();
+        if ($range is null) {
+          return true;
+        }
+        list(list($line_number, $_), $_) = $range;
+        $previous_line_number = $line_number - 1;
+        if ($this->isSuppressedForLine($this->file, $previous_line_number)) {
+          return false;
+        }
+        if (
+          $error->getLintRule()
+            ->isSuppressedForLine($this->file, $previous_line_number)
+        ) {
+          return false;
+        }
+        return true;
+      });
   }
 }
