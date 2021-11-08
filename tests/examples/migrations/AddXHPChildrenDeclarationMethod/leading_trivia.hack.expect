@@ -1,0 +1,13 @@
+/** Foo bar baz */
+
+use namespace Facebook\XHP\ChildValidation as XHPChild;
+
+class :has-children {
+  use XHPChildDeclarationConsistencyValidation;
+  children (foo, bar);
+
+  protected static function getChildrenDeclaration(): XHPChild\Constraint {
+    return XHPChild\sequence(XHPChild\ofType<foo>(), XHPChild\ofType<bar>(), );
+  }
+
+}

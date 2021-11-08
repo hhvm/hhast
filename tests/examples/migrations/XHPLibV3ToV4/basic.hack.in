@@ -1,0 +1,59 @@
+/* file docblock */
+
+use namespace Facebook\XHP\ChildValidation as XHPChild;
+
+/** function docblock */
+function foo(
+  XHPRoot $node,
+  // 1
+  :x:element $element,
+  /* 2 */ :x:primitive $primitive,
+  XHPUnsafeRenderable $ur,
+  XHPAlwaysValidChild $awc,  // 3
+  <<__Soft>> :br $br,
+  vec<:h1> $h1,
+  XHPUnsafeAttributeValue $uav,
+): <<__Soft>> dict<string, (?XHPRoot, :x:element)> {
+  $classname = XHPRoot::class;
+  $children = :form::__xhpReflectionChildrenDeclaration();
+  return dict[
+    'foo' => tuple(
+      null,
+      <p>
+        Hello<br/>
+        world!
+      </p>,
+    ),
+  ];
+}
+
+class :my_element extends :x:element {
+  use XHPChildValidation;
+
+  protected static function getChildrenDeclaration(): XHPChild\Constraint {
+    return XHPChild\sequence(
+      /* 1 */ XHPChild\anyNumberOf /* 2 */ (XHPChild\ofType<:div>()),
+      XHPChild /* these comments */ \ /* will be lost */ anyOf(
+        XHPChild\ofType<:my_primitive>(),
+        XHPChild\atLeastOneOf(XHPChild\ofType<:p>()),
+      ),
+    );
+  }
+
+  /* 1 */ protected /* 2 */ function /* 3 */ render /* 4 */ (
+  ): /* 5 */ :x:element /* 6 */ {
+    return <p>hi</p>;
+  }
+}
+
+class :my_primitive extends :x:primitive {
+  protected function stringify() /* missing return type */ {
+    return 'hi';
+  }
+}
+
+class MyUnsafeRenderable extends XHPUnsafeRenderable {
+  /* no modifiers */ function toHTMLString(): <<__Soft>> string {
+    return '<p>hi</p>';
+  }
+}

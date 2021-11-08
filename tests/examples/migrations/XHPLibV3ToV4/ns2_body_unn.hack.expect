@@ -1,0 +1,15 @@
+use namespace Facebook\XHP;
+use namespace Facebook\XHP\ChildValidation as XHPChild;
+use namespace Facebook\XHP\Core as x;
+
+namespace Foo {
+  function foo(
+    x\node $node,
+    XHPChild\Constraint $c,
+    XHP\UnsafeRenderable $ur,
+  ): void {}
+}
+
+namespace Bar {
+  function foo(XHP\UnsafeRenderable $ur) {}
+}

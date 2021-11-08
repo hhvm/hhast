@@ -1,0 +1,18 @@
+<?hh // strict
+/**
+ * Copyright (c) 2017, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+use type Facebook\HHAST\AutoFixingASTLinter;
+use type Facebook\HHAST\Node;
+
+class Foo extends AutoFixingASTLinter<Node> {
+  <<__Override>>
+  public function getPrettyTextForNode(Node $node): Node {
+  }
+ }

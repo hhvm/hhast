@@ -1,0 +1,42 @@
+<?hh // strict
+
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+function foo(vec<int> $bar): void {
+  /* HH_FIXME[4110] In the beginning the Universe was created. This has made
+     a lot of people very angry and been widely regarded as a bad move. */
+  $bar['yolo'];
+
+  /* HH_FIXME[4110] Short one */ $bar['yolo'];
+
+  /* HH_IGNORE_ERROR[4110] Many tokens inbetween */
+  $_ = \sqrt(42) + $bar['yolo'] * \abs($bar['yolo']);
+
+  /*HH_FIXME[4110]*/$bar['yolo'];
+
+  /* HH_FIXME[4110] Many trivia inbetween */
+
+  // Time is an illusion.
+
+  /* Lunchtime doubly so. */ $bar['yolo'];
+
+  // Second is redundant but we preserve it too.
+  /* HH_FIXME[4110] first */ $bar['yolo'] + /* HH_FIXME[4110] second */ $bar['yolo'];
+
+  /* HH_FIXME[4110] This FIXME is not in a valid position. */
+  $_ =
+    $bar['yolo'];
+
+  /* HH_FIXME[4110] Neither is this. */ $_ =
+    $bar['yolo'];
+
+  $_ = /* HH_FIXME[4110] This one's fine. */
+    $bar['yolo'];
+}

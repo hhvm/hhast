@@ -1,0 +1,96 @@
+[
+  {
+    "jsonrpc": "2.0",
+    "method": "initialize",
+    "id": 0,
+    "params": {
+      "processId": null,
+      "initializationOptions": {
+        "__PRIVATE__": {
+          "unitTestOptions": {
+            "ignoreFilenameExtensions": true
+          }
+        },
+        "lintMode": "open-files"
+      },
+      "capabilities": {},
+      "rootUri": "HHAST_ROOT_URI"
+    }
+  },
+  {
+    "params": {},
+    "jsonrpc": "2.0",
+    "method": "initialized"
+  },
+  {
+    "id": "Facebook\\HHAST\\__Private\\LSPImpl\\InitializedNotification",
+    "result": null,
+    "jsonrpc": "2.0"
+  },
+  {
+    "params": {
+      "textDocument": {
+        "version": 0,
+        "uri": "HHAST_FIXTURES_URI/NoWhitespaceAtEndOfLineLinter/trailing_whitespace.php.in",
+        "languageId": "hack",
+        "text": ">>>PLACEHOLDER<<<"
+      }
+    },
+    "method": "textDocument/didOpen",
+    "jsonrpc": "2.0"
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "textDocument/codeAction",
+    "params": {
+      "range": {
+        "start": {
+          "line": 11,
+          "character": 17
+        },
+        "end": {
+          "line": 11,
+          "character": 17
+        }
+      },
+      "textDocument": {
+        "version": 0,
+        "uri": "HHAST_FIXTURES_URI/NoWhitespaceAtEndOfLineLinter/trailing_whitespace.php.in",
+        "languageId": "hack",
+        "text": ">>>PLACEHOLDER<<<"
+      },
+      "context": {
+        "diagnostics": [
+          {
+            "range": {
+              "start": {
+                "line": 9,
+                "character": 17
+              },
+              "end": {
+                "line": 9,
+                "character": 17
+              }
+            },
+            "severity": 2,
+            "message": "trailing whitespace at end of line",
+            "code": "NoWhitespaceAtEndOfLine",
+            "source": "HHAST"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "jsonrpc": "2.0",
+    "id": 18,
+    "params": null,
+    "method": "shutdown"
+  },
+  {
+    "params": null,
+    "method": "exit",
+    "jsonrpc": "2.0"
+  }
+]

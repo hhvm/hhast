@@ -1,0 +1,3 @@
+function LF(): string {
+  return "UNIX style";
+}

@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "\n\n\n\n\n\n\n\n\n\n\n  \/\/ Hackfmt will already format away any gap\n  \/\/ of three blank lines or greater to two blank lines.\n  hi",
+        "blame_pretty": "\n\n\n\n\n\n\n\n\n\n\n  \/\/ Hackfmt will already format away any gap\n  \/\/ of three blank lines or greater to two blank lines.\n  hi",
+        "description": "Don't have two empty lines in a row"
+    }
+]

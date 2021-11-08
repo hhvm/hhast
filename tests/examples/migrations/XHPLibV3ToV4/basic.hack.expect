@@ -1,0 +1,62 @@
+/* file docblock */
+
+use namespace Facebook\XHP\ChildValidation as XHPChild;
+use namespace Facebook\XHP;
+use namespace Facebook\XHP\{Core as x, HTML};
+use type Facebook\XHP\HTML\{br, p};
+
+/** function docblock */
+function foo(
+  x\node $node,
+  // 1
+  x\element $element,
+  /* 2 */ x\primitive $primitive,
+  XHP\UnsafeRenderable $ur,
+  XHP\AlwaysValidChild $awc,  // 3
+  <<__Soft>> HTML\br $br,
+  vec<HTML\h1> $h1,
+  XHP\UnsafeAttributeValue_DEPRECATED $uav,
+): <<__Soft>> dict<string, (?x\node, x\element)> {
+  $classname = x\node::class;
+  $children = HTML\form::__xhpReflectionChildrenDeclaration();
+  return dict[
+    'foo' => tuple(
+      null,
+      <p>
+        Hello<br/>
+        world!
+      </p>,
+    ),
+  ];
+}
+
+class :my_element extends x\element {
+  use XHPChild\Validation;
+
+  protected static function getChildrenDeclaration(): XHPChild\Constraint {
+    return XHPChild\sequence(
+      /* 1 */ XHPChild\any_number_of /* 2 */ (XHPChild\of_type<HTML\div>()),
+      XHPChild\any_of(
+        XHPChild\of_type<:my_primitive>(),
+        XHPChild\at_least_one_of(XHPChild\of_type<HTML\p>()),
+      ),
+    );
+  }
+
+  /* 1 */ protected /* 2 */ async function /* 3 */ renderAsync /* 4 */ (
+  ): /* 5 */ Awaitable<x\element> /* 6 */ {
+    return <p>hi</p>;
+  }
+}
+
+class :my_primitive extends x\primitive {
+  protected async function stringifyAsync() /* missing return type */ {
+    return 'hi';
+  }
+}
+
+class MyUnsafeRenderable extends XHP\UnsafeRenderable {
+  /* no modifiers */ async function toHTMLStringAsync(): <<__Soft>> Awaitable<string> {
+    return '<p>hi</p>';
+  }
+}

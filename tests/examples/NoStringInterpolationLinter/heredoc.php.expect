@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "<<<EOF\nfoo$bar\nEOF",
+        "blame_pretty": "<<<EOF\nfoo$bar\nEOF",
+        "description": "Do not use string interpolation - consider concatenation or Str\\format() instead "
+    }
+]

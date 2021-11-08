@@ -1,0 +1,7 @@
+xhp class simple {}
+xhp class with:colon {}
+xhp class with_hyphen {}
+xhp class with_hyphen:and_colon {}
+
+abstract xhp class abstract_xhp_class {}
+abstract /* foo */ xhp class with_trivia {}

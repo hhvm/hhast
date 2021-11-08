@@ -1,0 +1,11 @@
+<?hh
+
+function list_expression(): void {
+  list($_L1, $_L2) = vec[1, 2];
+}
+
+class C {
+  public function list_expression(): void {
+    list($_L1, $_L2) = vec[1, 2];
+  }
+}

@@ -1,0 +1,7 @@
+<?hh
+
+class Foo {
+  public function bar(int $herp, int $_derp) {
+    return $herp;
+  }
+}

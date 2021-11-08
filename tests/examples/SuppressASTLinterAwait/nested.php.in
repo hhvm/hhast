@@ -1,0 +1,20 @@
+<?hh // strict
+/*
+ * Copyright (c) 2017, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+
+async function nested_loop_waaits(
+): Awaitable<void> {
+  for ($i = 0; $i < 10; ++$i) {
+    for ($j = 0; $j < 10; ++$j) {
+      /* HHAST_FIXME[DontAwaitInALoop] */
+      await do_async_stuff();
+    }
+  }
+}

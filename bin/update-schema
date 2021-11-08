@@ -1,0 +1,13 @@
+#!/bin/sh
+# Copyright (c) 2017, Facebook, Inc.
+#
+# This source code is licensed under the MIT -style license found in the
+# LICENSE file in the root directory of this source tree.
+
+set -ex
+
+DIR="$(dirname "$0")"
+rm -rf "$DIR/../codegen"
+mkdir "$DIR/../codegen"
+hh_parse --schema > "$DIR/../codegen/schema.json"
+exec "$DIR/update-codegen" --rebuild-relationships "$@"

@@ -1,0 +1,49 @@
+<?hh
+
+function foreach_value($items) {
+  foreach ($items as $item) {
+  }
+}
+
+function foreach_key_value($items) {
+  foreach ($items as $i => $item) {
+  }
+}
+
+function foreach_shadow($items) {
+  $i = 0;
+  $item = 'a';
+  foreach ($items as $i => $item) {
+  }
+}
+
+function foreach_nested($items) {
+  foreach ($items as $item) {
+    $a = $item;
+  }
+}
+
+class C {
+  public function foreach_value($items) {
+    foreach ($items as $item) {
+    }
+  }
+
+  public function foreach_key_value($items) {
+    foreach ($items as $i => $item) {
+    }
+  }
+
+  public function foreach_shadow($items) {
+    $i = 0;
+    $item = 'a';
+    foreach ($items as $i => $item) {
+    }
+  }
+
+  public function foreach_nested($items) {
+    foreach ($items as $item) {
+      $a = $item;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+/*
+ *  Copyright (c) 2017-present, Facebook, Inc.
+ *  All rights reserved.
+ *
+ *  This source code is licensed under the MIT license found in the
+ *  LICENSE file in the root directory of this source tree.
+ *
+ */
+
+use type Facebook\HHAST\{BinaryToken, AwaitToken, AsyncToken};
+use type Facebook\HHAST\{
+  ElseToken,
+  DefaultToken,
+  BreakToken,
+  FinalToken,
+  CaseToken,
+};
+
+use type Facebook\HHAST\{EnumToken, ForToken /*trailing*/, CatchToken};
+use type Facebook\HHAST\{
+  /*leading*/ StaticToken /*trailing before comma*/,
+  MinusEqualToken,
+  PublicToken, // trailing after comma
+  GreaterThanEqualToken,
+  IfToken,
+};
+
+use type Facebook\{HHAST\LessThanEqualToken, HHAST\FloatToken};
+
+use type Foo\Bar\{
+  FooBar,
+  Foo,
+};
+
+use type Foo\Bar\{
+  AAA as ZZZ,
+  BBB as YYY,
+};
+
+use type Foo\Bar\{
+  BBB as YYY,
+  AAA as ZZZ,
+};
+
+use type Facebook\Markdown\Blocks\{
+  TableExtensionColumnAlignment as ColumnAlignment,
+  TableExtension as ASTTableExtension,
+};

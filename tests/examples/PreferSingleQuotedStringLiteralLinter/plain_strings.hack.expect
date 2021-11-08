@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "  \"Hello, world!\"",
+        "blame_pretty": "  \"Hello, world!\"",
+        "description": "Prefer a single-quoted string when possible"
+    }
+]

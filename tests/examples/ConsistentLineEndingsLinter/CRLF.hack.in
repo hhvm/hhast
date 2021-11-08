@@ -1,0 +1,3 @@
+function CRLF(): string {
+  return "WINDOWS style";
+}

@@ -1,0 +1,29 @@
+<?hh // strict
+
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+$_ = ($x is string);
+$_ = ($x is int);
+$_ = ($x is float);
+$_ = ($x is vec<_>);
+$_ = ($x is dict<_, _>);
+$_ = ($x is keyset<_>);
+$_ = ($x is resource);
+
+if ($x is vec<_>) {
+}
+
+invariant($x is keyset<_>, 'foo', 'bar');
+
+if (($x is vec<_>) && $foo) {
+}
+
+if (/* foo */ $bar is vec<_> /* baz */) {
+}

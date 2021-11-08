@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "\\Something\\__Private\\TestingWithPrivateNamespace",
+        "blame_pretty": "\\Something\\__Private\\TestingWithPrivateNamespace",
+        "description": "Artifacts belonging to a namespace are private to the parent namespace"
+    }
+]

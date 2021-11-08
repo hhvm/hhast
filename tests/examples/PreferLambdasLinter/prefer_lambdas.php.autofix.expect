@@ -1,0 +1,27 @@
+<?hh
+
+function test_anon(): void {
+
+	$outer = vec[];
+
+	$f1 = ($a, $b) ==> {
+		do_something();
+	};
+
+	$f2 = ($a, $b) ==> {
+		do_something();
+	};
+
+	$f3 = (int $a): int ==> $a * $a;
+
+	$f4 = ($a, $b) ==> {
+		do_something();
+	};
+
+  it(
+    'formats numbers as strings',
+        () ==> {
+          do_something();
+        }
+  );
+}

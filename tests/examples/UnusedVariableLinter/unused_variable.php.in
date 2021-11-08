@@ -1,0 +1,51 @@
+<?hh
+
+function simple(int $bar): int {
+  $baz = $bar;
+  return $bar;
+}
+
+function with_mutation(): void {
+  $b = 0;
+  $b += 1;
+
+  $c = 'hello';
+  $c .= ' world';
+
+  return;
+}
+
+function lambdas(
+  (function(int, int): void) $fun = ($x, $y) ==> { $z = $x; },
+): void {
+  $a = $a ==> $a; // shadowed name, currently causes a false negative
+  $b = 42;
+  $c = $b ==> $b; // same here
+  $d = () ==> {
+    $fun = ($x, $y) ==> { $z = $x; };
+  };
+  $d();
+}
+
+class C {
+  private int $x = 1;
+
+  public function simple(int $bar): int {
+    $baz = $bar;
+    return $bar;
+  }
+
+  public function with_mutation(): void {
+    $b = 0;
+    $b += 1;
+
+    $c = 'hello';
+    $c .= ' world';
+
+    return;
+  }
+
+  public function with_member_selection(): void {
+    $y = $this->x;
+  }
+}

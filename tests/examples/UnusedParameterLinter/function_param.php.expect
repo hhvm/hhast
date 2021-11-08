@@ -1,0 +1,22 @@
+[
+    {
+        "blame": "int $baz",
+        "blame_pretty": "int $baz",
+        "description": "Parameter is unused"
+    },
+    {
+        "blame": "  (function(int, int): int) $c = ($c1, $c2) ==> $c2",
+        "blame_pretty": "  (function(int, int): int) $c = ($c1, $c2) ==> $c2",
+        "description": "Parameter is unused"
+    },
+    {
+        "blame": "$c1",
+        "blame_pretty": "$c1",
+        "description": "Parameter is unused"
+    },
+    {
+        "blame": "$d2",
+        "blame_pretty": "$d2",
+        "description": "Parameter is unused"
+    }
+]

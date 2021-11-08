@@ -1,0 +1,128 @@
+[
+   {
+      "jsonrpc" : "2.0",
+      "method" : "initialize",
+      "id" : 0,
+      "params" : {
+         "processId" : null,
+         "initializationOptions" : {
+            "__PRIVATE__" : {
+               "unitTestOptions" : {
+                  "ignoreFilenameExtensions" : true
+               }
+            },
+            "lintMode" : "open-files"
+         },
+         "capabilities" : {},
+         "rootUri" : "HHAST_ROOT_URI"
+      }
+   },
+   {
+      "params" : {},
+      "jsonrpc" : "2.0",
+      "method" : "initialized"
+   },
+   {
+      "id" : "Facebook\\HHAST\\__Private\\LSPImpl\\InitializedNotification",
+      "result" : null,
+      "jsonrpc" : "2.0"
+   },
+   {
+      "params" : {
+         "textDocument" : {
+            "version" : 0,
+            "uri" : "HHAST_FIXTURES_URI/NoPHPEqualityLinter/double_equals.php.in",
+            "languageId" : "hack",
+            "text" : ">>>PLACEHOLDER<<<"
+         }
+      },
+      "method" : "textDocument/didOpen",
+      "jsonrpc" : "2.0"
+   },
+   {
+      "jsonrpc" : "2.0",
+      "id": 1,
+      "method" : "textDocument/codeAction",
+      "params" : {
+         "range" : {
+            "end" : {
+               "line" : 11,
+               "character" : 29
+            },
+            "start" : {
+               "line" : 11,
+               "character" : 11
+            }
+         },
+         "textDocument" : {
+            "version" : 0,
+            "uri" : "HHAST_FIXTURES_URI/NoPHPEqualityLinter/double_equals.php.in",
+            "languageId" : "hack",
+            "text" : ">>>PLACEHOLDER<<<"
+         },
+         "context" : {
+            "diagnostics" : [
+               {
+                  "code" : "NoPHPEquality",
+                  "range" : {
+                     "start" : {
+                        "line" : 11,
+                        "character" : 11
+                     },
+                     "end" : {
+                        "character" : 29,
+                        "line" : 11
+                     }
+                  },
+                  "message" : "Do not use PHP equality - use \"===\" instead.",
+                  "source" : "HHAST",
+                  "severity" : 2
+               },
+               {
+                  "code" : "NoPHPEquality",
+                  "range" : {
+                     "end" : {
+                        "line" : 12,
+                        "character" : 29
+                     },
+                     "start" : {
+                        "line" : 12,
+                        "character" : 11
+                     }
+                  },
+                  "message" : "Do not use PHP equality - use \"!==\" instead.",
+                  "source" : "HHAST",
+                  "severity" : 2
+               },
+               {
+                  "severity" : 2,
+                  "source" : "HHAST",
+                  "message" : "Do not use PHP equality - use \"!==\" instead.",
+                  "range" : {
+                     "start" : {
+                        "character" : 11,
+                        "line" : 13
+                     },
+                     "end" : {
+                        "character" : 29,
+                        "line" : 13
+                     }
+                  },
+                  "code" : "NoPHPEquality"
+               }
+            ]
+         }
+      }
+   },
+   {
+      "jsonrpc" : "2.0",
+      "id" : 18,
+      "params" : null,
+      "method" : "shutdown"
+   },
+   {
+      "params" : null,
+      "method" : "exit",
+      "jsonrpc" : "2.0"
+   }
+]

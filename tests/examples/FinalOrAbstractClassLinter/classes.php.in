@@ -1,0 +1,34 @@
+<?hh
+
+class test {
+
+}
+
+abstract final class test2 {
+
+}
+
+final class :page:test-page-one extends SomeXHPPage {
+
+}
+
+class :page:test-page-two extends SomeXHPPage {
+
+}
+
+final class test4 {
+
+}
+
+abstract class test5 {
+
+}
+
+
+interface interface1 {
+
+}
+
+trait trait1 {
+
+}

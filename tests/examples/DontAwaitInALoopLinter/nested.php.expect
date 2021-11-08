@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "      await do_async_stuff()",
+        "blame_pretty": "Line 13:   for ($i = 0; $i < 10; ++$i) {\nLine 14:     for ($j = 0; $j < 10; ++$j) {\nLine 15:       await do_async_stuff();",
+        "description": "Don't use await in a loop"
+    }
+]

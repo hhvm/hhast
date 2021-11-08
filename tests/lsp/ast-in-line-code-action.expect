@@ -1,0 +1,154 @@
+[
+    {
+        "jsonrpc": "2.0",
+        "id": 0,
+        "result": {
+            "capabilities": {
+                "textDocumentSync": {
+                    "save": {
+                        "includeText": false
+                    },
+                    "openClose": true,
+                    "change": 1
+                },
+                "codeActionProvider": true,
+                "executeCommandProvider": {
+                    "commands": [
+                        "hhast/applyWorkspaceEdit"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "jsonrpc": "2.0",
+        "id": "Facebook\\HHAST\\__Private\\LSPImpl\\InitializedNotification",
+        "method": "client/registerCapability",
+        "params": {
+            "registrations": [
+                {
+                    "id": "relint on watched file change",
+                    "method": "workspace/didChangeWatchedFiles",
+                    "registerOptions": {
+                        "watchers": [
+                            {
+                                "globPattern": "**/*.php"
+                            },
+                            {
+                                "globPattern": "**/*.hck"
+                            },
+                            {
+                                "globPattern": "**/*.hack"
+                            },
+                            {
+                                "globPattern": "**/*.hh"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "jsonrpc": "2.0",
+        "method": "textDocument/publishDiagnostics",
+        "params": {
+            "uri": "HHAST_ROOT_URI/tests/examples/NoPHPEqualityLinter/double_equals.php.in",
+            "diagnostics": [
+                {
+                    "range": {
+                        "start": {
+                            "line": 11,
+                            "character": 11
+                        },
+                        "end": {
+                            "line": 11,
+                            "character": 29
+                        }
+                    },
+                    "severity": 2,
+                    "message": "Do not use PHP equality - use \"===\" instead.",
+                    "code": "NoPHPEquality",
+                    "source": "HHAST"
+                },
+                {
+                    "range": {
+                        "start": {
+                            "line": 12,
+                            "character": 11
+                        },
+                        "end": {
+                            "line": 12,
+                            "character": 29
+                        }
+                    },
+                    "severity": 2,
+                    "message": "Do not use PHP equality - use \"!==\" instead.",
+                    "code": "NoPHPEquality",
+                    "source": "HHAST"
+                }
+            ]
+        }
+    },
+    {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": [
+            {
+                "title": "Replace `==` with `===`",
+                "command": "hhast/applyWorkspaceEdit",
+                "arguments": [
+                    {
+                        "changes": {
+                            "HHAST_ROOT_URI/tests/examples/NoPHPEqualityLinter/double_equals.php.in": [
+                                {
+                                    "range": {
+                                        "start": {
+                                            "line": 11,
+                                            "character": 21
+                                        },
+                                        "end": {
+                                            "line": 11,
+                                            "character": 21
+                                        }
+                                    },
+                                    "newText": "="
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "title": "Replace `!=` with `!==`",
+                "command": "hhast/applyWorkspaceEdit",
+                "arguments": [
+                    {
+                        "changes": {
+                            "HHAST_ROOT_URI/tests/examples/NoPHPEqualityLinter/double_equals.php.in": [
+                                {
+                                    "range": {
+                                        "start": {
+                                            "line": 12,
+                                            "character": 21
+                                        },
+                                        "end": {
+                                            "line": 12,
+                                            "character": 21
+                                        }
+                                    },
+                                    "newText": "="
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "jsonrpc": "2.0",
+        "id": 18,
+        "result": null
+    }
+]
