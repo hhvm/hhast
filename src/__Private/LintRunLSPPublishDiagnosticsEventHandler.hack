@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private;
 
 use type Facebook\HHAST\{BaseLinter, LintError};
 
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{C, Vec};
 
 final class LintRunLSPPublishDiagnosticsEventHandler
   implements LintRunEventHandler {
@@ -49,10 +49,7 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     $start = LSPImpl\position_to_lsp($start);
     $end = LSPImpl\position_to_lsp($end);
 
-    $source = \get_class($error->getLinter())
-      |> Str\split($$, '\\')
-      |> C\lastx($$)
-      |> Str\strip_suffix($$, 'Linter');
+    $source = $error->getLinter()->getLinterName();
     return shape(
       'range' => shape('start' => $start, 'end' => $end),
       'severity' => LSP\DiagnosticSeverity::WARNING,
