@@ -17,7 +17,7 @@ namespace Facebook\HHAST;
  */
 <<__Sealed(
   SingleRuleLintError::class,
-  // HHClientProblem::class
+  HHClientLintError::class
 )>>
 interface LintError {
   public function getFile(): File;
