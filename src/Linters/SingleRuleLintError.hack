@@ -11,7 +11,10 @@ namespace Facebook\HHAST;
 
 use type Facebook\HHAST\File;
 
-class SingleRuleLintError {
+/**
+ * A problem detected by a SingleRuleLinter
+ */
+class SingleRuleLintError implements LintError {
   public function __construct(
     private SingleRuleLinter $linter,
     private string $description,
@@ -57,4 +60,9 @@ class SingleRuleLintError {
   final public function getLinter(): SingleRuleLinter {
     return $this->linter;
   }
+
+  final public function getLintRule(): LintRule {
+    return $this->getLinter();
+  }
+
 }
