@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
-use namespace HH\Lib\{C, Vec};
+use namespace HH\Lib\{C, Str, Vec};
 
 /**
  * A linter as a proxy invoking `hh_client --lint`.
@@ -24,6 +24,20 @@ final class HHClientLinter implements Linter {
     'errors' => vec<HHClientLintError::TJSONError>,
     'version' => string,
   );
+
+  private static function blameCode(
+    vec<string> $file_lines,
+    HHClientLintError::TJSONError $error,
+  ): string {
+    $line_number_1base = $error['line'];
+    $line_index_0base = $line_number_1base - 1;
+    $line_content = $file_lines[$line_index_0base];
+    return Str\slice(
+      $line_content,
+      $error['start'],
+      $error['end'] - $error['start'],
+    );
+  }
 
   public async function getLintErrorsAsync(
   ): Awaitable<vec<HHClientLintError>> {
@@ -43,9 +57,14 @@ final class HHClientLinter implements Linter {
         \JSON_FB_HACK_ARRAYS,
       ),
     );
+    $file_lines = Str\split($this->getFile()->getContents(), "\n");
     return Vec\map(
       $hh_client_lint_result['errors'],
-      $error ==> new HHClientLintError($this->file, $error),
+      $error ==> new HHClientLintError(
+        $this->file,
+        $error,
+        $this::blameCode($file_lines, $error),
+      ),
     );
   }
 }
