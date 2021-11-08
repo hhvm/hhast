@@ -78,7 +78,7 @@ abstract class BaseLinter {
    * whole file using this string as a marker
    */
   public function getIgnoreAllMarker(): string {
-    return 'HHAST_IGNORE_ALL['.$this->getLinterName().']';
+    return LintMarker::getIgnoreAllMarker($this->getLinterName());
   }
 
   /**
@@ -86,7 +86,7 @@ abstract class BaseLinter {
    * using this string as a marker
    */
   public function getIgnoreSingleErrorMarker(): string {
-    return 'HHAST_IGNORE_ERROR['.$this->getLinterName().']';
+    return LintMarker::getIgnoreSingleErrorMarker($this->getLinterName());
   }
 
   /**
@@ -97,7 +97,7 @@ abstract class BaseLinter {
    * fixed.
    */
   public function getFixmeMarker(): string {
-    return 'HHAST_FIXME['.$this->getLinterName().']';
+    return LintMarker::getFixmeMarker($this->getLinterName());
   }
 
   /**
