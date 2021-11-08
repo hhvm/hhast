@@ -13,12 +13,23 @@ use namespace Facebook\TypeAssert;
 use type Facebook\HHAST\File;
 use namespace HH\Lib\{C, Str};
 
+/**
+ * An HHAST linter
+ */
 <<__ConsistentConstruct>>
-abstract class BaseLinter {
+abstract class BaseLinter implements LintRule, Linter {
   <<__Reifiable>>
   abstract const type TConfig;
 
+  final public function getName(): string {
+    return $this->getLinterName();
+  }
+
   abstract public function getLintErrorsAsync(): Awaitable<vec<LintError>>;
+
+  final public function getProblemsAsync(): Awaitable<vec<Problem>> {
+    return $this->getLintErrorsAsync();
+  }
 
   public static function shouldLintFile(File $_): bool {
     return true;

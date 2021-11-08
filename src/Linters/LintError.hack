@@ -11,7 +11,10 @@ namespace Facebook\HHAST;
 
 use type Facebook\HHAST\File;
 
-class LintError {
+/**
+ * A problem detected by an HHAST linter
+ */
+class LintError implements Problem {
   public function __construct(
     private BaseLinter $linter,
     private string $description,
@@ -20,6 +23,10 @@ class LintError {
 
   final public function getFile(): File {
     return $this->linter->getFile();
+  }
+
+  final public function getPath(): string {
+    return $this->getFile()->getPath();
   }
 
   public function getPosition(): ?(int, int) {
@@ -57,4 +64,9 @@ class LintError {
   final public function getLinter(): BaseLinter {
     return $this->linter;
   }
+
+  final public function getLintRule(): LintRule {
+    return $this->getLinter();
+  }
+
 }
