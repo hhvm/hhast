@@ -9,42 +9,10 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\Str;
-
-final class LinterException extends \Exception {
-  public function __construct(
-    private classname<BaseLinter> $linter,
-    private string $fileBeingLinted,
-    private string $rawMessage,
-    private ?(int, int) $position = null,
-    ?\Throwable $previous = null,
-  ) {
-    parent::__construct(
-      Str\format(
-        "While running '%s' on '%s': %s",
-        $linter,
-        $fileBeingLinted,
-        $rawMessage,
-      ),
-      /* code = */ 0,
-      // Throwable should be fine but causes type errors. facebook/hhvm#8239
-      $previous ?as \Exception,
-    );
-  }
-
-  public function getLinterClass(): classname<BaseLinter> {
-    return $this->linter;
-  }
-
-  public function getFileBeingLinted(): string {
-    return $this->fileBeingLinted;
-  }
-
-  public function getRawMessage(): string {
-    return $this->rawMessage;
-  }
-
-  public function getPosition(): ?(int, int) {
-    return $this->position;
-  }
+/**
+ * The exception thrown when executing an HHAST BaseLinter
+ *
+ * @deprecated Use GenericLinterException instead
+ */
+final class LinterException extends GenericLinterException<BaseLinter> {
 }
