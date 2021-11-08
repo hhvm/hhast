@@ -1,0 +1,7 @@
+[
+    {
+        "blame": null,
+        "blame_pretty": null,
+        "description": "Invalid null check: This expression will always return `false`.\nA value of type `int` can never be null."
+    }
+]

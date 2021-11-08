@@ -13,10 +13,7 @@ namespace Facebook\HHAST;
  * An abstract lint rule that provides a single error reason, which could be
  * either a HHAST linter or a lint rule written in OCaml.
  */
-<<__Sealed(
-  SingleRuleLinter::class,
-  // HHClientLintRule::class,
-)>>
+<<__Sealed(SingleRuleLinter::class, HHClientLintRule::class)>>
 interface LintRule {
   /**
    * The human readable name of the lint rule, which can be used to report
