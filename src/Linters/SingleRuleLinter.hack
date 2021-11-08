@@ -13,10 +13,17 @@ use namespace Facebook\TypeAssert;
 use type Facebook\HHAST\File;
 use namespace HH\Lib\{C, Str};
 
+/**
+ * A linter that applies a single lint rule.
+ */
 <<__ConsistentConstruct>>
-abstract class SingleRuleLinter {
+abstract class SingleRuleLinter implements LintRule, Linter {
   <<__Reifiable>>
   abstract const type TConfig;
+
+  final public function getName(): string {
+    return $this->getLinterName();
+  }
 
   abstract public function getLintErrorsAsync(): Awaitable<vec<SingleRuleLintError>>;
 
@@ -28,6 +35,10 @@ abstract class SingleRuleLinter {
     private File $file,
     private ?this::TConfig $config,
   ) {
+  }
+
+  public static function newInstance(File $file, ?this::TConfig $config): this {
+    return new static($file, $config);
   }
 
   protected function getConfig(): ?this::TConfig {
