@@ -13,7 +13,7 @@ use type Facebook\HHAST\Node;
 use function Facebook\HHAST\find_position;
 use namespace HH\Lib\Str;
 
-class ASTLintError extends LintError {
+class ASTLintError extends SingleRuleLintError {
   <<__Override>>
   public function __construct(
     protected ASTLinter $linter,

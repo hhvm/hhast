@@ -10,9 +10,9 @@
 namespace Facebook\HHAST;
 
 final class NewlineAtEndOfFileLinterTest extends TestCase {
-  use AutoFixingLinterTestTrait<LintError>;
+  use AutoFixingLinterTestTrait<SingleRuleLintError>;
 
-  protected function getLinter(string $file): AutoFixingLinter<LintError> {
+  protected function getLinter(string $file): AutoFixingLinter<SingleRuleLintError> {
     return NewlineAtEndOfFileLinter::fromPath($file);
   }
 

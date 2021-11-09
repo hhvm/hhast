@@ -14,11 +14,11 @@ use type Facebook\HHAST\File;
 use namespace HH\Lib\{C, Str};
 
 <<__ConsistentConstruct>>
-abstract class BaseLinter {
+abstract class SingleRuleLinter {
   <<__Reifiable>>
   abstract const type TConfig;
 
-  abstract public function getLintErrorsAsync(): Awaitable<vec<LintError>>;
+  abstract public function getLintErrorsAsync(): Awaitable<vec<SingleRuleLintError>>;
 
   public static function shouldLintFile(File $_): bool {
     return true;

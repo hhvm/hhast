@@ -12,8 +12,8 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\File;
 use namespace Facebook\HHAST\__Private\LSP;
 
-interface AutoFixingLinter<Terror as LintError> {
-  require extends BaseLinter;
+interface AutoFixingLinter<Terror as SingleRuleLintError> {
+  require extends SingleRuleLinter;
 
   public function getLintErrorsAsync(): Awaitable<Traversable<Terror>>;
 

@@ -16,7 +16,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
   const type TNode = ExpressionStatement;
 
   <<__Override>>
-  public function getTitleForFix(LintError $_): string {
+  public function getTitleForFix(SingleRuleLintError $_): string {
     return 'Remove statement';
   }
 

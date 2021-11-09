@@ -11,9 +11,9 @@ namespace Facebook\HHAST;
 
 use type Facebook\HHAST\File;
 
-class LintError {
+class SingleRuleLintError {
   public function __construct(
-    private BaseLinter $linter,
+    private SingleRuleLinter $linter,
     private string $description,
   ) {
   }
@@ -54,7 +54,7 @@ class LintError {
     return $this->getBlameCode();
   }
 
-  final public function getLinter(): BaseLinter {
+  final public function getLinter(): SingleRuleLinter {
     return $this->linter;
   }
 }

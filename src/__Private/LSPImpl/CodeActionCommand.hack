@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
-use type Facebook\HHAST\{AutoFixingLinter, LintError};
+use type Facebook\HHAST\{AutoFixingLinter, SingleRuleLintError};
 use namespace HH\Lib\Vec;
 
 final class CodeActionCommand extends LSPLib\CodeActionCommand {
@@ -99,8 +99,8 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
 
   private function findError(
     LSP\Diagnostic $diagnostic,
-    vec<LintError> $errors,
-  ): ?LintError {
+    vec<SingleRuleLintError> $errors,
+  ): ?SingleRuleLintError {
     $pos = position_from_lsp($diagnostic['range']['start']);
     foreach ($errors as $error) {
       $code = $error->getLinter()->getLinterName();

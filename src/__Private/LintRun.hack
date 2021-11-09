@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{BaseLinter, File, LinterException};
+use type Facebook\HHAST\{File, LinterException, SingleRuleLinter};
 use type Facebook\CLILib\ExitException;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -97,7 +97,7 @@ final class LintRun {
   }
 
   private async function runLinterOnFileImplAsync<
-    TLinter as BaseLinter,
+    TLinter as SingleRuleLinter,
     TLinterConfig,
   >(
     LintRunConfig::TFileConfig $config,

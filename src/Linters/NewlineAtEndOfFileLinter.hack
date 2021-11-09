@@ -13,13 +13,13 @@ use type Facebook\HHAST\File;
 use namespace HH\Lib\{C, Math, Str, Vec};
 
 final class NewlineAtEndOfFileLinter
-  extends BaseLinter
-  implements AutoFixingLinter<LintError> {
+  extends SingleRuleLinter
+  implements AutoFixingLinter<SingleRuleLintError> {
   const type TConfig = shape();
-  use AutoFixingLinterTrait<LintError>;
+  use AutoFixingLinterTrait<SingleRuleLintError>;
 
   <<__Override>>
-  public async function getLintErrorsAsync(): Awaitable<vec<LintError>> {
+  public async function getLintErrorsAsync(): Awaitable<vec<SingleRuleLintError>> {
     $contents = $this->getFile()->getContents();
     $fixed = $this->getFixedFile(vec[])->getContents();
     if ($contents === $fixed) {
@@ -47,7 +47,7 @@ final class NewlineAtEndOfFileLinter
       |> vec[$$];
   }
 
-  protected function getTitleForFix(LintError $_): string {
+  protected function getTitleForFix(SingleRuleLintError $_): string {
     $contents = $this->getFile()->getContents();
     if (Str\ends_with($contents, "\n")) {
       return 'Remove extra trailing whitespace';
@@ -58,7 +58,7 @@ final class NewlineAtEndOfFileLinter
     return 'Replace trailng whitespace with newline';
   }
 
-  public function getFixedFile(Traversable<LintError> $_): File {
+  public function getFixedFile(Traversable<SingleRuleLintError> $_): File {
     return $this->getFile()->withContents(
       $this->getFile()->getContents()
         |> Str\trim_right($$)

@@ -12,15 +12,15 @@ namespace Facebook\HHAST\Tests;
 use type Facebook\HackTest\HackTest;
 use function Facebook\FBExpect\expect;
 use type Facebook\HHAST\{
-  BaseLinter,
-  LintError,
   PreferRequireOnceLinter,
+  SingleRuleLintError,
+  SingleRuleLinter,
 };
 use type Facebook\HHAST\__Private\LintRunConfig;
 
-abstract class EmptyBaseLinter extends BaseLinter {
+abstract class EmptyBaseLinter extends SingleRuleLinter {
   <<__Override>>
-  final public async function getLintErrorsAsync(): Awaitable<vec<LintError>> {
+  final public async function getLintErrorsAsync(): Awaitable<vec<SingleRuleLintError>> {
     return vec[];
   }
   final public function getConfigPublic(): ?this::TConfig {

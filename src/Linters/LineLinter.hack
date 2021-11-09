@@ -9,10 +9,10 @@
 
 namespace Facebook\HHAST;
 
-use type Facebook\HHAST\{BaseLinter};
+use type Facebook\HHAST\{SingleRuleLinter};
 use namespace HH\Lib\{C, Str, Vec};
 
-abstract class LineLinter<+Terror as LineLintError> extends BaseLinter {
+abstract class LineLinter<+Terror as LineLintError> extends SingleRuleLinter {
 
   public function getLinesFromFile(): vec<string> {
     $code = $this->getFile()->getContents();

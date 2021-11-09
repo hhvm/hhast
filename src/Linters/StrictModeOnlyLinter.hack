@@ -43,7 +43,7 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter {
   }
 
   <<__Override>>
-  protected function getTitleForFix(LintError $_): string {
+  protected function getTitleForFix(SingleRuleLintError $_): string {
     return 'Use `<?hh` (default)';
   }
 

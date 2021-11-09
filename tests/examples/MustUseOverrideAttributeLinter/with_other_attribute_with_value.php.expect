@@ -2,6 +2,6 @@
     {
         "blame": "  <<Foo('bar')>>\n  public static function shouldLintFile(File $_): bool {\n    return false;\n  }\n",
         "blame_pretty": "  <<Foo('bar')>>\n  public static function shouldLintFile(File $_): bool {",
-        "description": "Foo::shouldLintFile() overrides Facebook\\HHAST\\BaseLinter::shouldLintFile() without <<__Override>>"
+        "description": "Foo::shouldLintFile() overrides Facebook\\HHAST\\SingleRuleLinter::shouldLintFile() without <<__Override>>"
     }
 ]
