@@ -253,7 +253,19 @@ final class LintRunConfig {
     }
 
     try {
-      return $classname::typeAssertConfig($config);
+      return TypeAssert\matches_type_structure(
+        type_structure($classname, 'TConfig'),
+        $config,
+      );
+    } catch (TypeAssert\UnsupportedTypeException $e) {
+      throw new \InvalidOperationException(
+        Str\format(
+          '%s specified an unsupported config type. See previous exception:',
+          $classname,
+        ),
+        $e->getCode(),
+        $e,
+      );
     } catch (TypeAssert\IncorrectTypeException $e) {
       throw new \Exception(
         Str\format(
