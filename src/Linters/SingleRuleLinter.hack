@@ -75,7 +75,7 @@ abstract class SingleRuleLinter implements LintRule, Linter {
    * whole file using this string as a marker
    */
   public function getIgnoreAllMarker(): string {
-    return 'HHAST_IGNORE_ALL['.$this->getLinterName().']';
+    return LintMarkerName::HHAST_IGNORE_ALL.'['.$this->getLinterName().']';
   }
 
   /**
@@ -83,7 +83,7 @@ abstract class SingleRuleLinter implements LintRule, Linter {
    * using this string as a marker
    */
   public function getIgnoreSingleErrorMarker(): string {
-    return 'HHAST_IGNORE_ERROR['.$this->getLinterName().']';
+    return LintMarkerName::HHAST_IGNORE_ERROR.'['.$this->getLinterName().']';
   }
 
   /**
@@ -94,7 +94,7 @@ abstract class SingleRuleLinter implements LintRule, Linter {
    * fixed.
    */
   public function getFixmeMarker(): string {
-    return 'HHAST_FIXME['.$this->getLinterName().']';
+    return LintMarkerName::HHAST_FIXME.'['.$this->getLinterName().']';
   }
 
   /**
