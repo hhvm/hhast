@@ -13,7 +13,7 @@ use namespace HH\Lib\Str;
 
 final class LinterException extends \Exception {
   public function __construct(
-    private classname<SingleRuleLinter> $linter,
+    private classname<Linter> $linter,
     private string $fileBeingLinted,
     private string $rawMessage,
     private ?(int, int) $position = null,
@@ -32,7 +32,7 @@ final class LinterException extends \Exception {
     );
   }
 
-  public function getLinterClass(): classname<SingleRuleLinter> {
+  public function getLinterClass(): classname<Linter> {
     return $this->linter;
   }
 
