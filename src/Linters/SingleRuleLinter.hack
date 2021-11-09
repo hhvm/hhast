@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace Facebook\TypeAssert;
 use type Facebook\HHAST\File;
 use namespace HH\Lib\{C, Str};
 
@@ -18,8 +17,6 @@ use namespace HH\Lib\{C, Str};
  */
 <<__ConsistentConstruct>>
 abstract class SingleRuleLinter implements LintRule, Linter {
-  <<__Reifiable>>
-  abstract const type TConfig;
 
   final public function getName(): string {
     return $this->getLinterName();
@@ -47,21 +44,6 @@ abstract class SingleRuleLinter implements LintRule, Linter {
 
   protected function getConfig(): ?this::TConfig {
     return $this->config;
-  }
-
-  final static public function typeAssertConfig(mixed $config): this::TConfig {
-    try {
-      return TypeAssert\matches<this::TConfig>($config);
-    } catch (TypeAssert\UnsupportedTypeException $e) {
-      throw new \InvalidOperationException(
-        Str\format(
-          '%s specified an unsupported config type. See previous exception:',
-          static::class,
-        ),
-        $e->getCode(),
-        $e,
-      );
-    }
   }
 
   final public static function fromPath(string $path): this {

@@ -22,6 +22,7 @@ namespace Facebook\HHAST;
   )
 >>
 interface Linter {
+  <<__Reifiable>>
   abstract const type TConfig;
 
   public function getLintErrorsAsync(): Awaitable<vec<LintError>>;
@@ -34,5 +35,4 @@ interface Linter {
 
   public function getFile(): File;
 
-  public static function typeAssertConfig(mixed $config): this::TConfig;
 }
