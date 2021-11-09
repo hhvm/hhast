@@ -19,8 +19,14 @@ namespace Facebook\HHAST;
 )>>
 interface LintRule {
   /**
-   * The name of the lint rule, which can be used to determine markers to
-   * suppress lint errors.
+   * The human readable name of the lint rule, which can be used to report
+   * the lint error.
    */
   public function getName(): string;
+
+  /**
+   * The error code of the lint rule, which can be used to determine markers to
+   * suppress lint errors.
+   */
+  public function getErrorCode(): string;
 }
