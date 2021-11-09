@@ -70,7 +70,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
           $error->getDescription(),
           $colors ? "\e[0m" : '',
           $colors ? "\e[90m" : '',
-          \get_class($error->getLintRule()),
+          $error->getLintRule()->getName(),
           $colors ? "\e[0m" : '',
           $position === null
             ? $error->getFile()->getPath()
