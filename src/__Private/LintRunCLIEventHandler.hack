@@ -60,7 +60,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       : null;
 
     foreach ($errors as $error) {
-      $position = $error->getPosition();
+      $position = $error->getRange()[0] ?? null;
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       await $this->terminal
         ->getStdout()

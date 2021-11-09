@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private\LSPImpl;
 
 use namespace Facebook\HHAST\__Private\{LSP, LSPLib};
 use type Facebook\HHAST\{AutoFixingLinter, LintError};
-use namespace HH\Lib\Vec;
+use namespace HH\Lib\{C, Vec};
 
 final class CodeActionCommand extends LSPLib\CodeActionCommand {
   const type TResponse = vec<mixed>;
@@ -101,17 +101,12 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
     LSP\Diagnostic $diagnostic,
     vec<LintError> $errors,
   ): ?LintError {
+    $code = $diagnostic['code'] ?? null;
     $pos = position_from_lsp($diagnostic['range']['start']);
-    foreach ($errors as $error) {
-      $code = $error->getLintRule()->getName();
-      if ($code !== ($diagnostic['code'] ?? null)) {
-        continue;
-      }
-      if ($error->getPosition() !== $pos) {
-        continue;
-      }
-      return $error;
-    }
-    return null;
+    return C\find(
+      $errors,
+      $error ==> $error->getLintRule()->getErrorCode() === $code &&
+        ($error->getRange()[0] ?? null) === $pos,
+    );
   }
 }

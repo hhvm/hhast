@@ -22,8 +22,6 @@ namespace Facebook\HHAST;
 interface LintError {
   public function getFile(): File;
 
-  public function getPosition(): ?(int, int);
-
   public function getRange(): ?((int, int), ?(int, int));
 
   public function getDescription(): string;
