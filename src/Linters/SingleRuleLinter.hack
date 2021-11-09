@@ -25,6 +25,10 @@ abstract class SingleRuleLinter implements LintRule, Linter {
     return $this->getLinterName();
   }
 
+  final public function getErrorCode(): string {
+    return $this->getLinterName();
+  }
+
   abstract public function getLintErrorsAsync(): Awaitable<vec<SingleRuleLintError>>;
 
   public static function shouldLintFile(File $_): bool {
