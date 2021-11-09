@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\Str;
+use namespace HH\Lib\{Dict, Keyset, Regex, Str, Vec};
 
 final class File {
   private function __construct(
@@ -20,6 +20,40 @@ final class File {
 
   public function isDirty(): bool {
     return $this->isDirty;
+  }
+
+  private function getLines(): vec<string> {
+    return Str\split($this->contents, "\n");
+  }
+
+  const type TLineNumber = int;
+
+  /**
+   * Returns the 1-based line number of lint markers in the file.
+   */
+  <<__Memoize>>
+  public function lintMarkersForLineBasedSuppression(
+  ): dict<string, keyset<self::TLineNumber>> {
+    return $this->getLines()
+      |> Vec\map_with_key(
+        $$,
+        ($line_index, $line_content) ==>
+          Regex\every_match($line_content, re"/(?<marker_name>\w+)\[\w+\]/")
+          |> Vec\filter(
+            $$,
+            $match ==> LintMarkerName::isValid($match['marker_name']),
+          )
+          |> Vec\map($$, $match ==> tuple($line_index + 1, $match[0])),
+      )
+      |> Vec\flatten($$)
+      |> Dict\group_by($$, $line_marker ==> $line_marker[/* marker */ 1])
+      |> Dict\map(
+        $$,
+        $line_markers ==> Keyset\map(
+          $line_markers,
+          $line_marker ==> $line_marker[/* line number */ 0],
+        ),
+      );
   }
 
   public function getPath(): string {
