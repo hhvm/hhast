@@ -101,10 +101,9 @@ abstract class SingleRuleLinter implements LintRule, Linter {
    * Is this linter error disabled for the entire file?
    * Memoized since this should not change per run.
    */
-  <<__Memoize>>
   public function isLinterSuppressedForFile(): bool {
-    return Str\contains(
-      $this->getFile()->getContents(),
+    return C\contains_key(
+      $this->getFile()->lintMarkersForLineBasedSuppression(),
       $this->getIgnoreAllMarker(),
     );
   }
