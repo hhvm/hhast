@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private\LSPImpl;
 
 use namespace Facebook\HHAST\__Private\LSPLib;
-use type Facebook\HHAST\SingleRuleLintError;
+use type Facebook\HHAST\LintError;
 use type Facebook\HHAST\__Private\LintRunConfig;
 
 final class ServerState extends LSPLib\ServerState {
@@ -18,7 +18,7 @@ final class ServerState extends LSPLib\ServerState {
   public LintMode $lintMode = LintMode::WHOLE_PROJECT;
   public bool $lintAsYouType = true;
   public keyset<string> $openFiles = keyset[];
-  public dict<string, vec<SingleRuleLintError>> $lintErrors = dict[];
+  public dict<string, vec<LintError>> $lintErrors = dict[];
 
   // For Unit Tests
   public bool $ignoreFilenameExtensions = false;

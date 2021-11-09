@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{File, LinterException, SingleRuleLinter};
+use type Facebook\HHAST\{File, Linter, LinterException};
 use type Facebook\CLILib\ExitException;
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -83,7 +83,7 @@ final class LintRun {
       } catch (LinterException $e) {
         throw $e;
       } catch (\Throwable $t) {
-        throw new LinterException(
+        new LinterException(
           $class,
           $file->getPath(),
           $t->getMessage(),
@@ -97,7 +97,7 @@ final class LintRun {
   }
 
   private async function runLinterOnFileImplAsync<
-    TLinter as SingleRuleLinter,
+    TLinter as Linter,
     TLinterConfig,
   >(
     LintRunConfig::TFileConfig $config,
@@ -109,7 +109,7 @@ final class LintRun {
       return LintRunResult::NO_ERRORS;
     }
 
-    $linter = new $linter($file, $linter_config);
+    $linter = $linter::newInstance($file, $linter_config);
 
     if ($linter->isLinterSuppressedForFile()) {
       return LintRunResult::NO_ERRORS;

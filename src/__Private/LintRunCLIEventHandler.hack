@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
 use type Facebook\DiffLib\{CLIColoredUnifiedDiff, StringDiff};
-use type Facebook\HHAST\{AutoFixingLinter, SingleRuleLintError, SingleRuleLinter};
+use type Facebook\HHAST\{AutoFixingLinter, LintError, Linter, SingleRuleLintError};
 use namespace HH\Lib\{C, IO, Str, Vec};
 
 final class LintRunCLIEventHandler implements LintRunEventHandler {
@@ -24,9 +24,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   public async function linterRaisedErrorsAsync(
-    SingleRuleLinter $linter,
+    Linter $linter,
     LintRunConfig::TFileConfig $config,
-    Traversable<SingleRuleLintError> $errors,
+    Traversable<LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     if (!$this->terminal->isInteractive()) {
       return await $this->linterRaisedErrorsImplAsync(
@@ -43,9 +43,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   private async function linterRaisedErrorsImplAsync(
-    SingleRuleLinter $linter,
+    Linter $linter,
     LintRunConfig::TFileConfig $config,
-    Traversable<SingleRuleLintError> $errors,
+    Traversable<LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     $class = \get_class($linter);
     $to_fix = vec[];
@@ -70,7 +70,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
           $error->getDescription(),
           $colors ? "\e[0m" : '',
           $colors ? "\e[90m" : '',
-          \get_class($error->getLinter()),
+          \get_class($error->getLintRule()),
           $colors ? "\e[0m" : '',
           $position === null
             ? $error->getFile()->getPath()
@@ -217,7 +217,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   private async function renderLintBlameAsync(
-    SingleRuleLintError $error,
+    LintError $error,
   ): Awaitable<void> {
     $blame = $error->getPrettyBlame();
     if ($blame === null) {

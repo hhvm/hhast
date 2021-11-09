@@ -24,9 +24,9 @@ final class IgnorePHPFilesTest extends HackTest {
 
 final class DoNotSendMeEventsHandler implements __Private\LintRunEventHandler {
   public function linterRaisedErrorsAsync(
-    SingleRuleLinter $_linter,
+    Linter $_linter,
     __Private\LintRunConfig::TFileConfig $_config,
-    Traversable<SingleRuleLintError> $_errors,
+    Traversable<LintError> $_errors,
   ): Awaitable<nothing> {
     invariant_violation('You may not raise an error on a PHP file');
   }
