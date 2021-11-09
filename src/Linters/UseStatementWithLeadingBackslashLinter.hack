@@ -49,7 +49,7 @@ final class UseStatementWithLeadingBackslashLinter extends AutoFixingASTLinter {
   }
 
   <<__Override>>
-  protected function getTitleForFix(LintError $_): string {
+  protected function getTitleForFix(SingleRuleLintError $_): string {
     return 'Remove leading backslash';
   }
 

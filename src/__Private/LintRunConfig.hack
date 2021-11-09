@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\{HHAST, TypeAssert};
 use namespace HH\Lib\{C, Keyset, Str, Vec};
-use type Facebook\HHAST\BaseLinter;
+use type Facebook\HHAST\SingleRuleLinter;
 
 final class LintRunConfig {
   const type TConfigFile = shape(
@@ -57,11 +57,11 @@ final class LintRunConfig {
   );
 
   const type TFileConfig = shape(
-    'linters' => keyset<classname<BaseLinter>>,
-    'autoFixBlacklist' => keyset<classname<BaseLinter>>,
+    'linters' => keyset<classname<SingleRuleLinter>>,
+    'autoFixBlacklist' => keyset<classname<SingleRuleLinter>>,
   );
 
-  const vec<classname<BaseLinter>> DEFAULT_LINTERS = vec[
+  const vec<classname<SingleRuleLinter>> DEFAULT_LINTERS = vec[
     HHAST\AsyncFunctionAndMethodLinter::class,
     HHAST\CamelCasedMethodsUnderscoredFunctionsLinter::class,
     HHAST\DontAwaitInALoopLinter::class,
@@ -84,7 +84,7 @@ final class LintRunConfig {
     HHAST\ConsistentLineEndingsLinter::class,
   ];
 
-  const vec<classname<BaseLinter>> NON_DEFAULT_LINTERS = vec[
+  const vec<classname<SingleRuleLinter>> NON_DEFAULT_LINTERS = vec[
     HHAST\DontUseAsioJoinLinter::class,
     HHAST\PreferSingleQuotedStringLiteralLinter::class,
     HHAST\NoStringInterpolationLinter::class,
@@ -98,7 +98,7 @@ final class LintRunConfig {
 
   private static function getNamedLinterGroup(
     NamedLinterGroup $group,
-  ): vec<classname<BaseLinter>> {
+  ): vec<classname<SingleRuleLinter>> {
     switch ($group) {
       case NamedLinterGroup::NO_BUILTINS:
         return vec[];
@@ -231,7 +231,7 @@ final class LintRunConfig {
 
     $assert_types = (keyset<string> $list) ==> Keyset\map(
       $list,
-      $str ==> TypeAssert\classname_of(BaseLinter::class, $str),
+      $str ==> TypeAssert\classname_of(SingleRuleLinter::class, $str),
     );
     $linters = $assert_types($linters);
     $autofix_blacklist = $assert_types($autofix_blacklist);
@@ -243,7 +243,7 @@ final class LintRunConfig {
   }
 
   <<__Memoize>>
-  public function getLinterConfigForLinter<TLinter as BaseLinter, TConfig>(
+  public function getLinterConfigForLinter<TLinter as SingleRuleLinter, TConfig>(
     classname<TLinter> $classname,
   ): ?TConfig where TConfig = TLinter::TConfig {
     $config = idx(Shapes::idx($this->configFile, 'linterConfigs'), $classname);

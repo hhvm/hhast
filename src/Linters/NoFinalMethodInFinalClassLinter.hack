@@ -44,7 +44,7 @@ final class NoFinalMethodInFinalClassLinter extends AutoFixingASTLinter {
   }
 
   <<__Override>>
-  public function getTitleForFix(LintError $_): string {
+  public function getTitleForFix(SingleRuleLintError $_): string {
     return 'Remove final from method';
   }
 

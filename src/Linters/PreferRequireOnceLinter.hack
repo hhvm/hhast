@@ -40,7 +40,7 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
   }
 
   <<__Override>>
-  protected function getTitleForFix(LintError $_): string {
+  protected function getTitleForFix(SingleRuleLintError $_): string {
     return 'Change to "require_once"';
   }
 }

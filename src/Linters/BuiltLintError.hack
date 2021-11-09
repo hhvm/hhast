@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-class BuiltLintError extends LintError {
+class BuiltLintError extends SingleRuleLintError {
   private ?(int, int) $position = null;
 
   <<__Override>>

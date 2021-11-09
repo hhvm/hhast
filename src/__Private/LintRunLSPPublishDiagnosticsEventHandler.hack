@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{BaseLinter, LintError};
+use type Facebook\HHAST\{SingleRuleLintError, SingleRuleLinter};
 
 use namespace HH\Lib\{C, Vec};
 
@@ -21,7 +21,7 @@ final class LintRunLSPPublishDiagnosticsEventHandler
   ) {
   }
 
-  private dict<string, vec<LintError>> $errors = dict[];
+  private dict<string, vec<SingleRuleLintError>> $errors = dict[];
 
   <<__Memoize>>
   private static function realPath(string $in): string {
@@ -29,9 +29,9 @@ final class LintRunLSPPublishDiagnosticsEventHandler
   }
 
   public async function linterRaisedErrorsAsync(
-    BaseLinter $linter,
+    SingleRuleLinter $linter,
     LintRunConfig::TFileConfig $_config,
-    Traversable<LintError> $errors,
+    Traversable<SingleRuleLintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     $file = self::realPath($linter->getFile()->getPath());
     $this->errors[$file] = Vec\concat(
@@ -41,7 +41,7 @@ final class LintRunLSPPublishDiagnosticsEventHandler
     return LintAutoFixResult::SOME_UNFIXED;
   }
 
-  private function asDiagnostic(LintError $error): LSP\Diagnostic {
+  private function asDiagnostic(SingleRuleLintError $error): LSP\Diagnostic {
     $range = $error->getRange();
     $start = $range[0] ?? tuple(0, 0);
     $end = $range[1] ?? $start;
@@ -61,7 +61,7 @@ final class LintRunLSPPublishDiagnosticsEventHandler
 
   private async function publishDiagnosticsAsync(
     string $file,
-    vec<LintError> $errors,
+    vec<SingleRuleLintError> $errors,
   ): Awaitable<void> {
     $uri = 'file://'.$file;
     $this->state->lintErrors[$uri] = $errors;

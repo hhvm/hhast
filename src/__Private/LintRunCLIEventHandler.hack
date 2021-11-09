@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
 use type Facebook\DiffLib\{CLIColoredUnifiedDiff, StringDiff};
-use type Facebook\HHAST\{AutoFixingLinter, BaseLinter, LintError};
+use type Facebook\HHAST\{AutoFixingLinter, SingleRuleLintError, SingleRuleLinter};
 use namespace HH\Lib\{C, IO, Str, Vec};
 
 final class LintRunCLIEventHandler implements LintRunEventHandler {
@@ -24,9 +24,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   public async function linterRaisedErrorsAsync(
-    BaseLinter $linter,
+    SingleRuleLinter $linter,
     LintRunConfig::TFileConfig $config,
-    Traversable<LintError> $errors,
+    Traversable<SingleRuleLintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     if (!$this->terminal->isInteractive()) {
       return await $this->linterRaisedErrorsImplAsync(
@@ -43,9 +43,9 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   private async function linterRaisedErrorsImplAsync(
-    BaseLinter $linter,
+    SingleRuleLinter $linter,
     LintRunConfig::TFileConfig $config,
-    Traversable<LintError> $errors,
+    Traversable<SingleRuleLintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     $class = \get_class($linter);
     $to_fix = vec[];
@@ -123,7 +123,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     }
   }
 
-  private static function fixErrors<Terror as LintError>(
+  private static function fixErrors<Terror as SingleRuleLintError>(
     AutoFixingLinter<Terror> $linter,
     vec<Terror> $errors,
   ): void {
@@ -139,7 +139,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
   private dict<string, bool> $userResponseCache = dict[];
 
-  private async function shouldFixLintAsync<Terror as LintError>(
+  private async function shouldFixLintAsync<Terror as SingleRuleLintError>(
     AutoFixingLinter<Terror> $linter,
     Terror $error,
   ): Awaitable<bool> {
@@ -217,7 +217,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
   }
 
   private async function renderLintBlameAsync(
-    LintError $error,
+    SingleRuleLintError $error,
   ): Awaitable<void> {
     $blame = $error->getPrettyBlame();
     if ($blame === null) {

@@ -17,7 +17,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
   const type TNode = MethodishDeclaration;
 
   <<__Override>>
-  public function getTitleForFix(LintError $_): string {
+  public function getTitleForFix(SingleRuleLintError $_): string {
     return 'Add __Override attribute';
   }
 

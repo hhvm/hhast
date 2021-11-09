@@ -18,7 +18,7 @@ final class ConfigurationRestrictionsTest extends HackTest {
    * This is not quite complete, since non hhast repo linters are not included.
    * It would be nice to have a discovery mechanism for all linters.
    */
-  public function provideLinterClassnames(): vec<(classname<BaseLinter>)> {
+  public function provideLinterClassnames(): vec<(classname<SingleRuleLinter>)> {
     return Keyset\union(
       __Private\LintRunConfig::DEFAULT_LINTERS,
       __Private\LintRunConfig::NON_DEFAULT_LINTERS,
@@ -28,7 +28,7 @@ final class ConfigurationRestrictionsTest extends HackTest {
 
   <<DataProvider('provideLinterClassnames')>>
   public function testLinterConfigOnlyIncludesValueTypes(
-    classname<BaseLinter> $classname,
+    classname<SingleRuleLinter> $classname,
   ): void {
     $type_structure = \HH\type_structure($classname, 'TConfig');
     $this->throwOnBannedTypeRecursive($type_structure);

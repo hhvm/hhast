@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 use namespace Facebook\HHAST\SuppressASTLinter;
 use namespace HH\Lib\Vec;
 
-abstract class ASTLinter extends BaseLinter {
+abstract class ASTLinter extends SingleRuleLinter {
   <<__Enforceable, __Reifiable>>
   abstract const type TContext as Node;
   <<__Enforceable, __Reifiable>>

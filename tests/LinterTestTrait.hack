@@ -16,7 +16,7 @@ use namespace HH\Lib\{C, Str, Vec};
 trait LinterTestTrait {
   require extends TestCase;
 
-  abstract protected function getLinter(string $file): BaseLinter;
+  abstract protected function getLinter(string $file): SingleRuleLinter;
 
   abstract public function getCleanExamples(): vec<(string)>;
   final public function getDirtyFixtures(): vec<(string)> {
@@ -91,7 +91,7 @@ trait LinterTestTrait {
     expect($out)->toMatchExpectFile($example.'.expect');
   }
 
-  final protected static function getErrorAsShape(LintError $e): shape(...) {
+  final protected static function getErrorAsShape(SingleRuleLintError $e): shape(...) {
     return shape(
       'blame' => $e->getBlameCode(),
       'blame_pretty' => $e->getPrettyBlame(),

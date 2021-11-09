@@ -16,7 +16,7 @@ namespace Facebook\HHAST;
 final class SuppressASTLinterAwaitTest extends TestCase {
   use LinterTestTrait;
 
-  protected function getLinter(string $file): BaseLinter {
+  protected function getLinter(string $file): SingleRuleLinter {
     return DontAwaitInALoopLinter::fromPath($file);
   }
 

@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST\SuppressASTLinter;
 
-use type Facebook\HHAST\{BaseLinter, IStatement, Node, Script};
+use type Facebook\HHAST\{IStatement, Node, Script, SingleRuleLinter};
 
 use namespace HH\Lib\{C, Str, Vec};
 
@@ -17,7 +17,7 @@ use namespace HH\Lib\{C, Str, Vec};
  * Allow users to suppress specific cases where a linter is used.
  **/
 function is_linter_error_suppressed(
-  BaseLinter $linter,
+  SingleRuleLinter $linter,
   Node $node,
   Script $root,
 ): bool {

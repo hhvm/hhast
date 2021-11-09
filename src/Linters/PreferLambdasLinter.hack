@@ -17,7 +17,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
   const type TNode = AnonymousFunction;
 
   <<__Override>>
-  protected function getTitleForFix(LintError $_): string {
+  protected function getTitleForFix(SingleRuleLintError $_): string {
     return 'Convert to lambda';
   }
 

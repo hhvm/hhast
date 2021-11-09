@@ -13,7 +13,7 @@ use type Facebook\HackTest\DataProvider;
 use function Facebook\HHAST\TestLib\expect;
 use namespace HH\Lib\Str;
 
-trait AutoFixingLinterTestTrait<Terror as LintError> {
+trait AutoFixingLinterTestTrait<Terror as SingleRuleLintError> {
   require extends TestCase;
   use LinterTestTrait;
 
