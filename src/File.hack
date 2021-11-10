@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Dict, Keyset, Regex, Str, Vec};
+use namespace HH\Lib\{C, Dict, Keyset, Regex, Str, Vec};
 
 final class File {
   private function __construct(
@@ -26,34 +26,60 @@ final class File {
     return Str\split($this->contents, "\n");
   }
 
+  /** 1-based line number */
   const type TLineNumber = int;
 
   /**
-   * Returns the 1-based line number of lint markers in the file.
+   * The lint error code to suppress, which could be either a linter name or a
+   * lint rule ID.
+   */
+  const type TErrorCode = string;
+
+  /**
+   * Returns the error codes to suppress according to lint markers in the file.
    */
   <<__Memoize>>
-  public function lintMarkersForLineBasedSuppression(
-  ): dict<string, keyset<self::TLineNumber>> {
-    return $this->getLines()
-      |> Vec\map_with_key(
+  public function errorCodesToSuppress(): shape(
+    'whole_file' => keyset<this::TErrorCode>,
+    'single_instance' => dict<this::TLineNumber, keyset<this::TErrorCode>>,
+  ) {
+    $all_matches = $this->getLines()
+      |> Vec\map(
         $$,
-        ($line_index, $line_content) ==>
-          Regex\every_match($line_content, re"/(?<marker_name>\w+)\[\w+\]/")
+        ($line_content) ==> Regex\every_match(
+          $line_content,
+          re"/(?<marker_name>\w+)\[(?<error_code>\w+)\]/",
+        )
           |> Vec\filter(
             $$,
             $match ==> LintMarkerName::isValid($match['marker_name']),
           )
-          |> Vec\map($$, $match ==> tuple($line_index + 1, $match[0])),
-      )
-      |> Vec\flatten($$)
-      |> Dict\group_by($$, $line_marker ==> $line_marker[/* marker */ 1])
-      |> Dict\map(
-        $$,
-        $line_markers ==> Keyset\map(
-          $line_markers,
-          $line_marker ==> $line_marker[/* line number */ 0],
-        ),
+          |> Vec\partition(
+            $$,
+            $match ==>
+              $match['marker_name'] === LintMarkerName::HHAST_IGNORE_ALL,
+          ),
       );
+    return shape(
+      'whole_file' => Vec\map(
+        $all_matches,
+        $line_matches ==>
+          // the partition 0: file level markers
+          $line_matches[0]
+          |> Vec\map($$, $match ==> $match['error_code']),
+      )
+        |> Keyset\flatten($$),
+      'single_instance' => Vec\map_with_key(
+        $all_matches,
+        ($line_index, $line_matches) ==>
+          // the partition 1: line level markers
+          $line_matches[1]
+          |> Keyset\map($$, $match ==> $match['error_code'])
+          |> C\is_empty($$) ? null : tuple($line_index + 1, $$),
+      )
+        |> Vec\filter_nulls($$)
+        |> Dict\from_entries($$),
+    );
   }
 
   public function getPath(): string {
