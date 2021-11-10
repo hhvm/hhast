@@ -60,4 +60,15 @@ trait SuppressibleTrait {
     );
   }
 
+  /** Check if this linter has been disabled by a comment on the previous line.
+   */
+  public final function isSuppressedForLine(File $file, int $previous_line_number): bool {
+    $line_marker = $file->lintMarkersForLineBasedSuppression();
+    return (
+      $line_marker[$this->getFixmeMarker()][$previous_line_number] ??
+      $line_marker[$this->getIgnoreSingleErrorMarker()][$previous_line_number] ??
+      null
+    ) is nonnull;
+  }
+
 }

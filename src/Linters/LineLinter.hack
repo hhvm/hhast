@@ -37,7 +37,7 @@ abstract class LineLinter<+Terror as LineLintError> extends SingleRuleLinter {
       }
 
       // We got an error. Let's check the previous line to see if it is marked as ignorable
-      if ($ln - 1 >= 0 && $this->isLinterSuppressed($ln)) {
+      if ($ln - 1 >= 0 && $this->isSuppressedForLine($this->getFile(), $ln)) {
         continue;
       }
 
@@ -45,17 +45,6 @@ abstract class LineLinter<+Terror as LineLintError> extends SingleRuleLinter {
     }
 
     return $errs;
-  }
-
-  /** Check if this linter has been disabled by a comment on the previous line.
-   */
-  private function isLinterSuppressed(int $base1_line_number): bool {
-    $line_marker = $this->getFile()->lintMarkersForLineBasedSuppression();
-    return (
-      $line_marker[$this->getFixmeMarker()][$base1_line_number] ??
-      $line_marker[$this->getIgnoreSingleErrorMarker()][$base1_line_number] ??
-      null
-    ) is nonnull;
   }
 
   /** Parse a single line of code and attempts to find lint errors */
