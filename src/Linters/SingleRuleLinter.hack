@@ -14,12 +14,9 @@ namespace Facebook\HHAST;
  */
 abstract class SingleRuleLinter implements LintRule, Linter {
   use LinterTrait;
+  use SuppressibleTrait;
 
   final public function getName(): string {
-    return $this->getLinterName();
-  }
-
-  final public function getErrorCode(): string {
     return $this->getLinterName();
   }
 

@@ -13,6 +13,8 @@ namespace Facebook\HHAST;
  * The lint rule of an error code reported by the hh_client
  */
 final class HHClientLintRule implements LintRule {
+  use SuppressibleTrait;
+
   public function getName(): string {
     return 'Linter: '.$this->code;
   }
