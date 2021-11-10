@@ -55,19 +55,18 @@ trait SuppressibleTrait {
    */
   public final function isSuppressedForFile(File $file): bool {
     return C\contains_key(
-      $file->lintMarkersForLineBasedSuppression(),
-      $this->getIgnoreAllMarker(),
+      $file->errorCodesToSuppress()['whole_file'],
+      $this->getErrorCode(),
     );
   }
 
   /** Check if this linter has been disabled by a comment on the previous line.
    */
   public final function isSuppressedForLine(File $file, int $previous_line_number): bool {
-    $line_marker = $file->lintMarkersForLineBasedSuppression();
+    $line_error_codes =
+      $file->errorCodesToSuppress()['single_instance'];
     return (
-      $line_marker[$this->getFixmeMarker()][$previous_line_number] ??
-      $line_marker[$this->getIgnoreSingleErrorMarker()][$previous_line_number] ??
-      null
+      $line_error_codes[$previous_line_number][$this->getErrorCode()] ?? null
     ) is nonnull;
   }
 
