@@ -12,9 +12,8 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\File;
 use namespace HH\Lib\{C, Str};
 
-<<__ConsistentConstruct>>
-trait LinterTrait {
-  require implements Linter;
+<<__ConsistentConstruct, __Sealed(SingleRuleLinter::class, HHClientLinter::class)>>
+abstract class BaseLinter implements Linter {
 
   public static function shouldLintFile(File $_): bool {
     return true;

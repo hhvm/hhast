@@ -15,7 +15,7 @@ namespace Facebook\HHAST;
  * Problems found by a Linter could associated with different LintRules,
  * especially when the Linter is a proxy calling other linting tools.
  */
-<<__Sealed(SingleRuleLinter::class, HHClientLinter::class)>>
+<<__Sealed(BaseLinter::class)>>
 interface Linter {
   <<__Reifiable>>
   abstract const type TConfig;
