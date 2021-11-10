@@ -17,6 +17,7 @@ use namespace HH\Lib\{C, Str, Vec};
  */
 final class HHClientLinter implements Linter {
   use LinterTrait;
+  use SuppressibleTrait;
 
   const type TConfig = shape();
 

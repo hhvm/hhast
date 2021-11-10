@@ -60,41 +60,14 @@ trait LinterTrait {
       |> Str\strip_suffix($$, 'Linter');
   }
 
-  /**
-   * A user can choose to ignore all errors reported by this linter for a
-   * whole file using this string as a marker
-   */
-  public function getIgnoreAllMarker(): string {
-    return LintMarkerName::HHAST_IGNORE_ALL.'['.$this->getLinterName().']';
+  public final function getErrorCode(): string {
+    return $this->getLinterName();
   }
 
-  /**
-   * A user can choose to ignore a specific error reported by this linter
-   * using this string as a marker
-   */
-  public function getIgnoreSingleErrorMarker(): string {
-    return LintMarkerName::HHAST_IGNORE_ERROR.'['.$this->getLinterName().']';
-  }
+  abstract protected function isSuppressedForFile(File $file): bool;
 
-  /**
-   * A user can choose to ignore a specific error reported by this linter
-   * using this string as a marker.
-   *
-   * The difference to HHAST_IGNORE_ERROR is that we expect this one to be
-   * fixed.
-   */
-  public function getFixmeMarker(): string {
-    return LintMarkerName::HHAST_FIXME.'['.$this->getLinterName().']';
-  }
-
-  /**
-   * Is this linter error disabled for the entire file?
-   * Memoized since this should not change per run.
-   */
   public function isLinterSuppressedForFile(): bool {
-    return C\contains_key(
-      $this->getFile()->lintMarkersForLineBasedSuppression(),
-      $this->getIgnoreAllMarker(),
-    );
+    return $this->isSuppressedForFile($this->getFile());
   }
+
 }

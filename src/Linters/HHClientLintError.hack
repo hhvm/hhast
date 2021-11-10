@@ -11,6 +11,10 @@ namespace Facebook\HHAST;
 
 final class HHClientLintError implements LintError {
 
+  protected function getErrorCode(): string {
+    return $this->getLintRule()->getErrorCode();
+  }
+
   const type TJSONError = shape(
     'descr' => string,
     'severity' => HHClientLintSeverity,
