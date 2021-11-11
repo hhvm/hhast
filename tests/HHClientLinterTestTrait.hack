@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{C, Regex, Str};
+use namespace HH\Lib\{C, Str};
 
 trait HHClientLinterTestTrait {
   use LinterTestTrait;
