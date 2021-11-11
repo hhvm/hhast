@@ -23,7 +23,7 @@ trait HHClientLinterTestTrait {
    * otherwise hh_client will not work.
    */
   private static function temporarySourceDirectory():string {
-    return __DIR__.'/../.var/tmp/hhast/'.C\lastx(Str\split(static::class, '\'));
+    return __DIR__.'/../.var/tmp/hhast/'.C\lastx(Str\split(static::class, '\\'));
   }
 
   protected function getLinter(string $file): HHClientLinter {
