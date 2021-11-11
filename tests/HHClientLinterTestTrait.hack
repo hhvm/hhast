@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Regex, Str};
+use namespace HH\Lib\{C, Regex, Str};
 
 trait HHClientLinterTestTrait {
   use LinterTestTrait;
@@ -23,7 +23,7 @@ trait HHClientLinterTestTrait {
    * otherwise hh_client will not work.
    */
   private static function temporarySourceDirectory():string {
-    return __DIR__.'/../.var/tmp/hhast/'.(Regex\first_match(static::class, re"/\\\\(\w+)$/")[1] ?? static::class);
+    return __DIR__.'/../.var/tmp/hhast/'.C\lastx(Str\split(static::class, "\\"));
   }
 
   protected function getLinter(string $file): HHClientLinter {
