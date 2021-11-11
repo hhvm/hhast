@@ -25,6 +25,30 @@ final class HHClientLinterTest extends TestCase {
           }
         }',
       ),
+      tuple(
+        '<?hh
+        function dont_clone(): void {
+          // HHAST_FIXME[5562]
+          clone shape();
+        }',
+      ),
+      tuple(
+        '<?hh
+        function invalid_null_check(): void {
+          $cannot_be_null = 42;
+          // HHAST_IGNORE_ERROR[5611]
+          if ($cannot_be_null is null) {
+            throw new Exception();
+          }
+        }',
+      ),
+      tuple(
+        '<?hh
+        function dont_clone(): void {
+          // HHAST_IGNORE_ERROR[5562]
+          clone shape();
+        }',
+      ),
     ];
   }
 

@@ -6,7 +6,6 @@
  *  LICENSE file in the root directory of this source tree.
  *
  */
-
 namespace Facebook\HHAST;
 
 use namespace Facebook\TypeAssert;
@@ -19,7 +18,28 @@ final class HHClientLinter implements Linter {
   use LinterTrait;
   use SuppressibleTrait;
 
-  const type TConfig = shape();
+  const type TConfig =
+    shape(?'ignore_except' => keyset<int>, ?'ignore' => keyset<int>);
+
+  const type TErrorCode = int;
+
+  <<__Memoize>>
+  private function isErrorCodeConfiguredToIgnore(): (function(this::TErrorCode): bool) {
+    $ignore_except = $this->config['ignore_except'] ?? null;
+    $ignore = $this->config['ignore'] ?? null;
+    if ($ignore is null) {
+      if ($ignore_except is null) {
+        return $_ ==> false;
+      }
+      return $error_code ==> !C\contains_key($ignore_except, $error_code);
+    }
+    if ($ignore_except is null) {
+      return $error_code ==> C\contains_key($ignore, $error_code);
+    }
+    throw new \InvalidOperationException(
+      "Must not set both of the 'ignore_except' and 'ignore' fields in the configuration of HHClientLinter",
+    );
+  }
 
   const type TJSONResult = shape(
     'errors' => vec<HHClientLintError::TJSONError>,
@@ -70,6 +90,13 @@ final class HHClientLinter implements Linter {
       )
       |> Vec\filter($$, $error ==> {
         if ($error->getLintRule()->isSuppressedForFile($this->file)) {
+          return false;
+        }
+        if (
+          $this->isErrorCodeConfiguredToIgnore()(
+            (int)$error->getLintRule()->getErrorCode(),
+          )
+        ) {
           return false;
         }
         $range = $error->getRange();

@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "shape()",
+        "blame_pretty": "shape()",
+        "description": "Objects created with `clone` will have references to shared deep objects. Prefer to implement your own explicit copy method to ensure the semantics you want. See http:\/\/php.net\/manual\/en\/language.oop5.cloning.php"
+    }
+]
