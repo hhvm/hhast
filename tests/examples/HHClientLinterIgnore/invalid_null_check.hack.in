@@ -1,0 +1,16 @@
+/**
+ * Copyright (c) 2016, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ */
+
+function invalid_null_check(): void {
+  $cannot_be_null = 42;
+  // hh_client --lint would report the lint error 5611
+  if ($cannot_be_null is null) {
+    throw new Exception();
+  }
+}
