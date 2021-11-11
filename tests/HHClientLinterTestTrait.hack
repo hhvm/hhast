@@ -22,6 +22,7 @@ trait HHClientLinterTestTrait {
    * Note that the temporary directory must be under the current directory,
    * otherwise hh_client will not work.
    */
+  <<__MemoizeLSB>>
   private static function temporarySourceDirectory():string {
     return __DIR__.'/../.var/tmp/hhast/'.C\lastx(Str\split(static::class, '\\'));
   }
