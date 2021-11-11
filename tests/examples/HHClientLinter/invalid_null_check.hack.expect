@@ -1,7 +1,7 @@
 [
     {
-        "blame": "cannot_be_null is null",
-        "blame_pretty": "cannot_be_null is null",
+        "blame": "$cannot_be_null is null",
+        "blame_pretty": "$cannot_be_null is null",
         "description": "Invalid null check: This expression will always return `false`.\nA value of type `int` can never be null."
     }
 ]

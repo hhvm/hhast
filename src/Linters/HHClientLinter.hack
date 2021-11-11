@@ -35,8 +35,8 @@ final class HHClientLinter implements Linter {
     $line_content = $file_lines[$line_index_0base];
     return Str\slice(
       $line_content,
-      $error['start'],
-      $error['end'] - $error['start'],
+      $error['start'] - 1,
+      $error['end'] - $error['start'] + 1,
     );
   }
 
