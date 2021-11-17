@@ -26,5 +26,7 @@ jobs:
           skip_lint: true
       - name: Lint
         run: bin/hhast-lint
+      - name: Test
+        run: vendor/bin/hacktest tests/
       - name: Check for manually modified codegen
         run: vendor/bin/hh-codegen-verify-signatures codegen/
