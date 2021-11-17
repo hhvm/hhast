@@ -15,9 +15,9 @@
       }
     },
     "require-dev": {
-        "facebook/fbexpect": "^2.1.1",
+        "facebook/fbexpect": "^2.8.1",
         "facebook/hack-codegen": "^4.0",
-        "hhvm/hacktest": "^2.2.0"
+        "hhvm/hacktest": "^2.3.0"
     },
     "require": {
         "hhvm": "^4.126",
