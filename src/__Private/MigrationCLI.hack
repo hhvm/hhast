@@ -253,7 +253,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
     );
   }
 
-  final private function migrateFile(
+  private function migrateFile(
     vec<BaseMigration> $migrations,
     string $file,
   ): void {
@@ -288,7 +288,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
     }
   }
 
-  final private function migrateDirectory(
+  private function migrateDirectory(
     vec<BaseMigration> $migrations,
     string $directory,
   ): void {
@@ -316,7 +316,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
     }
   }
 
-  final private function migrateDirectoryByRecursing(
+  private function migrateDirectoryByRecursing(
     vec<BaseMigration> $migrations,
     string $directory,
   ): void {
