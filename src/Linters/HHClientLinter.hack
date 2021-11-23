@@ -19,7 +19,7 @@ final class HHClientLinter implements Linter {
   use SuppressibleTrait;
 
   const type TConfig =
-    shape(?'ignore_except' => keyset<int>, ?'ignore' => keyset<int>);
+    shape(?'ignore_except' => vec<int>, ?'ignore' => vec<int>);
 
   const type TErrorCode = int;
 
@@ -31,10 +31,10 @@ final class HHClientLinter implements Linter {
       if ($ignore_except is null) {
         return $_ ==> false;
       }
-      return $error_code ==> !C\contains_key($ignore_except, $error_code);
+      return $error_code ==> !C\contains($ignore_except, $error_code);
     }
     if ($ignore_except is null) {
-      return $error_code ==> C\contains_key($ignore, $error_code);
+      return $error_code ==> C\contains($ignore, $error_code);
     }
     throw new \InvalidOperationException(
       "Must not set both of the 'ignore_except' and 'ignore' fields in the configuration of HHClientLinter",
