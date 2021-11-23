@@ -15,7 +15,7 @@ enum class ProcessExecutionQueues: ProcessExecutionQueue {
     // execute quick enough that most of the processes are waiting to be cleaned
     // up
     ProcessExecutionQueue HH_CLIENT =
-        new ProcessExecutionQueue(32, 'hh_client');
+        new ProcessExecutionQueue(2, 'hh_client');
     ProcessExecutionQueue HH_PARSE = new ProcessExecutionQueue(32, 'hh_parse');
 
 }
