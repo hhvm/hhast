@@ -54,7 +54,11 @@ final class LintRunConfig {
     // Each linter may specify a type for itself.
     // The type of this key is effectively `dict<classname<T1 ... Tn>, Tx>`
     ?'linterConfigs' => dict<string, dynamic>,
+    // Maximum number of linter instances to run in parallel
+    ?'concurrency' => int,
   );
+
+  const int DEFAULT_CONCURRENCY = 16;
 
   const type TFileConfig = shape(
     'linters' => keyset<classname<Linter>>,
@@ -113,6 +117,10 @@ final class LintRunConfig {
     private string $projectRoot,
     private self::TConfigFile $configFile,
   ) {
+  }
+
+  public function getConcurrency(): int {
+    return $this->configFile['concurrency'] ?? self::DEFAULT_CONCURRENCY;
   }
 
   <<__Memoize>>

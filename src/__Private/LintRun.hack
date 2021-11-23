@@ -9,8 +9,9 @@
 
 namespace Facebook\HHAST\__Private;
 
-use type Facebook\HHAST\{File, Linter, LinterException};
+use type Facebook\HHAST\{File, LintError, Linter, LinterException};
 use type Facebook\CLILib\ExitException;
+use type HH\Lib\Async\Semaphore;
 use namespace HH\Lib\{C, Str, Vec};
 
 final class LintRun {
@@ -20,6 +21,15 @@ final class LintRun {
     private LintRunEventHandler $handler,
     private vec<string> $paths,
   ) {
+  }
+
+  <<__Memoize>>
+  private function semaphore(
+  ): Semaphore<(function(): Awaitable<vec<LintError>>), vec<LintError>> {
+    return new Semaphore(
+      $this->config?->getConcurrency() ?? LintRunConfig::DEFAULT_CONCURRENCY,
+      async $run ==> await $run(),
+    );
   }
 
   public function withFile(File $file): this {
@@ -116,7 +126,8 @@ final class LintRun {
     }
 
     try {
-      $errors = await $linter->getLintErrorsAsync();
+      $errors = await $this->semaphore()
+        ->waitForAsync(async () ==> await $linter->getLintErrorsAsync());
     } catch (\Throwable $t) {
       throw $t;
     } catch (\Exception $e) {
