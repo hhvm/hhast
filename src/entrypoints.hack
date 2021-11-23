@@ -30,7 +30,8 @@ async function from_file_async(
   );
 
   try {
-    $results = await __Private\ParserQueue::get()->waitForAsync($args);
+    $results = await __Private\ProcessExecutionQueues::HH_PARSE
+      ->waitForAsync($args);
   } catch (__Private\SubprocessException $e) {
     throw new HHParseError(
       $path,
