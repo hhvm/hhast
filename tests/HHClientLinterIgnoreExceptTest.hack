@@ -26,6 +26,6 @@ final class HHClientLinterIgnoreExceptTest extends TestCase {
     ];
   }
 
-  const HHClientLinter::TConfig CONFIG = shape('ignore_except' => keyset[5611]);
+  const HHClientLinter::TConfig CONFIG = shape('ignore_except' => vec[5611]);
 
 }

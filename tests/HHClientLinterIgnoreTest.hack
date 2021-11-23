@@ -28,6 +28,6 @@ final class HHClientLinterIgnoreTest extends TestCase {
     ];
   }
 
-  const HHClientLinter::TConfig CONFIG = shape('ignore' => keyset[5611]);
+  const HHClientLinter::TConfig CONFIG = shape('ignore' => vec[5611]);
 
 }
