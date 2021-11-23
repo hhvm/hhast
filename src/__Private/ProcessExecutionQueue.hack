@@ -12,33 +12,25 @@ namespace Facebook\HHAST\__Private;
 use namespace HH\Lib\Async;
 
 final class ProcessExecutionQueue {
-  private Async\Semaphore<vec<string>, vec<string>> $impl;
-  protected function __construct(int $limit, string $process_name) {
-    $this->impl = new Async\Semaphore(
-      $limit,
-      async (vec<string> $args) ==> await execute_async($process_name, ...$args),
+
+  <<__Memoize>>
+  private function impl(): Async\Semaphore<vec<string>, vec<string>> {
+    return new Async\Semaphore(
+      $this->limit,
+      async (vec<string> $args) ==>
+        await execute_async($this->process_name, ...$args),
     );
   }
 
-  // Random number; it might seem high, but it's likely that `hh_parse` will
-  // execute quick enough that most of the processes are waiting to be cleaned
-  // up
-  const int HH_PARSE_LIMIT = 32;
-  const int HH_CLIENT_LIMIT = 32;
-
-  <<__Memoize>>
-  public static function getHHParserQueue(): this {
-    return new self(self::HH_PARSE_LIMIT, 'hh_parse');
-  }
-
-  <<__Memoize>>
-  public static function getHHClientQueue(): this {
-    return new self(self::HH_CLIENT_LIMIT, 'hh_client');
+  public function __construct(
+    private int $limit,
+    private string $process_name,
+  )[] {
   }
 
   public async function waitForAsync(
     vec<string> $args,
   ): Awaitable<vec<string>> {
-    return await $this->impl->waitForAsync($args);
+    return await $this->impl()->waitForAsync($args);
   }
 }

@@ -62,13 +62,14 @@ final class HHClientLinter implements Linter {
 
   public async function getLintErrorsAsync(
   ): Awaitable<vec<HHClientLintError>> {
-    $lines = await __Private\execute_async(
-      'hh_client',
-      '--lint',
-      $this->getFile()->getPath(),
-      '--json',
-      '--from',
-      'hhast',
+    $lines = await __Private\ProcessExecutionQueues::HH_CLIENT->waitForAsync(
+      vec[
+        '--lint',
+        $this->getFile()->getPath(),
+        '--json',
+        '--from',
+        'hhast',
+      ],
     );
     $hh_client_lint_result = TypeAssert\matches<this::TJSONResult>(
       \json_decode(
