@@ -19,7 +19,7 @@ final class HHClientLinter implements Linter {
   use SuppressibleTrait;
 
   const type TConfig =
-    shape(?'ignore_except' => vec<int>, ?'ignore' => vec<int>);
+    shape(?'ignore_except' => vec<int>, ?'ignore' => vec<int>, ...);
 
   const type TErrorCode = int;
 
