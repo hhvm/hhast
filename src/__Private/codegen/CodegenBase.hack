@@ -18,7 +18,12 @@ use namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 abstract class CodegenBase {
+  // Note to future maintainers:
+  // This object is cloned use `clone` in `->withoutHackfmt()`.
+  // If you add a reference (object) typed property, you must ensure
+  // proper cloning sematics manually.
   private Schema\TSchema $schema;
+  private bool $useHackfmt = true;
 
   public function __construct(
     Schema\TSchema $schema,
@@ -38,10 +43,13 @@ abstract class CodegenBase {
     return __DIR__.'/../../../codegen';
   }
 
-  private bool $useHackfmt = true;
-
   final public function withoutHackfmt(): this {
     invariant($this->useHackfmt, "can't disable hackfmt twice");
+    /* Use of the native `clone` operator.
+       This will become problematic when reference (object) typed properties are added.
+       All properties are primitive, structural, or value arrays as of November 2021.
+       Calling the constructor explcitly would cost a lot of needless re-`Vec\sort_by()` work.
+       HHAST_FIXME[5562] */
     $new = clone $this;
     $new->useHackfmt = false;
     return $new;
