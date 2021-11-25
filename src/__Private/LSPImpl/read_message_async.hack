@@ -18,7 +18,7 @@ async function read_message_async(BufferedReader $in): Awaitable<string> {
 
   // read headers
   while (true) {
-    /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+    /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
     $line = await $in->readLineAsync();
     if ($line === null) {
       break;

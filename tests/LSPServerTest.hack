@@ -129,7 +129,7 @@ final class LSPServerTest extends TestCase {
           if ($debug) {
             \fprintf(\STDERR, "< %s\n", $message);
           }
-          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583] */
           await $inw->writeAllAsync(
             'Content-Length: '.Str\length($message)."\r\n\r\n".$message,
           );
@@ -138,7 +138,7 @@ final class LSPServerTest extends TestCase {
               if ($debug) {
                 \fwrite(\STDERR, "> [waiting]\n");
               }
-              /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+              /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
               $raw = await read_message_async($outr);
               if ($debug) {
                 \fprintf(\STDERR, "> %s\n", $raw);
