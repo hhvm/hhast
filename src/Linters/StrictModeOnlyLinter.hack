@@ -23,7 +23,7 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter {
   ): ?ASTLintError {
     $name = $node->getName();
 
-    if ($name is null || $name->getText() !== 'hh') {
+    if ($name->getText() !== 'hh') {
       // Stay safe with `<?` and `<?non-hh`
       return null;
     }
@@ -49,7 +49,6 @@ class StrictModeOnlyLinter extends AutoFixingASTLinter {
 
   public function getFixedNode(MarkupSuffix $node): MarkupSuffix {
     $name = $node->getName();
-    invariant($name is nonnull, "Shouldn't be asked to fix a `<?hh`'");
     return $name->withTrailing(new NodeList(vec[
       new EndOfLine("\n"),
     ]))

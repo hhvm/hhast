@@ -101,9 +101,6 @@ final class HHClientLinter implements Linter {
           return false;
         }
         $range = $error->getRange();
-        if ($range is null) {
-          return true;
-        }
         list(list($line_number, $_), $_) = $range;
         $previous_line_number = $line_number - 1;
         if ($this->isSuppressedForLine($this->file, $previous_line_number)) {

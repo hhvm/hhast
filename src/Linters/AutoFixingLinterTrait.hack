@@ -24,9 +24,6 @@ trait AutoFixingLinterTrait<Terror as SingleRuleLintError>
 
   public function getCodeActionForError(Terror $error): ?LSP\CodeAction {
     $fixed = $this->getFixedFile(varray[$error]);
-    if ($fixed === null) {
-      return null;
-    }
 
     return shape(
       'title' => $this->getTitleForFix($error),
