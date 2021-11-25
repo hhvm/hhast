@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eeeef05fd45744c955db679c8028ac8b>>
+ * @generated SignedSource<<207f391800cb88e1142e03836438dc03>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,7 +163,7 @@ final class UnsetStatement extends Node implements IStatement {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -198,7 +198,7 @@ final class UnsetStatement extends Node implements IStatement {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -233,7 +233,7 @@ final class UnsetStatement extends Node implements IStatement {
   }
 
   public function hasVariables(): bool {
-    return $this->_variables !== null;
+    return true;
   }
 
   /**
@@ -274,7 +274,7 @@ final class UnsetStatement extends Node implements IStatement {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -309,7 +309,7 @@ final class UnsetStatement extends Node implements IStatement {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

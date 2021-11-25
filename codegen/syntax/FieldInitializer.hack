@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a60773b215a9bff1ff4b48daa7f1d36>>
+ * @generated SignedSource<<d54dc9c5cd2fff0b48e146e2694a4a38>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class FieldInitializer extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -152,7 +152,7 @@ final class FieldInitializer extends Node {
   }
 
   public function hasArrow(): bool {
-    return $this->_arrow !== null;
+    return true;
   }
 
   /**
@@ -181,7 +181,7 @@ final class FieldInitializer extends Node {
   }
 
   public function hasValue(): bool {
-    return $this->_value !== null;
+    return true;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<75d350fd6ba3cf053824dc7c92af0d17>>
+ * @generated SignedSource<<a5f164785ef3d9ce1a9af7a578f8f870>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,7 +103,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
   }
 
   public function hasHeader(): bool {
-    return $this->_header !== null;
+    return true;
   }
 
   /**
@@ -133,7 +133,7 @@ abstract class NamespaceDeclarationGeneratedBase extends Node {
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**

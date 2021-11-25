@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<08f68dfdf03e40b470a825658477fc40>>
+ * @generated SignedSource<<0a67bec5eca4b3d0f9c68e984092247a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,7 +102,7 @@ final class InclusionDirective extends Node implements IStatement {
   }
 
   public function hasExpression(): bool {
-    return $this->_expression !== null;
+    return true;
   }
 
   /**
@@ -131,7 +131,7 @@ final class InclusionDirective extends Node implements IStatement {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

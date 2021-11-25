@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4b3ed05e2671aa81d23e0402135e410d>>
+ * @generated SignedSource<<f96b9cb7ac477f5dd1cb507a53862625>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,7 +145,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -175,7 +175,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -261,7 +261,7 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

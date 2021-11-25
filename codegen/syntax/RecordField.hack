@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7ee3405e5e89a3926c0a9340587596b7>>
+ * @generated SignedSource<<0800dd81b1673f29e38461ab5b4e41d0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -136,7 +136,7 @@ final class RecordField extends Node {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**
@@ -165,7 +165,7 @@ final class RecordField extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -194,7 +194,7 @@ final class RecordField extends Node {
   }
 
   public function hasInit(): bool {
-    return $this->_init !== null;
+    return true;
   }
 
   /**
@@ -223,7 +223,7 @@ final class RecordField extends Node {
   }
 
   public function hasSemi(): bool {
-    return $this->_semi !== null;
+    return true;
   }
 
   /**

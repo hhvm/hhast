@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c98af067495db43311785bc068dd3bac>>
+ * @generated SignedSource<<0ea943050cad1602d3afa7acbf9081b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -144,7 +144,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**
@@ -176,7 +176,7 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**

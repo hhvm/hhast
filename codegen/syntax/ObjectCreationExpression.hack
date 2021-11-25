@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5eba2d9b499605bb89c9daff2c7a2a30>>
+ * @generated SignedSource<<6b0c87642d25c23839b96f43e27cae16>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,7 +102,7 @@ final class ObjectCreationExpression
   }
 
   public function hasNewKeyword(): bool {
-    return $this->_new_keyword !== null;
+    return true;
   }
 
   /**
@@ -131,7 +131,7 @@ final class ObjectCreationExpression
   }
 
   public function hasObject(): bool {
-    return $this->_object !== null;
+    return true;
   }
 
   /**

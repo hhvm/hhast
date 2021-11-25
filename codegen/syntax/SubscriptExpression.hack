@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a41a9f0f11948c2f3e2dbe0fc953b0de>>
+ * @generated SignedSource<<a94ca7a196415064994d8a91cb47403b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -146,7 +146,7 @@ final class SubscriptExpression
   }
 
   public function hasReceiver(): bool {
-    return $this->_receiver !== null;
+    return true;
   }
 
   /**
@@ -188,7 +188,7 @@ final class SubscriptExpression
   }
 
   public function hasLeftBracket(): bool {
-    return $this->_left_bracket !== null;
+    return true;
   }
 
   /**
@@ -260,7 +260,7 @@ final class SubscriptExpression
   }
 
   public function hasRightBracket(): bool {
-    return $this->_right_bracket !== null;
+    return true;
   }
 
   /**

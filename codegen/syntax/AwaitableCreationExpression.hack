@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05ebad7366723f35ee2f1836f8b5f686>>
+ * @generated SignedSource<<4158f49833aae8b3cd6721ed3ed01026>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -157,7 +157,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
   }
 
   public function hasAsync(): bool {
-    return $this->_async !== null;
+    return true;
   }
 
   /**
@@ -186,7 +186,7 @@ abstract class AwaitableCreationExpressionGeneratedBase
   }
 
   public function hasCompoundStatement(): bool {
-    return $this->_compound_statement !== null;
+    return true;
   }
 
   /**

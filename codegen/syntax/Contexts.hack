@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bd3dbb1cfc4d6d3fc82baf810ac08577>>
+ * @generated SignedSource<<6c653b74415271cf0a5a3527a053ea7b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,7 +122,7 @@ final class Contexts extends Node {
   }
 
   public function hasLeftBracket(): bool {
-    return $this->_left_bracket !== null;
+    return true;
   }
 
   /**
@@ -186,7 +186,7 @@ final class Contexts extends Node {
   }
 
   public function hasRightBracket(): bool {
-    return $this->_right_bracket !== null;
+    return true;
   }
 
   /**

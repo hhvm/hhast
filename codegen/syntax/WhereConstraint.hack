@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<708407af47efcf0075deeb47cf1695f2>>
+ * @generated SignedSource<<78137e8a60f3e60496cf2acb7f3f541f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class WhereConstraint extends Node {
   }
 
   public function hasLeftType(): bool {
-    return $this->_left_type !== null;
+    return true;
   }
 
   /**
@@ -154,7 +154,7 @@ final class WhereConstraint extends Node {
   }
 
   public function hasOperator(): bool {
-    return $this->_operator !== null;
+    return true;
   }
 
   /**
@@ -183,7 +183,7 @@ final class WhereConstraint extends Node {
   }
 
   public function hasRightType(): bool {
-    return $this->_right_type !== null;
+    return true;
   }
 
   /**

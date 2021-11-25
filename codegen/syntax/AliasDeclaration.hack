@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<54aa74691f54339ed396f3418bcb041f>>
+ * @generated SignedSource<<51b4ce4fe28d6124a26843b29b1f73f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -260,7 +260,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -298,7 +298,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -412,7 +412,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasEqual(): bool {
-    return $this->_equal !== null;
+    return true;
   }
 
   /**
@@ -450,7 +450,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**
@@ -494,7 +494,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

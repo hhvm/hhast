@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d83bfec508c24670abe1aff72e520d8e>>
+ * @generated SignedSource<<3351e18cc665f22d5a004d0421ec9829>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,7 +82,7 @@ final class EndOfFile extends Node {
   }
 
   public function hasToken(): bool {
-    return $this->_token !== null;
+    return true;
   }
 
   /**

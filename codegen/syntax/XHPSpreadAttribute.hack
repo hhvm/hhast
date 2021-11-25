@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8fc3ef544dbf2559227993b5d808fdb8>>
+ * @generated SignedSource<<2b764d151eb662ceedb85855107e11a5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,7 +145,7 @@ final class XHPSpreadAttribute extends Node {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -179,7 +179,7 @@ final class XHPSpreadAttribute extends Node {
   }
 
   public function hasSpreadOperator(): bool {
-    return $this->_spread_operator !== null;
+    return true;
   }
 
   /**
@@ -214,7 +214,7 @@ final class XHPSpreadAttribute extends Node {
   }
 
   public function hasExpression(): bool {
-    return $this->_expression !== null;
+    return true;
   }
 
   /**
@@ -248,7 +248,7 @@ final class XHPSpreadAttribute extends Node {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

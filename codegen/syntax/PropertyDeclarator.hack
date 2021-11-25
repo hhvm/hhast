@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<320c24f0735e777b43abf83486c6f8b4>>
+ * @generated SignedSource<<fe9a3688d8a6737917c80687022d5a02>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -103,7 +103,7 @@ final class PropertyDeclarator extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**

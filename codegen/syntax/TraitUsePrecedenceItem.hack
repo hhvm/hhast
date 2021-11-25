@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e98dc990aaef1d16a387552dbad76058>>
+ * @generated SignedSource<<644fca54771319768dbbc1eedc6130c9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -153,7 +153,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -184,7 +184,7 @@ final class TraitUsePrecedenceItem extends Node implements ITraitUseItem {
   }
 
   public function hasRemovedNames(): bool {
-    return $this->_removed_names !== null;
+    return true;
   }
 
   /**

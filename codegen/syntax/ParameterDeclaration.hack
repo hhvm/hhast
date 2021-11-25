@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<44adabf0bfd62c17717beab34dea610a>>
+ * @generated SignedSource<<59cb553da3f23815a2a10e02a26c0d41>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -406,7 +406,7 @@ final class ParameterDeclaration
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**

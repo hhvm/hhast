@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<166c03235fbc9fd25f0ea44f8d7f6733>>
+ * @generated SignedSource<<3767c65429fb8aaf95b7b508e9c0157f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -342,7 +342,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -384,7 +384,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -468,7 +468,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -556,7 +556,7 @@ final class FunctionDeclarationHeader extends Node {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

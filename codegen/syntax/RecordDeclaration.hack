@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb63acf437d19dbbe1bd5491a574cc79>>
+ * @generated SignedSource<<2cd97e97d8af9b31da1ec4d3f7b92359>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -235,7 +235,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasAttributeSpec(): bool {
-    return $this->_attribute_spec !== null;
+    return true;
   }
 
   /**
@@ -274,7 +274,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasModifier(): bool {
-    return $this->_modifier !== null;
+    return true;
   }
 
   /**
@@ -313,7 +313,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -352,7 +352,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -391,7 +391,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasExtendsKeyword(): bool {
-    return $this->_extends_keyword !== null;
+    return true;
   }
 
   /**
@@ -430,7 +430,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasExtendsOpt(): bool {
-    return $this->_extends_opt !== null;
+    return true;
   }
 
   /**
@@ -469,7 +469,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -508,7 +508,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasFields(): bool {
-    return $this->_fields !== null;
+    return true;
   }
 
   /**
@@ -547,7 +547,7 @@ final class RecordDeclaration extends Node {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

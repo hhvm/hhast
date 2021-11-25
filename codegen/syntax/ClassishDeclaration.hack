@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ef55c9257115884f270d9a62cb66212b>>
+ * @generated SignedSource<<34c9ac5e2a969097236095ddf49ded05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -437,7 +437,7 @@ final class ClassishDeclaration
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -479,7 +479,7 @@ final class ClassishDeclaration
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -789,7 +789,7 @@ final class ClassishDeclaration
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**

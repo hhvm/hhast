@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<95cc8b9a72884becaee4139a0b2ab4c1>>
+ * @generated SignedSource<<9cb0c5de1f021dc01987a0979ff79bec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,7 @@ final class ContextConstraint extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -129,7 +129,7 @@ final class ContextConstraint extends Node {
   }
 
   public function hasCtxList(): bool {
-    return $this->_ctx_list !== null;
+    return true;
   }
 
   /**

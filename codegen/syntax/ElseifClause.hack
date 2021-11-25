@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ecb5a73831b8b79b2950eaabea5c97ce>>
+ * @generated SignedSource<<aa2bdf6210dcc9f47dbf9abbce91a2a9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,7 +163,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -198,7 +198,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -233,7 +233,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
   }
 
   public function hasCondition(): bool {
-    return $this->_condition !== null;
+    return true;
   }
 
   /**
@@ -270,7 +270,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -305,7 +305,7 @@ final class ElseifClause extends Node implements IControlFlowStatement {
   }
 
   public function hasStatement(): bool {
-    return $this->_statement !== null;
+    return true;
   }
 
   /**

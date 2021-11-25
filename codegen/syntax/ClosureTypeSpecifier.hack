@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f371f460c21f46630ca067bd7e3e481c>>
+ * @generated SignedSource<<2da2b7ac8155624d13884bd08eb95f3d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -277,7 +277,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasOuterLeftParen(): bool {
-    return $this->_outer_left_paren !== null;
+    return true;
   }
 
   /**
@@ -360,7 +360,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasFunctionKeyword(): bool {
-    return $this->_function_keyword !== null;
+    return true;
   }
 
   /**
@@ -402,7 +402,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasInnerLeftParen(): bool {
-    return $this->_inner_left_paren !== null;
+    return true;
   }
 
   /**
@@ -490,7 +490,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasInnerRightParen(): bool {
-    return $this->_inner_right_paren !== null;
+    return true;
   }
 
   /**
@@ -573,7 +573,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasColon(): bool {
-    return $this->_colon !== null;
+    return true;
   }
 
   /**
@@ -655,7 +655,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasReturnType(): bool {
-    return $this->_return_type !== null;
+    return true;
   }
 
   /**
@@ -698,7 +698,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasOuterRightParen(): bool {
-    return $this->_outer_right_paren !== null;
+    return true;
   }
 
   /**

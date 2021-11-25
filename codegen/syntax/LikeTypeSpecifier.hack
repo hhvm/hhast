@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4d7a01340bc3a44ca42d16840820b96c>>
+ * @generated SignedSource<<480316eaf83383a254a19a729ba5b85b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasTilde(): bool {
-    return $this->_tilde !== null;
+    return true;
   }
 
   /**
@@ -129,7 +129,7 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<93699c0344aa1b1a4bd6b6cf3cbb29b6>>
+ * @generated SignedSource<<350e673af0e4a300a2e14e320b4c3f5b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**

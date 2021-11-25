@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8ebaf68dcef8868cefa8595c978ebca>>
+ * @generated SignedSource<<10dffa11182e00399a326028204c9228>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,7 +125,7 @@ final class NullableAsExpression
   }
 
   public function hasLeftOperand(): bool {
-    return $this->_left_operand !== null;
+    return true;
   }
 
   /**
@@ -154,7 +154,7 @@ final class NullableAsExpression
   }
 
   public function hasOperator(): bool {
-    return $this->_operator !== null;
+    return true;
   }
 
   /**
@@ -183,7 +183,7 @@ final class NullableAsExpression
   }
 
   public function hasRightOperand(): bool {
-    return $this->_right_operand !== null;
+    return true;
   }
 
   /**

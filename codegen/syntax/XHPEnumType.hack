@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<60321d4b1967c1533267b106e8b737de>>
+ * @generated SignedSource<<b2ac70a5f8aa8757b669ad507e1c113c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,7 +145,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -175,7 +175,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -211,7 +211,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   }
 
   public function hasValues(): bool {
-    return $this->_values !== null;
+    return true;
   }
 
   /**
@@ -241,7 +241,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

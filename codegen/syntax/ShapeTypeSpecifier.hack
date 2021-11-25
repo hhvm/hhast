@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0984671085a0a0fb6e35103712fb213>>
+ * @generated SignedSource<<6d1d8eada26c94042151f1ebb2bf22f4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,7 +163,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -198,7 +198,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -303,7 +303,7 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

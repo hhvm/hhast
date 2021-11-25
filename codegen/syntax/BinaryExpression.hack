@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f6e2ca2a833276117dc65eea3e0bf12>>
+ * @generated SignedSource<<e8688eae0c4b6f699eae009140205c28>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,7 +125,7 @@ final class BinaryExpression
   }
 
   public function hasLeftOperand(): bool {
-    return $this->_left_operand !== null;
+    return true;
   }
 
   /**
@@ -174,7 +174,7 @@ final class BinaryExpression
   }
 
   public function hasOperator(): bool {
-    return $this->_operator !== null;
+    return true;
   }
 
   /**
@@ -225,7 +225,7 @@ final class BinaryExpression
   }
 
   public function hasRightOperand(): bool {
-    return $this->_right_operand !== null;
+    return true;
   }
 
   /**

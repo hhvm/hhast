@@ -241,11 +241,18 @@ final class CodegenSyntax extends CodegenBase {
           ->getCode(),
       );
 
-    yield $cg
-      ->codegenMethodf('has%s', $upper_camel)
-      ->setReturnType('bool')
-      ->setBodyf('return $this->_%s !== null;', $underscored)
-      |> $patch_in_override($$);
+    if ($spec['nullable']) {
+      yield $cg
+        ->codegenMethodf('has%s', $upper_camel)
+        ->setReturnType('bool')
+        ->setBodyf('return $this->_%s !== null;', $underscored)
+        |> $patch_in_override($$);
+    } else {
+      yield $cg
+        ->codegenMethodf('has%s', $upper_camel)
+        ->setReturnType('bool')
+        ->setBody('return true;');
+    }
 
     if (!$spec['nullable']) {
       $get = $cg

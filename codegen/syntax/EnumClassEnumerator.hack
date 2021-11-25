@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bdb048e8e014e85f7c1c417f14faa114>>
+ * @generated SignedSource<<7e2219614b95335300e5e1d597486717>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -200,7 +200,7 @@ final class EnumClassEnumerator extends Node {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**
@@ -236,7 +236,7 @@ final class EnumClassEnumerator extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -271,7 +271,7 @@ final class EnumClassEnumerator extends Node {
   }
 
   public function hasInitializer(): bool {
-    return $this->_initializer !== null;
+    return true;
   }
 
   /**
@@ -307,7 +307,7 @@ final class EnumClassEnumerator extends Node {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89290291f49548e16b74390c38f790c5>>
+ * @generated SignedSource<<d404133e8ba28f2648690686b76c7dbe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -186,7 +186,7 @@ final class VariadicParameter
   }
 
   public function hasEllipsis(): bool {
-    return $this->_ellipsis !== null;
+    return true;
   }
 
   /**

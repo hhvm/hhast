@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e9ab84f31eebc320c432d3ea07467a27>>
+ * @generated SignedSource<<8f631d2c5572770deae717082d3a433e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,7 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -129,7 +129,7 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasVariable(): bool {
-    return $this->_variable !== null;
+    return true;
   }
 
   /**

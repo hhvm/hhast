@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a5301bdbbd5f0d58efb7c5656c769687>>
+ * @generated SignedSource<<e41b3579aae1c0a019d8df54dd06a781>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -295,7 +295,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -335,7 +335,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -375,7 +375,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasColon(): bool {
-    return $this->_colon !== null;
+    return true;
   }
 
   /**
@@ -415,7 +415,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasBase(): bool {
-    return $this->_base !== null;
+    return true;
   }
 
   /**
@@ -495,7 +495,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -615,7 +615,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

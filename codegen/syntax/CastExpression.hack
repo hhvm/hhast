@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<398303ea171ef81ece9d5529e540a1db>>
+ * @generated SignedSource<<c87a612176d39d92e38248b57ea10336>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,7 +141,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -175,7 +175,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**
@@ -205,7 +205,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -235,7 +235,7 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasOperand(): bool {
-    return $this->_operand !== null;
+    return true;
   }
 
   /**

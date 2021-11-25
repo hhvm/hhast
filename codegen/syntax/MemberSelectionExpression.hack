@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8faabad9131e693f54b0927111f53225>>
+ * @generated SignedSource<<91c2d881ee57cc9f82aedb34f8d31495>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,7 +125,7 @@ final class MemberSelectionExpression
   }
 
   public function hasObject(): bool {
-    return $this->_object !== null;
+    return true;
   }
 
   /**
@@ -160,7 +160,7 @@ final class MemberSelectionExpression
   }
 
   public function hasOperator(): bool {
-    return $this->_operator !== null;
+    return true;
   }
 
   /**
@@ -190,7 +190,7 @@ final class MemberSelectionExpression
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**

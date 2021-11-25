@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e6426e862bad6d3cc6b9132c8a545cf4>>
+ * @generated SignedSource<<a3abb9ff45d2ca11b92947bd15e2bbdb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -165,7 +165,7 @@ final class ConditionalExpression
   }
 
   public function hasTest(): bool {
-    return $this->_test !== null;
+    return true;
   }
 
   /**
@@ -208,7 +208,7 @@ final class ConditionalExpression
   }
 
   public function hasQuestion(): bool {
-    return $this->_question !== null;
+    return true;
   }
 
   /**
@@ -243,7 +243,7 @@ final class ConditionalExpression
   }
 
   public function hasConsequence(): bool {
-    return $this->_consequence !== null;
+    return true;
   }
 
   /**
@@ -290,7 +290,7 @@ final class ConditionalExpression
   }
 
   public function hasColon(): bool {
-    return $this->_colon !== null;
+    return true;
   }
 
   /**
@@ -325,7 +325,7 @@ final class ConditionalExpression
   }
 
   public function hasAlternative(): bool {
-    return $this->_alternative !== null;
+    return true;
   }
 
   /**

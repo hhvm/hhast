@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3c1446f0f214fd1f54982b696d1c6b5>>
+ * @generated SignedSource<<6a40c6f50478c2d51a6f7e9dbb4dda09>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,7 +145,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -179,7 +179,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -215,7 +215,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasArgumentList(): bool {
-    return $this->_argument_list !== null;
+    return true;
   }
 
   /**
@@ -261,7 +261,7 @@ final class IssetExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

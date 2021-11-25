@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e18502d21d5cc0e69ddc450faa914aac>>
+ * @generated SignedSource<<ace1addaed51d0a3a3bc0b4eceea1a9c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -255,7 +255,7 @@ final class ForeachStatement
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -295,7 +295,7 @@ final class ForeachStatement
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -335,7 +335,7 @@ final class ForeachStatement
   }
 
   public function hasCollection(): bool {
-    return $this->_collection !== null;
+    return true;
   }
 
   /**
@@ -425,7 +425,7 @@ final class ForeachStatement
   }
 
   public function hasAs(): bool {
-    return $this->_as !== null;
+    return true;
   }
 
   /**
@@ -547,7 +547,7 @@ final class ForeachStatement
   }
 
   public function hasValue(): bool {
-    return $this->_value !== null;
+    return true;
   }
 
   /**
@@ -589,7 +589,7 @@ final class ForeachStatement
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -629,7 +629,7 @@ final class ForeachStatement
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**

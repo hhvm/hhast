@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ebeb1194bdb7c4ff626a145e66b293f3>>
+ * @generated SignedSource<<bcb0a8a8c6a7f0b1d4e5adf061d75775>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,7 +201,7 @@ final class SwitchStatement
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -238,7 +238,7 @@ final class SwitchStatement
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -275,7 +275,7 @@ final class SwitchStatement
   }
 
   public function hasExpression(): bool {
-    return $this->_expression !== null;
+    return true;
   }
 
   /**
@@ -316,7 +316,7 @@ final class SwitchStatement
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -353,7 +353,7 @@ final class SwitchStatement
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -390,7 +390,7 @@ final class SwitchStatement
   }
 
   public function hasSections(): bool {
-    return $this->_sections !== null;
+    return true;
   }
 
   /**
@@ -427,7 +427,7 @@ final class SwitchStatement
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

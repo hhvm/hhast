@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9864d92c21fedba5f19523bee51496ce>>
+ * @generated SignedSource<<b6c394e7a12f4f05d89e0fab2099bcd8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -191,7 +191,7 @@ abstract class MethodishDeclarationGeneratedBase
   }
 
   public function hasFunctionDeclHeader(): bool {
-    return $this->_function_decl_header !== null;
+    return true;
   }
 
   /**

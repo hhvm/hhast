@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c7ddfc2a45ae34a0869ab6aca932ba53>>
+ * @generated SignedSource<<f25b25f37f5405bc383baed4a585e899>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -189,7 +189,7 @@ final class FunctionCallExpression
   }
 
   public function hasReceiver(): bool {
-    return $this->_receiver !== null;
+    return true;
   }
 
   /**
@@ -303,7 +303,7 @@ final class FunctionCallExpression
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -445,7 +445,7 @@ final class FunctionCallExpression
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

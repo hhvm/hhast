@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aca1ce484be0013ffb28b3f1d1327c9a>>
+ * @generated SignedSource<<9210c22507e8d2b48f9d65f8a8c08526>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -152,7 +152,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasExpression(): bool {
-    return $this->_expression !== null;
+    return true;
   }
 
   /**
@@ -187,7 +187,7 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

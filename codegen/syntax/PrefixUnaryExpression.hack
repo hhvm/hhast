@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<661f7ebdd50e97294e773bc3836c6c15>>
+ * @generated SignedSource<<0f19a5e34e5f78449e31f3cb0328a701>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,7 +102,7 @@ final class PrefixUnaryExpression
   }
 
   public function hasOperator(): bool {
-    return $this->_operator !== null;
+    return true;
   }
 
   /**
@@ -135,7 +135,7 @@ final class PrefixUnaryExpression
   }
 
   public function hasOperand(): bool {
-    return $this->_operand !== null;
+    return true;
   }
 
   /**

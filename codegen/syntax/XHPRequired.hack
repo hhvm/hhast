@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97d368341959bcf65c145142e644ba63>>
+ * @generated SignedSource<<dde4fb29444beff49c8489526b39ed49>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,7 @@ final class XHPRequired extends Node {
   }
 
   public function hasAt(): bool {
-    return $this->_at !== null;
+    return true;
   }
 
   /**
@@ -129,7 +129,7 @@ final class XHPRequired extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**

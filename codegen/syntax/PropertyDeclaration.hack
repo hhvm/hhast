@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fa476c4751490290c93ba8e8d2beed08>>
+ * @generated SignedSource<<3536b49666fd7375baeae65a4e1d78ff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,7 +201,7 @@ final class PropertyDeclaration
   }
 
   public function hasModifiers(): bool {
-    return $this->_modifiers !== null;
+    return true;
   }
 
   /**
@@ -281,7 +281,7 @@ final class PropertyDeclaration
   }
 
   public function hasDeclarators(): bool {
-    return $this->_declarators !== null;
+    return true;
   }
 
   /**
@@ -316,7 +316,7 @@ final class PropertyDeclaration
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

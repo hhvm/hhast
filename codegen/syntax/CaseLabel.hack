@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9622f671195c37e4484e474c46ccea9e>>
+ * @generated SignedSource<<37ef0a93e524c64b1ba779ff4d150c4e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -152,7 +152,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
   }
 
   public function hasExpression(): bool {
-    return $this->_expression !== null;
+    return true;
   }
 
   /**
@@ -187,7 +187,7 @@ final class CaseLabel extends Node implements ISwitchLabel {
   }
 
   public function hasColon(): bool {
-    return $this->_colon !== null;
+    return true;
   }
 
   /**

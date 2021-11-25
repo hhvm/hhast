@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d7debacff1ba4b10d07a00abd89da1a9>>
+ * @generated SignedSource<<08f5c6e740347ee3c8394545dd33a9eb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class YieldBreakStatement extends Node implements IStatement {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -152,7 +152,7 @@ final class YieldBreakStatement extends Node implements IStatement {
   }
 
   public function hasBreak(): bool {
-    return $this->_break !== null;
+    return true;
   }
 
   /**
@@ -181,7 +181,7 @@ final class YieldBreakStatement extends Node implements IStatement {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

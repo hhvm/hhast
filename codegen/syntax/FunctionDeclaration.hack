@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<42a50b2b986c591ca2c183018509cc41>>
+ * @generated SignedSource<<1eb4b0ac7d29bf36c4f21fcd63c303d9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -158,7 +158,7 @@ final class FunctionDeclaration
   }
 
   public function hasDeclarationHeader(): bool {
-    return $this->_declaration_header !== null;
+    return true;
   }
 
   /**
@@ -191,7 +191,7 @@ final class FunctionDeclaration
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**
