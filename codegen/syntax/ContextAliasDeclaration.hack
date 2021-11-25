@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<543b22542ea7d765c376908d88fb5cac>>
+ * @generated SignedSource<<152ebb0ce2929fefed1c26683c952e8d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -258,7 +258,7 @@ final class ContextAliasDeclaration extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -296,7 +296,7 @@ final class ContextAliasDeclaration extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -372,7 +372,7 @@ final class ContextAliasDeclaration extends Node {
   }
 
   public function hasAsConstraint(): bool {
-    return $this->_as_constraint !== null;
+    return true;
   }
 
   /**
@@ -486,7 +486,7 @@ final class ContextAliasDeclaration extends Node {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

@@ -121,7 +121,7 @@ abstract class Token extends Node {
     $leading_list = __Private\fold_map<dict<string, mixed>, Trivia, int>(
       /* HH_FIXME[4110] need like types */ $json['leading'],
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
-      ($j, $p) ==> ($j as dict<_, _>)['width'] as int + $p,
+      ($j, $p) ==> $j['width'] as int + $p,
       $offset,
     )
       |> Vec\filter_nulls($$);
@@ -144,7 +144,7 @@ abstract class Token extends Node {
     $trailing_list = __Private\fold_map<dict<string, mixed>, Trivia, int>(
       /* HH_FIXME[4110] need like-types */ $json['trailing'],
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
-      ($j, $p) ==> $j as KeyedContainer<_, _>['width'] as int + $p,
+      ($j, $p) ==> $j['width'] as int + $p,
       $trailing_position,
     )
       |> Vec\filter_nulls($$);

@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class UseStatementWithLeadingBackslashLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): AutoFixingASTLinter {
     return UseStatementWithLeadingBackslashLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple("<?hh\nuse Foo;"),

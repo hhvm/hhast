@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f778c56825807eade534c12c97a5b2e>>
+ * @generated SignedSource<<f27a3722ed5147f469553d9241ae9fc4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftType(): bool {
-    return $this->_left_type !== null;
+    return true;
   }
 
   /**
@@ -152,7 +152,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
   }
 
   public function hasSeparator(): bool {
-    return $this->_separator !== null;
+    return true;
   }
 
   /**
@@ -181,7 +181,7 @@ final class TypeConstant extends Node implements ITypeSpecifier {
   }
 
   public function hasRightType(): bool {
-    return $this->_right_type !== null;
+    return true;
   }
 
   /**

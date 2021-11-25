@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2705e7315df4304a15e3b4bd00176628>>
+ * @generated SignedSource<<5460f76c4dc090ef8d38a34d42ecee50>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -219,7 +219,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   public function hasUsingKeyword(): bool {
-    return $this->_using_keyword !== null;
+    return true;
   }
 
   /**
@@ -255,7 +255,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -293,7 +293,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   public function hasExpressions(): bool {
-    return $this->_expressions !== null;
+    return true;
   }
 
   /**
@@ -341,7 +341,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -377,7 +377,7 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**

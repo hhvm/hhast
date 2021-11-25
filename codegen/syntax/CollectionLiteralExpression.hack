@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b152e77553dede238ac62700513f8185>>
+ * @generated SignedSource<<e6a032878d8c5c712040a40c60cb736e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class CollectionLiteralExpression
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -184,7 +184,7 @@ final class CollectionLiteralExpression
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -282,7 +282,7 @@ final class CollectionLiteralExpression
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

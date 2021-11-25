@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae768a615d53dd7f3fdcc1b3b9e3d17f>>
+ * @generated SignedSource<<c3e268896e2089163921a0687986ea05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -181,7 +181,7 @@ final class CatchClause extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -217,7 +217,7 @@ final class CatchClause extends Node {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -253,7 +253,7 @@ final class CatchClause extends Node {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**
@@ -289,7 +289,7 @@ final class CatchClause extends Node {
   }
 
   public function hasVariable(): bool {
-    return $this->_variable !== null;
+    return true;
   }
 
   /**
@@ -325,7 +325,7 @@ final class CatchClause extends Node {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -361,7 +361,7 @@ final class CatchClause extends Node {
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b26dbfbc5bedd64bb717ce86f6b8efd>>
+ * @generated SignedSource<<4c6aff03aca33261a258bfacbfb4c7a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -152,7 +152,7 @@ final class ExpressionStatement extends Node implements IStatement {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

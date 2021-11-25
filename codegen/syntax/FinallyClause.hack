@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79fc826666bc7cd693c051b437e452cc>>
+ * @generated SignedSource<<fdd2ce853ce44973f3e9a732291c3113>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,7 @@ final class FinallyClause extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -129,7 +129,7 @@ final class FinallyClause extends Node {
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**

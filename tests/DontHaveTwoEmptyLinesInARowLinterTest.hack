@@ -12,12 +12,14 @@ namespace Facebook\HHAST;
 final class DontHaveTwoEmptyLinesInARowLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(
     string $file,
   ): DontHaveTwoEmptyLinesInARowLinter {
     return DontHaveTwoEmptyLinesInARowLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple(<<<'HACK'

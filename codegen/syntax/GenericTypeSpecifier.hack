@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9aed3ea9d0e14f5c1c4284b195c8121f>>
+ * @generated SignedSource<<1870113f2daef2792dc6310722f53fa3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -105,7 +105,7 @@ final class GenericTypeSpecifier
   }
 
   public function hasClassType(): bool {
-    return $this->_class_type !== null;
+    return true;
   }
 
   /**
@@ -134,7 +134,7 @@ final class GenericTypeSpecifier
   }
 
   public function hasArgumentList(): bool {
-    return $this->_argument_list !== null;
+    return true;
   }
 
   /**

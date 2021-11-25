@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbbec0347c2945b1ea7a50aabee3eadd>>
+ * @generated SignedSource<<9f3e7faadedcfde6968f98d2b1a941c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class TypeParameters extends Node {
   }
 
   public function hasLeftAngle(): bool {
-    return $this->_left_angle !== null;
+    return true;
   }
 
   /**
@@ -154,7 +154,7 @@ final class TypeParameters extends Node {
   }
 
   public function hasParameters(): bool {
-    return $this->_parameters !== null;
+    return true;
   }
 
   /**
@@ -183,7 +183,7 @@ final class TypeParameters extends Node {
   }
 
   public function hasRightAngle(): bool {
-    return $this->_right_angle !== null;
+    return true;
   }
 
   /**

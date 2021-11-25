@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<21d38395e667e0efa55aa1ff32b39889>>
+ * @generated SignedSource<<d9021926d0e475fbae16ed7da3eb75b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class XHPClose extends Node {
   }
 
   public function hasLeftAngle(): bool {
-    return $this->_left_angle !== null;
+    return true;
   }
 
   /**
@@ -153,7 +153,7 @@ final class XHPClose extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -182,7 +182,7 @@ final class XHPClose extends Node {
   }
 
   public function hasRightAngle(): bool {
-    return $this->_right_angle !== null;
+    return true;
   }
 
   /**

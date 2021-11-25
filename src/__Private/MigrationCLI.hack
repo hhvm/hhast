@@ -393,7 +393,9 @@ class MigrationCLI extends CLIWithRequiredArguments {
         $min_version is nonnull &&
         \version_compare(\HHVM_VERSION, $min_version, '<')
       ) {
-        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] we quit after doing this once */
+        /* HHAST_IGNORE_ERROR[DontAwaitInALoop]
+           This statement is followed by a return statement and will therefore only execute once
+           HHAST_IGNORE_ERROR[5583] */
         await $err->writeAllAsync(Str\format(
           "Migration %s requires HHVM version %s or newer.\n",
           $migration,
@@ -406,7 +408,9 @@ class MigrationCLI extends CLIWithRequiredArguments {
       $all_config_options = Dict\merge($config_options, $all_config_options);
       foreach ($config_options as $option => $value) {
         if ($all_config_options[$option] !== $value) {
-          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] same as above */
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop]
+             This statement is followed by a return statement and will therefore only execute once
+             HHAST_IGNORE_ERROR[5583] */
           await $err->writeAllAsync(Str\format(
             'Migration %s requires .hhconfig option %s=%s which conflicts '.
             "with another migration.\n",
@@ -425,7 +429,8 @@ class MigrationCLI extends CLIWithRequiredArguments {
       if (!C\is_empty($all_config_options)) {
         foreach ($args as $path) {
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop]
-             these shouldn't run concurrently */
+             these shouldn't run concurrently
+             HHAST_IGNORE_ERROR[5583] */
           await execute_async(
             'hh_client',
             'restart',
@@ -449,7 +454,7 @@ class MigrationCLI extends CLIWithRequiredArguments {
           continue;
         }
 
-        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583] */
         await $err->writeAllAsync(
           Str\format("Don't know how to process path: %s\n", $path),
         );
@@ -461,7 +466,8 @@ class MigrationCLI extends CLIWithRequiredArguments {
       if (!C\is_empty($all_config_options)) {
         foreach ($args as $path) {
           /* HHAST_IGNORE_ERROR[DontAwaitInALoop]
-             these shouldn't run concurrently */
+             these shouldn't run concurrently
+             HHAST_IGNORE_ERROR[5583] */
           await execute_async('hh_client', 'restart', $path);
         }
       }

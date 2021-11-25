@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f9e1e1b24b8795162d8608d865a4e982>>
+ * @generated SignedSource<<1a6fc3981afc5dc48dca325e7b575a96>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,7 +125,7 @@ final class XHPChildrenDeclaration
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -154,7 +154,7 @@ final class XHPChildrenDeclaration
   }
 
   public function hasExpression(): bool {
-    return $this->_expression !== null;
+    return true;
   }
 
   /**
@@ -183,7 +183,7 @@ final class XHPChildrenDeclaration
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

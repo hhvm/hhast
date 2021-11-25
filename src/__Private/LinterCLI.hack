@@ -117,7 +117,7 @@ final class LinterCLI extends CLIWithArguments {
         if (\is_dir($path)) {
           $config_file = $path.'/hhast-lint.json';
           if (\file_exists($config_file)) {
-            /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+            /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
             await $err->writeAllAsync(
               'Warning: PATH arguments contain a hhast-lint.json, '.
               'which modifies the linters used and customizes behavior. '.

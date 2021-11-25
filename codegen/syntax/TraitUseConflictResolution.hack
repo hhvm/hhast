@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8ec6807fafcac1ece63c8a2a5ab38d8d>>
+ * @generated SignedSource<<8d7defcb126ced509de75b24a9dd0885>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,7 +168,7 @@ final class TraitUseConflictResolution
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -205,7 +205,7 @@ final class TraitUseConflictResolution
   }
 
   public function hasNames(): bool {
-    return $this->_names !== null;
+    return true;
   }
 
   /**
@@ -240,7 +240,7 @@ final class TraitUseConflictResolution
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -314,7 +314,7 @@ final class TraitUseConflictResolution
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

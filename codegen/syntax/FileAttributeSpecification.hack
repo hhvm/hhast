@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f8bac00febed72d82432666273c9a0d9>>
+ * @generated SignedSource<<2b62d36175d64b0dae365873de9b4fff>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,7 +163,7 @@ final class FileAttributeSpecification extends Node {
   }
 
   public function hasLeftDoubleAngle(): bool {
-    return $this->_left_double_angle !== null;
+    return true;
   }
 
   /**
@@ -201,7 +201,7 @@ final class FileAttributeSpecification extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -236,7 +236,7 @@ final class FileAttributeSpecification extends Node {
   }
 
   public function hasColon(): bool {
-    return $this->_colon !== null;
+    return true;
   }
 
   /**
@@ -273,7 +273,7 @@ final class FileAttributeSpecification extends Node {
   }
 
   public function hasAttributes(): bool {
-    return $this->_attributes !== null;
+    return true;
   }
 
   /**
@@ -310,7 +310,7 @@ final class FileAttributeSpecification extends Node {
   }
 
   public function hasRightDoubleAngle(): bool {
-    return $this->_right_double_angle !== null;
+    return true;
   }
 
   /**

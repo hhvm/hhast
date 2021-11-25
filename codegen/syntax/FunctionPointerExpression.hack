@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<284d62e2a4583664917b7893fa1646a1>>
+ * @generated SignedSource<<8033f14b8704eb36f64cbdc149453d39>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,7 +102,7 @@ final class FunctionPointerExpression
   }
 
   public function hasReceiver(): bool {
-    return $this->_receiver !== null;
+    return true;
   }
 
   /**
@@ -131,7 +131,7 @@ final class FunctionPointerExpression
   }
 
   public function hasTypeArgs(): bool {
-    return $this->_type_args !== null;
+    return true;
   }
 
   /**

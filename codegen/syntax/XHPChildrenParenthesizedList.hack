@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b735d7a2a00d2f59eaec14b51d37f2a9>>
+ * @generated SignedSource<<51569ef6661e11c01c363ef2db8872dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,7 +125,7 @@ final class XHPChildrenParenthesizedList
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -156,7 +156,7 @@ final class XHPChildrenParenthesizedList
   }
 
   public function hasXhpChildren(): bool {
-    return $this->_xhp_children !== null;
+    return true;
   }
 
   /**
@@ -185,7 +185,7 @@ final class XHPChildrenParenthesizedList
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

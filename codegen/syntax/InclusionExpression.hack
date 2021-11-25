@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28f83eb25ce21884fccd314f43937860>>
+ * @generated SignedSource<<d39363900a41d1bfd9def1d704d5579b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,7 +102,7 @@ final class InclusionExpression
   }
 
   public function hasRequire(): bool {
-    return $this->_require !== null;
+    return true;
   }
 
   /**
@@ -131,7 +131,7 @@ final class InclusionExpression
   }
 
   public function hasFilename(): bool {
-    return $this->_filename !== null;
+    return true;
   }
 
   /**

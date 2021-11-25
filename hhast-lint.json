@@ -25,9 +25,11 @@
   ],
   "linterConfigs": {
     "Facebook\\HHAST\\HHClientLinter": {
-      "Comments (not an actual setting)":
-        "The following error codes are ignored with no good reason. They are just existing issues and need to be fixed.",
-      "ignore": [5562, 5583, 5568, 5607, 5609, 5611, 5616, 5618, 5624, 5628, 5630, 5639]
+      "Comments[5607] (not an actual setting)":
+        " - 5607 is ignored because of false positives when comparing a generic to a typed value",
+      "Comments[5624&5639] (not an actual setting)":
+        " - 5624 and 5639 are ignored because they insist on using co(tra)variant generics. Could this break external consumers?",
+      "ignore": [5607, 5624, 5639]
     }
   }
 }

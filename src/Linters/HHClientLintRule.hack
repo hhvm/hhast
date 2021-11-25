@@ -19,6 +19,7 @@ final class HHClientLintRule implements LintRule {
     return 'Linter: '.$this->code;
   }
 
+  <<__Override>>
   public function getErrorCode(): string {
     return (string)$this->code;
   }

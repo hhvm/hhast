@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class NoStringInterpolationLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): NoStringInterpolationLinter {
     return NoStringInterpolationLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple('<?hh "foobar";'),

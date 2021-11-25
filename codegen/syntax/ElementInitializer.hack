@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d44e136f79b64035f166778dbc88ea7e>>
+ * @generated SignedSource<<67aef96477c560ba27c59c24a28c3243>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class ElementInitializer extends Node {
   }
 
   public function hasKey(): bool {
-    return $this->_key !== null;
+    return true;
   }
 
   /**
@@ -160,7 +160,7 @@ final class ElementInitializer extends Node {
   }
 
   public function hasArrow(): bool {
-    return $this->_arrow !== null;
+    return true;
   }
 
   /**
@@ -189,7 +189,7 @@ final class ElementInitializer extends Node {
   }
 
   public function hasValue(): bool {
-    return $this->_value !== null;
+    return true;
   }
 
   /**

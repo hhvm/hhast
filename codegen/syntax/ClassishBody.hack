@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<66eedbd12f4314098bf3f9e1ea22ae7b>>
+ * @generated SignedSource<<3c02550664a3b2c54d683b14dffaecc2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -124,7 +124,7 @@ final class ClassishBody extends Node {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -193,7 +193,7 @@ final class ClassishBody extends Node {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

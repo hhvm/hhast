@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<22046e803c1436dcce913ee659eefe34>>
+ * @generated SignedSource<<a1fc095c1b521c64a5833aba0ae899ec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -127,7 +127,7 @@ final class SwitchSection extends Node {
   }
 
   public function hasLabels(): bool {
-    return $this->_labels !== null;
+    return true;
   }
 
   /**

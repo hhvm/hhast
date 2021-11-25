@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6598e94446144ddfc636ad119a7a8463>>
+ * @generated SignedSource<<1834fdb8d61281a572a2145cc23877fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -147,7 +147,7 @@ final class AnonymousFunctionUseClause extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -181,7 +181,7 @@ final class AnonymousFunctionUseClause extends Node {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -251,7 +251,7 @@ final class AnonymousFunctionUseClause extends Node {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<97c88ccf059cfc242a7661f893ae52f7>>
+ * @generated SignedSource<<e1727cbd43addb5f567f182d36c54c29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -236,7 +236,7 @@ final class LambdaExpression
   }
 
   public function hasSignature(): bool {
-    return $this->_signature !== null;
+    return true;
   }
 
   /**
@@ -271,7 +271,7 @@ final class LambdaExpression
   }
 
   public function hasArrow(): bool {
-    return $this->_arrow !== null;
+    return true;
   }
 
   /**
@@ -307,7 +307,7 @@ final class LambdaExpression
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**

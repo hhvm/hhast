@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de26d0467550bf7da37e7eb409b21bf6>>
+ * @generated SignedSource<<96d3050fcd24a2a743473e012fa05700>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -124,7 +124,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -202,7 +202,7 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

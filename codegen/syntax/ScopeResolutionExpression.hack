@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d716f4b0ac2bc093560401ee5ee9587e>>
+ * @generated SignedSource<<80be0a0e7ea25adba4ffaf1329b6f091>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,7 +125,7 @@ final class ScopeResolutionExpression
   }
 
   public function hasQualifier(): bool {
-    return $this->_qualifier !== null;
+    return true;
   }
 
   /**
@@ -158,7 +158,7 @@ final class ScopeResolutionExpression
   }
 
   public function hasOperator(): bool {
-    return $this->_operator !== null;
+    return true;
   }
 
   /**
@@ -187,7 +187,7 @@ final class ScopeResolutionExpression
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**

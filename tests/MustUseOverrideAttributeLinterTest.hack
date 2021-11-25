@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class MustUseOverrideAttributeLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): MustUseOverrideAttributeLinter {
     return MustUseOverrideAttributeLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple('<?hh class Foo {}'),

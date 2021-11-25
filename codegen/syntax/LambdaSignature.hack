@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d2c08f89b6c152136df1439a4adbea1>>
+ * @generated SignedSource<<4484cf9e40ffa731528b4db199686918>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -200,7 +200,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -276,7 +276,7 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9f0a8e17793ea10489389e93b6200f3a>>
+ * @generated SignedSource<<f0e3b41156c73094a3fee8bf6fe7bb66>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -152,7 +152,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasTypes(): bool {
-    return $this->_types !== null;
+    return true;
   }
 
   /**
@@ -193,7 +193,7 @@ final class TupleTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

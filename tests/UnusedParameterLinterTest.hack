@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class UnusedParameterLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): UnusedParameterLinter {
     return UnusedParameterLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple('<?hh function foo(int $bar) { return $bar; }'),

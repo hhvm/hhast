@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9af211307a548c0bb02af71152fe6d48>>
+ * @generated SignedSource<<010293507547fc2a40bc9416ec246f80>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasLeftOperand(): bool {
-    return $this->_left_operand !== null;
+    return true;
   }
 
   /**
@@ -160,7 +160,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasOperator(): bool {
-    return $this->_operator !== null;
+    return true;
   }
 
   /**
@@ -189,7 +189,7 @@ final class IsExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasRightOperand(): bool {
-    return $this->_right_operand !== null;
+    return true;
   }
 
   /**

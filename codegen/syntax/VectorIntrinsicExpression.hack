@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7bd196e8ba32a992161ad3e061c30222>>
+ * @generated SignedSource<<c2e5e3565ea9865c1f1bd46aefc4e712>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,7 +168,7 @@ final class VectorIntrinsicExpression
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -238,7 +238,7 @@ final class VectorIntrinsicExpression
   }
 
   public function hasLeftBracket(): bool {
-    return $this->_left_bracket !== null;
+    return true;
   }
 
   /**
@@ -349,7 +349,7 @@ final class VectorIntrinsicExpression
   }
 
   public function hasRightBracket(): bool {
-    return $this->_right_bracket !== null;
+    return true;
   }
 
   /**

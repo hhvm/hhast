@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 final class LicenseHeaderLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): LicenseHeaderLinter {
     LicenseHeaderLinter::__setExpectedHeaderForTesting(
       \file_get_contents(__DIR__.'/../.LICENSE_HEADER.hh.txt'),
@@ -19,6 +20,7 @@ final class LicenseHeaderLinterTest extends TestCase {
     return LicenseHeaderLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     $header = \file_get_contents(__DIR__.'/../.LICENSE_HEADER.hh.txt');
     return vec[

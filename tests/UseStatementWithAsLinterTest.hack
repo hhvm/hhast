@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class UseStatementWithAsLinterTest extends TestCase {
   use LinterTestTrait;
 
+  <<__Override>>
   protected function getLinter(string $file): UseStatementWithAsLinter {
     return UseStatementWithAsLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple("<?hh\nuse Foo;"),

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<59c6074e948d959c6bd983cd7e32e97a>>
+ * @generated SignedSource<<7a78a22abadfc4ee94c7fa88559ab2b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -141,7 +141,7 @@ final class NamespaceUseDeclaration
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -202,7 +202,7 @@ final class NamespaceUseDeclaration
   }
 
   public function hasClauses(): bool {
-    return $this->_clauses !== null;
+    return true;
   }
 
   /**
@@ -231,7 +231,7 @@ final class NamespaceUseDeclaration
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

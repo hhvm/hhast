@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c595328cff9df99fd5bec1fefe3901e9>>
+ * @generated SignedSource<<1020672be99069a5209ebed2afe94f9a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,7 +201,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -238,7 +238,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftAngle(): bool {
-    return $this->_left_angle !== null;
+    return true;
   }
 
   /**
@@ -275,7 +275,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKey(): bool {
-    return $this->_key !== null;
+    return true;
   }
 
   /**
@@ -312,7 +312,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasComma(): bool {
-    return $this->_comma !== null;
+    return true;
   }
 
   /**
@@ -349,7 +349,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasValue(): bool {
-    return $this->_value !== null;
+    return true;
   }
 
   /**
@@ -429,7 +429,7 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasRightAngle(): bool {
-    return $this->_right_angle !== null;
+    return true;
   }
 
   /**

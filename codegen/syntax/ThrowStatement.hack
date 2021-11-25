@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b1d287ad0a3038e8409d76248e179858>>
+ * @generated SignedSource<<92ea7e142a3c534cd4f6bdd984e3eebb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,7 +123,7 @@ final class ThrowStatement extends Node implements IStatement {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -152,7 +152,7 @@ final class ThrowStatement extends Node implements IStatement {
   }
 
   public function hasExpression(): bool {
-    return $this->_expression !== null;
+    return true;
   }
 
   /**
@@ -185,7 +185,7 @@ final class ThrowStatement extends Node implements IStatement {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

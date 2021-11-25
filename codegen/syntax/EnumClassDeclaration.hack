@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e97d922115a863d7a9a53e55af59a5e6>>
+ * @generated SignedSource<<f1a91798d64a15dc0066c0b4cf238e06>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -379,7 +379,7 @@ final class EnumClassDeclaration extends Node {
   }
 
   public function hasEnumKeyword(): bool {
-    return $this->_enum_keyword !== null;
+    return true;
   }
 
   /**
@@ -421,7 +421,7 @@ final class EnumClassDeclaration extends Node {
   }
 
   public function hasClassKeyword(): bool {
-    return $this->_class_keyword !== null;
+    return true;
   }
 
   /**
@@ -463,7 +463,7 @@ final class EnumClassDeclaration extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -505,7 +505,7 @@ final class EnumClassDeclaration extends Node {
   }
 
   public function hasColon(): bool {
-    return $this->_colon !== null;
+    return true;
   }
 
   /**
@@ -547,7 +547,7 @@ final class EnumClassDeclaration extends Node {
   }
 
   public function hasBase(): bool {
-    return $this->_base !== null;
+    return true;
   }
 
   /**
@@ -676,7 +676,7 @@ final class EnumClassDeclaration extends Node {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -760,7 +760,7 @@ final class EnumClassDeclaration extends Node {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

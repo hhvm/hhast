@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<89cb346bb65c2fa80705c2aeb5dd9969>>
+ * @generated SignedSource<<2ffc50502b1ccafe98493ec7461b80a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,7 +84,7 @@ abstract class ScriptGeneratedBase extends Node {
   }
 
   public function hasDeclarations(): bool {
-    return $this->_declarations !== null;
+    return true;
   }
 
   /**

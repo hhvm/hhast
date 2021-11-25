@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class CamelCasedMethodsUnderscoredFunctionsLinterTest extends TestCase {
   use LinterTestTrait;
 
+  <<__Override>>
   protected function getLinter(string $file): SingleRuleLinter {
     return CamelCasedMethodsUnderscoredFunctionsLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple('<?hh class Foo { public function __construct() {} }'),

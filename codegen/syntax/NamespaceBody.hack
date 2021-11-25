@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<41485689d4425e0f1c0959da3622cf63>>
+ * @generated SignedSource<<ce46dba6eb23913c6c8c47858656cebe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,7 +125,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -192,7 +192,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**

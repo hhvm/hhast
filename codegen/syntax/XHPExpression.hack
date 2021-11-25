@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78a03814e336c43096a1267e129fb6bf>>
+ * @generated SignedSource<<633c622950450b3683773ef6b3bf338d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,7 +121,7 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
   }
 
   public function hasOpen(): bool {
-    return $this->_open !== null;
+    return true;
   }
 
   /**

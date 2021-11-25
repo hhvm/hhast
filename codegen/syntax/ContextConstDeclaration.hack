@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edf12a759526d546cdd5cc743d59993b>>
+ * @generated SignedSource<<1e16eeda5ca1fca34ef03a2159b3e314>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -282,7 +282,7 @@ final class ContextConstDeclaration
   }
 
   public function hasConstKeyword(): bool {
-    return $this->_const_keyword !== null;
+    return true;
   }
 
   /**
@@ -321,7 +321,7 @@ final class ContextConstDeclaration
   }
 
   public function hasCtxKeyword(): bool {
-    return $this->_ctx_keyword !== null;
+    return true;
   }
 
   /**
@@ -360,7 +360,7 @@ final class ContextConstDeclaration
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -555,7 +555,7 @@ final class ContextConstDeclaration
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

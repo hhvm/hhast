@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb1735a967319bc827dee603c9bb1fee>>
+ * @generated SignedSource<<dad5163d50e032ae609bd3d7c7cb59ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,7 +99,7 @@ final class NamespaceDeclarationHeader extends Node {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**

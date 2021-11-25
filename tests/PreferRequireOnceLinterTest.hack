@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class PreferRequireOnceLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): PreferRequireOnceLinter {
     return PreferRequireOnceLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple(<<<REQUIRE_ONCE_FILE

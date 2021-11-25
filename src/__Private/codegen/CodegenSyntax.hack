@@ -196,12 +196,27 @@ final class CodegenSyntax extends CodegenBase {
     $upper_camel = StrP\upper_camel($underscored);
     $types = $spec['possibleTypes'];
     $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
+    // AttributeAsAttributeSpecTrait declares some abstract methods
+    // we need to <<__Override>> them in these classes.
+    $needs_override_for_attribute_methods = (
+      $syntax['kind_name'] === 'ParameterDeclaration' ||
+      $syntax['kind_name'] === 'ClassishDeclaration'
+    ) &&
+      $upper_camel === 'Attribute';
+
+    $patch_in_override = (CodegenMethod $method): CodegenMethod ==> {
+      if ($needs_override_for_attribute_methods) {
+        $method->addEmptyUserAttribute('__Override');
+      }
+      return $method;
+    };
 
     $cg = $this->getCodegenFactory();
     yield $cg
       ->codegenMethodf('get%sUNTYPED', $upper_camel)
       ->setReturnType('?Node')
-      ->setBodyf('return $this->_%s;', $underscored);
+      ->setBodyf('return $this->_%s;', $underscored)
+      |> $patch_in_override($$);
 
     yield $cg
       ->codegenMethodf('with%s', $upper_camel)
@@ -226,10 +241,18 @@ final class CodegenSyntax extends CodegenBase {
           ->getCode(),
       );
 
-    yield $cg
-      ->codegenMethodf('has%s', $upper_camel)
-      ->setReturnType('bool')
-      ->setBodyf('return $this->_%s !== null;', $underscored);
+    if ($spec['nullable']) {
+      yield $cg
+        ->codegenMethodf('has%s', $upper_camel)
+        ->setReturnType('bool')
+        ->setBodyf('return $this->_%s !== null;', $underscored)
+        |> $patch_in_override($$);
+    } else {
+      yield $cg
+        ->codegenMethodf('has%s', $upper_camel)
+        ->setReturnType('bool')
+        ->setBody('return true;');
+    }
 
     if (!$spec['nullable']) {
       $get = $cg
@@ -263,7 +286,8 @@ final class CodegenSyntax extends CodegenBase {
           |> '@return '.$$,
       )
       ->setReturnType($type)
-      ->setBodyf('return $this->_%s;', $underscored);
+      ->setBodyf('return $this->_%s;', $underscored)
+      |> $patch_in_override($$);
 
     yield $cg
       ->codegenMethodf('get%sx', $upper_camel)
@@ -273,7 +297,8 @@ final class CodegenSyntax extends CodegenBase {
           |> '@return '.$$,
       )
       ->setReturnType($spec['class'])
-      ->setBodyf('return TypeAssert\\not_null($this->get%s());', $upper_camel);
+      ->setBodyf('return TypeAssert\\not_null($this->get%s());', $upper_camel)
+      |> $patch_in_override($$);
   }
 
   private function generateConstructor(

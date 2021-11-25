@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f803da7f44ed87c26cea0c8504f27d83>>
+ * @generated SignedSource<<d6af472e3fa3c231da944f8ce32f18bd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -149,7 +149,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
   }
 
   public function hasAliasingName(): bool {
-    return $this->_aliasing_name !== null;
+    return true;
   }
 
   /**
@@ -183,7 +183,7 @@ final class TraitUseAliasItem extends Node implements ITraitUseItem {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**

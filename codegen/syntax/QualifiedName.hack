@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7eea2722a3a7aaa04efce02f01cca761>>
+ * @generated SignedSource<<08eed0e99aabbb7fa1330745ef58a2b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,7 +86,7 @@ final class QualifiedName
   }
 
   public function hasParts(): bool {
-    return $this->_parts !== null;
+    return true;
   }
 
   /**

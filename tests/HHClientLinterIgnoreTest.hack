@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 final class HHClientLinterIgnoreTest extends TestCase {
   use HHClientLinterTestTrait;
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple("<?hh\nclass Foo {}"),

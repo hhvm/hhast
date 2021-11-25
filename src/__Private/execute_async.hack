@@ -39,7 +39,7 @@ async function execute_async(string ...$args): Awaitable<vec<string>> {
       $exit_code = $status['exitcode'];
       break;
     }
-    /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+    /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
     await \stream_await($stdout, \STREAM_AWAIT_READ);
   }
   $output .= \stream_get_contents($stdout);

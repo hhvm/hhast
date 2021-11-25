@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<599972a313ee91e45876b427afb77efa>>
+ * @generated SignedSource<<97d10f2f6b596ceb5b8b6ee431f1780e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -203,7 +203,7 @@ final class IfStatement
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -240,7 +240,7 @@ final class IfStatement
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -277,7 +277,7 @@ final class IfStatement
   }
 
   public function hasCondition(): bool {
-    return $this->_condition !== null;
+    return true;
   }
 
   /**
@@ -322,7 +322,7 @@ final class IfStatement
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -359,7 +359,7 @@ final class IfStatement
   }
 
   public function hasStatement(): bool {
-    return $this->_statement !== null;
+    return true;
   }
 
   /**

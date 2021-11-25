@@ -17,6 +17,7 @@ use namespace HH\Lib\{C, Dict, Keyset, Regex, Str, Vec};
 final class AddFixmesMigration extends BaseMigration {
   use TypeErrorMigrationTrait;
 
+  <<__Override>>
   protected static function filterTypecheckerError(TTypecheckerError $_): bool {
     return true;
   }
@@ -82,8 +83,8 @@ final class AddFixmesMigration extends BaseMigration {
         Vec\concat($leading->getChildren(), $new_fixmes),
       );
 
-      $column_offset += Str\length($new_leading->getCode()) -
-        Str\length($leading->getCode());
+      $column_offset +=
+        Str\length($new_leading->getCode()) - Str\length($leading->getCode());
 
       $root = $root->replace($node, $node->withLeading($new_leading));
     }

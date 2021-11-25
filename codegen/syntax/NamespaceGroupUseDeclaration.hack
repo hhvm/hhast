@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0cb5e3c4511a8de23fdacf0812ebb781>>
+ * @generated SignedSource<<f0c8a2c2c7433d09ac1cd97445f496de>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,7 +201,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -275,7 +275,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasPrefix(): bool {
-    return $this->_prefix !== null;
+    return true;
   }
 
   /**
@@ -312,7 +312,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasLeftBrace(): bool {
-    return $this->_left_brace !== null;
+    return true;
   }
 
   /**
@@ -351,7 +351,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasClauses(): bool {
-    return $this->_clauses !== null;
+    return true;
   }
 
   /**
@@ -388,7 +388,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasRightBrace(): bool {
-    return $this->_right_brace !== null;
+    return true;
   }
 
   /**
@@ -425,7 +425,7 @@ final class NamespaceGroupUseDeclaration
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

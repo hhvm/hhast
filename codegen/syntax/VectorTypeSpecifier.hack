@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<39ac7e83d2d1cb0ea02e40c0545ba2e8>>
+ * @generated SignedSource<<79661b86e890455006f0efb0d221a251>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -165,7 +165,7 @@ final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -200,7 +200,7 @@ final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftAngle(): bool {
-    return $this->_left_angle !== null;
+    return true;
   }
 
   /**
@@ -235,7 +235,7 @@ final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**
@@ -311,7 +311,7 @@ final class VectorTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasRightAngle(): bool {
-    return $this->_right_angle !== null;
+    return true;
   }
 
   /**

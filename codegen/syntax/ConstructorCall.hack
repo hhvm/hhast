@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e77bf231199a89d20c54d976146dfd9f>>
+ * @generated SignedSource<<1cdcb784e7924550764583525c626973>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -151,7 +151,7 @@ final class ConstructorCall extends Node {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**

@@ -63,7 +63,8 @@ final class CodeActionCommand extends LSPLib\CodeActionCommand {
           $command = $ca['command'] ?? null;
           $edit = $ca['edit'] ?? null;
           invariant(
-            !($command && $edit),
+            //             vvvv $edit can be null or a shape with zero fields
+            !($command && (bool)$edit),
             "Can't currently support both a command and an edit for editor ".
             'compatibility',
           );

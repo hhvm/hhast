@@ -119,7 +119,7 @@ final class DontAwaitInALoopLinter extends ASTLinter {
     PrefixUnaryExpression $node,
   ): bool {
     return !(
-      $loop is ForStatement && $loop->getInitializer()?->isAncestorOf($node) ||
+      $loop is ForStatement && ($loop->getInitializer()?->isAncestorOf($node) ?? false) ||
       $loop is ForeachStatement && $loop->getCollection()->isAncestorOf($node)
     );
   }

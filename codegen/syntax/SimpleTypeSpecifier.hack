@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8ec6d94424908a58af1be4a985edfddc>>
+ * @generated SignedSource<<0dd2a8984e4a5fcfcb053c8b50343abd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,7 +84,7 @@ final class SimpleTypeSpecifier
   }
 
   public function hasSpecifier(): bool {
-    return $this->_specifier !== null;
+    return true;
   }
 
   /**

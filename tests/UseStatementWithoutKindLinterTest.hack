@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class UseStatementWithoutKindLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): UseStatementWithoutKindLinter {
     return UseStatementWithoutKindLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple("<?hh\nuse type Foo;"),

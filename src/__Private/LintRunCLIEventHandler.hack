@@ -61,7 +61,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
     foreach ($errors as $error) {
       $position = $error->getRange()[0] ?? null;
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
       await $this->terminal
         ->getStdout()
         ->writeAllAsync(Str\format(
@@ -83,7 +83,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         ));
 
       if ($fixing_linter) {
-        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+        /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
         $should_fix = await $this->shouldFixLintAsync(
           /* HH_FIXME[4110] TError is lost here*/ $fixing_linter,
           /* HH_FIXME[4110] TError is lost here*/ $error,
@@ -96,7 +96,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         continue;
       }
 
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
       await $this->renderLintBlameAsync($error);
       $result = LintAutoFixResult::SOME_UNFIXED;
     }
@@ -127,12 +127,6 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     AutoFixingLinter<Terror> $linter,
     vec<Terror> $errors,
   ): void {
-    invariant(
-      $linter is AutoFixingLinter<_>,
-      '%s is not an auto-fixing-linter',
-      \get_class($linter),
-    );
-
     $file = $linter->getFixedFile($errors);
     \file_put_contents($file->getPath(), $file->getContents());
   }
@@ -178,14 +172,14 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
     $response = null;
     do {
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
       await $this->terminal
         ->getStdout()
         ->writeAllAsync(
           "\e[94mWould you like to apply this fix?\e[0m\n".
           "  \e[37m[y]es/[n]o/yes to [a]ll/n[o] to all:\e[0m ",
         );
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
       $response = await $this->input->readLineAsync();
       if ($response === null) {
         break; // EOF
@@ -204,7 +198,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
         case '':
           return false;
         default:
-          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
           await $this->terminal
             ->getStderr()
             ->writeAllAsync(

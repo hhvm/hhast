@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ba1fe8fdff9a5fbebc8c17fb267952b6>>
+ * @generated SignedSource<<ea428a5ec639e9423c8f5a1f34844d76>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,7 +168,7 @@ final class DarrayIntrinsicExpression
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -238,7 +238,7 @@ final class DarrayIntrinsicExpression
   }
 
   public function hasLeftBracket(): bool {
-    return $this->_left_bracket !== null;
+    return true;
   }
 
   /**
@@ -311,7 +311,7 @@ final class DarrayIntrinsicExpression
   }
 
   public function hasRightBracket(): bool {
-    return $this->_right_bracket !== null;
+    return true;
   }
 
   /**

@@ -233,8 +233,8 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
       }
     }
 
-    foreach ($uses as $kind => $use_kind) {
-      foreach ($use_kind as $use) {
+    foreach ($uses as $kind => $use_kind_loop_var) {
+      foreach ($use_kind_loop_var as $use) {
         list(
           $node,
           $parts,

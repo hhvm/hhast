@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce9517c67c2a15316e52b8a9efc3b7f1>>
+ * @generated SignedSource<<09cb8d37e427abfa0fe5ec7f068a433b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
   }
 
   public function hasReified(): bool {
-    return $this->_reified !== null;
+    return true;
   }
 
   /**
@@ -129,7 +129,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**

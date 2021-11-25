@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class NamespacePrivateLinterTest extends TestCase {
   use LinterTestTrait;
 
+  <<__Override>>
   protected function getLinter(string $file): SingleRuleLinter {
     return NamespacePrivateLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple('<?hh function test();'),

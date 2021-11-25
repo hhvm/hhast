@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cc84c3eb6023a8426f097b0487291a44>>
+ * @generated SignedSource<<eee029a194e1b379e40b0c96011215f9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -125,7 +125,7 @@ final class ParenthesizedExpression
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -154,7 +154,7 @@ final class ParenthesizedExpression
   }
 
   public function hasExpression(): bool {
-    return $this->_expression !== null;
+    return true;
   }
 
   /**
@@ -199,7 +199,7 @@ final class ParenthesizedExpression
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56836c075f2b9ac81bc41784f1360b88>>
+ * @generated SignedSource<<8884a47568992b91dbff3a4adc780fa1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -186,7 +186,7 @@ final class ClosureParameterTypeSpecifier
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**

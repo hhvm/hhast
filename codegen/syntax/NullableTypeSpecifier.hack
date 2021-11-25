@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4fc07d9443438ab73d13bfc2f14df869>>
+ * @generated SignedSource<<a2fe030cbc8e3f6c2b39b0a0f60e4cea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -100,7 +100,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasQuestion(): bool {
-    return $this->_question !== null;
+    return true;
   }
 
   /**
@@ -129,7 +129,7 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**

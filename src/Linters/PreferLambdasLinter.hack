@@ -87,7 +87,7 @@ final class PreferLambdasLinter extends AutoFixingASTLinter {
 
   private function simplifyBody(CompoundStatement $body): ILambdaBody {
     $statements = $body->getStatements()?->getChildren();
-    if (!$statements || C\count($statements) !== 1) {
+    if ($statements is null || C\count($statements) !== 1) {
       // Body has no statements, cannot be simplied.
       return $body;
     }

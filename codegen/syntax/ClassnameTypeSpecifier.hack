@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<aa013a8a0712725406ec5d1ee3b0f57a>>
+ * @generated SignedSource<<13728b1f23ad91e8037b9810c6ba7fcd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,7 +168,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**

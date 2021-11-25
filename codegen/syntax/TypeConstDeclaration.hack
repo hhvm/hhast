@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<345585ee29f4b1118fa95090399d5238>>
+ * @generated SignedSource<<ddb55e79297ba3f3fe2827ca11bcaf97>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -342,7 +342,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -382,7 +382,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   public function hasTypeKeyword(): bool {
-    return $this->_type_keyword !== null;
+    return true;
   }
 
   /**
@@ -422,7 +422,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
@@ -630,7 +630,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

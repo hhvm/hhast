@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f1828a26cfbdce5a07bbfd7c691840e3>>
+ * @generated SignedSource<<4afdce3941d1127e246a135190c75e46>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -239,7 +239,7 @@ final class ForStatement
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -278,7 +278,7 @@ final class ForStatement
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -360,7 +360,7 @@ final class ForStatement
   }
 
   public function hasFirstSemicolon(): bool {
-    return $this->_first_semicolon !== null;
+    return true;
   }
 
   /**
@@ -441,7 +441,7 @@ final class ForStatement
   }
 
   public function hasSecondSemicolon(): bool {
-    return $this->_second_semicolon !== null;
+    return true;
   }
 
   /**
@@ -526,7 +526,7 @@ final class ForStatement
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -565,7 +565,7 @@ final class ForStatement
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**

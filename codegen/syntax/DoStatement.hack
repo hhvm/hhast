@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<714e4061cc3bd930e66c617feacef63f>>
+ * @generated SignedSource<<c5b1c7350fefd6c906075b37064d41df>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -201,7 +201,7 @@ final class DoStatement
   }
 
   public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+    return true;
   }
 
   /**
@@ -238,7 +238,7 @@ final class DoStatement
   }
 
   public function hasBody(): bool {
-    return $this->_body !== null;
+    return true;
   }
 
   /**
@@ -275,7 +275,7 @@ final class DoStatement
   }
 
   public function hasWhileKeyword(): bool {
-    return $this->_while_keyword !== null;
+    return true;
   }
 
   /**
@@ -312,7 +312,7 @@ final class DoStatement
   }
 
   public function hasLeftParen(): bool {
-    return $this->_left_paren !== null;
+    return true;
   }
 
   /**
@@ -349,7 +349,7 @@ final class DoStatement
   }
 
   public function hasCondition(): bool {
-    return $this->_condition !== null;
+    return true;
   }
 
   /**
@@ -388,7 +388,7 @@ final class DoStatement
   }
 
   public function hasRightParen(): bool {
-    return $this->_right_paren !== null;
+    return true;
   }
 
   /**
@@ -425,7 +425,7 @@ final class DoStatement
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**

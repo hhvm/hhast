@@ -107,11 +107,11 @@ final class Server extends LSPLib\Server<ServerState> {
     $poll->add(
       async {
         while (!$this->input->isEndOfFile()) {
-          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
           await $verbose?->writeAllAsync("< [waiting]\n");
-          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
           $body = await $this->readMessageAsync();
-          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
+          /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
           await $verbose?->writeAllAsync("> [dispatch]\n");
           $poll->add(async {
             await $verbose?->writeAllAsync("> [start]\n");

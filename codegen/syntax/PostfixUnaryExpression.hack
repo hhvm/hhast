@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c17ea9dc6d25d3d3f7d7b87c1699bf4>>
+ * @generated SignedSource<<33735abb3a2ee61588a7874bf58be92d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -102,7 +102,7 @@ final class PostfixUnaryExpression
   }
 
   public function hasOperand(): bool {
-    return $this->_operand !== null;
+    return true;
   }
 
   /**
@@ -133,7 +133,7 @@ final class PostfixUnaryExpression
   }
 
   public function hasOperator(): bool {
-    return $this->_operator !== null;
+    return true;
   }
 
   /**
