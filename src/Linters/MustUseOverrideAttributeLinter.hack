@@ -66,9 +66,7 @@ final class MustUseOverrideAttributeLinter extends AutoFixingASTLinter {
     ClassishDeclaration $class,
   ): string {
     $super = C\onlyx($class->getExtendsListx()->getChildren());
-    if ($super is ListItem<_>) {
-      $super = $super->getItemx();
-    }
+    $super = $super->getItemx();
     if ($super is GenericTypeSpecifier) {
       $super = $super->getClassType();
     }

@@ -323,13 +323,7 @@ final class HSLMigration extends BaseMigration {
     $arguments = $argument_list->getChildren();
     $new_argument_list = $argument_list;
 
-    $items = Vec\map(
-      $arguments,
-      $argument ==> {
-        invariant($argument is ListItem<_>, 'expected ListItem');
-        return $argument->getItemx();
-      },
-    );
+    $items = Vec\map($arguments, $argument ==> $argument->getItemx());
 
     // can't handle these ones with wrong number of args yet
     // return null, signaling to caller to skip rewriting this invocation
@@ -451,10 +445,9 @@ final class HSLMigration extends BaseMigration {
       $new_argument_list = vec[];
 
       foreach ($arguments as $i => $argument) {
-        invariant($argument is ListItem<_>, 'expected ListItem');
         $new_argument_list[] = $argument->replace(
           $argument->getItemx(),
-          $new_items[(int)$i],
+          $new_items[$i],
         );
       }
 
@@ -649,7 +642,6 @@ final class HSLMigration extends BaseMigration {
     } else {
       invariant($receiver is QualifiedName, 'expected QualifiedName');
       $first_item = $receiver->getParts()->getChildren() |> C\firstx($$);
-      invariant($first_item is ListItem<_>, 'expected ListItem');
 
       $new_receiver = new NameToken(
         $first_item->getSeparatorx()->getLeading(),

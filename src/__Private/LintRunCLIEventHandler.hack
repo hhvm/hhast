@@ -127,12 +127,6 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     AutoFixingLinter<Terror> $linter,
     vec<Terror> $errors,
   ): void {
-    invariant(
-      $linter is AutoFixingLinter<_>,
-      '%s is not an auto-fixing-linter',
-      \get_class($linter),
-    );
-
     $file = $linter->getFixedFile($errors);
     \file_put_contents($file->getPath(), $file->getContents());
   }
