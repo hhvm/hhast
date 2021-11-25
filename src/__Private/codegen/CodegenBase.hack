@@ -19,9 +19,9 @@ use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 
 abstract class CodegenBase {
   // Note to future maintainers:
-  // This object is cloned use `clone` in `->withoutHackfmt()`.
+  // This object is cloned using `clone` in `->withoutHackfmt()`.
   // If you add a reference (object) typed property, you must ensure
-  // proper cloning sematics manually.
+  // proper cloning semantics manually.
   private Schema\TSchema $schema;
   private bool $useHackfmt = true;
 
