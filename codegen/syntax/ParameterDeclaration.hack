@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<6bf73879c1b3922381c1121cf445f9dd>>
+ * @generated SignedSource<<44adabf0bfd62c17717beab34dea610a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -189,6 +189,7 @@ final class ParameterDeclaration
     );
   }
 
+  <<__Override>>
   public function getAttributeUNTYPED(): ?Node {
     return $this->_attribute;
   }
@@ -208,6 +209,7 @@ final class ParameterDeclaration
     );
   }
 
+  <<__Override>>
   public function hasAttribute(): bool {
     return $this->_attribute !== null;
   }
@@ -215,6 +217,7 @@ final class ParameterDeclaration
   /**
    * @return null | OldAttributeSpecification
    */
+  <<__Override>>
   public function getAttribute(): ?OldAttributeSpecification {
     return $this->_attribute;
   }
@@ -222,6 +225,7 @@ final class ParameterDeclaration
   /**
    * @return OldAttributeSpecification
    */
+  <<__Override>>
   public function getAttributex(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttribute());
   }

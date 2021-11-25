@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d2215244621a50367cc492df20998b7>>
+ * @generated SignedSource<<ef55c9257115884f270d9a62cb66212b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -281,6 +281,7 @@ final class ClassishDeclaration
     );
   }
 
+  <<__Override>>
   public function getAttributeUNTYPED(): ?Node {
     return $this->_attribute;
   }
@@ -305,6 +306,7 @@ final class ClassishDeclaration
     );
   }
 
+  <<__Override>>
   public function hasAttribute(): bool {
     return $this->_attribute !== null;
   }
@@ -312,6 +314,7 @@ final class ClassishDeclaration
   /**
    * @return null | OldAttributeSpecification
    */
+  <<__Override>>
   public function getAttribute(): ?OldAttributeSpecification {
     return $this->_attribute;
   }
@@ -319,6 +322,7 @@ final class ClassishDeclaration
   /**
    * @return OldAttributeSpecification
    */
+  <<__Override>>
   public function getAttributex(): OldAttributeSpecification {
     return TypeAssert\not_null($this->getAttribute());
   }
