@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class UnusedUseClauseLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): AutoFixingASTLinter {
     return UnusedUseClauseLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     $examples = vec[
       tuple("<?hh\nuse type Foo; Foo::bar();"),
@@ -39,9 +41,8 @@ final class UnusedUseClauseLinterTest extends TestCase {
     ];
 
     if (\ini_get('hhvm.hack.lang.disable_xhp_element_mangling')) {
-      $examples[] = tuple(
-        "<?hh\nuse type foo; function bar(): void { \$_ = <foo />; }",
-      );
+      $examples[] =
+        tuple("<?hh\nuse type foo; function bar(): void { \$_ = <foo />; }");
     }
 
     return $examples;

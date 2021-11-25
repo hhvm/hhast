@@ -17,6 +17,7 @@ trait AutoFixingLinterTestTrait<Terror as SingleRuleLintError> {
   require extends TestCase;
   use LinterTestTrait;
 
+  <<__Override>>
   abstract protected function getLinter(string $file): AutoFixingLinter<Terror>;
 
   <<DataProvider('getDirtyFixtures')>>

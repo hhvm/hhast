@@ -16,10 +16,12 @@ namespace Facebook\HHAST;
 final class SuppressLineLinterTest extends TestCase {
   use LinterTestTrait;
 
+  <<__Override>>
   protected function getLinter(string $file): SingleRuleLinter {
     return NoWhitespaceAtEndOfLineLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple(

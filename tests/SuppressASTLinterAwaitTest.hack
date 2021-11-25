@@ -16,10 +16,12 @@ namespace Facebook\HHAST;
 final class SuppressASTLinterAwaitTest extends TestCase {
   use LinterTestTrait;
 
+  <<__Override>>
   protected function getLinter(string $file): SingleRuleLinter {
     return DontAwaitInALoopLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     // this tests that we can check for the comment in the parents until we hit a statement.
     return vec[

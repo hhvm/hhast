@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class NoFinalMethodInFinalClassLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): NoFinalMethodInFinalClassLinter {
     return NoFinalMethodInFinalClassLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple(<<<FINAL_CLASS_NO_FINAL_METHOD

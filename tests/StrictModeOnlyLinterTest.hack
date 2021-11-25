@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class StrictModeOnlyLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): StrictModeOnlyLinter {
     return StrictModeOnlyLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple("<?hh // strict\n"),

@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class PreferLambdasLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(string $file): PreferLambdasLinter {
     return PreferLambdasLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple('<?hh $fn = () ==> 5; '),

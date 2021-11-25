@@ -23,10 +23,12 @@ trait HHClientLinterTestTrait {
    * otherwise hh_client will not work.
    */
   <<__MemoizeLSB>>
-  private static function temporarySourceDirectory():string {
-    return __DIR__.'/../.var/tmp/hhast/'.C\lastx(Str\split(static::class, '\\'));
+  private static function temporarySourceDirectory(): string {
+    return
+      __DIR__.'/../.var/tmp/hhast/'.C\lastx(Str\split(static::class, '\\'));
   }
 
+  <<__Override>>
   protected function getLinter(string $file): HHClientLinter {
     $ext = Str\strip_suffix($file, '.in')
       |> Str\ends_with($$, '.php')
@@ -34,7 +36,8 @@ trait HHClientLinterTestTrait {
     $hh_client_tmp_file =
       self::temporarySourceDirectory().'/'.\bin2hex(\random_bytes(16)).'.'.$ext;
     \copy($file, $hh_client_tmp_file);
-    return HHClientLinter::fromPathWithConfig($hh_client_tmp_file, static::CONFIG);
+    return
+      HHClientLinter::fromPathWithConfig($hh_client_tmp_file, static::CONFIG);
   }
 
   <<__Override>>

@@ -15,6 +15,7 @@ use namespace Facebook\HHAST\__Private\LSP;
 interface AutoFixingLinter<Terror as SingleRuleLintError> {
   require extends SingleRuleLinter;
 
+  <<__Override>>
   public function getLintErrorsAsync(): Awaitable<Traversable<Terror>>;
 
   public function getFixedFile(Traversable<Terror> $errors): File;

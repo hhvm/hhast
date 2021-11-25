@@ -12,12 +12,14 @@ namespace Facebook\HHAST;
 final class PreferSingleQuotedStringLiteralLinterTest extends TestCase {
   use AutoFixingLinterTestTrait<ASTLintError>;
 
+  <<__Override>>
   protected function getLinter(
     string $file,
   ): PreferSingleQuotedStringLiteralLinter {
     return PreferSingleQuotedStringLiteralLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple(<<<'CODE'
