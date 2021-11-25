@@ -76,7 +76,7 @@ final class IsRefinementMigration extends BaseMigration {
         $replacement = new SimpleTypeSpecifier($replacement);
       }
       $replacement = new IsExpression(
-        $node->getArgumentListx()->getChildrenOfItems()[0] as nonnull,
+        $node->getArgumentListx()->getChildrenOfItems()[0],
         new IsToken(
           new NodeList(vec[new WhiteSpace(' ')]),
           new NodeList(vec[new WhiteSpace(' ')]),
@@ -84,7 +84,7 @@ final class IsRefinementMigration extends BaseMigration {
         $replacement,
       );
 
-      $parent = C\lastx($parents as nonnull);
+      $parent = C\lastx($parents);
       // Whitelist of cases where parenthese are not needed
       if (
         ($parent is ListItem<_>) ||
