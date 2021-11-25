@@ -27,7 +27,7 @@
     "Facebook\\HHAST\\HHClientLinter": {
       "Comments (not an actual setting)":
         "The following error codes are ignored with no good reason. They are just existing issues and need to be fixed.",
-      "ignore": [5562, 5583, 5568, 5607, 5609, 5611, 5618, 5624, 5639]
+      "ignore": [5562, 5583, 5568, 5607, 5609, 5611, 5624, 5639]
     }
   }
 }
