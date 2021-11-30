@@ -83,7 +83,7 @@ final class LintRun {
       } catch (LinterException $e) {
         throw $e;
       } catch (\Throwable $t) {
-        new LinterException(
+        throw new LinterException(
           $class,
           $file->getPath(),
           $t->getMessage(),
