@@ -121,7 +121,7 @@ final class LinterCLI extends CLIWithArguments {
       if (C\is_empty($roots)) {
         await $err->writeAllAsync(
           'You must either specify PATH arguments, or provide a configuration'.
-          "file.\n",
+          "file, in which the `roots` setting is not empty.\n",
         );
         return 1;
       }
@@ -133,10 +133,9 @@ final class LinterCLI extends CLIWithArguments {
           if (\file_exists($config_file)) {
             /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
             await $err->writeAllAsync(
-              'Warning: PATH arguments contain a hhast-lint.json, '.
-              'which modifies the linters used and customizes behavior. '.
-              "Consider 'cd ".
-              $root.
+              'Warning: PATH arguments contain a lint config file at '.$path.
+              'hhast-lint.json, which modifies the linters used and '.
+              "customizes behavior. Consider 'cd ".$root.
               "; vendor/bin/hhast-lint'\n\n",
             );
           }
