@@ -1,6 +1,9 @@
 {
   "roots": [ "src/", "codegen/", "tests/" ],
   "builtinLinters": "all",
+  "extraLinters": [
+    "Facebook\\HHAST\\HHClientLinter"
+  ],
   "overrides": [
     {
       "patterns": [ "codegen/*", "tests/examples/*" ],
