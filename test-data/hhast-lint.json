@@ -1,5 +1,11 @@
 {
-  "roots": [],
+  "roots": [ "." ],
+  "extraLinters": [
+    "Facebook\\HHAST\\Tests\\ValidConfigForLinter",
+    "Facebook\\HHAST\\Tests\\InvalidConfigForLinter",
+    "Facebook\\HHAST\\FinalOrAbstractClassLinter",
+    "Facebook\\HHAST\\Tests\\ConfigTypeIsNotSupportedByTypeAssertLinter"
+  ],
   "linterConfigs": {
     "Facebook\\HHAST\\Tests\\ValidConfigForLinter": {
       "the answer": 42,

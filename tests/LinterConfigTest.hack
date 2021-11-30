@@ -9,18 +9,20 @@
 
 namespace Facebook\HHAST\Tests;
 
-use type Facebook\HackTest\HackTest;
 use function Facebook\FBExpect\expect;
 use type Facebook\HHAST\{
+  LinterCLITestTrait,
   PreferRequireOnceLinter,
   SingleRuleLintError,
   SingleRuleLinter,
+  TestCase,
 };
 use type Facebook\HHAST\__Private\LintRunConfig;
 
 abstract class EmptyBaseLinter extends SingleRuleLinter {
   <<__Override>>
-  final public async function getLintErrorsAsync(): Awaitable<vec<SingleRuleLintError>> {
+  final public async function getLintErrorsAsync(
+  ): Awaitable<vec<SingleRuleLintError>> {
     return vec[];
   }
   final public function getConfigPublic(): ?this::TConfig {
@@ -54,9 +56,13 @@ final class ConfigTypeIsNotSupportedByTypeAssertLinter extends EmptyBaseLinter {
   const type TConfig = shape('impossible' => vec<nothing>);
 }
 
-final class LinterConfigTest extends HackTest {
+final class LinterConfigTest extends TestCase {
+  use LinterCLITestTrait;
+
+  const string TEST_DIRECTORY = __DIR__.'/../test-data';
+
   private static function getLintRunConfig(): LintRunConfig {
-    return LintRunConfig::getForPath(__DIR__.'/../test-data');
+    return LintRunConfig::getForPath(self::TEST_DIRECTORY);
   }
 
   public function testValidConfigForLinter(): void {
@@ -85,6 +91,26 @@ final class LinterConfigTest extends HackTest {
         InvalidConfigForLinter::class,
       ),
     )->toThrow(\Exception::class, 'is not of the correct type');
+  }
+
+  public async function testInvalidConfigForCLI(): Awaitable<void> {
+    list($cli, $_, $stdout, $stderr) =
+      $this->getCLI('--config-file', self::TEST_DIRECTORY.'/hhast-lint.json', self::TEST_DIRECTORY);
+    $exit_code = await $cli->mainAsync();
+    expect($stderr->getBuffer())->toContainSubstring(
+      'A linter threw an exception:',
+    );
+    expect($stderr->getBuffer())->toContainSubstring(
+      'Linter: Facebook\HHAST\Tests\InvalidConfigForLinter',
+    );
+    expect($stderr->getBuffer())->toMatchRegExp(
+      re'#File\\: .*/test-data/unparsable_php_file\\.php#',
+    );
+    expect($stderr->getBuffer())->toContainSubstring(
+      'Message: Configuration for Facebook\HHAST\Tests\InvalidConfigForLinter is not of the correct type. See previous exception:',
+    );
+    expect($exit_code)->toBeSame(2);
+    expect($stdout->getBuffer())->toBeEmpty();
   }
 
   public function testLinterWithoutATConfigAndNoConfigSupplied(): void {
