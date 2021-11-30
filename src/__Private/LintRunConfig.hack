@@ -10,7 +10,7 @@
 namespace Facebook\HHAST\__Private;
 
 use namespace Facebook\{HHAST, TypeAssert};
-use namespace HH\Lib\{C, Keyset, Str, Vec};
+use namespace HH\Lib\{C, Dict, Keyset, Str, Vec};
 use type Facebook\HHAST\Linter;
 
 final class LintRunConfig {
@@ -242,14 +242,32 @@ final class LintRunConfig {
     );
   }
 
-  <<__Memoize>>
   public function getLinterConfigForLinter<TLinter as Linter, TConfig>(
     classname<TLinter> $classname,
+    ?string $file_path = null,
   ): ?TConfig where TConfig = TLinter::TConfig {
-    $config = idx(Shapes::idx($this->configFile, 'linterConfigs'), $classname);
-
-    if ($config is null) {
-      return null;
+    $global_linter_config =
+      $this->configFile['linterConfigs'][$classname] ?? null;
+    $file_linter_config =
+      $file_path is null ? null : $this->relativeFilePath($file_path)
+      |> $$ is null
+        ? null
+        : $this->findOverride($$)['linterConfigs'][$classname] ?? null;
+    if ($global_linter_config is null) {
+      if ($file_linter_config is null) {
+        return null;
+      } else {
+        $config = $file_linter_config;
+      }
+    } else {
+      if ($file_linter_config is null) {
+        $config = $global_linter_config;
+      } else {
+        $config = Dict\merge(
+          $global_linter_config as dict<_, _>,
+          $file_linter_config as dict<_, _>,
+        );
+      }
     }
 
     try {

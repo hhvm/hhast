@@ -77,7 +77,7 @@ final class LintRun {
           $file_config,
           $class,
           $file,
-          $config->getLinterConfigForLinter($class),
+          $config->getLinterConfigForLinter($class, $file->getPath()),
         );
         $result->v = self::worstResult($result->v, $this_result);
       } catch (LinterException $e) {
