@@ -164,7 +164,7 @@ final class LintRunConfig {
     );
   }
 
-  public function getConfigForFile(string $file_path): self::TFileConfig {
+  private function relativeFilePath(string $file_path): ?string {
     $roots = Vec\map(
       $this->configFile['roots'],
       $s ==> Str\strip_suffix($s, '/').'/' |> Str\strip_prefix($$, './'),
@@ -175,6 +175,14 @@ final class LintRunConfig {
       $roots !== vec[] &&
       !C\any($roots, $root ==> Str\starts_with($file_path, $root))
     ) {
+      return null;
+    }
+    return $file_path;
+  }
+
+  public function getConfigForFile(string $file_path): self::TFileConfig {
+    $file_path = $this->relativeFilePath($file_path);
+    if ($file_path is null) {
       return shape(
         'linters' => keyset[],
         'autoFixBlacklist' => keyset[],
