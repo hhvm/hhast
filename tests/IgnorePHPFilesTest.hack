@@ -14,7 +14,7 @@ use type Facebook\HackTest\HackTest;
 final class IgnorePHPFilesTest extends HackTest {
   public async function testUnparsablePHPFileAsync(): Awaitable<void> {
     $lint_run = new __Private\LintRun(
-      null,
+      __Private\LintRunConfig::getForPath(\getcwd()),
       new DoNotSendMeEventsHandler(),
       vec[__DIR__.'/../test-data/unparsable_php_file.php'],
     );
