@@ -19,6 +19,7 @@ final class LinterCLI extends CLIWithArguments {
   private bool $xhprof = false;
   private ?string $xhprofDotFile = null;
   private LinterCLIMode $mode = LinterCLIMode::PLAIN;
+  private ?string $configFile = null;
 
   use CLIWithVerbosityTrait;
 
@@ -59,6 +60,13 @@ final class LinterCLI extends CLIWithArguments {
         $_ ==> {},
         'Name of the caller; intended for use with `--mode json` or `--mode lsp`',
         '--from',
+      ),
+      CLIOptions\with_required_string(
+        $config_file ==> {
+          $this->configFile = $config_file;
+        },
+        'The path to the the configuration file, which is `hhast-lint.json` by default',
+        '--config-file',
       ),
       $this->getVerbosityOption(),
     ];
@@ -101,8 +109,14 @@ final class LinterCLI extends CLIWithArguments {
     $err = $this->getStderr();
     $roots = $this->getArguments();
 
+    $config_file = $this->configFile;
+    if ($config_file is nonnull) {
+      $specified_config = LintRunConfig::getFromConfigFile($config_file);
+    } else {
+      $specified_config = null;
+    }
     if (C\is_empty($roots)) {
-      $config = LintRunConfig::getForPath(\getcwd());
+      $config = $specified_config ?? LintRunConfig::getForPath(\getcwd());
       $roots = $config->getRoots();
       if (C\is_empty($roots)) {
         await $err->writeAllAsync(
@@ -128,7 +142,7 @@ final class LinterCLI extends CLIWithArguments {
           }
         }
       }
-      $config = null;
+      $config = $specified_config;
     }
 
     switch ($this->mode) {
