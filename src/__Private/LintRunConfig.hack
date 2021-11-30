@@ -14,6 +14,18 @@ use namespace HH\Lib\{C, Keyset, Str, Vec};
 use type Facebook\HHAST\Linter;
 
 final class LintRunConfig {
+
+  const type TOverride = shape(
+    // Which files this override applies to (uses `fnmatch()`)
+    'patterns' => vec<string>,
+    ?'builtinLinters' => NamedLinterGroup,
+    ?'extraLinters' => vec<string>,
+    ?'disabledLinters' => vec<string>,
+    ?'disabledAutoFixes' => vec<string>,
+    ?'disableAllAutoFixes' => bool,
+    ?'disableAllLinters' => bool,
+    ?'linterConfigs' => dict<string, dynamic>,
+  );
   const type TConfigFile = shape(
     // Where to lint, eg '[ "src/", "codegen/", "tests/" ]
     'roots' => vec<string>,
@@ -39,18 +51,7 @@ final class LintRunConfig {
     // Defaults to false.
     ?'disableAllAutoFixes' => bool,
     // Override any of the above for a subset of files in the project
-    ?'overrides' => vec<
-      shape(
-        // Which files this override applies to (uses `fnmatch()`)
-        'patterns' => vec<string>,
-        ?'builtinLinters' => NamedLinterGroup,
-        ?'extraLinters' => vec<string>,
-        ?'disabledLinters' => vec<string>,
-        ?'disabledAutoFixes' => vec<string>,
-        ?'disableAllAutoFixes' => bool,
-        ?'disableAllLinters' => bool,
-      )
-    >,
+    ?'overrides' => vec<self::TOverride>,
     // Each linter may specify a type for itself.
     // The type of this key is effectively `dict<classname<T1 ... Tn>, Tx>`
     ?'linterConfigs' => dict<string, dynamic>,
@@ -149,9 +150,17 @@ final class LintRunConfig {
   }
 
   public function getRoots(): vec<string> {
-    return Vec\map(
-      $this->configFile['roots'],
-      $dir ==> $this->projectRoot.'/'.$dir,
+    return
+      Vec\map($this->configFile['roots'], $dir ==> $this->projectRoot.'/'.$dir);
+  }
+
+  private function findOverride(string $file_path): ?self::TOverride {
+    return C\find(
+      $this->configFile['overrides'] ?? vec[],
+      $override ==> C\find(
+        $override['patterns'],
+        $pattern ==> \fnmatch($pattern, $file_path),
+      ) is nonnull,
     );
   }
 
@@ -171,23 +180,14 @@ final class LintRunConfig {
         'autoFixBlacklist' => keyset[],
       );
     }
-    $builtin_linters = $this->configFile['builtinLinters'] ??
-      NamedLinterGroup::DEFAULT_BUILTINS;
+    $builtin_linters =
+      $this->configFile['builtinLinters'] ?? NamedLinterGroup::DEFAULT_BUILTINS;
     $linters = $this->configFile['extraLinters'] ?? vec[];
     $blacklist = $this->configFile['disabledLinters'] ?? vec[];
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
     $no_autofixes = $this->configFile['disableAllAutoFixes'] ?? false;
-    foreach ($this->configFile['overrides'] ?? vec[] as $override) {
-      $matches = false;
-      foreach ($override['patterns'] as $pattern) {
-        if (\fnmatch($pattern, $file_path)) {
-          $matches = true;
-          break;
-        }
-      }
-      if (!$matches) {
-        continue;
-      }
+    $override = $this->findOverride($file_path);
+    if ($override is nonnull) {
       if ($override['disableAllLinters'] ?? false) {
         return shape(
           'linters' => keyset[],
@@ -198,16 +198,12 @@ final class LintRunConfig {
         $builtin_linters = $override['builtinLinters'];
       }
       $linters = Vec\concat($linters, $override['extraLinters'] ?? vec[]);
-      $blacklist = Vec\concat(
-        $blacklist,
-        $override['disabledLinters'] ?? vec[],
-      );
-      $autofix_blacklist = Vec\concat(
-        $autofix_blacklist,
-        $override['disabledAutoFixes'] ?? vec[],
-      );
-      $no_autofixes = $no_autofixes ||
-        ($override['disableAllAutoFixes'] ?? false);
+      $blacklist =
+        Vec\concat($blacklist, $override['disabledLinters'] ?? vec[]);
+      $autofix_blacklist =
+        Vec\concat($autofix_blacklist, $override['disabledAutoFixes'] ?? vec[]);
+      $no_autofixes =
+        $no_autofixes || ($override['disableAllAutoFixes'] ?? false);
     }
 
     $normalize = (vec<string> $list) ==> Keyset\map(
@@ -219,20 +215,16 @@ final class LintRunConfig {
     $blacklist = $normalize($blacklist);
     $autofix_blacklist = $normalize($autofix_blacklist);
 
-    $linters = Keyset\union(
-      $linters,
-      self::getNamedLinterGroup($builtin_linters),
-    );
+    $linters =
+      Keyset\union($linters, self::getNamedLinterGroup($builtin_linters));
 
     $linters = Keyset\diff($linters, $blacklist);
     if ($no_autofixes) {
       $autofix_blacklist = $linters;
     }
 
-    $assert_types = (keyset<string> $list) ==> Keyset\map(
-      $list,
-      $str ==> TypeAssert\classname_of(Linter::class, $str),
-    );
+    $assert_types = (keyset<string> $list) ==>
+      Keyset\map($list, $str ==> TypeAssert\classname_of(Linter::class, $str));
     $linters = $assert_types($linters);
     $autofix_blacklist = $assert_types($autofix_blacklist);
 
@@ -280,8 +272,8 @@ final class LintRunConfig {
 
   private function getFullyQualifiedLinterName(string $name): string {
     if (Str\starts_with($name, 'Facebook\\HHAST\\Linters')) {
-      $name = 'Facebook\\HHAST'.
-        Str\strip_prefix($name, 'Facebook\\HHAST\\Linters');
+      $name =
+        'Facebook\\HHAST'.Str\strip_prefix($name, 'Facebook\\HHAST\\Linters');
     }
     $aliases = $this->configFile['namespaceAliases'] ?? dict[];
     if (C\is_empty($aliases)) {
