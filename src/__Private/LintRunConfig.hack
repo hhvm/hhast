@@ -117,7 +117,7 @@ final class LintRunConfig {
   }
 
   <<__Memoize>>
-  private static function getFromConfigFile(string $path): this {
+  public static function getFromConfigFile(string $path): this {
     return new self(\dirname($path), self::getConfigFromFile($path));
   }
 
