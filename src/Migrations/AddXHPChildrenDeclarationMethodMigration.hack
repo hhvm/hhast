@@ -43,19 +43,14 @@ final class AddXHPChildrenDeclarationMethodMigration
     $before = C\firstx($decls->getChildrenByType<IDeclaration>());
     $t = $before->getFirstTokenx();
     $use = self::getUseNamespace();
-    if ($t->getLeading() !== $t->getLeadingWhitespace()) {
-      $ut = $use->getFirstTokenx();
-      return $in->withDeclarations(
-        $in->getDeclarations()->insertBefore(
-          $before,
-          $use->replace($ut, $ut->withLeading($t->getLeading())),
-        ),
-      )
-        ->replace($t, $t->withLeading(null));
-    }
+    $ut = $use->getFirstTokenx();
     return $in->withDeclarations(
-      $decls->insertBefore($before, self::getUseNamespace()),
-    );
+      $in->getDeclarations()->insertBefore(
+        $before,
+        $use->replace($ut, $ut->withLeading($t->getLeading())),
+      ),
+    )
+      ->replace($t, $t->withLeading(null));
   }
 
   private static function addUseNamespaceToNamespaceBlock(
