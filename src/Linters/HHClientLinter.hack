@@ -23,8 +23,17 @@ final class HHClientLinter implements Linter {
 
   const type TErrorCode = int;
 
+  /**
+   * The error code that are always ignored
+   */
+  const keyset<int> ALWAYS_IGNORE_ERRORS = keyset[
+    5583 /* DontAwaitInALoop, which should have been covered by DontAwaitInALoopLinter */,
+  ];
+
   <<__Memoize>>
-  private function isErrorCodeConfiguredToIgnore(): (function(this::TErrorCode): bool) {
+  private function isErrorCodeConfiguredToIgnore(): (function(
+    this::TErrorCode,
+  ): bool) {
     $ignore_except = $this->config['ignore_except'] ?? null;
     $ignore = $this->config['ignore'] ?? null;
     if ($ignore is null) {
@@ -93,11 +102,11 @@ final class HHClientLinter implements Linter {
         if ($error->getLintRule()->isSuppressedForFile($this->file)) {
           return false;
         }
-        if (
-          $this->isErrorCodeConfiguredToIgnore()(
-            (int)$error->getLintRule()->getErrorCode(),
-          )
-        ) {
+        $error_code = (int)$error->getLintRule()->getErrorCode();
+        if (C\contains(self::ALWAYS_IGNORE_ERRORS, $error_code)) {
+          return false;
+        }
+        if ($this->isErrorCodeConfiguredToIgnore()($error_code)) {
           return false;
         }
         $range = $error->getRange();
