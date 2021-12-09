@@ -95,6 +95,7 @@ final class ListItem<+T as ?Node> extends Node {
     $separator = $this->_separator === null
       ? null
       : $rewriter($this->_separator, $parents) as ?Token;
+    /* HHAST_IGNORE_ERROR[5607] this lint error is a false positive */
     if ($item === $this->_item && $separator === $this->_separator) {
       return $this;
     }

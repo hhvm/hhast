@@ -33,6 +33,7 @@ abstract class TokenWithVariableText extends Token {
     $leading = $rewriter($this->getLeading(), $parents);
     $trailing = $rewriter($this->getTrailing(), $parents);
     if (
+      /* HHAST_IGNORE_ERROR[5607] this lint error is a false positive */
       $leading === $this->getLeading() && $trailing === $this->getTrailing()
     ) {
       return $this;
