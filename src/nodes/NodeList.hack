@@ -220,6 +220,7 @@ final class NodeList<+Titem as Node> extends Node {
   }
 
   public function withoutChild<Tchild super Titem>(Tchild $child): this {
+    /* HHAST_IGNORE_ERROR[5607] this lint error is a false positive */
     $new = Vec\filter($this->_children, $c ==> $c !== $child);
     if ($new === $this->_children) {
       return $this;
