@@ -46,7 +46,7 @@ class ServerState {
       ServerStatus::INITIALIZING,
     ];
     while (C\contains_key($pre_init, $this->getStatus())) {
-      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] HHAST_IGNORE_ERROR[5583]*/
+      /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       await \HH\Asio\usleep(100 * 1000);
     }
   }
