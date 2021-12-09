@@ -30,6 +30,14 @@ final class HHClientLinter implements Linter {
     5583 /* DontAwaitInALoop, which should have been covered by DontAwaitInALoopLinter */,
   ];
 
+  /**
+   * The error code that are ignored by default when both `ignore_except` and
+   * `ignore` are `null`
+   */
+  const keyset<int> DEFAULT_IGNORE_ERRORS = keyset[
+    5639 /* potential co(tra)variant marker, which is highly opinionated */,
+  ];
+
   <<__Memoize>>
   private function isErrorCodeConfiguredToIgnore(): (function(
     this::TErrorCode,
@@ -38,7 +46,8 @@ final class HHClientLinter implements Linter {
     $ignore = $this->config['ignore'] ?? null;
     if ($ignore is null) {
       if ($ignore_except is null) {
-        return $_ ==> false;
+        return $error_code ==>
+          C\contains(self::DEFAULT_IGNORE_ERRORS, $error_code);
       }
       return $error_code ==> !C\contains($ignore_except, $error_code);
     }
