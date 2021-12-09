@@ -33,14 +33,5 @@
         }
       }
     }
-  ],
-  "linterConfigs": {
-    "Facebook\\HHAST\\HHClientLinter": {
-      "Comments[5607] (not an actual setting)":
-        " - 5607 is ignored because of false positives when comparing a generic to a typed value",
-      "Comments[5624&5639] (not an actual setting)":
-        " - 5624 and 5639 are ignored because they insist on using co(tra)variant generics. Could this break external consumers?",
-      "ignore": [5607, 5624, 5639]
-    }
-  }
+  ]
 }
