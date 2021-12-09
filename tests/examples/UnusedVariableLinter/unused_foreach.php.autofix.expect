@@ -1,5 +1,6 @@
 <?hh
 
+// HHAST_IGNORE_ALL[5568] because the error code is not the interested in this example
 function foreach_value($items) {
   foreach ($items as $_item) {
   }

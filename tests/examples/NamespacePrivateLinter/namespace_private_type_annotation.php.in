@@ -8,6 +8,8 @@
  */
 namespace BlahNew;
 
+// HHAST_IGNORE_ALL[5624] because the error code is not the interested in this example
+
 final class Test {
   // using private type as type annotations
   function anotherTest<T as \Blah\__Private\some_private_type_t>(
