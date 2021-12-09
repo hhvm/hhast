@@ -1,6 +1,7 @@
 namespace Herp\Derp;
 
 /*HHAST_IGNORE_ALL[CamelCasedMethodsUnderscoredFunctions]*/
+// HHAST_IGNORE_ALL[5623] HHAST_IGNORE_ALL[5624] because the error code is not the interested in this example
 
 use type Facebook\HackTest\{DataProvider, HackTest};
 use function Facebook\FBExpect\expect;

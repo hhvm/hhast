@@ -1,4 +1,5 @@
 <?hh
+// HHAST_IGNORE_ALL[5581] HHAST_IGNORE_ALL[5622] HHAST_IGNORE_ALL[5623] HHAST_IGNORE_ERROR[5624] because the error code is not the interested in this example
 
 function no_side_effects(): void {
   if ("NO SIDE EFFECTS") {}
