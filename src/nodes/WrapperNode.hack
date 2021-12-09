@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST;
 
+/* HHAST_IGNORE_ALL[5624] */
 <<__ConsistentConstruct>>
 abstract class WrapperNode extends Node {
   const string SYNTAX_KIND = 'hhhast_wrapper';

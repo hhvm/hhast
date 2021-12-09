@@ -11,6 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Str, Vec};
 
+/* HHAST_IGNORE_ALL[5624] */
 final class NodeList<+Titem as Node> extends Node {
   const string SYNTAX_KIND = 'list';
   /**
