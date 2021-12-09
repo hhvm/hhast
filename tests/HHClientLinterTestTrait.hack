@@ -12,7 +12,6 @@ namespace Facebook\HHAST;
 use namespace HH\Lib\{C, Str};
 
 trait HHClientLinterTestTrait {
-  use LinterTestTrait;
 
   abstract const HHClientLinter::TConfig CONFIG;
 
@@ -28,7 +27,6 @@ trait HHClientLinterTestTrait {
       __DIR__.'/../.var/tmp/hhast/'.C\lastx(Str\split(static::class, '\\'));
   }
 
-  <<__Override>>
   protected function getLinter(string $file): HHClientLinter {
     $ext = Str\strip_suffix($file, '.in')
       |> Str\ends_with($$, '.php')

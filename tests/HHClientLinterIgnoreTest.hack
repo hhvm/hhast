@@ -10,6 +10,7 @@
 namespace Facebook\HHAST;
 
 final class HHClientLinterIgnoreTest extends TestCase {
+  use LinterTestTrait;
   use HHClientLinterTestTrait;
 
   <<__Override>>
