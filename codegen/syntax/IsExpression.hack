@@ -1,11 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<010293507547fc2a40bc9416ec246f80>>
+ * @generated SignedSource<<9e2c204d160aa1624c9fe37b3674eb1a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
+/* HHAST_IGNORE_ALL[5607] 5607 is ignored because of false positives when comparing a generic to a typed value */
+/* HHAST_IGNORE_ALL[5624] HHAST_IGNORE_ALL[5639] 5624 and 5639 are ignored because they insist on using co(tra)variant generics. Could this break external consumers? */
 
 <<__ConsistentConstruct>>
 final class IsExpression extends Node implements ILambdaBody, IExpression {

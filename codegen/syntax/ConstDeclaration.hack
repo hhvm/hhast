@@ -1,11 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<440333fac855d8bc13068ba1c5c772dd>>
+ * @generated SignedSource<<ee2537f7a1954c549c5f145096248714>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
+/* HHAST_IGNORE_ALL[5607] 5607 is ignored because of false positives when comparing a generic to a typed value */
+/* HHAST_IGNORE_ALL[5624] HHAST_IGNORE_ALL[5639] 5624 and 5639 are ignored because they insist on using co(tra)variant generics. Could this break external consumers? */
 
 <<__ConsistentConstruct>>
 final class ConstDeclaration extends Node implements IClassBodyDeclaration {

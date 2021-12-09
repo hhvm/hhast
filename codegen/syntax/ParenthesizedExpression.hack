@@ -1,11 +1,13 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eee029a194e1b379e40b0c96011215f9>>
+ * @generated SignedSource<<98f2c379fbae3df987c96d97dc7c10b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\Dict;
+/* HHAST_IGNORE_ALL[5607] 5607 is ignored because of false positives when comparing a generic to a typed value */
+/* HHAST_IGNORE_ALL[5624] HHAST_IGNORE_ALL[5639] 5624 and 5639 are ignored because they insist on using co(tra)variant generics. Could this break external consumers? */
 
 <<__ConsistentConstruct>>
 final class ParenthesizedExpression

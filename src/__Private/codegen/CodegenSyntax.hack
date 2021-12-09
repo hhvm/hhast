@@ -37,6 +37,19 @@ final class CodegenSyntax extends CodegenBase {
           $this->getOutputDirectory().'/syntax/'.$syntax['kind_name'].'.hack',
         )
         ->setFileType(CodegenFileType::DOT_HACK)
+        ->setPseudoMainHeader(
+          '/* '.
+          (new HHAST\HHClientLintRule(5607))->getIgnoreAllMarker().
+          ' 5607 is ignored because of false positives when comparing a '.
+          'generic to a typed value */'.
+          "\n".
+          '/* '.
+          (new HHAST\HHClientLintRule(5624))->getIgnoreAllMarker().
+          ' '.
+          (new HHAST\HHClientLintRule(5639))->getIgnoreAllMarker().
+          ' 5624 and 5639 are ignored because they insist on using '.
+          'co(tra)variant generics. Could this break external consumers? */',
+        )
         ->setNamespace('Facebook\\HHAST')
         ->useNamespace('Facebook\\TypeAssert')
         ->useNamespace('HH\\Lib\\Dict')
@@ -75,7 +88,14 @@ final class CodegenSyntax extends CodegenBase {
         )
           |> Vec\map($$, $if ==> $cg->codegenImplementsInterface($if)),
       )
-      ->addTraits($cg->codegenUsesTraits($this->getTraitsByImplementingClass()[$syntax['kind_name'] as dynamic] ?? vec[]))
+      ->addTraits(
+        $cg->codegenUsesTraits(
+          $this->getTraitsByImplementingClass()[
+            $syntax['kind_name'] as dynamic
+          ] ??
+            vec[],
+        ),
+      )
       ->addConstant(
         $cg->codegenClassConstant('SYNTAX_KIND')
           ->setType('string')
@@ -367,7 +387,9 @@ final class CodegenSyntax extends CodegenBase {
               // not be present here. But we want to be able to treat the new
               // schema as compatible with the previous version, which this
               // fallback takes care of.
-              $spec['nullable'] ? " ?? dict['kind' => 'missing']) as dict<_, _>" : ') as dict<_, _>',
+              $spec['nullable']
+                ? " ?? dict['kind' => 'missing']) as dict<_, _>"
+                : ') as dict<_, _>',
             ),
             '$file',
             '$offset',
@@ -547,17 +569,13 @@ final class CodegenSyntax extends CodegenBase {
     Schema\TAST $syntax,
     string $field,
   ): self::TFieldSpec {
-    $hardcoded = $this->getHardcodedTypes()[$syntax['kind_name']][$field] ??
-      null;
+    $hardcoded =
+      $this->getHardcodedTypes()[$syntax['kind_name']][$field] ?? null;
     if ($hardcoded !== null) {
       return $hardcoded;
     }
-    $key = Str\format(
-      '%s.%s_%s',
-      $syntax['description'],
-      $syntax['prefix'],
-      $field,
-    );
+    $key =
+      Str\format('%s.%s_%s', $syntax['description'], $syntax['prefix'], $field);
     $specs = $this->getRelationships();
     if (!C\contains_key($specs, $key)) {
       return shape(
@@ -568,10 +586,8 @@ final class CodegenSyntax extends CodegenBase {
     }
 
     $children = $specs[$key] |> Keyset\filter($$, $c ==> $c !== 'error');
-    $possible_types = Keyset\map(
-      $children,
-      $child ==> $this->getSyntaxClass($child),
-    );
+    $possible_types =
+      Keyset\map($children, $child ==> $this->getSyntaxClass($child));
 
     $nullable = C\contains_key($children, 'missing');
 
@@ -654,10 +670,8 @@ final class CodegenSyntax extends CodegenBase {
         'Facebook\\HHAST\\',
       )];
       foreach ($impls as $impl) {
-        $impls_to_interfaces[$impl] = Keyset\union(
-          $impls_to_interfaces[$impl] ?? keyset[],
-          $m,
-        );
+        $impls_to_interfaces[$impl] =
+          Keyset\union($impls_to_interfaces[$impl] ?? keyset[], $m);
       }
     }
     return $impls_to_interfaces;
