@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST;
 
+/* HHAST_IGNORE_ALL[5624] */
 <<__ConsistentConstruct>>
 abstract class TokenWithFixedText extends Token {
 

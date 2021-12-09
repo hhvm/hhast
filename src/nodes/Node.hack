@@ -13,6 +13,7 @@ use namespace HH\Lib\{C, Dict, Str, Vec};
 use namespace Facebook\TypeAssert;
 use type Facebook\HHAST\_Private\SoftDeprecated;
 
+/* HHAST_IGNORE_ALL[5624] */
 abstract class Node implements IMemoizeParam {
   abstract const string SYNTAX_KIND;
 

@@ -11,6 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 
+/* HHAST_IGNORE_ALL[5624] */
 abstract class Trivia extends Node {
   private string $_text;
   <<__Override>>

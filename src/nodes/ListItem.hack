@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
 use namespace HH\Lib\{Dict, Str};
 
+/* HHAST_IGNORE_ALL[5624] */
 final class ListItem<+T as ?Node> extends Node {
 
   const string SYNTAX_KIND = 'list_item';
