@@ -24,14 +24,6 @@
       "extraLinters": [
         "Facebook\\HHAST\\DataProviderTypesLinter"
       ]
-    },
-    {
-      "patterns": ["src/Migrations/*"],
-      "linterConfigs": {
-        "Facebook\\HHAST\\HHClientLinter": {
-          "ignore": [5624, 5639]
-        }
-      }
     }
   ]
 }

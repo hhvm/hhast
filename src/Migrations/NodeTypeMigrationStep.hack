@@ -11,6 +11,7 @@ namespace Facebook\HHAST;
 
 use type Facebook\HHAST\Node;
 
+/* HHAST_IGNORE_ALL[5639] */
 final class NodeTypeMigrationStep<
   <<__Enforceable>> reify Tin as Node,
   Tout as Node,
