@@ -12,6 +12,7 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\Node;
 use type Facebook\HHAST\_Private\SoftDeprecated;
 
+/* HHAST_IGNORE_ALL[5639] */
 final class TypedMigrationStep<Tin as Node, Tout as Node>
   implements IMigrationStep {
 
