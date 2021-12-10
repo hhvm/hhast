@@ -12,6 +12,18 @@ namespace Facebook\HHAST;
 use type Facebook\HackTest\DataProvider;
 use namespace HH\Lib\{C, Str, Vec};
 
+/**
+ * The test suite ensures that no lint error is found by `HHClientLinter` in
+ * the examples for `SingleRuleLinter`s.
+ *
+ * If an example triggers hh_client lint errors that indicate problems other
+ * than the `SingleRuleLinter` supposes to detect, add HHAST_IGNORE_ALL markers
+ * to suppress them. If an example triggers hh_client lint errors that
+ * indicate problems that are essentially the same as the `SingleRuleLinter`
+ * supposes to detect, it means the `SingleRuleLinter` is a duplicate of the
+ * hh_client lint error, and we should either disable the hh_client lint error
+ * code or remove the `SingleRuleLinter`.
+ */
 final class HHClientDuplicatedLintErrorTest extends TestCase {
   use HHClientLinterTestTrait;
   const HHClientLinter::TConfig CONFIG = shape();
