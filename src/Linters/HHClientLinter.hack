@@ -27,6 +27,7 @@ final class HHClientLinter implements Linter {
    * The error code that are always ignored
    */
   const keyset<int> ALWAYS_IGNORE_ERRORS = keyset[
+    0 /* InternalError, indicating a bug in the OCaml linter, not a real lint error */,
     5583 /* DontAwaitInALoop, which should have been covered by DontAwaitInALoopLinter */,
   ];
 
