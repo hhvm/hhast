@@ -53,7 +53,9 @@ final class LintRunConfig {
     // Override any of the above for a subset of files in the project
     ?'overrides' => vec<self::TOverride>,
     // Each linter may specify a type for itself.
-    // The type of this key is effectively `dict<classname<T1 ... Tn>, Tx>`
+    // The type of this key is effectively `dict<classname<TLinter>, TLinter::TConfig>`
+    // for example:
+    // "linterConfigs": { "Facebook\\HHAST\\HHClientLinter": { "ignore": [5624, 5639] }}
     ?'linterConfigs' => dict<string, dynamic>,
   );
 
