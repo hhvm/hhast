@@ -425,8 +425,9 @@ final class GroupUseStatementsLinter extends AutoFixingASTLinter {
                         null,
                         new NodeList(vec[new WhiteSpace(' ')]),
                       );
+                    default:
+                      return null;
                   }
-                  return null;
                 }
               )($kind),
               new QualifiedName(
