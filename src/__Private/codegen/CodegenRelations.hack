@@ -57,10 +57,8 @@ final class CodegenRelations extends CodegenBase {
           if ($new) {
             await execute_async('hhvm', '-l', $file);
             foreach ($new as $key => $children) {
-              $relationships->v[$key] = Keyset\union(
-                $relationships->v[$key],
-                $children,
-              );
+              $relationships->v[$key] =
+                Keyset\union($relationships->v[$key], $children);
             }
           }
         } catch (\Throwable $_) {
@@ -132,10 +130,8 @@ final class CodegenRelations extends CodegenBase {
       'zend/good/',
     ];
 
-    $hhvm_tests = Vec\map(
-      $hhvm_dirs,
-      $dir ==> $this->hhvmRoot.'/hphp/test/'.$dir,
-    )
+    $hhvm_tests =
+      Vec\map($hhvm_dirs, $dir ==> $this->hhvmRoot.'/hphp/test/'.$dir)
       |> Vec\map($$, $dir ==> $this->getFileListFromHHVMTestDirectory($dir))
       |> Keyset\flatten($$);
 
@@ -143,9 +139,8 @@ final class CodegenRelations extends CodegenBase {
       $this->hhvmRoot.'/hphp/hack/test/typecheck',
     );
 
-    $systemlib = vec(
-      $this->getTestFilesInDirectory($this->hhvmRoot.'/hphp/system/php'),
-    );
+    $systemlib =
+      vec($this->getTestFilesInDirectory($this->hhvmRoot.'/hphp/system/php'));
 
     return Keyset\flatten(vec[
       $hhvm_tests,
@@ -197,15 +192,19 @@ final class CodegenRelations extends CodegenBase {
   }
 
   private function getTestFilesInDirectory(string $root): Traversable<string> {
-    $it = new \RecursiveIteratorIterator(
-      new \RecursiveDirectoryIterator($root),
-    );
+    $it =
+      new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($root));
     foreach ($it as $info) {
       if (!$info->isFile()) {
         continue;
       }
       $ext = Str\lowercase($info->getExtension());
-      if ($ext !== 'php' && $ext !== 'hh' && $ext !== 'hack' && $ext !== 'hackpartial') {
+      if (
+        $ext !== 'php' &&
+        $ext !== 'hh' &&
+        $ext !== 'hack' &&
+        $ext !== 'hackpartial'
+      ) {
         continue;
       }
       yield $info->getPathname();
