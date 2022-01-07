@@ -190,11 +190,7 @@ final class CodegenSyntax extends CodegenBase {
           $this->getInterfaceWrappers()[$type] ?? keyset[],
         ),
       );
-    $intersected = C\reduce(
-      $expanded,
-      ($acc, $i) ==> Keyset\intersect($acc, $i),
-      C\firstx($expanded),
-    );
+    $intersected = C\reduce($expanded, Keyset\intersect<>, C\firstx($expanded));
     if ($intersected) {
       // Return the most-specific; for example, INameish can be converted to
       // IExpression, and we want INameish
