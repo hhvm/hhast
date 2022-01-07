@@ -28,7 +28,7 @@ trait TypeErrorMigrationTrait implements IMigrationWithFileList {
   private function getTypecheckerErrors(): vec<TTypecheckerError> {
     return Vec\filter(
       get_typechecker_errors($this->root),
-      $error ==> static::filterTypecheckerError($error),
+      static::filterTypecheckerError<>,
     );
   }
 

@@ -112,7 +112,15 @@ final class CodegenRelations extends CodegenBase {
           ->setValue(
             $relationships->v
               |> Dict\sort_by_key($$)
-              |> Dict\map($$, $children ==> Keyset\sort($children)),
+              |> Dict\map(
+                $$,
+                /* HHAST_FIXME[DontCreateForwardingLambdas]
+                   Removing the `$children ==> Keyset\sort($children)` lambda causes a typechecker error.
+                   `Keyset\sort<>` has a context that depends on the second argument:
+                   `?(function(Tv, Tv[_]: num) $comparator = null,` + `[ctx $comparator]`
+                   This means we can not use a function reference here.*/
+                $children ==> Keyset\sort($children),
+              ),
             HackBuilderValues::dict(
               HackBuilderKeys::export(),
               HackBuilderValues::keyset(HackBuilderValues::export()),

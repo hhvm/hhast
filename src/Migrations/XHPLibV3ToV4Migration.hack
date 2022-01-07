@@ -407,6 +407,11 @@ final class XHPLibV3ToV4Migration extends BaseMigration {
       $grouped[$ns][$name] = $alias;
     }
 
+    /* HHAST_FIXME[DontCreateForwardingLambdas]
+       Removing the `$names ==> Dict\sort_by_key($names)` lambda causes a typechecker error.
+       `Dict\sort_by_key<>` has a context that depends on the second argument:
+       `?(function(Tk, Tk)[_]: num) $key_comparator = null,` + `[ctx $key_comparator]`
+       This means we can not use a function reference here.*/
     return Dict\map($grouped, $names ==> Dict\sort_by_key($names))
       |> Dict\sort_by_key($$)
       |> Vec\map_with_key(

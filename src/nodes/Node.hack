@@ -66,7 +66,7 @@ abstract class Node implements IMemoizeParam {
   final public function getChildrenWhere(
     (function(Node): bool) $filter,
   ): KeyedContainer<arraykey, Node> {
-    return Dict\filter($this->getChildren(), $child ==> $filter($child));
+    return Dict\filter($this->getChildren(), $filter);
   }
 
   <<SoftDeprecated('$node->getChildrenByType<T>()')>>
