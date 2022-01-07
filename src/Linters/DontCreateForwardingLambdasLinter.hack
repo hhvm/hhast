@@ -90,7 +90,7 @@ M;
         $param_str = $param_name->getText();
         $arg_str = $arg->getExpression() as VariableToken->getText();
       } else {
-        // Can't simplify mismatching decorations, like `(... $x) ==> func($x)` or `($x) ==> func(...$x)`
+        // Can't simplify mismatching decorations, like `(...$x) ==> func($x)` or `($x) ==> func(...$x)`
         return null;
       }
 
