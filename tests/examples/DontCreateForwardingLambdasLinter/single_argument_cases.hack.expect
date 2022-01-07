@@ -1,0 +1,27 @@
+[
+    {
+        "blame": "  $x ==> f($x)",
+        "blame_pretty": "  $x ==> f($x)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> f<>"
+    },
+    {
+        "blame": "  $x ==> $f($x)",
+        "blame_pretty": "  $x ==> $f($x)",
+        "description": "You have made a lambda which forwards all its arguments to a callable held in a variable.\nThe order of the parameters is the same as the order of the arguments.\nYou could use the variable instead of the lambda. -> $f"
+    },
+    {
+        "blame": "  $x ==> C\\f($x)",
+        "blame_pretty": "  $x ==> C\\f($x)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C\\f<>"
+    },
+    {
+        "blame": "  $x ==> C::f($x)",
+        "blame_pretty": "  $x ==> C::f($x)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C::f<>"
+    },
+    {
+        "blame": "  $x ==> C\\C::f($x)",
+        "blame_pretty": "  $x ==> C\\C::f($x)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C\\C::f<>"
+    }
+]

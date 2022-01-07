@@ -1,0 +1,77 @@
+[
+    {
+        "blame": "  (int $x, $y) ==> f($x, $y)",
+        "blame_pretty": "  (int $x, $y) ==> f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, $y) ==> $f($x, $y)",
+        "blame_pretty": "  (int $x, $y) ==> $f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a callable held in a variable.\nThe order of the parameters is the same as the order of the arguments.\nYou could use the variable instead of the lambda. -> $f\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, $y) ==> C\\f($x, $y)",
+        "blame_pretty": "  (int $x, $y) ==> C\\f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C\\f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, $y) ==> C::f($x, $y)",
+        "blame_pretty": "  (int $x, $y) ==> C::f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C::f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, $y) ==> C\\C::f($x, $y)",
+        "blame_pretty": "  (int $x, $y) ==> C\\C::f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C\\C::f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  ($x, $y): int ==> f($x, $y)",
+        "blame_pretty": "  ($x, $y): int ==> f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  ($x, $y): int ==> $f($x, $y)",
+        "blame_pretty": "  ($x, $y): int ==> $f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a callable held in a variable.\nThe order of the parameters is the same as the order of the arguments.\nYou could use the variable instead of the lambda. -> $f\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  ($x, $y): int ==> C\\f($x, $y)",
+        "blame_pretty": "  ($x, $y): int ==> C\\f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C\\f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  ($x, $y): int ==> C::f($x, $y)",
+        "blame_pretty": "  ($x, $y): int ==> C::f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C::f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  ($x, $y): int ==> C\\C::f($x, $y)",
+        "blame_pretty": "  ($x, $y): int ==> C\\C::f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C\\C::f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, int $y): int ==> f($x, $y)",
+        "blame_pretty": "  (int $x, int $y): int ==> f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, int $y): int ==> $f($x, $y)",
+        "blame_pretty": "  (int $x, int $y): int ==> $f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a callable held in a variable.\nThe order of the parameters is the same as the order of the arguments.\nYou could use the variable instead of the lambda. -> $f\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, int $y): int ==> C\\f($x, $y)",
+        "blame_pretty": "  (int $x, int $y): int ==> C\\f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C\\f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, int $y): int ==> C::f($x, $y)",
+        "blame_pretty": "  (int $x, int $y): int ==> C::f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C::f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    },
+    {
+        "blame": "  (int $x, int $y): int ==> C\\C::f($x, $y)",
+        "blame_pretty": "  (int $x, int $y): int ==> C\\C::f($x, $y)",
+        "description": "You have made a lambda which forwards all its arguments to a static method or function.\nThe order of the parameters is the same as the order of the arguments.\nYou could create a function reference instead. -> C\\C::f<>\n\nIf you made this lambda because you wanted to add runtime type enforcement,\nyou can configure this linter to not emit errors on 'useless' lambdas with types on the parameters or a return type.\nThe name of option is 'noErrorForLambdaWithTypedParametersOrReturn'."
+    }
+]
