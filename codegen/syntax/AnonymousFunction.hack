@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8f920ca73789df64b1231cf345f5744f>>
+ * @generated SignedSource<<4de5781bcaa7e6a93cf2b796ecbe43b8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -683,17 +683,17 @@ final class AnonymousFunction
   }
 
   /**
-   * @return AttributizedSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | null | NullableTypeSpecifier | SimpleTypeSpecifier
-   * | TupleTypeSpecifier
+   * @return AttributizedSpecifier | ClosureTypeSpecifier | DarrayTypeSpecifier
+   * | GenericTypeSpecifier | null | NullableTypeSpecifier |
+   * SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
   /**
-   * @return AttributizedSpecifier | ClosureTypeSpecifier |
-   * GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * @return AttributizedSpecifier | ClosureTypeSpecifier | DarrayTypeSpecifier
+   * | GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
    * TupleTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {

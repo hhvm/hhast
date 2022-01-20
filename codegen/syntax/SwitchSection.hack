@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e2b4898edda70999c7df5059689e3e2>>
+ * @generated SignedSource<<720112a9ff6c7d84e63c827c8fc39d16>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -165,10 +165,11 @@ final class SwitchSection extends Node {
 
   /**
    * @return NodeList<BreakStatement> | NodeList<IStatement> |
-   * NodeList<DoStatement> | NodeList<EchoStatement> |
-   * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
-   * NodeList<IfStatement> | NodeList<ReturnStatement> |
-   * NodeList<ThrowStatement> | NodeList<YieldBreakStatement> | null
+   * NodeList<CompoundStatement> | NodeList<DoStatement> |
+   * NodeList<EchoStatement> | NodeList<ExpressionStatement> |
+   * NodeList<ForeachStatement> | NodeList<IfStatement> |
+   * NodeList<ReturnStatement> | NodeList<ThrowStatement> |
+   * NodeList<YieldBreakStatement> | null
    */
   public function getStatements(): ?NodeList<IStatement> {
     return $this->_statements;
@@ -176,10 +177,11 @@ final class SwitchSection extends Node {
 
   /**
    * @return NodeList<BreakStatement> | NodeList<IStatement> |
-   * NodeList<DoStatement> | NodeList<EchoStatement> |
-   * NodeList<ExpressionStatement> | NodeList<ForeachStatement> |
-   * NodeList<IfStatement> | NodeList<ReturnStatement> |
-   * NodeList<ThrowStatement> | NodeList<YieldBreakStatement>
+   * NodeList<CompoundStatement> | NodeList<DoStatement> |
+   * NodeList<EchoStatement> | NodeList<ExpressionStatement> |
+   * NodeList<ForeachStatement> | NodeList<IfStatement> |
+   * NodeList<ReturnStatement> | NodeList<ThrowStatement> |
+   * NodeList<YieldBreakStatement>
    */
   public function getStatementsx(): NodeList<IStatement> {
     return TypeAssert\not_null($this->getStatements());

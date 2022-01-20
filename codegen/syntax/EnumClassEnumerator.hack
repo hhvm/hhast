@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<990ab7accc8d360af8716708c206a6c8>>
+ * @generated SignedSource<<3fcdae586bf21cba57304c5d9792e15b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,17 +14,17 @@ final class EnumClassEnumerator extends Node {
 
   const string SYNTAX_KIND = 'enum_class_enumerator';
 
-  private ?Node $_modifiers;
+  private ?NodeList<AbstractToken> $_modifiers;
   private ISimpleCreationSpecifier $_type;
   private NameToken $_name;
-  private SimpleInitializer $_initializer;
+  private ?SimpleInitializer $_initializer;
   private SemicolonToken $_semicolon;
 
   public function __construct(
-    ?Node $modifiers,
+    ?NodeList<AbstractToken> $modifiers,
     ISimpleCreationSpecifier $type,
     NameToken $name,
-    SimpleInitializer $initializer,
+    ?SimpleInitializer $initializer,
     SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -51,7 +51,7 @@ final class EnumClassEnumerator extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'NodeList<AbstractToken>',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $type = Node::fromJSON(
@@ -73,14 +73,14 @@ final class EnumClassEnumerator extends Node {
     $name = $name as nonnull;
     $offset += $name->getWidth();
     $initializer = Node::fromJSON(
-      ($json['enum_class_enumerator_initializer']) as dict<_, _>,
+      ($json['enum_class_enumerator_initializer'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
       'SimpleInitializer',
     );
-    $initializer = $initializer as nonnull;
-    $offset += $initializer->getWidth();
+    $offset += $initializer?->getWidth() ?? 0;
     $semicolon = Node::fromJSON(
       ($json['enum_class_enumerator_semicolon']) as dict<_, _>,
       $file,
@@ -129,7 +129,9 @@ final class EnumClassEnumerator extends Node {
       : $rewriter($this->_modifiers, $parents);
     $type = $rewriter($this->_type, $parents);
     $name = $rewriter($this->_name, $parents);
-    $initializer = $rewriter($this->_initializer, $parents);
+    $initializer = $this->_initializer === null
+      ? null
+      : $rewriter($this->_initializer, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $modifiers === $this->_modifiers &&
@@ -141,10 +143,10 @@ final class EnumClassEnumerator extends Node {
       return $this;
     }
     return new static(
-      $modifiers as ?Node,
+      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
       $type as ISimpleCreationSpecifier,
       $name as NameToken,
-      $initializer as SimpleInitializer,
+      $initializer as ?SimpleInitializer,
       $semicolon as SemicolonToken,
     );
   }
@@ -153,7 +155,7 @@ final class EnumClassEnumerator extends Node {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?Node $value): this {
+  public function withModifiers(?NodeList<AbstractToken> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -171,16 +173,16 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return null
+   * @return NodeList<AbstractToken> | null
    */
-  public function getModifiers(): ?Node {
+  public function getModifiers(): ?NodeList<AbstractToken> {
     return $this->_modifiers;
   }
 
   /**
-   * @return
+   * @return NodeList<AbstractToken>
    */
-  public function getModifiersx(): Node {
+  public function getModifiersx(): NodeList<AbstractToken> {
     return TypeAssert\not_null($this->getModifiers());
   }
 
@@ -259,7 +261,7 @@ final class EnumClassEnumerator extends Node {
     return $this->_initializer;
   }
 
-  public function withInitializer(SimpleInitializer $value): this {
+  public function withInitializer(?SimpleInitializer $value): this {
     if ($value === $this->_initializer) {
       return $this;
     }
@@ -273,22 +275,21 @@ final class EnumClassEnumerator extends Node {
   }
 
   public function hasInitializer(): bool {
-    return true;
+    return $this->_initializer !== null;
   }
 
   /**
-   * @return SimpleInitializer
+   * @return null | SimpleInitializer
    */
-  public function getInitializer(): SimpleInitializer {
-    return
-      TypeAssert\instance_of(SimpleInitializer::class, $this->_initializer);
+  public function getInitializer(): ?SimpleInitializer {
+    return $this->_initializer;
   }
 
   /**
    * @return SimpleInitializer
    */
   public function getInitializerx(): SimpleInitializer {
-    return $this->getInitializer();
+    return TypeAssert\not_null($this->getInitializer());
   }
 
   public function getSemicolonUNTYPED(): ?Node {

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c382b8e735761463096c494d52c03106>>
+ * @generated SignedSource<<084703282ea48f976125e11d6d6e1dd1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -154,9 +154,8 @@ final class SubscriptExpression
   /**
    * @return FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ParenthesizedExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getReceiver(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_receiver);
@@ -165,9 +164,8 @@ final class SubscriptExpression
   /**
    * @return FunctionCallExpression | LiteralExpression |
    * MemberSelectionExpression | ParenthesizedExpression |
-   * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getReceiverx(): IExpression {
     return $this->getReceiver();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<53bfaa8f3732a0251728ea60a34b7044>>
+ * @generated SignedSource<<40cdf15742608db8c47cbbb6e282c538>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -131,14 +131,16 @@ final class NullableAsExpression
   }
 
   /**
-   * @return FunctionCallExpression | VariableExpression
+   * @return FunctionCallExpression | MemberSelectionExpression |
+   * VariableExpression
    */
   public function getLeftOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_left_operand);
   }
 
   /**
-   * @return FunctionCallExpression | VariableExpression
+   * @return FunctionCallExpression | MemberSelectionExpression |
+   * VariableExpression
    */
   public function getLeftOperandx(): IExpression {
     return $this->getLeftOperand();

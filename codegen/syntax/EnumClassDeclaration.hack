@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<775bb4871801a3ab2ee7943bac91172d>>
+ * @generated SignedSource<<9ba25e407009d32e5c4b50a27f8f694d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,7 @@ final class EnumClassDeclaration extends Node {
   const string SYNTAX_KIND = 'enum_class_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private ?Node $_modifiers;
+  private ?NodeList<AbstractToken> $_modifiers;
   private EnumToken $_enum_keyword;
   private ClassToken $_class_keyword;
   private NameToken $_name;
@@ -29,7 +29,7 @@ final class EnumClassDeclaration extends Node {
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    ?Node $modifiers,
+    ?NodeList<AbstractToken> $modifiers,
     EnumToken $enum_keyword,
     ClassToken $class_keyword,
     NameToken $name,
@@ -81,7 +81,7 @@ final class EnumClassDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'NodeList<AbstractToken>',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $enum_keyword = Node::fromJSON(
@@ -258,7 +258,7 @@ final class EnumClassDeclaration extends Node {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      $modifiers as ?Node,
+      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
       $enum_keyword as EnumToken,
       $class_keyword as ClassToken,
       $name as NameToken,
@@ -318,7 +318,7 @@ final class EnumClassDeclaration extends Node {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?Node $value): this {
+  public function withModifiers(?NodeList<AbstractToken> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -343,16 +343,16 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return null
+   * @return NodeList<AbstractToken> | null
    */
-  public function getModifiers(): ?Node {
+  public function getModifiers(): ?NodeList<AbstractToken> {
     return $this->_modifiers;
   }
 
   /**
-   * @return
+   * @return NodeList<AbstractToken>
    */
-  public function getModifiersx(): Node {
+  public function getModifiersx(): NodeList<AbstractToken> {
     return TypeAssert\not_null($this->getModifiers());
   }
 
