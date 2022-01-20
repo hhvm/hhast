@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4cc17db4cd6f79428e617e20443868f5>>
+ * @generated SignedSource<<2d9aa041b727b089575139029ae9113a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -304,7 +304,8 @@ final class FunctionDeclarationHeader extends Node {
   /**
    * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<AsyncToken> |
    * NodeList<FinalToken> | NodeList<PrivateToken> | NodeList<ProtectedToken> |
-   * NodeList<PublicToken> | NodeList<StaticToken> | null
+   * NodeList<PublicToken> | NodeList<ReadonlyToken> | NodeList<StaticToken> |
+   * null
    */
   public function getModifiers(): ?NodeList<Token> {
     return $this->_modifiers;
@@ -313,7 +314,7 @@ final class FunctionDeclarationHeader extends Node {
   /**
    * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<AsyncToken> |
    * NodeList<FinalToken> | NodeList<PrivateToken> | NodeList<ProtectedToken> |
-   * NodeList<PublicToken> | NodeList<StaticToken>
+   * NodeList<PublicToken> | NodeList<ReadonlyToken> | NodeList<StaticToken>
    */
   public function getModifiersx(): NodeList<Token> {
     return TypeAssert\not_null($this->getModifiers());

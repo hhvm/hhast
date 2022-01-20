@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ef8e3fadbecbe5068499efa66552926>>
+ * @generated SignedSource<<490f5d4ed2b009da2f7279ccede9a277>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -143,13 +143,13 @@ final class PrefixUnaryExpression
   /**
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
    * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
+   * | FunctionCallExpression | IsExpression | IssetExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
@@ -158,13 +158,13 @@ final class PrefixUnaryExpression
   /**
    * @return AnonymousFunction | AwaitableCreationExpression | BinaryExpression
    * | CastExpression | CollectionLiteralExpression | ConditionalExpression |
-   * DarrayIntrinsicExpression | EvalExpression | FunctionCallExpression |
-   * IsExpression | IssetExpression | LambdaExpression | LiteralExpression |
-   * MemberSelectionExpression | ObjectCreationExpression |
-   * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
-   * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression | EvalExpression
+   * | FunctionCallExpression | IsExpression | IssetExpression |
+   * LambdaExpression | LiteralExpression | MemberSelectionExpression |
+   * ObjectCreationExpression | ParenthesizedExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
+   * ScopeResolutionExpression | SubscriptExpression | NameToken |
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

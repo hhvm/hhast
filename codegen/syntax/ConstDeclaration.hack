@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee2537f7a1954c549c5f145096248714>>
+ * @generated SignedSource<<b75a3135f04c6c1269c2cc8e3b0636cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,6 +14,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
 
   const string SYNTAX_KIND = 'const_declaration';
 
+  private ?OldAttributeSpecification $_attribute_spec;
   private ?NodeList<AbstractToken> $_modifiers;
   private ConstToken $_keyword;
   private ?ITypeSpecifier $_type_specifier;
@@ -21,6 +22,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
   private SemicolonToken $_semicolon;
 
   public function __construct(
+    ?OldAttributeSpecification $attribute_spec,
     ?NodeList<AbstractToken> $modifiers,
     ConstToken $keyword,
     ?ITypeSpecifier $type_specifier,
@@ -28,6 +30,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
+    $this->_attribute_spec = $attribute_spec;
     $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
     $this->_type_specifier = $type_specifier;
@@ -45,6 +48,15 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
+    $attribute_spec = Node::fromJSON(
+      ($json['const_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'OldAttributeSpecification',
+    );
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $modifiers = Node::fromJSON(
       ($json['const_modifiers'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
@@ -96,6 +108,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       'width' => $offset - $initial_offset,
     );
     return new static(
+      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
       /* HH_IGNORE_ERROR[4110] */ $modifiers,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $type_specifier,
@@ -108,6 +121,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
+      'attribute_spec' => $this->_attribute_spec,
       'modifiers' => $this->_modifiers,
       'keyword' => $this->_keyword,
       'type_specifier' => $this->_type_specifier,
@@ -123,6 +137,9 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $modifiers = $this->_modifiers === null
       ? null
       : $rewriter($this->_modifiers, $parents);
@@ -133,6 +150,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     $declarators = $rewriter($this->_declarators, $parents);
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
+      $attribute_spec === $this->_attribute_spec &&
       $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
       $type_specifier === $this->_type_specifier &&
@@ -142,12 +160,49 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
+      $attribute_spec as ?OldAttributeSpecification,
       /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
       $keyword as ConstToken,
       $type_specifier as ?ITypeSpecifier,
       /* HH_FIXME[4110] NodeList<ListItem<ConstantDeclarator>> may not be enforceable */ $declarators,
       $semicolon as SemicolonToken,
     );
+  }
+
+  public function getAttributeSpecUNTYPED(): ?Node {
+    return $this->_attribute_spec;
+  }
+
+  public function withAttributeSpec(?OldAttributeSpecification $value): this {
+    if ($value === $this->_attribute_spec) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_modifiers,
+      $this->_keyword,
+      $this->_type_specifier,
+      $this->_declarators,
+      $this->_semicolon,
+    );
+  }
+
+  public function hasAttributeSpec(): bool {
+    return $this->_attribute_spec !== null;
+  }
+
+  /**
+   * @return null | OldAttributeSpecification
+   */
+  public function getAttributeSpec(): ?OldAttributeSpecification {
+    return $this->_attribute_spec;
+  }
+
+  /**
+   * @return OldAttributeSpecification
+   */
+  public function getAttributeSpecx(): OldAttributeSpecification {
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getModifiersUNTYPED(): ?Node {
@@ -159,6 +214,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $value,
       $this->_keyword,
       $this->_type_specifier,
@@ -194,6 +250,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_modifiers,
       $value,
       $this->_type_specifier,
@@ -229,6 +286,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_modifiers,
       $this->_keyword,
       $value,
@@ -272,6 +330,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_modifiers,
       $this->_keyword,
       $this->_type_specifier,
@@ -307,6 +366,7 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       return $this;
     }
     return new static(
+      $this->_attribute_spec,
       $this->_modifiers,
       $this->_keyword,
       $this->_type_specifier,

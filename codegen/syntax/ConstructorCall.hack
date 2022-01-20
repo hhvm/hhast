@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ad73c8f75ae9cdcf2d33c18a9cb7228>>
+ * @generated SignedSource<<d57c0dbadbe30c6c33ac09bf339b665f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -157,20 +157,18 @@ final class ConstructorCall extends Node {
   }
 
   /**
-   * @return GenericTypeSpecifier | MemberSelectionExpression |
-   * ParenthesizedExpression | QualifiedName | ScopeResolutionExpression |
-   * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
-   * SelfToken | StaticToken | VariableExpression
+   * @return GenericTypeSpecifier | QualifiedName | ScopeResolutionExpression |
+   * SimpleTypeSpecifier | NameToken | ParentToken | SelfToken | StaticToken |
+   * VariableExpression
    */
   public function getType(): Node {
     return $this->_type;
   }
 
   /**
-   * @return GenericTypeSpecifier | MemberSelectionExpression |
-   * ParenthesizedExpression | QualifiedName | ScopeResolutionExpression |
-   * SimpleTypeSpecifier | SubscriptExpression | NameToken | ParentToken |
-   * SelfToken | StaticToken | VariableExpression
+   * @return GenericTypeSpecifier | QualifiedName | ScopeResolutionExpression |
+   * SimpleTypeSpecifier | NameToken | ParentToken | SelfToken | StaticToken |
+   * VariableExpression
    */
   public function getTypex(): Node {
     return $this->getType();
@@ -238,6 +236,7 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<FunctionPointerExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |
@@ -267,6 +266,7 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
+   * NodeList<ListItem<FunctionPointerExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
    * NodeList<ListItem<LambdaExpression>> |
    * NodeList<ListItem<LiteralExpression>> |

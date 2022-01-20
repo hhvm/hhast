@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b96101f1d07b0d3348c39835b67ca75f>>
+ * @generated SignedSource<<7255f3f181caf44cfd0d0e2de1bebefb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -250,9 +250,10 @@ final class ConditionalExpression
 
   /**
    * @return BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression |
-   * FunctionPointerExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | FunctionPointerExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression
@@ -263,9 +264,10 @@ final class ConditionalExpression
 
   /**
    * @return BinaryExpression | CastExpression | CollectionLiteralExpression |
-   * DarrayIntrinsicExpression | FunctionCallExpression |
-   * FunctionPointerExpression | KeysetIntrinsicExpression | LambdaExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
+   * FunctionCallExpression | FunctionPointerExpression |
+   * KeysetIntrinsicExpression | LambdaExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
    * NameToken | VariableExpression | VarrayIntrinsicExpression

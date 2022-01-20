@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b0ce746d8685f8bfc98e3615e89f75a6>>
+ * @generated SignedSource<<fb3b6fbf9d930f1b9b8ab5178ace8e0f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,18 +14,21 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'xhp_enum_type';
 
+  private ?TildeToken $_like;
   private EnumToken $_keyword;
   private LeftBraceToken $_left_brace;
   private NodeList<ListItem<LiteralExpression>> $_values;
   private RightBraceToken $_right_brace;
 
   public function __construct(
+    ?TildeToken $like,
     EnumToken $keyword,
     LeftBraceToken $left_brace,
     NodeList<ListItem<LiteralExpression>> $values,
     RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
+    $this->_like = $like;
     $this->_keyword = $keyword;
     $this->_left_brace = $left_brace;
     $this->_values = $values;
@@ -42,6 +45,14 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     string $_type_hint,
   ): this {
     $offset = $initial_offset;
+    $like = Node::fromJSON(
+      ($json['xhp_enum_like'] ?? dict['kind' => 'missing']) as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'TildeToken',
+    );
+    $offset += $like?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       ($json['xhp_enum_keyword']) as dict<_, _>,
       $file,
@@ -85,6 +96,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
+      /* HH_IGNORE_ERROR[4110] */ $like,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $left_brace,
       /* HH_IGNORE_ERROR[4110] */ $values,
@@ -96,6 +108,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
   <<__Override>>
   public function getChildren(): dict<string, Node> {
     return dict[
+      'like' => $this->_like,
       'keyword' => $this->_keyword,
       'left_brace' => $this->_left_brace,
       'values' => $this->_values,
@@ -110,11 +123,13 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
+    $like = $this->_like === null ? null : $rewriter($this->_like, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
     $values = $rewriter($this->_values, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
+      $like === $this->_like &&
       $keyword === $this->_keyword &&
       $left_brace === $this->_left_brace &&
       $values === $this->_values &&
@@ -123,11 +138,47 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
+      $like as ?TildeToken,
       $keyword as EnumToken,
       $left_brace as LeftBraceToken,
       /* HH_FIXME[4110] NodeList<ListItem<LiteralExpression>> may not be enforceable */ $values,
       $right_brace as RightBraceToken,
     );
+  }
+
+  public function getLikeUNTYPED(): ?Node {
+    return $this->_like;
+  }
+
+  public function withLike(?TildeToken $value): this {
+    if ($value === $this->_like) {
+      return $this;
+    }
+    return new static(
+      $value,
+      $this->_keyword,
+      $this->_left_brace,
+      $this->_values,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasLike(): bool {
+    return $this->_like !== null;
+  }
+
+  /**
+   * @return null | TildeToken
+   */
+  public function getLike(): ?TildeToken {
+    return $this->_like;
+  }
+
+  /**
+   * @return TildeToken
+   */
+  public function getLikex(): TildeToken {
+    return TypeAssert\not_null($this->getLike());
   }
 
   public function getKeywordUNTYPED(): ?Node {
@@ -139,6 +190,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
+      $this->_like,
       $value,
       $this->_left_brace,
       $this->_values,
@@ -172,8 +224,13 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     if ($value === $this->_left_brace) {
       return $this;
     }
-    return
-      new static($this->_keyword, $value, $this->_values, $this->_right_brace);
+    return new static(
+      $this->_like,
+      $this->_keyword,
+      $value,
+      $this->_values,
+      $this->_right_brace,
+    );
   }
 
   public function hasLeftBrace(): bool {
@@ -205,6 +262,7 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
+      $this->_like,
       $this->_keyword,
       $this->_left_brace,
       $value,
@@ -238,8 +296,13 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
     if ($value === $this->_right_brace) {
       return $this;
     }
-    return
-      new static($this->_keyword, $this->_left_brace, $this->_values, $value);
+    return new static(
+      $this->_like,
+      $this->_keyword,
+      $this->_left_brace,
+      $this->_values,
+      $value,
+    );
   }
 
   public function hasRightBrace(): bool {
