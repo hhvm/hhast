@@ -28,9 +28,11 @@ trait HHClientLinterTestTrait {
   }
 
   protected function getLinter(string $file): HHClientLinter {
+    // Don't use 'hack' extension because it will let errors in the temporary
+    // files be reported to IDE
     $ext = Str\strip_suffix($file, '.in')
       |> Str\ends_with($$, '.php')
-      |> $$ ? 'php' : 'hack';
+      |> $$ ? 'php' : 'hack.in';
     $hh_client_tmp_file =
       self::temporarySourceDirectory().'/'.\bin2hex(\random_bytes(16)).'.'.$ext;
     \copy($file, $hh_client_tmp_file);
