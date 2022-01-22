@@ -26,7 +26,11 @@ function is_compatible_schema_version(string $other_version): bool {
     __FILE__,
   );
   if ($other_version === '2022-01-18-0001') {
-    // adds `attribute_spec` for `const`, and `like` for `xhp_enum`
+    // adds `like` for `xhp_enum`
+    return true;
+  }
+  if ($other_version === '2021-12-08-0001') {
+    // adds `attribute_spec` for `const`
     // removes record types (never supported)
     return true;
   }
