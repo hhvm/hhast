@@ -21,10 +21,14 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2022-01-18-0001',
+    SCHEMA_VERSION === '2022-01-21-0001',
     '%s needs updating',
     __FILE__,
   );
+  if ($other_version === '2022-01-21-0001') {
+    // adds module syntax
+    return true;
+  }
   if ($other_version === '2022-01-18-0001') {
     // adds `like` for `xhp_enum`
     return true;

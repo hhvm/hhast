@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<45a475e351352a7fae5e8b05f00a8c7e>>
+ * @generated SignedSource<<456d5fb5d4d64ca382edb8ab203f0ffd>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2375,6 +2375,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'parenthesized_expression',
     'postfix_unary_expression',
     'prefix_unary_expression',
+    'scope_resolution_expression',
     'shape_expression',
     'subscript_expression',
     'variable',
