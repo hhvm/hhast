@@ -97,6 +97,7 @@ final class LintRunConfig {
     HHAST\NoFinalMethodInFinalClassLinter::class,
     HHAST\NamespacePrivateLinter::class,
     HHAST\DontHaveTwoEmptyLinesInARowLinter::class,
+    HHAST\HHClientLinter::class,
   ];
 
   private static function getNamedLinterGroup(
