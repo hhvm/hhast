@@ -1,0 +1,13 @@
+<?hh
+
+function test_unreachable_1(): int {
+    return 5;
+    return 6;
+}
+
+function test_unreachable_2(): int {
+    foreach (vec[1] as $value) {
+        return $value;
+        return $value * $value;
+    }
+}

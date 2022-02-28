@@ -1,0 +1,12 @@
+[
+    {
+        "blame": "    return 5;\n",
+        "blame_pretty": "    return 5;\n",
+        "description": "This return creates unreachable code"
+    },
+    {
+        "blame": "        return $value;\n",
+        "blame_pretty": "        return $value;\n",
+        "description": "This return creates unreachable code"
+    }
+]
