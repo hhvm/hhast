@@ -35,13 +35,18 @@ final class UnreachableCodeLinter extends ASTLinter {
         $statements = $parent->getStatements();
         invariant($statements is nonnull, 'parent list of stmt cannot be null');
         $children = $statements->getChildren();
-        $return_idx = C\find_key($children, $c ==> $c === $stmt) ?? null;
-        invariant(
-            $return_idx is nonnull,
-            'stmt must be a child of parent list',
-        );
+        $stmt_idx = C\find_key($children, $c ==> $c === $stmt) ?? null;
 
-        if ($return_idx < C\count($children) - 1) {
+        // if the statement is not a direct child of the CompoundStatement,
+        // then it occurs in a position where it cannot cause unreachable code
+        //
+        // For example:
+        // if ($cond) return;
+        if ($stmt_idx is null) {
+            return null;
+        }
+
+        if ($stmt_idx < C\count($children) - 1) {
             if ($stmt is ThrowStatement) {
                 $op = 'throw';
             } else if ($stmt is ReturnStatement) {

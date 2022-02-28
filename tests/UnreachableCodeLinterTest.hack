@@ -22,6 +22,7 @@ final class UnreachableCodeLinterTest extends TestCase {
         return vec[
             tuple('<?hh function foo(): int { return 5; }'),
             tuple('<?hh function foo(): void { return; }'),
+            tuple('<?hh function foo(): void { if (true) return; }'),
             tuple(
                 '<?hh function foo(int $i): int { if ($i == 1) { return 5; } else { return 6; } }',
             ),
