@@ -9,18 +9,29 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\C;
+use namespace HH\Lib\{C, Str};
 
 final class UnreachableCodeLinter extends ASTLinter {
     const type TConfig = shape();
-    const type TNode = ReturnStatement;
+    const type TNode = IStatement;
     const type TContext = CompoundStatement;
 
     <<__Override>>
     public function getLintErrorForNode(
         CompoundStatement $parent,
-        ReturnStatement $stmt,
+        IStatement $stmt,
     ): ?ASTLintError {
+        // Evaluate all IStatement because we need to look for additional statements after return, throw, continue
+        if (
+            !(
+                $stmt is ThrowStatement ||
+                $stmt is ReturnStatement ||
+                $stmt is ContinueStatement
+            )
+        ) {
+            return null;
+        }
+
         $statements = $parent->getStatements();
         invariant($statements is nonnull, 'parent list of stmt cannot be null');
         $children = $statements->getChildren();
@@ -31,9 +42,17 @@ final class UnreachableCodeLinter extends ASTLinter {
         );
 
         if ($return_idx < C\count($children) - 1) {
+            if ($stmt is ThrowStatement) {
+                $op = 'throw';
+            } else if ($stmt is ReturnStatement) {
+                $op = 'return';
+            } else {
+                $op = 'continue';
+            }
+
             return new ASTLintError(
                 $this,
-                'This return creates unreachable code',
+                Str\format('This %s statement creates unreachable code', $op),
                 $stmt,
             );
         } else {

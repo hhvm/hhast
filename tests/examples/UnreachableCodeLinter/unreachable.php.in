@@ -11,3 +11,17 @@ function test_unreachable_2(): int {
         return $value * $value;
     }
 }
+
+function test_unreachable_throw_1(): void {
+    throw new RuntimeException();
+    return;
+}
+
+function test_unreachable_continue_1(): int {
+    $a = 0;
+    for ($i = 0; $i < 10; $i++) {
+        continue;
+        $a = $i;
+    }
+    return $a;
+}
