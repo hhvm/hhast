@@ -21,47 +21,41 @@ final class UnreachableCodeLinter extends ASTLinter {
         CompoundStatement $parent,
         IStatement $stmt,
     ): ?ASTLintError {
-        // Evaluate all IStatement because we need to look for additional statements after return, throw, continue
-        if (
-            !(
-                $stmt is ThrowStatement ||
-                $stmt is ReturnStatement ||
-                $stmt is ContinueStatement
-            )
-        ) {
+        // Evaluate all IStatement because we need to look for additional statements
+        // after return, throw, continue
+        if (!($stmt is ThrowStatement || $stmt is ReturnStatement || $stmt is ContinueStatement)) {
             return null;
         }
 
         $statements = $parent->getStatements();
-        invariant($statements is nonnull, 'parent list of stmt cannot be null');
+        invariant($statements is nonnull, 'parent list of statement cannot be null');
         $children = $statements->getChildren();
-        $stmt_idx = C\find_key($children, $c ==> $c === $stmt) ?? null;
 
-        // if the statement is not a direct child of the CompoundStatement,
-        // then it occurs in a position where it cannot cause unreachable code
+        // A statement causes unreachable code when it is not the last statement in a block
+        //
+        // This occurs when it is not the last child of a CompoundStatement.
+        // In the case of conditional statements used without braces, statements are not a direct
+        // child of CompoundStatement but cannot cause unreachable code.
         //
         // For example:
-        // if ($cond) return;
-        if ($stmt_idx is null) {
+        //     if ($cond) { $a = 5; return "last statement"; }
+        //     if ($cond) return;
+        if (C\last($children) === $stmt || !C\contains($children, $stmt)) {
             return null;
         }
 
-        if ($stmt_idx < C\count($children) - 1) {
-            if ($stmt is ThrowStatement) {
-                $op = 'throw';
-            } else if ($stmt is ReturnStatement) {
-                $op = 'return';
-            } else {
-                $op = 'continue';
-            }
-
-            return new ASTLintError(
-                $this,
-                Str\format('This %s statement creates unreachable code', $op),
-                $stmt,
-            );
+        if ($stmt is ThrowStatement) {
+            $op = 'throw';
+        } else if ($stmt is ReturnStatement) {
+            $op = 'return';
         } else {
-            return null;
+            $op = 'continue';
         }
+
+        return new ASTLintError(
+            $this,
+            Str\format('This %s statement creates unreachable code', $op),
+            $stmt,
+        );
     }
 }
