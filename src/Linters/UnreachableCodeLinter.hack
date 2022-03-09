@@ -54,17 +54,12 @@ final class UnreachableCodeLinter extends ASTLinter {
       return null;
     }
 
-    if ($stmt is ThrowStatement) {
-      $op = 'throw';
-    } else if ($stmt is ReturnStatement) {
-      $op = 'return';
-    } else {
-      $op = 'continue';
-    }
-
     return new ASTLintError(
       $this,
-      Str\format('This %s statement creates unreachable code', $op),
+      Str\format(
+        'This %s statement creates unreachable code',
+        $stmt->getKeyword()->getText(),
+      ),
       $stmt,
     );
   }
