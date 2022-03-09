@@ -1,0 +1,22 @@
+[
+    {
+        "blame": "    return 5;\n",
+        "blame_pretty": "    return 5;\n",
+        "description": "This return statement creates unreachable code"
+    },
+    {
+        "blame": "        return $value;\n",
+        "blame_pretty": "        return $value;\n",
+        "description": "This return statement creates unreachable code"
+    },
+    {
+        "blame": "    throw new RuntimeException();\n",
+        "blame_pretty": "    throw new RuntimeException();\n",
+        "description": "This throw statement creates unreachable code"
+    },
+    {
+        "blame": "        continue;\n",
+        "blame_pretty": "        continue;\n",
+        "description": "This continue statement creates unreachable code"
+    }
+]
