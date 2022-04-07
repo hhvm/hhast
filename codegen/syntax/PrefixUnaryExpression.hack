@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<490f5d4ed2b009da2f7279ccede9a277>>
+ * @generated SignedSource<<213257e64112180c1196b9c24d3bb8ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -148,8 +148,9 @@ final class PrefixUnaryExpression
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression
    */
   public function getOperand(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_operand);
@@ -163,8 +164,9 @@ final class PrefixUnaryExpression
    * LambdaExpression | LiteralExpression | MemberSelectionExpression |
    * ObjectCreationExpression | ParenthesizedExpression |
    * PostfixUnaryExpression | PrefixUnaryExpression | QualifiedName |
-   * ScopeResolutionExpression | SubscriptExpression | NameToken |
-   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
+   * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
+   * NameToken | VariableExpression | VarrayIntrinsicExpression |
+   * VectorIntrinsicExpression
    */
   public function getOperandx(): IExpression {
     return $this->getOperand();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7710229c4479e94ef2b2477d3d7f285d>>
+ * @generated SignedSource<<38bcc98afa24fc8c24ef4e98813ff68c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -134,9 +134,10 @@ final class BinaryExpression
    * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | FunctionPointerExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | ListExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * EnumClassLabelExpression | FunctionCallExpression |
+   * FunctionPointerExpression | IsExpression | IssetExpression |
+   * KeysetIntrinsicExpression | ListExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
@@ -151,9 +152,10 @@ final class BinaryExpression
    * @return AnonymousFunction | AsExpression | AwaitableCreationExpression |
    * BinaryExpression | CastExpression | CollectionLiteralExpression |
    * DarrayIntrinsicExpression | DictionaryIntrinsicExpression |
-   * FunctionCallExpression | FunctionPointerExpression | IsExpression |
-   * IssetExpression | KeysetIntrinsicExpression | ListExpression |
-   * LiteralExpression | MemberSelectionExpression | ObjectCreationExpression |
+   * EnumClassLabelExpression | FunctionCallExpression |
+   * FunctionPointerExpression | IsExpression | IssetExpression |
+   * KeysetIntrinsicExpression | ListExpression | LiteralExpression |
+   * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PipeVariableExpression | PostfixUnaryExpression
    * | PrefixUnaryExpression | QualifiedName | SafeMemberSelectionExpression |
    * ScopeResolutionExpression | SubscriptExpression | NameToken |
