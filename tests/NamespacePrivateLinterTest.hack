@@ -20,7 +20,7 @@ final class NamespacePrivateLinterTest extends TestCase {
   <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
-      tuple('<?hh function test();'),
+      tuple('<?hh function test() {}'),
     ];
   }
 }
