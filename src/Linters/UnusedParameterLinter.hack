@@ -38,10 +38,9 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
 
     // If this is a parameter of a lambda function, we should be looking in the
     // lambda's body, not the enclosing function/method's body.
-    $lambda =
-      $functionish->getClosestAncestorOfDescendantOfType<LambdaExpression>(
-        $node,
-      );
+    $lambda = $functionish->getClosestAncestorOfDescendantOfType<
+      LambdaExpression,
+    >($node);
 
     if ($lambda is nonnull) {
       $body = $lambda->getBody();
@@ -55,7 +54,7 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
       );
     }
 
-    if ($body === null || $body is SemicolonToken) {
+    if ($body is null) {
       // Don't require `$_` for abstract or interface methods
       return null;
     }

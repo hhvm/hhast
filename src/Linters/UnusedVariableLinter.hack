@@ -152,7 +152,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
       }
     }
 
-    return tuple($params, $body as CompoundStatement);
+    return tuple($params, $body);
   }
 
   private function getLambdaParts(

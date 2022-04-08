@@ -58,11 +58,6 @@ final class TopLevelRequiresMigration extends BaseMigration {
 
     // Figure out leading whitespace
     $body = $entrypoint->getBody();
-    if (!$body is CompoundStatement) {
-      // Invalid, but e.g. `<<__EntryPoint>> function foo(): void;`
-      return $script;
-    }
-
     $leading = $body->getStatements()?->toVec() ?? vec[]
       |> C\first($$)
       |> $$?->getFirstTokenx()?->getLeadingWhitespace()
