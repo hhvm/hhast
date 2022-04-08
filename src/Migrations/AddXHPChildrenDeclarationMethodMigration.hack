@@ -398,7 +398,6 @@ final class AddXHPChildrenDeclarationMethodMigration
         ]),
       ),
       $generics,
-      null,
       new LeftParenToken(null, null),
       C\is_empty($arguments)
         ? null
