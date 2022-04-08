@@ -55,7 +55,12 @@ final class CodegenRelations extends CodegenBase {
             }
           }
           if ($new) {
-            await execute_async('hhvm', '-l', $file);
+            // Check that examples are actually valid before including them in
+            // relations; some parse correctly, but are only valid at runtime
+            // in special circumstances, e.g. builtins
+            if (!(Str\contains($file, __FILE__) || Str\contains($file, 'SyntaxExample'))) {
+              await execute_async('hhvm', '-l', $file);
+            }
             foreach ($new as $key => $children) {
               $relationships->v[$key] =
                 Keyset\union($relationships->v[$key], $children);

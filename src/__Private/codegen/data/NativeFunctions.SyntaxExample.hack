@@ -7,6 +7,5 @@
  *
  */
 
-function php_anonymous_function_static(): void {
-  $_ = static function() {};
-}
+ <<__Native>>
+ function some_hhvm_builtin();
