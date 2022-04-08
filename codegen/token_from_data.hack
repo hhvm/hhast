@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<05f5357fbfec4b8addb5c5ea59c082a5>>
+ * @generated SignedSource<<9af17fe7e2491276378eaae3a7d39ac9>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -91,6 +91,7 @@ class TokenClassMap {
     'int' => HHAST\IntToken::class,
     'integer' => HHAST\IntegerToken::class,
     'interface' => HHAST\InterfaceToken::class,
+    'internal' => HHAST\InternalToken::class,
     'is' => HHAST\IsToken::class,
     'isset' => HHAST\IssetToken::class,
     'keyset' => HHAST\KeysetToken::class,

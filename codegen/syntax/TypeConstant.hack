@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<770924548129a85f803fc6dc004d2346>>
+ * @generated SignedSource<<dbdd4d7f98772aa8aed03aca1baafb68>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -129,14 +129,16 @@ final class TypeConstant extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return NameToken | SelfToken | ThisToken | VariableToken | TypeConstant
+   * @return QualifiedName | NameToken | SelfToken | ThisToken | VariableToken
+   * | TypeConstant
    */
   public function getLeftType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_left_type);
   }
 
   /**
-   * @return NameToken | SelfToken | ThisToken | VariableToken | TypeConstant
+   * @return QualifiedName | NameToken | SelfToken | ThisToken | VariableToken
+   * | TypeConstant
    */
   public function getLeftTypex(): ITypeSpecifier {
     return $this->getLeftType();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2af73a9f19d23ba1c7039598479044b3>>
+ * @generated SignedSource<<9c84879ef1b8682f02bbf8aafc171109>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -22,7 +22,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   private RightParenToken $_inner_right_paren;
   private ?Contexts $_contexts;
   private ColonToken $_colon;
-  private ?Node $_readonly_return;
+  private ?ReadonlyToken $_readonly_return;
   private ITypeSpecifier $_return_type;
   private RightParenToken $_outer_right_paren;
 
@@ -35,7 +35,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     RightParenToken $inner_right_paren,
     ?Contexts $contexts,
     ColonToken $colon,
-    ?Node $readonly_return,
+    ?ReadonlyToken $readonly_return,
     ITypeSpecifier $return_type,
     RightParenToken $outer_right_paren,
     ?__Private\SourceRef $source_ref = null,
@@ -140,7 +140,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'Node',
+      'ReadonlyToken',
     );
     $offset += $readonly_return?->getWidth() ?? 0;
     $return_type = Node::fromJSON(
@@ -249,7 +249,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $inner_right_paren as RightParenToken,
       $contexts as ?Contexts,
       $colon as ColonToken,
-      $readonly_return as ?Node,
+      $readonly_return as ?ReadonlyToken,
       $return_type as ITypeSpecifier,
       $outer_right_paren as RightParenToken,
     );
@@ -596,7 +596,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_readonly_return;
   }
 
-  public function withReadonlyReturn(?Node $value): this {
+  public function withReadonlyReturn(?ReadonlyToken $value): this {
     if ($value === $this->_readonly_return) {
       return $this;
     }
@@ -620,16 +620,16 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return null
+   * @return null | ReadonlyToken
    */
-  public function getReadonlyReturn(): ?Node {
+  public function getReadonlyReturn(): ?ReadonlyToken {
     return $this->_readonly_return;
   }
 
   /**
-   * @return
+   * @return ReadonlyToken
    */
-  public function getReadonlyReturnx(): Node {
+  public function getReadonlyReturnx(): ReadonlyToken {
     return TypeAssert\not_null($this->getReadonlyReturn());
   }
 
