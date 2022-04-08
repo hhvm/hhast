@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<357059e64232775c7411ada8399f0546>>
+ * @generated SignedSource<<ceca0dace23d18bd6045c4105b940030>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -18,12 +18,12 @@ final class FunctionDeclaration
 
   private ?OldAttributeSpecification $_attribute_spec;
   private FunctionDeclarationHeader $_declaration_header;
-  private Node $_body;
+  private CompoundStatement $_body;
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
     FunctionDeclarationHeader $declaration_header,
-    Node $body,
+    CompoundStatement $body,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -64,7 +64,7 @@ final class FunctionDeclaration
       $file,
       $offset,
       $source,
-      'Node',
+      'CompoundStatement',
     );
     $body = $body as nonnull;
     $offset += $body->getWidth();
@@ -113,7 +113,7 @@ final class FunctionDeclaration
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
       $declaration_header as FunctionDeclarationHeader,
-      $body as Node,
+      $body as CompoundStatement,
     );
   }
 
@@ -184,7 +184,7 @@ final class FunctionDeclaration
     return $this->_body;
   }
 
-  public function withBody(Node $value): this {
+  public function withBody(CompoundStatement $value): this {
     if ($value === $this->_body) {
       return $this;
     }
@@ -197,16 +197,16 @@ final class FunctionDeclaration
   }
 
   /**
-   * @return CompoundStatement | SemicolonToken
+   * @return CompoundStatement
    */
-  public function getBody(): Node {
-    return $this->_body;
+  public function getBody(): CompoundStatement {
+    return TypeAssert\instance_of(CompoundStatement::class, $this->_body);
   }
 
   /**
-   * @return CompoundStatement | SemicolonToken
+   * @return CompoundStatement
    */
-  public function getBodyx(): Node {
+  public function getBodyx(): CompoundStatement {
     return $this->getBody();
   }
 }

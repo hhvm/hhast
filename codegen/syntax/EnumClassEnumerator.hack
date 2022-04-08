@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3fcdae586bf21cba57304c5d9792e15b>>
+ * @generated SignedSource<<2f6ca00a20eed650f03db2996c441559>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,14 +15,14 @@ final class EnumClassEnumerator extends Node {
   const string SYNTAX_KIND = 'enum_class_enumerator';
 
   private ?NodeList<AbstractToken> $_modifiers;
-  private ISimpleCreationSpecifier $_type;
+  private ITypeSpecifier $_type;
   private NameToken $_name;
   private ?SimpleInitializer $_initializer;
   private SemicolonToken $_semicolon;
 
   public function __construct(
     ?NodeList<AbstractToken> $modifiers,
-    ISimpleCreationSpecifier $type,
+    ITypeSpecifier $type,
     NameToken $name,
     ?SimpleInitializer $initializer,
     SemicolonToken $semicolon,
@@ -59,7 +59,7 @@ final class EnumClassEnumerator extends Node {
       $file,
       $offset,
       $source,
-      'ISimpleCreationSpecifier',
+      'ITypeSpecifier',
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
@@ -144,7 +144,7 @@ final class EnumClassEnumerator extends Node {
     }
     return new static(
       /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
-      $type as ISimpleCreationSpecifier,
+      $type as ITypeSpecifier,
       $name as NameToken,
       $initializer as ?SimpleInitializer,
       $semicolon as SemicolonToken,
@@ -190,7 +190,7 @@ final class EnumClassEnumerator extends Node {
     return $this->_type;
   }
 
-  public function withType(ISimpleCreationSpecifier $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -208,17 +208,16 @@ final class EnumClassEnumerator extends Node {
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getType(): ISimpleCreationSpecifier {
-    return
-      TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_type);
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getTypex(): ISimpleCreationSpecifier {
+  public function getTypex(): ITypeSpecifier {
     return $this->getType();
   }
 

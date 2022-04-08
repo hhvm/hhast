@@ -18,6 +18,9 @@ use type Facebook\HackCodegen\{
 use namespace Facebook\TypeAssert;
 
 final class CodegenRelations extends CodegenBase {
+  /** @see self::getInferredRelationships() */
+  private static ?dict<string, keyset<string>> $INFERRED_RELATIONSHIPS;
+
   <<__Override>>
   public function __construct(
     private string $hhvmRoot,
@@ -31,6 +34,20 @@ final class CodegenRelations extends CodegenBase {
   public function generate(): void {
     /*HHAST_FIXME[DontUseAsioJoin]*/
     \HH\Asio\join($this->generateAsync());
+  }
+
+  /**
+   * INFERRED_RELATIONSHIPS is written to disk during $this->generateAsync().
+   * Code that runs after this step needs access to it.
+   * Autoloaders with a fallback (like hhvm-autoload) can handle loading
+   * entities that did not exist at the start of the request.
+   * Autoloaders that don't have such a fallback mechanism (like ext_watchman)
+   * fail with an unbound name error.
+   * Stashing the value in a static during generation is a workaround.
+   */
+  public static function getInferredRelationships(
+  ): dict<string, keyset<string>> {
+    return static::$INFERRED_RELATIONSHIPS ?? INFERRED_RELATIONSHIPS;
   }
 
   private async function generateAsync(): Awaitable<void> {
@@ -103,6 +120,19 @@ final class CodegenRelations extends CodegenBase {
 
     $cg = $this->getCodegenFactory();
 
+    $inferred_relation_ships = Dict\sort_by_key($relationships->v)
+      |> Dict\map(
+        $$,
+        /* HHAST_FIXME[DontCreateForwardingLambdas]
+           Removing the `$children ==> Keyset\sort($children)` lambda causes a typechecker error.
+           `Keyset\sort<>` has a context that depends on the second argument:
+           `?(function(Tv, Tv[_]: num) $comparator = null,` + `[ctx $comparator]`
+           This means we can not use a function reference here.*/
+        $children ==> Keyset\sort($children),
+      );
+
+    self::$INFERRED_RELATIONSHIPS = $inferred_relation_ships;
+
     $cg->codegenFile($this->getOutputDirectory().'/inferred_relationships.hack')
       ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
@@ -110,17 +140,7 @@ final class CodegenRelations extends CodegenBase {
         $cg->codegenConstant('INFERRED_RELATIONSHIPS')
           ->setType('dict<string, keyset<string>>')
           ->setValue(
-            $relationships->v
-              |> Dict\sort_by_key($$)
-              |> Dict\map(
-                $$,
-                /* HHAST_FIXME[DontCreateForwardingLambdas]
-                   Removing the `$children ==> Keyset\sort($children)` lambda causes a typechecker error.
-                   `Keyset\sort<>` has a context that depends on the second argument:
-                   `?(function(Tv, Tv[_]: num) $comparator = null,` + `[ctx $comparator]`
-                   This means we can not use a function reference here.*/
-                $children ==> Keyset\sort($children),
-              ),
+            $inferred_relation_ships,
             HackBuilderValues::dict(
               HackBuilderKeys::export(),
               HackBuilderValues::keyset(HackBuilderValues::export()),

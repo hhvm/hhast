@@ -21,35 +21,18 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2022-01-21-0001',
+    SCHEMA_VERSION === '2022-04-06-0001',
     '%s needs updating',
     __FILE__,
   );
-  if ($other_version === '2022-01-21-0001') {
-    // adds module syntax
+  if ($other_version === '2022-04-06-0001') {
+    // an exact match, compatible.
     return true;
   }
-  if ($other_version === '2022-01-18-0001') {
-    // adds `like` for `xhp_enum`
-    return true;
-  }
-  if ($other_version === '2021-12-08-0001') {
-    // adds `attribute_spec` for `const`
-    // removes record types (never supported)
-    return true;
-  }
-  if ($other_version === '2021-09-13-0001') {
-    // adds upcast token and expression
-    // removes inference of record types (never supported)
-    return true;
-  }
-  if ($other_version === '2021-08-12-0001') {
-    // - Adds `newctx` token
-    // - Infers usage of `readonly` token
-    return true;
-  }
-  if ($other_version === '2021-08-09-0002') {
-    return true;
-  }
+
+  // Older versions of FunctionCallExpression allowed ?EnumClassLabelExpression $enum_class_label.
+  // This is the `$obj->get#Versions()` syntax.
+  // The current version of hhast would not properly parse this.
+  // Best to fail loudly, rather than parsing this as `$obj->get()`.
   return false;
 }

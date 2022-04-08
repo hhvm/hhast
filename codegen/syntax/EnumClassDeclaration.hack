@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9ba25e407009d32e5c4b50a27f8f694d>>
+ * @generated SignedSource<<a7c30d2187e8388b7cf01c673e566e82>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -20,7 +20,7 @@ final class EnumClassDeclaration extends Node {
   private ClassToken $_class_keyword;
   private NameToken $_name;
   private ColonToken $_colon;
-  private ISimpleCreationSpecifier $_base;
+  private ITypeSpecifier $_base;
   private ?ExtendsToken $_extends;
   private ?NodeList<ListItem<SimpleTypeSpecifier>> $_extends_list;
   private LeftBraceToken $_left_brace;
@@ -34,7 +34,7 @@ final class EnumClassDeclaration extends Node {
     ClassToken $class_keyword,
     NameToken $name,
     ColonToken $colon,
-    ISimpleCreationSpecifier $base,
+    ITypeSpecifier $base,
     ?ExtendsToken $extends,
     ?NodeList<ListItem<SimpleTypeSpecifier>> $extends_list,
     LeftBraceToken $left_brace,
@@ -125,7 +125,7 @@ final class EnumClassDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'ISimpleCreationSpecifier',
+      'ITypeSpecifier',
     );
     $base = $base as nonnull;
     $offset += $base->getWidth();
@@ -263,7 +263,7 @@ final class EnumClassDeclaration extends Node {
       $class_keyword as ClassToken,
       $name as NameToken,
       $colon as ColonToken,
-      $base as ISimpleCreationSpecifier,
+      $base as ITypeSpecifier,
       $extends as ?ExtendsToken,
       /* HH_FIXME[4110] ?NodeList<ListItem<SimpleTypeSpecifier>> may not be enforceable */ $extends_list,
       $left_brace as LeftBraceToken,
@@ -528,7 +528,7 @@ final class EnumClassDeclaration extends Node {
     return $this->_base;
   }
 
-  public function withBase(ISimpleCreationSpecifier $value): this {
+  public function withBase(ITypeSpecifier $value): this {
     if ($value === $this->_base) {
       return $this;
     }
@@ -553,17 +553,16 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
-  public function getBase(): ISimpleCreationSpecifier {
-    return
-      TypeAssert\instance_of(ISimpleCreationSpecifier::class, $this->_base);
+  public function getBase(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_base);
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
-  public function getBasex(): ISimpleCreationSpecifier {
+  public function getBasex(): ITypeSpecifier {
     return $this->getBase();
   }
 
