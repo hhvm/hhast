@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1d547ad6a05a605bef9d128fe93797bd>>
+ * @generated SignedSource<<7237a6fcfb9ca940aecfdfdcfbaf63b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -162,8 +162,9 @@ final class NamespaceBody extends Node implements INamespaceBody {
   /**
    * @return NodeList<AliasDeclaration> | NodeList<Node> |
    * NodeList<IHasAttributeSpec> | NodeList<ClassishDeclaration> |
-   * NodeList<ConstDeclaration> | NodeList<EnumDeclaration> |
-   * NodeList<FunctionDeclaration> | NodeList<NamespaceGroupUseDeclaration> |
+   * NodeList<ConstDeclaration> | NodeList<EnumClassDeclaration> |
+   * NodeList<EnumDeclaration> | NodeList<FunctionDeclaration> |
+   * NodeList<NamespaceGroupUseDeclaration> |
    * NodeList<INamespaceUseDeclaration> | NodeList<NamespaceUseDeclaration> |
    * null
    */
@@ -174,8 +175,9 @@ final class NamespaceBody extends Node implements INamespaceBody {
   /**
    * @return NodeList<AliasDeclaration> | NodeList<Node> |
    * NodeList<IHasAttributeSpec> | NodeList<ClassishDeclaration> |
-   * NodeList<ConstDeclaration> | NodeList<EnumDeclaration> |
-   * NodeList<FunctionDeclaration> | NodeList<NamespaceGroupUseDeclaration> |
+   * NodeList<ConstDeclaration> | NodeList<EnumClassDeclaration> |
+   * NodeList<EnumDeclaration> | NodeList<FunctionDeclaration> |
+   * NodeList<NamespaceGroupUseDeclaration> |
    * NodeList<INamespaceUseDeclaration> | NodeList<NamespaceUseDeclaration>
    */
   public function getDeclarationsx(): NodeList<Node> {

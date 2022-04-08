@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78fcbd02a02de796f774ca5978b1a075>>
+ * @generated SignedSource<<b06835941dda372887312edf013c5109>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -430,15 +430,16 @@ final class LambdaSignature extends Node implements ILambdaSignature {
   }
 
   /**
-   * @return GenericTypeSpecifier | KeysetTypeSpecifier | null |
-   * SimpleTypeSpecifier
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier
+   * | null | SimpleTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
   /**
-   * @return GenericTypeSpecifier | KeysetTypeSpecifier | SimpleTypeSpecifier
+   * @return ClosureTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier
+   * | SimpleTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

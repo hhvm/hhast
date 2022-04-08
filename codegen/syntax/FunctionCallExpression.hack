@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9600f44317ae881bd473e126ff0dd2c1>>
+ * @generated SignedSource<<ceec486490f77cc663653419c5a9ea00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -18,7 +18,6 @@ final class FunctionCallExpression
 
   private Node $_receiver;
   private ?TypeArguments $_type_args;
-  private ?EnumClassLabelExpression $_enum_class_label;
   private LeftParenToken $_left_paren;
   private ?NodeList<ListItem<IExpression>> $_argument_list;
   private RightParenToken $_right_paren;
@@ -26,7 +25,6 @@ final class FunctionCallExpression
   public function __construct(
     Node $receiver,
     ?TypeArguments $type_args,
-    ?EnumClassLabelExpression $enum_class_label,
     LeftParenToken $left_paren,
     ?NodeList<ListItem<IExpression>> $argument_list,
     RightParenToken $right_paren,
@@ -34,7 +32,6 @@ final class FunctionCallExpression
   ) {
     $this->_receiver = $receiver;
     $this->_type_args = $type_args;
-    $this->_enum_class_label = $enum_class_label;
     $this->_left_paren = $left_paren;
     $this->_argument_list = $argument_list;
     $this->_right_paren = $right_paren;
@@ -68,15 +65,6 @@ final class FunctionCallExpression
       'TypeArguments',
     );
     $offset += $type_args?->getWidth() ?? 0;
-    $enum_class_label = Node::fromJSON(
-      ($json['function_call_enum_class_label'] ?? dict['kind' => 'missing'])
-        as dict<_, _>,
-      $file,
-      $offset,
-      $source,
-      'EnumClassLabelExpression',
-    );
-    $offset += $enum_class_label?->getWidth() ?? 0;
     $left_paren = Node::fromJSON(
       ($json['function_call_left_paren']) as dict<_, _>,
       $file,
@@ -113,7 +101,6 @@ final class FunctionCallExpression
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $receiver,
       /* HH_IGNORE_ERROR[4110] */ $type_args,
-      /* HH_IGNORE_ERROR[4110] */ $enum_class_label,
       /* HH_IGNORE_ERROR[4110] */ $left_paren,
       /* HH_IGNORE_ERROR[4110] */ $argument_list,
       /* HH_IGNORE_ERROR[4110] */ $right_paren,
@@ -126,7 +113,6 @@ final class FunctionCallExpression
     return dict[
       'receiver' => $this->_receiver,
       'type_args' => $this->_type_args,
-      'enum_class_label' => $this->_enum_class_label,
       'left_paren' => $this->_left_paren,
       'argument_list' => $this->_argument_list,
       'right_paren' => $this->_right_paren,
@@ -144,9 +130,6 @@ final class FunctionCallExpression
     $type_args = $this->_type_args === null
       ? null
       : $rewriter($this->_type_args, $parents);
-    $enum_class_label = $this->_enum_class_label === null
-      ? null
-      : $rewriter($this->_enum_class_label, $parents);
     $left_paren = $rewriter($this->_left_paren, $parents);
     $argument_list = $this->_argument_list === null
       ? null
@@ -155,7 +138,6 @@ final class FunctionCallExpression
     if (
       $receiver === $this->_receiver &&
       $type_args === $this->_type_args &&
-      $enum_class_label === $this->_enum_class_label &&
       $left_paren === $this->_left_paren &&
       $argument_list === $this->_argument_list &&
       $right_paren === $this->_right_paren
@@ -165,7 +147,6 @@ final class FunctionCallExpression
     return new static(
       $receiver as Node,
       $type_args as ?TypeArguments,
-      $enum_class_label as ?EnumClassLabelExpression,
       $left_paren as LeftParenToken,
       /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $argument_list,
       $right_paren as RightParenToken,
@@ -183,7 +164,6 @@ final class FunctionCallExpression
     return new static(
       $value,
       $this->_type_args,
-      $this->_enum_class_label,
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -225,7 +205,6 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $value,
-      $this->_enum_class_label,
       $this->_left_paren,
       $this->_argument_list,
       $this->_right_paren,
@@ -250,42 +229,6 @@ final class FunctionCallExpression
     return TypeAssert\not_null($this->getTypeArgs());
   }
 
-  public function getEnumClassLabelUNTYPED(): ?Node {
-    return $this->_enum_class_label;
-  }
-
-  public function withEnumClassLabel(?EnumClassLabelExpression $value): this {
-    if ($value === $this->_enum_class_label) {
-      return $this;
-    }
-    return new static(
-      $this->_receiver,
-      $this->_type_args,
-      $value,
-      $this->_left_paren,
-      $this->_argument_list,
-      $this->_right_paren,
-    );
-  }
-
-  public function hasEnumClassLabel(): bool {
-    return $this->_enum_class_label !== null;
-  }
-
-  /**
-   * @return EnumClassLabelExpression | null
-   */
-  public function getEnumClassLabel(): ?EnumClassLabelExpression {
-    return $this->_enum_class_label;
-  }
-
-  /**
-   * @return EnumClassLabelExpression
-   */
-  public function getEnumClassLabelx(): EnumClassLabelExpression {
-    return TypeAssert\not_null($this->getEnumClassLabel());
-  }
-
   public function getLeftParenUNTYPED(): ?Node {
     return $this->_left_paren;
   }
@@ -297,7 +240,6 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $this->_type_args,
-      $this->_enum_class_label,
       $value,
       $this->_argument_list,
       $this->_right_paren,
@@ -335,7 +277,6 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $this->_type_args,
-      $this->_enum_class_label,
       $this->_left_paren,
       $value,
       $this->_right_paren,
@@ -439,7 +380,6 @@ final class FunctionCallExpression
     return new static(
       $this->_receiver,
       $this->_type_args,
-      $this->_enum_class_label,
       $this->_left_paren,
       $this->_argument_list,
       $value,

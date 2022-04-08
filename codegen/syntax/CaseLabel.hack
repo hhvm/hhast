@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b0a4c8639f71de5fc8329cb8744910b2>>
+ * @generated SignedSource<<a1229044fadfc77a63456728028beaae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -159,9 +159,10 @@ final class CaseLabel extends Node implements ISwitchLabel {
 
   /**
    * @return CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | LiteralExpression | ObjectCreationExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | NameToken |
-   * VariableExpression | VectorIntrinsicExpression
+   * EnumClassLabelExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | NameToken | VariableExpression |
+   * VectorIntrinsicExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
@@ -169,9 +170,10 @@ final class CaseLabel extends Node implements ISwitchLabel {
 
   /**
    * @return CastExpression | CollectionLiteralExpression |
-   * FunctionCallExpression | LiteralExpression | ObjectCreationExpression |
-   * PrefixUnaryExpression | ScopeResolutionExpression | NameToken |
-   * VariableExpression | VectorIntrinsicExpression
+   * EnumClassLabelExpression | FunctionCallExpression | LiteralExpression |
+   * ObjectCreationExpression | PrefixUnaryExpression |
+   * ScopeResolutionExpression | NameToken | VariableExpression |
+   * VectorIntrinsicExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();
