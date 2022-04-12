@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1cedebf428b2723235b776b4b61935e7>>
+ * @generated SignedSource<<43dc34063df95b97465b3082458bb66e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -20,7 +20,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
   private TypeToken $_type_keyword;
   private NameToken $_name;
   private ?Node $_type_parameters;
-  private ?TypeConstraint $_type_constraint;
+  private ?NodeList<TypeConstraint> $_type_constraints;
   private ?EqualToken $_equal;
   private ?ITypeSpecifier $_type_specifier;
   private SemicolonToken $_semicolon;
@@ -32,7 +32,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     TypeToken $type_keyword,
     NameToken $name,
     ?Node $type_parameters,
-    ?TypeConstraint $type_constraint,
+    ?NodeList<TypeConstraint> $type_constraints,
     ?EqualToken $equal,
     ?ITypeSpecifier $type_specifier,
     SemicolonToken $semicolon,
@@ -44,7 +44,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     $this->_type_keyword = $type_keyword;
     $this->_name = $name;
     $this->_type_parameters = $type_parameters;
-    $this->_type_constraint = $type_constraint;
+    $this->_type_constraints = $type_constraints;
     $this->_equal = $equal;
     $this->_type_specifier = $type_specifier;
     $this->_semicolon = $semicolon;
@@ -114,15 +114,15 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       'Node',
     );
     $offset += $type_parameters?->getWidth() ?? 0;
-    $type_constraint = Node::fromJSON(
-      ($json['type_const_type_constraint'] ?? dict['kind' => 'missing'])
+    $type_constraints = Node::fromJSON(
+      ($json['type_const_type_constraints'] ?? dict['kind' => 'missing'])
         as dict<_, _>,
       $file,
       $offset,
       $source,
-      'TypeConstraint',
+      'NodeList<TypeConstraint>',
     );
-    $offset += $type_constraint?->getWidth() ?? 0;
+    $offset += $type_constraints?->getWidth() ?? 0;
     $equal = Node::fromJSON(
       ($json['type_const_equal'] ?? dict['kind' => 'missing']) as dict<_, _>,
       $file,
@@ -162,7 +162,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       /* HH_IGNORE_ERROR[4110] */ $type_keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $type_parameters,
-      /* HH_IGNORE_ERROR[4110] */ $type_constraint,
+      /* HH_IGNORE_ERROR[4110] */ $type_constraints,
       /* HH_IGNORE_ERROR[4110] */ $equal,
       /* HH_IGNORE_ERROR[4110] */ $type_specifier,
       /* HH_IGNORE_ERROR[4110] */ $semicolon,
@@ -179,7 +179,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       'type_keyword' => $this->_type_keyword,
       'name' => $this->_name,
       'type_parameters' => $this->_type_parameters,
-      'type_constraint' => $this->_type_constraint,
+      'type_constraints' => $this->_type_constraints,
       'equal' => $this->_equal,
       'type_specifier' => $this->_type_specifier,
       'semicolon' => $this->_semicolon,
@@ -205,9 +205,9 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     $type_parameters = $this->_type_parameters === null
       ? null
       : $rewriter($this->_type_parameters, $parents);
-    $type_constraint = $this->_type_constraint === null
+    $type_constraints = $this->_type_constraints === null
       ? null
-      : $rewriter($this->_type_constraint, $parents);
+      : $rewriter($this->_type_constraints, $parents);
     $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
     $type_specifier = $this->_type_specifier === null
       ? null
@@ -220,7 +220,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $type_keyword === $this->_type_keyword &&
       $name === $this->_name &&
       $type_parameters === $this->_type_parameters &&
-      $type_constraint === $this->_type_constraint &&
+      $type_constraints === $this->_type_constraints &&
       $equal === $this->_equal &&
       $type_specifier === $this->_type_specifier &&
       $semicolon === $this->_semicolon
@@ -234,7 +234,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $type_keyword as TypeToken,
       $name as NameToken,
       $type_parameters as ?Node,
-      $type_constraint as ?TypeConstraint,
+      /* HH_FIXME[4110] ?NodeList<TypeConstraint> may not be enforceable */ $type_constraints,
       $equal as ?EqualToken,
       $type_specifier as ?ITypeSpecifier,
       $semicolon as SemicolonToken,
@@ -256,7 +256,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $this->_name,
       $this->_type_parameters,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $this->_equal,
       $this->_type_specifier,
       $this->_semicolon,
@@ -296,7 +296,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $this->_name,
       $this->_type_parameters,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $this->_equal,
       $this->_type_specifier,
       $this->_semicolon,
@@ -336,7 +336,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $this->_name,
       $this->_type_parameters,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $this->_equal,
       $this->_type_specifier,
       $this->_semicolon,
@@ -376,7 +376,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $value,
       $this->_name,
       $this->_type_parameters,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $this->_equal,
       $this->_type_specifier,
       $this->_semicolon,
@@ -416,7 +416,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $value,
       $this->_type_parameters,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $this->_equal,
       $this->_type_specifier,
       $this->_semicolon,
@@ -456,7 +456,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $this->_name,
       $value,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $this->_equal,
       $this->_type_specifier,
       $this->_semicolon,
@@ -481,12 +481,12 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     return TypeAssert\not_null($this->getTypeParameters());
   }
 
-  public function getTypeConstraintUNTYPED(): ?Node {
-    return $this->_type_constraint;
+  public function getTypeConstraintsUNTYPED(): ?Node {
+    return $this->_type_constraints;
   }
 
-  public function withTypeConstraint(?TypeConstraint $value): this {
-    if ($value === $this->_type_constraint) {
+  public function withTypeConstraints(?NodeList<TypeConstraint> $value): this {
+    if ($value === $this->_type_constraints) {
       return $this;
     }
     return new static(
@@ -503,22 +503,22 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     );
   }
 
-  public function hasTypeConstraint(): bool {
-    return $this->_type_constraint !== null;
+  public function hasTypeConstraints(): bool {
+    return $this->_type_constraints !== null;
   }
 
   /**
-   * @return null | TypeConstraint
+   * @return NodeList<TypeConstraint> | null
    */
-  public function getTypeConstraint(): ?TypeConstraint {
-    return $this->_type_constraint;
+  public function getTypeConstraints(): ?NodeList<TypeConstraint> {
+    return $this->_type_constraints;
   }
 
   /**
-   * @return TypeConstraint
+   * @return NodeList<TypeConstraint>
    */
-  public function getTypeConstraintx(): TypeConstraint {
-    return TypeAssert\not_null($this->getTypeConstraint());
+  public function getTypeConstraintsx(): NodeList<TypeConstraint> {
+    return TypeAssert\not_null($this->getTypeConstraints());
   }
 
   public function getEqualUNTYPED(): ?Node {
@@ -536,7 +536,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $this->_name,
       $this->_type_parameters,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $value,
       $this->_type_specifier,
       $this->_semicolon,
@@ -576,7 +576,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $this->_name,
       $this->_type_parameters,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $this->_equal,
       $value,
       $this->_semicolon,
@@ -624,7 +624,7 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       $this->_type_keyword,
       $this->_name,
       $this->_type_parameters,
-      $this->_type_constraint,
+      $this->_type_constraints,
       $this->_equal,
       $this->_type_specifier,
       $value,

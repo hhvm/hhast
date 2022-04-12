@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<98f2c379fbae3df987c96d97dc7c10b6>>
+ * @generated SignedSource<<5960a9d1035545c9850934bd5a0d8811>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -167,8 +167,8 @@ final class ParenthesizedExpression
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression | XHPExpression | YieldExpression
+   * NameToken | VariableExpression | VarrayIntrinsicExpression | XHPExpression
+   * | YieldExpression
    */
   public function getExpression(): IExpression {
     return TypeAssert\instance_of(IExpression::class, $this->_expression);
@@ -182,8 +182,8 @@ final class ParenthesizedExpression
    * MemberSelectionExpression | ObjectCreationExpression |
    * ParenthesizedExpression | PostfixUnaryExpression | PrefixUnaryExpression |
    * QualifiedName | ScopeResolutionExpression | SubscriptExpression |
-   * NameToken | VariableExpression | VarrayIntrinsicExpression |
-   * VectorIntrinsicExpression | XHPExpression | YieldExpression
+   * NameToken | VariableExpression | VarrayIntrinsicExpression | XHPExpression
+   * | YieldExpression
    */
   public function getExpressionx(): IExpression {
     return $this->getExpression();
