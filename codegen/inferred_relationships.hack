@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e13614cc4d5c7ac7b3613154f05506d4>>
+ * @generated SignedSource<<ea06b22ff14ed826d38a1683a41d6019>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2805,7 +2805,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:name',
     'variable',
     'varray_intrinsic_expression',
-    'vector_intrinsic_expression',
     'xhp_expression',
     'yield_expression',
   ],
@@ -3448,7 +3447,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<darray_type_specifier>>',
     'list<list_item<darray_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<dictionary_type_specifier>>',
-    'list<list_item<dictionary_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<generic_type_specifier>>',
     'list<list_item<generic_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<generic_type_specifier>|list_item<type_constant>>',
@@ -3489,9 +3487,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'type_const_declaration.type_const_semicolon' => keyset[
     'token:;',
   ],
-  'type_const_declaration.type_const_type_constraint' => keyset[
+  'type_const_declaration.type_const_type_constraints' => keyset[
+    'list<type_constraint>',
     'missing',
-    'type_constraint',
   ],
   'type_const_declaration.type_const_type_keyword' => keyset[
     'token:type',
