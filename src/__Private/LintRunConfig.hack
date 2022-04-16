@@ -84,6 +84,7 @@ final class LintRunConfig {
     HHAST\NoWhitespaceAtEndOfLineLinter::class,
     HHAST\PreferRequireOnceLinter::class,
     HHAST\ConsistentLineEndingsLinter::class,
+    HHAST\UnreachableCodeLinter::class,
   ];
 
   const vec<classname<Linter>> NON_DEFAULT_LINTERS = vec[
