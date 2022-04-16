@@ -28,7 +28,7 @@ function token_from_data(
   );
 }
 
-class TokenClassMap {
+final class TokenClassMap {
 
   const dict<string, classname<HHAST\TokenWithVariableText>> WITH_TEXT = dict[
     'abstract' => HHAST\AbstractToken::class,

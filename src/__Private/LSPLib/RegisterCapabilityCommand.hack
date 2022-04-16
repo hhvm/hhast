@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
-class RegisterCapabilityCommand extends ClientCommand {
+final class RegisterCapabilityCommand extends ClientCommand {
   const string METHOD = 'client/registerCapability';
   const type TParams = LSP\RegistrationParams;
 }

@@ -12,6 +12,8 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\{FunctionDeclaration, MethodishDeclaration};
 use namespace HH\Lib\{C, Str};
 
+// HHAST_IGNORE_ERROR[FinalOrAbstractClass] This class declares a protected method
+// splitName(), which may be overridden in a child class.
 class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   const type TConfig = shape();
 

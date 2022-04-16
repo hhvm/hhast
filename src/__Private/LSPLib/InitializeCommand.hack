@@ -11,6 +11,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
+// HHAST_IGNORE_ERROR[FinalOrAbstractClass] This class is meant to be extended.
 class InitializeCommand<TState as ServerState> extends ServerCommand {
   const string METHOD = 'initialize';
   const type TParams = LSP\InitializeParams;

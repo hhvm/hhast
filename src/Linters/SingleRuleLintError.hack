@@ -11,6 +11,7 @@ namespace Facebook\HHAST;
 
 use type Facebook\HHAST\File;
 
+// HHAST_IGNORE_ERROR[FinalOrAbstractClass] This class is meant to be extended.
 /**
  * A problem detected by a SingleRuleLinter
  */

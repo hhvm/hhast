@@ -100,6 +100,7 @@ final class LintRunConfig {
     HHAST\DontCreateForwardingLambdasLinter::class,
     HHAST\PreferLambdasLinter::class,
     HHAST\NoEmptyStatementsLinter::class,
+    HHAST\FinalOrAbstractClassLinter::class,
   ];
 
   private static function getNamedLinterGroup(
