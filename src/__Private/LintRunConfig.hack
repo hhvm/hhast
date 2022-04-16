@@ -98,6 +98,8 @@ final class LintRunConfig {
     HHAST\NamespacePrivateLinter::class,
     HHAST\DontHaveTwoEmptyLinesInARowLinter::class,
     HHAST\DontCreateForwardingLambdasLinter::class,
+    HHAST\PreferLambdasLinter::class,
+    HHAST\NoEmptyStatementsLinter::class,
   ];
 
   private static function getNamedLinterGroup(

@@ -11,6 +11,7 @@ namespace Facebook\HHAST\__Private\SyntaxExamples;
 function php_anonymous_function_with_empty_use(): void {
   /* HH_IGNORE_ERROR[3084] HHAST bans using PHP anonymous functions, but we
    * still need to support parsing them for now */
+  /* HHAST_IGNORE_ERROR[PreferLambdas] See comment above. */
   $_ = function() use () {
   };
 }
@@ -18,5 +19,6 @@ function php_anonymous_function_with_empty_use(): void {
 function php_anonymous_function_with_attr(): void {
   /* HH_IGNORE_ERROR[2049] */
   /* HH_IGNORE_ERROR[3084] */
+  /* HHAST_IGNORE_ERROR[PreferLambdas] See comment above. */
   $_ = <<Foo>> function() {};
 }
