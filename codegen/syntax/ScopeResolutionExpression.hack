@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a66daa6dc45b51606e00fdb81bdb4b6>>
+ * @generated SignedSource<<083e35d2071ab9fb3e7e05bb0da6218b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -131,18 +131,16 @@ final class ScopeResolutionExpression
   }
 
   /**
-   * @return PipeVariableExpression | QualifiedName | SimpleTypeSpecifier |
-   * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
-   * VariableExpression
+   * @return PipeVariableExpression | QualifiedName | XHPClassNameToken |
+   * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */
   public function getQualifier(): Node {
     return $this->_qualifier;
   }
 
   /**
-   * @return PipeVariableExpression | QualifiedName | SimpleTypeSpecifier |
-   * XHPClassNameToken | NameToken | ParentToken | SelfToken | StaticToken |
-   * VariableExpression
+   * @return PipeVariableExpression | QualifiedName | XHPClassNameToken |
+   * NameToken | ParentToken | SelfToken | StaticToken | VariableExpression
    */
   public function getQualifierx(): Node {
     return $this->getQualifier();

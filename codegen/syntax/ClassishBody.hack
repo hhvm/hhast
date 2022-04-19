@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5c019ba73df8de236d172bc7cc3875f7>>
+ * @generated SignedSource<<0ef87b0510915c96527a592dcda3eb55>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -163,9 +163,8 @@ final class ClassishBody extends Node {
    * NodeList<ContextConstDeclaration> | NodeList<MethodishDeclaration> |
    * NodeList<IHasAttributeSpec> | NodeList<PropertyDeclaration> |
    * NodeList<RequireClause> | NodeList<TraitUse> |
-   * NodeList<TraitUseConflictResolution> | NodeList<TypeConstDeclaration> |
-   * NodeList<XHPChildrenDeclaration> | NodeList<XHPClassAttributeDeclaration>
-   * | null
+   * NodeList<TypeConstDeclaration> | NodeList<XHPChildrenDeclaration> |
+   * NodeList<XHPClassAttributeDeclaration> | null
    */
   public function getElements(): ?NodeList<IClassBodyDeclaration> {
     return $this->_elements;
@@ -176,8 +175,8 @@ final class ClassishBody extends Node {
    * NodeList<ContextConstDeclaration> | NodeList<MethodishDeclaration> |
    * NodeList<IHasAttributeSpec> | NodeList<PropertyDeclaration> |
    * NodeList<RequireClause> | NodeList<TraitUse> |
-   * NodeList<TraitUseConflictResolution> | NodeList<TypeConstDeclaration> |
-   * NodeList<XHPChildrenDeclaration> | NodeList<XHPClassAttributeDeclaration>
+   * NodeList<TypeConstDeclaration> | NodeList<XHPChildrenDeclaration> |
+   * NodeList<XHPClassAttributeDeclaration>
    */
   public function getElementsx(): NodeList<IClassBodyDeclaration> {
     return TypeAssert\not_null($this->getElements());

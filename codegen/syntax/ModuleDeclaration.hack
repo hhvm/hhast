@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbe4ad87475a82a960aa2c43517b8dc0>>
+ * @generated SignedSource<<db73252c6faaa6a1a0a5e75670823acb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,21 +15,24 @@ final class ModuleDeclaration extends Node {
   const string SYNTAX_KIND = 'module_declaration';
 
   private ?Node $_attribute_spec;
-  private ?Node $_keyword;
+  private ?Node $_new_keyword;
+  private ?Node $_module_keyword;
   private ?Node $_name;
   private ?Node $_left_brace;
   private ?Node $_right_brace;
 
   public function __construct(
     ?Node $attribute_spec,
-    ?Node $keyword,
+    ?Node $new_keyword,
+    ?Node $module_keyword,
     ?Node $name,
     ?Node $left_brace,
     ?Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
-    $this->_keyword = $keyword;
+    $this->_new_keyword = $new_keyword;
+    $this->_module_keyword = $module_keyword;
     $this->_name = $name;
     $this->_left_brace = $left_brace;
     $this->_right_brace = $right_brace;
@@ -54,15 +57,24 @@ final class ModuleDeclaration extends Node {
       'Node',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
-    $keyword = Node::fromJSON(
-      ($json['module_declaration_keyword'] ?? dict['kind' => 'missing'])
+    $new_keyword = Node::fromJSON(
+      ($json['module_declaration_new_keyword'] ?? dict['kind' => 'missing'])
         as dict<_, _>,
       $file,
       $offset,
       $source,
       'Node',
     );
-    $offset += $keyword?->getWidth() ?? 0;
+    $offset += $new_keyword?->getWidth() ?? 0;
+    $module_keyword = Node::fromJSON(
+      ($json['module_declaration_module_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $module_keyword?->getWidth() ?? 0;
     $name = Node::fromJSON(
       ($json['module_declaration_name'] ?? dict['kind' => 'missing'])
         as dict<_, _>,
@@ -98,7 +110,8 @@ final class ModuleDeclaration extends Node {
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
+      /* HH_IGNORE_ERROR[4110] */ $new_keyword,
+      /* HH_IGNORE_ERROR[4110] */ $module_keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $left_brace,
       /* HH_IGNORE_ERROR[4110] */ $right_brace,
@@ -110,7 +123,8 @@ final class ModuleDeclaration extends Node {
   public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
-      'keyword' => $this->_keyword,
+      'new_keyword' => $this->_new_keyword,
+      'module_keyword' => $this->_module_keyword,
       'name' => $this->_name,
       'left_brace' => $this->_left_brace,
       'right_brace' => $this->_right_brace,
@@ -127,8 +141,12 @@ final class ModuleDeclaration extends Node {
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
-    $keyword =
-      $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
+    $new_keyword = $this->_new_keyword === null
+      ? null
+      : $rewriter($this->_new_keyword, $parents);
+    $module_keyword = $this->_module_keyword === null
+      ? null
+      : $rewriter($this->_module_keyword, $parents);
     $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $left_brace = $this->_left_brace === null
       ? null
@@ -138,7 +156,8 @@ final class ModuleDeclaration extends Node {
       : $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
-      $keyword === $this->_keyword &&
+      $new_keyword === $this->_new_keyword &&
+      $module_keyword === $this->_module_keyword &&
       $name === $this->_name &&
       $left_brace === $this->_left_brace &&
       $right_brace === $this->_right_brace
@@ -147,7 +166,8 @@ final class ModuleDeclaration extends Node {
     }
     return new static(
       $attribute_spec as ?Node,
-      $keyword as ?Node,
+      $new_keyword as ?Node,
+      $module_keyword as ?Node,
       $name as ?Node,
       $left_brace as ?Node,
       $right_brace as ?Node,
@@ -164,7 +184,8 @@ final class ModuleDeclaration extends Node {
     }
     return new static(
       $value,
-      $this->_keyword,
+      $this->_new_keyword,
+      $this->_module_keyword,
       $this->_name,
       $this->_left_brace,
       $this->_right_brace,
@@ -189,16 +210,53 @@ final class ModuleDeclaration extends Node {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
-  public function getKeywordUNTYPED(): ?Node {
-    return $this->_keyword;
+  public function getNewKeywordUNTYPED(): ?Node {
+    return $this->_new_keyword;
   }
 
-  public function withKeyword(?Node $value): this {
-    if ($value === $this->_keyword) {
+  public function withNewKeyword(?Node $value): this {
+    if ($value === $this->_new_keyword) {
       return $this;
     }
     return new static(
       $this->_attribute_spec,
+      $value,
+      $this->_module_keyword,
+      $this->_name,
+      $this->_left_brace,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasNewKeyword(): bool {
+    return $this->_new_keyword !== null;
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getNewKeyword(): ?Node {
+    return $this->_new_keyword;
+  }
+
+  /**
+   * @return unknown
+   */
+  public function getNewKeywordx(): Node {
+    return TypeAssert\not_null($this->getNewKeyword());
+  }
+
+  public function getModuleKeywordUNTYPED(): ?Node {
+    return $this->_module_keyword;
+  }
+
+  public function withModuleKeyword(?Node $value): this {
+    if ($value === $this->_module_keyword) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_new_keyword,
       $value,
       $this->_name,
       $this->_left_brace,
@@ -206,22 +264,22 @@ final class ModuleDeclaration extends Node {
     );
   }
 
-  public function hasKeyword(): bool {
-    return $this->_keyword !== null;
+  public function hasModuleKeyword(): bool {
+    return $this->_module_keyword !== null;
   }
 
   /**
    * @return unknown
    */
-  public function getKeyword(): ?Node {
-    return $this->_keyword;
+  public function getModuleKeyword(): ?Node {
+    return $this->_module_keyword;
   }
 
   /**
    * @return unknown
    */
-  public function getKeywordx(): Node {
-    return TypeAssert\not_null($this->getKeyword());
+  public function getModuleKeywordx(): Node {
+    return TypeAssert\not_null($this->getModuleKeyword());
   }
 
   public function getNameUNTYPED(): ?Node {
@@ -234,7 +292,8 @@ final class ModuleDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_keyword,
+      $this->_new_keyword,
+      $this->_module_keyword,
       $value,
       $this->_left_brace,
       $this->_right_brace,
@@ -269,7 +328,8 @@ final class ModuleDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_keyword,
+      $this->_new_keyword,
+      $this->_module_keyword,
       $this->_name,
       $value,
       $this->_right_brace,
@@ -304,7 +364,8 @@ final class ModuleDeclaration extends Node {
     }
     return new static(
       $this->_attribute_spec,
-      $this->_keyword,
+      $this->_new_keyword,
+      $this->_module_keyword,
       $this->_name,
       $this->_left_brace,
       $value,

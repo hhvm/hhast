@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ea06b22ff14ed826d38a1683a41d6019>>
+ * @generated SignedSource<<ddef611d5be3b8203a549631f24071a0>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -378,7 +378,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<methodish_declaration|property_declaration|xhp_class_attribute_declaration>',
     'list<methodish_declaration|require_clause>',
     'list<methodish_declaration|trait_use>',
-    'list<methodish_declaration|trait_use_conflict_resolution>',
     'list<methodish_declaration|type_const_declaration>',
     'list<methodish_declaration|xhp_children_declaration|xhp_class_attribute_declaration>',
     'list<methodish_declaration|xhp_class_attribute_declaration>',
@@ -390,8 +389,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<require_clause|trait_use>',
     'list<require_clause|type_const_declaration>',
     'list<trait_use>',
-    'list<trait_use_conflict_resolution>',
-    'list<trait_use|trait_use_conflict_resolution>',
     'list<trait_use|type_const_declaration>',
     'list<type_const_declaration>',
     'list<xhp_children_declaration>',
@@ -1299,25 +1296,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'if_statement',
     'return_statement',
   ],
-  'elseif_clause.elseif_condition' => keyset[
-    'binary_expression',
-    'function_call_expression',
-    'literal',
-    'variable',
-  ],
-  'elseif_clause.elseif_keyword' => keyset[
-    'token:elseif',
-  ],
-  'elseif_clause.elseif_left_paren' => keyset[
-    'token:(',
-  ],
-  'elseif_clause.elseif_right_paren' => keyset[
-    'token:)',
-  ],
-  'elseif_clause.elseif_statement' => keyset[
-    'compound_statement',
-    'expression_statement',
-  ],
   'end_of_file.end_of_file_token' => keyset[
     'token:end_of_file',
   ],
@@ -2218,10 +2196,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'else_clause',
     'missing',
   ],
-  'if_statement.if_elseif_clauses' => keyset[
-    'list<elseif_clause>',
-    'missing',
-  ],
   'if_statement.if_keyword' => keyset[
     'token:if',
   ],
@@ -2513,8 +2487,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:name',
     'token:namespace',
     'token:variable',
-    'trait_use_alias_item',
-    'trait_use_precedence_item',
     'tuple_expression',
     'tuple_type_specifier',
     'type_constant',
@@ -2533,7 +2505,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'list_item.list_separator' => keyset[
     'missing',
     'token:,',
-    'token:;',
     'token:\\',
   ],
   'markup_section.markup_hashbang' => keyset[
@@ -3001,7 +2972,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'scope_resolution_expression.scope_resolution_qualifier' => keyset[
     'pipe_variable',
     'qualified_name',
-    'simple_type_specifier',
     'token:XHP_class_name',
     'token:name',
     'token:parent',
@@ -3110,6 +3080,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'conditional_expression',
     'darray_intrinsic_expression',
     'dictionary_intrinsic_expression',
+    'enum_class_label',
     'function_call_expression',
     'function_pointer_expression',
     'keyset_intrinsic_expression',
@@ -3291,54 +3262,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'trait_use.trait_use_semicolon' => keyset[
     'token:;',
-  ],
-  'trait_use_alias_item.trait_use_alias_item_aliased_name' => keyset[
-    'missing',
-    'simple_type_specifier',
-  ],
-  'trait_use_alias_item.trait_use_alias_item_aliasing_name' => keyset[
-    'scope_resolution_expression',
-    'simple_type_specifier',
-  ],
-  'trait_use_alias_item.trait_use_alias_item_keyword' => keyset[
-    'token:as',
-  ],
-  'trait_use_alias_item.trait_use_alias_item_modifiers' => keyset[
-    'list<token:private>',
-    'list<token:protected>',
-    'list<token:public>',
-    'missing',
-  ],
-  'trait_use_conflict_resolution.trait_use_conflict_resolution_clauses' =>
-    keyset[
-      'list<list_item<trait_use_alias_item>>',
-      'list<list_item<trait_use_alias_item>|list_item<trait_use_precedence_item>>',
-      'list<list_item<trait_use_precedence_item>>',
-      'missing',
-    ],
-  'trait_use_conflict_resolution.trait_use_conflict_resolution_keyword' =>
-    keyset[
-      'token:use',
-    ],
-  'trait_use_conflict_resolution.trait_use_conflict_resolution_left_brace' =>
-    keyset[
-      'token:{',
-    ],
-  'trait_use_conflict_resolution.trait_use_conflict_resolution_names' => keyset[
-    'list<list_item<simple_type_specifier>>',
-  ],
-  'trait_use_conflict_resolution.trait_use_conflict_resolution_right_brace' =>
-    keyset[
-      'token:}',
-    ],
-  'trait_use_precedence_item.trait_use_precedence_item_keyword' => keyset[
-    'token:insteadof',
-  ],
-  'trait_use_precedence_item.trait_use_precedence_item_name' => keyset[
-    'scope_resolution_expression',
-  ],
-  'trait_use_precedence_item.trait_use_precedence_item_removed_names' => keyset[
-    'list<list_item<simple_type_specifier>>',
   ],
   'try_statement.try_catch_clauses' => keyset[
     'list<catch_clause>',
