@@ -45,7 +45,6 @@ class MustUseBracesForControlFlowLinter extends AutoFixingASTLinter {
   private function getLastHeadToken(Node $node): Token {
     if (
       $node is IfStatement ||
-      $node is ElseifClause ||
       $node is ForeachStatement ||
       $node is ForStatement ||
       $node is WhileStatement
