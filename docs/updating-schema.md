@@ -5,7 +5,7 @@ changes, HHAST needs updating.
 1. apt update; apt install TEXT_EDITOR_OF_YOUR_CHOICE
 2. edit /etc/apt/sources.list - remove `-4.x` suffix from dl.hhvm.com repository
 3. apt update; apt remove hhvm; apt install hhvm-nightly (or `apt install hhvm` for latest stable release)
-4. `cd /workspaces; git clone https://github.com/facebook/hhvm.git`
+4. `cd /workspaces; git clone --depth 1 https://github.com/facebook/hhvm.git`
 5. `cd hhast`
 6. `bin/update-schema --hhvm-path=/workspaces/hhvm`
 7. wait 5-15 minutes as it parses and analyzes the hack/hhvm unit tests to infer valid node relationships
