@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f6b5f75efe1a025c3394a008fa9c563d>>
+ * @generated SignedSource<<e090d43c27fa5ecd419e5be64754173c>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -82,7 +82,6 @@ function node_from_json_unwrapped(
     'echo_statement' => HHAST\EchoStatement::class,
     'element_initializer' => HHAST\ElementInitializer::class,
     'else_clause' => HHAST\ElseClause::class,
-    'elseif_clause' => HHAST\ElseifClause::class,
     'embedded_braced_expression' => HHAST\EmbeddedBracedExpression::class,
     'embedded_member_selection_expression' =>
       HHAST\EmbeddedMemberSelectionExpression::class,
@@ -168,9 +167,6 @@ function node_from_json_unwrapped(
     'switch_statement' => HHAST\SwitchStatement::class,
     'throw_statement' => HHAST\ThrowStatement::class,
     'trait_use' => HHAST\TraitUse::class,
-    'trait_use_alias_item' => HHAST\TraitUseAliasItem::class,
-    'trait_use_conflict_resolution' => HHAST\TraitUseConflictResolution::class,
-    'trait_use_precedence_item' => HHAST\TraitUsePrecedenceItem::class,
     'try_statement' => HHAST\TryStatement::class,
     'tuple_expression' => HHAST\TupleExpression::class,
     'tuple_type_explicit_specifier' => HHAST\TupleTypeExplicitSpecifier::class,
