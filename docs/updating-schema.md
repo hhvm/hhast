@@ -1,10 +1,9 @@
 HHAST is closely coupled to Hack's syntax tree, so if the schema of `hh_parse`
 changes, HHAST needs updating.
 
-0. Get a github codespace or use vscode devccontainers. If a codespace, pick the biggest one you can for this (in general, the smallest are good enough, but here more power is useful).
-1. apt update; apt install TEXT_EDITOR_OF_YOUR_CHOICE
-2. edit /etc/apt/sources.list - remove `-4.x` suffix from dl.hhvm.com repository
-3. apt update; apt remove hhvm; apt install hhvm-nightly (or `apt install hhvm` for latest stable release)
+1. Get a github codespace or use vscode devccontainers. If a codespace, pick the biggest one you can for this (in general, the smallest are good enough, but here more power is useful).
+2. `code /etc/apt/sources.list` - remove `-4.x` suffix from dl.hhvm.com repository
+3. `apt update; apt remove -y hhvm; apt install -y hhvm-nightly` (or `apt install hhvm` for latest stable release)
 4. `cd /workspaces; git clone https://github.com/facebook/hhvm.git`
 5. `cd hhast`
 6. `bin/update-schema --hhvm-path=/workspaces/hhvm`
@@ -16,7 +15,7 @@ changes, HHAST needs updating.
 12. Create pull request
 13. Once merged and CI is green on main branch, tag a new release, matching the new minimum HHVM version
 
-* Steps 1-3 could be simplified by https://github.com/hhvm/hhvm-docker/issues/22
+* Steps 1-2 could be simplified by https://github.com/hhvm/hhvm-docker/issues/22
 * If some valid node relationships are banned:
   1. Add a SyntaxExample file to src/__Private/codegen/data/
   2. `git clean -ffdx codegen/; git checkout codegen/`
