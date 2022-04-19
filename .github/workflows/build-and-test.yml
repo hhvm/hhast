@@ -13,8 +13,6 @@ jobs:
       matrix:
         os: [ ubuntu , macos ]
         hhvm:
-          - '4.157'
-          - latest
           - nightly
     runs-on: ${{matrix.os}}-latest
     steps:
