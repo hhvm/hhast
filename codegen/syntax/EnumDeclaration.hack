@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<87f4d568ece8c6dee75fbd9771da2f30>>
+ * @generated SignedSource<<597936d21c9142ccc2bc7a871fa4dad9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,6 +15,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   const string SYNTAX_KIND = 'enum_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
+  private ?Node $_modifiers;
   private EnumToken $_keyword;
   private NameToken $_name;
   private ColonToken $_colon;
@@ -27,6 +28,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
+    ?Node $modifiers,
     EnumToken $keyword,
     NameToken $name,
     ColonToken $colon,
@@ -39,6 +41,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
+    $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_colon = $colon;
@@ -68,6 +71,14 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
+    $modifiers = Node::fromJSON(
+      ($json['enum_modifiers'] ?? dict['kind' => 'missing']) as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       ($json['enum_keyword']) as dict<_, _>,
       $file,
@@ -154,6 +165,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $colon,
@@ -171,6 +183,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
+      'modifiers' => $this->_modifiers,
       'keyword' => $this->_keyword,
       'name' => $this->_name,
       'colon' => $this->_colon,
@@ -193,6 +206,9 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
     $colon = $rewriter($this->_colon, $parents);
@@ -208,6 +224,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
+      $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
       $name === $this->_name &&
       $colon === $this->_colon &&
@@ -222,6 +239,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
+      $modifiers as ?Node,
       $keyword as EnumToken,
       $name as NameToken,
       $colon as ColonToken,
@@ -244,6 +262,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $value,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_colon,
@@ -274,6 +293,47 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
+  public function getModifiersUNTYPED(): ?Node {
+    return $this->_modifiers;
+  }
+
+  public function withModifiers(?Node $value): this {
+    if ($value === $this->_modifiers) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $value,
+      $this->_keyword,
+      $this->_name,
+      $this->_colon,
+      $this->_base,
+      $this->_type,
+      $this->_left_brace,
+      $this->_use_clauses,
+      $this->_enumerators,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasModifiers(): bool {
+    return $this->_modifiers !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getModifiers(): ?Node {
+    return $this->_modifiers;
+  }
+
+  /**
+   * @return
+   */
+  public function getModifiersx(): Node {
+    return TypeAssert\not_null($this->getModifiers());
+  }
+
   public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
@@ -284,6 +344,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $value,
       $this->_name,
       $this->_colon,
@@ -324,6 +385,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $value,
       $this->_colon,
@@ -364,6 +426,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $value,
@@ -404,6 +467,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_colon,
@@ -444,6 +508,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_colon,
@@ -484,6 +549,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_colon,
@@ -524,6 +590,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_colon,
@@ -564,6 +631,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_colon,
@@ -604,6 +672,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_colon,

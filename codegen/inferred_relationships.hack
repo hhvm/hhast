@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddef611d5be3b8203a549631f24071a0>>
+ * @generated SignedSource<<e531a43ee1a61b42ddc2ccfc3decdde4>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -24,6 +24,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'alias_declaration.alias_keyword' => keyset[
     'token:newtype',
     'token:type',
+  ],
+  'alias_declaration.alias_modifiers' => keyset[
+    'missing',
   ],
   'alias_declaration.alias_name' => keyset[
     'token:name',
@@ -1382,6 +1385,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'enum_declaration.enum_left_brace' => keyset[
     'token:{',
+  ],
+  'enum_declaration.enum_modifiers' => keyset[
+    'missing',
   ],
   'enum_declaration.enum_name' => keyset[
     'token:name',
@@ -3759,6 +3765,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<darray_intrinsic_expression>|list_item<varray_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<function_call_expression>|list_item<keyset_intrinsic_expression>|list_item<literal>|list_item<vector_intrinsic_expression>>',
+    'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<literal>>',

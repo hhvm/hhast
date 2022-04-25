@@ -1,7 +1,7 @@
 HHAST is closely coupled to Hack's syntax tree, so if the schema of `hh_parse`
 changes, HHAST needs updating.
 
-0. Get a github codespace or use vscode devccontainers. If a codespace, pick the biggest one you can for this (in general, the smallest are good enough, but here more power is useful).
+0. Get a github codespace or use vscode devcontainers. If a codespace, pick the biggest one you can for this (in general, the smallest are good enough, but here more power is useful).
 1. apt update; apt install TEXT_EDITOR_OF_YOUR_CHOICE
 2. edit /etc/apt/sources.list - remove `-4.x` suffix from dl.hhvm.com repository
 3. apt update; apt remove hhvm; apt install hhvm-nightly (or `apt install hhvm` for latest stable release)
