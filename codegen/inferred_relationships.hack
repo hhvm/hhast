@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e531a43ee1a61b42ddc2ccfc3decdde4>>
+ * @generated SignedSource<<dc3ed9855e0794a50a1ca633ff4f2344>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -26,6 +26,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:type',
   ],
   'alias_declaration.alias_modifiers' => keyset[
+    'list<token:internal>',
     'missing',
   ],
   'alias_declaration.alias_name' => keyset[
@@ -440,6 +441,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<token:abstract>',
     'list<token:abstract|token:final>',
     'list<token:final>',
+    'list<token:internal>',
     'missing',
   ],
   'classish_declaration.classish_name' => keyset[
@@ -1387,6 +1389,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:{',
   ],
   'enum_declaration.enum_modifiers' => keyset[
+    'list<token:internal>',
     'missing',
   ],
   'enum_declaration.enum_name' => keyset[
@@ -2110,6 +2113,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<token:final|token:public>',
     'list<token:final|token:public|token:static>',
     'list<token:final|token:static>',
+    'list<token:internal>',
+    'list<token:internal|token:static>',
     'list<token:private>',
     'list<token:private|token:static>',
     'list<token:protected>',
@@ -2561,6 +2566,25 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
     'token:;',
   ],
+  'module_declaration.module_declaration_attribute_spec' => keyset[
+    'missing',
+    'old_attribute_specification',
+  ],
+  'module_declaration.module_declaration_left_brace' => keyset[
+    'token:{',
+  ],
+  'module_declaration.module_declaration_module_keyword' => keyset[
+    'token:module',
+  ],
+  'module_declaration.module_declaration_name' => keyset[
+    'token:name',
+  ],
+  'module_declaration.module_declaration_new_keyword' => keyset[
+    'token:new',
+  ],
+  'module_declaration.module_declaration_right_brace' => keyset[
+    'token:}',
+  ],
   'namespace_body.namespace_declarations' => keyset[
     'list<alias_declaration>',
     'list<alias_declaration|enum_declaration|function_declaration|namespace_declaration|namespace_use_declaration>',
@@ -2854,6 +2878,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<property_declarator>>',
   ],
   'property_declaration.property_modifiers' => keyset[
+    'list<token:internal>',
+    'list<token:internal|token:static>',
     'list<token:private>',
     'list<token:private|token:static>',
     'list<token:protected>',
@@ -2994,6 +3020,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|markup_section>',
     'list<alias_declaration|const_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
+    'list<alias_declaration|end_of_file|enum_declaration|file_attribute_specification|markup_section|module_declaration>',
     'list<alias_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<alias_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
@@ -3033,6 +3060,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<end_of_file|enum_declaration|markup_section>',
     'list<end_of_file|enum_declaration|markup_section|namespace_use_declaration>',
     'list<end_of_file|file_attribute_specification|function_declaration|markup_section>',
+    'list<end_of_file|file_attribute_specification|function_declaration|markup_section|module_declaration>',
+    'list<end_of_file|file_attribute_specification|markup_section|module_declaration>',
     'list<end_of_file|file_attribute_specification|markup_section|namespace_declaration>',
     'list<end_of_file|function_declaration>',
     'list<end_of_file|function_declaration|markup_section>',
