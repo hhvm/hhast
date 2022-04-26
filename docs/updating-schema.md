@@ -2,7 +2,7 @@ HHAST is closely coupled to Hack's syntax tree, so if the schema of `hh_parse`
 changes, HHAST needs updating.
 
 1. Get a github codespace or use vscode devcontainers. If a codespace, pick the biggest one you can for this (in general, the smallest are good enough, but here more power is useful).
-2. `code /etc/apt/sources.list` - remove `-4.x` suffix from dl.hhvm.com repository
+2. Edit `/etc/apt/sources.list` - remove `-4.x` suffix from dl.hhvm.com repository
 3. `apt update; apt remove -y hhvm; apt install -y hhvm-nightly` (or `apt install hhvm` for latest stable release)
 4. `cd /workspaces; git clone https://github.com/facebook/hhvm.git`
 5. `cd hhast`
