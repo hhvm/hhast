@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d4fc81d224048c5ec9315137fe137818>>
+ * @generated SignedSource<<f0df953e4d2f7ca855c235fd696141e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,6 +15,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   const string SYNTAX_KIND = 'alias_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
+  private ?Node $_modifiers;
   private Token $_keyword;
   private NameToken $_name;
   private ?TypeParameters $_generic_parameter;
@@ -25,6 +26,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
+    ?Node $modifiers,
     Token $keyword,
     NameToken $name,
     ?TypeParameters $generic_parameter,
@@ -35,6 +37,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
+    $this->_modifiers = $modifiers;
     $this->_keyword = $keyword;
     $this->_name = $name;
     $this->_generic_parameter = $generic_parameter;
@@ -63,6 +66,14 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       'OldAttributeSpecification',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
+    $modifiers = Node::fromJSON(
+      ($json['alias_modifiers'] ?? dict['kind' => 'missing']) as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
       ($json['alias_keyword']) as dict<_, _>,
       $file,
@@ -133,6 +144,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     );
     return new static(
       /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
+      /* HH_IGNORE_ERROR[4110] */ $modifiers,
       /* HH_IGNORE_ERROR[4110] */ $keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $generic_parameter,
@@ -148,6 +160,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   public function getChildren(): dict<string, Node> {
     return dict[
       'attribute_spec' => $this->_attribute_spec,
+      'modifiers' => $this->_modifiers,
       'keyword' => $this->_keyword,
       'name' => $this->_name,
       'generic_parameter' => $this->_generic_parameter,
@@ -168,6 +181,9 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
+    $modifiers = $this->_modifiers === null
+      ? null
+      : $rewriter($this->_modifiers, $parents);
     $keyword = $rewriter($this->_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
     $generic_parameter = $this->_generic_parameter === null
@@ -181,6 +197,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
+      $modifiers === $this->_modifiers &&
       $keyword === $this->_keyword &&
       $name === $this->_name &&
       $generic_parameter === $this->_generic_parameter &&
@@ -193,6 +210,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
+      $modifiers as ?Node,
       $keyword as Token,
       $name as NameToken,
       $generic_parameter as ?TypeParameters,
@@ -213,6 +231,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $value,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,
@@ -241,6 +260,45 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
+  public function getModifiersUNTYPED(): ?Node {
+    return $this->_modifiers;
+  }
+
+  public function withModifiers(?Node $value): this {
+    if ($value === $this->_modifiers) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $value,
+      $this->_keyword,
+      $this->_name,
+      $this->_generic_parameter,
+      $this->_constraint,
+      $this->_equal,
+      $this->_type,
+      $this->_semicolon,
+    );
+  }
+
+  public function hasModifiers(): bool {
+    return $this->_modifiers !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getModifiers(): ?Node {
+    return $this->_modifiers;
+  }
+
+  /**
+   * @return
+   */
+  public function getModifiersx(): Node {
+    return TypeAssert\not_null($this->getModifiers());
+  }
+
   public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
@@ -251,6 +309,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $value,
       $this->_name,
       $this->_generic_parameter,
@@ -289,6 +348,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $value,
       $this->_generic_parameter,
@@ -327,6 +387,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $value,
@@ -365,6 +426,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,
@@ -403,6 +465,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,
@@ -441,6 +504,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,
@@ -485,6 +549,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $this->_attribute_spec,
+      $this->_modifiers,
       $this->_keyword,
       $this->_name,
       $this->_generic_parameter,

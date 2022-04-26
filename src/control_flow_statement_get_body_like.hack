@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 function control_flow_statement_get_body_like(Node $node): ?IStatement {
-  if ($node is IfStatement || $node is ElseifClause || $node is ElseClause) {
+  if ($node is IfStatement || $node is ElseClause) {
     return $node->getStatement();
   }
   if (

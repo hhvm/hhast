@@ -1,6 +1,6 @@
 { "description" :
   "@generated JSON schema of the Hack Full Fidelity Parser AST",
-  "version" : "2022-04-06-0002",
+  "version" : "2022-04-20-0001",
   "trivia" : [
     { "trivia_kind_name" : "WhiteSpace",
       "trivia_type_name" : "whitespace" },
@@ -79,8 +79,6 @@
       "token_text" : "echo" },
     { "token_kind" : "Else",
       "token_text" : "else" },
-    { "token_kind" : "Elseif",
-      "token_text" : "elseif" },
     { "token_kind" : "Empty",
       "token_text" : "empty" },
     { "token_kind" : "Endfor",
@@ -524,6 +522,7 @@
       "prefix" : "enum",
       "fields" : [
         { "field_name" : "attribute_spec" },
+        { "field_name" : "modifiers" },
         { "field_name" : "keyword" },
         { "field_name" : "name" },
         { "field_name" : "colon" },
@@ -588,6 +587,7 @@
       "prefix" : "alias",
       "fields" : [
         { "field_name" : "attribute_spec" },
+        { "field_name" : "modifiers" },
         { "field_name" : "keyword" },
         { "field_name" : "name" },
         { "field_name" : "generic_parameter" },
@@ -793,36 +793,6 @@
       "fields" : [
         { "field_name" : "left_brace" },
         { "field_name" : "elements" },
-        { "field_name" : "right_brace" }
-      ] },
-    { "kind_name" : "TraitUsePrecedenceItem",
-      "type_name" : "trait_use_precedence_item",
-      "description" : "trait_use_precedence_item",
-      "prefix" : "trait_use_precedence_item",
-      "fields" : [
-        { "field_name" : "name" },
-        { "field_name" : "keyword" },
-        { "field_name" : "removed_names" }
-      ] },
-    { "kind_name" : "TraitUseAliasItem",
-      "type_name" : "trait_use_alias_item",
-      "description" : "trait_use_alias_item",
-      "prefix" : "trait_use_alias_item",
-      "fields" : [
-        { "field_name" : "aliasing_name" },
-        { "field_name" : "keyword" },
-        { "field_name" : "modifiers" },
-        { "field_name" : "aliased_name" }
-      ] },
-    { "kind_name" : "TraitUseConflictResolution",
-      "type_name" : "trait_use_conflict_resolution",
-      "description" : "trait_use_conflict_resolution",
-      "prefix" : "trait_use_conflict_resolution",
-      "fields" : [
-        { "field_name" : "keyword" },
-        { "field_name" : "names" },
-        { "field_name" : "left_brace" },
-        { "field_name" : "clauses" },
         { "field_name" : "right_brace" }
       ] },
     { "kind_name" : "TraitUse",
@@ -1052,19 +1022,7 @@
         { "field_name" : "condition" },
         { "field_name" : "right_paren" },
         { "field_name" : "statement" },
-        { "field_name" : "elseif_clauses" },
         { "field_name" : "else_clause" }
-      ] },
-    { "kind_name" : "ElseifClause",
-      "type_name" : "elseif_clause",
-      "description" : "elseif_clause",
-      "prefix" : "elseif",
-      "fields" : [
-        { "field_name" : "keyword" },
-        { "field_name" : "left_paren" },
-        { "field_name" : "condition" },
-        { "field_name" : "right_paren" },
-        { "field_name" : "statement" }
       ] },
     { "kind_name" : "ElseClause",
       "type_name" : "else_clause",
@@ -2111,7 +2069,8 @@
       "prefix" : "module_declaration",
       "fields" : [
         { "field_name" : "attribute_spec" },
-        { "field_name" : "keyword" },
+        { "field_name" : "new_keyword" },
+        { "field_name" : "module_keyword" },
         { "field_name" : "name" },
         { "field_name" : "left_brace" },
         { "field_name" : "right_brace" }

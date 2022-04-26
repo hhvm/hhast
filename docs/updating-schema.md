@@ -4,7 +4,7 @@ changes, HHAST needs updating.
 1. Get a github codespace or use vscode devcontainers. If a codespace, pick the biggest one you can for this (in general, the smallest are good enough, but here more power is useful).
 2. Edit `/etc/apt/sources.list` - remove `-4.x` suffix from dl.hhvm.com repository
 3. `apt update; apt remove -y hhvm; apt install -y hhvm-nightly` (or `apt install hhvm` for latest stable release)
-4. `cd /workspaces; git clone https://github.com/facebook/hhvm.git`
+4. `cd /workspaces; git clone --depth 1 https://github.com/facebook/hhvm.git`
 5. `cd hhast`
 6. `bin/update-schema --hhvm-path=/workspaces/hhvm`
 7. wait 5-15 minutes as it parses and analyzes the hack/hhvm unit tests to infer valid node relationships

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9af17fe7e2491276378eaae3a7d39ac9>>
+ * @generated SignedSource<<dac822e987e48ce8047207dba3899d62>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -61,7 +61,6 @@ class TokenClassMap {
     'double' => HHAST\DoubleToken::class,
     'echo' => HHAST\EchoToken::class,
     'else' => HHAST\ElseToken::class,
-    'elseif' => HHAST\ElseifToken::class,
     'empty' => HHAST\EmptyToken::class,
     'endfor' => HHAST\EndforToken::class,
     'endforeach' => HHAST\EndforeachToken::class,

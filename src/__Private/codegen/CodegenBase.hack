@@ -156,7 +156,6 @@ abstract class CodegenBase {
       HHAST\IControlFlowStatement::class => keyset[
         HHAST\ILoopStatement::class,
         HHAST\ElseClause::class,
-        HHAST\ElseifClause::class,
         HHAST\IfStatement::class,
         HHAST\SwitchStatement::class,
       ],
@@ -168,7 +167,6 @@ abstract class CodegenBase {
         HHAST\PropertyDeclaration::class,
         HHAST\RequireClause::class,
         HHAST\TraitUse::class,
-        HHAST\TraitUseConflictResolution::class,
         HHAST\TypeConstDeclaration::class,
         HHAST\XHPCategoryDeclaration::class,
         HHAST\XHPClassAttributeDeclaration::class,
@@ -305,8 +303,6 @@ abstract class CodegenBase {
         HHAST\DefaultLabel::class,
       ],
       HHAST\ITraitUseItem::class => keyset[
-        HHAST\TraitUseAliasItem::class,
-        HHAST\TraitUsePrecedenceItem::class,
       ],
       HHAST\ITypeSpecifier::class => Keyset\union(
         keyset[
