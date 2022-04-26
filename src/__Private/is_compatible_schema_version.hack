@@ -21,14 +21,15 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  */
 function is_compatible_schema_version(string $other_version): bool {
   invariant(
-    SCHEMA_VERSION === '2022-04-13-0002',
+    SCHEMA_VERSION === '2022-04-20-0001',
     '%s needs updating',
     __FILE__,
   );
-
-  if ($other_version === SCHEMA_VERSION) {
-    return true;
+  switch ($other_version) {
+    case '2022-04-20-0001': // Adding enum modifiers and alias modifiers
+    case '2022-04-13-0002': // Breaking change
+      return true;
+    default:
+      return false;
   }
-
-  return false;
 }
