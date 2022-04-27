@@ -232,6 +232,16 @@ class MigrationCLI extends CLIWithRequiredArguments {
       ),
       CLIOptions\flag(
         () ==> {
+          $this->migrations[] =
+            LegacyArrayTypesToHackArrayTypesMigration::class;
+          $this->migrations[] =
+            LegacyArrayLiteralsToHackArrayLiteralsMigration::class;
+        },
+        'Combines --legacy-array-literals-to-hack-array-literals and --legacy-array-types-to-hack-array-types',
+        '--legacy-arrays-to-hack-arrays',
+      ),
+      CLIOptions\flag(
+        () ==> {
           $this->includeVendor = true;
         },
         'Also migrate files in vendor/ subdirectories',

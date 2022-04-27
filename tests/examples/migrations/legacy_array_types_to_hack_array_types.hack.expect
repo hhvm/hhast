@@ -1,5 +1,7 @@
 namespace Facebook\HHAST\_Private\NoNameCollisionPlz\LegacyArrayTypesToHackArrayTypesMigration;
 
+// HHAST_IGNORE_ALL[5624] HHClientLinter is detecting useless generics, this trips of HHClientDuplicatedLintErrorTest
+
 // Ignoring hackfmt because I want to add test with the uncommon trailing comma.
 
 //hackfmt-ignore `vec<vec<int,>,>`
