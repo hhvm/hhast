@@ -1,0 +1,35 @@
+namespace Facebook\HHAST\_Private\NoNameCollisionPlz;
+
+// Ignoring hackfmt because I want to add test with the uncommon trailing comma.
+
+//hackfmt-ignore `vec<vec<int,>,>`
+type TNestedVec = /*1*/varray/*2*/</*3*/varray/*4*/</*5*/int/*6*//*7*/>/*8*//*9*/>/*a*/;
+
+//hackfmt-ignore `dict<int, dict<int, int,>,>`
+type TNestedDict = /*1*/darray/*2*/</*3*/int/*4*/,/*5*/darray/*6*/</*7*/int/*8*/,/*9*/int/*a*/,/*b*/>/*c*/,/*d*/>/*e*/;
+
+// hackfmt-ignore
+type TCompoundInnerType = varray<shape('a' => int),>;
+
+// hackfmt-ignore
+type TGenericType = darray<classname<nonnull>, classname<mixed>,>;
+
+type TWithoutTrailingComma = varray<darray<int, varray<string>>>;
+
+abstract class InExtends<T> {}
+
+function type_spec_of<reify T>(): void {}
+
+abstract class InOtherContexts extends InExtends<darray<int, varray<string>>> {
+
+  const type TClassTypeConstant = darray<int, varray<string>>;
+  abstract public function paramType(darray<int, varray<string>> $d): void;
+  abstract public function returnType(): darray<int, varray<string>>;
+  abstract public function inAs<T as darray<int, varray<string>>>(): void;
+  abstract public function inWhere<T>(): void
+  where
+    T = darray<int, varray<string>>;
+  public function inTypeSpecOf(): void {
+    $spec = type_spec_of<darray<int, varray<string>>>();
+  }
+}

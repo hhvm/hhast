@@ -23,6 +23,7 @@ use type Facebook\HHAST\{
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
+  LegacyArrayTypesToHackArrayTypesMigration,
   OptionalShapeFieldsMigration,
   RemoveXHPChildDeclarationsMigration,
   TopLevelRequiresMigration,
@@ -56,10 +57,8 @@ class MigrationCLI extends CLIWithRequiredArguments {
       CLIOptions\with_required_string(
         ($class) ==> {
           try {
-            $this->migrations[] = TypeAssert\classname_of(
-              BaseMigration::class,
-              $class,
-            );
+            $this->migrations[] =
+              TypeAssert\classname_of(BaseMigration::class, $class);
           } catch (TypeAssert\IncorrectTypeException $_) {
             throw new ExitException(1, Str\format(
               "'%s' is not a subclass of %s",
@@ -214,6 +213,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
         '--migrate-fixme-4110',
       ),
       self::removed('--ref-to-inout', '>=4.21.7 <4.29'),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] =
+            LegacyArrayTypesToHackArrayTypesMigration::class;
+        },
+        'Migrate types: varray<string> to vec<string> and darray<string, string> to dict<string, string>',
+        '--legacy-array-types-to-hack-array-types',
+      ),
       CLIOptions\flag(
         () ==> {
           $this->includeVendor = true;
