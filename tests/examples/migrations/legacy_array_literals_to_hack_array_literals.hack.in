@@ -1,0 +1,17 @@
+namespace Facebook\HHAST\_Private\NoNameCollisionPlz\LegacyArrayLiteralsToHackArrayLiteralsMigration;
+
+const mixed NESTED_VEC = /*1*/
+  varray /*2*/ [ /*3*/
+    varray /*4*/ [ /*5*/
+      0 /*6*/ , /*7*/
+      1 /*8*/ , /*9*/
+      2 /*a*/, /*b*/
+    ] /*c*/,
+  ] /*d*/;
+
+const mixed NESTED_DICT = /*1*/
+  darray /*2*/ [ /*3*/
+    0 /*4*/ => /*5*/ darray /*6*/ [ /*7*/
+      0 /*8*/ => /*9*/ 1 /*a*/, /*b*/
+    ] /*c*/, /*d*/
+  ] /*e*/;

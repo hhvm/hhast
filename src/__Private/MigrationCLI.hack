@@ -23,6 +23,7 @@ use type Facebook\HHAST\{
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
+  LegacyArrayLiteralsToHackArrayLiteralsMigration,
   LegacyArrayTypesToHackArrayTypesMigration,
   OptionalShapeFieldsMigration,
   RemoveXHPChildDeclarationsMigration,
@@ -220,6 +221,14 @@ class MigrationCLI extends CLIWithRequiredArguments {
         },
         'Migrate types: varray<string> to vec<string> and darray<string, string> to dict<string, string>',
         '--legacy-array-types-to-hack-array-types',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] =
+            LegacyArrayLiteralsToHackArrayLiteralsMigration::class;
+        },
+        'Migrate literals: varray[1, 2] to vec[1, 2] and darray[1 => 2, 3 => 4] to dict[1 => 2, 3 => 4]',
+        '--legacy-array-literals-to-hack-array-literals',
       ),
       CLIOptions\flag(
         () ==> {

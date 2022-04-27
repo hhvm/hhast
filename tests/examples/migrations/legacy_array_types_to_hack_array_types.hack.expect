@@ -1,4 +1,4 @@
-namespace Facebook\HHAST\_Private\NoNameCollisionPlz;
+namespace Facebook\HHAST\_Private\NoNameCollisionPlz\LegacyArrayTypesToHackArrayTypesMigration;
 
 // Ignoring hackfmt because I want to add test with the uncommon trailing comma.
 
