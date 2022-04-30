@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<066bf009dfdf1ba8c04e96cc1482b4bb>>
+ * @generated SignedSource<<db73252c6faaa6a1a0a5e75670823acb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,20 +14,20 @@ final class ModuleDeclaration extends Node {
 
   const string SYNTAX_KIND = 'module_declaration';
 
-  private ?OldAttributeSpecification $_attribute_spec;
-  private NewToken $_new_keyword;
-  private ModuleToken $_module_keyword;
-  private NameToken $_name;
-  private LeftBraceToken $_left_brace;
-  private RightBraceToken $_right_brace;
+  private ?Node $_attribute_spec;
+  private ?Node $_new_keyword;
+  private ?Node $_module_keyword;
+  private ?Node $_name;
+  private ?Node $_left_brace;
+  private ?Node $_right_brace;
 
   public function __construct(
-    ?OldAttributeSpecification $attribute_spec,
-    NewToken $new_keyword,
-    ModuleToken $module_keyword,
-    NameToken $name,
-    LeftBraceToken $left_brace,
-    RightBraceToken $right_brace,
+    ?Node $attribute_spec,
+    ?Node $new_keyword,
+    ?Node $module_keyword,
+    ?Node $name,
+    ?Node $left_brace,
+    ?Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_attribute_spec = $attribute_spec;
@@ -54,54 +54,54 @@ final class ModuleDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'OldAttributeSpecification',
+      'Node',
     );
     $offset += $attribute_spec?->getWidth() ?? 0;
     $new_keyword = Node::fromJSON(
-      ($json['module_declaration_new_keyword']) as dict<_, _>,
+      ($json['module_declaration_new_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'NewToken',
+      'Node',
     );
-    $new_keyword = $new_keyword as nonnull;
-    $offset += $new_keyword->getWidth();
+    $offset += $new_keyword?->getWidth() ?? 0;
     $module_keyword = Node::fromJSON(
-      ($json['module_declaration_module_keyword']) as dict<_, _>,
+      ($json['module_declaration_module_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'ModuleToken',
+      'Node',
     );
-    $module_keyword = $module_keyword as nonnull;
-    $offset += $module_keyword->getWidth();
+    $offset += $module_keyword?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      ($json['module_declaration_name']) as dict<_, _>,
+      ($json['module_declaration_name'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'NameToken',
+      'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $left_brace = Node::fromJSON(
-      ($json['module_declaration_left_brace']) as dict<_, _>,
+      ($json['module_declaration_left_brace'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'LeftBraceToken',
+      'Node',
     );
-    $left_brace = $left_brace as nonnull;
-    $offset += $left_brace->getWidth();
+    $offset += $left_brace?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      ($json['module_declaration_right_brace']) as dict<_, _>,
+      ($json['module_declaration_right_brace'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'RightBraceToken',
+      'Node',
     );
-    $right_brace = $right_brace as nonnull;
-    $offset += $right_brace->getWidth();
+    $offset += $right_brace?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -141,11 +141,19 @@ final class ModuleDeclaration extends Node {
     $attribute_spec = $this->_attribute_spec === null
       ? null
       : $rewriter($this->_attribute_spec, $parents);
-    $new_keyword = $rewriter($this->_new_keyword, $parents);
-    $module_keyword = $rewriter($this->_module_keyword, $parents);
-    $name = $rewriter($this->_name, $parents);
-    $left_brace = $rewriter($this->_left_brace, $parents);
-    $right_brace = $rewriter($this->_right_brace, $parents);
+    $new_keyword = $this->_new_keyword === null
+      ? null
+      : $rewriter($this->_new_keyword, $parents);
+    $module_keyword = $this->_module_keyword === null
+      ? null
+      : $rewriter($this->_module_keyword, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
+    $left_brace = $this->_left_brace === null
+      ? null
+      : $rewriter($this->_left_brace, $parents);
+    $right_brace = $this->_right_brace === null
+      ? null
+      : $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
       $new_keyword === $this->_new_keyword &&
@@ -157,12 +165,12 @@ final class ModuleDeclaration extends Node {
       return $this;
     }
     return new static(
-      $attribute_spec as ?OldAttributeSpecification,
-      $new_keyword as NewToken,
-      $module_keyword as ModuleToken,
-      $name as NameToken,
-      $left_brace as LeftBraceToken,
-      $right_brace as RightBraceToken,
+      $attribute_spec as ?Node,
+      $new_keyword as ?Node,
+      $module_keyword as ?Node,
+      $name as ?Node,
+      $left_brace as ?Node,
+      $right_brace as ?Node,
     );
   }
 
@@ -170,7 +178,7 @@ final class ModuleDeclaration extends Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(?OldAttributeSpecification $value): this {
+  public function withAttributeSpec(?Node $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -189,16 +197,16 @@ final class ModuleDeclaration extends Node {
   }
 
   /**
-   * @return null | OldAttributeSpecification
+   * @return unknown
    */
-  public function getAttributeSpec(): ?OldAttributeSpecification {
+  public function getAttributeSpec(): ?Node {
     return $this->_attribute_spec;
   }
 
   /**
-   * @return OldAttributeSpecification
+   * @return unknown
    */
-  public function getAttributeSpecx(): OldAttributeSpecification {
+  public function getAttributeSpecx(): Node {
     return TypeAssert\not_null($this->getAttributeSpec());
   }
 
@@ -206,7 +214,7 @@ final class ModuleDeclaration extends Node {
     return $this->_new_keyword;
   }
 
-  public function withNewKeyword(NewToken $value): this {
+  public function withNewKeyword(?Node $value): this {
     if ($value === $this->_new_keyword) {
       return $this;
     }
@@ -221,28 +229,28 @@ final class ModuleDeclaration extends Node {
   }
 
   public function hasNewKeyword(): bool {
-    return true;
+    return $this->_new_keyword !== null;
   }
 
   /**
-   * @return NewToken
+   * @return unknown
    */
-  public function getNewKeyword(): NewToken {
-    return TypeAssert\instance_of(NewToken::class, $this->_new_keyword);
+  public function getNewKeyword(): ?Node {
+    return $this->_new_keyword;
   }
 
   /**
-   * @return NewToken
+   * @return unknown
    */
-  public function getNewKeywordx(): NewToken {
-    return $this->getNewKeyword();
+  public function getNewKeywordx(): Node {
+    return TypeAssert\not_null($this->getNewKeyword());
   }
 
   public function getModuleKeywordUNTYPED(): ?Node {
     return $this->_module_keyword;
   }
 
-  public function withModuleKeyword(ModuleToken $value): this {
+  public function withModuleKeyword(?Node $value): this {
     if ($value === $this->_module_keyword) {
       return $this;
     }
@@ -257,28 +265,28 @@ final class ModuleDeclaration extends Node {
   }
 
   public function hasModuleKeyword(): bool {
-    return true;
+    return $this->_module_keyword !== null;
   }
 
   /**
-   * @return ModuleToken
+   * @return unknown
    */
-  public function getModuleKeyword(): ModuleToken {
-    return TypeAssert\instance_of(ModuleToken::class, $this->_module_keyword);
+  public function getModuleKeyword(): ?Node {
+    return $this->_module_keyword;
   }
 
   /**
-   * @return ModuleToken
+   * @return unknown
    */
-  public function getModuleKeywordx(): ModuleToken {
-    return $this->getModuleKeyword();
+  public function getModuleKeywordx(): Node {
+    return TypeAssert\not_null($this->getModuleKeyword());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(NameToken $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -293,28 +301,28 @@ final class ModuleDeclaration extends Node {
   }
 
   public function hasName(): bool {
-    return true;
+    return $this->_name !== null;
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getName(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+  public function getName(): ?Node {
+    return $this->_name;
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getNamex(): NameToken {
-    return $this->getName();
+  public function getNamex(): Node {
+    return TypeAssert\not_null($this->getName());
   }
 
   public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(LeftBraceToken $value): this {
+  public function withLeftBrace(?Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -329,28 +337,28 @@ final class ModuleDeclaration extends Node {
   }
 
   public function hasLeftBrace(): bool {
-    return true;
+    return $this->_left_brace !== null;
   }
 
   /**
-   * @return LeftBraceToken
+   * @return unknown
    */
-  public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  public function getLeftBrace(): ?Node {
+    return $this->_left_brace;
   }
 
   /**
-   * @return LeftBraceToken
+   * @return unknown
    */
-  public function getLeftBracex(): LeftBraceToken {
-    return $this->getLeftBrace();
+  public function getLeftBracex(): Node {
+    return TypeAssert\not_null($this->getLeftBrace());
   }
 
   public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(RightBraceToken $value): this {
+  public function withRightBrace(?Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -365,20 +373,20 @@ final class ModuleDeclaration extends Node {
   }
 
   public function hasRightBrace(): bool {
-    return true;
+    return $this->_right_brace !== null;
   }
 
   /**
-   * @return RightBraceToken
+   * @return unknown
    */
-  public function getRightBrace(): RightBraceToken {
-    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  public function getRightBrace(): ?Node {
+    return $this->_right_brace;
   }
 
   /**
-   * @return RightBraceToken
+   * @return unknown
    */
-  public function getRightBracex(): RightBraceToken {
-    return $this->getRightBrace();
+  public function getRightBracex(): Node {
+    return TypeAssert\not_null($this->getRightBrace());
   }
 }

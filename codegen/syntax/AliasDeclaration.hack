@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a14cb1d3697fae4f50e0aa7902f6cef2>>
+ * @generated SignedSource<<f0df953e4d2f7ca855c235fd696141e3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   const string SYNTAX_KIND = 'alias_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private ?NodeList<InternalToken> $_modifiers;
+  private ?Node $_modifiers;
   private Token $_keyword;
   private NameToken $_name;
   private ?TypeParameters $_generic_parameter;
@@ -26,7 +26,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    ?NodeList<InternalToken> $modifiers,
+    ?Node $modifiers,
     Token $keyword,
     NameToken $name,
     ?TypeParameters $generic_parameter,
@@ -71,7 +71,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'NodeList<InternalToken>',
+      'Node',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
@@ -210,7 +210,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] ?NodeList<InternalToken> may not be enforceable */ $modifiers,
+      $modifiers as ?Node,
       $keyword as Token,
       $name as NameToken,
       $generic_parameter as ?TypeParameters,
@@ -264,7 +264,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?NodeList<InternalToken> $value): this {
+  public function withModifiers(?Node $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -286,16 +286,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return NodeList<InternalToken> | null
+   * @return null
    */
-  public function getModifiers(): ?NodeList<InternalToken> {
+  public function getModifiers(): ?Node {
     return $this->_modifiers;
   }
 
   /**
-   * @return NodeList<InternalToken>
+   * @return
    */
-  public function getModifiersx(): NodeList<InternalToken> {
+  public function getModifiersx(): Node {
     return TypeAssert\not_null($this->getModifiers());
   }
 
