@@ -1,7 +1,7 @@
 [
     {
-        "blame": "serialize($html)",
-        "blame_pretty": "serialize($html)",
+        "blame": "  htmlspecialchars($html) |> serialize($html)",
+        "blame_pretty": "  htmlspecialchars($html) |> serialize($html)",
         "description": "Missing pipe variable in right-hand side of pipe operator"
     }
 ]
