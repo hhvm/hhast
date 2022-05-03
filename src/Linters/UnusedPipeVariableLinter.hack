@@ -29,7 +29,7 @@ final class UnusedPipeVariableLinter extends ASTLinter {
     if ($pipe_var is null) {
       return new ASTLintError(
         $this,
-        "Missing pipe variable in right-hand side of pipe operator",
+        'Missing pipe variable in right-hand side of pipe operator',
         $expr,
       );
     }
