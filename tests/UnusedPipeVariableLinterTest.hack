@@ -10,17 +10,17 @@
 namespace Facebook\HHAST;
 
 final class UnusedPipeVariableLinterTest extends TestCase {
-    use LinterTestTrait;
+  use LinterTestTrait;
 
-    protected function getLinter(string $file): UnusedPipeVariableLinter {
-        return UnusedPipeVariableLinter::fromPath($file);
-    }
+  protected function getLinter(string $file): UnusedPipeVariableLinter {
+    return UnusedPipeVariableLinter::fromPath($file);
+  }
 
-    public function getCleanExamples(): vec<(string)> {
-        return vec[
-            tuple(
-                '<?hh function foo(): string { return "abc" |> Str\uppercase($$); }',
-            ),
-        ];
-    }
+  public function getCleanExamples(): vec<(string)> {
+    return vec[
+      tuple(
+        '<?hh function foo(): string { return "abc" |> Str\uppercase($$); }',
+      ),
+    ];
+  }
 }

@@ -10,31 +10,30 @@
 namespace Facebook\HHAST;
 
 final class UnusedPipeVariableLinter extends ASTLinter {
-    const type TConfig = shape();
-    const type TNode = BinaryExpression;
-    const type TContext = Script;
+  const type TConfig = shape();
+  const type TNode = BinaryExpression;
+  const type TContext = Script;
 
-    <<__Override>>
-    public function getLintErrorForNode(
-        Script $script,
-        BinaryExpression $expr,
-    ): ?ASTLintError {
-        $op = $expr->getOperator();
-        if (!$op is BarGreaterThanToken) {
-            return null;
-        }
-        $rhs = $expr->getRightOperand();
-        $pipe_var =
-            $rhs->getFirstDescendantOfType(PipeVariableExpression::class);
-
-        if ($pipe_var is null) {
-            return new ASTLintError(
-                $this,
-                "Missing pipe variable in right-hand side of pipe operator",
-                $expr,
-            );
-        }
-
-        return null;
+  <<__Override>>
+  public function getLintErrorForNode(
+    Script $script,
+    BinaryExpression $expr,
+  ): ?ASTLintError {
+    $op = $expr->getOperator();
+    if (!$op is BarGreaterThanToken) {
+      return null;
     }
+    $rhs = $expr->getRightOperand();
+    $pipe_var = $rhs->getFirstDescendantOfType(PipeVariableExpression::class);
+
+    if ($pipe_var is null) {
+      return new ASTLintError(
+        $this,
+        "Missing pipe variable in right-hand side of pipe operator",
+        $expr,
+      );
+    }
+
+    return null;
+  }
 }
