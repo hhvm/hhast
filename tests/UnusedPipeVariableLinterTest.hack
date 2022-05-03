@@ -12,10 +12,12 @@ namespace Facebook\HHAST;
 final class UnusedPipeVariableLinterTest extends TestCase {
   use LinterTestTrait;
 
+  <<__Override>>
   protected function getLinter(string $file): UnusedPipeVariableLinter {
     return UnusedPipeVariableLinter::fromPath($file);
   }
 
+  <<__Override>>
   public function getCleanExamples(): vec<(string)> {
     return vec[
       tuple(
