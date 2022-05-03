@@ -1,0 +1,5 @@
+<?hh
+
+function unused_pipe(string $html): void {
+  htmlspecialchars($html) |> serialize($html);
+}

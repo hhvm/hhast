@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "serialize($html)",
+        "blame_pretty": "serialize($html)",
+        "description": "Missing pipe variable in right-hand side of pipe operator"
+    }
+]
