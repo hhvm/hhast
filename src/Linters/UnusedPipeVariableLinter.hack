@@ -31,7 +31,7 @@ final class UnusedPipeVariableLinter extends ASTLinter {
             return new ASTLintError(
                 $this,
                 "Missing pipe variable in right-hand side of pipe operator",
-                $rhs,
+                $expr,
             );
         }
 
