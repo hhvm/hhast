@@ -16,7 +16,7 @@ final class UnusedPipeVariableLinter extends ASTLinter {
 
   <<__Override>>
   public function getLintErrorForNode(
-    Script $script,
+    Script $_script,
     BinaryExpression $expr,
   ): ?ASTLintError {
     $op = $expr->getOperator();
