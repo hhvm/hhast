@@ -2,7 +2,7 @@
 
 [![Continuous Integration](https://github.com/hhvm/hhast/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/hhvm/hhast/actions/workflows/build-and-test.yml)
 
-HHAST is a toolkit for processing the AST of Hack files.
+HHAST is a toolkit for processing the AST of Hack files..
 
 Abstract syntax trees can be an extremely powerful basis for many kinds of tooling beyond compilers and optimization; HHAST is built on top of Hack's Full Fidelity Parser (FFP), providing a Hack object representation of a *mutable* AST.
 
