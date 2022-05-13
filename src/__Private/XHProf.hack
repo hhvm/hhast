@@ -29,8 +29,11 @@ final abstract class XHProf {
   public static function disable(): dict<string, self::TResult> {
     invariant(self::$enabled === true, "Can't disable twice");
     self::$enabled = false;
-    $raw =
-      Dict\map(\xhprof_disable(), (dict<arraykey, mixed> $v) ==> (int)$v['wt']);
+
+    $raw = Dict\map(
+      \xhprof_disable(),
+      (KeyedContainer<arraykey, mixed> $v) ==> (int) $v['wt'],
+    );
 
     $inclusive = dict[];
     $callers = dict[];
