@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST;
 
+// HHAST_IGNORE_ERROR[FinalOrAbstractClass] This class is meant to be extended.
 class LineLintError extends SingleRuleLintError {
 
   public function __construct(

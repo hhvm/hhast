@@ -150,7 +150,6 @@ final class ListItem<+T as ?Node> extends Node {
    */
   public function getSeparator(): ?Token {
     return $this->_separator;
-    return TypeAssert\instance_of(Token::class, $this->_separator);
   }
 
   /**

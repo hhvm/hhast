@@ -74,8 +74,6 @@ final class ImplicitShapeSubtypesMigration extends StepBasedMigration {
           ->getTrailing(),
       ),
     );
-
-    return $shape;
   }
 
   <<__Override>>

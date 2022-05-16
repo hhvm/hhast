@@ -84,6 +84,7 @@ final class LintRunConfig {
     HHAST\NoWhitespaceAtEndOfLineLinter::class,
     HHAST\PreferRequireOnceLinter::class,
     HHAST\ConsistentLineEndingsLinter::class,
+    HHAST\UnreachableCodeLinter::class,
   ];
 
   const vec<classname<Linter>> NON_DEFAULT_LINTERS = vec[
@@ -97,6 +98,9 @@ final class LintRunConfig {
     HHAST\NamespacePrivateLinter::class,
     HHAST\DontHaveTwoEmptyLinesInARowLinter::class,
     HHAST\DontCreateForwardingLambdasLinter::class,
+    HHAST\PreferLambdasLinter::class,
+    HHAST\NoEmptyStatementsLinter::class,
+    HHAST\FinalOrAbstractClassLinter::class,
   ];
 
   private static function getNamedLinterGroup(

@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST;
 
+// HHAST_IGNORE_ERROR[FinalOrAbstractClass] This class may be extended elsewhere
 class BuiltLintError extends SingleRuleLintError {
   private ?(int, int) $position = null;
 

@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 
-class StrictModeOnlyLinter extends AutoFixingASTLinter {
+final class StrictModeOnlyLinter extends AutoFixingASTLinter {
   const type TConfig = shape();
   const type TNode = MarkupSuffix;
   const type TContext = Script;

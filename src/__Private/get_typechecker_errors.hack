@@ -63,7 +63,6 @@ function get_typechecker_errors(string $path): vec<TTypecheckerError> {
       \JSON_FB_HACK_ARRAYS,
     );
   }
-  ;
 
   $data = TypeAssert\matches_type_structure(
     type_alias_structure(TTypecheckerOutput::class),

@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
-class ApplyWorkspaceEditCommand extends ClientCommand {
+final class ApplyWorkspaceEditCommand extends ClientCommand {
   const string METHOD = 'workspace/applyEdit';
   const type TParams = LSP\ApplyWorkspaceEditParams;
 }

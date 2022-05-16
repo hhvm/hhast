@@ -9,6 +9,7 @@
 
 namespace Facebook\HHAST\__Private\LSPLib;
 
+// HHAST_IGNORE_ERROR[FinalOrAbstractClass] This class is meant to be extended.
 class InitializedNotification<TState as ServerState>
   extends ClientNotification {
   const string METHOD = 'initialized';

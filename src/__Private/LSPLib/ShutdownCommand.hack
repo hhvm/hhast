@@ -11,7 +11,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 
 use namespace Facebook\HHAST\__Private\LSP;
 
-class ShutdownCommand<TState as ServerState> extends ServerCommand {
+final class ShutdownCommand<TState as ServerState> extends ServerCommand {
   const string METHOD = 'shutdown';
   const type TParams = mixed;
   const type TResponse = mixed;

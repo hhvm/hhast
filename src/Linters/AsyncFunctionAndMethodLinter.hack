@@ -11,6 +11,8 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 
+// HHAST_IGNORE_ERROR[FinalOrAbstractClass] This class declares a protected method
+// splitName(), which may be overridden in a child class.
 class AsyncFunctionAndMethodLinter extends FunctionNamingLinter {
   const type TConfig = shape();
 

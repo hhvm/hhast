@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0e6cfa879a9d9a7d44b3ff489904981d>>
+ * @generated SignedSource<<e404da06ee7706b8c7dd7147fd33595a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,14 +14,14 @@ final class ModuleMembershipDeclaration extends Node {
 
   const string SYNTAX_KIND = 'module_membership_declaration';
 
-  private ?Node $_module_keyword;
-  private ?Node $_name;
-  private ?Node $_semicolon;
+  private ModuleToken $_module_keyword;
+  private NameToken $_name;
+  private SemicolonToken $_semicolon;
 
   public function __construct(
-    ?Node $module_keyword,
-    ?Node $name,
-    ?Node $semicolon,
+    ModuleToken $module_keyword,
+    NameToken $name,
+    SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_module_keyword = $module_keyword;
@@ -40,36 +40,32 @@ final class ModuleMembershipDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $module_keyword = Node::fromJSON(
-      (
-        $json['module_membership_declaration_module_keyword'] ??
-        dict['kind' => 'missing']
-      ) as dict<_, _>,
+      ($json['module_membership_declaration_module_keyword']) as dict<_, _>,
       $file,
       $offset,
       $source,
-      'Node',
+      'ModuleToken',
     );
-    $offset += $module_keyword?->getWidth() ?? 0;
+    $module_keyword = $module_keyword as nonnull;
+    $offset += $module_keyword->getWidth();
     $name = Node::fromJSON(
-      ($json['module_membership_declaration_name'] ?? dict['kind' => 'missing'])
-        as dict<_, _>,
+      ($json['module_membership_declaration_name']) as dict<_, _>,
       $file,
       $offset,
       $source,
-      'Node',
+      'NameToken',
     );
-    $offset += $name?->getWidth() ?? 0;
+    $name = $name as nonnull;
+    $offset += $name->getWidth();
     $semicolon = Node::fromJSON(
-      (
-        $json['module_membership_declaration_semicolon'] ??
-        dict['kind' => 'missing']
-      ) as dict<_, _>,
+      ($json['module_membership_declaration_semicolon']) as dict<_, _>,
       $file,
       $offset,
       $source,
-      'Node',
+      'SemicolonToken',
     );
-    $offset += $semicolon?->getWidth() ?? 0;
+    $semicolon = $semicolon as nonnull;
+    $offset += $semicolon->getWidth();
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -100,13 +96,9 @@ final class ModuleMembershipDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $module_keyword = $this->_module_keyword === null
-      ? null
-      : $rewriter($this->_module_keyword, $parents);
-    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
-    $semicolon = $this->_semicolon === null
-      ? null
-      : $rewriter($this->_semicolon, $parents);
+    $module_keyword = $rewriter($this->_module_keyword, $parents);
+    $name = $rewriter($this->_name, $parents);
+    $semicolon = $rewriter($this->_semicolon, $parents);
     if (
       $module_keyword === $this->_module_keyword &&
       $name === $this->_name &&
@@ -114,15 +106,18 @@ final class ModuleMembershipDeclaration extends Node {
     ) {
       return $this;
     }
-    return
-      new static($module_keyword as ?Node, $name as ?Node, $semicolon as ?Node);
+    return new static(
+      $module_keyword as ModuleToken,
+      $name as NameToken,
+      $semicolon as SemicolonToken,
+    );
   }
 
   public function getModuleKeywordUNTYPED(): ?Node {
     return $this->_module_keyword;
   }
 
-  public function withModuleKeyword(?Node $value): this {
+  public function withModuleKeyword(ModuleToken $value): this {
     if ($value === $this->_module_keyword) {
       return $this;
     }
@@ -130,28 +125,28 @@ final class ModuleMembershipDeclaration extends Node {
   }
 
   public function hasModuleKeyword(): bool {
-    return $this->_module_keyword !== null;
+    return true;
   }
 
   /**
-   * @return unknown
+   * @return ModuleToken
    */
-  public function getModuleKeyword(): ?Node {
-    return $this->_module_keyword;
+  public function getModuleKeyword(): ModuleToken {
+    return TypeAssert\instance_of(ModuleToken::class, $this->_module_keyword);
   }
 
   /**
-   * @return unknown
+   * @return ModuleToken
    */
-  public function getModuleKeywordx(): Node {
-    return TypeAssert\not_null($this->getModuleKeyword());
+  public function getModuleKeywordx(): ModuleToken {
+    return $this->getModuleKeyword();
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(?Node $value): this {
+  public function withName(NameToken $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -159,28 +154,28 @@ final class ModuleMembershipDeclaration extends Node {
   }
 
   public function hasName(): bool {
-    return $this->_name !== null;
+    return true;
   }
 
   /**
-   * @return unknown
+   * @return NameToken
    */
-  public function getName(): ?Node {
-    return $this->_name;
+  public function getName(): NameToken {
+    return TypeAssert\instance_of(NameToken::class, $this->_name);
   }
 
   /**
-   * @return unknown
+   * @return NameToken
    */
-  public function getNamex(): Node {
-    return TypeAssert\not_null($this->getName());
+  public function getNamex(): NameToken {
+    return $this->getName();
   }
 
   public function getSemicolonUNTYPED(): ?Node {
     return $this->_semicolon;
   }
 
-  public function withSemicolon(?Node $value): this {
+  public function withSemicolon(SemicolonToken $value): this {
     if ($value === $this->_semicolon) {
       return $this;
     }
@@ -188,20 +183,20 @@ final class ModuleMembershipDeclaration extends Node {
   }
 
   public function hasSemicolon(): bool {
-    return $this->_semicolon !== null;
+    return true;
   }
 
   /**
-   * @return unknown
+   * @return SemicolonToken
    */
-  public function getSemicolon(): ?Node {
-    return $this->_semicolon;
+  public function getSemicolon(): SemicolonToken {
+    return TypeAssert\instance_of(SemicolonToken::class, $this->_semicolon);
   }
 
   /**
-   * @return unknown
+   * @return SemicolonToken
    */
-  public function getSemicolonx(): Node {
-    return TypeAssert\not_null($this->getSemicolon());
+  public function getSemicolonx(): SemicolonToken {
+    return $this->getSemicolon();
   }
 }

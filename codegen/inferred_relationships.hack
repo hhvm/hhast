@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc3ed9855e0794a50a1ca633ff4f2344>>
+ * @generated SignedSource<<78bb07f9c83a87574b08f94b355a4e70>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2585,6 +2585,17 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'module_declaration.module_declaration_right_brace' => keyset[
     'token:}',
   ],
+  'module_membership_declaration.module_membership_declaration_module_keyword' =>
+    keyset[
+      'token:module',
+    ],
+  'module_membership_declaration.module_membership_declaration_name' => keyset[
+    'token:name',
+  ],
+  'module_membership_declaration.module_membership_declaration_semicolon' =>
+    keyset[
+      'token:;',
+    ],
   'namespace_body.namespace_declarations' => keyset[
     'list<alias_declaration>',
     'list<alias_declaration|enum_declaration|function_declaration|namespace_declaration|namespace_use_declaration>',
@@ -3020,7 +3031,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|markup_section>',
     'list<alias_declaration|const_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
-    'list<alias_declaration|end_of_file|enum_declaration|file_attribute_specification|markup_section|module_declaration>',
+    'list<alias_declaration|end_of_file|enum_declaration|file_attribute_specification|markup_section|module_declaration|module_membership_declaration>',
     'list<alias_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<alias_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
@@ -3036,6 +3047,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|expression_statement|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section>',
+    'list<classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
     'list<classish_declaration|end_of_file|file_attribute_specification|markup_section>',
     'list<classish_declaration|end_of_file|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
@@ -3061,7 +3073,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<end_of_file|enum_declaration|markup_section|namespace_use_declaration>',
     'list<end_of_file|file_attribute_specification|function_declaration|markup_section>',
     'list<end_of_file|file_attribute_specification|function_declaration|markup_section|module_declaration>',
-    'list<end_of_file|file_attribute_specification|markup_section|module_declaration>',
+    'list<end_of_file|file_attribute_specification|markup_section|module_declaration|module_membership_declaration>',
+    'list<end_of_file|file_attribute_specification|markup_section|module_membership_declaration|namespace_declaration>',
     'list<end_of_file|file_attribute_specification|markup_section|namespace_declaration>',
     'list<end_of_file|function_declaration>',
     'list<end_of_file|function_declaration|markup_section>',

@@ -12,6 +12,7 @@ namespace Facebook\HHAST\__Private\LSPLib;
 use namespace Facebook\HHAST\__Private\LSP;
 use namespace HH\Lib\C;
 
+// HHAST_IGNORE_ERROR[FinalOrAbstractClass] This class is meant to be extended.
 class ServerState {
   private ServerStatus $status = ServerStatus::PRE_INIT;
   private ?LSP\ClientCapabilities $clientCapabilities = null;
