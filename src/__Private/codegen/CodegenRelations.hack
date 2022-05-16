@@ -18,6 +18,9 @@ use type Facebook\HackCodegen\{
 use namespace Facebook\TypeAssert;
 
 final class CodegenRelations extends CodegenBase {
+  /** @see getInferredRelationships() */
+  private static ?dict<string, keyset<string>> $inferredRelationships;
+
   <<__Override>>
   public function __construct(
     private string $hhvmRoot,
@@ -31,6 +34,21 @@ final class CodegenRelations extends CodegenBase {
   public function generate(): void {
     /*HHAST_FIXME[DontUseAsioJoin]*/
     \HH\Asio\join($this->generateAsync());
+  }
+
+  /**
+   * This method is a workaround. The constant INFERRED_RELATIONSHIPS is written
+   * to disk in generateAsync(). Other code needs this constant within the
+   * same cli request. The hhvm-autoload failure callback is able to load
+   * the file, since it asks hh_client. Other autoloaders, like ext_watchman,
+   * don't have a failure callback. They fail fast. Stashing the value in a
+   * static class variable allows access to the dict without loading the file.
+   * If the variable is null, we haven't written the constant in this request.
+   * In that case, using the constant directly will work for all autoloaders.
+   */
+  public static function getInferredRelationships(
+  ): dict<string, keyset<string>> {
+    return static::$inferredRelationships ?? INFERRED_RELATIONSHIPS;
   }
 
   private async function generateAsync(): Awaitable<void> {
@@ -58,7 +76,12 @@ final class CodegenRelations extends CodegenBase {
             // Check that examples are actually valid before including them in
             // relations; some parse correctly, but are only valid at runtime
             // in special circumstances, e.g. builtins
-            if (!(Str\contains($file, __FILE__) || Str\contains($file, 'SyntaxExample'))) {
+            if (
+              !(
+                Str\contains($file, __FILE__) ||
+                Str\contains($file, 'SyntaxExample')
+              )
+            ) {
               await execute_async('hhvm', '-l', $file);
             }
             foreach ($new as $key => $children) {
@@ -108,6 +131,20 @@ final class CodegenRelations extends CodegenBase {
 
     $cg = $this->getCodegenFactory();
 
+    $inferred_relationships = $relationships->v
+      |> Dict\sort_by_key($$)
+      |> Dict\map(
+        $$,
+        /* HHAST_FIXME[DontCreateForwardingLambdas]
+           Removing the `$children ==> Keyset\sort($children)` lambda causes a typechecker error.
+           `Keyset\sort<>` has a context that depends on the second argument:
+           `?(function(Tv, Tv[_]: num) $comparator = null,` + `[ctx $comparator]`
+           This means we can not use a function reference here.*/
+        $children ==> Keyset\sort($children),
+      );
+
+    static::$inferredRelationships = $inferred_relationships;
+
     $cg->codegenFile($this->getOutputDirectory().'/inferred_relationships.hack')
       ->setFileType(CodegenFileType::DOT_HACK)
       ->setNamespace('Facebook\\HHAST\\__Private')
@@ -115,17 +152,7 @@ final class CodegenRelations extends CodegenBase {
         $cg->codegenConstant('INFERRED_RELATIONSHIPS')
           ->setType('dict<string, keyset<string>>')
           ->setValue(
-            $relationships->v
-              |> Dict\sort_by_key($$)
-              |> Dict\map(
-                $$,
-                /* HHAST_FIXME[DontCreateForwardingLambdas]
-                   Removing the `$children ==> Keyset\sort($children)` lambda causes a typechecker error.
-                   `Keyset\sort<>` has a context that depends on the second argument:
-                   `?(function(Tv, Tv[_]: num) $comparator = null,` + `[ctx $comparator]`
-                   This means we can not use a function reference here.*/
-                $children ==> Keyset\sort($children),
-              ),
+            $inferred_relationships,
             HackBuilderValues::dict(
               HackBuilderKeys::export(),
               HackBuilderValues::keyset(HackBuilderValues::export()),

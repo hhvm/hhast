@@ -67,7 +67,7 @@ final class CodegenCLI extends CLIBase {
       (new CodegenRelations($hhvm, $schema))->generate();
     }
 
-    $relationships = INFERRED_RELATIONSHIPS;
+    $relationships = CodegenRelations::getInferredRelationships();
     foreach ($generators as $generator) {
       (new $generator($schema, $relationships))->generate();
     }

@@ -5,6 +5,7 @@ src/codegen/data/ export-ignore
 tests/ export-ignore
 codegen/**/* linguist-generated
 .hhconfig export-ignore
+.hhvmconfig.hdf export-ignore
 *.hack linguist-language=Hack
 .vscode/** export-ignore
 test-data/** export-ignore
