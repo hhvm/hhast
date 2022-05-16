@@ -23,6 +23,8 @@ use type Facebook\HHAST\{
   IMigrationWithFileList,
   ImplicitShapeSubtypesMigration,
   IsRefinementMigration,
+  LegacyArrayLiteralsToHackArrayLiteralsMigration,
+  LegacyArrayTypesToHackArrayTypesMigration,
   OptionalShapeFieldsMigration,
   RemoveXHPChildDeclarationsMigration,
   TopLevelRequiresMigration,
@@ -56,10 +58,8 @@ final class MigrationCLI extends CLIWithRequiredArguments {
       CLIOptions\with_required_string(
         ($class) ==> {
           try {
-            $this->migrations[] = TypeAssert\classname_of(
-              BaseMigration::class,
-              $class,
-            );
+            $this->migrations[] =
+              TypeAssert\classname_of(BaseMigration::class, $class);
           } catch (TypeAssert\IncorrectTypeException $_) {
             throw new ExitException(1, Str\format(
               "'%s' is not a subclass of %s",
@@ -214,6 +214,32 @@ final class MigrationCLI extends CLIWithRequiredArguments {
         '--migrate-fixme-4110',
       ),
       self::removed('--ref-to-inout', '>=4.21.7 <4.29'),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] =
+            LegacyArrayTypesToHackArrayTypesMigration::class;
+        },
+        'Migrate types: varray<string> to vec<string> and darray<string, string> to dict<string, string>',
+        '--legacy-array-types-to-hack-array-types',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] =
+            LegacyArrayLiteralsToHackArrayLiteralsMigration::class;
+        },
+        'Migrate literals: varray[1, 2] to vec[1, 2] and darray[1 => 2, 3 => 4] to dict[1 => 2, 3 => 4]',
+        '--legacy-array-literals-to-hack-array-literals',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->migrations[] =
+            LegacyArrayTypesToHackArrayTypesMigration::class;
+          $this->migrations[] =
+            LegacyArrayLiteralsToHackArrayLiteralsMigration::class;
+        },
+        'Combines --legacy-array-literals-to-hack-array-literals and --legacy-array-types-to-hack-array-types',
+        '--legacy-arrays-to-hack-arrays',
+      ),
       CLIOptions\flag(
         () ==> {
           $this->includeVendor = true;
