@@ -4,6 +4,7 @@ src/__Private/CodegenCLI.hack export-ignore
 src/codegen/data/ export-ignore
 tests/ export-ignore
 codegen/**/* linguist-generated
+codegen-no-rebuild/**/* linguist-generated
 .hhconfig export-ignore
 .hhvmconfig.hdf export-ignore
 *.hack linguist-language=Hack

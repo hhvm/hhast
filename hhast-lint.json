@@ -1,12 +1,12 @@
 {
-  "roots": [ "src/", "codegen/", "tests/" ],
+  "roots": [ "src/", "codegen/", "codegen-no-rebuild/", "tests/" ],
   "builtinLinters": "all",
   "extraLinters": [
     "Facebook\\HHAST\\HHClientLinter"
   ],
   "overrides": [
     {
-      "patterns": [ "codegen/*", "tests/examples/*" ],
+      "patterns": [ "codegen/*", "codegen-no-rebuild/*", "tests/examples/*" ],
       "disabledLinters": [
         "Facebook\\HHAST\\UnusedUseClauseLinter",
         "Facebook\\HHAST\\LicenseHeaderLinter"

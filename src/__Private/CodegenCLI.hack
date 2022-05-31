@@ -12,12 +12,15 @@ namespace Facebook\HHAST\__Private;
 use namespace Facebook\TypeAssert;
 use type Facebook\CLILib\CLIBase;
 use namespace Facebook\CLILib\CLIOptions;
+use namespace HH\Lib\Keyset;
 
 final class CodegenCLI extends CLIBase {
   const type TSchema = Schema\TSchema;
 
   private ?string $hhvmPath = null;
   private bool $rebuildRelationships = false;
+  private bool $updateLatestBreakingVersion = false;
+  private bool $dontUpdateAST = false;
 
   <<__Override>>
   protected function getSupportedOptions(): vec<CLIOptions\CLIOption> {
@@ -36,20 +39,41 @@ final class CodegenCLI extends CLIBase {
         'Update inferred relationships based on the HHVM and Hack tests; requires --hhvm-path',
         '--rebuild-relationships',
       ),
+      CLIOptions\flag(
+        () ==> {
+          $this->updateLatestBreakingVersion = true;
+        },
+        'Update `latest_breaking_change_version.hack` to mark the latest version as a breaking change.',
+        '--update-latest-breaking-version',
+      ),
+      CLIOptions\flag(
+        () ==> {
+          $this->dontUpdateAST = true;
+        },
+        'Skip AST class generation.',
+        '--dont-update-ast',
+      ),
     ];
   }
 
   <<__Override>>
   public async function mainAsync(): Awaitable<int> {
-    $generators = keyset[
-      CodegenNodeFromJSON::class,
-      CodegenTokenFromData::class,
-      CodegenTriviaFromJSON::class,
-      CodegenTokens::class,
-      CodegenTrivia::class,
-      CodegenSyntax::class,
-      CodegenVersion::class,
-    ];
+    $generators = Keyset\union(
+      $this->dontUpdateAST
+        ? keyset[]
+        : keyset[
+            CodegenNodeFromJSON::class,
+            CodegenTokenFromData::class,
+            CodegenTriviaFromJSON::class,
+            CodegenTokens::class,
+            CodegenTrivia::class,
+            CodegenSyntax::class,
+            CodegenVersion::class,
+          ],
+      $this->updateLatestBreakingVersion
+        ? keyset[CodegenLastestBreakingVersion::class]
+        : keyset[],
+    );
     $schema = $this->getSchema();
     $rebuild_relationships = $this->rebuildRelationships;
     if ($rebuild_relationships) {
