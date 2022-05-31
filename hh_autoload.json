@@ -1,6 +1,7 @@
 {
   "roots": [
     "codegen/",
+    "codegen-no-rebuild/",
     "src/"
   ],
   "devRoots": [

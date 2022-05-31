@@ -9,7 +9,8 @@
 
 namespace Facebook\HHAST\__Private;
 
-use const Facebook\HHAST\SCHEMA_VERSION;
+use const Facebook\HHAST\{LATEST_BREAKING_SCHEMA_VERSION, SCHEMA_VERSION};
+use namespace HH\Lib\Str;
 
 /**
  * Schema versions are compatible if one is a strict superset of the other
@@ -20,17 +21,6 @@ use const Facebook\HHAST\SCHEMA_VERSION;
  * Facebook\HHAST\SCHEMA_VERSION.
  */
 function is_compatible_schema_version(string $other_version): bool {
-  invariant(
-    SCHEMA_VERSION === '2022-04-25-0000',
-    '%s needs updating',
-    __FILE__,
-  );
-  switch ($other_version) {
-    case '2022-04-25-0000': // Adding ModuleMembershipDeclaration
-    case '2022-04-20-0001': // Adding enum modifiers and alias modifiers
-    case '2022-04-13-0002': // Latest breaking change
-      return true;
-    default:
-      return false;
-  }
+  return Str\compare($other_version, SCHEMA_VERSION) <= 0 &&
+    Str\compare($other_version, LATEST_BREAKING_SCHEMA_VERSION) >= 0;
 }
