@@ -4,7 +4,7 @@ changes, HHAST needs updating.
 1. Get a github codespace or use vscode devcontainers. If a codespace, pick the biggest one you can for this (in general, the smallest are good enough, but here more power is useful).
 1. Execute the following command
    ```
-   sed -i -E 's/deb https\:\/\/dl\.hhvm\.com\/ubuntu (\w+)-4.[0-9]+main/deb https:\/\/dl.hhvm.com\/ubuntu \1 main/' /etc/apt/sources.list &&
+   sed -i -E 's/deb https\:\/\/dl\.hhvm\.com\/ubuntu (\w+)-4.[0-9]+ main/deb https:\/\/dl.hhvm.com\/ubuntu \1 main/' /etc/apt/sources.list &&
    apt update &&
    apt remove -y hhvm &&
    apt install -y hhvm-nightly &&
