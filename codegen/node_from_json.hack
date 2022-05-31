@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a531605e16d61a21d115fe98b56b25d1>>
+ * @generated SignedSource<<bc51db5a16a95311293731c4762d1aeb>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -70,6 +70,7 @@ function node_from_json_unwrapped(
     'context_constraint' => HHAST\ContextConstraint::class,
     'contexts' => HHAST\Contexts::class,
     'continue_statement' => HHAST\ContinueStatement::class,
+    'ctx_in_refinement' => HHAST\CtxInRefinement::class,
     'darray_intrinsic_expression' => HHAST\DarrayIntrinsicExpression::class,
     'darray_type_specifier' => HHAST\DarrayTypeSpecifier::class,
     'decorated_expression' => HHAST\DecoratedExpression::class,
@@ -176,8 +177,10 @@ function node_from_json_unwrapped(
     'type_const_declaration' => HHAST\TypeConstDeclaration::class,
     'type_constant' => HHAST\TypeConstant::class,
     'type_constraint' => HHAST\TypeConstraint::class,
+    'type_in_refinement' => HHAST\TypeInRefinement::class,
     'type_parameter' => HHAST\TypeParameter::class,
     'type_parameters' => HHAST\TypeParameters::class,
+    'type_refinement' => HHAST\TypeRefinement::class,
     'union_type_specifier' => HHAST\UnionTypeSpecifier::class,
     'unset_statement' => HHAST\UnsetStatement::class,
     'upcast_expression' => HHAST\UpcastExpression::class,

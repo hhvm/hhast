@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ce0588f7793b5ca42614fb76a4947345>>
+ * @generated SignedSource<<4978deeca1ca80509cdf59832edc22ab>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -105,7 +105,6 @@ final class TokenClassMap {
     'noreturn' => HHAST\NoreturnToken::class,
     'null' => HHAST\NullLiteralToken::class,
     'num' => HHAST\NumToken::class,
-    'object' => HHAST\ObjectToken::class,
     'parent' => HHAST\ParentToken::class,
     'print' => HHAST\PrintToken::class,
     'private' => HHAST\PrivateToken::class,
@@ -142,6 +141,7 @@ final class TokenClassMap {
     'void' => HHAST\VoidToken::class,
     'where' => HHAST\WhereToken::class,
     'while' => HHAST\WhileToken::class,
+    'with' => HHAST\WithToken::class,
     'xhp' => HHAST\XHPToken::class,
     'yield' => HHAST\YieldToken::class,
     'binary_literal' => HHAST\BinaryLiteralToken::class,

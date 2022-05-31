@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<129da117a81f97fc63c64e8921a42d2b>>
+ * @generated SignedSource<<a07a6b06d5a22e22bc88f074aceff338>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,12 +15,12 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
   const string SYNTAX_KIND = 'trait_use';
 
   private UseToken $_keyword;
-  private NodeList<ListItem<ISimpleCreationSpecifier>> $_names;
+  private NodeList<ListItem<ITypeSpecifier>> $_names;
   private SemicolonToken $_semicolon;
 
   public function __construct(
     UseToken $keyword,
-    NodeList<ListItem<ISimpleCreationSpecifier>> $names,
+    NodeList<ListItem<ITypeSpecifier>> $names,
     SemicolonToken $semicolon,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -53,7 +53,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<ISimpleCreationSpecifier>>',
+      'NodeList<ListItem<ITypeSpecifier>>',
     );
     $names = $names as nonnull;
     $offset += $names->getWidth();
@@ -108,7 +108,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $keyword as UseToken,
-      /* HH_FIXME[4110] NodeList<ListItem<ISimpleCreationSpecifier>> may not be enforceable */ $names,
+      /* HH_FIXME[4110] NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $names,
       $semicolon as SemicolonToken,
     );
   }
@@ -146,9 +146,7 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     return $this->_names;
   }
 
-  public function withNames(
-    NodeList<ListItem<ISimpleCreationSpecifier>> $value,
-  ): this {
+  public function withNames(NodeList<ListItem<ITypeSpecifier>> $value): this {
     if ($value === $this->_names) {
       return $this;
     }
@@ -162,18 +160,20 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
   /**
    * @return NodeList<ListItem<GenericTypeSpecifier>> |
    * NodeList<ListItem<ISimpleCreationSpecifier>> |
-   * NodeList<ListItem<SimpleTypeSpecifier>>
+   * NodeList<ListItem<SimpleTypeSpecifier>> |
+   * NodeList<ListItem<XHPClassNameToken>>
    */
-  public function getNames(): NodeList<ListItem<ISimpleCreationSpecifier>> {
+  public function getNames(): NodeList<ListItem<ITypeSpecifier>> {
     return TypeAssert\instance_of(NodeList::class, $this->_names);
   }
 
   /**
    * @return NodeList<ListItem<GenericTypeSpecifier>> |
    * NodeList<ListItem<ISimpleCreationSpecifier>> |
-   * NodeList<ListItem<SimpleTypeSpecifier>>
+   * NodeList<ListItem<SimpleTypeSpecifier>> |
+   * NodeList<ListItem<XHPClassNameToken>>
    */
-  public function getNamesx(): NodeList<ListItem<ISimpleCreationSpecifier>> {
+  public function getNamesx(): NodeList<ListItem<ITypeSpecifier>> {
     return $this->getNames();
   }
 

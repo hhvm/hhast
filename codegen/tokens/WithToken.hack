@@ -1,18 +1,18 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<90e22e44ed77a61f775b939aa4ebe2c0>>
+ * @generated SignedSource<<f477f46c5cd02a8c978d4ede2f50c97f>>
  */
 namespace Facebook\HHAST;
 
-final class ObjectToken extends TokenWithVariableText {
+final class WithToken extends TokenWithVariableText {
 
-  const string KIND = 'object';
+  const string KIND = 'with';
 
   public function __construct(
     ?NodeList<Trivia> $leading,
     ?NodeList<Trivia> $trailing,
-    string $token_text = 'object',
+    string $token_text = 'with',
     ?__Private\SourceRef $source_ref = null,
   ) {
     parent::__construct($leading, $trailing, $token_text, $source_ref);
