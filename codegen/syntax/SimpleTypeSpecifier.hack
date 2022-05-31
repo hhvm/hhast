@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a110b99b93d8da2a3a8ae45cb79fa11d>>
+ * @generated SignedSource<<f5e82198817cbe5ab496e965b36620ad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -92,9 +92,9 @@ final class SimpleTypeSpecifier
   /**
    * @return QualifiedName | XHPClassNameToken | ArraykeyToken | BoolToken |
    * DarrayToken | DictToken | FloatToken | IntToken | KeysetToken | MixedToken
-   * | NameToken | NoreturnToken | NullLiteralToken | NumToken | ObjectToken |
-   * ResourceToken | StringToken | ThisToken | VarToken | VarrayToken |
-   * VecToken | VoidToken | XHPToken
+   * | NameToken | NoreturnToken | NullLiteralToken | NumToken | ResourceToken
+   * | StringToken | ThisToken | VarToken | VarrayToken | VecToken | VoidToken
+   * | XHPToken
    */
   public function getSpecifier(): Node {
     return $this->_specifier;
@@ -103,9 +103,9 @@ final class SimpleTypeSpecifier
   /**
    * @return QualifiedName | XHPClassNameToken | ArraykeyToken | BoolToken |
    * DarrayToken | DictToken | FloatToken | IntToken | KeysetToken | MixedToken
-   * | NameToken | NoreturnToken | NullLiteralToken | NumToken | ObjectToken |
-   * ResourceToken | StringToken | ThisToken | VarToken | VarrayToken |
-   * VecToken | VoidToken | XHPToken
+   * | NameToken | NoreturnToken | NullLiteralToken | NumToken | ResourceToken
+   * | StringToken | ThisToken | VarToken | VarrayToken | VecToken | VoidToken
+   * | XHPToken
    */
   public function getSpecifierx(): Node {
     return $this->getSpecifier();

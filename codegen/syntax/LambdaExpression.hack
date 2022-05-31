@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<173b5f60000dcf562d8a12a994dcd1a5>>
+ * @generated SignedSource<<29ed3005c47a47905b1ba5ef2bed0d62>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -321,7 +321,7 @@ final class LambdaExpression
    * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
    * | PostfixUnaryExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * VariableExpression | VarrayIntrinsicExpression
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getBody(): ILambdaBody {
     return TypeAssert\instance_of(ILambdaBody::class, $this->_body);
@@ -336,7 +336,7 @@ final class LambdaExpression
    * NullableAsExpression | ObjectCreationExpression | ParenthesizedExpression
    * | PostfixUnaryExpression | PrefixUnaryExpression |
    * ScopeResolutionExpression | ShapeExpression | SubscriptExpression |
-   * VariableExpression | VarrayIntrinsicExpression
+   * VariableExpression | VarrayIntrinsicExpression | VectorIntrinsicExpression
    */
   public function getBodyx(): ILambdaBody {
     return $this->getBody();
