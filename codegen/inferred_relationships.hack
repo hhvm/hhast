@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0d7757594cf1de2622b33f2c327b06b2>>
+ * @generated SignedSource<<5e0d65652aa946ebc45b4e6c3afec026>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -377,6 +377,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<methodish_declaration>',
     'list<methodish_declaration|property_declaration>',
     'list<methodish_declaration|property_declaration|require_clause>',
+    'list<methodish_declaration|property_declaration|require_clause|type_const_declaration>',
     'list<methodish_declaration|property_declaration|trait_use>',
     'list<methodish_declaration|property_declaration|type_const_declaration>',
     'list<methodish_declaration|property_declaration|xhp_class_attribute_declaration>',
@@ -3427,6 +3428,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<darray_type_specifier>>',
     'list<list_item<darray_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<dictionary_type_specifier>>',
+    'list<list_item<dictionary_type_specifier>|list_item<nullable_type_specifier>>',
     'list<list_item<generic_type_specifier>>',
     'list<list_item<generic_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<generic_type_specifier>|list_item<type_constant>>',
