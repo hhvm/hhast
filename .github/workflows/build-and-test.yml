@@ -43,6 +43,7 @@ jobs:
       - name: Check for manually modified codegen
         run: vendor/bin/hh-codegen-verify-signatures codegen/
   update-schema:
+    if: github.ref_type != 'tag'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
