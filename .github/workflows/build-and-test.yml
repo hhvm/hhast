@@ -77,6 +77,13 @@ jobs:
       - if: github.event_name != 'pull_request'
         run: bin/update-codegen --dont-update-ast --update-latest-breaking-version
       - if: github.event_name != 'pull_request'
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          base: HEAD
+          filters: |
+            latest-breaking-version: codegen-no-rebuild/latest_breaking_version.hack
+      - if: github.event_name != 'pull_request' && steps.filter.outputs.latest-breaking-version == 'true'
         uses: peter-evans/create-pull-request@v4
         with:
           branch: update-latest-breaking-version/${{github.ref_name}}
