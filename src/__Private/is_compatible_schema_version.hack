@@ -21,6 +21,12 @@ use namespace HH\Lib\Str;
  * Facebook\HHAST\SCHEMA_VERSION.
  */
 function is_compatible_schema_version(string $other_version): bool {
+  invariant(
+    Str\length($other_version) === Str\length(SCHEMA_VERSION) &&
+      Str\length($other_version) === Str\length(LATEST_BREAKING_SCHEMA_VERSION),
+    '%s needs updating or a Y10K bug occurs',
+    __FILE__,
+  );
   return Str\compare($other_version, SCHEMA_VERSION) <= 0 &&
     Str\compare($other_version, LATEST_BREAKING_SCHEMA_VERSION) >= 0;
 }
