@@ -67,6 +67,7 @@ jobs:
       - if: github.event_name != 'pull_request'
         run: bin/update-schema --hhvm-path=./.var/tmp/hhvm
       - if: github.event_name != 'pull_request'
+        id: pull-request-to-update-schema
         uses: peter-evans/create-pull-request@v4
         with:
           branch: update-schema/${{github.ref_name}}
@@ -90,5 +91,5 @@ jobs:
           title: Update schema to a backward incompatible version
           commit-message: Update the latest breaking version
           body: |
-            This PR updates assumes the latest schema is a breaking change.
-            Feel free to close this PR if the schema is actually backward compatible with previous schema versions.
+            This PR assumes the latest schema is a breaking change.
+            Feel free to close this PR and instead merge #${{steps.pull-request-to-update-schema.outputs.pull-request-number}}, if the schema is actually backward compatible with previous schema versions.
