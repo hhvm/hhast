@@ -78,13 +78,26 @@ jobs:
       - if: github.event_name != 'pull_request'
         run: bin/update-codegen --dont-update-ast --update-latest-breaking-version
       - if: github.event_name != 'pull_request'
+        id: determine-latest-breaking-hhvm-version
+        run: |
+          [[ \
+            "$(<codegen-no-rebuild/latest_breaking_version.hack)" \
+            =~ const\ string\ LATEST_BREAKING_HHVM_VERSION\ =\ \'([0-9]+\.[0-9]+)\. \
+          ]] && \
+          echo "::set-output name=latest-breaking-hhvm-version::${BASH_REMATCH[1]}"
+      - if: github.event_name != 'pull_request'
+        uses: sergeysova/jq-action@v2
+        with:
+          cmd: |
+            jq '.require.hhvm = "^${{steps.determine-latest-breaking-hhvm-version.outputs.latest-breaking-hhvm-version}}"' composer.json > composer.json.tmp && mv composer.json.tmp composer.json
+      - if: github.event_name != 'pull_request'
         uses: dorny/paths-filter@v2
         id: filter
         with:
           base: HEAD
           filters: |
-            latest-breaking-version: codegen-no-rebuild/latest_breaking_version.hack
-      - if: github.event_name != 'pull_request' && steps.filter.outputs.latest-breaking-version == 'true'
+            any-changes: '**'
+      - if: github.event_name != 'pull_request' && steps.filter.outputs.any-changes == 'true'
         uses: peter-evans/create-pull-request@v4
         with:
           branch: update-latest-breaking-version/${{github.ref_name}}
