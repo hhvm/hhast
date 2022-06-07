@@ -1,34 +1,34 @@
 {
-    "name": "hhvm/hhast",
-    "description": "A mutable AST library for Hack with linting and code migrations",
-    "bin": [
-      "bin/hhast-lint",
-      "bin/hhast-lint.hack",
-      "bin/hhast-migrate",
-      "bin/hhast-migrate.hack"
-    ],
-    "license": "MIT",
-    "extra": {
-      "branch-alias": {
-        "dev-master": "4.x-dev",
-        "dev-main": "4.x-dev"
-      }
-    },
-    "require-dev": {
-        "facebook/fbexpect": "^2.8.1",
-        "facebook/hack-codegen": "^4.0",
-        "hhvm/hhvm-autoload": "^2.0.4|^3.0",
-        "hhvm/hacktest": "^2.3.0"
-    },
-    "require": {
-        "hhvm": "^4.161",
-        "hhvm/type-assert": "^4.2.2",
-        "facebook/hh-clilib": "^2.5.0rc1",
-        "facebook/difflib": "^1.0.0"
-    },
-    "config": {
-        "allow-plugins": {
-            "hhvm/hhvm-autoload": true
-        }
+  "name": "hhvm/hhast",
+  "description": "A mutable AST library for Hack with linting and code migrations",
+  "bin": [
+    "bin/hhast-lint",
+    "bin/hhast-lint.hack",
+    "bin/hhast-migrate",
+    "bin/hhast-migrate.hack"
+  ],
+  "license": "MIT",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "4.x-dev",
+      "dev-main": "4.x-dev"
     }
+  },
+  "require-dev": {
+    "facebook/fbexpect": "^2.8.1",
+    "facebook/hack-codegen": "^4.0",
+    "hhvm/hhvm-autoload": "^2.0.4|^3.0",
+    "hhvm/hacktest": "^2.3.0"
+  },
+  "require": {
+    "hhvm": "^4.162",
+    "hhvm/type-assert": "^4.2.2",
+    "facebook/hh-clilib": "^2.5.0rc1",
+    "facebook/difflib": "^1.0.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "hhvm/hhvm-autoload": true
+    }
+  }
 }
