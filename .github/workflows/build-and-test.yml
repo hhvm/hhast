@@ -73,11 +73,11 @@ jobs:
           branch: update-schema/${{github.ref_name}}
           title: Update schema
           commit-message: Update schema
-      - if: github.event_name != 'pull_request'
+      - if: steps.pull-request-to-update-schema.outputs.pull-request-number
         run: git checkout -B "${{github.ref_name}}"
-      - if: github.event_name != 'pull_request'
+      - if: steps.pull-request-to-update-schema.outputs.pull-request-number
         run: bin/update-codegen --dont-update-ast --update-latest-breaking-version
-      - if: github.event_name != 'pull_request'
+      - if: steps.pull-request-to-update-schema.outputs.pull-request-number
         id: determine-latest-breaking-hhvm-version
         run: |
           [[ \
@@ -85,19 +85,19 @@ jobs:
             =~ const\ string\ LATEST_BREAKING_HHVM_VERSION\ =\ \'([0-9]+\.[0-9]+)\. \
           ]] && \
           echo "::set-output name=latest-breaking-hhvm-version::${BASH_REMATCH[1]}"
-      - if: github.event_name != 'pull_request'
+      - if: steps.pull-request-to-update-schema.outputs.pull-request-number
         uses: sergeysova/jq-action@v2
         with:
           cmd: |
             jq '.require.hhvm = "^${{steps.determine-latest-breaking-hhvm-version.outputs.latest-breaking-hhvm-version}}"' composer.json > composer.json.tmp && mv composer.json.tmp composer.json
-      - if: github.event_name != 'pull_request'
+      - if: steps.pull-request-to-update-schema.outputs.pull-request-number
         uses: dorny/paths-filter@v2
         id: filter
         with:
           base: HEAD
           filters: |
             any-changes: '**'
-      - if: github.event_name != 'pull_request' && steps.filter.outputs.any-changes == 'true'
+      - if: steps.pull-request-to-update-schema.outputs.pull-request-number && steps.filter.outputs.any-changes == 'true'
         uses: peter-evans/create-pull-request@v4
         with:
           branch: update-latest-breaking-version/${{github.ref_name}}
