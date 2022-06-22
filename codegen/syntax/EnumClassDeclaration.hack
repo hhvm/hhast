@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<edbc1ea3ce44dd5cc5ee916f44164090>>
+ * @generated SignedSource<<71ee494596dad01a0be73d16ce53f8f8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -343,14 +343,16 @@ final class EnumClassDeclaration extends Node {
   }
 
   /**
-   * @return NodeList<AbstractToken> | NodeList<InternalToken> | null
+   * @return NodeList<AbstractToken> | NodeList<InternalToken> |
+   * NodeList<PublicToken> | null
    */
   public function getModifiers(): ?NodeList<Token> {
     return $this->_modifiers;
   }
 
   /**
-   * @return NodeList<AbstractToken> | NodeList<InternalToken>
+   * @return NodeList<AbstractToken> | NodeList<InternalToken> |
+   * NodeList<PublicToken>
    */
   public function getModifiersx(): NodeList<Token> {
     return TypeAssert\not_null($this->getModifiers());

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a14cb1d3697fae4f50e0aa7902f6cef2>>
+ * @generated SignedSource<<2f4f00c2152c863caf9083133d1f626f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   const string SYNTAX_KIND = 'alias_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private ?NodeList<InternalToken> $_modifiers;
+  private ?NodeList<PublicToken> $_modifiers;
   private Token $_keyword;
   private NameToken $_name;
   private ?TypeParameters $_generic_parameter;
@@ -26,7 +26,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    ?NodeList<InternalToken> $modifiers,
+    ?NodeList<PublicToken> $modifiers,
     Token $keyword,
     NameToken $name,
     ?TypeParameters $generic_parameter,
@@ -71,7 +71,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'NodeList<InternalToken>',
+      'NodeList<PublicToken>',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
@@ -210,7 +210,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] ?NodeList<InternalToken> may not be enforceable */ $modifiers,
+      /* HH_FIXME[4110] ?NodeList<PublicToken> may not be enforceable */ $modifiers,
       $keyword as Token,
       $name as NameToken,
       $generic_parameter as ?TypeParameters,
@@ -264,7 +264,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?NodeList<InternalToken> $value): this {
+  public function withModifiers(?NodeList<PublicToken> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -286,16 +286,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return NodeList<InternalToken> | null
+   * @return NodeList<PublicToken> | null
    */
-  public function getModifiers(): ?NodeList<InternalToken> {
+  public function getModifiers(): ?NodeList<PublicToken> {
     return $this->_modifiers;
   }
 
   /**
-   * @return NodeList<InternalToken>
+   * @return NodeList<PublicToken>
    */
-  public function getModifiersx(): NodeList<InternalToken> {
+  public function getModifiersx(): NodeList<PublicToken> {
     return TypeAssert\not_null($this->getModifiers());
   }
 

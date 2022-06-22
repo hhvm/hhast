@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<eb6274fd73e55de43081bfdf50e4604a>>
+ * @generated SignedSource<<efaed262dbcaf1bee37262fcfc534a14>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -359,7 +359,7 @@ final class ClassishDeclaration
 
   /**
    * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<FinalToken> |
-   * NodeList<InternalToken> | null
+   * NodeList<InternalToken> | NodeList<PublicToken> | null
    */
   public function getModifiers(): ?NodeList<Token> {
     return $this->_modifiers;
@@ -367,7 +367,7 @@ final class ClassishDeclaration
 
   /**
    * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<FinalToken> |
-   * NodeList<InternalToken>
+   * NodeList<InternalToken> | NodeList<PublicToken>
    */
   public function getModifiersx(): NodeList<Token> {
     return TypeAssert\not_null($this->getModifiers());
