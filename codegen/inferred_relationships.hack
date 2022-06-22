@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79041f46bd09a43a9ae50d6aa7ab795a>>
+ * @generated SignedSource<<b7f15e9844555dfe94934c5cb8da5190>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -26,7 +26,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:type',
   ],
   'alias_declaration.alias_modifiers' => keyset[
-    'list<token:internal>',
+    'list<token:public>',
     'missing',
   ],
   'alias_declaration.alias_name' => keyset[
@@ -443,6 +443,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<token:abstract|token:final>',
     'list<token:final>',
     'list<token:internal>',
+    'list<token:public>',
     'missing',
   ],
   'classish_declaration.classish_name' => keyset[
@@ -1341,6 +1342,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'enum_class_declaration.enum_class_modifiers' => keyset[
     'list<token:abstract>',
     'list<token:internal>',
+    'list<token:public>',
     'missing',
   ],
   'enum_class_declaration.enum_class_name' => keyset[
@@ -1391,7 +1393,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:{',
   ],
   'enum_declaration.enum_modifiers' => keyset[
-    'list<token:internal>',
+    'list<token:public>',
     'missing',
   ],
   'enum_declaration.enum_name' => keyset[
@@ -3030,13 +3032,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<alias_declaration|classish_declaration|const_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|const_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_class_declaration|enum_declaration|file_attribute_specification|function_declaration|markup_section>',
+    'list<alias_declaration|classish_declaration|end_of_file|enum_class_declaration|enum_declaration|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
-    'list<alias_declaration|classish_declaration|end_of_file|file_attribute_specification|markup_section|module_declaration|module_membership_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|markup_section>',
     'list<alias_declaration|const_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
-    'list<alias_declaration|end_of_file|enum_declaration|file_attribute_specification|markup_section|module_declaration|module_membership_declaration>',
     'list<alias_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
     'list<alias_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
@@ -3056,7 +3057,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
     'list<classish_declaration|end_of_file|file_attribute_specification|markup_section>',
     'list<classish_declaration|end_of_file|file_attribute_specification|markup_section|module_declaration>',
-    'list<classish_declaration|end_of_file|file_attribute_specification|markup_section|module_declaration|module_membership_declaration>',
     'list<classish_declaration|end_of_file|function_declaration|markup_section>',
     'list<classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration|namespace_use_declaration>',
@@ -3073,7 +3073,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<const_declaration|end_of_file|markup_section|namespace_declaration>',
     'list<const_declaration|end_of_file|markup_section|namespace_use_declaration>',
     'list<context_alias_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section>',
-    'list<end_of_file|enum_class_declaration|file_attribute_specification|function_declaration|markup_section|module_declaration|module_membership_declaration>',
+    'list<end_of_file|enum_class_declaration|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
     'list<end_of_file|enum_class_declaration|function_declaration|markup_section>',
     'list<end_of_file|enum_class_declaration|markup_section>',
     'list<end_of_file|enum_declaration|expression_statement|function_declaration|markup_section>',
@@ -3083,7 +3083,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<end_of_file|file_attribute_specification|function_declaration|markup_section>',
     'list<end_of_file|file_attribute_specification|function_declaration|markup_section|module_declaration>',
     'list<end_of_file|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
-    'list<end_of_file|file_attribute_specification|markup_section|module_declaration|module_membership_declaration>',
     'list<end_of_file|file_attribute_specification|markup_section|module_membership_declaration|namespace_declaration>',
     'list<end_of_file|file_attribute_specification|markup_section|namespace_declaration>',
     'list<end_of_file|function_declaration>',
