@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b7f15e9844555dfe94934c5cb8da5190>>
+ * @generated SignedSource<<6046ce2b585af27ffcaca0b85bd53581>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -27,6 +27,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'alias_declaration.alias_modifiers' => keyset[
     'list<token:public>',
+    'missing',
+  ],
+  'alias_declaration.alias_module_kw_opt' => keyset[
     'missing',
   ],
   'alias_declaration.alias_name' => keyset[
