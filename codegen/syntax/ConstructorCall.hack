@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<d57c0dbadbe30c6c33ac09bf339b665f>>
+ * @generated SignedSource<<d85dbea9b42c0f5b6f4269b792e3e767>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -235,6 +235,7 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<EnumClassLabelExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<FunctionPointerExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
@@ -265,6 +266,7 @@ final class ConstructorCall extends Node {
    * NodeList<ListItem<DarrayIntrinsicExpression>> |
    * NodeList<ListItem<DecoratedExpression>> |
    * NodeList<ListItem<DictionaryIntrinsicExpression>> |
+   * NodeList<ListItem<EnumClassLabelExpression>> |
    * NodeList<ListItem<FunctionCallExpression>> |
    * NodeList<ListItem<FunctionPointerExpression>> |
    * NodeList<ListItem<KeysetIntrinsicExpression>> |
