@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ae2776003406840fbb8d957fba3d62da>>
+ * @generated SignedSource<<e640efcedae962d446f4c5cd73d21fc8>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -3822,6 +3822,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<darray_intrinsic_expression>|list_item<varray_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<function_call_expression>|list_item<keyset_intrinsic_expression>|list_item<literal>|list_item<vector_intrinsic_expression>>',
+    'list<list_item<dictionary_intrinsic_expression>|list_item<function_pointer_expression>|list_item<literal>|list_item<object_creation_expression>|list_item<scope_resolution_expression>|list_item<vector_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<varray_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<keyset_intrinsic_expression>|list_item<vector_intrinsic_expression>>',
