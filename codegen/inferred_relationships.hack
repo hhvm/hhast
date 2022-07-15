@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e640efcedae962d446f4c5cd73d21fc8>>
+ * @generated SignedSource<<2d7426831231391b56e4b212b52694f2>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -31,6 +31,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'alias_declaration.alias_module_kw_opt' => keyset[
     'missing',
+    'token:module',
   ],
   'alias_declaration.alias_name' => keyset[
     'token:name',
@@ -3038,6 +3039,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<alias_declaration|classish_declaration|end_of_file|enum_class_declaration|enum_declaration|file_attribute_specification|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_class_declaration|enum_declaration|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
+    'list<alias_declaration|classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|markup_section>',
