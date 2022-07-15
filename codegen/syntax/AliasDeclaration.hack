@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f37f11e3bf8cf6a19dc182f96f174f2>>
+ * @generated SignedSource<<51cea93ed2a1f03f9535ad0a6024009b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,7 +16,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
 
   private ?OldAttributeSpecification $_attribute_spec;
   private ?NodeList<PublicToken> $_modifiers;
-  private ?Node $_module_kw_opt;
+  private ?ModuleToken $_module_kw_opt;
   private Token $_keyword;
   private NameToken $_name;
   private ?TypeParameters $_generic_parameter;
@@ -28,7 +28,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
     ?NodeList<PublicToken> $modifiers,
-    ?Node $module_kw_opt,
+    ?ModuleToken $module_kw_opt,
     Token $keyword,
     NameToken $name,
     ?TypeParameters $generic_parameter,
@@ -82,7 +82,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'Node',
+      'ModuleToken',
     );
     $offset += $module_kw_opt?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
@@ -228,7 +228,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
       /* HH_FIXME[4110] ?NodeList<PublicToken> may not be enforceable */ $modifiers,
-      $module_kw_opt as ?Node,
+      $module_kw_opt as ?ModuleToken,
       $keyword as Token,
       $name as NameToken,
       $generic_parameter as ?TypeParameters,
@@ -323,7 +323,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_module_kw_opt;
   }
 
-  public function withModuleKwOpt(?Node $value): this {
+  public function withModuleKwOpt(?ModuleToken $value): this {
     if ($value === $this->_module_kw_opt) {
       return $this;
     }
@@ -346,16 +346,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return null
+   * @return null | ModuleToken
    */
-  public function getModuleKwOpt(): ?Node {
+  public function getModuleKwOpt(): ?ModuleToken {
     return $this->_module_kw_opt;
   }
 
   /**
-   * @return
+   * @return ModuleToken
    */
-  public function getModuleKwOptx(): Node {
+  public function getModuleKwOptx(): ModuleToken {
     return TypeAssert\not_null($this->getModuleKwOpt());
   }
 
