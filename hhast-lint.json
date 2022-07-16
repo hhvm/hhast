@@ -25,5 +25,13 @@
         "Facebook\\HHAST\\DataProviderTypesLinter"
       ]
     }
-  ]
+  ],
+  "linterConfigs": {
+    "Facebook\\HHAST\\DontDiscardNewExpressionsLinter": {
+      "exceptionSuffixes": [
+        "Error",
+        "Exception"
+      ]
+    }
+  }
 }
