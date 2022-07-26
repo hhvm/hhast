@@ -1,0 +1,12 @@
+[
+    {
+        "blame": "  new DeleteMyFiles();\n",
+        "blame_pretty": "  new DeleteMyFiles();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIf you are running this constructor for its side-effects,\nconsider restructuring that class \/ constructor.\nA constructor is meant for creating objects, not for causing effects."
+    },
+    {
+        "blame": "  new Some\\DeleteMyFiles();\n",
+        "blame_pretty": "  new Some\\DeleteMyFiles();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIf you are running this constructor for its side-effects,\nconsider restructuring that class \/ constructor.\nA constructor is meant for creating objects, not for causing effects."
+    }
+]

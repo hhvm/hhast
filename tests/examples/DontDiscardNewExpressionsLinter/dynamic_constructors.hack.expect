@@ -1,0 +1,22 @@
+[
+    {
+        "blame": "    new $cls();\n",
+        "blame_pretty": "    new $cls();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIf you are running this constructor for its side-effects,\nconsider restructuring that class \/ constructor.\nA constructor is meant for creating objects, not for causing effects."
+    },
+    {
+        "blame": "    new static();\n",
+        "blame_pretty": "    new static();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIf you are running this constructor for its side-effects,\nconsider restructuring that class \/ constructor.\nA constructor is meant for creating objects, not for causing effects."
+    },
+    {
+        "blame": "    new parent();\n",
+        "blame_pretty": "    new parent();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIf you are running this constructor for its side-effects,\nconsider restructuring that class \/ constructor.\nA constructor is meant for creating objects, not for causing effects."
+    },
+    {
+        "blame": "    new self();\n",
+        "blame_pretty": "    new self();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIf you are running this constructor for its side-effects,\nconsider restructuring that class \/ constructor.\nA constructor is meant for creating objects, not for causing effects."
+    }
+]

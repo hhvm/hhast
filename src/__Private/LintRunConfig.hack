@@ -68,6 +68,7 @@ final class LintRunConfig {
     HHAST\AsyncFunctionAndMethodLinter::class,
     HHAST\CamelCasedMethodsUnderscoredFunctionsLinter::class,
     HHAST\DontAwaitInALoopLinter::class,
+    HHAST\DontDiscardNewExpressionsLinter::class,
     HHAST\LicenseHeaderLinter::class,
     HHAST\NewlineAtEndOfFileLinter::class,
     HHAST\MustUseBracesForControlFlowLinter::class,

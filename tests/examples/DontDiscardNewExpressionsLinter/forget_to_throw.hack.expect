@@ -1,0 +1,22 @@
+[
+    {
+        "blame": "  new Exception();\n",
+        "blame_pretty": "  new Exception();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIt looks like you are constructing an Exception. Did you intend to throw it?"
+    },
+    {
+        "blame": "  new LogicException();\n",
+        "blame_pretty": "  new LogicException();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIt looks like you are constructing an Exception. Did you intend to throw it?"
+    },
+    {
+        "blame": "  new Some\\Exception();\n",
+        "blame_pretty": "  new Some\\Exception();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIt looks like you are constructing an Exception. Did you intend to throw it?"
+    },
+    {
+        "blame": "  new ClassWithMyCustomSuffix();\n",
+        "blame_pretty": "  new ClassWithMyCustomSuffix();\n",
+        "description": "You are discarding the result of a `new` expression.\nIf you are intentionally discarding the newly created object,\nconsider assigning it to `$_` to communicate with your readers.\nIt looks like you are constructing an Exception. Did you intend to throw it?"
+    }
+]
