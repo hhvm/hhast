@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<066bf009dfdf1ba8c04e96cc1482b4bb>>
+ * @generated SignedSource<<9d7251c4abb2cbbe07781c7d35bcf687>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,7 +17,7 @@ final class ModuleDeclaration extends Node {
   private ?OldAttributeSpecification $_attribute_spec;
   private NewToken $_new_keyword;
   private ModuleToken $_module_keyword;
-  private NameToken $_name;
+  private QualifiedName $_name;
   private LeftBraceToken $_left_brace;
   private RightBraceToken $_right_brace;
 
@@ -25,7 +25,7 @@ final class ModuleDeclaration extends Node {
     ?OldAttributeSpecification $attribute_spec,
     NewToken $new_keyword,
     ModuleToken $module_keyword,
-    NameToken $name,
+    QualifiedName $name,
     LeftBraceToken $left_brace,
     RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
@@ -80,7 +80,7 @@ final class ModuleDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'NameToken',
+      'QualifiedName',
     );
     $name = $name as nonnull;
     $offset += $name->getWidth();
@@ -160,7 +160,7 @@ final class ModuleDeclaration extends Node {
       $attribute_spec as ?OldAttributeSpecification,
       $new_keyword as NewToken,
       $module_keyword as ModuleToken,
-      $name as NameToken,
+      $name as QualifiedName,
       $left_brace as LeftBraceToken,
       $right_brace as RightBraceToken,
     );
@@ -278,7 +278,7 @@ final class ModuleDeclaration extends Node {
     return $this->_name;
   }
 
-  public function withName(NameToken $value): this {
+  public function withName(QualifiedName $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -297,16 +297,16 @@ final class ModuleDeclaration extends Node {
   }
 
   /**
-   * @return NameToken
+   * @return QualifiedName
    */
-  public function getName(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+  public function getName(): QualifiedName {
+    return TypeAssert\instance_of(QualifiedName::class, $this->_name);
   }
 
   /**
-   * @return NameToken
+   * @return QualifiedName
    */
-  public function getNamex(): NameToken {
+  public function getNamex(): QualifiedName {
     return $this->getName();
   }
 

@@ -1,11 +1,11 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f9fb0788dc6333b676513ad75774a61>>
+ * @generated SignedSource<<5c1ddb841a419886db7cc6e67be26008>>
  */
 namespace Facebook\HHAST;
 
-const string SCHEMA_VERSION = '2022-07-05-0000';
+const string SCHEMA_VERSION = '2022-07-20-0000';
 
 const int HHVM_VERSION_ID = 416500;
 

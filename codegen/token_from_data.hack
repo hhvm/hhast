@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4978deeca1ca80509cdf59832edc22ab>>
+ * @generated SignedSource<<f0deaf24b9a5f5ea0781a9074ee27cd8>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -55,18 +55,13 @@ final class TokenClassMap {
     'ctx' => HHAST\CtxToken::class,
     'darray' => HHAST\DarrayToken::class,
     'default' => HHAST\DefaultToken::class,
-    'define' => HHAST\DefineToken::class,
     'dict' => HHAST\DictToken::class,
     'do' => HHAST\DoToken::class,
     'double' => HHAST\DoubleToken::class,
     'echo' => HHAST\EchoToken::class,
     'else' => HHAST\ElseToken::class,
     'empty' => HHAST\EmptyToken::class,
-    'endfor' => HHAST\EndforToken::class,
-    'endforeach' => HHAST\EndforeachToken::class,
     'endif' => HHAST\EndifToken::class,
-    'endswitch' => HHAST\EndswitchToken::class,
-    'endwhile' => HHAST\EndwhileToken::class,
     'enum' => HHAST\EnumToken::class,
     'eval' => HHAST\EvalToken::class,
     'extends' => HHAST\ExtendsToken::class,
@@ -77,7 +72,6 @@ final class TokenClassMap {
     'float' => HHAST\FloatToken::class,
     'for' => HHAST\ForToken::class,
     'foreach' => HHAST\ForeachToken::class,
-    'from' => HHAST\FromToken::class,
     'function' => HHAST\FunctionToken::class,
     'global' => HHAST\GlobalToken::class,
     'if' => HHAST\IfToken::class,
