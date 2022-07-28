@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2d7426831231391b56e4b212b52694f2>>
+ * @generated SignedSource<<b243a77f085f13ce83752046b927f44e>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2588,7 +2588,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:module',
   ],
   'module_declaration.module_declaration_name' => keyset[
-    'token:name',
+    'qualified_name',
   ],
   'module_declaration.module_declaration_new_keyword' => keyset[
     'token:new',
@@ -2601,7 +2601,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
       'token:module',
     ],
   'module_membership_declaration.module_membership_declaration_name' => keyset[
-    'token:name',
+    'qualified_name',
   ],
   'module_membership_declaration.module_membership_declaration_semicolon' =>
     keyset[
