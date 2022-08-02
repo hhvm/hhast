@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fcc84599a648d36f9f91ae8ed01729eb>>
+ * @generated SignedSource<<194693a524b90d5d00f80feff66c9e73>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -485,14 +485,18 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return ClassnameTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
   public function getBase(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_base);
   }
 
   /**
-   * @return ClassnameTypeSpecifier | GenericTypeSpecifier | SimpleTypeSpecifier
+   * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | KeysetTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
   public function getBasex(): ITypeSpecifier {
     return $this->getBase();
