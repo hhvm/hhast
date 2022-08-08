@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b243a77f085f13ce83752046b927f44e>>
+ * @generated SignedSource<<796c39a389e95e4c7bbcd8577b5d4738>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -1381,8 +1381,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'enum_declaration.enum_base' => keyset[
     'classname_type_specifier',
+    'closure_type_specifier',
+    'dictionary_type_specifier',
     'generic_type_specifier',
+    'keyset_type_specifier',
+    'nullable_type_specifier',
     'simple_type_specifier',
+    'vector_type_specifier',
   ],
   'enum_declaration.enum_colon' => keyset[
     'token::',
@@ -2734,6 +2739,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'darray_type_specifier',
     'dictionary_type_specifier',
     'generic_type_specifier',
+    'keyset_type_specifier',
     'like_type_specifier',
     'shape_type_specifier',
     'simple_type_specifier',
@@ -3039,6 +3045,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<alias_declaration|classish_declaration|end_of_file|enum_class_declaration|enum_declaration|file_attribute_specification|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_class_declaration|enum_declaration|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|enum_declaration|function_declaration|markup_section>',
+    'list<alias_declaration|classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|file_attribute_specification|function_declaration|markup_section|module_membership_declaration>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section>',
     'list<alias_declaration|classish_declaration|end_of_file|function_declaration|markup_section|namespace_declaration>',
