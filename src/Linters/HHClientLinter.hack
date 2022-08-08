@@ -63,6 +63,7 @@ final class HHClientLinter implements Linter {
   const type TJSONResult = shape(
     'errors' => vec<HHClientLintError::TJSONError>,
     'version' => string,
+    ...
   );
 
   private static function blameCode(
