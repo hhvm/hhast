@@ -26,6 +26,7 @@ final class HHClientLintError implements LintError {
     'bypass_changed_lines' => bool,
     'original' => string,
     'replacement' => string,
+    ...
   );
 
   public function __construct(
