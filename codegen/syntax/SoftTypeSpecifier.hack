@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<071b43505cbdd21bf28bfe78510c618e>>
+ * @generated SignedSource<<99833ac638a55613e95bd4a97b1f8c5b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,12 +14,12 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'soft_type_specifier';
 
-  private ?Node $_at;
-  private ?Node $_type;
+  private AtToken $_at;
+  private ITypeSpecifier $_type;
 
   public function __construct(
-    ?Node $at,
-    ?Node $type,
+    AtToken $at,
+    ITypeSpecifier $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_at = $at;
@@ -37,21 +37,23 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $at = Node::fromJSON(
-      ($json['soft_at'] ?? dict['kind' => 'missing']) as dict<_, _>,
+      ($json['soft_at']) as dict<_, _>,
       $file,
       $offset,
       $source,
-      'Node',
+      'AtToken',
     );
-    $offset += $at?->getWidth() ?? 0;
+    $at = $at as nonnull;
+    $offset += $at->getWidth();
     $type = Node::fromJSON(
-      ($json['soft_type'] ?? dict['kind' => 'missing']) as dict<_, _>,
+      ($json['soft_type']) as dict<_, _>,
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
-    $offset += $type?->getWidth() ?? 0;
+    $type = $type as nonnull;
+    $offset += $type->getWidth();
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -80,19 +82,19 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $at = $this->_at === null ? null : $rewriter($this->_at, $parents);
-    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
+    $at = $rewriter($this->_at, $parents);
+    $type = $rewriter($this->_type, $parents);
     if ($at === $this->_at && $type === $this->_type) {
       return $this;
     }
-    return new static($at as ?Node, $type as ?Node);
+    return new static($at as AtToken, $type as ITypeSpecifier);
   }
 
   public function getAtUNTYPED(): ?Node {
     return $this->_at;
   }
 
-  public function withAt(?Node $value): this {
+  public function withAt(AtToken $value): this {
     if ($value === $this->_at) {
       return $this;
     }
@@ -100,28 +102,28 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasAt(): bool {
-    return $this->_at !== null;
+    return true;
   }
 
   /**
-   * @return unknown
+   * @return AtToken
    */
-  public function getAt(): ?Node {
-    return $this->_at;
+  public function getAt(): AtToken {
+    return TypeAssert\instance_of(AtToken::class, $this->_at);
   }
 
   /**
-   * @return unknown
+   * @return AtToken
    */
-  public function getAtx(): Node {
-    return TypeAssert\not_null($this->getAt());
+  public function getAtx(): AtToken {
+    return $this->getAt();
   }
 
   public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
-  public function withType(?Node $value): this {
+  public function withType(ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -129,20 +131,20 @@ final class SoftTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   public function hasType(): bool {
-    return $this->_type !== null;
+    return true;
   }
 
   /**
-   * @return unknown
+   * @return LikeTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getType(): ?Node {
-    return $this->_type;
+  public function getType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
   }
 
   /**
-   * @return unknown
+   * @return LikeTypeSpecifier | SimpleTypeSpecifier
    */
-  public function getTypex(): Node {
-    return TypeAssert\not_null($this->getType());
+  public function getTypex(): ITypeSpecifier {
+    return $this->getType();
   }
 }

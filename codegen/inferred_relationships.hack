@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<796c39a389e95e4c7bbcd8577b5d4738>>
+ * @generated SignedSource<<c048777767004adc1ca49c9ae7b8ee4c>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -45,9 +45,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'dictionary_type_specifier',
     'generic_type_specifier',
     'keyset_type_specifier',
+    'like_type_specifier',
     'nullable_type_specifier',
     'shape_type_specifier',
     'simple_type_specifier',
+    'soft_type_specifier',
     'tuple_type_specifier',
     'varray_type_specifier',
     'vector_type_specifier',
@@ -2428,6 +2430,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'generic_type_specifier',
     'like_type_specifier',
     'simple_type_specifier',
+    'soft_type_specifier',
     'type_constant',
     'varray_type_specifier',
     'vector_type_specifier',
@@ -3192,6 +3195,13 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:vec',
     'token:void',
     'token:xhp',
+  ],
+  'soft_type_specifier.soft_at' => keyset[
+    'token:@',
+  ],
+  'soft_type_specifier.soft_type' => keyset[
+    'like_type_specifier',
+    'simple_type_specifier',
   ],
   'subscript_expression.subscript_index' => keyset[
     'binary_expression',
