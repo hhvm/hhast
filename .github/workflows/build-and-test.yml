@@ -70,7 +70,7 @@ jobs:
         id: pull-request-to-update-schema
         uses: peter-evans/create-pull-request@v4
         with:
-          author: Hack OSS Team <hhvm-oss@fb.com>
+          author: HHVM/Hack Open Source <hhvm-oss@fb.com>
           branch: update-schema/${{github.ref_name}}
           title: Update schema
           commit-message: Update schema
@@ -101,7 +101,7 @@ jobs:
       - if: steps.pull-request-to-update-schema.outputs.pull-request-number && steps.filter.outputs.any-changes == 'true'
         uses: peter-evans/create-pull-request@v4
         with:
-          author: Hack OSS Team <hhvm-oss@fb.com>
+          author: HHVM/Hack Open Source <hhvm-oss@fb.com>
           branch: update-latest-breaking-version/${{github.ref_name}}
           title: Update schema to a backward incompatible version
           commit-message: Update the latest breaking version
