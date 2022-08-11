@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c048777767004adc1ca49c9ae7b8ee4c>>
+ * @generated SignedSource<<77ed8bcb152c5136d1304dee3bedf997>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2589,6 +2589,12 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
     'old_attribute_specification',
   ],
+  'module_declaration.module_declaration_exports' => keyset[
+    'missing',
+  ],
+  'module_declaration.module_declaration_imports' => keyset[
+    'missing',
+  ],
   'module_declaration.module_declaration_left_brace' => keyset[
     'token:{',
   ],
@@ -2596,7 +2602,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:module',
   ],
   'module_declaration.module_declaration_name' => keyset[
-    'qualified_name',
+    'module_name',
   ],
   'module_declaration.module_declaration_new_keyword' => keyset[
     'token:new',
@@ -2609,12 +2615,15 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
       'token:module',
     ],
   'module_membership_declaration.module_membership_declaration_name' => keyset[
-    'qualified_name',
+    'module_name',
   ],
   'module_membership_declaration.module_membership_declaration_semicolon' =>
     keyset[
       'token:;',
     ],
+  'module_name.module_name_parts' => keyset[
+    'list<list_item<token:name>>',
+  ],
   'namespace_body.namespace_declarations' => keyset[
     'list<alias_declaration>',
     'list<alias_declaration|enum_declaration|function_declaration|namespace_declaration|namespace_use_declaration>',

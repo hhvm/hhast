@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d7251c4abb2cbbe07781c7d35bcf687>>
+ * @generated SignedSource<<1d1fb415307f0976061bdb3cbad664a8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -17,16 +17,20 @@ final class ModuleDeclaration extends Node {
   private ?OldAttributeSpecification $_attribute_spec;
   private NewToken $_new_keyword;
   private ModuleToken $_module_keyword;
-  private QualifiedName $_name;
+  private ModuleName $_name;
   private LeftBraceToken $_left_brace;
+  private ?Node $_exports;
+  private ?Node $_imports;
   private RightBraceToken $_right_brace;
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
     NewToken $new_keyword,
     ModuleToken $module_keyword,
-    QualifiedName $name,
+    ModuleName $name,
     LeftBraceToken $left_brace,
+    ?Node $exports,
+    ?Node $imports,
     RightBraceToken $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -35,6 +39,8 @@ final class ModuleDeclaration extends Node {
     $this->_module_keyword = $module_keyword;
     $this->_name = $name;
     $this->_left_brace = $left_brace;
+    $this->_exports = $exports;
+    $this->_imports = $imports;
     $this->_right_brace = $right_brace;
     parent::__construct($source_ref);
   }
@@ -80,7 +86,7 @@ final class ModuleDeclaration extends Node {
       $file,
       $offset,
       $source,
-      'QualifiedName',
+      'ModuleName',
     );
     $name = $name as nonnull;
     $offset += $name->getWidth();
@@ -93,6 +99,24 @@ final class ModuleDeclaration extends Node {
     );
     $left_brace = $left_brace as nonnull;
     $offset += $left_brace->getWidth();
+    $exports = Node::fromJSON(
+      ($json['module_declaration_exports'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $exports?->getWidth() ?? 0;
+    $imports = Node::fromJSON(
+      ($json['module_declaration_imports'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
+      $file,
+      $offset,
+      $source,
+      'Node',
+    );
+    $offset += $imports?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
       ($json['module_declaration_right_brace']) as dict<_, _>,
       $file,
@@ -114,6 +138,8 @@ final class ModuleDeclaration extends Node {
       /* HH_IGNORE_ERROR[4110] */ $module_keyword,
       /* HH_IGNORE_ERROR[4110] */ $name,
       /* HH_IGNORE_ERROR[4110] */ $left_brace,
+      /* HH_IGNORE_ERROR[4110] */ $exports,
+      /* HH_IGNORE_ERROR[4110] */ $imports,
       /* HH_IGNORE_ERROR[4110] */ $right_brace,
       $source_ref,
     );
@@ -127,6 +153,8 @@ final class ModuleDeclaration extends Node {
       'module_keyword' => $this->_module_keyword,
       'name' => $this->_name,
       'left_brace' => $this->_left_brace,
+      'exports' => $this->_exports,
+      'imports' => $this->_imports,
       'right_brace' => $this->_right_brace,
     ]
       |> Dict\filter_nulls($$);
@@ -145,6 +173,10 @@ final class ModuleDeclaration extends Node {
     $module_keyword = $rewriter($this->_module_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
     $left_brace = $rewriter($this->_left_brace, $parents);
+    $exports =
+      $this->_exports === null ? null : $rewriter($this->_exports, $parents);
+    $imports =
+      $this->_imports === null ? null : $rewriter($this->_imports, $parents);
     $right_brace = $rewriter($this->_right_brace, $parents);
     if (
       $attribute_spec === $this->_attribute_spec &&
@@ -152,6 +184,8 @@ final class ModuleDeclaration extends Node {
       $module_keyword === $this->_module_keyword &&
       $name === $this->_name &&
       $left_brace === $this->_left_brace &&
+      $exports === $this->_exports &&
+      $imports === $this->_imports &&
       $right_brace === $this->_right_brace
     ) {
       return $this;
@@ -160,8 +194,10 @@ final class ModuleDeclaration extends Node {
       $attribute_spec as ?OldAttributeSpecification,
       $new_keyword as NewToken,
       $module_keyword as ModuleToken,
-      $name as QualifiedName,
+      $name as ModuleName,
       $left_brace as LeftBraceToken,
+      $exports as ?Node,
+      $imports as ?Node,
       $right_brace as RightBraceToken,
     );
   }
@@ -180,6 +216,8 @@ final class ModuleDeclaration extends Node {
       $this->_module_keyword,
       $this->_name,
       $this->_left_brace,
+      $this->_exports,
+      $this->_imports,
       $this->_right_brace,
     );
   }
@@ -216,6 +254,8 @@ final class ModuleDeclaration extends Node {
       $this->_module_keyword,
       $this->_name,
       $this->_left_brace,
+      $this->_exports,
+      $this->_imports,
       $this->_right_brace,
     );
   }
@@ -252,6 +292,8 @@ final class ModuleDeclaration extends Node {
       $value,
       $this->_name,
       $this->_left_brace,
+      $this->_exports,
+      $this->_imports,
       $this->_right_brace,
     );
   }
@@ -278,7 +320,7 @@ final class ModuleDeclaration extends Node {
     return $this->_name;
   }
 
-  public function withName(QualifiedName $value): this {
+  public function withName(ModuleName $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -288,6 +330,8 @@ final class ModuleDeclaration extends Node {
       $this->_module_keyword,
       $value,
       $this->_left_brace,
+      $this->_exports,
+      $this->_imports,
       $this->_right_brace,
     );
   }
@@ -297,16 +341,16 @@ final class ModuleDeclaration extends Node {
   }
 
   /**
-   * @return QualifiedName
+   * @return ModuleName
    */
-  public function getName(): QualifiedName {
-    return TypeAssert\instance_of(QualifiedName::class, $this->_name);
+  public function getName(): ModuleName {
+    return TypeAssert\instance_of(ModuleName::class, $this->_name);
   }
 
   /**
-   * @return QualifiedName
+   * @return ModuleName
    */
-  public function getNamex(): QualifiedName {
+  public function getNamex(): ModuleName {
     return $this->getName();
   }
 
@@ -324,6 +368,8 @@ final class ModuleDeclaration extends Node {
       $this->_module_keyword,
       $this->_name,
       $value,
+      $this->_exports,
+      $this->_imports,
       $this->_right_brace,
     );
   }
@@ -346,6 +392,82 @@ final class ModuleDeclaration extends Node {
     return $this->getLeftBrace();
   }
 
+  public function getExportsUNTYPED(): ?Node {
+    return $this->_exports;
+  }
+
+  public function withExports(?Node $value): this {
+    if ($value === $this->_exports) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_new_keyword,
+      $this->_module_keyword,
+      $this->_name,
+      $this->_left_brace,
+      $value,
+      $this->_imports,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasExports(): bool {
+    return $this->_exports !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getExports(): ?Node {
+    return $this->_exports;
+  }
+
+  /**
+   * @return
+   */
+  public function getExportsx(): Node {
+    return TypeAssert\not_null($this->getExports());
+  }
+
+  public function getImportsUNTYPED(): ?Node {
+    return $this->_imports;
+  }
+
+  public function withImports(?Node $value): this {
+    if ($value === $this->_imports) {
+      return $this;
+    }
+    return new static(
+      $this->_attribute_spec,
+      $this->_new_keyword,
+      $this->_module_keyword,
+      $this->_name,
+      $this->_left_brace,
+      $this->_exports,
+      $value,
+      $this->_right_brace,
+    );
+  }
+
+  public function hasImports(): bool {
+    return $this->_imports !== null;
+  }
+
+  /**
+   * @return null
+   */
+  public function getImports(): ?Node {
+    return $this->_imports;
+  }
+
+  /**
+   * @return
+   */
+  public function getImportsx(): Node {
+    return TypeAssert\not_null($this->getImports());
+  }
+
   public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
@@ -360,6 +482,8 @@ final class ModuleDeclaration extends Node {
       $this->_module_keyword,
       $this->_name,
       $this->_left_brace,
+      $this->_exports,
+      $this->_imports,
       $value,
     );
   }
