@@ -1,0 +1,7 @@
+<?hh
+
+function _(): void {
+  $_bad_concat = (vec<int> $one, vec<int> ...$_rest): vec<int> ==> {
+    return $one;
+  };
+}

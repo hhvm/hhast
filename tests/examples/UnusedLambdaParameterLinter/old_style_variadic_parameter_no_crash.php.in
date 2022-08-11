@@ -1,0 +1,5 @@
+<?hh
+
+function _(): void {
+  $_old_pa_style_variadics = (string $file, ...): void ==> {};
+}

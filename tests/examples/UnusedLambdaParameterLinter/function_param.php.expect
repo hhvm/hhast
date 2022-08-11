@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "$baz",
+        "blame_pretty": "$baz",
+        "description": "Parameter is unused"
+    }
+]

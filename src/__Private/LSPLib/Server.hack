@@ -64,7 +64,7 @@ abstract class Server<TState as ServerState> {
 
     $was_response = await $this->tryHandleMessageTypeAsync(
       type_alias_structure(LSP\ResponseMessage::class),
-      async $x ==> {},
+      async $_ignored ==> {},
       $json,
     );
     if ($was_response) {
