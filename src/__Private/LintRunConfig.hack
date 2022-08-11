@@ -75,6 +75,7 @@ final class LintRunConfig {
     HHAST\NoNewlineAtStartOfControlFlowBlockLinter::class,
     HHAST\MustUseOverrideAttributeLinter::class,
     HHAST\NoPHPEqualityLinter::class,
+    HHAST\UnusedLambdaParameterLinter::class,
     HHAST\UnusedParameterLinter::class,
     HHAST\UnusedVariableLinter::class,
     HHAST\UnusedUseClauseLinter::class,

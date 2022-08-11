@@ -35,6 +35,10 @@ final class UnusedParameterLinterTest extends TestCase {
       tuple(
         '<?hh class Foo { public function __construct(private int $bar) {} }',
       ),
+      tuple(
+        // Lambda's are no longer flagged by this linter
+        '<?hh function _(): void { ($a) ==> 0; (... $a) ==> 0; $a ==> 0; }',
+      ),
     ];
   }
 }

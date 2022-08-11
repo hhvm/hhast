@@ -11,62 +11,33 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\Str;
 
+/**
+ * This linter should really be called UnusedFunctionAndMethodParameterLinter,
+ * but renaming this is a useless BC break.
+ */
 final class UnusedParameterLinter extends AutoFixingASTLinter {
   const type TConfig = shape();
-  const type TNode = ParameterDeclaration;
   const type TContext = IFunctionishDeclaration;
+  const type TNode = ParameterDeclaration;
+
+  use __Private\SharedCodeForUnusedParameterLinters;
 
   <<__Override>>
   public function getLintErrorForNode(
-    IFunctionishDeclaration $functionish,
-    ParameterDeclaration $node,
+    this::TContext $functionish,
+    this::TNode $node,
   ): ?ASTLintError {
-    if ($node->getVisibility() !== null) {
-      // Constructor parameter promotion
+    $name_node = static::extractVariableFromParam($node);
+    $body = static::extractBodyFromFunctionish($functionish);
+
+    if (
+      $name_node is null ||
+      $body is null ||
+      static::startsWithUnder($name_node) ||
+      static::belongsToALambda($functionish, $name_node) ||
+      static::isUsedInBody($body, $name_node)
+    ) {
       return null;
-    }
-
-    $name_node = $node->getName();
-    if (!$name_node is VariableToken) {
-      return null;
-    }
-
-    $name = $name_node->getText();
-    if (Str\starts_with($name, '$_')) {
-      return null;
-    }
-
-    // If this is a parameter of a lambda function, we should be looking in the
-    // lambda's body, not the enclosing function/method's body.
-    $lambda =
-      $functionish->getClosestAncestorOfDescendantOfType<LambdaExpression>(
-        $node,
-      );
-
-    if ($lambda is nonnull) {
-      $body = $lambda->getBody();
-    } else if ($functionish is FunctionDeclaration) {
-      $body = $functionish->getBody();
-    } else if ($functionish is MethodishDeclaration) {
-      $body = $functionish->getFunctionBody();
-    } else {
-      invariant_violation(
-        "Couldn't find functionish for parameter declaration",
-      );
-    }
-
-    if ($body === null || $body is SemicolonToken) {
-      // Don't require `$_` for abstract or interface methods
-      return null;
-    }
-
-    foreach ($body->traverse() as $var) {
-      if (!$var is VariableToken) {
-        continue;
-      }
-      if ($var->getText() === $name) {
-        return null;
-      }
     }
 
     return new ASTLintError(
@@ -80,20 +51,63 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
   public function getFixedNode(
     ParameterDeclaration $node,
   ): ParameterDeclaration {
-    $name = $node->getName();
-    if (!$name is VariableToken) {
-      return $node;
+    $fixed_var = static::fixParameterName($node);
+
+    $maybe_decorated = $node->getName();
+    if ($maybe_decorated is DecoratedExpression) {
+      $fixed_var = $maybe_decorated->withExpression($fixed_var);
     }
-    return $node->withName(
-      $name->withText('$_'.Str\strip_prefix($name->getText(), '$')),
-    );
+
+    return $node->withName($fixed_var);
   }
 
   <<__Override>>
   public function getTitleForFix(ASTLintError $err): string {
-    $name = ($err->getBlameNode() as this::TNode)->getName();
-    invariant($name is VariableToken, 'unhandled type');
-    $new_name = '$_'.Str\strip_prefix($name->getText(), '$');
-    return Str\format('Rename to `%s`', $new_name);
+    $name = static::fixParameterName(($err->getBlameNode() as this::TNode));
+    return Str\format('Rename to `%s`', $name->getText());
+  }
+
+  private static function fixParameterName(
+    ParameterDeclaration $p,
+  ): VariableToken {
+    $v = static::extractVariableFromParam($p);
+    invariant($v is nonnull, 'Must be nonnull, since we are requesting a fix');
+    return static::prefixWithUnderscore($v);
+  }
+
+  /**
+   * If this is a parameter of a lambda function, we stop linting.
+   * UnusedLambdaParameterLinter takes care of this.
+   * We can't handle it here, since the `$x ==> $x + 1` notation for
+   * lambda expressions don't have a ParameterDeclaration.
+   * This linter targets ParameterDeclaration.
+   * So if we handled it here, we would only process `($x) ==> $x + 1` notation.
+   */
+  private static function belongsToALambda(
+    this::TContext $f,
+    VariableToken $v,
+  ): bool {
+    return $f->getClosestAncestorOfDescendantOfType<LambdaExpression>($v)
+      is nonnull;
+  }
+
+  private static function extractBodyFromFunctionish(
+    this::TContext $functionish,
+  ): ?CompoundStatement {
+    if ($functionish is FunctionDeclaration) {
+      $body = $functionish->getBody();
+    } else if ($functionish is MethodishDeclaration) {
+      $body = $functionish->getFunctionBody();
+    } else {
+      invariant_violation(
+        'Unhandled functionish type: %s',
+        \get_class($functionish),
+      );
+    }
+
+    // If not a CompoundStatement, it is a `;`, which is an abstract
+    // or interface method. We don't require those parameters to have
+    // an underscore prefix.
+    return $body ?as CompoundStatement;
   }
 }

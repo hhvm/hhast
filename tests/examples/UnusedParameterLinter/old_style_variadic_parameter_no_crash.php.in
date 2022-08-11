@@ -1,0 +1,5 @@
+<?hh
+
+function old_style_variadics(string $file, ...): void {
+
+}

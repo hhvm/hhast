@@ -1,0 +1,13 @@
+<?hh
+
+function launder_lambda(
+  (function(nothing, nothing): mixed) $_any_lambda,
+): void {}
+
+function _void(): void {
+  launder_lambda(($bar, int $baz) ==> $bar);
+  launder_lambda(($a, $b) ==> {
+    $_ = ($d1) ==> tuple($d1, $b);
+    $_ = $a ==> $a; // shadowed parameter, currently causes a false negative
+  });
+}

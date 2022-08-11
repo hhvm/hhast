@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "vec<int> ...$rest",
+        "blame_pretty": "vec<int> ...$rest",
+        "description": "Parameter is unused"
+    }
+]

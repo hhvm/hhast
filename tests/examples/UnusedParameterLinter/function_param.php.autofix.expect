@@ -7,8 +7,7 @@ function foo(int $bar, int $_baz) {
 function lambdas(
   int $a,
   int $b,
-  (function(int, int): int) $_c = ($_c1, $c2) ==> $c2,
 ): void {
-  $d = ($d1, $_d2) ==> tuple($d1, $b);
+  $d = ($d1) ==> tuple($d1, $b);
   $e = $a ==> $a; // shadowed parameter, currently causes a false negative
 }

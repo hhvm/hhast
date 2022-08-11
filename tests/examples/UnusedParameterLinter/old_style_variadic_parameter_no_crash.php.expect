@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "string $file",
+        "blame_pretty": "string $file",
+        "description": "Parameter is unused"
+    }
+]
