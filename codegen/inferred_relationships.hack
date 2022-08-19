@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<77ed8bcb152c5136d1304dee3bedf997>>
+ * @generated SignedSource<<75fe02c814afd7a831ba5e102ba042ba>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -497,6 +497,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   'closure_parameter_type_specifier.closure_parameter_type' => keyset[
     'attributized_specifier',
     'closure_type_specifier',
+    'darray_type_specifier',
     'generic_type_specifier',
     'nullable_type_specifier',
     'simple_type_specifier',
@@ -2755,6 +2756,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'like_type_specifier',
     'shape_type_specifier',
     'simple_type_specifier',
+    'soft_type_specifier',
     'tuple_type_specifier',
     'type_constant',
     'varray_type_specifier',
