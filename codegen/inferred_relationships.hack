@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<75fe02c814afd7a831ba5e102ba042ba>>
+ * @generated SignedSource<<c7a8a2efe3d4b0f86439bc3bcd9775fa>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -117,6 +117,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'missing',
   ],
   'as_expression.as_left_operand' => keyset[
+    'as_expression',
     'function_call_expression',
     'literal',
     'member_selection_expression',
@@ -311,6 +312,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'function_call_expression',
     'literal',
     'object_creation_expression',
+    'parenthesized_expression',
     'prefix_unary_expression',
     'scope_resolution_expression',
     'token:name',
@@ -629,6 +631,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<do_statement|echo_statement|expression_statement|if_statement>',
     'list<do_statement|echo_statement|expression_statement|try_statement>',
     'list<do_statement|expression_statement>',
+    'list<do_statement|expression_statement|for_statement|if_statement|switch_statement|try_statement|using_statement_block_scoped|using_statement_function_scoped|while_statement>',
     'list<do_statement|expression_statement|if_statement>',
     'list<do_statement|expression_statement|return_statement>',
     'list<do_statement|expression_statement|unset_statement>',
@@ -914,6 +917,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<darray_intrinsic_expression>|list_item<literal>|list_item<variable>>',
     'list<list_item<darray_intrinsic_expression>|list_item<variable>>',
     'list<list_item<decorated_expression>>',
+    'list<list_item<decorated_expression>|list_item<function_call_expression>>',
     'list<list_item<decorated_expression>|list_item<variable>>',
     'list<list_item<dictionary_intrinsic_expression>>',
     'list<list_item<dictionary_intrinsic_expression>|list_item<literal>>',
@@ -1177,6 +1181,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'do_statement.do_condition' => keyset[
     'binary_expression',
+    'function_call_expression',
     'literal',
     'subscript_expression',
     'variable',
@@ -1483,12 +1488,15 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'object_creation_expression',
     'postfix_unary_expression',
     'prefix_unary_expression',
+    'prefixed_code',
     'safe_member_selection_expression',
     'scope_resolution_expression',
+    'shape_expression',
     'subscript_expression',
     'token:name',
     'variable',
     'varray_intrinsic_expression',
+    'vector_intrinsic_expression',
     'xhp_expression',
     'yield_expression',
   ],
@@ -2061,7 +2069,9 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:(',
   ],
   'function_call_expression.function_call_receiver' => keyset[
+    'anonymous_function',
     'function_call_expression',
+    'lambda_expression',
     'member_selection_expression',
     'parenthesized_expression',
     'qualified_name',
@@ -2261,6 +2271,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'is_expression.is_left_operand' => keyset[
     'anonymous_function',
+    'as_expression',
     'function_call_expression',
     'literal',
     'member_selection_expression',

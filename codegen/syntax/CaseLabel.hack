@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a1229044fadfc77a63456728028beaae>>
+ * @generated SignedSource<<4b31993b99a2ba9810f46d0ef63e67b7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -160,8 +160,8 @@ final class CaseLabel extends Node implements ISwitchLabel {
   /**
    * @return CastExpression | CollectionLiteralExpression |
    * EnumClassLabelExpression | FunctionCallExpression | LiteralExpression |
-   * ObjectCreationExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | NameToken | VariableExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | NameToken | VariableExpression |
    * VectorIntrinsicExpression
    */
   public function getExpression(): IExpression {
@@ -171,8 +171,8 @@ final class CaseLabel extends Node implements ISwitchLabel {
   /**
    * @return CastExpression | CollectionLiteralExpression |
    * EnumClassLabelExpression | FunctionCallExpression | LiteralExpression |
-   * ObjectCreationExpression | PrefixUnaryExpression |
-   * ScopeResolutionExpression | NameToken | VariableExpression |
+   * ObjectCreationExpression | ParenthesizedExpression | PrefixUnaryExpression
+   * | ScopeResolutionExpression | NameToken | VariableExpression |
    * VectorIntrinsicExpression
    */
   public function getExpressionx(): IExpression {

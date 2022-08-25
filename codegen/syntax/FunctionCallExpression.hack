@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ceec486490f77cc663653419c5a9ea00>>
+ * @generated SignedSource<<18913689b7721adc5fd92a1d0453d818>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -175,9 +175,9 @@ final class FunctionCallExpression
   }
 
   /**
-   * @return function_call_expression | member_selection_expression |
-   * parenthesized_expression | qualified_name |
-   * safe_member_selection_expression | scope_resolution_expression |
+   * @return anonymous_function | function_call_expression | lambda_expression
+   * | member_selection_expression | parenthesized_expression | qualified_name
+   * | safe_member_selection_expression | scope_resolution_expression |
    * subscript_expression | token:name | variable
    */
   public function getReceiver(): Node {
@@ -185,9 +185,9 @@ final class FunctionCallExpression
   }
 
   /**
-   * @return function_call_expression | member_selection_expression |
-   * parenthesized_expression | qualified_name |
-   * safe_member_selection_expression | scope_resolution_expression |
+   * @return anonymous_function | function_call_expression | lambda_expression
+   * | member_selection_expression | parenthesized_expression | qualified_name
+   * | safe_member_selection_expression | scope_resolution_expression |
    * subscript_expression | token:name | variable
    */
   public function getReceiverx(): Node {

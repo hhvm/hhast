@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dd33c1fd719967f63f950a511cbafbe4>>
+ * @generated SignedSource<<1194a0d59cc75e69360ae0daf491bc86>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,10 +117,11 @@ final class ExpressionStatement extends Node implements IStatement {
    * FunctionPointerExpression | InclusionExpression | IsExpression |
    * IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | null | ObjectCreationExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | PrefixedCodeExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression | XHPExpression | YieldExpression
+   * ShapeExpression | SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
+   * YieldExpression
    */
   public function getExpression(): ?IExpression {
     return $this->_expression;
@@ -133,10 +134,11 @@ final class ExpressionStatement extends Node implements IStatement {
    * FunctionPointerExpression | InclusionExpression | IsExpression |
    * IssetExpression | LambdaExpression | LiteralExpression |
    * MemberSelectionExpression | ObjectCreationExpression |
-   * PostfixUnaryExpression | PrefixUnaryExpression |
+   * PostfixUnaryExpression | PrefixUnaryExpression | PrefixedCodeExpression |
    * SafeMemberSelectionExpression | ScopeResolutionExpression |
-   * SubscriptExpression | NameToken | VariableExpression |
-   * VarrayIntrinsicExpression | XHPExpression | YieldExpression
+   * ShapeExpression | SubscriptExpression | NameToken | VariableExpression |
+   * VarrayIntrinsicExpression | VectorIntrinsicExpression | XHPExpression |
+   * YieldExpression
    */
   public function getExpressionx(): IExpression {
     return TypeAssert\not_null($this->getExpression());
