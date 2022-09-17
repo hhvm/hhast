@@ -15,6 +15,18 @@ final class NoPHPEqualityLinter extends AutoFixingASTLinter {
   const type TConfig = shape();
   const type TNode = BinaryExpression;
 
+  /**
+   * Changing `==` to `===` and `!=` to `!==` may change
+   * the behavior of the code.
+   * `keyset[1, 2]  ==   keyset[2, 1]` is true, but
+   * `keyset[1, 2]  ===  keyset[2, 1]` is false.
+   * Each case should be considered individually.
+   */
+  <<__Override>>
+  public function allowYesToAll(): bool {
+    return false;
+  }
+
   <<__Override>>
   protected function getTitleForFix(ASTLintError $err): string {
     $blame = $err->getBlameNode() as this::TNode;
@@ -56,10 +68,8 @@ final class NoPHPEqualityLinter extends AutoFixingASTLinter {
     if ($op is EqualEqualToken) {
       $op = new EqualEqualEqualToken($op->getLeading(), $op->getTrailing());
     } else if ($op is ExclamationEqualToken) {
-      $op = new ExclamationEqualEqualToken(
-        $op->getLeading(),
-        $op->getTrailing(),
-      );
+      $op =
+        new ExclamationEqualEqualToken($op->getLeading(), $op->getTrailing());
     } else {
       invariant_violation("Shouldn't be asked to fix non-equality operators");
     }

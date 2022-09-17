@@ -11,7 +11,7 @@ namespace Facebook\HHAST;
 
 use namespace HH\Lib\{Str, Vec};
 
-final class DontUseAsioJoinLinter extends AutoFixingASTLinter {
+final class DontUseAsioJoinLinter extends ASTLinter {
   const type TConfig = shape();
   const type TContext = Script;
   const type TNode = FunctionCallExpression;
@@ -49,7 +49,6 @@ final class DontUseAsioJoinLinter extends AutoFixingASTLinter {
       $this,
       "Don't use ".static::F_JOIN,
       $node,
-      () ==> null,
     );
   }
 }

@@ -22,6 +22,22 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
 
   use __Private\SharedCodeForUnusedParameterLinters;
 
+  /**
+   * Unlike UnusedLambdaParameterLinter, this autofix is safe.
+   * This method was added and returns true (the default)
+   * to show that it was not forgotten and carefully considered.
+   * Changing `$v` to `$_v` in a parameter is always safe.
+   * If `$_v` was already used in the body, it must have been
+   * unconditionally assigned before every use, else it would
+   * have been invalid Hack.
+   * This means that the parameter value can not be observed,
+   * nor change the meaning of existing code.
+   */
+  <<__Override>>
+  public function allowYesToAll(): bool {
+    return true;
+  }
+
   <<__Override>>
   public function getLintErrorForNode(
     this::TContext $functionish,

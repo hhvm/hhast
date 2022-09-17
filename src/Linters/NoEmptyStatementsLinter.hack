@@ -15,6 +15,17 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
   const type TConfig = shape();
   const type TNode = ExpressionStatement;
 
+  /**
+   * This linter finds serious logic bugs.
+   * Each case should be considered individually
+   * since the intent of the programmer probably differed from
+   * what the code does right now.
+   */
+  <<__Override>>
+  public function allowYesToAll(): bool {
+    return false;
+  }
+
   <<__Override>>
   public function getTitleForFix(SingleRuleLintError $_): string {
     return 'Remove statement';
@@ -77,10 +88,8 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
 
     // This could cause a TypeError still,
     // if it does, add more patches.
-    return NodeList::concat(
-      $semicolon->getLeading(),
-      $semicolon->getTrailing(),
-    );
+    return
+      NodeList::concat($semicolon->getLeading(), $semicolon->getTrailing());
   }
 
   /**

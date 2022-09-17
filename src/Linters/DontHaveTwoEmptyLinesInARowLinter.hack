@@ -16,6 +16,18 @@ final class DontHaveTwoEmptyLinesInARowLinter extends AutoFixingASTLinter {
   const type TContext = Script;
   const type TNode = Token;
 
+  /**
+   * Unlike NoWhitespaceAtEndOfLineLinter and ConsistentLineEndingLinter
+   * this linter operates on the AST.
+   * It will therefore not change the contents of string literals.
+   * This method was added and returns true (the default)
+   * to show that it was not forgotten and carefully considered.
+   */
+  <<__Override>>
+  public function allowYesToAll(): bool {
+    return true;
+  }
+
   <<__Override>>
   public function getLintErrorForNode(
     this::TContext $context,

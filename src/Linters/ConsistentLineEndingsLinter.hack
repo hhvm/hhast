@@ -21,6 +21,24 @@ final class ConsistentLineEndingsLinter
     return LineEnding::UNIX;
   }
 
+  /**
+   * This linter may change the behavior of the code.
+   * A multiline string literal may contain a carriage return at eol.
+   * ```
+   * <<<'EOF'
+   *abc<carriage return>
+   *EOF
+   * ```
+   * Hhast will remove the trailing `\r` character.
+   * This changes the contents of the string.
+   * The programmer running the linter should make sure
+   * the suggested fix does not alter string literals.
+   */
+  <<__Override>>
+  public function allowYesToAll(): bool {
+    return false;
+  }
+
   <<__Override>>
   public function getTitleForFix(LineLintError $_): string {
     $line_ending = $this->getLineEnding();

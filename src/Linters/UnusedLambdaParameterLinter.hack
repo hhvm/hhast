@@ -18,6 +18,21 @@ final class UnusedLambdaParameterLinter extends AutoFixingASTLinter {
 
   use __Private\SharedCodeForUnusedParameterLinters;
 
+  /**
+   * This linter changes the parameter `$v` to `$_v`.
+   * This change is unsafe when `$_a` was previously auto captured.
+   * ```
+   * $_v = 'capture me';
+   * return Vec\filter_with_key($dict, ($k, $v) ==> $k === $_v);
+   * ```
+   * If the autofix rewrites the `$v` parameter, this will compare
+   * the keys of `$dict` to the values, not to the string 'capture me'.
+   */
+  <<__Override>>
+  public function allowYesToAll(): bool {
+    return false;
+  }
+
   <<__Override>>
   public function getLintErrorForNode(
     this::TContext $lambda,
