@@ -14,8 +14,7 @@ use namespace HH\Lib\{C, Str, Vec};
 /**
  * A linter as a proxy invoking `hh_client --lint`.
  */
-final class HHClientLinter implements Linter {
-  use LinterTrait;
+final class HHClientLinter extends BaseLinter {
   use SuppressibleTrait;
 
   const type TConfig =
@@ -80,6 +79,7 @@ final class HHClientLinter implements Linter {
     );
   }
 
+  <<__Override>>
   public async function getLintErrorsAsync(
   ): Awaitable<vec<HHClientLintError>> {
     $lines = await __Private\ProcessExecutionQueues::HH_CLIENT->waitForAsync(
@@ -104,13 +104,13 @@ final class HHClientLinter implements Linter {
       |> Vec\map(
         $$,
         $error ==> new HHClientLintError(
-          $this->file,
+          $this->getFile(),
           $error,
           $this::blameCode($file_lines, $error),
         ),
       )
       |> Vec\filter($$, $error ==> {
-        if ($error->getLintRule()->isSuppressedForFile($this->file)) {
+        if ($error->getLintRule()->isSuppressedForFile($this->getFile())) {
           return false;
         }
         $error_code = (int)$error->getLintRule()->getErrorCode();
@@ -123,12 +123,12 @@ final class HHClientLinter implements Linter {
         $range = $error->getRange();
         list(list($line_number, $_), $_) = $range;
         $previous_line_number = $line_number - 1;
-        if ($this->isSuppressedForLine($this->file, $previous_line_number)) {
+        if ($this->isSuppressedForLine($this->getFile(), $previous_line_number)) {
           return false;
         }
         if (
           $error->getLintRule()
-            ->isSuppressedForLine($this->file, $previous_line_number)
+            ->isSuppressedForLine($this->getFile(), $previous_line_number)
         ) {
           return false;
         }

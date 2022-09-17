@@ -12,14 +12,14 @@ namespace Facebook\HHAST;
 /**
  * A linter that applies a single lint rule.
  */
-abstract class SingleRuleLinter implements LintRule, Linter {
-  use LinterTrait;
+abstract class SingleRuleLinter extends BaseLinter implements LintRule {
   use SuppressibleTrait;
 
   final public function getName(): string {
     return $this->getLinterName();
   }
 
+  <<__Override>>
   abstract public function getLintErrorsAsync(): Awaitable<vec<SingleRuleLintError>>;
 
 }
