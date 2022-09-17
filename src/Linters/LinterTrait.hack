@@ -70,4 +70,7 @@ trait LinterTrait {
     return $this->isSuppressedForFile($this->getFile());
   }
 
+  public function allowYesToAll(): bool {
+    return false;
+  }
 }

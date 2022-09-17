@@ -179,13 +179,16 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
 
     $response = null;
     do {
+      $message = "\e[94mWould you like to apply this fix?\e[0m\n".
+        (
+          $linter->allowYesToAll()
+            ? "  \e[37m[y]es / [n]o / yes to [a]ll / n[o] to all:\e[0m "
+            : "  \e[37m[y]es / [n]o / n[o] to all:\e[0m "
+        );
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       await $this->terminal
         ->getStdout()
-        ->writeAllAsync(
-          "\e[94mWould you like to apply this fix?\e[0m\n".
-          "  \e[37m[y]es/[n]o/yes to [a]ll/n[o] to all:\e[0m ",
-        );
+        ->writeAllAsync($message);
       /* HHAST_IGNORE_ERROR[DontAwaitInALoop] */
       $response = await $this->input->readLineAsync();
       if ($response === null) {
@@ -193,7 +196,8 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       }
       $response = Str\trim($response);
       switch ($response) {
-        case 'a':
+        // ' ' is an impossible value for $response, knocking out this case label.
+        case $linter->allowYesToAll() ? 'a' : ' ':
           $this->userResponseCache[$cache_key] = true;
           // FALLTHROUGH
         case 'y':

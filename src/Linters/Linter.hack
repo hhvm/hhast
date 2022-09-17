@@ -30,4 +30,5 @@ interface Linter {
 
   public function getFile(): File;
 
+  public function allowYesToAll(): bool;
 }
