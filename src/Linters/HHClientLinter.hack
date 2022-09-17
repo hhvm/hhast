@@ -156,7 +156,7 @@ final class HHClientLinter implements Linter {
         } else if (!$this->mayErrorCodeBeSuppressedWithComments($error_code)) {
           return $error->prefixDescription(Str\format(
             "You may not use a comment to suppress %s(%d) errors.\n".
-            'See lintFixmeAllowList in linterConfigs in hhast-lint.json.',
+            "See lintFixmeAllowList in linterConfigs in hhast-lint.json.\n",
             $this->getLinterName(),
             $error_code,
           ));
