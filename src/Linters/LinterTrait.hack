@@ -71,6 +71,6 @@ trait LinterTrait {
   }
 
   public function allowYesToAll(): bool {
-    return false;
+    return true;
   }
 }
