@@ -24,10 +24,15 @@ interface Linter {
 
   public static function shouldLintFile(File $_): bool;
 
-  public static function newInstance(File $file, ?this::TConfig $config): this;
+  public static function newInstance(
+    File $file,
+    ?this::TConfig $config,
+    bool $should_allow_suppression_comments,
+  ): this;
 
   public function isLinterSuppressedForFile(): bool;
 
   public function getFile(): File;
 
+  public function shouldAllowSuppressionComments(): bool;
 }

@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "\/\/ HHAST_FIXME[UnusedUseClause]\nuse namespace Unused;\n",
+        "blame_pretty": "\/\/ HHAST_FIXME[UnusedUseClause]\nuse namespace Unused;\n",
+        "description": "You may not use a comment to suppress UnusedUseClause errors.\nSee lintFixmeAllowList in hhast-lint.json.\n`Unused` is not used"
+    }
+]

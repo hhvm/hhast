@@ -109,7 +109,14 @@ final class LintRun {
       return LintRunResult::NO_ERRORS;
     }
 
-    $linter = $linter::newInstance($file, $linter_config);
+    $lint_marker_allow_list = $config['lintMarkerAllowList'];
+    $linter = $linter::newInstance(
+      $file,
+      $linter_config,
+      $lint_marker_allow_list is nonnull
+        ? C\contains_key($lint_marker_allow_list, $linter)
+        : true,
+    );
 
     if ($linter->isLinterSuppressedForFile()) {
       return LintRunResult::NO_ERRORS;

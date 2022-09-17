@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 use namespace Facebook\HHAST\SuppressASTLinter;
-use namespace HH\Lib\Vec;
+use namespace HH\Lib\{Str, Vec};
 
 abstract class ASTLinter extends SingleRuleLinter {
   <<__Enforceable, __Reifiable>>
@@ -98,11 +98,18 @@ abstract class ASTLinter extends SingleRuleLinter {
         );
       }
 
-      if (
-        $error !== null &&
-        !SuppressASTLinter\is_linter_error_suppressed($this, $node, $ast)
-      ) {
-        $errors[] = $error;
+      if ($error is nonnull) {
+        if (!SuppressASTLinter\is_linter_error_suppressed($this, $node, $ast)) {
+          $errors[] = $error;
+        } else if (!$this->shouldAllowSuppressionComments()) {
+          $errors[] = $error->prefixDescription(
+            Str\format(
+              "You may not use a comment to suppress %s errors.\n".
+              "See lintFixmeAllowList in hhast-lint.json.\n",
+              $this->getLinterName(),
+            ),
+          );
+        }
       }
     }
     return $errors;

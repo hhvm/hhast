@@ -18,8 +18,13 @@ final class HHClientLinter implements Linter {
   use LinterTrait;
   use SuppressibleTrait;
 
-  const type TConfig =
-    shape(?'ignore_except' => vec<int>, ?'ignore' => vec<int>, ...);
+  const type TConfig = shape(
+    ?'ignore' => vec<int>,
+    ?'ignore_except' => vec<int>,
+    ?'ignoreExcept' => vec<int>,
+    ?'lintMarkerAllowList' => vec<this::TErrorCode>,
+    ...
+  );
 
   const type TErrorCode = int;
 
@@ -39,11 +44,20 @@ final class HHClientLinter implements Linter {
     5639 /* potential co(tra)variant marker, which is highly opinionated */,
   ];
 
+  private function mayErrorCodeBeSuppressedWithComments(
+    this::TErrorCode $code,
+  ): bool {
+    return $this->config is null ||
+      !Shapes::keyExists($this->config, 'lintMarkerAllowList') ||
+      C\contains($this->config['lintMarkerAllowList'], $code);
+  }
+
   <<__Memoize>>
   private function isErrorCodeConfiguredToIgnore(): (function(
     this::TErrorCode,
   ): bool) {
-    $ignore_except = $this->config['ignore_except'] ?? null;
+    $ignore_except =
+      $this->config['ignore_except'] ?? $this->config['ignoreExcept'] ?? null;
     $ignore = $this->config['ignore'] ?? null;
     if ($ignore is null) {
       if ($ignore_except is null) {
@@ -56,7 +70,7 @@ final class HHClientLinter implements Linter {
       return $error_code ==> C\contains($ignore, $error_code);
     }
     throw new \InvalidOperationException(
-      "Must not set both of the 'ignore_except' and 'ignore' fields in the configuration of HHClientLinter",
+      "Must not set both of the 'ignoreExcept' and 'ignore' fields in the configuration of HHClientLinter",
     );
   }
 
@@ -109,30 +123,46 @@ final class HHClientLinter implements Linter {
           $this::blameCode($file_lines, $error),
         ),
       )
-      |> Vec\filter($$, $error ==> {
-        if ($error->getLintRule()->isSuppressedForFile($this->file)) {
-          return false;
-        }
+      |> Vec\map($$, $error ==> {
         $error_code = (int)$error->getLintRule()->getErrorCode();
+        if ($error->getLintRule()->isSuppressedForFile($this->file)) {
+          if ($this->mayErrorCodeBeSuppressedWithComments($error_code)) {
+            return null;
+          }
+          return $error->prefixDescription(Str\format(
+            "You may not use a comment to suppress %s(%d) errors.\n".
+            "See lintFixmeAllowList in linterConfigs in hhast-lint.json.\n",
+            $this->getLinterName(),
+            $error_code,
+          ));
+        }
         if (C\contains(self::ALWAYS_IGNORE_ERRORS, $error_code)) {
-          return false;
+          return null;
         }
         if ($this->isErrorCodeConfiguredToIgnore()($error_code)) {
-          return false;
+          return null;
         }
         $range = $error->getRange();
         list(list($line_number, $_), $_) = $range;
         $previous_line_number = $line_number - 1;
-        if ($this->isSuppressedForLine($this->file, $previous_line_number)) {
-          return false;
-        }
-        if (
+
+        $is_suppressed =
+          $this->isSuppressedForLine($this->file, $previous_line_number) ||
           $error->getLintRule()
-            ->isSuppressedForLine($this->file, $previous_line_number)
-        ) {
-          return false;
+            ->isSuppressedForLine($this->file, $previous_line_number);
+
+        if (!$is_suppressed) {
+          return $error;
+        } else if (!$this->mayErrorCodeBeSuppressedWithComments($error_code)) {
+          return $error->prefixDescription(Str\format(
+            "You may not use a comment to suppress %s(%d) errors.\n".
+            'See lintFixmeAllowList in linterConfigs in hhast-lint.json.',
+            $this->getLinterName(),
+            $error_code,
+          ));
         }
-        return true;
-      });
+        return null;
+      })
+      |> Vec\filter_nulls($$);
   }
 }

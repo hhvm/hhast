@@ -1,0 +1,7 @@
+[
+    {
+        "blame": "function whitespace_at_eol(): void {}   ",
+        "blame_pretty": "function whitespace_at_eol(): void {}   ",
+        "description": "You may not use a comment to suppress NoWhitespaceAtEndOfLine errors.\nSee lintFixmeAllowList in hhast-lint.json.\ntrailing whitespace at end of line"
+    }
+]

@@ -66,4 +66,8 @@ class SingleRuleLintError implements LintError {
     return $this->getLinter();
   }
 
+  final public function prefixDescription(string $description): this {
+    $this->description = $description.$this->description;
+    return $this;
+  }
 }

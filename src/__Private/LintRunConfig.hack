@@ -25,6 +25,7 @@ final class LintRunConfig {
     ?'disableAllAutoFixes' => bool,
     ?'disableAllLinters' => bool,
     ?'linterConfigs' => dict<string, dynamic>,
+    ?'lintMarkerAllowList' => vec<string>,
   );
   const type TConfigFile = shape(
     // Where to lint, eg '[ "src/", "codegen/", "tests/" ]
@@ -57,11 +58,19 @@ final class LintRunConfig {
     // for example:
     // "linterConfigs": { "Facebook\\HHAST\\HHClientLinter": { "ignore": [5624, 5639] }}
     ?'linterConfigs' => dict<string, dynamic>,
+    // A list of classname<Linter> for which you want to allow suppression comments.
+    // By explicitly declaring this list, you opt in to strict suppression behavior.
+    // An empty list will make it impossible to suppress any lint error.
+    // HHClientLinter is not affected by this setting.
+    // This linter has its own similar mechanism:
+    // "linterConfigs": { "Facebook\\HHAST\\HHClientLinter": { "lintMarkerAllowList": [5624, 5639] }}.
+    ?'lintMarkerAllowList' => vec<string>,
   );
 
   const type TFileConfig = shape(
     'linters' => keyset<classname<Linter>>,
     'autoFixBlacklist' => keyset<classname<Linter>>,
+    'lintMarkerAllowList' => ?keyset<classname<Linter>>,
   );
 
   const vec<classname<Linter>> DEFAULT_LINTERS = vec[
@@ -194,6 +203,7 @@ final class LintRunConfig {
       return shape(
         'linters' => keyset[],
         'autoFixBlacklist' => keyset[],
+        'lintMarkerAllowList' => null,
       );
     }
     $builtin_linters =
@@ -203,12 +213,20 @@ final class LintRunConfig {
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
     $no_autofixes = $this->configFile['disableAllAutoFixes'] ?? false;
     $override = $this->findOverride($file_path);
+    $lint_marker_allow_list = $this->configFile['lintMarkerAllowList'] ?? null;
     if ($override is nonnull) {
       if ($override['disableAllLinters'] ?? false) {
         return shape(
           'linters' => keyset[],
           'autoFixBlacklist' => keyset[],
+          'lintMarkerAllowList' => null,
         );
+      }
+      if (Shapes::keyExists($override, 'lintMarkerAllowList')) {
+        $lint_marker_allow_list = $lint_marker_allow_list
+          |> $$ is null
+            ? $override['lintMarkerAllowList']
+            : Vec\concat($$, $override['lintMarkerAllowList']);
       }
       if (Shapes::keyExists($override, 'builtinLinters')) {
         $builtin_linters = $override['builtinLinters'];
@@ -244,9 +262,15 @@ final class LintRunConfig {
     $linters = $assert_types($linters);
     $autofix_blacklist = $assert_types($autofix_blacklist);
 
+    if ($lint_marker_allow_list is nonnull) {
+      $lint_marker_allow_list =
+        $normalize($lint_marker_allow_list) |> $assert_types($$);
+    }
+
     return shape(
       'linters' => $linters,
       'autoFixBlacklist' => $autofix_blacklist,
+      'lintMarkerAllowList' => $lint_marker_allow_list,
     );
   }
 

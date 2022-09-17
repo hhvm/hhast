@@ -31,4 +31,6 @@ interface LintError {
   public function getPrettyBlame(): ?string;
 
   public function getLintRule(): LintRule;
+
+  public function prefixDescription(string $description): this;
 }

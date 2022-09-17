@@ -1,0 +1,12 @@
+[
+    {
+        "blame": "null",
+        "blame_pretty": "null",
+        "description": "You may not use a comment to suppress HHClient(5622) errors.\nSee lintFixmeAllowList in linterConfigs in hhast-lint.json.Invalid condition: a value of type `null` will always be falsy"
+    },
+    {
+        "blame": "(new DateTime())?->getTimestamp",
+        "blame_pretty": "(new DateTime())?->getTimestamp",
+        "description": "You may not use a comment to suppress HHClient(5633) errors.\nSee lintFixmeAllowList in linterConfigs in hhast-lint.json.\nYou are using the `?->` operator but this object cannot be null. You can use the `->` operator instead."
+    }
+]

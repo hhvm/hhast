@@ -68,4 +68,8 @@ final class HHClientLintError implements LintError {
     return new HHClientLintRule($this->error['code']);
   }
 
+  public function prefixDescription(string $description): this {
+    $this->error['descr'] = $description.$this->error['descr'];
+    return $this;
+  }
 }

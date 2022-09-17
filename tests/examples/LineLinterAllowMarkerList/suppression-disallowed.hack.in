@@ -1,0 +1,2 @@
+// HHAST_FIXME[NoWhitespaceAtEndOfLine]
+function whitespace_at_eol(): void {}   

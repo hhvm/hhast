@@ -22,14 +22,24 @@ trait LinterTrait {
 
   private File $file;
   private ?this::TConfig $config;
+  private bool $shouldAllowSuppressionComments;
 
-  private function __construct(File $file, ?this::TConfig $config) {
+  private function __construct(
+    File $file,
+    ?this::TConfig $config,
+    bool $should_allow_suppression_comments,
+  ) {
     $this->file = $file;
     $this->config = $config;
+    $this->shouldAllowSuppressionComments = $should_allow_suppression_comments;
   }
 
-  public static function newInstance(File $file, ?this::TConfig $config): this {
-    return new static($file, $config);
+  public static function newInstance(
+    File $file,
+    ?this::TConfig $config,
+    bool $should_allow_suppression_comments,
+  ): this {
+    return new static($file, $config, $should_allow_suppression_comments);
   }
 
   protected function getConfig(): ?this::TConfig {
@@ -44,7 +54,23 @@ trait LinterTrait {
     string $path,
     ?this::TConfig $config,
   ): this {
-    return new static(File::fromPath($path), $config);
+    return static::fromPathWithConfigAndShouldAllowSupressionComments(
+      $path,
+      $config,
+      true,
+    );
+  }
+
+  final public static function fromPathWithConfigAndShouldAllowSupressionComments(
+    string $path,
+    ?this::TConfig $config,
+    bool $should_allow_suppression_comments,
+  ): this {
+    return new static(
+      File::fromPath($path),
+      $config,
+      $should_allow_suppression_comments,
+    );
   }
 
   final public function getFile(): File {
@@ -70,4 +96,7 @@ trait LinterTrait {
     return $this->isSuppressedForFile($this->getFile());
   }
 
+  public function shouldAllowSuppressionComments(): bool {
+    return $this->shouldAllowSuppressionComments;
+  }
 }

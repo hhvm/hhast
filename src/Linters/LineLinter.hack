@@ -10,7 +10,7 @@
 namespace Facebook\HHAST;
 
 use type Facebook\HHAST\{SingleRuleLinter};
-use namespace HH\Lib\{C, Str, Vec};
+use namespace HH\Lib\{Dict, Str, Vec};
 
 abstract class LineLinter<+Terror as LineLintError> extends SingleRuleLinter {
 
@@ -26,25 +26,36 @@ abstract class LineLinter<+Terror as LineLintError> extends SingleRuleLinter {
 
   <<__Override>>
   public async function getLintErrorsAsync(): Awaitable<vec<Terror>> {
-    $lines = $this->getLinesFromFile();
-    $errs = vec[];
+    list($suppressed, $unconditional) = Dict\map_with_key(
+      $this->getLinesFromFile(),
+      ($ln, $line) ==> vec($this->getLintErrorsForLine($line, $ln)),
+    )
+      |> Dict\filter($$)
+      |> Dict\partition_with_key(
+        $$,
+        ($ln, $_errs) ==>
+          $ln > 0 && $this->isSuppressedForLine($this->getFile(), $ln),
+      );
 
-    foreach ($lines as $ln => $line) {
-      $line_errors = vec($this->getLintErrorsForLine($line, $ln));
-
-      if (C\is_empty($line_errors)) {
-        continue;
-      }
-
-      // We got an error. Let's check the previous line to see if it is marked as ignorable
-      if ($ln - 1 >= 0 && $this->isSuppressedForLine($this->getFile(), $ln)) {
-        continue;
-      }
-
-      $errs = Vec\concat($errs, $line_errors);
+    if ($this->shouldAllowSuppressionComments()) {
+      return Vec\flatten($unconditional);
     }
 
-    return $errs;
+    return Dict\map(
+      $suppressed,
+      $errs ==> Vec\concat(
+        vec[
+          $errs[0]->prefixDescription(Str\format(
+            "You may not use a comment to suppress %s errors.\n".
+            "See lintFixmeAllowList in hhast-lint.json.\n",
+            $this->getLinterName(),
+          )),
+        ],
+        $errs,
+      ),
+    )
+      |> Vec\concat($suppressed, $unconditional)
+      |> Vec\flatten($$);
   }
 
   /** Parse a single line of code and attempts to find lint errors */

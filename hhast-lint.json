@@ -4,6 +4,12 @@
   "extraLinters": [
     "Facebook\\HHAST\\HHClientLinter"
   ],
+  "lintMarkerAllowList": [
+    "Facebook\\HHAST\\DontUseAsioJoinLinter",
+    "Facebook\\HHAST\\DontAwaitInALoopLinter",
+    "Facebook\\HHAST\\PreferLambdasLinter",
+    "Facebook\\HHAST\\FinalOrAbstractClassLinter"
+  ],
   "overrides": [
     {
       "patterns": [ "codegen/*", "codegen-no-rebuild/*", "tests/examples/*" ],
@@ -31,6 +37,13 @@
       "exceptionSuffixes": [
         "Error",
         "Exception"
+      ]
+    },
+    "Facebook\\HHAST\\HHClientLinter": {
+      "lintMarkerAllowList": [
+        5607,
+        5624,
+        5639
       ]
     }
   }

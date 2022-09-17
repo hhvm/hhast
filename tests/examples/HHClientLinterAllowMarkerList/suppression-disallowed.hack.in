@@ -1,0 +1,16 @@
+// HHAST_IGNORE_ALL[5633] (use of `?->` on nonnull) <- disallowed
+// HHAST_IGNORE_ALL[5644] (boolean expression always false) <- allowed
+function suppression_disallowed(int $int): void {
+  // HHAST_FIXME[5611] (checking nullness of nonnull) <- allowed
+  if ($int is null) {
+  }
+
+  if (false && true) {
+  }
+
+  // HHAST_FIXME[5622] (invalid condition) <- disallowed
+  if (null) {
+  }
+
+  (new DateTime())?->getTimestamp();
+}
