@@ -20,7 +20,7 @@ final class UnusedLambdaParameterLinter extends AutoFixingASTLinter {
 
   /**
    * This linter changes the parameter `$v` to `$_v`.
-   * This change is unsafe when `$_a` was previously auto captured.
+   * This change is unsafe when `$_v` was previously auto captured.
    * ```
    * $_v = 'capture me';
    * return Vec\filter_with_key($dict, ($k, $v) ==> $k === $_v);
