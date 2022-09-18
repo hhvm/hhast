@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```
-php composer.phar require --dev hhvm/hhas
+php composer.phar require --dev hhvm/hhast
 vendor/bin/hhast-lint src/
 ```
 
