@@ -105,7 +105,7 @@ abstract class ASTLinter extends SingleRuleLinter {
           $errors[] = $error->prefixDescription(
             Str\format(
               "You may not use a comment to suppress %s errors.\n".
-              "See lintFixmeAllowList in hhast-lint.json.\n",
+              "See lintMarkerAllowList in hhast-lint.json.\n",
               $this->getLinterName(),
             ),
           );

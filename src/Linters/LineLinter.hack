@@ -41,21 +41,17 @@ abstract class LineLinter<+Terror as LineLintError> extends SingleRuleLinter {
       return Vec\flatten($unconditional);
     }
 
-    return Dict\map(
-      $suppressed,
-      $errs ==> Vec\concat(
-        vec[
-          $errs[0]->prefixDescription(Str\format(
-            "You may not use a comment to suppress %s errors.\n".
-            "See lintFixmeAllowList in hhast-lint.json.\n",
-            $this->getLinterName(),
-          )),
-        ],
-        $errs,
-      ),
-    )
-      |> Vec\concat($suppressed, $unconditional)
-      |> Vec\flatten($$);
+    foreach ($suppressed as $errs) {
+      foreach ($errs as $err) {
+        $err->prefixDescription(Str\format(
+          "You may not use a comment to suppress %s errors.\n".
+          "See lintMarkerAllowList in hhast-lint.json.\n",
+          $this->getLinterName(),
+        ));
+      }
+    }
+
+    return Vec\concat($suppressed, $unconditional) |> Vec\flatten($$);
   }
 
   /** Parse a single line of code and attempts to find lint errors */
