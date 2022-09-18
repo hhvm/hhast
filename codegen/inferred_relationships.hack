@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ddc89e43f5dc218ea96629837125d96e>>
+ * @generated SignedSource<<c437dc35f368aacf5568700769d18e78>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2979,6 +2979,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'token:require',
   ],
   'require_clause.require_kind' => keyset[
+    'token:class',
     'token:extends',
     'token:implements',
   ],
