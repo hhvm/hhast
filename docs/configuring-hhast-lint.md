@@ -40,7 +40,7 @@ an override to exclude `vendor/` like so.
 
 ### builtinLinters
 
-The HHAST framework comes bundled with some pre-built linter. These linters are divided,
+The HHAST framework comes bundled with some pre-built linters. These linters are divided,
 into two groups: `DEFAULT_LINTERS` and `NON_DEFAULT_LINTERS`. The two lists can be found
 in [LintRunConfig.hack](https://github.com/hhvm/hhast/blob/main/src/__Private/LintRunConfig.hack).
 
@@ -125,9 +125,9 @@ conflicts with a third-party linter.
 ### disabledAutoFixes and disableAllAutoFixes
 
 Some linters in hhast include autofixes. An autofix is a change to your code that
-satisfies that linter. This change can be make by running hhast from the command-line
-and accepting the suggested fixes. Alternatively, you can use IDE features to accept
-suggested fixes. _Hhast will never change your code without your permission._
+satisfies that linter. This change can be made by running hhast from the command-line
+and accepting the suggested autofix. Alternatively, you can use IDE features to accept
+a suggested autofix. _Hhast will never change your code without your permission._
 
 If you don't like the autofix output from one or more linters, you can add the
 qualified classname to the `disabledAutoFixes` list to prevent hhast from prompting
