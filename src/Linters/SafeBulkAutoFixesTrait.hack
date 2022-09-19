@@ -11,17 +11,18 @@ namespace Facebook\HHAST;
 
 /**
  * This trait doesn't "do" anything when overriding
- * `AutoFixingLinterTrait::allowYesToAll()`, since both
+ * `AutoFixingLinterTrait::areBulkAutoFixesSafe()`, since both
  * implementations return true.
  *
  * This trait communicates to your readers (and future self).
  * Yes, I have considered if this autofix is safe.
- * It didn't "forget" to add LinterDisallowingYesToAllTrait.
+ * It didn't "forget" to add UnsafeBulkAutoFixesTrait.
  */
 trait SafeBulkAutoFixesTrait {
   require implements AutoFixable;
 
-  final public function allowYesToAll(): bool {
+  <<__Override>>
+  final public function areBulkAutoFixesSafe(): bool {
     return true;
   }
 }

@@ -12,7 +12,8 @@ namespace Facebook\HHAST;
 trait UnsafeBulkAutoFixesTrait {
   require implements AutoFixable;
 
-  final public function allowYesToAll(): bool {
+  <<__Override>>
+  final public function areBulkAutoFixesSafe(): bool {
     return false;
   }
 }
