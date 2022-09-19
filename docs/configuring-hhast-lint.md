@@ -208,7 +208,6 @@ The following options support namespace aliasing:
  - extraLinters
  - disabledLinters
  - disabledAutofixes
- - lintMarkerAllowList
 
 At the time of writing, `linterConfigs` ignores namespace aliases.
 This following does not work:
@@ -226,36 +225,6 @@ This following does not work:
   }
 }
 ```
-
-### lintMarkerAllowList
-
-Hhast allows you to suppress lint errors using a suppression comment. See
-[Linters usage](./linters-usage.md#suppressing-lint-errors) for precise instructions.
-`lintMarkerAllowList` is a way to control which lint errors may be suppressed with a comment.
-
-If you don't specify a `lintMarkerAllowList`, all suppression comments are honored.
-If you provide an empty list, all suppression comments are ignored and lint errors
-will always be emitted. If you specify a non-empty list of qualified classnames,
-only those linters that are included in that list may be suppressed with a comment.
-
-```JSON
-{
-  "roots": ["src/", "tests/"],
-  "builtinLinters": "all",
-  "lintMarkerAllowList": [
-    "Facebook\\HHAST\\DontUseAsioJoinLinter"
-  ]
-}
-```
-
-```HACK
-function insert_user_sync__DO_NOT_USE(AsyncMysqlConnection $a, UserModel $u): int {
-  /*HHAST_IGNORE_ERROR[DontUseAsioJoin] We're migrating to async. This is temporary. */
-  return HH\Asio\join(insert_user_async($a, $u));
-}
-```
-
-This suppression comment is honored, because `DontUseAsioJoinLinter` in is `lintMarkerAllowList`.
 
 ### overrides
 
@@ -275,9 +244,6 @@ If multiple overrides match for a single path, the first match is considered.
  - `disableAllLinters`, disables all linters unconditionally, irregardless of other options.
  - `linterConfigs`, merges linter configs on a class-by-class level, overrides win in case of conflict.
    - If the override supplies a config for `ExampleLinter`, the top-level linter config is ignored for `ExampleLinter`.
- - `lintMarkerAllowList`, appends a list of linters to `lintMarkerAllowList` from the top-level configuration.
-   - If the top-level option is not present, only the mentioned linter suppression comments are honored.
-   - If the top-level option is present, the union of the two lists is honored.
 
 ```JSON
 {
@@ -286,15 +252,11 @@ If multiple overrides match for a single path, the first match is considered.
   "extraLinters": [
     "ExampleDotCom\\UseSafeWrapperFunctionsLinter"
   ],
-  "lintMarkerAllowList": [],
   "overrides": [
     {
       "patterns": [ "src/codegen/*" ],
       "disabledLinters": [
         "Facebook\\HHAST\\UnusedUseClauseLinter"
-      ],
-      "lintMarkerAllowList": [
-        "Facebook\\HHAST\\UseSafeWrapperFunctionsLinter"
       ],
       "disableAllAutofixes": true
     },
