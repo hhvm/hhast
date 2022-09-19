@@ -4,6 +4,8 @@ _This file explains what each section of hhast-lint.json does and how to use it.
 
 _If you want to look at the source code that implements these rules, see [LintRunConfig.hack](https://github.com/hhvm/hhast/blob/main/src/__Private/LintRunConfig.hack)_.
 
+The configuration file is case sensitive and the `lowerCamelCase` naming convention is used.
+
 ### roots
 
 You are required to tell hhast where the source code that you want to lint is located.
