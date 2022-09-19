@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<826a6631b25eebc933ad97717e787801>>
+ * @generated SignedSource<<1942cefd059c3c71fffb9e761ebf16ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -175,14 +175,14 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
   }
 
   /**
-   * @return ExtendsToken | ImplementsToken
+   * @return ClassToken | ExtendsToken | ImplementsToken
    */
   public function getKind(): Token {
     return TypeAssert\instance_of(Token::class, $this->_kind);
   }
 
   /**
-   * @return ExtendsToken | ImplementsToken
+   * @return ClassToken | ExtendsToken | ImplementsToken
    */
   public function getKindx(): Token {
     return $this->getKind();
