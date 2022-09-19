@@ -298,11 +298,6 @@ In codegen, it is allowed to `use namespace ExampleDotCom\\Some`, without using 
 The codegen tool does not need to keep track of which namespaces it uses, so `UnusedUseClauseLinter`
 is added to `disabledLinters`.
 
-The code generator will, if it can prove that doing so is safe, codegen calls to unsafe
-functions which skip some safety checks. For example, `$db->executeRawSqlAsync__UNSAFE(...)`.
-The codegen tool will emit a `/*HHAST_IGNORE_ERROR[UseSafeWrapperFunctions] see internal ticket 1234*/`
-comment to explain why it is using an unsafe sql query.
-
 It does not make sense to apply autofixes to codegen, because they will be overwritten, so
 `disableAllAutofixes` is set.
 
