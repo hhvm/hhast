@@ -26,10 +26,7 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
    * ```
    * Each autofix should be individually checked.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return false;
-  }
+  use UnsafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getLintErrorForNode(

@@ -24,10 +24,7 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
    * it will either introduce 0 named entities, or error,
    * since you are redeclaring a named entity.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return false;
-  }
+  use UnsafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getLintErrorForNode(

@@ -21,10 +21,7 @@ final class ShoutCaseEnumMembersLinter extends AutoFixingASTLinter {
    * enum members that you just added moments ago.
    * Existing enums should be updated with a migration.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return false;
-  }
+  use UnsafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getLintErrorForNode(

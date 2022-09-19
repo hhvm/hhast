@@ -20,13 +20,8 @@ final class DontHaveTwoEmptyLinesInARowLinter extends AutoFixingASTLinter {
    * Unlike NoWhitespaceAtEndOfLineLinter and ConsistentLineEndingLinter
    * this linter operates on the AST.
    * It will therefore not change the contents of string literals.
-   * This method was added and returns true (the default)
-   * to show that it was not forgotten and carefully considered.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return true;
-  }
+  use SafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getLintErrorForNode(

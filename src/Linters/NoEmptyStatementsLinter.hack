@@ -21,10 +21,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
    * since the intent of the programmer probably differed from
    * what the code does right now.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return false;
-  }
+  use UnsafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getTitleForFix(SingleRuleLintError $_): string {

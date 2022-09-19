@@ -11,7 +11,12 @@ namespace Facebook\HHAST\__Private;
 
 use type Facebook\CLILib\ITerminal;
 use type Facebook\DiffLib\{CLIColoredUnifiedDiff, StringDiff};
-use type Facebook\HHAST\{AutoFixingLinter, LintError, Linter, SingleRuleLintError};
+use type Facebook\HHAST\{
+  AutoFixingLinter,
+  LintError,
+  Linter,
+  SingleRuleLintError,
+};
 use namespace HH\Lib\{C, IO, Str, Vec};
 
 final class LintRunCLIEventHandler implements LintRunEventHandler {
@@ -29,11 +34,8 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     Traversable<LintError> $errors,
   ): Awaitable<LintAutoFixResult> {
     if (!$this->terminal->isInteractive()) {
-      return await $this->linterRaisedErrorsImplAsync(
-        $linter,
-        $config,
-        $errors,
-      );
+      return
+        await $this->linterRaisedErrorsImplAsync($linter, $config, $errors);
     }
 
     return await $this->interactivityQueue->enqueueAndWaitForAsync(
@@ -181,7 +183,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
     do {
       $message = "\e[94mWould you like to apply this fix?\e[0m\n".
         (
-          $linter->allowYesToAll()
+          $linter->areBulkAutoFixesSafe()
             ? "  \e[37m[y]es / [n]o / yes to [a]ll / n[o] to all:\e[0m "
             : "  \e[37m[y]es / [n]o / n[o] to all:\e[0m "
         );
@@ -197,7 +199,7 @@ final class LintRunCLIEventHandler implements LintRunEventHandler {
       $response = Str\trim($response);
       switch ($response) {
         // ' ' is an impossible value for $response, knocking out this case label.
-        case $linter->allowYesToAll() ? 'a' : ' ':
+        case $linter->areBulkAutoFixesSafe() ? 'a' : ' ':
           $this->userResponseCache[$cache_key] = true;
           // FALLTHROUGH
         case 'y':

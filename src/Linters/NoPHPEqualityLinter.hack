@@ -22,10 +22,7 @@ final class NoPHPEqualityLinter extends AutoFixingASTLinter {
    * `keyset[1, 2]  ===  keyset[2, 1]` is false.
    * Each case should be considered individually.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return false;
-  }
+  use UnsafeBulkAutoFixesTrait;
 
   <<__Override>>
   protected function getTitleForFix(ASTLintError $err): string {

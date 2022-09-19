@@ -12,7 +12,7 @@ namespace Facebook\HHAST;
 use type Facebook\HHAST\File;
 use namespace Facebook\HHAST\__Private\LSP;
 
-interface AutoFixingLinter<Terror as SingleRuleLintError> {
+interface AutoFixingLinter<Terror as SingleRuleLintError> extends AutoFixable {
   require extends SingleRuleLinter;
 
   <<__Override>>

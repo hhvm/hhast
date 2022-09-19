@@ -33,10 +33,7 @@ final class UnusedParameterLinter extends AutoFixingASTLinter {
    * This means that the parameter value can not be observed,
    * nor change the meaning of existing code.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return true;
-  }
+  use SafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getLintErrorForNode(

@@ -28,10 +28,7 @@ final class NoWhitespaceAtEndOfLineLinter
    * The programmer running the linter should make sure
    * the suggested fix does not alter string literals.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return false;
-  }
+  use UnsafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getTitleForFix(LineLintError $_): string {

@@ -28,10 +28,7 @@ final class UnusedLambdaParameterLinter extends AutoFixingASTLinter {
    * If the autofix rewrites the `$v` parameter, this will compare
    * the keys of `$dict` to the values, not to the string 'capture me'.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return false;
-  }
+  use UnsafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getLintErrorForNode(

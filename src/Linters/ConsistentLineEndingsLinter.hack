@@ -17,10 +17,6 @@ final class ConsistentLineEndingsLinter
   // Could become configurable later.
   const type TConfig = shape('line ending' => LineEnding);
 
-  private function getLineEnding(): LineEnding {
-    return LineEnding::UNIX;
-  }
-
   /**
    * This linter may change the behavior of the code.
    * A multiline string literal may contain a carriage return at eol.
@@ -34,9 +30,10 @@ final class ConsistentLineEndingsLinter
    * The programmer running the linter should make sure
    * the suggested fix does not alter string literals.
    */
-  <<__Override>>
-  public function allowYesToAll(): bool {
-    return false;
+  use UnsafeBulkAutoFixesTrait;
+
+  private function getLineEnding(): LineEnding {
+    return LineEnding::UNIX;
   }
 
   <<__Override>>
