@@ -20,7 +20,7 @@ you could configure hhast like this.
 If your project contains source files that you want to lint in the same directory
 as `hhast-lint.json`, you can use the `.` path. The `.` path is interpreted as:
 Lint everything in the directory in which `hhast-lint.json` is located and all
-recursive sub directories. Anything that the command line tool `tree` shows
+recursive subdirectories. Anything that the command line tool `tree` shows
 would be linted. This includes `vendor/`, which you should not lint. You can provide
 an override to exclude `vendor/` like so.
 
@@ -61,7 +61,7 @@ The value `"none"` is meant for users who prefer backwards compatibility. New ve
 of hhast will include new linters. If you have set up your CI pipeline to stop when
 a lint error is detected, upgrading to the new version of hhast could stop your builds.
 If you want full control over which linters you adopt and when, set `builtinLinters` to
-`"none"` and [list all disired linters by name](#extraLinters).
+`"none"` and [list all desired linters by name](#extraLinters).
 
 ### extraLinters
 
@@ -230,7 +230,7 @@ This following does not work:
 ### lintMarkerAllowList
 
 Hhast allows you to suppress lint errors using a suppression comment. See
-[Linters usage](/linters-usage.md#suppressing-lint-errors) for precise instructions.
+[Linters usage](./linters-usage.md#suppressing-lint-errors) for precise instructions.
 `lintMarkerAllowList` is a way to control which lint errors may be suppressed with a comment.
 
 If you don't specify a `lintMarkerAllowList`, all suppression comments are honored.
