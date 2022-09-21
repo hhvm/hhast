@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c437dc35f368aacf5568700769d18e78>>
+ * @generated SignedSource<<b4774db0606b204c181262ee12f3a6ab>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -1170,6 +1170,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<shape_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<simple_type_specifier>>',
     'list<list_item<simple_type_specifier>|list_item<tuple_type_specifier>>',
+    'list<list_item<simple_type_specifier>|list_item<type_constant>>',
     'list<list_item<simple_type_specifier>|list_item<varray_type_specifier>>',
     'list<list_item<simple_type_specifier>|list_item<vector_type_specifier>>',
   ],
@@ -3476,6 +3477,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<darray_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<dictionary_type_specifier>>',
     'list<list_item<dictionary_type_specifier>|list_item<nullable_type_specifier>>',
+    'list<list_item<dictionary_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<generic_type_specifier>>',
     'list<list_item<generic_type_specifier>|list_item<simple_type_specifier>>',
     'list<list_item<generic_type_specifier>|list_item<type_constant>>',
