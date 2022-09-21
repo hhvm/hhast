@@ -17,6 +17,13 @@ use namespace HH\Lib\{C, Str};
 class CamelCasedMethodsUnderscoredFunctionsLinter extends FunctionNamingLinter {
   const type TConfig = shape();
 
+  /**
+   * Does not update use sites, so this fix is only safe on
+   * names that you just added moments ago.
+   * Existing names should be updated with a migration.
+   */
+  use UnsafeBulkAutoFixesTrait;
+
   <<__Override>>
   final public function getSuggestedNameForFunction(
     string $name,

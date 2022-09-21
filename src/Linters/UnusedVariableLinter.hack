@@ -15,6 +15,18 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
   const type TConfig = shape();
   const type TNode = VariableExpression;
   const type TContext = IFunctionishDeclaration;
+  /**
+   * The autofix may change the behavior of existing code.
+   * It changes the name of `$a` in this example to `$_a`.
+   * This makes the return statement return `3`, instead of `4`.
+   * ```
+   * $_a = 4;
+   * list($a) = tuple(3);
+   * return $_a;
+   * ```
+   * Each autofix should be individually checked.
+   */
+  use UnsafeBulkAutoFixesTrait;
 
   <<__Override>>
   public function getLintErrorForNode(
@@ -111,8 +123,8 @@ final class UnusedVariableLinter extends AutoFixingASTLinter {
 
   private static function isByRefParam(ParameterDeclaration $param): bool {
     $name = $param->getName();
-    return $name is DecoratedExpression &&
-      $name->getDecorator() is AmpersandToken;
+    return
+      $name is DecoratedExpression && $name->getDecorator() is AmpersandToken;
   }
 
   private static function getParamName(ParameterDeclaration $param): string {

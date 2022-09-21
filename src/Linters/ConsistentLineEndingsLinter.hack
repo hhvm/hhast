@@ -17,6 +17,21 @@ final class ConsistentLineEndingsLinter
   // Could become configurable later.
   const type TConfig = shape('line ending' => LineEnding);
 
+  /**
+   * This linter may change the behavior of the code.
+   * A multiline string literal may contain a carriage return at eol.
+   * ```
+   * <<<'EOF'
+   *abc<carriage return>
+   *EOF
+   * ```
+   * Hhast will remove the trailing `\r` character.
+   * This changes the contents of the string.
+   * The programmer running the linter should make sure
+   * the suggested fix does not alter string literals.
+   */
+  use UnsafeBulkAutoFixesTrait;
+
   private function getLineEnding(): LineEnding {
     return LineEnding::UNIX;
   }

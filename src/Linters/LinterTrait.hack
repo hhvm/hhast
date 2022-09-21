@@ -69,5 +69,4 @@ trait LinterTrait {
   public function isLinterSuppressedForFile(): bool {
     return $this->isSuppressedForFile($this->getFile());
   }
-
 }

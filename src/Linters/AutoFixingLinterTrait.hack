@@ -40,4 +40,10 @@ trait AutoFixingLinterTrait<Terror as SingleRuleLintError>
     );
   }
 
+  /**
+   * Explicitly non-final, expected to be overridden.
+   */
+  public function areBulkAutoFixesSafe(): bool {
+    return true;
+  }
 }

@@ -14,6 +14,18 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
   const type TContext = Script;
   const type TNode = InclusionExpression;
 
+  /**
+   * Changing `include`, `include_once`, or `require`
+   * to `require_once` may change the behavior of the program.
+   * If `include_once`-like don't error behavior is expected,
+   * use `if (HH\could_include($f)) require_once $f; else your_error_here($f);`.
+   *
+   * Including a file multiple times doesn't make sense in Hack,
+   * it will either introduce 0 named entities, or error,
+   * since you are redeclaring a named entity.
+   */
+  use UnsafeBulkAutoFixesTrait;
+
   <<__Override>>
   public function getLintErrorForNode(
     Script $_context,
@@ -34,9 +46,8 @@ final class PreferRequireOnceLinter extends AutoFixingASTLinter {
   public function getFixedNode(InclusionExpression $node): ?Node {
     $left_trivia = $node->getRequire()->getLeading();
     $right_trivia = $node->getRequire()->getTrailing();
-    return $node->withRequire(
-      new Require_onceToken($left_trivia, $right_trivia),
-    );
+    return
+      $node->withRequire(new Require_onceToken($left_trivia, $right_trivia));
   }
 
   <<__Override>>

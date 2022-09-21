@@ -29,5 +29,4 @@ interface Linter {
   public function isLinterSuppressedForFile(): bool;
 
   public function getFile(): File;
-
 }
