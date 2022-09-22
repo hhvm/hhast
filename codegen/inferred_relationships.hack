@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b4774db0606b204c181262ee12f3a6ab>>
+ * @generated SignedSource<<15bf5683e3a1de58c977a4ce4affd306>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -11,8 +11,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'old_attribute_specification',
   ],
   'alias_declaration.alias_constraint' => keyset[
+    'list<type_constraint>',
     'missing',
-    'type_constraint',
   ],
   'alias_declaration.alias_equal' => keyset[
     'token:=',
