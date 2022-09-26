@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc09cdba2457871d60ab08ffa8b217c2>>
+ * @generated SignedSource<<7be6a0ad119af7b17e53c913342e9828>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -20,7 +20,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   private Token $_keyword;
   private NameToken $_name;
   private ?TypeParameters $_generic_parameter;
-  private ?TypeConstraint $_constraint;
+  private ?NodeList<TypeConstraint> $_constraint;
   private EqualToken $_equal;
   private ITypeSpecifier $_type;
   private SemicolonToken $_semicolon;
@@ -32,7 +32,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     Token $keyword,
     NameToken $name,
     ?TypeParameters $generic_parameter,
-    ?TypeConstraint $constraint,
+    ?NodeList<TypeConstraint> $constraint,
     EqualToken $equal,
     ITypeSpecifier $type,
     SemicolonToken $semicolon,
@@ -117,7 +117,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'TypeConstraint',
+      'NodeList<TypeConstraint>',
     );
     $offset += $constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
@@ -232,7 +232,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $keyword as Token,
       $name as NameToken,
       $generic_parameter as ?TypeParameters,
-      $constraint as ?TypeConstraint,
+      /* HH_FIXME[4110] ?NodeList<TypeConstraint> may not be enforceable */ $constraint,
       $equal as EqualToken,
       $type as ITypeSpecifier,
       $semicolon as SemicolonToken,
@@ -483,7 +483,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_constraint;
   }
 
-  public function withConstraint(?TypeConstraint $value): this {
+  public function withConstraint(?NodeList<TypeConstraint> $value): this {
     if ($value === $this->_constraint) {
       return $this;
     }
@@ -506,16 +506,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return null | TypeConstraint
+   * @return NodeList<TypeConstraint> | null
    */
-  public function getConstraint(): ?TypeConstraint {
+  public function getConstraint(): ?NodeList<TypeConstraint> {
     return $this->_constraint;
   }
 
   /**
-   * @return TypeConstraint
+   * @return NodeList<TypeConstraint>
    */
-  public function getConstraintx(): TypeConstraint {
+  public function getConstraintx(): NodeList<TypeConstraint> {
     return TypeAssert\not_null($this->getConstraint());
   }
 
