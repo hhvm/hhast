@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e3130923200461713699d8467cb78a0>>
+ * @generated SignedSource<<cf22926607c5b3227cf7b1ed5753dbec>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,11 +15,11 @@ final class TypeConstraint extends Node {
   const string SYNTAX_KIND = 'type_constraint';
 
   private Token $_keyword;
-  private ITypeSpecifier $_type;
+  private Node $_type;
 
   public function __construct(
     Token $keyword,
-    ITypeSpecifier $type,
+    Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -50,7 +50,7 @@ final class TypeConstraint extends Node {
       $file,
       $offset,
       $source,
-      'ITypeSpecifier',
+      'Node',
     );
     $type = $type as nonnull;
     $offset += $type->getWidth();
@@ -87,7 +87,7 @@ final class TypeConstraint extends Node {
     if ($keyword === $this->_keyword && $type === $this->_type) {
       return $this;
     }
-    return new static($keyword as Token, $type as ITypeSpecifier);
+    return new static($keyword as Token, $type as Node);
   }
 
   public function getKeywordUNTYPED(): ?Node {
@@ -123,7 +123,7 @@ final class TypeConstraint extends Node {
     return $this->_type;
   }
 
-  public function withType(ITypeSpecifier $value): this {
+  public function withType(Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -137,20 +137,20 @@ final class TypeConstraint extends Node {
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant | TypeRefinement |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): ITypeSpecifier {
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+  public function getType(): Node {
+    return $this->_type;
   }
 
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant | TypeRefinement |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getTypex(): ITypeSpecifier {
+  public function getTypex(): Node {
     return $this->getType();
   }
 }
