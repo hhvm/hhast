@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24d87597f901164f94e08375f1c42edc>>
+ * @generated SignedSource<<cedbef345a57840594470ef73b9213f8>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -500,6 +500,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'attributized_specifier',
     'closure_type_specifier',
     'darray_type_specifier',
+    'dictionary_type_specifier',
     'generic_type_specifier',
     'nullable_type_specifier',
     'simple_type_specifier',
