@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cedbef345a57840594470ef73b9213f8>>
+ * @generated SignedSource<<b90030a12d28140a33e6cba71c5bb301>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -2535,7 +2535,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'tuple_expression',
     'tuple_type_specifier',
     'type_constant',
-    'type_in_refinement',
     'type_parameter',
     'variable',
     'variadic_parameter',
@@ -3574,27 +3573,8 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'shape_type_specifier',
     'simple_type_specifier',
     'type_constant',
-    'type_refinement',
     'varray_type_specifier',
     'vector_type_specifier',
-  ],
-  'type_in_refinement.type_in_refinement_constraints' => keyset[
-    'missing',
-  ],
-  'type_in_refinement.type_in_refinement_equal' => keyset[
-    'token:=',
-  ],
-  'type_in_refinement.type_in_refinement_keyword' => keyset[
-    'token:type',
-  ],
-  'type_in_refinement.type_in_refinement_name' => keyset[
-    'token:name',
-  ],
-  'type_in_refinement.type_in_refinement_type' => keyset[
-    'type_constant',
-  ],
-  'type_in_refinement.type_in_refinement_type_parameters' => keyset[
-    'missing',
   ],
   'type_parameter.type_attribute_spec' => keyset[
     'missing',
@@ -3628,21 +3608,6 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
   ],
   'type_parameters.type_parameters_right_angle' => keyset[
     'token:>',
-  ],
-  'type_refinement.type_refinement_keyword' => keyset[
-    'token:with',
-  ],
-  'type_refinement.type_refinement_left_brace' => keyset[
-    'token:{',
-  ],
-  'type_refinement.type_refinement_members' => keyset[
-    'list<list_item<type_in_refinement>>',
-  ],
-  'type_refinement.type_refinement_right_brace' => keyset[
-    'token:}',
-  ],
-  'type_refinement.type_refinement_type' => keyset[
-    'simple_type_specifier',
   ],
   'unset_statement.unset_keyword' => keyset[
     'token:unset',
