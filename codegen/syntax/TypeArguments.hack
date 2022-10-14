@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8da116ce9939abde432f646389ec149e>>
+ * @generated SignedSource<<aa96c2a59bd66aa5236d3735e6923561>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,12 +15,12 @@ final class TypeArguments extends Node {
   const string SYNTAX_KIND = 'type_arguments';
 
   private LessThanToken $_left_angle;
-  private ?NodeList<ListItem<ITypeSpecifier>> $_types;
+  private ?NodeList<ListItem<Node>> $_types;
   private GreaterThanToken $_right_angle;
 
   public function __construct(
     LessThanToken $left_angle,
-    ?NodeList<ListItem<ITypeSpecifier>> $types,
+    ?NodeList<ListItem<Node>> $types,
     GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -54,7 +54,7 @@ final class TypeArguments extends Node {
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<ITypeSpecifier>>',
+      'NodeList<ListItem<Node>>',
     );
     $offset += $types?->getWidth() ?? 0;
     $right_angle = Node::fromJSON(
@@ -108,7 +108,7 @@ final class TypeArguments extends Node {
     }
     return new static(
       $left_angle as LessThanToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $types,
+      /* HH_FIXME[4110] ?NodeList<ListItem<Node>> may not be enforceable */ $types,
       $right_angle as GreaterThanToken,
     );
   }
@@ -146,7 +146,7 @@ final class TypeArguments extends Node {
     return $this->_types;
   }
 
-  public function withTypes(?NodeList<ListItem<ITypeSpecifier>> $value): this {
+  public function withTypes(?NodeList<ListItem<Node>> $value): this {
     if ($value === $this->_types) {
       return $this;
     }
@@ -170,12 +170,13 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<LikeTypeSpecifier>> |
    * NodeList<ListItem<NullableTypeSpecifier>> |
    * NodeList<ListItem<ShapeTypeSpecifier>> |
-   * NodeList<ListItem<SimpleTypeSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>> | NodeList<ListItem<Node>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | NodeList<ListItem<VarrayTypeSpecifier>> |
+   * | NodeList<ListItem<TypeRefinement>> |
+   * NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>> | null
    */
-  public function getTypes(): ?NodeList<ListItem<ITypeSpecifier>> {
+  public function getTypes(): ?NodeList<ListItem<Node>> {
     return $this->_types;
   }
 
@@ -192,12 +193,13 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<LikeTypeSpecifier>> |
    * NodeList<ListItem<NullableTypeSpecifier>> |
    * NodeList<ListItem<ShapeTypeSpecifier>> |
-   * NodeList<ListItem<SimpleTypeSpecifier>> |
+   * NodeList<ListItem<SimpleTypeSpecifier>> | NodeList<ListItem<Node>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | NodeList<ListItem<VarrayTypeSpecifier>> |
+   * | NodeList<ListItem<TypeRefinement>> |
+   * NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
-  public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {
+  public function getTypesx(): NodeList<ListItem<Node>> {
     return TypeAssert\not_null($this->getTypes());
   }
 
