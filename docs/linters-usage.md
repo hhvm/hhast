@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```
-php composer.phar require hhvm/hhast
+php composer.phar require --dev hhvm/hhast
 vendor/bin/hhast-lint src/
 ```
 
@@ -21,9 +21,7 @@ An `hhast-lint.json` in your project root can be used to modify which linters ar
 }
 ```
 
-This would configure `hhast-lint` with no arguments check `src/` with otherwise-default settings. For information on additional options, see [`LintRunConfig::TConfigFile`](../src/__Private/LintRunConfig.hack).
-
-Options can also be overriden for specific file patterns or subdirectories - for example, [HHAST itself](../hhast-lint.json) disables autofixes for `codegen/`.
+This would configure `hhast-lint` with no arguments check `src/` with otherwise-default settings. For information on additional options, see [Configuring hhast-lint](./configuring-hhast-lint.md).
 
 ## Suppressing Lint Errors
 

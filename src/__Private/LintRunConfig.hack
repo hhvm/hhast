@@ -15,6 +15,7 @@ use type Facebook\HHAST\Linter;
 
 final class LintRunConfig {
 
+  // Use `lowerCamelCase` for shape key names.
   const type TOverride = shape(
     // Which files this override applies to (uses `fnmatch()`)
     'patterns' => vec<string>,
@@ -26,6 +27,9 @@ final class LintRunConfig {
     ?'disableAllLinters' => bool,
     ?'linterConfigs' => dict<string, dynamic>,
   );
+
+  // Use `lowerCamelCase` for shape key names.
+  // The configuration file uses `lowerCamelCase` and being consistent is preferred.
   const type TConfigFile = shape(
     // Where to lint, eg '[ "src/", "codegen/", "tests/" ]
     'roots' => vec<string>,
