@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0292b8b73ed163d95845503bd88c184a>>
+ * @generated SignedSource<<029c9c45acb4f6a4de09537c73291050>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -142,8 +142,8 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
-   * DictionaryTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
@@ -151,8 +151,8 @@ final class AttributizedSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return ClosureTypeSpecifier | DarrayTypeSpecifier |
-   * DictionaryTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier
+   * DictionaryTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e3130923200461713699d8467cb78a0>>
+ * @generated SignedSource<<fc46f7e9c9f70f1355b251a1a7e4d1a8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -137,7 +137,7 @@ final class TypeConstraint extends Node {
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant | TypeRefinement |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ITypeSpecifier {
@@ -147,7 +147,7 @@ final class TypeConstraint extends Node {
   /**
    * @return ClassnameTypeSpecifier | ClosureTypeSpecifier |
    * GenericTypeSpecifier | LikeTypeSpecifier | NullableTypeSpecifier |
-   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * ShapeTypeSpecifier | SimpleTypeSpecifier | TypeConstant | TypeRefinement |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {

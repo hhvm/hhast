@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<940b4d1283c6d974b2cf6f65a60e33f5>>
+ * @generated SignedSource<<d02f9691a4afe313e6478c3c20ec4dc9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -244,14 +244,16 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
   }
 
   /**
-   * @return GenericTypeSpecifier | null | SimpleTypeSpecifier | TypeConstant
+   * @return GenericTypeSpecifier | null | SimpleTypeSpecifier | TypeConstant |
+   * TypeRefinement
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
   /**
-   * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant
+   * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
+   * TypeRefinement
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());

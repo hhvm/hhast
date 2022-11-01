@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7be6a0ad119af7b17e53c913342e9828>>
+ * @generated SignedSource<<27b32b5ffabaaeeac88bf08eea4ad05d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,8 +15,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   const string SYNTAX_KIND = 'alias_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private ?NodeList<PublicToken> $_modifiers;
-  private ?ModuleToken $_module_kw_opt;
+  private ?Node $_modifiers;
+  private ?Node $_module_kw_opt;
   private Token $_keyword;
   private NameToken $_name;
   private ?TypeParameters $_generic_parameter;
@@ -27,8 +27,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    ?NodeList<PublicToken> $modifiers,
-    ?ModuleToken $module_kw_opt,
+    ?Node $modifiers,
+    ?Node $module_kw_opt,
     Token $keyword,
     NameToken $name,
     ?TypeParameters $generic_parameter,
@@ -74,7 +74,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'NodeList<PublicToken>',
+      'Node',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $module_kw_opt = Node::fromJSON(
@@ -82,7 +82,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'ModuleToken',
+      'Node',
     );
     $offset += $module_kw_opt?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
@@ -227,8 +227,8 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] ?NodeList<PublicToken> may not be enforceable */ $modifiers,
-      $module_kw_opt as ?ModuleToken,
+      $modifiers as ?Node,
+      $module_kw_opt as ?Node,
       $keyword as Token,
       $name as NameToken,
       $generic_parameter as ?TypeParameters,
@@ -283,7 +283,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?NodeList<PublicToken> $value): this {
+  public function withModifiers(?Node $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -306,16 +306,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return NodeList<PublicToken> | null
+   * @return null
    */
-  public function getModifiers(): ?NodeList<PublicToken> {
+  public function getModifiers(): ?Node {
     return $this->_modifiers;
   }
 
   /**
-   * @return NodeList<PublicToken>
+   * @return
    */
-  public function getModifiersx(): NodeList<PublicToken> {
+  public function getModifiersx(): Node {
     return TypeAssert\not_null($this->getModifiers());
   }
 
@@ -323,7 +323,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_module_kw_opt;
   }
 
-  public function withModuleKwOpt(?ModuleToken $value): this {
+  public function withModuleKwOpt(?Node $value): this {
     if ($value === $this->_module_kw_opt) {
       return $this;
     }
@@ -346,16 +346,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return null | ModuleToken
+   * @return null
    */
-  public function getModuleKwOpt(): ?ModuleToken {
+  public function getModuleKwOpt(): ?Node {
     return $this->_module_kw_opt;
   }
 
   /**
-   * @return ModuleToken
+   * @return
    */
-  public function getModuleKwOptx(): ModuleToken {
+  public function getModuleKwOptx(): Node {
     return TypeAssert\not_null($this->getModuleKwOpt());
   }
 

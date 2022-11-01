@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8da116ce9939abde432f646389ec149e>>
+ * @generated SignedSource<<8da42f4704613d0a958b1a0834e668fe>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -172,7 +172,8 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<ShapeTypeSpecifier>> |
    * NodeList<ListItem<SimpleTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | NodeList<ListItem<VarrayTypeSpecifier>> |
+   * | NodeList<ListItem<TypeRefinement>> |
+   * NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>> | null
    */
   public function getTypes(): ?NodeList<ListItem<ITypeSpecifier>> {
@@ -194,7 +195,8 @@ final class TypeArguments extends Node {
    * NodeList<ListItem<ShapeTypeSpecifier>> |
    * NodeList<ListItem<SimpleTypeSpecifier>> |
    * NodeList<ListItem<TupleTypeSpecifier>> | NodeList<ListItem<TypeConstant>>
-   * | NodeList<ListItem<VarrayTypeSpecifier>> |
+   * | NodeList<ListItem<TypeRefinement>> |
+   * NodeList<ListItem<VarrayTypeSpecifier>> |
    * NodeList<ListItem<VectorTypeSpecifier>>
    */
   public function getTypesx(): NodeList<ListItem<ITypeSpecifier>> {

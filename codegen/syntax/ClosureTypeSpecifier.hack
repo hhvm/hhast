@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c84879ef1b8682f02bbf8aafc171109>>
+ * @generated SignedSource<<d5076bd15d3bed9d614e8a13aa1bf8e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -662,7 +662,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TypeRefinement |
+   * VectorTypeSpecifier
    */
   public function getReturnType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_return_type);
@@ -670,7 +671,8 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
+   * NullableTypeSpecifier | SimpleTypeSpecifier | TypeRefinement |
+   * VectorTypeSpecifier
    */
   public function getReturnTypex(): ITypeSpecifier {
     return $this->getReturnType();

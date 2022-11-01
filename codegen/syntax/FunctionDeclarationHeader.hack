@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24665462d5c5e66ed6bc35d92fc9b6b1>>
+ * @generated SignedSource<<c28a0b4b049e76cdb2c90d48ac0bc1b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -303,9 +303,9 @@ final class FunctionDeclarationHeader extends Node {
 
   /**
    * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<AsyncToken> |
-   * NodeList<FinalToken> | NodeList<InternalToken> | NodeList<PrivateToken> |
-   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<ReadonlyToken>
-   * | NodeList<StaticToken> | null
+   * NodeList<FinalToken> | NodeList<PrivateToken> | NodeList<ProtectedToken> |
+   * NodeList<PublicToken> | NodeList<ReadonlyToken> | NodeList<StaticToken> |
+   * null
    */
   public function getModifiers(): ?NodeList<Token> {
     return $this->_modifiers;
@@ -313,9 +313,8 @@ final class FunctionDeclarationHeader extends Node {
 
   /**
    * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<AsyncToken> |
-   * NodeList<FinalToken> | NodeList<InternalToken> | NodeList<PrivateToken> |
-   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<ReadonlyToken>
-   * | NodeList<StaticToken>
+   * NodeList<FinalToken> | NodeList<PrivateToken> | NodeList<ProtectedToken> |
+   * NodeList<PublicToken> | NodeList<ReadonlyToken> | NodeList<StaticToken>
    */
   public function getModifiersx(): NodeList<Token> {
     return TypeAssert\not_null($this->getModifiers());
@@ -736,8 +735,8 @@ final class FunctionDeclarationHeader extends Node {
    * ClosureTypeSpecifier | DarrayTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier | null |
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * NoreturnToken | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * NoreturnToken | TupleTypeSpecifier | TypeConstant | TypeRefinement |
+   * VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getType(): ?ITypeSpecifier {
     return $this->_type;
@@ -748,8 +747,8 @@ final class FunctionDeclarationHeader extends Node {
    * ClosureTypeSpecifier | DarrayTypeSpecifier | DictionaryTypeSpecifier |
    * GenericTypeSpecifier | KeysetTypeSpecifier | LikeTypeSpecifier |
    * NullableTypeSpecifier | ShapeTypeSpecifier | SimpleTypeSpecifier |
-   * NoreturnToken | TupleTypeSpecifier | TypeConstant | VarrayTypeSpecifier |
-   * VectorTypeSpecifier
+   * NoreturnToken | TupleTypeSpecifier | TypeConstant | TypeRefinement |
+   * VarrayTypeSpecifier | VectorTypeSpecifier
    */
   public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
