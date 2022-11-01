@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0f788451c8a0501a9fe1150e554018bf>>
+ * @generated SignedSource<<9c84879ef1b8682f02bbf8aafc171109>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -23,7 +23,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
   private ?Contexts $_contexts;
   private ColonToken $_colon;
   private ?ReadonlyToken $_readonly_return;
-  private Node $_return_type;
+  private ITypeSpecifier $_return_type;
   private RightParenToken $_outer_right_paren;
 
   public function __construct(
@@ -36,7 +36,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     ?Contexts $contexts,
     ColonToken $colon,
     ?ReadonlyToken $readonly_return,
-    Node $return_type,
+    ITypeSpecifier $return_type,
     RightParenToken $outer_right_paren,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -148,7 +148,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
     $return_type = $return_type as nonnull;
     $offset += $return_type->getWidth();
@@ -250,7 +250,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $contexts as ?Contexts,
       $colon as ColonToken,
       $readonly_return as ?ReadonlyToken,
-      $return_type as Node,
+      $return_type as ITypeSpecifier,
       $outer_right_paren as RightParenToken,
     );
   }
@@ -637,7 +637,7 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_return_type;
   }
 
-  public function withReturnType(Node $value): this {
+  public function withReturnType(ITypeSpecifier $value): this {
     if ($value === $this->_return_type) {
       return $this;
     }
@@ -662,19 +662,17 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
 
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | TypeRefinement |
-   * VectorTypeSpecifier
+   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
-  public function getReturnType(): Node {
-    return $this->_return_type;
+  public function getReturnType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_return_type);
   }
 
   /**
    * @return ClosureTypeSpecifier | GenericTypeSpecifier | LikeTypeSpecifier |
-   * NullableTypeSpecifier | SimpleTypeSpecifier | TypeRefinement |
-   * VectorTypeSpecifier
+   * NullableTypeSpecifier | SimpleTypeSpecifier | VectorTypeSpecifier
    */
-  public function getReturnTypex(): Node {
+  public function getReturnTypex(): ITypeSpecifier {
     return $this->getReturnType();
   }
 
