@@ -13,7 +13,7 @@ interface IHasTypeHint {
   require extends Node;
 
   public function hasType(): bool;
-  public function getType(): ?Node;
-  public function getTypex(): Node;
+  public function getType(): ?ITypeSpecifier;
+  public function getTypex(): ITypeSpecifier;
   public function getTypeUNTYPED(): ?Node;
 }
