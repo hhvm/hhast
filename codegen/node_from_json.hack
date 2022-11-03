@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5cbc5ea10111cd0216a39c530f736a81>>
+ * @generated SignedSource<<ccf23dc2810992f9eadf40a0131442d6>>
  */
 namespace Facebook\HHAST\__Private;
 use namespace Facebook\HHAST;
@@ -144,6 +144,9 @@ function node_from_json_unwrapped(
     'nullable_type_specifier' => HHAST\NullableTypeSpecifier::class,
     'object_creation_expression' => HHAST\ObjectCreationExpression::class,
     'old_attribute_specification' => HHAST\OldAttributeSpecification::class,
+    'package_declaration' => HHAST\PackageDeclaration::class,
+    'package_includes' => HHAST\PackageIncludes::class,
+    'package_uses' => HHAST\PackageUses::class,
     'parameter_declaration' => HHAST\ParameterDeclaration::class,
     'parenthesized_expression' => HHAST\ParenthesizedExpression::class,
     'pipe_variable' => HHAST\PipeVariableExpression::class,

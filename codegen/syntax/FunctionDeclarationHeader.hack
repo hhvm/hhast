@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7b65d73e7cc67162336dad84654cc162>>
+ * @generated SignedSource<<c28a0b4b049e76cdb2c90d48ac0bc1b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -24,7 +24,7 @@ final class FunctionDeclarationHeader extends Node {
   private ?Contexts $_contexts;
   private ?ColonToken $_colon;
   private ?ReadonlyToken $_readonly_return;
-  private ?Node $_type;
+  private ?ITypeSpecifier $_type;
   private ?WhereClause $_where_clause;
 
   public function __construct(
@@ -38,7 +38,7 @@ final class FunctionDeclarationHeader extends Node {
     ?Contexts $contexts,
     ?ColonToken $colon,
     ?ReadonlyToken $readonly_return,
-    ?Node $type,
+    ?ITypeSpecifier $type,
     ?WhereClause $where_clause,
     ?__Private\SourceRef $source_ref = null,
   ) {
@@ -158,7 +158,7 @@ final class FunctionDeclarationHeader extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
     $offset += $type?->getWidth() ?? 0;
     $where_clause = Node::fromJSON(
@@ -268,7 +268,7 @@ final class FunctionDeclarationHeader extends Node {
       $contexts as ?Contexts,
       $colon as ?ColonToken,
       $readonly_return as ?ReadonlyToken,
-      $type as ?Node,
+      $type as ?ITypeSpecifier,
       $where_clause as ?WhereClause,
     );
   }
@@ -303,9 +303,9 @@ final class FunctionDeclarationHeader extends Node {
 
   /**
    * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<AsyncToken> |
-   * NodeList<FinalToken> | NodeList<InternalToken> | NodeList<PrivateToken> |
-   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<ReadonlyToken>
-   * | NodeList<StaticToken> | null
+   * NodeList<FinalToken> | NodeList<PrivateToken> | NodeList<ProtectedToken> |
+   * NodeList<PublicToken> | NodeList<ReadonlyToken> | NodeList<StaticToken> |
+   * null
    */
   public function getModifiers(): ?NodeList<Token> {
     return $this->_modifiers;
@@ -313,9 +313,8 @@ final class FunctionDeclarationHeader extends Node {
 
   /**
    * @return NodeList<AbstractToken> | NodeList<Token> | NodeList<AsyncToken> |
-   * NodeList<FinalToken> | NodeList<InternalToken> | NodeList<PrivateToken> |
-   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<ReadonlyToken>
-   * | NodeList<StaticToken>
+   * NodeList<FinalToken> | NodeList<PrivateToken> | NodeList<ProtectedToken> |
+   * NodeList<PublicToken> | NodeList<ReadonlyToken> | NodeList<StaticToken>
    */
   public function getModifiersx(): NodeList<Token> {
     return TypeAssert\not_null($this->getModifiers());
@@ -707,7 +706,7 @@ final class FunctionDeclarationHeader extends Node {
     return $this->_type;
   }
 
-  public function withType(?Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -739,7 +738,7 @@ final class FunctionDeclarationHeader extends Node {
    * NoreturnToken | TupleTypeSpecifier | TypeConstant | TypeRefinement |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): ?Node {
+  public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
@@ -751,7 +750,7 @@ final class FunctionDeclarationHeader extends Node {
    * NoreturnToken | TupleTypeSpecifier | TypeConstant | TypeRefinement |
    * VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getTypex(): Node {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 

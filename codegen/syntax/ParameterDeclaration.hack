@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4a583b05a02a5a15994cf04124f6b5ce>>
+ * @generated SignedSource<<c838f5e0d3762534b1786ea0592e45a7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -22,7 +22,7 @@ final class ParameterDeclaration
   private ?Token $_visibility;
   private ?InoutToken $_call_convention;
   private ?ReadonlyToken $_readonly;
-  private ?Node $_type;
+  private ?ITypeSpecifier $_type;
   private IExpression $_name;
   private ?SimpleInitializer $_default_value;
 
@@ -31,7 +31,7 @@ final class ParameterDeclaration
     ?Token $visibility,
     ?InoutToken $call_convention,
     ?ReadonlyToken $readonly,
-    ?Node $type,
+    ?ITypeSpecifier $type,
     IExpression $name,
     ?SimpleInitializer $default_value,
     ?__Private\SourceRef $source_ref = null,
@@ -94,7 +94,7 @@ final class ParameterDeclaration
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
     $offset += $type?->getWidth() ?? 0;
     $name = Node::fromJSON(
@@ -185,7 +185,7 @@ final class ParameterDeclaration
       $visibility as ?Token,
       $call_convention as ?InoutToken,
       $readonly as ?ReadonlyToken,
-      $type as ?Node,
+      $type as ?ITypeSpecifier,
       $name as IExpression,
       $default_value as ?SimpleInitializer,
     );
@@ -347,7 +347,7 @@ final class ParameterDeclaration
     return $this->_type;
   }
 
-  public function withType(?Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -373,7 +373,7 @@ final class ParameterDeclaration
    * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
    * TypeConstant | TypeRefinement | VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getType(): ?Node {
+  public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
@@ -384,7 +384,7 @@ final class ParameterDeclaration
    * ShapeTypeSpecifier | SimpleTypeSpecifier | TupleTypeSpecifier |
    * TypeConstant | TypeRefinement | VarrayTypeSpecifier | VectorTypeSpecifier
    */
-  public function getTypex(): Node {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 

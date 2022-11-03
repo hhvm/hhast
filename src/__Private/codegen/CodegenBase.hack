@@ -311,6 +311,7 @@ abstract class CodegenBase {
           HHAST\TypeConstant::class,
           HHAST\VariadicParameter::class,
           HHAST\XHPEnumType::class,
+          HHAST\TypeRefinement::class,
         ],
         Vec\filter(
           $this->getSchema()['AST'],

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<79d420983bf86f9cea4c99090d98855e>>
+ * @generated SignedSource<<90c5e31c105e2a1bbe0b9843f1d8d824>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,12 +16,12 @@ final class WhereConstraint extends Node {
 
   private ITypeSpecifier $_left_type;
   private Token $_operator;
-  private Node $_right_type;
+  private ITypeSpecifier $_right_type;
 
   public function __construct(
     ITypeSpecifier $left_type,
     Token $operator,
-    Node $right_type,
+    ITypeSpecifier $right_type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_left_type = $left_type;
@@ -62,7 +62,7 @@ final class WhereConstraint extends Node {
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
     $right_type = $right_type as nonnull;
     $offset += $right_type->getWidth();
@@ -109,7 +109,7 @@ final class WhereConstraint extends Node {
     return new static(
       $left_type as ITypeSpecifier,
       $operator as Token,
-      $right_type as Node,
+      $right_type as ITypeSpecifier,
     );
   }
 
@@ -177,7 +177,7 @@ final class WhereConstraint extends Node {
     return $this->_right_type;
   }
 
-  public function withRightType(Node $value): this {
+  public function withRightType(ITypeSpecifier $value): this {
     if ($value === $this->_right_type) {
       return $this;
     }
@@ -193,8 +193,8 @@ final class WhereConstraint extends Node {
    * NullableTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * TypeRefinement | VectorTypeSpecifier
    */
-  public function getRightType(): Node {
-    return $this->_right_type;
+  public function getRightType(): ITypeSpecifier {
+    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_right_type);
   }
 
   /**
@@ -202,7 +202,7 @@ final class WhereConstraint extends Node {
    * NullableTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * TypeRefinement | VectorTypeSpecifier
    */
-  public function getRightTypex(): Node {
+  public function getRightTypex(): ITypeSpecifier {
     return $this->getRightType();
   }
 }

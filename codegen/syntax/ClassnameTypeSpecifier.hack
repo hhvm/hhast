@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<28ff491307c635abc18664bf1714f96d>>
+ * @generated SignedSource<<d02f9691a4afe313e6478c3c20ec4dc9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -16,14 +16,14 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
 
   private ClassnameToken $_keyword;
   private ?LessThanToken $_left_angle;
-  private ?Node $_type;
+  private ?ITypeSpecifier $_type;
   private ?Node $_trailing_comma;
   private ?GreaterThanToken $_right_angle;
 
   public function __construct(
     ClassnameToken $keyword,
     ?LessThanToken $left_angle,
-    ?Node $type,
+    ?ITypeSpecifier $type,
     ?Node $trailing_comma,
     ?GreaterThanToken $right_angle,
     ?__Private\SourceRef $source_ref = null,
@@ -68,7 +68,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
       $file,
       $offset,
       $source,
-      'Node',
+      'ITypeSpecifier',
     );
     $offset += $type?->getWidth() ?? 0;
     $trailing_comma = Node::fromJSON(
@@ -146,7 +146,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $keyword as ClassnameToken,
       $left_angle as ?LessThanToken,
-      $type as ?Node,
+      $type as ?ITypeSpecifier,
       $trailing_comma as ?Node,
       $right_angle as ?GreaterThanToken,
     );
@@ -226,7 +226,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(?Node $value): this {
+  public function withType(?ITypeSpecifier $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -247,7 +247,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
    * @return GenericTypeSpecifier | null | SimpleTypeSpecifier | TypeConstant |
    * TypeRefinement
    */
-  public function getType(): ?Node {
+  public function getType(): ?ITypeSpecifier {
     return $this->_type;
   }
 
@@ -255,7 +255,7 @@ final class ClassnameTypeSpecifier extends Node implements ITypeSpecifier {
    * @return GenericTypeSpecifier | SimpleTypeSpecifier | TypeConstant |
    * TypeRefinement
    */
-  public function getTypex(): Node {
+  public function getTypex(): ITypeSpecifier {
     return TypeAssert\not_null($this->getType());
   }
 

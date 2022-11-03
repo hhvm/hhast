@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b215636e731f4d8b29421bb5f4e9b878>>
+ * @generated SignedSource<<5eda3e9569f6db8ae3b00fdfe2be6d1d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -10,7 +10,7 @@ use namespace HH\Lib\Dict;
 /* HHAST_IGNORE_ALL[5624] HHAST_IGNORE_ALL[5639] 5624 and 5639 are ignored because they insist on using co(tra)variant generics. Could this break external consumers? */
 
 <<__ConsistentConstruct>>
-final class TypeRefinement extends Node {
+final class TypeRefinement extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'type_refinement';
 
