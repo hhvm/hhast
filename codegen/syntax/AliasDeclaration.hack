@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<27b32b5ffabaaeeac88bf08eea4ad05d>>
+ * @generated SignedSource<<dc09cdba2457871d60ab08ffa8b217c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,24 +15,24 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   const string SYNTAX_KIND = 'alias_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private ?Node $_modifiers;
-  private ?Node $_module_kw_opt;
+  private ?NodeList<PublicToken> $_modifiers;
+  private ?ModuleToken $_module_kw_opt;
   private Token $_keyword;
   private NameToken $_name;
   private ?TypeParameters $_generic_parameter;
-  private ?NodeList<TypeConstraint> $_constraint;
+  private ?TypeConstraint $_constraint;
   private EqualToken $_equal;
   private ITypeSpecifier $_type;
   private SemicolonToken $_semicolon;
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    ?Node $modifiers,
-    ?Node $module_kw_opt,
+    ?NodeList<PublicToken> $modifiers,
+    ?ModuleToken $module_kw_opt,
     Token $keyword,
     NameToken $name,
     ?TypeParameters $generic_parameter,
-    ?NodeList<TypeConstraint> $constraint,
+    ?TypeConstraint $constraint,
     EqualToken $equal,
     ITypeSpecifier $type,
     SemicolonToken $semicolon,
@@ -74,7 +74,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'Node',
+      'NodeList<PublicToken>',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $module_kw_opt = Node::fromJSON(
@@ -82,7 +82,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'Node',
+      'ModuleToken',
     );
     $offset += $module_kw_opt?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
@@ -117,7 +117,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'NodeList<TypeConstraint>',
+      'TypeConstraint',
     );
     $offset += $constraint?->getWidth() ?? 0;
     $equal = Node::fromJSON(
@@ -227,12 +227,12 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      $modifiers as ?Node,
-      $module_kw_opt as ?Node,
+      /* HH_FIXME[4110] ?NodeList<PublicToken> may not be enforceable */ $modifiers,
+      $module_kw_opt as ?ModuleToken,
       $keyword as Token,
       $name as NameToken,
       $generic_parameter as ?TypeParameters,
-      /* HH_FIXME[4110] ?NodeList<TypeConstraint> may not be enforceable */ $constraint,
+      $constraint as ?TypeConstraint,
       $equal as EqualToken,
       $type as ITypeSpecifier,
       $semicolon as SemicolonToken,
@@ -283,7 +283,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?Node $value): this {
+  public function withModifiers(?NodeList<PublicToken> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -306,16 +306,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return null
+   * @return NodeList<PublicToken> | null
    */
-  public function getModifiers(): ?Node {
+  public function getModifiers(): ?NodeList<PublicToken> {
     return $this->_modifiers;
   }
 
   /**
-   * @return
+   * @return NodeList<PublicToken>
    */
-  public function getModifiersx(): Node {
+  public function getModifiersx(): NodeList<PublicToken> {
     return TypeAssert\not_null($this->getModifiers());
   }
 
@@ -323,7 +323,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_module_kw_opt;
   }
 
-  public function withModuleKwOpt(?Node $value): this {
+  public function withModuleKwOpt(?ModuleToken $value): this {
     if ($value === $this->_module_kw_opt) {
       return $this;
     }
@@ -346,16 +346,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return null
+   * @return null | ModuleToken
    */
-  public function getModuleKwOpt(): ?Node {
+  public function getModuleKwOpt(): ?ModuleToken {
     return $this->_module_kw_opt;
   }
 
   /**
-   * @return
+   * @return ModuleToken
    */
-  public function getModuleKwOptx(): Node {
+  public function getModuleKwOptx(): ModuleToken {
     return TypeAssert\not_null($this->getModuleKwOpt());
   }
 
@@ -483,7 +483,7 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     return $this->_constraint;
   }
 
-  public function withConstraint(?NodeList<TypeConstraint> $value): this {
+  public function withConstraint(?TypeConstraint $value): this {
     if ($value === $this->_constraint) {
       return $this;
     }
@@ -506,16 +506,16 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return NodeList<TypeConstraint> | null
+   * @return null | TypeConstraint
    */
-  public function getConstraint(): ?NodeList<TypeConstraint> {
+  public function getConstraint(): ?TypeConstraint {
     return $this->_constraint;
   }
 
   /**
-   * @return NodeList<TypeConstraint>
+   * @return TypeConstraint
    */
-  public function getConstraintx(): NodeList<TypeConstraint> {
+  public function getConstraintx(): TypeConstraint {
     return TypeAssert\not_null($this->getConstraint());
   }
 

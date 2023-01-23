@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<23c47098179517a5b778b258f67ac93d>>
+ * @generated SignedSource<<194693a524b90d5d00f80feff66c9e73>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -15,7 +15,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   const string SYNTAX_KIND = 'enum_declaration';
 
   private ?OldAttributeSpecification $_attribute_spec;
-  private ?Node $_modifiers;
+  private ?NodeList<PublicToken> $_modifiers;
   private EnumToken $_keyword;
   private NameToken $_name;
   private ColonToken $_colon;
@@ -28,7 +28,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
 
   public function __construct(
     ?OldAttributeSpecification $attribute_spec,
-    ?Node $modifiers,
+    ?NodeList<PublicToken> $modifiers,
     EnumToken $keyword,
     NameToken $name,
     ColonToken $colon,
@@ -76,7 +76,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
       $file,
       $offset,
       $source,
-      'Node',
+      'NodeList<PublicToken>',
     );
     $offset += $modifiers?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
@@ -239,7 +239,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      $modifiers as ?Node,
+      /* HH_FIXME[4110] ?NodeList<PublicToken> may not be enforceable */ $modifiers,
       $keyword as EnumToken,
       $name as NameToken,
       $colon as ColonToken,
@@ -297,7 +297,7 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
     return $this->_modifiers;
   }
 
-  public function withModifiers(?Node $value): this {
+  public function withModifiers(?NodeList<PublicToken> $value): this {
     if ($value === $this->_modifiers) {
       return $this;
     }
@@ -321,16 +321,16 @@ final class EnumDeclaration extends Node implements IHasAttributeSpec {
   }
 
   /**
-   * @return null
+   * @return NodeList<PublicToken> | null
    */
-  public function getModifiers(): ?Node {
+  public function getModifiers(): ?NodeList<PublicToken> {
     return $this->_modifiers;
   }
 
   /**
-   * @return
+   * @return NodeList<PublicToken>
    */
-  public function getModifiersx(): Node {
+  public function getModifiersx(): NodeList<PublicToken> {
     return TypeAssert\not_null($this->getModifiers());
   }
 

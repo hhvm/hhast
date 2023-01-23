@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5724786f5fe26a776e89e80aa56d044>>
+ * @generated SignedSource<<bf73c8c5983b114b6f9e83fc985ecd64>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,20 +14,20 @@ final class TypeInRefinement extends Node {
 
   const string SYNTAX_KIND = 'type_in_refinement';
 
-  private TypeToken $_keyword;
-  private NameToken $_name;
+  private ?Node $_keyword;
+  private ?Node $_name;
   private ?Node $_type_parameters;
   private ?Node $_constraints;
-  private EqualToken $_equal;
-  private ITypeSpecifier $_type;
+  private ?Node $_equal;
+  private ?Node $_type;
 
   public function __construct(
-    TypeToken $keyword,
-    NameToken $name,
+    ?Node $keyword,
+    ?Node $name,
     ?Node $type_parameters,
     ?Node $constraints,
-    EqualToken $equal,
-    ITypeSpecifier $type,
+    ?Node $equal,
+    ?Node $type,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_keyword = $keyword;
@@ -49,23 +49,23 @@ final class TypeInRefinement extends Node {
   ): this {
     $offset = $initial_offset;
     $keyword = Node::fromJSON(
-      ($json['type_in_refinement_keyword']) as dict<_, _>,
+      ($json['type_in_refinement_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'TypeToken',
+      'Node',
     );
-    $keyword = $keyword as nonnull;
-    $offset += $keyword->getWidth();
+    $offset += $keyword?->getWidth() ?? 0;
     $name = Node::fromJSON(
-      ($json['type_in_refinement_name']) as dict<_, _>,
+      ($json['type_in_refinement_name'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'NameToken',
+      'Node',
     );
-    $name = $name as nonnull;
-    $offset += $name->getWidth();
+    $offset += $name?->getWidth() ?? 0;
     $type_parameters = Node::fromJSON(
       ($json['type_in_refinement_type_parameters'] ?? dict['kind' => 'missing'])
         as dict<_, _>,
@@ -85,23 +85,23 @@ final class TypeInRefinement extends Node {
     );
     $offset += $constraints?->getWidth() ?? 0;
     $equal = Node::fromJSON(
-      ($json['type_in_refinement_equal']) as dict<_, _>,
+      ($json['type_in_refinement_equal'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'EqualToken',
+      'Node',
     );
-    $equal = $equal as nonnull;
-    $offset += $equal->getWidth();
+    $offset += $equal?->getWidth() ?? 0;
     $type = Node::fromJSON(
-      ($json['type_in_refinement_type']) as dict<_, _>,
+      ($json['type_in_refinement_type'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'ITypeSpecifier',
+      'Node',
     );
-    $type = $type as nonnull;
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -138,16 +138,17 @@ final class TypeInRefinement extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $keyword = $rewriter($this->_keyword, $parents);
-    $name = $rewriter($this->_name, $parents);
+    $keyword =
+      $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
+    $name = $this->_name === null ? null : $rewriter($this->_name, $parents);
     $type_parameters = $this->_type_parameters === null
       ? null
       : $rewriter($this->_type_parameters, $parents);
     $constraints = $this->_constraints === null
       ? null
       : $rewriter($this->_constraints, $parents);
-    $equal = $rewriter($this->_equal, $parents);
-    $type = $rewriter($this->_type, $parents);
+    $equal = $this->_equal === null ? null : $rewriter($this->_equal, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
     if (
       $keyword === $this->_keyword &&
       $name === $this->_name &&
@@ -159,12 +160,12 @@ final class TypeInRefinement extends Node {
       return $this;
     }
     return new static(
-      $keyword as TypeToken,
-      $name as NameToken,
+      $keyword as ?Node,
+      $name as ?Node,
       $type_parameters as ?Node,
       $constraints as ?Node,
-      $equal as EqualToken,
-      $type as ITypeSpecifier,
+      $equal as ?Node,
+      $type as ?Node,
     );
   }
 
@@ -172,7 +173,7 @@ final class TypeInRefinement extends Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(TypeToken $value): this {
+  public function withKeyword(?Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -187,28 +188,28 @@ final class TypeInRefinement extends Node {
   }
 
   public function hasKeyword(): bool {
-    return true;
+    return $this->_keyword !== null;
   }
 
   /**
-   * @return TypeToken
+   * @return unknown
    */
-  public function getKeyword(): TypeToken {
-    return TypeAssert\instance_of(TypeToken::class, $this->_keyword);
+  public function getKeyword(): ?Node {
+    return $this->_keyword;
   }
 
   /**
-   * @return TypeToken
+   * @return unknown
    */
-  public function getKeywordx(): TypeToken {
-    return $this->getKeyword();
+  public function getKeywordx(): Node {
+    return TypeAssert\not_null($this->getKeyword());
   }
 
   public function getNameUNTYPED(): ?Node {
     return $this->_name;
   }
 
-  public function withName(NameToken $value): this {
+  public function withName(?Node $value): this {
     if ($value === $this->_name) {
       return $this;
     }
@@ -223,21 +224,21 @@ final class TypeInRefinement extends Node {
   }
 
   public function hasName(): bool {
-    return true;
+    return $this->_name !== null;
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getName(): NameToken {
-    return TypeAssert\instance_of(NameToken::class, $this->_name);
+  public function getName(): ?Node {
+    return $this->_name;
   }
 
   /**
-   * @return NameToken
+   * @return unknown
    */
-  public function getNamex(): NameToken {
-    return $this->getName();
+  public function getNamex(): Node {
+    return TypeAssert\not_null($this->getName());
   }
 
   public function getTypeParametersUNTYPED(): ?Node {
@@ -263,14 +264,14 @@ final class TypeInRefinement extends Node {
   }
 
   /**
-   * @return null
+   * @return unknown
    */
   public function getTypeParameters(): ?Node {
     return $this->_type_parameters;
   }
 
   /**
-   * @return
+   * @return unknown
    */
   public function getTypeParametersx(): Node {
     return TypeAssert\not_null($this->getTypeParameters());
@@ -299,14 +300,14 @@ final class TypeInRefinement extends Node {
   }
 
   /**
-   * @return null
+   * @return unknown
    */
   public function getConstraints(): ?Node {
     return $this->_constraints;
   }
 
   /**
-   * @return
+   * @return unknown
    */
   public function getConstraintsx(): Node {
     return TypeAssert\not_null($this->getConstraints());
@@ -316,7 +317,7 @@ final class TypeInRefinement extends Node {
     return $this->_equal;
   }
 
-  public function withEqual(EqualToken $value): this {
+  public function withEqual(?Node $value): this {
     if ($value === $this->_equal) {
       return $this;
     }
@@ -331,28 +332,28 @@ final class TypeInRefinement extends Node {
   }
 
   public function hasEqual(): bool {
-    return true;
+    return $this->_equal !== null;
   }
 
   /**
-   * @return EqualToken
+   * @return unknown
    */
-  public function getEqual(): EqualToken {
-    return TypeAssert\instance_of(EqualToken::class, $this->_equal);
+  public function getEqual(): ?Node {
+    return $this->_equal;
   }
 
   /**
-   * @return EqualToken
+   * @return unknown
    */
-  public function getEqualx(): EqualToken {
-    return $this->getEqual();
+  public function getEqualx(): Node {
+    return TypeAssert\not_null($this->getEqual());
   }
 
   public function getTypeUNTYPED(): ?Node {
     return $this->_type;
   }
 
-  public function withType(ITypeSpecifier $value): this {
+  public function withType(?Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -367,20 +368,20 @@ final class TypeInRefinement extends Node {
   }
 
   public function hasType(): bool {
-    return true;
+    return $this->_type !== null;
   }
 
   /**
-   * @return SimpleTypeSpecifier | TypeConstant
+   * @return unknown
    */
-  public function getType(): ITypeSpecifier {
-    return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
+  public function getType(): ?Node {
+    return $this->_type;
   }
 
   /**
-   * @return SimpleTypeSpecifier | TypeConstant
+   * @return unknown
    */
-  public function getTypex(): ITypeSpecifier {
-    return $this->getType();
+  public function getTypex(): Node {
+    return TypeAssert\not_null($this->getType());
   }
 }
