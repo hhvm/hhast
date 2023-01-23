@@ -27,7 +27,7 @@ jobs:
       matrix:
         os: [ubuntu-20.04]
         hhvm:
-          - 4.168.2
+          - 4.168
     runs-on: ${{matrix.os}}
     steps:
       - uses: actions/checkout@v2
