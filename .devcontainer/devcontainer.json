@@ -4,7 +4,7 @@
   "runArgs": [
     "--init"
   ],
-  "image": "hhvm/hhvm:latest",
+  "image": "hhvm/hhvm:4.168-latest",
 
   // Set *default* container specific settings.json values on container create.
   "settings": {
