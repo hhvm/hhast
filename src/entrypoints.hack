@@ -14,10 +14,9 @@ use function HH\ffp_parse_string;
 
 async function from_file_async(
   File $file,
-  vec<string> $user_args = vec[],
 ): Awaitable<Script> {
   $cache = __Private\ParserCache::get();
-  $data = ($user_args === vec[]) ? $cache->fetch($file) : null;
+  $data = $cache->fetch($file);
   if ($data is nonnull) {
     return __Private\from_decoded_json($data, $file->getPath());
   }
@@ -28,8 +27,6 @@ async function from_file_async(
   // Use the raw source rather than the re-encoded, as byte offsets may have
   // changed while re-encoding
   $data['program_text'] = $file->getContents();
-  if ($user_args === vec[]) {
-    $cache->store($file, $data);
-  }
+  $cache->store($file, $data);
   return __Private\from_decoded_json($data, $file->getPath());
 }
