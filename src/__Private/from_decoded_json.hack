@@ -12,7 +12,7 @@ namespace Facebook\HHAST\__Private;
 use type Facebook\HHAST\{SchemaVersionError, Script};
 
 function from_decoded_json(
-  dict<string, mixed> $json,
+  dict<arraykey, mixed> $json,
   ?string $file = null,
 ): Script {
   $version = $json['version'] ?? null;
