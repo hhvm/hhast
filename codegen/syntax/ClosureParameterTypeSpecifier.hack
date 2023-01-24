@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<caed60d973cdc71832ed66261c590782>>
+ * @generated SignedSource<<55d72fb9278f435bc783fac6b2270095>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -193,8 +193,8 @@ final class ClosureParameterTypeSpecifier
 
   /**
    * @return AttributizedSpecifier | ClosureTypeSpecifier | DarrayTypeSpecifier
-   * | DictionaryTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
+   * | GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant
    */
   public function getType(): ITypeSpecifier {
     return TypeAssert\instance_of(ITypeSpecifier::class, $this->_type);
@@ -202,8 +202,8 @@ final class ClosureParameterTypeSpecifier
 
   /**
    * @return AttributizedSpecifier | ClosureTypeSpecifier | DarrayTypeSpecifier
-   * | DictionaryTypeSpecifier | GenericTypeSpecifier | NullableTypeSpecifier |
-   * SimpleTypeSpecifier | TupleTypeSpecifier | TypeConstant
+   * | GenericTypeSpecifier | NullableTypeSpecifier | SimpleTypeSpecifier |
+   * TupleTypeSpecifier | TypeConstant
    */
   public function getTypex(): ITypeSpecifier {
     return $this->getType();

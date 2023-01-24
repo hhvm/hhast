@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb49b3d3269aa7c3acb1b7821d587674>>
+ * @generated SignedSource<<cb91e6a51e5c60784c1023c4f1a8890f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -207,16 +207,16 @@ final class PropertyDeclaration
   }
 
   /**
-   * @return NodeList<PrivateToken> | NodeList<Token> |
-   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken>
+   * @return NodeList<InternalToken> | NodeList<Token> | NodeList<PrivateToken>
+   * | NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken>
    */
   public function getModifiers(): NodeList<Token> {
     return TypeAssert\instance_of(NodeList::class, $this->_modifiers);
   }
 
   /**
-   * @return NodeList<PrivateToken> | NodeList<Token> |
-   * NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken>
+   * @return NodeList<InternalToken> | NodeList<Token> | NodeList<PrivateToken>
+   * | NodeList<ProtectedToken> | NodeList<PublicToken> | NodeList<StaticToken>
    */
   public function getModifiersx(): NodeList<Token> {
     return $this->getModifiers();

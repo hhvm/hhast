@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5eda3e9569f6db8ae3b00fdfe2be6d1d>>
+ * @generated SignedSource<<5d70129e8b4a9122aa71ad95ebd43544>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,18 +14,18 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
 
   const string SYNTAX_KIND = 'type_refinement';
 
-  private SimpleTypeSpecifier $_type;
-  private WithToken $_keyword;
-  private LeftBraceToken $_left_brace;
-  private NodeList<ListItem<TypeInRefinement>> $_members;
-  private RightBraceToken $_right_brace;
+  private ?Node $_type;
+  private ?Node $_keyword;
+  private ?Node $_left_brace;
+  private ?Node $_members;
+  private ?Node $_right_brace;
 
   public function __construct(
-    SimpleTypeSpecifier $type,
-    WithToken $keyword,
-    LeftBraceToken $left_brace,
-    NodeList<ListItem<TypeInRefinement>> $members,
-    RightBraceToken $right_brace,
+    ?Node $type,
+    ?Node $keyword,
+    ?Node $left_brace,
+    ?Node $members,
+    ?Node $right_brace,
     ?__Private\SourceRef $source_ref = null,
   ) {
     $this->_type = $type;
@@ -46,50 +46,50 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
   ): this {
     $offset = $initial_offset;
     $type = Node::fromJSON(
-      ($json['type_refinement_type']) as dict<_, _>,
+      ($json['type_refinement_type'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'SimpleTypeSpecifier',
+      'Node',
     );
-    $type = $type as nonnull;
-    $offset += $type->getWidth();
+    $offset += $type?->getWidth() ?? 0;
     $keyword = Node::fromJSON(
-      ($json['type_refinement_keyword']) as dict<_, _>,
+      ($json['type_refinement_keyword'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'WithToken',
+      'Node',
     );
-    $keyword = $keyword as nonnull;
-    $offset += $keyword->getWidth();
+    $offset += $keyword?->getWidth() ?? 0;
     $left_brace = Node::fromJSON(
-      ($json['type_refinement_left_brace']) as dict<_, _>,
+      ($json['type_refinement_left_brace'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'LeftBraceToken',
+      'Node',
     );
-    $left_brace = $left_brace as nonnull;
-    $offset += $left_brace->getWidth();
+    $offset += $left_brace?->getWidth() ?? 0;
     $members = Node::fromJSON(
-      ($json['type_refinement_members']) as dict<_, _>,
+      ($json['type_refinement_members'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'NodeList<ListItem<TypeInRefinement>>',
+      'Node',
     );
-    $members = $members as nonnull;
-    $offset += $members->getWidth();
+    $offset += $members?->getWidth() ?? 0;
     $right_brace = Node::fromJSON(
-      ($json['type_refinement_right_brace']) as dict<_, _>,
+      ($json['type_refinement_right_brace'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
-      'RightBraceToken',
+      'Node',
     );
-    $right_brace = $right_brace as nonnull;
-    $offset += $right_brace->getWidth();
+    $offset += $right_brace?->getWidth() ?? 0;
     $source_ref = shape(
       'file' => $file,
       'source' => $source,
@@ -124,11 +124,17 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $type = $rewriter($this->_type, $parents);
-    $keyword = $rewriter($this->_keyword, $parents);
-    $left_brace = $rewriter($this->_left_brace, $parents);
-    $members = $rewriter($this->_members, $parents);
-    $right_brace = $rewriter($this->_right_brace, $parents);
+    $type = $this->_type === null ? null : $rewriter($this->_type, $parents);
+    $keyword =
+      $this->_keyword === null ? null : $rewriter($this->_keyword, $parents);
+    $left_brace = $this->_left_brace === null
+      ? null
+      : $rewriter($this->_left_brace, $parents);
+    $members =
+      $this->_members === null ? null : $rewriter($this->_members, $parents);
+    $right_brace = $this->_right_brace === null
+      ? null
+      : $rewriter($this->_right_brace, $parents);
     if (
       $type === $this->_type &&
       $keyword === $this->_keyword &&
@@ -139,11 +145,11 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
       return $this;
     }
     return new static(
-      $type as SimpleTypeSpecifier,
-      $keyword as WithToken,
-      $left_brace as LeftBraceToken,
-      /* HH_FIXME[4110] NodeList<ListItem<TypeInRefinement>> may not be enforceable */ $members,
-      $right_brace as RightBraceToken,
+      $type as ?Node,
+      $keyword as ?Node,
+      $left_brace as ?Node,
+      $members as ?Node,
+      $right_brace as ?Node,
     );
   }
 
@@ -151,7 +157,7 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
     return $this->_type;
   }
 
-  public function withType(SimpleTypeSpecifier $value): this {
+  public function withType(?Node $value): this {
     if ($value === $this->_type) {
       return $this;
     }
@@ -165,28 +171,28 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
   }
 
   public function hasType(): bool {
-    return true;
+    return $this->_type !== null;
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return unknown
    */
-  public function getType(): SimpleTypeSpecifier {
-    return TypeAssert\instance_of(SimpleTypeSpecifier::class, $this->_type);
+  public function getType(): ?Node {
+    return $this->_type;
   }
 
   /**
-   * @return SimpleTypeSpecifier
+   * @return unknown
    */
-  public function getTypex(): SimpleTypeSpecifier {
-    return $this->getType();
+  public function getTypex(): Node {
+    return TypeAssert\not_null($this->getType());
   }
 
   public function getKeywordUNTYPED(): ?Node {
     return $this->_keyword;
   }
 
-  public function withKeyword(WithToken $value): this {
+  public function withKeyword(?Node $value): this {
     if ($value === $this->_keyword) {
       return $this;
     }
@@ -200,28 +206,28 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
   }
 
   public function hasKeyword(): bool {
-    return true;
+    return $this->_keyword !== null;
   }
 
   /**
-   * @return WithToken
+   * @return unknown
    */
-  public function getKeyword(): WithToken {
-    return TypeAssert\instance_of(WithToken::class, $this->_keyword);
+  public function getKeyword(): ?Node {
+    return $this->_keyword;
   }
 
   /**
-   * @return WithToken
+   * @return unknown
    */
-  public function getKeywordx(): WithToken {
-    return $this->getKeyword();
+  public function getKeywordx(): Node {
+    return TypeAssert\not_null($this->getKeyword());
   }
 
   public function getLeftBraceUNTYPED(): ?Node {
     return $this->_left_brace;
   }
 
-  public function withLeftBrace(LeftBraceToken $value): this {
+  public function withLeftBrace(?Node $value): this {
     if ($value === $this->_left_brace) {
       return $this;
     }
@@ -235,30 +241,28 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
   }
 
   public function hasLeftBrace(): bool {
-    return true;
+    return $this->_left_brace !== null;
   }
 
   /**
-   * @return LeftBraceToken
+   * @return unknown
    */
-  public function getLeftBrace(): LeftBraceToken {
-    return TypeAssert\instance_of(LeftBraceToken::class, $this->_left_brace);
+  public function getLeftBrace(): ?Node {
+    return $this->_left_brace;
   }
 
   /**
-   * @return LeftBraceToken
+   * @return unknown
    */
-  public function getLeftBracex(): LeftBraceToken {
-    return $this->getLeftBrace();
+  public function getLeftBracex(): Node {
+    return TypeAssert\not_null($this->getLeftBrace());
   }
 
   public function getMembersUNTYPED(): ?Node {
     return $this->_members;
   }
 
-  public function withMembers(
-    NodeList<ListItem<TypeInRefinement>> $value,
-  ): this {
+  public function withMembers(?Node $value): this {
     if ($value === $this->_members) {
       return $this;
     }
@@ -272,28 +276,28 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
   }
 
   public function hasMembers(): bool {
-    return true;
+    return $this->_members !== null;
   }
 
   /**
-   * @return NodeList<ListItem<TypeInRefinement>>
+   * @return unknown
    */
-  public function getMembers(): NodeList<ListItem<TypeInRefinement>> {
-    return TypeAssert\instance_of(NodeList::class, $this->_members);
+  public function getMembers(): ?Node {
+    return $this->_members;
   }
 
   /**
-   * @return NodeList<ListItem<TypeInRefinement>>
+   * @return unknown
    */
-  public function getMembersx(): NodeList<ListItem<TypeInRefinement>> {
-    return $this->getMembers();
+  public function getMembersx(): Node {
+    return TypeAssert\not_null($this->getMembers());
   }
 
   public function getRightBraceUNTYPED(): ?Node {
     return $this->_right_brace;
   }
 
-  public function withRightBrace(RightBraceToken $value): this {
+  public function withRightBrace(?Node $value): this {
     if ($value === $this->_right_brace) {
       return $this;
     }
@@ -307,20 +311,20 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
   }
 
   public function hasRightBrace(): bool {
-    return true;
+    return $this->_right_brace !== null;
   }
 
   /**
-   * @return RightBraceToken
+   * @return unknown
    */
-  public function getRightBrace(): RightBraceToken {
-    return TypeAssert\instance_of(RightBraceToken::class, $this->_right_brace);
+  public function getRightBrace(): ?Node {
+    return $this->_right_brace;
   }
 
   /**
-   * @return RightBraceToken
+   * @return unknown
    */
-  public function getRightBracex(): RightBraceToken {
-    return $this->getRightBrace();
+  public function getRightBracex(): Node {
+    return TypeAssert\not_null($this->getRightBrace());
   }
 }

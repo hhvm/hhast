@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04ce291c75a90778876e136f06fb298d>>
+ * @generated SignedSource<<1d1fb415307f0976061bdb3cbad664a8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -14,7 +14,7 @@ final class ModuleDeclaration extends Node {
 
   const string SYNTAX_KIND = 'module_declaration';
 
-  private OldAttributeSpecification $_attribute_spec;
+  private ?OldAttributeSpecification $_attribute_spec;
   private NewToken $_new_keyword;
   private ModuleToken $_module_keyword;
   private ModuleName $_name;
@@ -24,7 +24,7 @@ final class ModuleDeclaration extends Node {
   private RightBraceToken $_right_brace;
 
   public function __construct(
-    OldAttributeSpecification $attribute_spec,
+    ?OldAttributeSpecification $attribute_spec,
     NewToken $new_keyword,
     ModuleToken $module_keyword,
     ModuleName $name,
@@ -55,14 +55,14 @@ final class ModuleDeclaration extends Node {
   ): this {
     $offset = $initial_offset;
     $attribute_spec = Node::fromJSON(
-      ($json['module_declaration_attribute_spec']) as dict<_, _>,
+      ($json['module_declaration_attribute_spec'] ?? dict['kind' => 'missing'])
+        as dict<_, _>,
       $file,
       $offset,
       $source,
       'OldAttributeSpecification',
     );
-    $attribute_spec = $attribute_spec as nonnull;
-    $offset += $attribute_spec->getWidth();
+    $offset += $attribute_spec?->getWidth() ?? 0;
     $new_keyword = Node::fromJSON(
       ($json['module_declaration_new_keyword']) as dict<_, _>,
       $file,
@@ -166,7 +166,9 @@ final class ModuleDeclaration extends Node {
     vec<Node> $parents = vec[],
   ): this {
     $parents[] = $this;
-    $attribute_spec = $rewriter($this->_attribute_spec, $parents);
+    $attribute_spec = $this->_attribute_spec === null
+      ? null
+      : $rewriter($this->_attribute_spec, $parents);
     $new_keyword = $rewriter($this->_new_keyword, $parents);
     $module_keyword = $rewriter($this->_module_keyword, $parents);
     $name = $rewriter($this->_name, $parents);
@@ -189,7 +191,7 @@ final class ModuleDeclaration extends Node {
       return $this;
     }
     return new static(
-      $attribute_spec as OldAttributeSpecification,
+      $attribute_spec as ?OldAttributeSpecification,
       $new_keyword as NewToken,
       $module_keyword as ModuleToken,
       $name as ModuleName,
@@ -204,7 +206,7 @@ final class ModuleDeclaration extends Node {
     return $this->_attribute_spec;
   }
 
-  public function withAttributeSpec(OldAttributeSpecification $value): this {
+  public function withAttributeSpec(?OldAttributeSpecification $value): this {
     if ($value === $this->_attribute_spec) {
       return $this;
     }
@@ -221,24 +223,21 @@ final class ModuleDeclaration extends Node {
   }
 
   public function hasAttributeSpec(): bool {
-    return true;
+    return $this->_attribute_spec !== null;
   }
 
   /**
-   * @return OldAttributeSpecification
+   * @return null | OldAttributeSpecification
    */
-  public function getAttributeSpec(): OldAttributeSpecification {
-    return TypeAssert\instance_of(
-      OldAttributeSpecification::class,
-      $this->_attribute_spec,
-    );
+  public function getAttributeSpec(): ?OldAttributeSpecification {
+    return $this->_attribute_spec;
   }
 
   /**
    * @return OldAttributeSpecification
    */
   public function getAttributeSpecx(): OldAttributeSpecification {
-    return $this->getAttributeSpec();
+    return TypeAssert\not_null($this->getAttributeSpec());
   }
 
   public function getNewKeywordUNTYPED(): ?Node {
