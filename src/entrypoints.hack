@@ -9,7 +9,7 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Str, Vec};
+use namespace HH\Lib\Str;
 use function HH\ffp_parse_string_native;
 
 async function from_file_async(
@@ -22,6 +22,7 @@ async function from_file_async(
   }
   using $odf = new __Private\OnDiskFile($file);
   $path = $odf->getPath();
+  /* HH_IGNORE_ERROR[4107] hhi missing for this function */ /* HH_IGNORE_ERROR[2049] */
   $json = ffp_parse_string_native($file->getContents());
   $data = \json_decode(
     $json,
