@@ -13,7 +13,6 @@ use namespace Facebook\{HHAST, TypeAssert};
 use namespace HH\Lib\{C, Dict, Str, Vec};
 use type Facebook\HHAST\{
   AddFixmesMigration,
-  AddXHPChildrenDeclarationMethodMigration,
   BaseMigration,
   DemangleXHPMigration,
   DollarBraceEmbeddedVariableMigration,
@@ -170,13 +169,7 @@ final class MigrationCLI extends CLIWithRequiredArguments {
         '--harden-varray-or-darray-typehints',
       ),
       self::removed('--php-array-typehints-best-guess', '4.64.4 to 4.64.6'),
-      CLIOptions\flag(
-        () ==> {
-          $this->migrations[] = AddXHPChildrenDeclarationMethodMigration::class;
-        },
-        'Add getChildrenDeclaration() method to XHP classes with a children declaration',
-        '--add-xhp-children-declaration-method',
-      ),
+      self::removed('--add-xhp-children-declaration-method', '4.73 to 4.153'),
       CLIOptions\flag(
         () ==> {
           $this->migrations[] = DemangleXHPMigration::class;

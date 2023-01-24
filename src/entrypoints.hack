@@ -22,7 +22,7 @@ async function from_file_async(
   }
   using $odf = new __Private\OnDiskFile($file);
   $path = $odf->getPath();
-  /* HH_IGNORE_ERROR[4107] hhi missing for this function */ /* HH_IGNORE_ERROR[2049] */
+  /* HH_IGNORE_ERROR[4107] hhi missing for this builtin */ /* HH_IGNORE_ERROR[2049] */
   $json = ffp_parse_string_native($file->getContents());
   $data = \json_decode(
     $json,
