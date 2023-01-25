@@ -1,5 +1,0 @@
-/** Foo bar baz */
-
-class :has-children {
-  children (foo, bar);
-}

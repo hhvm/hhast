@@ -54,7 +54,7 @@ final class ParserCache {
     return $data;
   }
 
-  public function store(File $file, dict<string, mixed> $ast): void {
+  public function store(File $file, dict<arraykey, mixed> $ast): void {
     $path = $this->getCacheFileName($file);
     if ($path === null) {
       return;

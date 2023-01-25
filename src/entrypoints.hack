@@ -9,45 +9,31 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\{Str, Vec};
+use namespace HH\Lib\Str;
+use function HH\ffp_parse_string_native;
 
 async function from_file_async(
   File $file,
-  vec<string> $user_args = vec[],
 ): Awaitable<Script> {
   $cache = __Private\ParserCache::get();
-  $data = ($user_args === vec[]) ? $cache->fetch($file) : null;
+  $data = $cache->fetch($file);
   if ($data is nonnull) {
     return __Private\from_decoded_json($data, $file->getPath());
   }
   using $odf = new __Private\OnDiskFile($file);
   $path = $odf->getPath();
-
-  $args = Vec\concat(
-    vec['--php5-compat-mode', '--full-fidelity-json'],
-    $user_args,
-    vec[$path],
-  );
-
-  try {
-    $results = await __Private\ProcessExecutionQueues::HH_PARSE
-      ->waitForAsync($args);
-  } catch (__Private\SubprocessException $e) {
-    throw new HHParseError(
-      $path,
-      'hh_parse failed - exit code: '.$e->getExitCode(),
-    );
-  }
-  $json = $results[0];
+  /* HH_IGNORE_ERROR[4107] hhi missing for this builtin */ /* HH_IGNORE_ERROR[2049] */
+  $json = ffp_parse_string_native($file->getContents());
   $data = \json_decode(
     $json,
     /* as array = */ true,
     /* depth = */ 512 /* == default */,
     \JSON_FB_HACK_ARRAYS,
   );
+
   $no_type_refinement_please = $data;
   if (!is_dict($no_type_refinement_please)) {
-    // Perhaps we had invalid UTF8 - but JSON msut be UTF8
+    // Perhaps we had invalid UTF8 - but JSON must be UTF8
     //
     // While some can be converted to UTF-8,
     // this isn't guaranteed - JSON literally can't represent all the legal values
@@ -75,8 +61,6 @@ async function from_file_async(
   // Use the raw source rather than the re-encoded, as byte offsets may have
   // changed while re-encoding
   $data['program_text'] = $file->getContents();
-  if ($user_args === vec[]) {
-    $cache->store($file, $data);
-  }
+  $cache->store($file, $data);
   return __Private\from_decoded_json($data, $file->getPath());
 }
