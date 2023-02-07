@@ -100,7 +100,8 @@ abstract class ASTLinter extends SingleRuleLinter {
 
       if (
         $error !== null &&
-        !SuppressASTLinter\is_linter_error_suppressed($this, $node, $ast)
+        !SuppressASTLinter\is_linter_error_suppressed($this, $node, $ast) &&
+        !SuppressASTLinter\is_linter_error_suppressed($this, $error->getBlameNode(), $ast)
       ) {
         $errors[] = $error;
       }
