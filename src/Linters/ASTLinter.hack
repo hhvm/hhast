@@ -12,6 +12,11 @@ namespace Facebook\HHAST;
 use namespace Facebook\HHAST\SuppressASTLinter;
 use namespace HH\Lib\Vec;
 
+type ErrorWithSuppression = shape(
+  'error' => ASTLintError,
+  ?'suppression' => Token,
+);
+
 abstract class ASTLinter extends SingleRuleLinter {
   <<__Enforceable, __Reifiable>>
   abstract const type TContext as Node;
@@ -48,12 +53,12 @@ abstract class ASTLinter extends SingleRuleLinter {
     $errors_with_suppressions = await $this->getLintErrorsWithSuppressionsAsync();
 
     return $errors_with_suppressions
-      |> Vec\filter($$, $error ==> $error[1] is null)
-      |> Vec\map($$, $error ==> $error[0]);
+      |> Vec\filter($$, $error ==> Shapes::idx($error, 'suppression') is null)
+      |> Vec\map($$, $error ==> $error['error']);
   }
 
   final public async function getLintErrorsWithSuppressionsAsync(
-  ): Awaitable<vec<(ASTLintError, ?Token)>> {
+  ): Awaitable<vec<ErrorWithSuppression>> {
     $ast = await __Private\ASTCache::get()->fetchAsync($this->getFile());
     $this->ast = $ast;
     $targets = dict[];
@@ -118,7 +123,14 @@ abstract class ASTLinter extends SingleRuleLinter {
           $error->getBlameNode(),
           $ast,
         );
-        $errors[] = tuple($error, $suppression);
+        if ($suppression is null) {
+          $errors[] = shape('error' => $error);
+        } else {
+          $errors[] = shape(
+            'error' => $error,
+            'suppression' => $suppression,
+          );
+        }
       }
     }
     return $errors;
