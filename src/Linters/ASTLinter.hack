@@ -45,6 +45,15 @@ abstract class ASTLinter extends SingleRuleLinter {
   <<__Override>>
   final public async function getLintErrorsAsync(
   ): Awaitable<vec<ASTLintError>> {
+    $errors_with_suppressions = await $this->getLintErrorsWithSuppressionsAsync();
+
+    return $errors_with_suppressions
+      |> Vec\filter($$, $error ==> $error[1] is null)
+      |> Vec\map($$, $error ==> $error[0]);
+  }
+
+  final public async function getLintErrorsWithSuppressionsAsync(
+  ): Awaitable<vec<(ASTLintError, ?Token)>> {
     $ast = await __Private\ASTCache::get()->fetchAsync($this->getFile());
     $this->ast = $ast;
     $targets = dict[];
@@ -98,12 +107,18 @@ abstract class ASTLinter extends SingleRuleLinter {
         );
       }
 
-      if (
-        $error !== null &&
-        !SuppressASTLinter\is_linter_error_suppressed($this, $node, $ast) &&
-        !SuppressASTLinter\is_linter_error_suppressed($this, $error->getBlameNode(), $ast)
-      ) {
-        $errors[] = $error;
+      if ($error is nonnull) {
+        $suppression = SuppressASTLinter\linter_error_suppression_token(
+          $this,
+          $node,
+          $ast,
+        );
+        $suppression ??= SuppressASTLinter\linter_error_suppression_token(
+          $this,
+          $error->getBlameNode(),
+          $ast,
+        );
+        $errors[] = tuple($error, $suppression);
       }
     }
     return $errors;
