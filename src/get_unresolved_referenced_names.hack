@@ -98,6 +98,13 @@ function get_unresolved_referenced_names(Node $root): shape(
         $ret['namespaces'][] = C\firstx($parts);
       }
     }
+
+    if ($node is EnumClassLabelExpression) {
+      $name = $node->getQualifier() ?as NameToken;
+      if ($name !== null) {
+        $ret['types'][] = $name->getText();
+      }
+    }
   }
 
   return $ret;
