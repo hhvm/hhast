@@ -10,5 +10,5 @@
 namespace Facebook\HHAST\__Private;
 
 function type_alias_structure<T>(typename<T> $type): TypeStructure<T> {
-  return /* HH_IGNORE_ERROR[4104] */ type_structure($type);
+  return \HH\type_structure_for_alias($type);
 }
