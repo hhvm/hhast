@@ -121,7 +121,7 @@ final class ListItem<+T as ?Node> extends Node {
 
   public function getItem(): T {
     if ($this->_item === null) {
-      return /* HH_FIXME[4110] trust that T is nullable */ null;
+      return \HH\FIXME\UNSAFE_CAST<null, T>(null, 'trust that T is nullable');
     }
     return $this->_item;
   }
