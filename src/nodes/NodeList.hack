@@ -51,8 +51,9 @@ final class NodeList<+Titem as Node> extends Node {
     return $this->_children;
   }
 
-  public function getChildrenOfItems<T as ?Node>(
-  ): vec<T> where Titem as ListItem<T> {
+  public function getChildrenOfItems<T as ?Node>(): vec<T>
+  where
+    Titem as ListItem<T> {
     return Vec\map($this->getChildren(), $child ==> $child->getItem());
   }
 
@@ -140,7 +141,7 @@ final class NodeList<+Titem as Node> extends Node {
         'source' => $source,
         'offset' => $offset,
         'width' => $current_position - $offset,
-      )
+      ),
     );
   }
 
@@ -204,9 +205,8 @@ final class NodeList<+Titem as Node> extends Node {
     if (!C\contains($this->_children, $old)) {
       return $this;
     }
-    return new NodeList(
-      Vec\map($this->_children, $c ==> $c === $old ? $new : $c),
-    );
+    return
+      new NodeList(Vec\map($this->_children, $c ==> $c === $old ? $new : $c));
   }
 
   public function insertBefore<Tchild super Titem as Node>(
@@ -252,9 +252,9 @@ final class NodeList<+Titem as Node> extends Node {
     return new NodeList($new);
   }
 
-  public function withoutItemWithChild<Tinner as Node>(
-    Tinner $inner,
-  ): this where Titem as ListItem<Tinner> {
+  public function withoutItemWithChild<Tinner as Node>(Tinner $inner): this
+  where
+    Titem as ListItem<Tinner> {
     $new = Vec\filter($this->_children, $c ==> $c->getItem() !== $inner);
     if ($new === $this->_children) {
       return $this;
