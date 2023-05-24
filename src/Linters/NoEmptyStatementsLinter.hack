@@ -131,7 +131,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
   /**
    * Returns whether the given token is an assignment operator.
    *
-   * This list is all the types returned from ExpressionStatement::getOperator
+   * This list is all the types returned from BinaryExpression::getOperator
    * that include "Equal" and are not comparison operators (==, >=, etc.);
    */
   private function isAssignmentOperator(Token $op): bool {
@@ -140,9 +140,7 @@ final class NoEmptyStatementsLinter extends AutoFixingASTLinter {
       $op is CaratEqualToken ||
       $op is DotEqualToken ||
       $op is EqualToken ||
-      $op is GreaterThanEqualToken ||
       $op is GreaterThanGreaterThanEqualToken ||
-      $op is LessThanEqualToken ||
       $op is LessThanLessThanEqualToken ||
       $op is MinusEqualToken ||
       $op is PercentEqualToken ||
