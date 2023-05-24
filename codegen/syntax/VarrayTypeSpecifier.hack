@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8843c658e8f8664b762105b5f6249bd1>>
+ * @generated SignedSource<<0b93932094333281206c8e6961686d25>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,11 +97,11 @@ final class VarrayTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_angle,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $trailing_comma,
-      /* HH_IGNORE_ERROR[4110] */ $right_angle,
+      $keyword as VarrayToken,
+      $left_angle as LessThanToken,
+      $type as ITypeSpecifier,
+      $trailing_comma as ?CommaToken,
+      $right_angle as GreaterThanToken,
       $source_ref,
     );
   }

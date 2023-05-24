@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5488c598e4c75388e89ada9be6df2018>>
+ * @generated SignedSource<<2317dd0b0aedd9cbe976c0906cba81b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -145,15 +145,15 @@ final class AnonymousClass extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $class_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $argument_list,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $extends_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $extends_list,
-      /* HH_IGNORE_ERROR[4110] */ $implements_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $implements_list,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $class_keyword,
+      $left_paren,
+      $argument_list,
+      $right_paren,
+      $extends_keyword,
+      $extends_list,
+      $implements_keyword,
+      $implements_list,
+      $body,
       $source_ref,
     );
   }

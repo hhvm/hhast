@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2b30232ff9bc91d0802cf242673a3ecb>>
+ * @generated SignedSource<<b2a60abae723717fdf59d6f10352f017>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,9 +71,9 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $open,
-      /* HH_IGNORE_ERROR[4110] */ $body,
-      /* HH_IGNORE_ERROR[4110] */ $close,
+      $open as XHPOpen,
+      $body as ?NodeList<_>,
+      $close as ?XHPClose,
       $source_ref,
     );
   }
@@ -104,11 +104,8 @@ final class XHPExpression extends Node implements ILambdaBody, IExpression {
     ) {
       return $this;
     }
-    return new static(
-      $open as XHPOpen,
-      /* HH_FIXME[4110] ?NodeList<Node> may not be enforceable */ $body,
-      $close as ?XHPClose,
-    );
+    return
+      new static($open as XHPOpen, $body as ?NodeList<_>, $close as ?XHPClose);
   }
 
   public function getOpenUNTYPED(): ?Node {

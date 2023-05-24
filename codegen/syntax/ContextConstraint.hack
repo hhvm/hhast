@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b8dc33fec6bfa8193e60b1c6f580aa37>>
+ * @generated SignedSource<<3a7a455500a11f53cacd519e3652bf45>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,7 @@ final class ContextConstraint extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $ctx_list,
-      $source_ref,
-    );
+    return new static($keyword as Token, $ctx_list as Contexts, $source_ref);
   }
 
   <<__Override>>

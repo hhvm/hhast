@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<588f481a1005c97bf14f05d9fee418ce>>
+ * @generated SignedSource<<76543444fbb8919c7a7e9b02c12f206b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,11 +99,17 @@ final class DarrayIntrinsicExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $explicit_type,
-      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
-      /* HH_IGNORE_ERROR[4110] */ $members,
-      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
+      $keyword as DarrayToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ElementInitializer>>,
+      >(
+        $members as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_bracket as RightBracketToken,
       $source_ref,
     );
   }
@@ -147,7 +153,13 @@ final class DarrayIntrinsicExpression
       $keyword as DarrayToken,
       $explicit_type as ?TypeArguments,
       $left_bracket as LeftBracketToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<ElementInitializer>> may not be enforceable */ $members,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ElementInitializer>>,
+      >(
+        $members as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_bracket as RightBracketToken,
     );
   }

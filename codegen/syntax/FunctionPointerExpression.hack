@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0aa14f716f65104431220b291b8230af>>
+ * @generated SignedSource<<f0a3048bf3a0aba485e0b5d4748d7cc2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -63,8 +63,8 @@ final class FunctionPointerExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $receiver,
-      /* HH_IGNORE_ERROR[4110] */ $type_args,
+      $receiver as IExpression,
+      $type_args as TypeArguments,
       $source_ref,
     );
   }

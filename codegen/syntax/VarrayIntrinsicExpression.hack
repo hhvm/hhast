@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4e0f177b7cc4f66b320d25289b1b5a01>>
+ * @generated SignedSource<<41543b56a24801785e179dcc20183bf5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,11 +99,14 @@ final class VarrayIntrinsicExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $explicit_type,
-      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
-      /* HH_IGNORE_ERROR[4110] */ $members,
-      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
+      $keyword as VarrayToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $members as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_bracket as RightBracketToken,
       $source_ref,
     );
   }
@@ -147,7 +150,10 @@ final class VarrayIntrinsicExpression
       $keyword as VarrayToken,
       $explicit_type as ?TypeArguments,
       $left_bracket as LeftBracketToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $members,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $members as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_bracket as RightBracketToken,
     );
   }

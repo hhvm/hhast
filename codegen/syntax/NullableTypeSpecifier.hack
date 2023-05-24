@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<56e1e3f1e8b1b13180dce338161b4c7f>>
+ * @generated SignedSource<<e32cfe60968d24188b16d7fdaae438f1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,8 @@ final class NullableTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $question,
-      /* HH_IGNORE_ERROR[4110] */ $type,
+      $question as QuestionToken,
+      $type as ITypeSpecifier,
       $source_ref,
     );
   }

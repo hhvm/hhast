@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<786dd603c6bb60cb6ee106de52240fbb>>
+ * @generated SignedSource<<ba95e6361cdccfd4a521b772774f1300>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,13 @@ final class CollectionLiteralExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $initializers,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $name as ISimpleCreationSpecifier,
+      $left_brace as LeftBraceToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<Node>>>(
+        $initializers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }
@@ -129,7 +132,10 @@ final class CollectionLiteralExpression
     return new static(
       $name as ISimpleCreationSpecifier,
       $left_brace as LeftBraceToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<Node>> may not be enforceable */ $initializers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<Node>>>(
+        $initializers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_brace as RightBraceToken,
     );
   }

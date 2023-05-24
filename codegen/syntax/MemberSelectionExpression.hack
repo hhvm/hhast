@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f79933a32f03a1ac2a8cccc0ccd6561a>>
+ * @generated SignedSource<<e87cdfdfcc8d9f602bb041ad4da4cf57>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,9 @@ final class MemberSelectionExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $object,
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $name,
+      $object as IExpression,
+      $operator as MinusGreaterThanToken,
+      $name as IExpression,
       $source_ref,
     );
   }

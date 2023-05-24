@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a38379e38d9ab39c1ecf1886964c5c1>>
+ * @generated SignedSource<<ee97dc81bdcf87a70f59f63f15e66a36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,10 @@ final class EvalExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $argument,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $keyword as EvalToken,
+      $left_paren as LeftParenToken,
+      $argument as IExpression,
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }

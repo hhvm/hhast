@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9d5aa391a4b8409fbb9366e2d7763041>>
+ * @generated SignedSource<<782b61a2d33148e9fe5f7e26a1c8d23f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,10 +83,13 @@ final class TryStatement extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $compound_statement,
-      /* HH_IGNORE_ERROR[4110] */ $catch_clauses,
-      /* HH_IGNORE_ERROR[4110] */ $finally_clause,
+      $keyword as TryToken,
+      $compound_statement as CompoundStatement,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<CatchClause>>(
+        $catch_clauses as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $finally_clause as ?FinallyClause,
       $source_ref,
     );
   }
@@ -127,7 +130,10 @@ final class TryStatement extends Node implements IStatement {
     return new static(
       $keyword as TryToken,
       $compound_statement as CompoundStatement,
-      /* HH_FIXME[4110] ?NodeList<CatchClause> may not be enforceable */ $catch_clauses,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<CatchClause>>(
+        $catch_clauses as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $finally_clause as ?FinallyClause,
     );
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f9d7c4ad4a1fe6b617bd61400e3398dd>>
+ * @generated SignedSource<<41b802f511e67bf68df696e705ddc935>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -47,7 +47,7 @@ final class LiteralExpression extends Node implements ILambdaBody, IExpression {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(/* HH_IGNORE_ERROR[4110] */ $expression, $source_ref);
+    return new static($expression, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fba646fa4f50bf3741f1e2af377b6121>>
+ * @generated SignedSource<<b307c109472f8944199acc5089e213d5>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,11 +97,17 @@ final class FileAttributeSpecification extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_double_angle,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $colon,
-      /* HH_IGNORE_ERROR[4110] */ $attributes,
-      /* HH_IGNORE_ERROR[4110] */ $right_double_angle,
+      $left_double_angle as LessThanLessThanToken,
+      $keyword as FileToken,
+      $colon as ColonToken,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<ConstructorCall>>,
+      >(
+        $attributes as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_double_angle as GreaterThanGreaterThanToken,
       $source_ref,
     );
   }
@@ -142,7 +148,13 @@ final class FileAttributeSpecification extends Node {
       $left_double_angle as LessThanLessThanToken,
       $keyword as FileToken,
       $colon as ColonToken,
-      /* HH_FIXME[4110] NodeList<ListItem<ConstructorCall>> may not be enforceable */ $attributes,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<ConstructorCall>>,
+      >(
+        $attributes as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_double_angle as GreaterThanGreaterThanToken,
     );
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<efaed262dbcaf1bee37262fcfc534a14>>
+ * @generated SignedSource<<e6593e279b54c2e498af4d9ebe0d6346>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -182,18 +182,33 @@ final class ClassishDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute,
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $xhp,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $type_parameters,
-      /* HH_IGNORE_ERROR[4110] */ $extends_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $extends_list,
-      /* HH_IGNORE_ERROR[4110] */ $implements_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $implements_list,
-      /* HH_IGNORE_ERROR[4110] */ $where_clause,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $attribute as ?OldAttributeSpecification,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<Token>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $xhp,
+      $keyword as Token,
+      $name as Token,
+      $type_parameters as ?TypeParameters,
+      $extends_keyword as ?ExtendsToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ISimpleCreationSpecifier>>,
+      >(
+        $extends_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $implements_keyword as ?ImplementsToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ISimpleCreationSpecifier>>,
+      >(
+        $implements_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $where_clause,
+      $body as ClassishBody,
       $source_ref,
     );
   }
@@ -269,15 +284,30 @@ final class ClassishDeclaration
     }
     return new static(
       $attribute as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] ?NodeList<Token> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<Token>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $xhp as ?Node,
       $keyword as Token,
       $name as Token,
       $type_parameters as ?TypeParameters,
       $extends_keyword as ?ExtendsToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<ISimpleCreationSpecifier>> may not be enforceable */ $extends_list,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ISimpleCreationSpecifier>>,
+      >(
+        $extends_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $implements_keyword as ?ImplementsToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<ISimpleCreationSpecifier>> may not be enforceable */ $implements_list,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ISimpleCreationSpecifier>>,
+      >(
+        $implements_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $where_clause as ?Node,
       $body as ClassishBody,
     );

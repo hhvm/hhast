@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b75a3135f04c6c1269c2cc8e3b0636cc>>
+ * @generated SignedSource<<5e18f81b83c25278e45f05d5ada547dd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -108,12 +108,21 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $type_specifier,
-      /* HH_IGNORE_ERROR[4110] */ $declarators,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $attribute_spec as ?OldAttributeSpecification,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<AbstractToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $keyword as ConstToken,
+      $type_specifier as ?ITypeSpecifier,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<ConstantDeclarator>>,
+      >(
+        $declarators as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -161,10 +170,19 @@ final class ConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<AbstractToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $keyword as ConstToken,
       $type_specifier as ?ITypeSpecifier,
-      /* HH_FIXME[4110] NodeList<ListItem<ConstantDeclarator>> may not be enforceable */ $declarators,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<ConstantDeclarator>>,
+      >(
+        $declarators as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $semicolon as SemicolonToken,
     );
   }

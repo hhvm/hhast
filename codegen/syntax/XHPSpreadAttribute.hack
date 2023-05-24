@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1f8fc7f2d9a70e828e518ffff09c6d06>>
+ * @generated SignedSource<<c1c7f40ca706b3bb36da95ee9b321beb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,10 @@ final class XHPSpreadAttribute extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $spread_operator,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $left_brace as LeftBraceToken,
+      $spread_operator as DotDotDotToken,
+      $expression as IExpression,
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }

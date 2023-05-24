@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e639a795c5bd7f76912af4cc77957967>>
+ * @generated SignedSource<<af2fdb08e712de0a45385a8b040c8957>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,10 @@ final class XHPClassAttribute extends Node implements IXHPAttribute {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $initializer,
-      /* HH_IGNORE_ERROR[4110] */ $required,
+      $type as ITypeSpecifier,
+      $name as XHPElementNameToken,
+      $initializer as ?SimpleInitializer,
+      $required,
       $source_ref,
     );
   }

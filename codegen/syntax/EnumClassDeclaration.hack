@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71ee494596dad01a0be73d16ce53f8f8>>
+ * @generated SignedSource<<0da4cb9fdc6b9c3ed197bf9ba43a81c7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -179,18 +179,30 @@ final class EnumClassDeclaration extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $enum_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $class_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $colon,
-      /* HH_IGNORE_ERROR[4110] */ $base,
-      /* HH_IGNORE_ERROR[4110] */ $extends,
-      /* HH_IGNORE_ERROR[4110] */ $extends_list,
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $elements,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $attribute_spec as ?OldAttributeSpecification,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<Token>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $enum_keyword as EnumToken,
+      $class_keyword as ClassToken,
+      $name as NameToken,
+      $colon as ColonToken,
+      $base as ITypeSpecifier,
+      $extends as ?ExtendsToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<SimpleTypeSpecifier>>,
+      >(
+        $extends_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $left_brace as LeftBraceToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<EnumClassEnumerator>>(
+        $elements as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }
@@ -258,16 +270,28 @@ final class EnumClassDeclaration extends Node {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] ?NodeList<Token> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<Token>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $enum_keyword as EnumToken,
       $class_keyword as ClassToken,
       $name as NameToken,
       $colon as ColonToken,
       $base as ITypeSpecifier,
       $extends as ?ExtendsToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<SimpleTypeSpecifier>> may not be enforceable */ $extends_list,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<SimpleTypeSpecifier>>,
+      >(
+        $extends_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $left_brace as LeftBraceToken,
-      /* HH_FIXME[4110] ?NodeList<EnumClassEnumerator> may not be enforceable */ $elements,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<EnumClassEnumerator>>(
+        $elements as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_brace as RightBraceToken,
     );
   }

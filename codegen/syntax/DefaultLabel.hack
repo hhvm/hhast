@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<088ddba8a29ac1d79f78ea2a5bfedd1b>>
+ * @generated SignedSource<<d2f428feccd7640d68f30f6e51f04a7d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,8 @@ final class DefaultLabel extends Node implements ISwitchLabel {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $colon,
-      $source_ref,
-    );
+    return
+      new static($keyword as DefaultToken, $colon as ColonToken, $source_ref);
   }
 
   <<__Override>>

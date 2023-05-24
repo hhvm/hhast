@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<76fe66240618fb18aa4c5590f281ef51>>
+ * @generated SignedSource<<8bd694f84a5bff72041b4fe4d03e952a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,9 @@ final class XHPChildrenDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as ChildrenToken,
+      $expression,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }

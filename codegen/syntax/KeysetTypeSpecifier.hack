@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f104333205c57d90221f3dc1252d771>>
+ * @generated SignedSource<<37508b9aa09314f13dc1248046e098e4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,11 +97,11 @@ final class KeysetTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_angle,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $trailing_comma,
-      /* HH_IGNORE_ERROR[4110] */ $right_angle,
+      $keyword as KeysetToken,
+      $left_angle as LessThanToken,
+      $type as ITypeSpecifier,
+      $trailing_comma,
+      $right_angle as GreaterThanToken,
       $source_ref,
     );
   }

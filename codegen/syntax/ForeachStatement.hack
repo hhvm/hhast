@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<83d516a16e955f0c95bf335c86404860>>
+ * @generated SignedSource<<fcbb7bad5650089301bfcd4973d75529>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -157,16 +157,16 @@ final class ForeachStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $collection,
-      /* HH_IGNORE_ERROR[4110] */ $await_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $as,
-      /* HH_IGNORE_ERROR[4110] */ $key,
-      /* HH_IGNORE_ERROR[4110] */ $arrow,
-      /* HH_IGNORE_ERROR[4110] */ $value,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $keyword as ForeachToken,
+      $left_paren as LeftParenToken,
+      $collection as IExpression,
+      $await_keyword as ?AwaitToken,
+      $as as AsToken,
+      $key as ?IExpression,
+      $arrow as ?EqualGreaterThanToken,
+      $value as IExpression,
+      $right_paren as RightParenToken,
+      $body as IStatement,
       $source_ref,
     );
   }

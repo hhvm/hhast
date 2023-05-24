@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fbe5c2fa3eba3b6ca8b27989f75c9152>>
+ * @generated SignedSource<<b118698d3297247dde2daaaa91bf61f2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -144,15 +144,21 @@ final class ForStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $initializer,
-      /* HH_IGNORE_ERROR[4110] */ $first_semicolon,
-      /* HH_IGNORE_ERROR[4110] */ $control,
-      /* HH_IGNORE_ERROR[4110] */ $second_semicolon,
-      /* HH_IGNORE_ERROR[4110] */ $end_of_loop,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $keyword as ForToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $initializer as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $first_semicolon as SemicolonToken,
+      $control as ?IExpression,
+      $second_semicolon as SemicolonToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $end_of_loop as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
+      $body as IStatement,
       $source_ref,
     );
   }
@@ -209,11 +215,17 @@ final class ForStatement
     return new static(
       $keyword as ForToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $initializer,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $initializer as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $first_semicolon as SemicolonToken,
       $control as ?IExpression,
       $second_semicolon as SemicolonToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $end_of_loop,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $end_of_loop as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
       $body as IStatement,
     );

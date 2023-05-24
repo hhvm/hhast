@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9acbc1ae19b71c76301a7ceba4a58315>>
+ * @generated SignedSource<<09defa3485299de37103218ba8a98d4a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,8 @@ final class PropertyDeclarator extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $initializer,
+      $name as VariableToken,
+      $initializer as ?SimpleInitializer,
       $source_ref,
     );
   }

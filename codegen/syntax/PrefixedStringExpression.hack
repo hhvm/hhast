@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<01ef30b0f374b1d5c9a71a9ad8aea7e6>>
+ * @generated SignedSource<<356cb111e17b30c3224784aa5c4b8c3c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,11 +61,7 @@ final class PrefixedStringExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $str,
-      $source_ref,
-    );
+    return new static($name, $str, $source_ref);
   }
 
   <<__Override>>

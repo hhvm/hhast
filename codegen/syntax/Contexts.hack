@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a67417c96893617d8c1cf979cae218d8>>
+ * @generated SignedSource<<c3ee12a0d48deb304278f6d5c3465dea>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -72,9 +72,12 @@ final class Contexts extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
-      /* HH_IGNORE_ERROR[4110] */ $types,
-      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
+      $left_bracket as LeftBracketToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ITypeSpecifier>>,
+      >($types as ?NodeList<_>, 'Open for sound approaches that are not O(n).'),
+      $right_bracket as RightBracketToken,
       $source_ref,
     );
   }
@@ -107,7 +110,10 @@ final class Contexts extends Node {
     }
     return new static(
       $left_bracket as LeftBracketToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $types,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ITypeSpecifier>>,
+      >($types as ?NodeList<_>, 'Open for sound approaches that are not O(n).'),
       $right_bracket as RightBracketToken,
     );
   }

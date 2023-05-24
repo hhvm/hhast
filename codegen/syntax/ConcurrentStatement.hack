@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<466a81eeed014e00ea0e4a9ca7222073>>
+ * @generated SignedSource<<134b0bab7a09d5da42b8655fb8726b15>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,8 @@ final class ConcurrentStatement extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $statement,
+      $keyword as ConcurrentToken,
+      $statement as CompoundStatement,
       $source_ref,
     );
   }

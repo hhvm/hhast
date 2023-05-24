@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5e82198817cbe5ab496e965b36620ad>>
+ * @generated SignedSource<<c9c9bb44af0502479e3448c5544d89fc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -50,7 +50,7 @@ final class SimpleTypeSpecifier
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(/* HH_IGNORE_ERROR[4110] */ $specifier, $source_ref);
+    return new static($specifier, $source_ref);
   }
 
   <<__Override>>

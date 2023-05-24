@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c053aa583989efc8b1d2e470979a0e10>>
+ * @generated SignedSource<<3ecca2c7ae6bab01b12a88f0b26821da>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,11 +99,11 @@ final class WhileStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $condition,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $keyword as WhileToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $body as IStatement,
       $source_ref,
     );
   }

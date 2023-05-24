@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a8e2062b7d28a4461f2a7dcf9fc863f>>
+ * @generated SignedSource<<439b473db4b2673302c4c5de126138f7>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -121,13 +121,13 @@ final class DarrayTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_angle,
-      /* HH_IGNORE_ERROR[4110] */ $key,
-      /* HH_IGNORE_ERROR[4110] */ $comma,
-      /* HH_IGNORE_ERROR[4110] */ $value,
-      /* HH_IGNORE_ERROR[4110] */ $trailing_comma,
-      /* HH_IGNORE_ERROR[4110] */ $right_angle,
+      $keyword as DarrayToken,
+      $left_angle as LessThanToken,
+      $key as ITypeSpecifier,
+      $comma as CommaToken,
+      $value as ITypeSpecifier,
+      $trailing_comma,
+      $right_angle as GreaterThanToken,
       $source_ref,
     );
   }

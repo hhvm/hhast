@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<543d941329cda45a434d2534a4c3d432>>
+ * @generated SignedSource<<afdc2fac998ecfe5aedae92ce960a244>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,9 @@ final class AsExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_operand,
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $right_operand,
+      $left_operand as IExpression,
+      $operator as AsToken,
+      $right_operand as ITypeSpecifier,
       $source_ref,
     );
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e3a04ad4b403c4061b136d837a2b70c8>>
+ * @generated SignedSource<<4cec254e49fcc712bbb4997d7b708998>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -89,10 +89,10 @@ abstract class MethodishDeclarationGeneratedBase
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute,
-      /* HH_IGNORE_ERROR[4110] */ $function_decl_header,
-      /* HH_IGNORE_ERROR[4110] */ $function_body,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $attribute as ?OldAttributeSpecification,
+      $function_decl_header as FunctionDeclarationHeader,
+      $function_body as ?CompoundStatement,
+      $semicolon as ?SemicolonToken,
       $source_ref,
     );
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<925ac9aeff38758f27c23870b9e37367>>
+ * @generated SignedSource<<bf031e6fe4dcf93366718f2fcb17e83c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -146,15 +146,21 @@ final class ContextConstDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $const_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $ctx_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $type_parameters,
-      /* HH_IGNORE_ERROR[4110] */ $constraint,
-      /* HH_IGNORE_ERROR[4110] */ $equal,
-      /* HH_IGNORE_ERROR[4110] */ $ctx_list,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<AbstractToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $const_keyword as ConstToken,
+      $ctx_keyword as CtxToken,
+      $name as NameToken,
+      $type_parameters,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ContextConstraint>>(
+        $constraint as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $equal as ?EqualToken,
+      $ctx_list as ?Contexts,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -211,12 +217,18 @@ final class ContextConstDeclaration
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<AbstractToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $const_keyword as ConstToken,
       $ctx_keyword as CtxToken,
       $name as NameToken,
       $type_parameters as ?Node,
-      /* HH_FIXME[4110] ?NodeList<ContextConstraint> may not be enforceable */ $constraint,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ContextConstraint>>(
+        $constraint as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $equal as ?EqualToken,
       $ctx_list as ?Contexts,
       $semicolon as SemicolonToken,

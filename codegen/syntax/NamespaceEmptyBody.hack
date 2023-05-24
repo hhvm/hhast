@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a55457938350d5df1ed27fa9d2b169ed>>
+ * @generated SignedSource<<ac2eee0876eaafd75edc9bd194f992d3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,7 +48,7 @@ final class NamespaceEmptyBody extends Node implements INamespaceBody {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(/* HH_IGNORE_ERROR[4110] */ $semicolon, $source_ref);
+    return new static($semicolon as SemicolonToken, $source_ref);
   }
 
   <<__Override>>

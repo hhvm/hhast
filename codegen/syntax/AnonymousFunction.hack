@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4de5781bcaa7e6a93cf2b796ecbe43b8>>
+ * @generated SignedSource<<6e17f0c5860853dc26ded3c41eab38ae>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -179,18 +179,24 @@ final class AnonymousFunction
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $async_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $function_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $parameters,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $ctx_list,
-      /* HH_IGNORE_ERROR[4110] */ $colon,
-      /* HH_IGNORE_ERROR[4110] */ $readonly_return,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $use,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $attribute_spec as ?OldAttributeSpecification,
+      $async_keyword as ?AsyncToken,
+      $function_keyword as FunctionToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ParameterDeclaration>>,
+      >(
+        $parameters as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
+      $ctx_list,
+      $colon as ?ColonToken,
+      $readonly_return as ?ReadonlyToken,
+      $type as ?ITypeSpecifier,
+      $use as ?AnonymousFunctionUseClause,
+      $body as CompoundStatement,
       $source_ref,
     );
   }
@@ -262,7 +268,13 @@ final class AnonymousFunction
       $async_keyword as ?AsyncToken,
       $function_keyword as FunctionToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<ParameterDeclaration>> may not be enforceable */ $parameters,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ParameterDeclaration>>,
+      >(
+        $parameters as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
       $ctx_list as ?Node,
       $colon as ?ColonToken,

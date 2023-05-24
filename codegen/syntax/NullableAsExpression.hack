@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<40cdf15742608db8c47cbbb6e282c538>>
+ * @generated SignedSource<<37c09f31fa6388975d78aa2cb8c48dad>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,9 @@ final class NullableAsExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_operand,
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $right_operand,
+      $left_operand as IExpression,
+      $operator as QuestionAsToken,
+      $right_operand as ITypeSpecifier,
       $source_ref,
     );
   }

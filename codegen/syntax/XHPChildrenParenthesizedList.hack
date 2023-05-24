@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f0717ff9a79089f103ff80ab77e864d2>>
+ * @generated SignedSource<<5006cc5115ddb3505f2a21c47601f9c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,12 @@ final class XHPChildrenParenthesizedList
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $xhp_children,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<IExpression>>>(
+        $xhp_children as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }
@@ -110,7 +113,10 @@ final class XHPChildrenParenthesizedList
     }
     return new static(
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $xhp_children,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<IExpression>>>(
+        $xhp_children as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
     );
   }

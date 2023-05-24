@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5f60bd9e49ef0ec0309ccf51a474b35a>>
+ * @generated SignedSource<<40d8aa2260fbe6c7b3835d29f170dca3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,8 @@ final class FunctionCtxTypeSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $variable,
-      $source_ref,
-    );
+    return
+      new static($keyword as CtxToken, $variable as VariableToken, $source_ref);
   }
 
   <<__Override>>

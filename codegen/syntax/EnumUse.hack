@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<de2aaad485d903c675f556874699d829>>
+ * @generated SignedSource<<c5661c94fd35594826977acf08cf124f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,12 @@ final class EnumUse extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $names,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as UseToken,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<SimpleTypeSpecifier>>,
+      >($names as NodeList<_>, 'Open for sound approaches that are not O(n).'),
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -108,7 +111,10 @@ final class EnumUse extends Node {
     }
     return new static(
       $keyword as UseToken,
-      /* HH_FIXME[4110] NodeList<ListItem<SimpleTypeSpecifier>> may not be enforceable */ $names,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<SimpleTypeSpecifier>>,
+      >($names as NodeList<_>, 'Open for sound approaches that are not O(n).'),
       $semicolon as SemicolonToken,
     );
   }

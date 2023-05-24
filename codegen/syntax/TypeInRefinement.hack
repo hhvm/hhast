@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bf73c8c5983b114b6f9e83fc985ecd64>>
+ * @generated SignedSource<<f6f29949b3eaeb47a64974d73b226216>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,12 +109,12 @@ final class TypeInRefinement extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $type_parameters,
-      /* HH_IGNORE_ERROR[4110] */ $constraints,
-      /* HH_IGNORE_ERROR[4110] */ $equal,
-      /* HH_IGNORE_ERROR[4110] */ $type,
+      $keyword,
+      $name,
+      $type_parameters,
+      $constraints,
+      $equal,
+      $type,
       $source_ref,
     );
   }

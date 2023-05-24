@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be5da7ec7a88e74dd79d418e72fc91f2>>
+ * @generated SignedSource<<69c7077da9abbda7c325ce16f648442e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,13 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_angle,
-      /* HH_IGNORE_ERROR[4110] */ $members,
-      /* HH_IGNORE_ERROR[4110] */ $right_angle,
+      $keyword as DictToken,
+      $left_angle as LessThanToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<ITypeSpecifier>>>(
+        $members as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_angle as GreaterThanToken,
       $source_ref,
     );
   }
@@ -125,7 +128,10 @@ final class DictionaryTypeSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $keyword as DictToken,
       $left_angle as LessThanToken,
-      /* HH_FIXME[4110] NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $members,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<ITypeSpecifier>>>(
+        $members as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_angle as GreaterThanToken,
     );
   }

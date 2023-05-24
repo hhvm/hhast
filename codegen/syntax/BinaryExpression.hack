@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<38bcc98afa24fc8c24ef4e98813ff68c>>
+ * @generated SignedSource<<b2fa73def88e75f83a7cdf14926a6df9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,9 @@ final class BinaryExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_operand,
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $right_operand,
+      $left_operand as IExpression,
+      $operator as Token,
+      $right_operand as IExpression,
       $source_ref,
     );
   }

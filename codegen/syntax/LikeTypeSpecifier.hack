@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<941aa8f9de40fb233269411d3d530084>>
+ * @generated SignedSource<<4d20283ec81b909f381b9c339a1e4685>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,8 @@ final class LikeTypeSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $tilde,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      $source_ref,
-    );
+    return
+      new static($tilde as TildeToken, $type as ITypeSpecifier, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<083e35d2071ab9fb3e7e05bb0da6218b>>
+ * @generated SignedSource<<551a7336f977d52ab2296065ad8f883a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,12 +74,8 @@ final class ScopeResolutionExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $qualifier,
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      $source_ref,
-    );
+    return
+      new static($qualifier, $operator as ColonColonToken, $name, $source_ref);
   }
 
   <<__Override>>

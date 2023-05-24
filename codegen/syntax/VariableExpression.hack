@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<129f2bedc5905455fa3a1caec562e099>>
+ * @generated SignedSource<<ab19a28ffc0b8480db80328dd26bbfde>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -49,7 +49,7 @@ final class VariableExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(/* HH_IGNORE_ERROR[4110] */ $expression, $source_ref);
+    return new static($expression, $source_ref);
   }
 
   <<__Override>>

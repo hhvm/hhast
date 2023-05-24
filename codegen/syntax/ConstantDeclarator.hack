@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d8e015cb516a2876d35026c3b4d677f>>
+ * @generated SignedSource<<c2538e1ae0f078e306ceb0cb1b391709>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,8 @@ final class ConstantDeclarator extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $initializer,
+      $name as NameToken,
+      $initializer as ?SimpleInitializer,
       $source_ref,
     );
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<9c84879ef1b8682f02bbf8aafc171109>>
+ * @generated SignedSource<<9862ac186f57d4ae7f63e0a12adf8dde>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -168,17 +168,23 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $outer_left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $readonly_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $function_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $inner_left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $parameter_list,
-      /* HH_IGNORE_ERROR[4110] */ $inner_right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $contexts,
-      /* HH_IGNORE_ERROR[4110] */ $colon,
-      /* HH_IGNORE_ERROR[4110] */ $readonly_return,
-      /* HH_IGNORE_ERROR[4110] */ $return_type,
-      /* HH_IGNORE_ERROR[4110] */ $outer_right_paren,
+      $outer_left_paren as LeftParenToken,
+      $readonly_keyword as ?ReadonlyToken,
+      $function_keyword as FunctionToken,
+      $inner_left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ITypeSpecifier>>,
+      >(
+        $parameter_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $inner_right_paren as RightParenToken,
+      $contexts as ?Contexts,
+      $colon as ColonToken,
+      $readonly_return as ?ReadonlyToken,
+      $return_type as ITypeSpecifier,
+      $outer_right_paren as RightParenToken,
       $source_ref,
     );
   }
@@ -245,7 +251,13 @@ final class ClosureTypeSpecifier extends Node implements ITypeSpecifier {
       $readonly_keyword as ?ReadonlyToken,
       $function_keyword as FunctionToken,
       $inner_left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $parameter_list,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ITypeSpecifier>>,
+      >(
+        $parameter_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $inner_right_paren as RightParenToken,
       $contexts as ?Contexts,
       $colon as ColonToken,

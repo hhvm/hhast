@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbdd4d7f98772aa8aed03aca1baafb68>>
+ * @generated SignedSource<<0fb219e9c7ae7fdf1e7d8bb1e8482338>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,9 @@ final class TypeConstant extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_type,
-      /* HH_IGNORE_ERROR[4110] */ $separator,
-      /* HH_IGNORE_ERROR[4110] */ $right_type,
+      $left_type as ITypeSpecifier,
+      $separator as ColonColonToken,
+      $right_type as NameToken,
       $source_ref,
     );
   }

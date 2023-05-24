@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b97d800dfcc06780cad30d16b48a1c7b>>
+ * @generated SignedSource<<17f073115ce7aebe04d017aa25aaa1e0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,12 +74,7 @@ final class EnumClassLabelExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $qualifier,
-      /* HH_IGNORE_ERROR[4110] */ $hash,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      $source_ref,
-    );
+    return new static($qualifier, $hash, $expression, $source_ref);
   }
 
   <<__Override>>

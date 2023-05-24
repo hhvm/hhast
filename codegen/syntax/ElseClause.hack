@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b5f971d03e85781f29846db4c9c6eca4>>
+ * @generated SignedSource<<390356a2040ed125251932d900a2a7eb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,8 @@ final class ElseClause extends Node implements IControlFlowStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $statement,
-      $source_ref,
-    );
+    return
+      new static($keyword as ElseToken, $statement as IStatement, $source_ref);
   }
 
   <<__Override>>

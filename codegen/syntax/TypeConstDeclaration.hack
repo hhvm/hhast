@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<43dc34063df95b97465b3082458bb66e>>
+ * @generated SignedSource<<66d07e5bd3983fc74cd8e1618e3ea09b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -156,16 +156,22 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $type_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $type_parameters,
-      /* HH_IGNORE_ERROR[4110] */ $type_constraints,
-      /* HH_IGNORE_ERROR[4110] */ $equal,
-      /* HH_IGNORE_ERROR[4110] */ $type_specifier,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $attribute_spec as ?OldAttributeSpecification,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<AbstractToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $keyword as ConstToken,
+      $type_keyword as TypeToken,
+      $name as NameToken,
+      $type_parameters,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<TypeConstraint>>(
+        $type_constraints as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $equal as ?EqualToken,
+      $type_specifier as ?ITypeSpecifier,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -229,12 +235,18 @@ final class TypeConstDeclaration extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<AbstractToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $keyword as ConstToken,
       $type_keyword as TypeToken,
       $name as NameToken,
       $type_parameters as ?Node,
-      /* HH_FIXME[4110] ?NodeList<TypeConstraint> may not be enforceable */ $type_constraints,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<TypeConstraint>>(
+        $type_constraints as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $equal as ?EqualToken,
       $type_specifier as ?ITypeSpecifier,
       $semicolon as SemicolonToken,

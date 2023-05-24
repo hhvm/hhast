@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<154a388f4c22ad5b744590f8fa45361c>>
+ * @generated SignedSource<<6a2094fd6b0ef7c88fb542596a374439>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,11 +99,17 @@ final class DictionaryIntrinsicExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $explicit_type,
-      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
-      /* HH_IGNORE_ERROR[4110] */ $members,
-      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
+      $keyword as DictToken,
+      $explicit_type as ?TypeArguments,
+      $left_bracket as LeftBracketToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ElementInitializer>>,
+      >(
+        $members as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_bracket as RightBracketToken,
       $source_ref,
     );
   }
@@ -147,7 +153,13 @@ final class DictionaryIntrinsicExpression
       $keyword as DictToken,
       $explicit_type as ?TypeArguments,
       $left_bracket as LeftBracketToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<ElementInitializer>> may not be enforceable */ $members,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<ElementInitializer>>,
+      >(
+        $members as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_bracket as RightBracketToken,
     );
   }

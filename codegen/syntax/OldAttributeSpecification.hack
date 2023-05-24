@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c07d1de19cfbf9da725f6914eb22ca4e>>
+ * @generated SignedSource<<d563e94cb55ff6d70cfe9145b3d78918>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,15 @@ final class OldAttributeSpecification extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_double_angle,
-      /* HH_IGNORE_ERROR[4110] */ $attributes,
-      /* HH_IGNORE_ERROR[4110] */ $right_double_angle,
+      $left_double_angle as LessThanLessThanToken,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<ConstructorCall>>,
+      >(
+        $attributes as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_double_angle as GreaterThanGreaterThanToken,
       $source_ref,
     );
   }
@@ -108,7 +114,13 @@ final class OldAttributeSpecification extends Node {
     }
     return new static(
       $left_double_angle as LessThanLessThanToken,
-      /* HH_FIXME[4110] NodeList<ListItem<ConstructorCall>> may not be enforceable */ $attributes,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<ConstructorCall>>,
+      >(
+        $attributes as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_double_angle as GreaterThanGreaterThanToken,
     );
   }

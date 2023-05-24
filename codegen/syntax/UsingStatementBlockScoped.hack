@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee5007e50596ad3370d6d4ac92259eb1>>
+ * @generated SignedSource<<85e9b50ae34d153811076063b33c30a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,12 +109,15 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $await_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $using_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $expressions,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $await_keyword as ?AwaitToken,
+      $using_keyword as UsingToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<IExpression>>>(
+        $expressions as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
+      $body as CompoundStatement,
       $source_ref,
     );
   }
@@ -160,7 +163,10 @@ final class UsingStatementBlockScoped extends Node implements IStatement {
       $await_keyword as ?AwaitToken,
       $using_keyword as UsingToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $expressions,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<IExpression>>>(
+        $expressions as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
       $body as CompoundStatement,
     );

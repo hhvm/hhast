@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f5cce87b7cb736dfa694b8a5b24425aa>>
+ * @generated SignedSource<<ab9242f55d68600a5d29cb6a082e89ef>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,8 @@ final class FinallyClause extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $keyword as FinallyToken,
+      $body as CompoundStatement,
       $source_ref,
     );
   }

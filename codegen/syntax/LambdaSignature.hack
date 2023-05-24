@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b06835941dda372887312edf013c5109>>
+ * @generated SignedSource<<14570b7cb058cb66262c993f1ecb67c6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -117,13 +117,16 @@ final class LambdaSignature extends Node implements ILambdaSignature {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $parameters,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $contexts,
-      /* HH_IGNORE_ERROR[4110] */ $colon,
-      /* HH_IGNORE_ERROR[4110] */ $readonly_return,
-      /* HH_IGNORE_ERROR[4110] */ $type,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IParameter>>>(
+        $parameters as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
+      $contexts as ?Contexts,
+      $colon as ?ColonToken,
+      $readonly_return as ?ReadonlyToken,
+      $type as ?ITypeSpecifier,
       $source_ref,
     );
   }
@@ -173,7 +176,10 @@ final class LambdaSignature extends Node implements ILambdaSignature {
     }
     return new static(
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<IParameter>> may not be enforceable */ $parameters,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IParameter>>>(
+        $parameters as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
       $contexts as ?Contexts,
       $colon as ?ColonToken,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a56fb44690438bdbb7a3b0d15660cb4>>
+ * @generated SignedSource<<7975ab6101c98a108a3af48c0c70a6b1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -110,12 +110,12 @@ final class IfStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $condition,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $statement,
-      /* HH_IGNORE_ERROR[4110] */ $else_clause,
+      $keyword as IfToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $statement as IStatement,
+      $else_clause as ?ElseClause,
       $source_ref,
     );
   }

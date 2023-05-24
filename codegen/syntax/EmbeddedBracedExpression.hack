@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<74550a934a1712eda932b8ea69c1b3b6>>
+ * @generated SignedSource<<ec49e3aa125cc0977814a51faee6074b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -80,12 +80,7 @@ final class EmbeddedBracedExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
-      $source_ref,
-    );
+    return new static($left_brace, $expression, $right_brace, $source_ref);
   }
 
   <<__Override>>

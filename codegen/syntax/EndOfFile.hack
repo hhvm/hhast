@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ee8cf185114a93a8babb028e045c0d84>>
+ * @generated SignedSource<<f225fb3e119b517cf3092e36678a382b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,7 +48,7 @@ final class EndOfFile extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(/* HH_IGNORE_ERROR[4110] */ $token, $source_ref);
+    return new static($token as EndOfFileToken, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7a129a32ff5c764728e4330a7a660ee4>>
+ * @generated SignedSource<<dc133428497c50c129423a55aea33369>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,9 @@ final class XHPSimpleAttribute extends Node implements IXHPAttribute {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $equal,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
+      $name as XHPElementNameToken,
+      $equal as EqualToken,
+      $expression,
       $source_ref,
     );
   }

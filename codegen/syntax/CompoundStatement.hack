@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<71525dfadca7504b3742e23f479aed24>>
+ * @generated SignedSource<<23864588f2709c8f4c04b109e10f7a2a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -72,9 +72,12 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $statements,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $left_brace as LeftBraceToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<IStatement>>(
+        $statements as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }
@@ -109,7 +112,10 @@ final class CompoundStatement extends Node implements ILambdaBody, IStatement {
     }
     return new static(
       $left_brace as LeftBraceToken,
-      /* HH_FIXME[4110] ?NodeList<IStatement> may not be enforceable */ $statements,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<IStatement>>(
+        $statements as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_brace as RightBraceToken,
     );
   }

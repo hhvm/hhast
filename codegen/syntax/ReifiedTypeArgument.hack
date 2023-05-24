@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<275b1489601875ab1bbaf9931d5ad376>>
+ * @generated SignedSource<<798961dba01f98bb1372fbc98595bc00>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,7 @@ final class ReifiedTypeArgument extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $reified,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      $source_ref,
-    );
+    return new static($reified, $type, $source_ref);
   }
 
   <<__Override>>

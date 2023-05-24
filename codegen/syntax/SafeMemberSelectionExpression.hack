@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ad4c8e209bba67672cccd8536edd6176>>
+ * @generated SignedSource<<39e903f97cf217f6432db62a312fe4c8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,9 @@ final class SafeMemberSelectionExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $object,
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $name,
+      $object as IExpression,
+      $operator as QuestionMinusGreaterThanToken,
+      $name as NameToken,
       $source_ref,
     );
   }

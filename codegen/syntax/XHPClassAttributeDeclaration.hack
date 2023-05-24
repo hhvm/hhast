@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c8e11654904381dde1b922a3d3ec7443>>
+ * @generated SignedSource<<0520fe0589b0a3b3dd679cd9067b78e8>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,12 @@ final class XHPClassAttributeDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $attributes,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as AttributeToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<Node>>>(
+        $attributes as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -110,7 +113,10 @@ final class XHPClassAttributeDeclaration
     }
     return new static(
       $keyword as AttributeToken,
-      /* HH_FIXME[4110] NodeList<ListItem<Node>> may not be enforceable */ $attributes,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<Node>>>(
+        $attributes as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $semicolon as SemicolonToken,
     );
   }

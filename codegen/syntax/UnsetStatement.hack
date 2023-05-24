@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<106e5e1afe6fadc716d6a81e92f1bcf1>>
+ * @generated SignedSource<<27e67b347db6610b2e8e484f6f827a05>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,11 +97,14 @@ final class UnsetStatement extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $variables,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as UnsetToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<IExpression>>>(
+        $variables as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -141,7 +144,10 @@ final class UnsetStatement extends Node implements IStatement {
     return new static(
       $keyword as UnsetToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $variables,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<IExpression>>>(
+        $variables as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
       $semicolon as SemicolonToken,
     );

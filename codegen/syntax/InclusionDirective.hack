@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e0777e108bd0b42b18b984a5cec53926>>
+ * @generated SignedSource<<a73ff4a0cd9ccfb31705c511db6f5ceb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,7 @@ final class InclusionDirective extends Node implements IStatement {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
-      $source_ref,
-    );
+    return new static($expression, $semicolon, $source_ref);
   }
 
   <<__Override>>

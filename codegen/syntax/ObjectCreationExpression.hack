@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<35f96f3a147c57f8322a9e1d15bcc740>>
+ * @generated SignedSource<<ea6a07cedac2727db45d9b3dd4fe231a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -63,8 +63,8 @@ final class ObjectCreationExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $new_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $object,
+      $new_keyword as NewToken,
+      $object as ConstructorCall,
       $source_ref,
     );
   }

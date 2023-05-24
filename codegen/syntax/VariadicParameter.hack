@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<04d78aa16cf9bd211d7f42f234c55f00>>
+ * @generated SignedSource<<e5b354c6876d1109ce76b2640b2666bb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,9 @@ final class VariadicParameter
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $call_convention,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $ellipsis,
+      $call_convention,
+      $type as ?ITypeSpecifier,
+      $ellipsis as DotDotDotToken,
       $source_ref,
     );
   }

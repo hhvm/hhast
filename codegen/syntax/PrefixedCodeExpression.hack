@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2751134e1cc70eebda6e780ec2b40f28>>
+ * @generated SignedSource<<6f3ce9109c4a2b90dde72ffd4158c858>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -87,10 +87,10 @@ final class PrefixedCodeExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $prefix,
-      /* HH_IGNORE_ERROR[4110] */ $left_backtick,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $right_backtick,
+      $prefix,
+      $left_backtick,
+      $expression,
+      $right_backtick,
       $source_ref,
     );
   }

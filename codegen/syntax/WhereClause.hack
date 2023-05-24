@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f046b10c13696f0e712c2f26e9c63458>>
+ * @generated SignedSource<<30ed4c31dd755410f451486d07f6d243>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,14 @@ final class WhereClause extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $constraints,
+      $keyword as WhereToken,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<WhereConstraint>>,
+      >(
+        $constraints as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $source_ref,
     );
   }
@@ -89,7 +95,13 @@ final class WhereClause extends Node {
     }
     return new static(
       $keyword as WhereToken,
-      /* HH_FIXME[4110] NodeList<ListItem<WhereConstraint>> may not be enforceable */ $constraints,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<WhereConstraint>>,
+      >(
+        $constraints as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
     );
   }
 
