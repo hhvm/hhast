@@ -76,10 +76,13 @@ abstract class Node implements IMemoizeParam {
     $out = dict[];
     foreach ($this->getChildren() as $k => $node) {
       if (\is_a($node, $what)) {
-        $out[$k] = $node;
+        $out[$k] = \HH\FIXME\UNSAFE_CAST<Node, T>(
+          $node,
+          'is_a($node, $what) ~= $node is T',
+        );
       }
     }
-    return /* HH_FIXME[4110] need reified generics */ $out;
+    return $out;
   }
 
   final public function getChildrenByType<<<__Enforceable>> reify T as Node>(
@@ -161,10 +164,13 @@ abstract class Node implements IMemoizeParam {
     $out = vec[];
     foreach ($this->_descendants as $node) {
       if (\is_a($node, $what)) {
-        $out[] = $node;
+        $out[] = \HH\FIXME\UNSAFE_CAST<Node, T>(
+          $node,
+          'is_a($node, $what) ~= $node is T',
+        );
       }
     }
-    return /* HH_FIXME[4110] need reified generics */ $out;
+    return $out;
   }
 
   final public function getDescendantsByType<<<__Enforceable>> reify T as Node>(
@@ -184,7 +190,10 @@ abstract class Node implements IMemoizeParam {
   ): ?T {
     foreach ($this->_descendants as $node) {
       if (\is_a($node, $what)) {
-        return /* HH_FIXME[4110] need reified generics */ $node;
+        return \HH\FIXME\UNSAFE_CAST<Node, T>(
+          $node,
+          'is_a($node, $what) ~= $node is T',
+        );
       }
     }
     return null;

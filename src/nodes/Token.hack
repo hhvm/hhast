@@ -119,7 +119,9 @@ abstract class Token extends Node {
     string $_type_hint,
   ): Token {
     $leading_list = __Private\fold_map<dict<string, mixed>, Trivia, int>(
-      /* HH_FIXME[4110] need like types */ $json['leading'],
+      \HH\FIXME\UNSAFE_CAST<mixed, Traversable<dict<string, mixed>>>(
+        $json['leading'],
+      ),
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] as int + $p,
       $offset,
@@ -142,7 +144,9 @@ abstract class Token extends Node {
     $token_text = Str\slice($source, $token_position, $token_width);
     $trailing_position = $token_position + $token_width;
     $trailing_list = __Private\fold_map<dict<string, mixed>, Trivia, int>(
-      /* HH_FIXME[4110] need like-types */ $json['trailing'],
+      \HH\FIXME\UNSAFE_CAST<mixed, Traversable<dict<string, mixed>>>(
+        $json['trailing'],
+      ),
       ($j, $p) ==> Trivia::fromJSON($j, $file, $p, $source, 'Node'),
       ($j, $p) ==> $j['width'] as int + $p,
       $trailing_position,
