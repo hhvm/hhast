@@ -16,9 +16,17 @@ use type Facebook\HHAST\_Private\SoftDeprecated;
 final class NodeList<+Titem as Node> extends Node {
   const string SYNTAX_KIND = 'list';
   /**
-   * Use `NodeList::createMaybeEmptyList()` or
-   * `NodeList::createNonEmptyListNull()` instead to be explicit
-   * about desired behavior.
+   * Use `NodeList::createMaybeEmptyList(vec[])` or `null` instead of
+   * `new NodeList(vec[])` if you know the vec is always empty.
+   * A parsed Hack AST doesn't contain empty NodeLists.
+   *
+   * Side note: Places where you'd expect to find an empty NodeList:
+   * ```
+   * function no_params( ): void {}
+   * //                 ^
+   * ```
+   * The Hack parser places a "missing" node at the carat.
+   * HHAST uses `null` to represent them.
    */
   <<__Override>>
   public function __construct(
