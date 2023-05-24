@@ -21,6 +21,14 @@ final class NodeListGetChildrenOfItemsOfTypeTest extends HackTest {
     static::takesT<LiteralExpression>($literal_expression);
   }
 
+  public function testReplacementRefinesTypeToo(): void {
+    $node_list = static::getNodeListOfItemsOfIExpression();
+    $literal_expression =
+      $node_list->getChildrenOfItemsByType<LiteralExpression>() |> C\firstx($$);
+    static::takesT<LiteralExpression>($literal_expression);
+  }
+
+
   private static function getNodeListOfItemsOfIExpression(
   ): NodeList<ListItem<IExpression>> {
     // NodeList(123,)

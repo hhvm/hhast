@@ -10,6 +10,7 @@
 namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Str, Vec};
+use type Facebook\HHAST\_Private\SoftDeprecated;
 
 /* HHAST_IGNORE_ALL[5624] */
 final class NodeList<+Titem as Node> extends Node {
@@ -47,6 +48,7 @@ final class NodeList<+Titem as Node> extends Node {
     return Vec\map($this->getChildren(), $child ==> $child->getItem());
   }
 
+  <<SoftDeprecated('$node->getChildrenOfItemsByType<T>()')>>
   public function getChildrenOfItemsOfType<T as ?Node>(
     classname<T> $what,
   ): vec<T> where Titem as ListItem<?Node> {
@@ -57,6 +59,17 @@ final class NodeList<+Titem as Node> extends Node {
           $item,
           'is_a($item, $what) ~= $item is T',
         );
+      }
+    }
+    return $out;
+  }
+
+  public function getChildrenOfItemsByType<<<__Enforceable>> reify T as Node>(
+  ): vec<T> where Titem as ListItem<?Node> {
+    $out = vec[];
+    foreach ($this->getChildrenOfItems() as $item) {
+      if ($item is T) {
+        $out[] = $item;
       }
     }
     return $out;
