@@ -107,7 +107,7 @@ final class NodeList<+Titem as Node> extends Node {
         $type_hint,
       ) as nonnull
         |> \HH\FIXME\UNSAFE_CAST<Node, Titem>($$, 'Titem can not be enforced.');
-      ;
+
       $children[] = $child;
       $current_position += $child->getWidth();
     }
