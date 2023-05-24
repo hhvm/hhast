@@ -9,7 +9,6 @@
 
 namespace Facebook\HHAST;
 
-use namespace HH\Lib\Str;
 use type Facebook\HackTest\HackTest;
 use function Facebook\FBExpect\expect;
 
