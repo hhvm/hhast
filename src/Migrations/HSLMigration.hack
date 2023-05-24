@@ -523,7 +523,7 @@ final class HSLMigration extends BaseMigration {
         }
         $found_prefix = true;
         foreach ($parts as $i => $token) {
-          if ($token?->getText() === $search[$i]) {
+          if ($token->getText() === $search[$i]) {
             continue;
           }
           $found_prefix = false;
@@ -569,7 +569,7 @@ final class HSLMigration extends BaseMigration {
             }
 
             foreach ($parts as $i => $token) {
-              if ($i < 2 && $token?->getText() !== $search[$i]) {
+              if ($i < 2 && $token->getText() !== $search[$i]) {
                 break;
               }
 
