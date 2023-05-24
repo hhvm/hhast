@@ -576,7 +576,7 @@ final class HSLMigration extends BaseMigration {
               if ($i === 2) {
                 // we found an HH\Lib\* use statement, add the node and suffix
                 $nodes[] = $decl;
-                $ns = HslNamespace::coerce($token?->getText());
+                $ns = HslNamespace::coerce($token->getText());
                 if ($ns !== null) {
                   $suffixes[] = $ns;
                 }
