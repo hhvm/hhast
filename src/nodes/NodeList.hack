@@ -49,11 +49,14 @@ final class NodeList<+Titem as Node> extends Node {
 
   public function getChildrenOfItemsOfType<T as ?Node>(
     classname<T> $what,
-  ): vec<T> where Titem as ListItem<T> {
+  ): vec<T> where Titem as ListItem<?Node> {
     $out = vec[];
     foreach ($this->getChildrenOfItems() as $item) {
       if (\is_a($item, $what)) {
-        $out[] = $item;
+        $out[] = \HH\FIXME\UNSAFE_CAST<?Node, T>(
+          $item,
+          'is_a($item, $what) ~= $item is T',
+        );
       }
     }
     return $out;
