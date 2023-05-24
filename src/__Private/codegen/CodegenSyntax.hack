@@ -116,12 +116,11 @@ final class CodegenSyntax extends CodegenBase {
       ->addProperties(
         Vec\map(
           $syntax['fields'],
-          $field ==> {
-            $spec = $this->getTypeSpecForField($syntax, $field['field_name']);
-            return $cg
-              ->codegenProperty('_'.$field['field_name'])
-              ->setType(($spec['nullable'] ? '?' : '').$spec['class']);
-          },
+          $field ==> $cg
+            ->codegenProperty('_'.$field['field_name'])
+            ->setType(static::getTypeTextForSpec(
+              $this->getTypeSpecForField($syntax, $field['field_name']),
+            )),
         ),
       );
   }
@@ -211,7 +210,7 @@ final class CodegenSyntax extends CodegenBase {
     $spec = $this->getTypeSpecForField($syntax, $underscored);
     $upper_camel = StrP\upper_camel($underscored);
     $types = $spec['possibleTypes'];
-    $type = $spec['nullable'] ? ('?'.$spec['class']) : $spec['class'];
+    $type = static::getTypeTextForSpec($spec);
     // AttributeAsAttributeSpecTrait declares some abstract methods
     // we need to <<__Override>> them in these classes.
     $needs_override_for_attribute_methods = (
@@ -326,15 +325,13 @@ final class CodegenSyntax extends CodegenBase {
       ->addParameters(
         Vec\map(
           $syntax['fields'],
-          $field ==> {
-            $spec = $this->getTypeSpecForField($syntax, $field['field_name']);
-            return Str\format(
-              '%s%s $%s',
-              $spec['nullable'] ? '?' : '',
-              $spec['class'],
-              $field['field_name'],
-            );
-          },
+          $field ==> Str\format(
+            '%s $%s',
+            static::getTypeTextForSpec(
+              $this->getTypeSpecForField($syntax, $field['field_name']),
+            ),
+            $field['field_name'],
+          ),
         ),
       )
       ->addParameter('?__Private\\SourceRef $source_ref = null')
@@ -438,7 +435,17 @@ final class CodegenSyntax extends CodegenBase {
             Vec\concat(
               Vec\map(
                 $syntax['fields'],
-                $field ==> '/* HH_IGNORE_ERROR[4110] */ $'.$field['field_name'],
+                $field ==> {
+                  $spec =
+                    $this->getTypeSpecForField($syntax, $field['field_name']);
+                  return static::tryToEnforceType(
+                    shape(
+                      'expression' => '$'.$field['field_name'],
+                      'expected_type' => static::getTypeTextForSpec($spec),
+                      'source_type' => $spec['nullable'] ? '?Node' : 'Node',
+                    ),
+                  );
+                },
               ),
               vec['$source_ref'],
             ),
@@ -537,18 +544,12 @@ final class CodegenSyntax extends CodegenBase {
             'new static',
             Vec\map(
               $fields,
-              $field ==> {
-                $type = $this->getTypeSpecForField($syntax, $field)
-                  |> $$['nullable'] ? '?'.$$['class'] : $$['class'];
-                $enforceable = Str\format('$%s as %s', $field, $type);
-                $not_enforceable = Str\format(
-                  '/* HH_FIXME[4110] %s may not be enforceable */ $%s',
-                  $type,
-                  $field,
-                );
-                return $type
-                  |> Str\contains($$, '<') ? $not_enforceable : $enforceable;
-              },
+              $field ==> static::tryToEnforceType(shape(
+                'expression' => '$'.$field,
+                'expected_type' => $this->getTypeSpecForField($syntax, $field)
+                  |> $$['nullable'] ? '?'.$$['class'] : $$['class'],
+                'source_type' => '?Tret',
+              )),
             ),
           )
           ->getCode(),
@@ -705,5 +706,61 @@ final class CodegenSyntax extends CodegenBase {
           $node(false, 'instanceof_expression.instanceof_right_operand'),
       ],
     ];
+  }
+
+  private static function getTypeTextForSpec(self::TFieldSpec $spec)[]: string {
+    return ($spec['nullable'] ? '?' : '').$spec['class'];
+  }
+
+  private static function tryToEnforceType(
+    shape(
+      'expression' => string,
+      'expected_type' => string,
+      'source_type' => string,
+    ) $args,
+  )[]: string {
+    $expression = $args['expression'];
+    $expected_type = $args['expected_type'];
+    $source_type = $args['source_type'];
+    if ($expected_type === $source_type) {
+      return $expression;
+    }
+
+    $generic_left_angle = Str\search($expected_type, '<');
+
+    // No generics, fully enforceable!
+    if ($generic_left_angle is null) {
+      return $expression.' as '.$expected_type;
+    }
+
+    $base_type = Str\slice($expected_type, 0, $generic_left_angle);
+    $open_generic = $base_type.'<_>';
+    $rest = Str\slice($expected_type, $generic_left_angle);
+
+    $is_node_listy = $base_type === 'NodeList' || $base_type === '?NodeList';
+    $is_list_itemy = $base_type === 'ListItem' || $base_type === '?ListItem';
+
+    invariant(
+      $is_node_listy || $is_list_itemy,
+      'Expand %s to support %s.',
+      __METHOD__,
+      $base_type,
+    );
+
+    $upper_bound = $base_type.($is_node_listy ? '<Node>' : '<?Node>');
+
+    $best_effort_fixme = Str\format(
+      '\\HH\\FIXME\\UNSAFE_CAST<%s, %s>(%s as %s, \'Open for sound approaches that are not O(n).\')',
+      $upper_bound,
+      $expected_type,
+      $expression,
+      $open_generic,
+    );
+
+    $is_a_known_type = $is_node_listy && $rest === '<Node>' ||
+      $is_list_itemy && $rest === '<?Node>';
+
+    return
+      $is_a_known_type ? $expression.' as '.$open_generic : $best_effort_fixme;
   }
 }

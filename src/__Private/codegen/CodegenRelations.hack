@@ -398,7 +398,7 @@ final class CodegenRelations extends CodegenBase {
         }
     }
 
-    return /* HH_FIXME[4110] dynamic to real type */ $ret;
+    return \HH\FIXME\UNSAFE_CAST<dynamic, vec<dict<string, mixed>>>($ret);
   }
 
   // If some valid syntax isn't in the HHVM/Hack tests, use it here to make sure
