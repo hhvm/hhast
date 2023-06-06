@@ -60,7 +60,7 @@ final class CodegenRelations extends CodegenBase {
 
     $relationships = new Ref(dict[]);
     $queue = new Async\Semaphore(
-      /* limit = */ 32,
+      \cpu_get_count(),
       async $file ==> {
         try {
           $links = await $this->getRelationsInFileAsync($file);
