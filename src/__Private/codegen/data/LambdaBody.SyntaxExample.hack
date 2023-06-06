@@ -9,7 +9,7 @@
 namespace Facebook\HHAST\__Private\SyntaxExamples;
 
 function lambda_body(): void {
-  () ==> Qualified\CONSTANT;
-  () ==> CONSTANT;
-  () ==> 1 + CONSTANT;
+  $_ = () ==> Qualified\CONSTANT;
+  $_ = () ==> CONSTANT;
+  $_ = () ==> 1 + CONSTANT;
 }
