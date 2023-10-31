@@ -217,6 +217,9 @@ abstract class CodegenBase {
       HHAST\ILambdaBody::class => keyset[
         HHAST\IExpression::class,
         HHAST\CompoundStatement::class,
+        // Constants are not wrapped in a name expression on the RHS of `==>`.
+        HHAST\NameToken::class,
+        HHAST\QualifiedName::class,
       ],
       HHAST\ILambdaSignature::class => keyset[
         HHAST\VariableExpression::class,
@@ -239,8 +242,6 @@ abstract class CodegenBase {
         HHAST\ParameterDeclaration::class,
         HHAST\PropertyDeclaration::class,
         HHAST\LambdaExpression::class,
-        // HHAST\Php7AnonymousFunction::class : not valid in hack. No attributes
-        // if not hack
       ],
       HHAST\INameishNode::class => keyset[
         HHAST\NameToken::class,

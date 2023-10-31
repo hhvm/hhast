@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<4579cd1ceb9bff63b706f9dc72f3fd3c>>
+ * @generated SignedSource<<0c30f737bac86560c28df9d343ad933d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -12,7 +12,10 @@ use namespace HH\Lib\Dict;
 <<__ConsistentConstruct>>
 final class QualifiedName
   extends Node
-  implements INameishNode, __Private\IWrappableWithSimpleTypeSpecifier {
+  implements
+    ILambdaBody,
+    INameishNode,
+    __Private\IWrappableWithSimpleTypeSpecifier {
 
   const string SYNTAX_KIND = 'qualified_name';
 
