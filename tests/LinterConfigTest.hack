@@ -146,4 +146,35 @@ final class LinterConfigTest extends TestCase {
       'specified an unsupported config type',
     );
   }
+
+  public function testSingleOverride(): void {
+    $lrc = static::getLintRunConfig();
+    $config = $lrc->getConfigForFile('single_override/test.hack');
+
+    expect($config)->toNotBeNull('Config could not be fetched');
+    expect($config)->toEqual(shape(
+      'linters' => keyset [
+        'Facebook\\HHAST\\FinalOrAbstractClassLinter',
+        'Facebook\\HHAST\\Tests\\ConfigTypeIsNotSupportedByTypeAssertLinter',
+        'Facebook\\HHAST\\NoEmptyStatementsLinter',
+        'Facebook\\HHAST\\UseStatementWIthoutKindLinter',
+      ],
+      'autoFixBlacklist' => keyset [],
+    ));
+  }
+
+  public function testMultipleOverrides(): void {
+    $lrc = static::getLintRunConfig();
+    $config = $lrc->getConfigForFile('multiple_overrides/test.hack');
+
+    expect($config)->toNotBeNull('Config could not be fetched');
+    expect($config)->toEqual(shape(
+      'linters' => keyset [
+        'Facebook\\HHAST\\NoEmptyStatementsLinter',
+        'Facebook\\HHAST\\UseStatementWIthoutKindLinter',
+        'Facebook\\HHAST\\NoFinalMethodInFinalClassLinter',
+      ],
+      'autoFixBlacklist' => keyset [],
+    ));
+  }
 }

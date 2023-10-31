@@ -166,8 +166,8 @@ final class LintRunConfig {
       Vec\map($this->configFile['roots'], $dir ==> $this->projectRoot.'/'.$dir);
   }
 
-  private function findOverride(string $file_path): ?self::TOverride {
-    return C\find(
+  private function findOverrides(string $file_path): vec<self::TOverride> {
+    return Vec\filter(
       $this->configFile['overrides'] ?? vec[],
       $override ==> C\find(
         $override['patterns'],
@@ -206,8 +206,7 @@ final class LintRunConfig {
     $blacklist = $this->configFile['disabledLinters'] ?? vec[];
     $autofix_blacklist = $this->configFile['disabledAutoFixes'] ?? vec[];
     $no_autofixes = $this->configFile['disableAllAutoFixes'] ?? false;
-    $override = $this->findOverride($file_path);
-    if ($override is nonnull) {
+    foreach ($this->findOverrides($file_path) as $override) {
       if ($override['disableAllLinters'] ?? false) {
         return shape(
           'linters' => keyset[],
@@ -264,7 +263,8 @@ final class LintRunConfig {
       $file_path is null ? null : $this->relativeFilePath($file_path)
       |> $$ is null
         ? null
-        : $this->findOverride($$)['linterConfigs'][$classname] ?? null;
+        // TODO: This doesn't support multiple overrides.
+        : C\first($this->findOverrides($$))['linterConfigs'][$classname] ?? null;
     if ($global_linter_config is null) {
       if ($file_linter_config is null) {
         return null;
