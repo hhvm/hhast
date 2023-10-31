@@ -1,5 +1,6 @@
 {
   "roots": [ "." ],
+  "builtinLinters": "none",
   "extraLinters": [
     "Facebook\\HHAST\\Tests\\ValidConfigForLinter",
     "Facebook\\HHAST\\Tests\\InvalidConfigForLinter",
@@ -27,5 +28,33 @@
     "Facebook\\HHAST\\Tests\\ConfigTypeIsNotSupportedByTypeAssertLinter": {
       "impossible": []
     }
-  }
+  },
+  "overrides": [
+    {
+      "patterns": [
+        "single_override/*",
+        "multiple_overrides/*"
+      ],
+      "extraLinters": [
+        "Facebook\\HHAST\\NoEmptyStatementsLinter",
+        "Facebook\\HHAST\\UseStatementWIthoutKindLinter"
+      ],
+      "disabledLinters": [
+        "Facebook\\HHAST\\Tests\\ValidConfigForLinter",
+        "Facebook\\HHAST\\Tests\\InvalidConfigForLinter"
+      ]
+    },
+    {
+      "patterns": [
+        "multiple_overrides/*"
+      ],
+      "extraLinters": [
+        "Facebook\\HHAST\\NoFinalMethodInFinalClassLinter"
+      ],
+      "disabledLinters": [
+        "Facebook\\HHAST\\FinalOrAbstractClassLinter",
+        "Facebook\\HHAST\\Tests\\ConfigTypeIsNotSupportedByTypeAssertLinter"
+      ]
+    }
+  ]
 }
