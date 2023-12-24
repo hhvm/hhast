@@ -735,7 +735,6 @@ final class CodegenSyntax extends CodegenBase {
 
     $base_type = Str\slice($expected_type, 0, $generic_left_angle);
     $open_generic = $base_type.'<_>';
-    $rest = Str\slice($expected_type, $generic_left_angle);
 
     $is_node_listy = $base_type === 'NodeList' || $base_type === '?NodeList';
     $is_list_itemy = $base_type === 'ListItem' || $base_type === '?ListItem';
