@@ -760,7 +760,8 @@ final class CodegenSyntax extends CodegenBase {
     $is_a_known_type = $is_node_listy && $rest === '<Node>' ||
       $is_list_itemy && $rest === '<?Node>';
 
-    return
-      $is_a_known_type ? $expression.' as '.$open_generic : $best_effort_fixme;
+    return $upper_bound === $expected_type
+      ? $expression.' as '.$open_generic
+      : $best_effort_fixme;
   }
 }
