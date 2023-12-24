@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<720112a9ff6c7d84e63c827c8fc39d16>>
+ * @generated SignedSource<<5152ecc1b48699b4a3a4c9764486bae4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,15 @@ final class SwitchSection extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $labels,
-      /* HH_IGNORE_ERROR[4110] */ $statements,
-      /* HH_IGNORE_ERROR[4110] */ $fallthrough,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ISwitchLabel>>(
+        $labels as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<IStatement>>(
+        $statements as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $fallthrough as ?SwitchFallthrough,
       $source_ref,
     );
   }
@@ -111,8 +117,14 @@ final class SwitchSection extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] NodeList<ISwitchLabel> may not be enforceable */ $labels,
-      /* HH_FIXME[4110] ?NodeList<IStatement> may not be enforceable */ $statements,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ISwitchLabel>>(
+        $labels as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<IStatement>>(
+        $statements as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $fallthrough as ?SwitchFallthrough,
     );
   }

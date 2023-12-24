@@ -68,11 +68,7 @@ final class ListItem<+T as ?Node> extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_FIXME[4110] Expected T, got ?Node */ $item,
-      $separator as ?Token,
-      $source_ref,
-    );
+    return new static($item, $separator as ?Token, $source_ref);
   }
 
   <<__Override>>
@@ -99,7 +95,7 @@ final class ListItem<+T as ?Node> extends Node {
     if ($item === $this->_item && $separator === $this->_separator) {
       return $this;
     }
-    return new static(/* HH_FIXME[4110] */ $item, $separator);
+    return new static($item, $separator);
   }
 
   public function withItem<Tnode super T as Node>(
@@ -121,7 +117,7 @@ final class ListItem<+T as ?Node> extends Node {
 
   public function getItem(): T {
     if ($this->_item === null) {
-      return /* HH_FIXME[4110] trust that T is nullable */ null;
+      return \HH\FIXME\UNSAFE_CAST<null, T>(null, 'trust that T is nullable');
     }
     return $this->_item;
   }

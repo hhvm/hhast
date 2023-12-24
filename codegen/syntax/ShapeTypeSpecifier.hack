@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e47048bc8ef421cedc2cdff0e9d5c88b>>
+ * @generated SignedSource<<1e59e31cefe34b54b4d8b8af15bc0a5f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -95,11 +95,17 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $fields,
-      /* HH_IGNORE_ERROR[4110] */ $ellipsis,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $keyword as ShapeToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<FieldSpecifier>>,
+      >(
+        $fields as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $ellipsis as ?DotDotDotToken,
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }
@@ -141,7 +147,13 @@ final class ShapeTypeSpecifier extends Node implements ITypeSpecifier {
     return new static(
       $keyword as ShapeToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<FieldSpecifier>> may not be enforceable */ $fields,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<FieldSpecifier>>,
+      >(
+        $fields as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $ellipsis as ?DotDotDotToken,
       $right_paren as RightParenToken,
     );

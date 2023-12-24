@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<b9f41d9fd4f1071e93cadf1aa86233b4>>
+ * @generated SignedSource<<2c00ae47596381fae7c363ae6a5c3f9a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,8 @@ final class BreakStatement extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as BreakToken,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }

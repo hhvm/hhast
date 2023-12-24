@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<084703282ea48f976125e11d6d6e1dd1>>
+ * @generated SignedSource<<b7a2e3ab66809db6371e96d784ba520b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,10 +86,10 @@ final class SubscriptExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $receiver,
-      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
-      /* HH_IGNORE_ERROR[4110] */ $index,
-      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
+      $receiver as IExpression,
+      $left_bracket as LeftBracketToken,
+      $index as ?IExpression,
+      $right_bracket as RightBracketToken,
       $source_ref,
     );
   }

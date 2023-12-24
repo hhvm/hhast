@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<826a6631b25eebc933ad97717e787801>>
+ * @generated SignedSource<<23d1462c02ab2d1fb1e5374d796063e2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,10 @@ final class RequireClause extends Node implements IClassBodyDeclaration {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $kind,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as RequireToken,
+      $kind as Token,
+      $name as ISimpleCreationSpecifier,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }

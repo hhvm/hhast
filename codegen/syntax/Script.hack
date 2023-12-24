@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<819e521e21ab5038912886707d5d60ee>>
+ * @generated SignedSource<<b8f4e4d9800abfd8550b89ce8ce850cc>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -48,7 +48,7 @@ abstract class ScriptGeneratedBase extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(/* HH_IGNORE_ERROR[4110] */ $declarations, $source_ref);
+    return new static($declarations as NodeList<_>, $source_ref);
   }
 
   <<__Override>>
@@ -69,9 +69,7 @@ abstract class ScriptGeneratedBase extends Node {
     if ($declarations === $this->_declarations) {
       return $this;
     }
-    return new static(
-      /* HH_FIXME[4110] NodeList<Node> may not be enforceable */ $declarations,
-    );
+    return new static($declarations as NodeList<_>);
   }
 
   public function getDeclarationsUNTYPED(): ?Node {

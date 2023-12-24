@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<ab3e3302ce00c54305a523896b387582>>
+ * @generated SignedSource<<dd7a60d144190f1e81e405d298bc5a70>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,13 +86,8 @@ final class ETSpliceExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $dollar,
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
-      $source_ref,
-    );
+    return
+      new static($dollar, $left_brace, $expression, $right_brace, $source_ref);
   }
 
   <<__Override>>

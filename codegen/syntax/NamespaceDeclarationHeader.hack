@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<553566b3945022c4d17c65784014627f>>
+ * @generated SignedSource<<f55414d8b9e54fb54ac634aa4b896195>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,8 +60,8 @@ final class NamespaceDeclarationHeader extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
+      $keyword as NamespaceToken,
+      $name as ?INameishNode,
       $source_ref,
     );
   }

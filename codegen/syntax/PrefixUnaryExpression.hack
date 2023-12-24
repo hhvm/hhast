@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<213257e64112180c1196b9c24d3bb8ca>>
+ * @generated SignedSource<<bdd6989e34e426b1db05cb1a76dd43f1>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,11 +62,7 @@ final class PrefixUnaryExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $operand,
-      $source_ref,
-    );
+    return new static($operator as Token, $operand as IExpression, $source_ref);
   }
 
   <<__Override>>

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<29057dcf897c6c9a36eebc7c19f14239>>
+ * @generated SignedSource<<9db21892d305e027ad8ccacffc28e0c2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -70,12 +70,7 @@ final class UpcastExpression extends Node implements ILambdaBody, IExpression {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_operand,
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $right_operand,
-      $source_ref,
-    );
+    return new static($left_operand, $operator, $right_operand, $source_ref);
   }
 
   <<__Override>>

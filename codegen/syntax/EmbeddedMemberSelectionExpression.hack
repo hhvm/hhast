@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a139d2b4d92ce303a43c3d751f5ed835>>
+ * @generated SignedSource<<2140ca235ed062243921d40c13749123>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,12 +74,7 @@ final class EmbeddedMemberSelectionExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $object,
-      /* HH_IGNORE_ERROR[4110] */ $operator,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      $source_ref,
-    );
+    return new static($object, $operator, $name, $source_ref);
   }
 
   <<__Override>>

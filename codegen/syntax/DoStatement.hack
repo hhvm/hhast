@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<3bb44d055612de73057a24db5f93ef3f>>
+ * @generated SignedSource<<87e6a9ff5c3d9623b15c48e3639d0e61>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,13 +123,13 @@ final class DoStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $body,
-      /* HH_IGNORE_ERROR[4110] */ $while_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $condition,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as DoToken,
+      $body as IStatement,
+      $while_keyword as WhileToken,
+      $left_paren as LeftParenToken,
+      $condition as IExpression,
+      $right_paren as RightParenToken,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }

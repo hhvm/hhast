@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1713e3dd953eee9499acfe2160353710>>
+ * @generated SignedSource<<3bf6215bcb8acfc256006e18d7156b36>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -82,13 +82,7 @@ final class TupleTypeExplicitSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_angle,
-      /* HH_IGNORE_ERROR[4110] */ $types,
-      /* HH_IGNORE_ERROR[4110] */ $right_angle,
-      $source_ref,
-    );
+    return new static($keyword, $left_angle, $types, $right_angle, $source_ref);
   }
 
   <<__Override>>

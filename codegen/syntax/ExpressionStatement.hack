@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1194a0d59cc75e69360ae0daf491bc86>>
+ * @generated SignedSource<<bcb2e3803a5f2a742265f0952b626678>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -61,8 +61,8 @@ final class ExpressionStatement extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $expression as ?IExpression,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }

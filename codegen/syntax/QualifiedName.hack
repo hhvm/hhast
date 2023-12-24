@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0c30f737bac86560c28df9d343ad933d>>
+ * @generated SignedSource<<db74ac446320e7f013e77776603cd85b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -53,7 +53,13 @@ final class QualifiedName
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(/* HH_IGNORE_ERROR[4110] */ $parts, $source_ref);
+    return new static(
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<?Token>>>(
+        $parts as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $source_ref,
+    );
   }
 
   <<__Override>>
@@ -75,7 +81,10 @@ final class QualifiedName
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] NodeList<ListItem<?Token>> may not be enforceable */ $parts,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<?Token>>>(
+        $parts as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
     );
   }
 

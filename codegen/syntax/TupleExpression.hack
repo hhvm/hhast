@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5fb563a6382b05c5892b5fe02d868019>>
+ * @generated SignedSource<<312df398508be483895327bf29cc52b4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,13 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $items,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $keyword as TupleToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $items as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }
@@ -125,7 +128,10 @@ final class TupleExpression extends Node implements ILambdaBody, IExpression {
     return new static(
       $keyword as TupleToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $items,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $items as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
     );
   }

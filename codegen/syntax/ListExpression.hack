@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7f79c315696ea1693da504b1dfb3c5a6>>
+ * @generated SignedSource<<e762a335e1c9bb42cac5968a671d12ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -84,10 +84,13 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $members,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $keyword as ListToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<?IExpression>>>(
+        $members as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }
@@ -125,7 +128,10 @@ final class ListExpression extends Node implements ILambdaBody, IExpression {
     return new static(
       $keyword as ListToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<?IExpression>> may not be enforceable */ $members,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<?IExpression>>>(
+        $members as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
     );
   }

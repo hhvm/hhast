@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<18913689b7721adc5fd92a1d0453d818>>
+ * @generated SignedSource<<7549531c875b3917560ec97ba207360d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,11 +99,14 @@ final class FunctionCallExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $receiver,
-      /* HH_IGNORE_ERROR[4110] */ $type_args,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $argument_list,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $receiver,
+      $type_args as ?TypeArguments,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $argument_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }
@@ -148,7 +151,10 @@ final class FunctionCallExpression
       $receiver as Node,
       $type_args as ?TypeArguments,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<IExpression>> may not be enforceable */ $argument_list,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IExpression>>>(
+        $argument_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
     );
   }

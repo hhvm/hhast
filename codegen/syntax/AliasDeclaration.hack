@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dc09cdba2457871d60ab08ffa8b217c2>>
+ * @generated SignedSource<<9bc6058071f1c761171f262079d5a9ed>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -154,16 +154,19 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $module_kw_opt,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $generic_parameter,
-      /* HH_IGNORE_ERROR[4110] */ $constraint,
-      /* HH_IGNORE_ERROR[4110] */ $equal,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $attribute_spec as ?OldAttributeSpecification,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<PublicToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $module_kw_opt as ?ModuleToken,
+      $keyword as Token,
+      $name as NameToken,
+      $generic_parameter as ?TypeParameters,
+      $constraint as ?TypeConstraint,
+      $equal as EqualToken,
+      $type as ITypeSpecifier,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -227,7 +230,10 @@ final class AliasDeclaration extends Node implements IHasAttributeSpec {
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] ?NodeList<PublicToken> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<PublicToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $module_kw_opt as ?ModuleToken,
       $keyword as Token,
       $name as NameToken,

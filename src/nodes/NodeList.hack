@@ -130,12 +130,14 @@ final class NodeList<+Titem as Node> extends Node {
         $current_position,
         $source,
         $type_hint,
-      ) as nonnull;
+      ) as nonnull
+        |> \HH\FIXME\UNSAFE_CAST<Node, Titem>($$, 'Titem can not be enforced.');
+
       $children[] = $child;
       $current_position += $child->getWidth();
     }
     return new NodeList(
-      /* HH_FIXME[4110] Expected vec<TItem>, got vec<Node> */ $children,
+      $children,
       shape(
         'file' => $file,
         'source' => $source,
@@ -160,23 +162,32 @@ final class NodeList<+Titem as Node> extends Node {
         continue;
       }
       if ($new is NodeList<_>) {
+        $new = \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<Titem>>(
+          $new,
+          'Signature inherited. Fixing the param type would take a lot of effort.',
+        );
         $new_children = Vec\concat($new_children, $new->getChildren());
         continue;
       }
-      $new_children[] = $new;
+      $new_children[] = \HH\FIXME\UNSAFE_CAST<Tret, Titem>(
+        $new,
+        'Signature inherited. Fixing the param type would take a lot of effort.',
+      );
     }
 
     if ($old_children === $new_children) {
       return $this;
     }
 
-    return new NodeList(
-      /* HH_FIXME[4110] Expected vec<TItem>, got vec<?Node>*/ Vec\filter_nulls($new_children)
-    );
+    return new NodeList(Vec\filter_nulls($new_children));
   }
 
   <<__Override>>
   protected function replaceImpl(int $old_id, Node $new): this {
+    $new = \HH\FIXME\UNSAFE_CAST<Node, Titem>(
+      $new,
+      'Signature inherited. Fixing the param type would take a lot of effort.',
+    );
     $children = $this->_children;
     foreach ($children as $idx => $child) {
       if ($child->getUniqueID() === $old_id) {
@@ -189,10 +200,7 @@ final class NodeList<+Titem as Node> extends Node {
       $children[$idx] = $child->replaceImpl($old_id, $new);
       break;
     }
-    return new self(
-      /* HH_FIXME[4110] Expected vec<TItem>, got vec<Node> */
-      Vec\filter_nulls($children)
-    );
+    return new self(Vec\filter_nulls($children));
   }
 
   public function replaceChild<Tchild super Titem as Node>(

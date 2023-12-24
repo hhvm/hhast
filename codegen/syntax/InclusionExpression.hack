@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<dbe336fbc82ae340fbd86d4800fbfe87>>
+ * @generated SignedSource<<db69bfe1392dd61c0d223c28a559a235>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,11 +62,7 @@ final class InclusionExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $require,
-      /* HH_IGNORE_ERROR[4110] */ $filename,
-      $source_ref,
-    );
+    return new static($require as Token, $filename as IExpression, $source_ref);
   }
 
   <<__Override>>

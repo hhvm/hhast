@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8776f0cd238bba561e0cec9368d0b501>>
+ * @generated SignedSource<<b84a5f4ee7733b4f54f2b36976b1744a>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -83,10 +83,10 @@ final class NamespaceUseClause extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $clause_kind,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $as,
-      /* HH_IGNORE_ERROR[4110] */ $alias,
+      $clause_kind as ?Token,
+      $name as INameishNode,
+      $as as ?AsToken,
+      $alias as ?NameToken,
       $source_ref,
     );
   }

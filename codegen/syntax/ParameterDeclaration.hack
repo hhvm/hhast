@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1a479503fe3a347962036a518871ea84>>
+ * @generated SignedSource<<9a64a54d02f39c66855e31c159174148>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -122,13 +122,13 @@ final class ParameterDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute,
-      /* HH_IGNORE_ERROR[4110] */ $visibility,
-      /* HH_IGNORE_ERROR[4110] */ $call_convention,
-      /* HH_IGNORE_ERROR[4110] */ $readonly,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $default_value,
+      $attribute as ?OldAttributeSpecification,
+      $visibility as ?Token,
+      $call_convention as ?InoutToken,
+      $readonly as ?ReadonlyToken,
+      $type as ?ITypeSpecifier,
+      $name as IExpression,
+      $default_value as ?SimpleInitializer,
       $source_ref,
     );
   }

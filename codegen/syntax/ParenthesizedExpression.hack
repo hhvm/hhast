@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5960a9d1035545c9850934bd5a0d8811>>
+ * @generated SignedSource<<0841e01f181ff21be71b12ff40d54243>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -75,9 +75,9 @@ final class ParenthesizedExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $left_paren as LeftParenToken,
+      $expression as IExpression,
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }

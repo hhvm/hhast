@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<684000a6d02626999e58f7d55369c6a6>>
+ * @generated SignedSource<<2a9c72dab274c67bea3c054d06b84e29>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,9 @@ final class BracedExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $left_brace as LeftBraceToken,
+      $expression as IExpression,
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }

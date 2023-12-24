@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<bdf93deb54cd07534c01acca0857afda>>
+ * @generated SignedSource<<96d085c469992b9436ca0b970b75f6b9>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,9 @@ final class ElementInitializer extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $key,
-      /* HH_IGNORE_ERROR[4110] */ $arrow,
-      /* HH_IGNORE_ERROR[4110] */ $value,
+      $key as IExpression,
+      $arrow as EqualGreaterThanToken,
+      $value as IExpression,
       $source_ref,
     );
   }

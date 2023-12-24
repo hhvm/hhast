@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fb3b6fbf9d930f1b9b8ab5178ace8e0f>>
+ * @generated SignedSource<<5f67159e81cd49357d668a65b372a0f3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -96,11 +96,14 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $like,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $values,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $like as ?TildeToken,
+      $keyword as EnumToken,
+      $left_brace as LeftBraceToken,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<LiteralExpression>>,
+      >($values as NodeList<_>, 'Open for sound approaches that are not O(n).'),
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }
@@ -141,7 +144,10 @@ final class XHPEnumType extends Node implements ITypeSpecifier {
       $like as ?TildeToken,
       $keyword as EnumToken,
       $left_brace as LeftBraceToken,
-      /* HH_FIXME[4110] NodeList<ListItem<LiteralExpression>> may not be enforceable */ $values,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<LiteralExpression>>,
+      >($values as NodeList<_>, 'Open for sound approaches that are not O(n).'),
       $right_brace as RightBraceToken,
     );
   }

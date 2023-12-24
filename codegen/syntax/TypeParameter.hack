@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5bbf01c659f1322fc0ed8c2ec221d7c7>>
+ * @generated SignedSource<<b2bc4156598fb7cdd8ae0736247f22a4>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -104,12 +104,15 @@ final class TypeParameter extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $reified,
-      /* HH_IGNORE_ERROR[4110] */ $variance,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $param_params,
-      /* HH_IGNORE_ERROR[4110] */ $constraints,
+      $attribute_spec as ?OldAttributeSpecification,
+      $reified as ?ReifyToken,
+      $variance as ?Token,
+      $name as NameToken,
+      $param_params as ?TypeParameters,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<TypeConstraint>>(
+        $constraints as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $source_ref,
     );
   }
@@ -163,7 +166,10 @@ final class TypeParameter extends Node {
       $variance as ?Token,
       $name as NameToken,
       $param_params as ?TypeParameters,
-      /* HH_FIXME[4110] ?NodeList<TypeConstraint> may not be enforceable */ $constraints,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<TypeConstraint>>(
+        $constraints as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
     );
   }
 

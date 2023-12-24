@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<e8f6a701d3114c6849c05e81c482ac51>>
+ * @generated SignedSource<<9d4e7f2a5d89c42e3af443b3fa6ad8fd>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -71,12 +71,7 @@ final class IntersectionTypeSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $types,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      $source_ref,
-    );
+    return new static($left_paren, $types, $right_paren, $source_ref);
   }
 
   <<__Override>>

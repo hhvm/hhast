@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f7a8106abc5b825a8dc3496f6da08007>>
+ * @generated SignedSource<<00832e53cc653d93335dea7d4af0ba65>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,10 +86,16 @@ final class NamespaceUseDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $kind,
-      /* HH_IGNORE_ERROR[4110] */ $clauses,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as UseToken,
+      $kind as ?Token,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<NamespaceUseClause>>,
+      >(
+        $clauses as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -126,7 +132,13 @@ final class NamespaceUseDeclaration
     return new static(
       $keyword as UseToken,
       $kind as ?Token,
-      /* HH_FIXME[4110] NodeList<ListItem<NamespaceUseClause>> may not be enforceable */ $clauses,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<NamespaceUseClause>>,
+      >(
+        $clauses as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $semicolon as SemicolonToken,
     );
   }

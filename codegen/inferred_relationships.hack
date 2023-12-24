@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0cb6442b34479c8ca9d81ac0cc1ec48a>>
+ * @generated SignedSource<<c780eb55e2028ea3bc430212524bd4bc>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -3490,6 +3490,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<simple_type_specifier>|list_item<tuple_type_specifier>>',
     'list<list_item<simple_type_specifier>|list_item<type_constant>>',
     'list<list_item<simple_type_specifier>|list_item<varray_type_specifier>>',
+    'list<list_item<simple_type_specifier>|list_item<vector_type_specifier>>',
     'list<list_item<tuple_type_specifier>>',
     'list<list_item<type_constant>>',
     'list<list_item<varray_type_specifier>>',

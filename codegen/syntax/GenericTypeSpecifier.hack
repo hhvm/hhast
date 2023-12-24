@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<63fce2719adbf4a5cb13e27997f551cd>>
+ * @generated SignedSource<<d617dff96df8c546bed530ac1d1dd1c3>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -62,11 +62,8 @@ final class GenericTypeSpecifier
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $class_type,
-      /* HH_IGNORE_ERROR[4110] */ $argument_list,
-      $source_ref,
-    );
+    return
+      new static($class_type, $argument_list as TypeArguments, $source_ref);
   }
 
   <<__Override>>

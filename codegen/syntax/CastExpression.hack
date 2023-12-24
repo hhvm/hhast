@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<f825478e51c4be876ffc3b8ef34b4458>>
+ * @generated SignedSource<<c43b7d533630bddaf9b5d96fc808e3e6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,10 @@ final class CastExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $operand,
+      $left_paren as LeftParenToken,
+      $type as Token,
+      $right_paren as RightParenToken,
+      $operand as IExpression,
       $source_ref,
     );
   }

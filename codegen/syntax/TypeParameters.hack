@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<be5588083f034876c47fa58b5f3e5ca8>>
+ * @generated SignedSource<<f5b78da0c98f2c793892a61b335b811c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,12 @@ final class TypeParameters extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_angle,
-      /* HH_IGNORE_ERROR[4110] */ $parameters,
-      /* HH_IGNORE_ERROR[4110] */ $right_angle,
+      $left_angle as LessThanToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<TypeParameter>>>(
+        $parameters as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_angle as GreaterThanToken,
       $source_ref,
     );
   }
@@ -108,7 +111,10 @@ final class TypeParameters extends Node {
     }
     return new static(
       $left_angle as LessThanToken,
-      /* HH_FIXME[4110] NodeList<ListItem<TypeParameter>> may not be enforceable */ $parameters,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<TypeParameter>>>(
+        $parameters as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_angle as GreaterThanToken,
     );
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<955f117d1a8d01f011b78bdd734b0795>>
+ * @generated SignedSource<<2e726f06a92097461d26c95b2ad04cc6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,16 @@ final class AnonymousFunctionUseClause extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $variables,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $keyword as UseToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<VariableToken>>,
+      >(
+        $variables as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }
@@ -127,7 +133,13 @@ final class AnonymousFunctionUseClause extends Node {
     return new static(
       $keyword as UseToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<VariableToken>> may not be enforceable */ $variables,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<VariableToken>>,
+      >(
+        $variables as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
     );
   }

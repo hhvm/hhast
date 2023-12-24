@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<495da4597cdf5cd7940e68966f534ff5>>
+ * @generated SignedSource<<7dffda834ccc88c474ca3e8c59e4faca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,11 +59,7 @@ final class YieldExpression extends Node implements ILambdaBody, IExpression {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $operand,
-      $source_ref,
-    );
+    return new static($keyword as YieldToken, $operand, $source_ref);
   }
 
   <<__Override>>

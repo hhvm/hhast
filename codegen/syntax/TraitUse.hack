@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a07a6b06d5a22e22bc88f074aceff338>>
+ * @generated SignedSource<<de3eecd36754aec2beb8924a46e19779>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,12 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $names,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as UseToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<ITypeSpecifier>>>(
+        $names as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -108,7 +111,10 @@ final class TraitUse extends Node implements IClassBodyDeclaration {
     }
     return new static(
       $keyword as UseToken,
-      /* HH_FIXME[4110] NodeList<ListItem<ITypeSpecifier>> may not be enforceable */ $names,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<ITypeSpecifier>>>(
+        $names as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $semicolon as SemicolonToken,
     );
   }

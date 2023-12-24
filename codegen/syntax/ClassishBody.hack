@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<0ef87b0510915c96527a592dcda3eb55>>
+ * @generated SignedSource<<7381609bda2299d214007e0181b13c0d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,12 @@ final class ClassishBody extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $elements,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $left_brace as LeftBraceToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<IClassBodyDeclaration>>(
+        $elements as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }
@@ -109,7 +112,10 @@ final class ClassishBody extends Node {
     }
     return new static(
       $left_brace as LeftBraceToken,
-      /* HH_FIXME[4110] ?NodeList<IClassBodyDeclaration> may not be enforceable */ $elements,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<IClassBodyDeclaration>>(
+        $elements as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_brace as RightBraceToken,
     );
   }

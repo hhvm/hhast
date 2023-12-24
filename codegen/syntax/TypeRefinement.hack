@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<5d70129e8b4a9122aa71ad95ebd43544>>
+ * @generated SignedSource<<0e637bb09e27c70449fb908f98440c48>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,11 +97,11 @@ final class TypeRefinement extends Node implements ITypeSpecifier {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $members,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $type,
+      $keyword,
+      $left_brace,
+      $members,
+      $right_brace,
       $source_ref,
     );
   }

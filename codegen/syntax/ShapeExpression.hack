@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7068c7f8c09700f5a6431aad8af2ffae>>
+ * @generated SignedSource<<58d49b80fbc7548c96d4ef6d0298e42d>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -85,10 +85,16 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $fields,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
+      $keyword as ShapeToken,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<FieldInitializer>>,
+      >(
+        $fields as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
       $source_ref,
     );
   }
@@ -126,7 +132,13 @@ final class ShapeExpression extends Node implements ILambdaBody, IExpression {
     return new static(
       $keyword as ShapeToken,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<FieldInitializer>> may not be enforceable */ $fields,
+      \HH\FIXME\UNSAFE_CAST<
+        ?NodeList<Node>,
+        ?NodeList<ListItem<FieldInitializer>>,
+      >(
+        $fields as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
     );
   }

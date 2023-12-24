@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<971da060047eba588612a0499b1f9ff3>>
+ * @generated SignedSource<<1b8256fac85477af8b84b5f34bce6029>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,12 +109,12 @@ final class CtxInRefinement extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $type_parameters,
-      /* HH_IGNORE_ERROR[4110] */ $constraints,
-      /* HH_IGNORE_ERROR[4110] */ $equal,
-      /* HH_IGNORE_ERROR[4110] */ $ctx_list,
+      $keyword,
+      $name,
+      $type_parameters,
+      $constraints,
+      $equal,
+      $ctx_list,
       $source_ref,
     );
   }

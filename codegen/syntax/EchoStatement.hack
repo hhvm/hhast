@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<512bea22bc4609af55ed732b9923be21>>
+ * @generated SignedSource<<11fa470bb0382baefb26e48a6990477e>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,12 @@ final class EchoStatement extends Node implements IStatement {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $expressions,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $keyword as EchoToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<IExpression>>>(
+        $expressions as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -108,7 +111,10 @@ final class EchoStatement extends Node implements IStatement {
     }
     return new static(
       $keyword as EchoToken,
-      /* HH_FIXME[4110] NodeList<ListItem<IExpression>> may not be enforceable */ $expressions,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ListItem<IExpression>>>(
+        $expressions as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $semicolon as SemicolonToken,
     );
   }

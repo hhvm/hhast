@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<2f6ca00a20eed650f03db2996c441559>>
+ * @generated SignedSource<<cc720539b2f5162d905f08f7443342a0>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -97,11 +97,14 @@ final class EnumClassEnumerator extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $initializer,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<AbstractToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $type as ITypeSpecifier,
+      $name as NameToken,
+      $initializer as ?SimpleInitializer,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -143,7 +146,10 @@ final class EnumClassEnumerator extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] ?NodeList<AbstractToken> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<AbstractToken>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $type as ITypeSpecifier,
       $name as NameToken,
       $initializer as ?SimpleInitializer,

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<78b113364cc5b8332ad5c3386461f178>>
+ * @generated SignedSource<<a495798b1a2faeff4368169f0a8b2820>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -74,12 +74,7 @@ final class XHPCategoryDeclaration
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $categories,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
-      $source_ref,
-    );
+    return new static($keyword, $categories, $semicolon, $source_ref);
   }
 
   <<__Override>>

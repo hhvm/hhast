@@ -33,7 +33,11 @@ final class TypedMigrationStep<Tin as Node, Tout as Node>
     if (!\is_a($node, $this->tin)) {
       return $node;
     }
+    $node = \HH\FIXME\UNSAFE_CAST<Node, Tin>(
+      $node,
+      'is_a($node, $this->tin) ~= $node is Tin',
+    );
     $rewriter = $this->rewriter;
-    return $rewriter(/* HH_FIXME[4110] need reified generics */ $node);
+    return $rewriter($node);
   }
 }

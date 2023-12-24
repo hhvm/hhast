@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<028f4c05cca130f366f784220004bf90>>
+ * @generated SignedSource<<0cf54f7c06f601503ee1d8ae44f7c48c>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -69,12 +69,7 @@ final class UnionTypeSpecifier extends Node implements ITypeSpecifier {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $types,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      $source_ref,
-    );
+    return new static($left_paren, $types, $right_paren, $source_ref);
   }
 
   <<__Override>>

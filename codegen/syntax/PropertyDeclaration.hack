@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<cb91e6a51e5c60784c1023c4f1a8890f>>
+ * @generated SignedSource<<9f34da091ba87b9e042af4e967efb2ca>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -98,11 +98,20 @@ final class PropertyDeclaration
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $declarators,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $attribute_spec as ?OldAttributeSpecification,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<Token>>(
+        $modifiers as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $type as ?ITypeSpecifier,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<PropertyDeclarator>>,
+      >(
+        $declarators as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -143,9 +152,18 @@ final class PropertyDeclaration
     }
     return new static(
       $attribute_spec as ?OldAttributeSpecification,
-      /* HH_FIXME[4110] NodeList<Token> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<Token>>(
+        $modifiers as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $type as ?ITypeSpecifier,
-      /* HH_FIXME[4110] NodeList<ListItem<PropertyDeclarator>> may not be enforceable */ $declarators,
+      \HH\FIXME\UNSAFE_CAST<
+        NodeList<Node>,
+        NodeList<ListItem<PropertyDeclarator>>,
+      >(
+        $declarators as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $semicolon as SemicolonToken,
     );
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<24665462d5c5e66ed6bc35d92fc9b6b1>>
+ * @generated SignedSource<<d0ba6105216205f50fe149d4575a601b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -177,18 +177,24 @@ final class FunctionDeclarationHeader extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $modifiers,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $type_parameter_list,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $parameter_list,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $contexts,
-      /* HH_IGNORE_ERROR[4110] */ $colon,
-      /* HH_IGNORE_ERROR[4110] */ $readonly_return,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $where_clause,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<Token>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $keyword as FunctionToken,
+      $name as Token,
+      $type_parameter_list as ?TypeParameters,
+      $left_paren as LeftParenToken,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IParameter>>>(
+        $parameter_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_paren as RightParenToken,
+      $contexts as ?Contexts,
+      $colon as ?ColonToken,
+      $readonly_return as ?ReadonlyToken,
+      $type as ?ITypeSpecifier,
+      $where_clause as ?WhereClause,
       $source_ref,
     );
   }
@@ -258,12 +264,18 @@ final class FunctionDeclarationHeader extends Node {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] ?NodeList<Token> may not be enforceable */ $modifiers,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<Token>>(
+        $modifiers as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $keyword as FunctionToken,
       $name as Token,
       $type_parameter_list as ?TypeParameters,
       $left_paren as LeftParenToken,
-      /* HH_FIXME[4110] ?NodeList<ListItem<IParameter>> may not be enforceable */ $parameter_list,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<ListItem<IParameter>>>(
+        $parameter_list as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_paren as RightParenToken,
       $contexts as ?Contexts,
       $colon as ?ColonToken,

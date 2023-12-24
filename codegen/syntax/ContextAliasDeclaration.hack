@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<565cc4ddff64bf69989e050ba7ffda0d>>
+ * @generated SignedSource<<72edea266dc0e1bc0dfe5e191fbd8e8f>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -131,14 +131,17 @@ final class ContextAliasDeclaration extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $attribute_spec,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $generic_parameter,
-      /* HH_IGNORE_ERROR[4110] */ $as_constraint,
-      /* HH_IGNORE_ERROR[4110] */ $equal,
-      /* HH_IGNORE_ERROR[4110] */ $context,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $attribute_spec,
+      $keyword as NewctxToken,
+      $name as NameToken,
+      $generic_parameter,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ContextConstraint>>(
+        $as_constraint as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $equal,
+      $context,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }
@@ -194,7 +197,10 @@ final class ContextAliasDeclaration extends Node {
       $keyword as NewctxToken,
       $name as NameToken,
       $generic_parameter as ?Node,
-      /* HH_FIXME[4110] NodeList<ContextConstraint> may not be enforceable */ $as_constraint,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<ContextConstraint>>(
+        $as_constraint as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $equal as ?Node,
       $context as ?Node,
       $semicolon as SemicolonToken,

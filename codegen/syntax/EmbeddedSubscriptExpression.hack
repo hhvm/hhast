@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<fe74dbe08adc87b5586ca80815d6f55b>>
+ * @generated SignedSource<<cd100ffaf05e1e085eea56119f6c8374>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -86,13 +86,8 @@ final class EmbeddedSubscriptExpression
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $receiver,
-      /* HH_IGNORE_ERROR[4110] */ $left_bracket,
-      /* HH_IGNORE_ERROR[4110] */ $index,
-      /* HH_IGNORE_ERROR[4110] */ $right_bracket,
-      $source_ref,
-    );
+    return
+      new static($receiver, $left_bracket, $index, $right_bracket, $source_ref);
   }
 
   <<__Override>>

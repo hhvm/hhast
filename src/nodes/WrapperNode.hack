@@ -43,6 +43,9 @@ abstract class WrapperNode extends Node {
       return $this;
     }
 
-    return new static(/* HH_FIXME[4110] need <<__Enforceable>> */ $new);
+    return new static(\HH\FIXME\UNSAFE_CAST<Tret, this::TWrapped>(
+      $new,
+      'TWrapped can not be made enforceable, because of StatementList.',
+    ));
   }
 }

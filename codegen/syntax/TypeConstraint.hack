@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<8e3130923200461713699d8467cb78a0>>
+ * @generated SignedSource<<c77d7c2539f403d8d56047af664b9061>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,7 @@ final class TypeConstraint extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      $source_ref,
-    );
+    return new static($keyword as Token, $type as ITypeSpecifier, $source_ref);
   }
 
   <<__Override>>

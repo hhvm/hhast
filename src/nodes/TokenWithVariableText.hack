@@ -39,8 +39,14 @@ abstract class TokenWithVariableText extends Token {
       return $this;
     }
     return new static(
-      /* HH_FIXME[4110] */ $leading,
-      /* HH_FIXME[4110] */ $trailing,
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<Trivia>>(
+        $leading as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      \HH\FIXME\UNSAFE_CAST<?NodeList<Node>, ?NodeList<Trivia>>(
+        $trailing as ?NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $this->getText(),
       null,
     );

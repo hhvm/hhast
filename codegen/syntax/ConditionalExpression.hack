@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7255f3f181caf44cfd0d0e2de1bebefb>>
+ * @generated SignedSource<<4710ec77b08b21604c81e049d24642be>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -99,11 +99,11 @@ final class ConditionalExpression
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $test,
-      /* HH_IGNORE_ERROR[4110] */ $question,
-      /* HH_IGNORE_ERROR[4110] */ $consequence,
-      /* HH_IGNORE_ERROR[4110] */ $colon,
-      /* HH_IGNORE_ERROR[4110] */ $alternative,
+      $test as IExpression,
+      $question as QuestionToken,
+      $consequence as IExpression,
+      $colon as ColonToken,
+      $alternative as IExpression,
       $source_ref,
     );
   }

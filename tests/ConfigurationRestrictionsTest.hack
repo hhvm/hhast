@@ -185,11 +185,10 @@ final class ConfigurationRestrictionsTest extends HackTest {
   }
 
   private static function toTypeStructure<reify T>(): \HH\TypeStructure<mixed> {
-    /*HH_IGNORE_ERROR[4110]
-      All typestructures should be allowed, but TypeStructure<T> is invariant.
-      Putting a suppression comment here is
-      preferable over suppressing an entire vec of testcases.*/
-    return \HH\ReifiedGenerics\get_type_structure<T>();
+    return \HH\FIXME\UNSAFE_CAST<
+      \HH\TypeStructure<T>,
+      \HH\TypeStructure<mixed>,
+    >(\HH\ReifiedGenerics\get_type_structure<T>());
   }
 }
 

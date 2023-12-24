@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<30ce5c85ba4149a8bac7eb3b682dea3e>>
+ * @generated SignedSource<<e6e04aa77bf1dcdeca6401206c983495>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,9 @@ final class ModuleMembershipDeclaration extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $module_keyword,
-      /* HH_IGNORE_ERROR[4110] */ $name,
-      /* HH_IGNORE_ERROR[4110] */ $semicolon,
+      $module_keyword as ModuleToken,
+      $name as ModuleName,
+      $semicolon as SemicolonToken,
       $source_ref,
     );
   }

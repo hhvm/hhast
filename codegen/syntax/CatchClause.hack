@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<32c92319f025e33ecb8b330835f0d03b>>
+ * @generated SignedSource<<b5ea87a98a19b323e1fb710b9430f4b6>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -109,12 +109,12 @@ final class CatchClause extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $type,
-      /* HH_IGNORE_ERROR[4110] */ $variable,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $body,
+      $keyword as CatchToken,
+      $left_paren as LeftParenToken,
+      $type as SimpleTypeSpecifier,
+      $variable as VariableToken,
+      $right_paren as RightParenToken,
+      $body as CompoundStatement,
       $source_ref,
     );
   }

@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<7237a6fcfb9ca940aecfdfdcfbaf63b1>>
+ * @generated SignedSource<<d6ed58a92284bf9897ed0072de063720>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -73,9 +73,9 @@ final class NamespaceBody extends Node implements INamespaceBody {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $declarations,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $left_brace as LeftBraceToken,
+      $declarations as ?NodeList<_>,
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }
@@ -110,7 +110,7 @@ final class NamespaceBody extends Node implements INamespaceBody {
     }
     return new static(
       $left_brace as LeftBraceToken,
-      /* HH_FIXME[4110] ?NodeList<Node> may not be enforceable */ $declarations,
+      $declarations as ?NodeList<_>,
       $right_brace as RightBraceToken,
     );
   }

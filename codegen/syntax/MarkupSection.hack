@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<1299c5885611d1a45ddc84170416f090>>
+ * @generated SignedSource<<80a7593a69a4911e3420ff68cce0c4cb>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -59,8 +59,8 @@ final class MarkupSection extends Node {
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $hashbang,
-      /* HH_IGNORE_ERROR[4110] */ $suffix,
+      $hashbang as ?HashbangToken,
+      $suffix as ?MarkupSuffix,
       $source_ref,
     );
   }

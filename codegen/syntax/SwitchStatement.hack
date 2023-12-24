@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<68cbbbb7f14b956ef08aa3fb1575c7db>>
+ * @generated SignedSource<<018a3e1cf602b0237624c4a9071670d2>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -123,13 +123,16 @@ final class SwitchStatement
       'width' => $offset - $initial_offset,
     );
     return new static(
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      /* HH_IGNORE_ERROR[4110] */ $left_paren,
-      /* HH_IGNORE_ERROR[4110] */ $expression,
-      /* HH_IGNORE_ERROR[4110] */ $right_paren,
-      /* HH_IGNORE_ERROR[4110] */ $left_brace,
-      /* HH_IGNORE_ERROR[4110] */ $sections,
-      /* HH_IGNORE_ERROR[4110] */ $right_brace,
+      $keyword as SwitchToken,
+      $left_paren as LeftParenToken,
+      $expression as IExpression,
+      $right_paren as RightParenToken,
+      $left_brace as LeftBraceToken,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<SwitchSection>>(
+        $sections as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
+      $right_brace as RightBraceToken,
       $source_ref,
     );
   }
@@ -178,7 +181,10 @@ final class SwitchStatement
       $expression as IExpression,
       $right_paren as RightParenToken,
       $left_brace as LeftBraceToken,
-      /* HH_FIXME[4110] NodeList<SwitchSection> may not be enforceable */ $sections,
+      \HH\FIXME\UNSAFE_CAST<NodeList<Node>, NodeList<SwitchSection>>(
+        $sections as NodeList<_>,
+        'Open for sound approaches that are not O(n).',
+      ),
       $right_brace as RightBraceToken,
     );
   }

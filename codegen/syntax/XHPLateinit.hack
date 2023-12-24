@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<a3e528b8b4e2107ce76b73de28e81fe5>>
+ * @generated SignedSource<<c469cedf5491f9f51ed71e20710af042>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
@@ -60,11 +60,7 @@ final class XHPLateinit extends Node {
       'offset' => $initial_offset,
       'width' => $offset - $initial_offset,
     );
-    return new static(
-      /* HH_IGNORE_ERROR[4110] */ $at,
-      /* HH_IGNORE_ERROR[4110] */ $keyword,
-      $source_ref,
-    );
+    return new static($at as AtToken, $keyword as LateinitToken, $source_ref);
   }
 
   <<__Override>>
