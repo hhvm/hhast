@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>>
+ * @generated SignedSource<<db74ac446320e7f013e77776603cd85b>>
  */
 namespace Facebook\HHAST;
 use namespace Facebook\TypeAssert;
