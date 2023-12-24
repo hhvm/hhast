@@ -1,7 +1,7 @@
 /**
  * This file is generated. Do not modify it manually!
  *
- * @generated SignedSource<<c7a8a2efe3d4b0f86439bc3bcd9775fa>>
+ * @generated SignedSource<<0cb6442b34479c8ca9d81ac0cc1ec48a>>
  */
 namespace Facebook\HHAST\__Private;
 
@@ -923,6 +923,7 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'list<list_item<dictionary_intrinsic_expression>|list_item<literal>>',
     'list<list_item<enum_class_label>>',
     'list<list_item<function_call_expression>>',
+    'list<list_item<function_call_expression>|list_item<lambda_expression>>',
     'list<list_item<function_call_expression>|list_item<literal>>',
     'list<list_item<function_call_expression>|list_item<literal>|list_item<prefix_unary_expression>>',
     'list<list_item<function_call_expression>|list_item<member_selection_expression>>',
@@ -2392,9 +2393,11 @@ const dict<string, keyset<string>> INFERRED_RELATIONSHIPS = dict[
     'parenthesized_expression',
     'postfix_unary_expression',
     'prefix_unary_expression',
+    'qualified_name',
     'scope_resolution_expression',
     'shape_expression',
     'subscript_expression',
+    'token:name',
     'variable',
     'varray_intrinsic_expression',
     'vector_intrinsic_expression',

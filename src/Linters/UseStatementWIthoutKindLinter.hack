@@ -55,10 +55,8 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
         }
         $name = $clause->getName();
         if ($name is QualifiedName) {
-          return (
-            C\lastx(
-              $name->getParts()->getChildrenOfItemsOfType(NameToken::class),
-            ) as nonnull
+          return C\lastx(
+            $name->getParts()->getChildrenOfItemsByType<NameToken>(),
           )->getText();
         }
         invariant(
@@ -73,10 +71,8 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
     // We need to look at the full file to figure out if this should be a
     // `use type`, or `use namespace`
     $used = $this->getUnresolvedReferencedNames();
-    $used_as_ns = C\any(
-      $names,
-      $name ==> C\contains($used['namespaces'], $name),
-    );
+    $used_as_ns =
+      C\any($names, $name ==> C\contains($used['namespaces'], $name));
     $used_as_type = C\any($names, $name ==> C\contains($used['types'], $name));
 
     $leading = $node->getClauses()->getFirstTokenx()->getLeadingWhitespace();
@@ -94,8 +90,7 @@ final class UseStatementWithoutKindLinter extends AutoFixingASTLinter {
   }
 
   <<__Memoize>>
-  private function getUnresolvedReferencedNames(
-  ): shape(
+  private function getUnresolvedReferencedNames(): shape(
     'namespaces' => keyset<string>,
     'types' => keyset<string>,
     'functions' => keyset<string>,

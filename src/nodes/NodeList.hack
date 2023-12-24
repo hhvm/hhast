@@ -10,14 +10,23 @@
 namespace Facebook\HHAST;
 
 use namespace HH\Lib\{C, Str, Vec};
+use type Facebook\HHAST\_Private\SoftDeprecated;
 
 /* HHAST_IGNORE_ALL[5624] */
 final class NodeList<+Titem as Node> extends Node {
   const string SYNTAX_KIND = 'list';
   /**
-   * Use `NodeList::createMaybeEmptyList()` or
-   * `NodeList::createNonEmptyListNull()` instead to be explicit
-   * about desired behavior.
+   * Use `NodeList::createMaybeEmptyList(vec[])` or `null` instead of
+   * `new NodeList(vec[])` if you know the vec is always empty.
+   * A parsed Hack AST doesn't contain empty NodeLists.
+   *
+   * Side note: Places where you'd expect to find an empty NodeList:
+   * ```
+   * function no_params( ): void {}
+   * //                 ^
+   * ```
+   * The Hack parser places a "missing" node at the carat.
+   * HHAST uses `null` to represent them.
    */
   <<__Override>>
   public function __construct(
@@ -42,17 +51,33 @@ final class NodeList<+Titem as Node> extends Node {
     return $this->_children;
   }
 
-  public function getChildrenOfItems<T as ?Node>(
-  ): vec<T> where Titem as ListItem<T> {
+  public function getChildrenOfItems<T as ?Node>(): vec<T>
+  where
+    Titem as ListItem<T> {
     return Vec\map($this->getChildren(), $child ==> $child->getItem());
   }
 
+  <<SoftDeprecated('$node->getChildrenOfItemsByType<T>()')>>
   public function getChildrenOfItemsOfType<T as ?Node>(
     classname<T> $what,
-  ): vec<T> where Titem as ListItem<T> {
+  ): vec<T> where Titem as ListItem<?Node> {
     $out = vec[];
     foreach ($this->getChildrenOfItems() as $item) {
       if (\is_a($item, $what)) {
+        $out[] = \HH\FIXME\UNSAFE_CAST<?Node, T>(
+          $item,
+          'is_a($item, $what) ~= $item is T',
+        );
+      }
+    }
+    return $out;
+  }
+
+  public function getChildrenOfItemsByType<<<__Enforceable>> reify T as Node>(
+  ): vec<T> where Titem as ListItem<?Node> {
+    $out = vec[];
+    foreach ($this->getChildrenOfItems() as $item) {
+      if ($item is T) {
         $out[] = $item;
       }
     }
